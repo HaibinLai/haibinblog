@@ -1,0 +1,7 @@
+---
+const categories = ['Computer Science', 'Compilers', 'Distributed Systems', 'OS', 'CPP-Programing', 'Readings', 'Paper Reading', 'Frameworks Analysis', 'Multidisciplinary'];
+---
+<aside class="left-navigation sidebar-panel">
+  <div class="panel-heading"><span>🗂️</span><strong>Article Navigation</strong><span class="panel-menu">☰</span></div>
+  <div class="nav-tree"><a class="nav-tree-root" href="/">All writing</a>{categories.map((name) => <a href={`/?category=${name.toLowerCase().replaceAll(' ', '-')}`}>{name}</a>)}</div>
+</aside>

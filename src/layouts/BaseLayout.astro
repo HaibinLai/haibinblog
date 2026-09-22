@@ -24,18 +24,18 @@ const {
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href="/" aria-label="Haibin's Blog home">Haibin's Blog</a>
-      <nav aria-label="Primary navigation">
-        <a href="/">Writing</a>
-        <a href="/moments/">Moments</a>
-        <a href="/about/">About</a>
-        <a href="https://github.com/HaibinLai" rel="me">GitHub</a>
-      </nav>
+      <a class="brand" href="/" aria-label="Haibin's Blog home"><img src="/images/logo.png" alt="" />Haibin's blog</a>
+      <div class="header-tools"><label class="search-box"><span aria-hidden="true">⌕</span><input type="search" placeholder="Enter keywords to search" aria-label="Search" /></label><button class="theme-toggle" type="button" aria-label="Toggle dark mode">☼</button><nav aria-label="Primary navigation"><a href="/">Homepage⌄</a><a href="/moments/">Moments</a><a href="/about/">GLHF⌄</a><a href="/about/">My Friends</a><a href="https://github.com/HaibinLai" rel="me">My Github</a><a href="https://haibinlai.github.io" rel="me">My CV</a></nav></div>
     </header>
     <main><slot /></main>
     <footer class="site-footer">
       <span>Haibin Lai</span>
       <span>Research, notes, and ordinary days.</span>
     </footer>
+    <script is:inline>
+      const toggle = document.querySelector('.theme-toggle');
+      if (localStorage.getItem('haibin-theme') === 'dark') document.documentElement.classList.add('dark');
+      toggle?.addEventListener('click', () => { document.documentElement.classList.toggle('dark'); localStorage.setItem('haibin-theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light'); });
+    </script>
   </body>
 </html>

@@ -1,0 +1,9 @@
+---
+import SectionTitle from './SectionTitle.astro';
+const recent = [['A Static Home for a Living Archive', '/posts/welcome/', 'Sep 21, 2026'], ['Research Has Its Own Backpropagation', '/posts/research-backpropagation/', 'Sep 17, 2026']];
+---
+<aside class="right-sidebar">
+  <section class="author-card sidebar-panel"><div class="author-cover"></div><div class="author-body"><img class="author-avatar" src="/images/avatar.svg" alt="Haibin" /><div class="author-name">haibin <span>SUSTech</span></div><p class="author-bio">Systems research, LLMs, academic life, and ordinary days.</p><div class="author-stats"><div><strong>2</strong><span>Articles</span></div><div><strong>0</strong><span>Comments</span></div><div><strong>—</strong><span>Views</span></div></div></div></section>
+  <section class="sidebar-panel recent-panel"><SectionTitle>Recent Update</SectionTitle>{recent.map(([title, href, date]) => <a class="recent-item" href={href}><div class="recent-thumb"></div><div><strong>{title}</strong><time>{date}</time></div></a>)}</section>
+  <section class="sidebar-panel passage-panel"><SectionTitle>Passage</SectionTitle><p>“The future is discovered through the work that survives contact with reality.”</p></section>
+</aside>
