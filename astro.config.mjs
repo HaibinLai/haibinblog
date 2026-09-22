@@ -7,7 +7,7 @@ import rehypeKatex from 'rehype-katex';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://haibinlai.github.io',
-  base: '/haibinblog',
+  base: '/haibinblog/',
   markdown: {
     processor: unified({
       remarkPlugins: [remarkMath],
