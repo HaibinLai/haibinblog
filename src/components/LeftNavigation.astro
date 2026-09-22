@@ -1,7 +1,8 @@
 ---
 const categories = ['Computer Science', 'Compilers', 'Distributed Systems', 'OS', 'CPP-Programing', 'Readings', 'Paper Reading', 'Frameworks Analysis', 'Multidisciplinary'];
+const base = import.meta.env.BASE_URL;
 ---
 <aside class="left-navigation sidebar-panel">
   <div class="panel-heading"><span>🗂️</span><strong>Article Navigation</strong><span class="panel-menu">☰</span></div>
-  <div class="nav-tree"><a class="nav-tree-root" href="/">All writing</a>{categories.map((name) => <a href={`/?category=${name.toLowerCase().replaceAll(' ', '-')}`}>{name}</a>)}</div>
+  <div class="nav-tree"><a class="nav-tree-root" href={base}>All writing</a>{categories.map((name) => <a href={`${base}?category=${name.toLowerCase().replaceAll(' ', '-')}`}>{name}</a>)}</div>
 </aside>
