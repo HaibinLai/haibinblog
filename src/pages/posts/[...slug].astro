@@ -1,0 +1,40 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts', ({ data }) => !data.draft);
+  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+}
+
+const { post } = Astro.props;
+const { Content, headings } = await render(post);
+const publishedDate = post.data.publishedAt.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+const citationKey = `lai-${post.id.replace(/[^a-z0-9]+/gi, '-').toLowerCase()}`;
+const citation = `@online{${citationKey},\n  title={${post.data.title}},\n  author={Haibin Lai},\n  year={${post.data.publishedAt.getFullYear()}},\n  url={${Astro.url.href}},\n}`;
+---
+
+<BaseLayout title={`${post.data.title} | Haibin's Blog`} description={post.data.description}>
+  <article class="post-page content-shell">
+    <header class="post-header">
+      <p class="eyebrow">{post.data.category}</p>
+      <h1>{post.data.title}</h1>
+      <p class="post-description">{post.data.description}</p>
+      <div class="post-info"><span>Haibin Lai</span><time datetime={post.data.publishedAt.toISOString()}>{publishedDate}</time></div>
+    </header>
+    <div class="article-layout">
+      <div class="prose"><Content /></div>
+      {headings.length > 0 && (
+        <aside class="toc" aria-label="Table of contents">
+          <p>On this page</p>
+          <ol>{headings.filter((heading) => heading.depth <= 3).map((heading) => <li class={`depth-${heading.depth}`}><a href={`#${heading.slug}`}>{heading.text}</a></li>)}</ol>
+        </aside>
+      )}
+    </div>
+    <section class="citation">
+      <h2>If you need to cite this post</h2>
+      <p>Haibin Lai. ({publishedDate}). “{post.data.title}” [Blog post]. Retrieved from <a href={Astro.url.href}>{Astro.url.href}</a></p>
+      <pre><code>{citation}</code></pre>
+    </section>
+  </article>
+</BaseLayout>

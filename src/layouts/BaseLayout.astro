@@ -1,0 +1,41 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Haibin's Blog",
+  description = 'Research notes, life fragments, and work in progress.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Haibin's Blog home">Haibin's Blog</a>
+      <nav aria-label="Primary navigation">
+        <a href="/">Writing</a>
+        <a href="/moments/">Moments</a>
+        <a href="/about/">About</a>
+        <a href="https://github.com/HaibinLai" rel="me">GitHub</a>
+      </nav>
+    </header>
+    <main><slot /></main>
+    <footer class="site-footer">
+      <span>Haibin Lai</span>
+      <span>Research, notes, and ordinary days.</span>
+    </footer>
+  </body>
+</html>

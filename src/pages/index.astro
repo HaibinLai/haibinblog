@@ -1,0 +1,35 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostCard from '../components/PostCard.astro';
+
+const posts = (await getCollection('posts', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+---
+
+<BaseLayout description="Haibin Lai's research notes, essays, and life fragments.">
+  <section class="home-intro content-shell">
+    <p class="eyebrow">RESEARCH NOTES / LIFE FRAGMENTS</p>
+    <h1>A place to think in public.</h1>
+    <p class="lede">Systems, language models, academic life, and the small records that make a life legible when looking back.</p>
+  </section>
+
+  <section class="content-shell post-feed" aria-label="Recent writing">
+    <div class="section-heading">
+      <h2>Recent writing</h2>
+      <span>{posts.length} posts</span>
+    </div>
+    <div class="post-grid">
+      {posts.map((post) => (
+        <PostCard
+          title={post.data.title}
+          description={post.data.description}
+          date={post.data.publishedAt}
+          category={post.data.category}
+          tags={post.data.tags}
+          href={`/posts/${post.id}/`}
+        />
+      ))}
+    </div>
+  </section>
+</BaseLayout>

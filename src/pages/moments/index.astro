@@ -1,0 +1,29 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const moments = (await getCollection('moments', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+---
+
+<BaseLayout title="Moments | Haibin's Blog" description="Small records from Haibin's days.">
+  <section class="moments-page content-shell">
+    <div class="moments-heading"><p class="eyebrow">MOMENTS</p><h1>Small records, kept close.</h1></div>
+    <div class="moment-list">
+      {moments.map(async (moment) => {
+        const { Content } = await render(moment);
+        return (
+          <article class="moment">
+            <time datetime={moment.data.publishedAt.toISOString()}>{moment.data.publishedAt.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
+            <div class="prose"><Content /></div>
+            {moment.data.images.length > 0 && (
+              <div class:list={['moment-images', { 'is-single': moment.data.images.length === 1 }]}>
+                {moment.data.images.map((image) => <a href={image}><img src={image} loading="lazy" alt="Moment image" /></a>)}
+              </div>
+            )}
+          </article>
+        );
+      })}
+    </div>
+  </section>
+</BaseLayout>
