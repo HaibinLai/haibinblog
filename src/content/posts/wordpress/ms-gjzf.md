@@ -17,6 +17,7 @@ commentCount: 1
 viewCount: 1192
 likeCount: 0
 dislikeCount: 0
+comments: [{"author": "Haibin", "replyTo": "", "content": "最后的点评，我先做了一期moments: https://www.haibinlaiblog.top/index.php/ai-cpu-software-management/"}]
 showCitation: true
 importedFromWordPress: true
 ---

@@ -1,12 +1,13 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { GITHUB_AVATAR_URL } from '../../data/site';
 
 const base = import.meta.env.BASE_URL;
 const fragments = (await getCollection(
   'posts',
   ({ data }) => !data.draft && [data.category, ...data.categories]
-    .some((category) => category.toLowerCase() === 'fragments'),
+    .some((category) => ['fragments', 'life-fragments'].includes(category.toLowerCase())),
 )).sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
 
 const decodeAttribute = (value: string) => value
@@ -22,13 +23,23 @@ const readAttribute = (tag: string, name: string) => {
   return decodeAttribute(quoted?.[1] ?? unquoted?.[1] ?? '');
 };
 
-const extractFragment = (source = '') => {
+const normaliseImageUrl = (value: string) => value.replace(/\|\d+(?:x\d+)?$/i, '');
+
+const extractFragment = (source = '', featuredImage = '') => {
   const images: Array<{ src: string; alt: string }> = [];
+
+  const addImage = (src: string, alt: string) => {
+    const normalised = normaliseImageUrl(src);
+    if (normalised && !images.some((image) => image.src === normalised)) {
+      images.push({ src: normalised, alt });
+    }
+  };
+
+  if (featuredImage) addImage(featuredImage, '');
 
   const collectImages = (markup: string) => {
     for (const match of markup.matchAll(/<img\b[^>]*>/gi)) {
-      const src = readAttribute(match[0], 'src');
-      if (src) images.push({ src, alt: readAttribute(match[0], 'alt') });
+      addImage(readAttribute(match[0], 'src'), readAttribute(match[0], 'alt'));
     }
   };
 
@@ -42,8 +53,6 @@ const extractFragment = (source = '') => {
     return '';
   });
 
-  // WordPress often wraps an image in its own paragraph and link. Remove the
-  // wrappers left behind after the image is moved into the media grid.
   html = html
     .replace(/<a\b[^>]*>\s*<\/a>/gi, '')
     .replace(/<p\b[^>]*>\s*<\/p>/gi, '')
@@ -52,60 +61,68 @@ const extractFragment = (source = '') => {
   return { html, images: images.slice(0, 9) };
 };
 
+const siteTimeZone = 'Asia/Shanghai';
 const monthLabel = new Intl.DateTimeFormat('en-CA', {
   year: 'numeric',
   month: '2-digit',
+  timeZone: siteTimeZone,
 });
-
-const dateLabel = new Intl.DateTimeFormat('zh-CN', {
+const dateLabel = new Intl.DateTimeFormat('en-CA', {
   year: 'numeric',
-  month: 'long',
-  day: 'numeric',
+  month: '2-digit',
+  day: '2-digit',
+  timeZone: siteTimeZone,
 });
 
 const postSlug = (post: (typeof fragments)[number]) => post.data.slug ?? post.id.replace(/^wordpress\//, '');
-const groups = fragments.reduce<Array<{ month: string; posts: Array<(typeof fragments)[number] & { fragment: ReturnType<typeof extractFragment> }> }>>(
-  (result, post) => {
-    const month = monthLabel.format(post.data.publishedAt).replace('-', '.');
-    const entry = { ...post, fragment: extractFragment(post.rendered?.html ?? post.body ?? '') };
-    const current = result.at(-1);
+const authorLabel = (author: string) => author.toLowerCase() === 'gb' ? 'Haibin' : author;
+const groups = fragments.reduce<Array<{
+  month: string;
+  posts: Array<(typeof fragments)[number] & { fragment: ReturnType<typeof extractFragment> }>;
+}>>((result, post) => {
+  const month = monthLabel.format(post.data.publishedAt).replace('-', '.');
+  const entry = {
+    ...post,
+    fragment: extractFragment(post.rendered?.html ?? post.body ?? '', post.data.featuredImage),
+  };
+  const current = result.at(-1);
 
-    if (!current || current.month !== month) result.push({ month, posts: [entry] });
-    else current.posts.push(entry);
+  if (!current || current.month !== month) result.push({ month, posts: [entry] });
+  else current.posts.push(entry);
 
-    return result;
-  },
-  [],
-);
+  return result;
+}, []);
 ---
 
 <BaseLayout title="Moments | Haibin's Blog" description="Life fragments and small records from Haibin Lai.">
   <section class="fragments-page content-shell">
     <header class="fragments-header">
-      <p class="eyebrow">LIFE FRAGMENTS</p>
       <h1>Moments</h1>
-      <p>{fragments.length} fragments, ordered from newest to oldest.</p>
     </header>
 
     <div class="fragments-list">
       {groups.map((group) => (
-        <section class="fragment-group" aria-labelledby={`month-${group.month}`}>
-          <h2 class="fragment-month" id={`month-${group.month}`}>{group.month}</h2>
+        <>
+          <div class="fragment-month">{group.month}</div>
           {group.posts.map((post) => {
             const href = `${base}posts/${postSlug(post)}/`;
+            const visibleComments = post.data.comments.slice(-8);
+            const commentsId = `fragment-comments-${post.data.wordpressId ?? post.id}`;
             return (
               <article class="fragment-item">
-                <a class="fragment-avatar" href={base} aria-label="Haibin Lai">
-                  <img src={`${base}images/avatar.svg`} loading="lazy" alt="Haibin Lai" />
+                <a class="fragment-avatar" href={base} aria-label="Haibin">
+                  <img src={GITHUB_AVATAR_URL} loading="lazy" alt="Haibin's GitHub avatar" />
                 </a>
 
                 <div class="fragment-body">
-                  <div class="fragment-author"><a href={base}>Haibin Lai</a></div>
-                  <div class="fragment-content-wrap">
-                    <h3 class="fragment-title"><a href={href}>{post.data.title}</a></h3>
-                    {post.fragment.html && <div class="fragment-content" data-fragment-content set:html={post.fragment.html} />}
-                    {post.fragment.html && <button type="button" class="fragment-expand" aria-expanded="false">展开</button>}
-                  </div>
+                  <div class="fragment-author"><a href={base}>{authorLabel(post.data.author)}</a></div>
+                  {(post.data.title || post.fragment.html) && (
+                    <div class="fragment-content-wrap">
+                      {post.data.title && <h2 class="fragment-title"><a href={href}>{post.data.title}</a></h2>}
+                      {post.fragment.html && <div class="fragment-content" data-fragment-content set:html={post.fragment.html} />}
+                      {post.fragment.html && <button type="button" class="fragment-expand" aria-expanded="false">展开</button>}
+                    </div>
+                  )}
 
                   {post.fragment.images.length > 0 && (
                     <div class="fragment-media" data-count={post.fragment.images.length}>
@@ -121,13 +138,30 @@ const groups = fragments.reduce<Array<{ month: string; posts: Array<(typeof frag
                     <a href={href}>
                       <time datetime={post.data.publishedAt.toISOString()}>{dateLabel.format(post.data.publishedAt)}</time>
                     </a>
-                    <span>{post.data.commentCount} {post.data.commentCount === 1 ? 'Comment' : 'Comments'}</span>
+                    {visibleComments.length > 0
+                      ? <a href={`#${commentsId}`}>{post.data.commentCount} {post.data.commentCount === 1 ? 'Comment' : 'Comments'}</a>
+                      : <span>{post.data.commentCount} Comments</span>}
                   </div>
+
+                  {visibleComments.length > 0 && (
+                    <div class="fragment-comments" id={commentsId}>
+                      {visibleComments.map((comment) => (
+                        <div class="fragment-comment">
+                          <span class="fragment-comment-author">{comment.author}</span>
+                          {comment.replyTo && <span class="fragment-comment-reply">Reply to {comment.replyTo}</span>}
+                          <span class="fragment-comment-content">{comment.content}</span>
+                        </div>
+                      ))}
+                      {post.data.comments.length > visibleComments.length && (
+                        <a class="fragment-comments-more" href={`${href}#comments`}>View all comments</a>
+                      )}
+                    </div>
+                  )}
                 </div>
               </article>
             );
           })}
-        </section>
+        </>
       ))}
     </div>
   </section>
@@ -179,67 +213,59 @@ const groups = fragments.reduce<Array<{ month: string; posts: Array<(typeof frag
 <style>
   .fragments-page {
     width: min(760px, calc(100% - 32px));
-    padding: 42px 0 80px;
+    padding: 28px 0 80px;
   }
 
   .fragments-header {
-    padding: 0 0 24px 64px;
+    padding: 1.2rem 0 1rem 4.2rem;
   }
 
   .fragments-header h1 {
     margin: 0;
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: 600;
-    line-height: 1.2;
+    font-size: 1.45rem;
+    font-weight: 650;
+    line-height: 1.35;
   }
 
-  .fragments-header > p:last-child {
-    margin: 10px 0 0;
-    color: var(--muted);
-    font-size: .9rem;
-  }
-
-  .fragment-group {
-    position: relative;
+  .fragments-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
   }
 
   .fragment-month {
     position: sticky;
-    top: 74px;
+    top: 4.6rem;
     z-index: 2;
-    width: max-content;
-    margin: 13px 0 2px 62px;
-    padding: 2px 9px;
+    align-self: flex-start;
+    margin: .8rem 0 .1rem 4rem;
+    padding: .18rem .55rem;
     border: 1px solid var(--line);
     border-radius: 999px;
     background: color-mix(in srgb, var(--page) 88%, var(--surface));
     color: var(--muted);
     font-size: .78rem;
-    font-weight: 500;
     line-height: 1.5;
   }
 
   .fragment-item {
     display: grid;
-    grid-template-columns: 48px minmax(0, 1fr);
-    gap: 15px;
-    padding: 18px 0;
-    border-bottom: 1px solid var(--line);
+    grid-template-columns: 3rem minmax(0, 1fr);
+    gap: .95rem;
+    padding: 1.1rem 0;
+    border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, transparent);
   }
 
   .fragment-avatar,
   .fragment-avatar img {
     display: block;
-    width: 48px;
-    height: 48px;
+    width: 3rem;
+    height: 3rem;
   }
 
   .fragment-avatar img {
-    padding: 4px;
-    border: 1px solid var(--line);
-    border-radius: 7px;
-    background: var(--surface);
-    object-fit: contain;
+    border-radius: 6px;
+    object-fit: cover;
   }
 
   .fragment-body {
@@ -247,21 +273,28 @@ const groups = fragments.reduce<Array<{ month: string; posts: Array<(typeof frag
   }
 
   .fragment-author {
-    margin-top: -2px;
-    color: #50618a;
+    margin-top: -.1rem;
     font-weight: 650;
     line-height: 1.35;
   }
 
+  .fragment-author a,
+  .fragment-expand,
+  .fragment-comment-author,
+  .fragment-comment-reply,
+  .fragment-comments-more {
+    color: #50618a;
+  }
+
   .fragment-title {
-    margin: 4px 0 2px;
+    margin: .25rem 0 .1rem;
     font-size: .98rem;
     font-weight: 650;
     line-height: 1.45;
   }
 
   .fragment-content-wrap {
-    margin-top: 5px;
+    margin-top: .35rem;
   }
 
   .fragment-content {
@@ -278,7 +311,7 @@ const groups = fragments.reduce<Array<{ month: string; posts: Array<(typeof frag
   }
 
   .fragment-content :global(p) {
-    margin: 0 0 6px;
+    margin: 0 0 .4rem;
   }
 
   .fragment-content :global(p:last-child) {
@@ -311,11 +344,10 @@ const groups = fragments.reduce<Array<{ month: string; posts: Array<(typeof frag
 
   .fragment-expand {
     display: none;
-    margin: 4px 0 0;
+    margin: .25rem 0 0;
     padding: 0;
     border: 0;
     background: transparent;
-    color: #50618a;
     cursor: pointer;
     font-size: .92rem;
   }
@@ -326,31 +358,36 @@ const groups = fragments.reduce<Array<{ month: string; posts: Array<(typeof frag
 
   .fragment-media {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 5px;
-    width: min(100%, 496px);
-    margin-top: 9px;
+    gap: .32rem;
+    width: min(100%, 31rem);
+    margin-top: .55rem;
   }
 
   .fragment-media[data-count='1'] {
     grid-template-columns: 1fr;
-    width: min(70%, 216px);
+    width: min(13.5rem, 70%);
   }
 
   .fragment-media[data-count='2'],
   .fragment-media[data-count='4'] {
     grid-template-columns: repeat(2, 1fr);
-    width: min(86%, 320px);
+    width: min(20rem, 86%);
+  }
+
+  .fragment-media:not([data-count='1']):not([data-count='2']):not([data-count='4']) {
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .fragment-thumb {
+    position: relative;
+    display: block;
     width: 100%;
     aspect-ratio: 1;
     padding: 0;
     overflow: hidden;
     border: 0;
-    border-radius: 3px;
-    background: var(--line);
+    border-radius: 2px;
+    background: color-mix(in srgb, var(--line) 40%, transparent);
     cursor: zoom-in;
   }
 
@@ -370,14 +407,50 @@ const groups = fragments.reduce<Array<{ month: string; posts: Array<(typeof frag
   .fragment-meta {
     display: flex;
     flex-wrap: wrap;
-    gap: 11px;
-    margin-top: 11px;
+    gap: .7rem;
+    margin-top: .7rem;
     color: var(--muted);
     font-size: .86rem;
   }
 
   .fragment-meta a:hover {
     color: #50618a;
+  }
+
+  .fragment-comments {
+    margin-top: .55rem;
+    padding: .5rem .65rem;
+    background: color-mix(in srgb, var(--line) 24%, transparent);
+    color: var(--ink);
+    font-size: .88rem;
+    line-height: 1.62;
+  }
+
+  .fragment-comment + .fragment-comment {
+    margin-top: .25rem;
+  }
+
+  .fragment-comment-author {
+    font-weight: 650;
+  }
+
+  .fragment-comment-author::after,
+  .fragment-comment-reply::after {
+    margin-right: .25rem;
+    content: ':';
+  }
+
+  .fragment-comment-reply {
+    margin-left: .3rem;
+  }
+
+  .fragment-comment-content {
+    white-space: pre-line;
+  }
+
+  .fragment-comments-more {
+    display: inline-block;
+    margin-top: .35rem;
   }
 
   .fragment-lightbox {
@@ -409,48 +482,49 @@ const groups = fragments.reduce<Array<{ month: string; posts: Array<(typeof frag
 
   .fragment-lightbox-close {
     position: fixed;
-    top: 16px;
-    right: 16px;
+    top: 1rem;
+    right: 1rem;
     z-index: 1;
-    width: 38px;
-    height: 38px;
+    width: 2.4rem;
+    height: 2.4rem;
     padding: 0;
     border: 0;
     border-radius: 999px;
-    background: rgba(255, 255, 255, .18);
+    background: rgba(255, 255, 255, .16);
     color: white;
     cursor: pointer;
-    font-size: 1.45rem;
+    font-size: 1.4rem;
     line-height: 1;
   }
 
-  @media (max-width: 760px) {
+  @media (max-width: 768px) {
     .fragments-page {
-      padding-top: 28px;
+      width: min(100% - 24px, 760px);
+      padding-top: 18px;
     }
 
     .fragments-header {
       padding-left: 0;
     }
 
-    .fragment-month {
-      top: 68px;
-      margin-left: 54px;
-    }
-
     .fragment-item {
-      grid-template-columns: 42px minmax(0, 1fr);
-      gap: 12px;
+      grid-template-columns: 2.65rem minmax(0, 1fr);
+      gap: .75rem;
     }
 
     .fragment-avatar,
     .fragment-avatar img {
-      width: 42px;
-      height: 42px;
+      width: 2.65rem;
+      height: 2.65rem;
     }
 
     .fragment-media {
       width: 100%;
+    }
+
+    .fragment-month {
+      top: 4rem;
+      margin-left: 3.4rem;
     }
   }
 </style>

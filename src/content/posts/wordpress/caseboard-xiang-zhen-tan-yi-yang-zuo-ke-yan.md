@@ -17,6 +17,7 @@ commentCount: 1
 viewCount: 201
 likeCount: 0
 dislikeCount: 0
+comments: [{"author": "Jasper", "replyTo": "", "content": "看起来很棒，希望你用 caseboard 做出一些有趣的工作！"}]
 showCitation: true
 importedFromWordPress: true
 ---

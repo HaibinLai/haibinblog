@@ -16,6 +16,7 @@ commentCount: 1
 viewCount: 1816
 likeCount: 0
 dislikeCount: 0
+comments: [{"author": "Ooooj", "replyTo": "", "content": "最近出来挺多新的benchmark/metrics，神经科学那边也是。有种要穷则思变的味道。感觉有机会见证新的基座模型/范式诞生<img class='comments-emoji' src='https://www.haibinlaiblog.top/wp-content/themes/theme-document-master/assets/smilies/tushe.png' title='emoji'/>"}]
 showCitation: true
 importedFromWordPress: true
 ---

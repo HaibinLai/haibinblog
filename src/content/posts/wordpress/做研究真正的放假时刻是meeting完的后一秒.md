@@ -16,6 +16,7 @@ commentCount: 1
 viewCount: 569
 likeCount: 0
 dislikeCount: 0
+comments: [{"author": "Haibin", "replyTo": "", "content": "我突然在想，人类在使用习惯gpt5后，会怎么跟gpt3聊天呢，以及，如何跟曾经自己的猫娘助手聊天？人类的认知随着身份的变化而快速改变，没有共同认知的进步，聊天会难以同步\n\n我跟老板认真讨论过这个问题。我说老师，研究生直到写完了第一篇文章，才多少能理解你的从前和现在，但是很快我们又毕业了。做老师是不是很孤独？身边这么多学生，可是没有人能真正理解你，真正理解你的人又马上离去。\n\n同是天涯沦落人，相逢何必曾相识。“又不是再也不见了”老板说"}]
 showCitation: true
 importedFromWordPress: true
 ---

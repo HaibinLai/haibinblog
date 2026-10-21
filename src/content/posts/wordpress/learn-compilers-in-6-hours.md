@@ -17,6 +17,7 @@ commentCount: 1
 viewCount: 1068
 likeCount: 0
 dislikeCount: 0
+comments: [{"author": "Haibin", "replyTo": "", "content": "对应的课程点评：https://ncesnext.com/course/1179/"}]
 showCitation: true
 importedFromWordPress: true
 ---

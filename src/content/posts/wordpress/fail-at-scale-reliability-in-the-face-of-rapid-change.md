@@ -16,6 +16,7 @@ commentCount: 1
 viewCount: 1128
 likeCount: 0
 dislikeCount: 0
+comments: [{"author": "赖, 海斌", "replyTo": "", "content": "这篇文章还是太有含金量了，重读一遍有了新收获"}]
 showCitation: true
 importedFromWordPress: true
 ---

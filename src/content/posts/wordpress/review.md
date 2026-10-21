@@ -17,6 +17,7 @@ commentCount: 1
 viewCount: 3872
 likeCount: 21
 dislikeCount: 3
+comments: [{"author": "Todd", "replyTo": "", "content": "今天回顾了一遍 Haibin 大神的心得，又有新的收获：先用 BFS 扫全局，再用 DFS 深挖的思路果然高效。更妙的是，DFS 深入探索时暴露的问题，还能反过来修正 BFS 阶段因浅尝辄止而产生的偏差。"}]
 showCitation: true
 importedFromWordPress: true
 ---

@@ -23,6 +23,11 @@ const posts = defineCollection({
     viewCount: z.number().int().nonnegative().default(0),
     likeCount: z.number().int().nonnegative().default(0),
     dislikeCount: z.number().int().nonnegative().default(0),
+    comments: z.array(z.object({
+      author: z.string(),
+      replyTo: z.string().default(''),
+      content: z.string(),
+    })).default([]),
     showCitation: z.boolean().default(true),
     importedFromWordPress: z.boolean().default(false),
   }),

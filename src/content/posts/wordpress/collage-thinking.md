@@ -17,6 +17,7 @@ commentCount: 3
 viewCount: 44763
 likeCount: 0
 dislikeCount: 0
+comments: [{"author": "Jaredan", "replyTo": "", "content": "伟大"}, {"author": "赖, 海斌", "replyTo": "", "content": "hhhh"}, {"author": "kelin", "replyTo": "", "content": "从GitHub过来，看到这篇文章，思想很有趣，写作风格我也很喜欢。尤其是看到你今年大一，有点令人汗颜了。这让我想起了前两年做数据库时关注的大佬们，他们和你一样聪明且愿意深度思考。加油，愿你朝着自己想去的方向大步向前走。"}]
 showCitation: true
 importedFromWordPress: true
 ---

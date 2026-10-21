@@ -5,13 +5,18 @@ import PostCard from '../components/PostCard.astro';
 import LeftNavigation from '../components/LeftNavigation.astro';
 import RightSidebar from '../components/RightSidebar.astro';
 
-const posts = (await getCollection('posts', ({ data }) => !data.draft))
+const fragmentCategories = new Set(['fragments', 'life-fragments']);
+const posts = (await getCollection(
+  'posts',
+  ({ data }) => !data.draft && ![data.category, ...data.categories]
+    .some((category) => fragmentCategories.has(category.trim().toLowerCase())),
+))
   .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
 const base = import.meta.env.BASE_URL;
 const postSlug = (post: (typeof posts)[number]) => post.data.slug ?? post.id.replace(/^wordpress\//, '');
 ---
 
-<BaseLayout description="Haibin Lai's research notes, essays, and life fragments.">
+<BaseLayout description="Haibin Lai's research notes and essays.">
   <div class="home-layout content-shell">
     <LeftNavigation posts={posts} />
     <section class="post-feed" aria-label="Recent writing">

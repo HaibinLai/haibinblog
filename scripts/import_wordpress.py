@@ -226,10 +226,32 @@ def main() -> int:
         # The original theme treats a missing per-post value as enabled and
         # suppresses the citation only when the stored value is exactly "0".
         show_citation = latest_meta(metadata, "nicen_show_citation") != "0"
-        comment_count = sum(
-            comment.findtext("wp:comment_approved", default="", namespaces=NS) == "1"
-            for comment in item.findall("wp:comment", NS)
-        )
+        all_comments = item.findall("wp:comment", NS)
+        comment_authors = {
+            comment.findtext("wp:comment_id", default="", namespaces=NS):
+            comment.findtext("wp:comment_author", default="", namespaces=NS).strip()
+            for comment in all_comments
+        }
+        comments = []
+        for comment in all_comments:
+            if comment.findtext("wp:comment_approved", default="", namespaces=NS) != "1":
+                continue
+
+            parent_id = comment.findtext(
+                "wp:comment_parent", default="0", namespaces=NS
+            )
+            comments.append(
+                {
+                    "author": comment.findtext(
+                        "wp:comment_author", default="", namespaces=NS
+                    ).strip() or "访客",
+                    "replyTo": comment_authors.get(parent_id, ""),
+                    "content": comment.findtext(
+                        "wp:comment_content", default="", namespaces=NS
+                    ).strip(),
+                }
+            )
+        comment_count = len(comments)
 
         frontmatter = [
             "---",
@@ -255,6 +277,12 @@ def main() -> int:
                 f"viewCount: {view_count}",
                 f"likeCount: {like_count}",
                 f"dislikeCount: {dislike_count}",
+            ]
+        )
+        if comments:
+            frontmatter.append(f"comments: {yaml_value(comments)}")
+        frontmatter.extend(
+            [
                 f"showCitation: {'true' if show_citation else 'false'}",
                 "importedFromWordPress: true",
                 "---",
