@@ -1,0 +1,95 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<aside class="left-navigation article-navigation sidebar-panel">
+  <div class="panel-heading"><span>🗂️</span><strong>Table of Contents</strong><span class="panel-menu">☰</span></div>
+  <nav class="nav-tree article-outline" aria-label="Table of contents">
+    <a class="depth-1 is-active" href="#article-title" data-heading-id="article-title"><span>{title}</span></a>
+  </nav>
+</aside>
+
+<script>
+  const navigation = document.querySelector<HTMLElement>('.article-navigation');
+
+  if (navigation) {
+    const tree = navigation.querySelector<HTMLElement>('.article-outline');
+    const articleHeadings = [...document.querySelectorAll<HTMLElement>('.prose h2, .prose h3, .prose h4')];
+    const usedIds = new Set<string>(['article-title']);
+
+    articleHeadings.forEach((heading, index) => {
+      let id = heading.id || heading.textContent
+        ?.normalize('NFKC')
+        .trim()
+        .toLowerCase()
+        .replace(/[^\p{Letter}\p{Number}\s-]/gu, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-');
+      if (!id) id = `section-${index + 1}`;
+
+      const originalId = id;
+      let suffix = 2;
+      while (usedIds.has(id)) id = `${originalId}-${suffix++}`;
+      usedIds.add(id);
+      heading.id = id;
+
+      const link = document.createElement('a');
+      link.className = `depth-${heading.tagName.slice(1)}`;
+      link.href = `#${id}`;
+      link.dataset.headingId = id;
+      const label = document.createElement('span');
+      label.textContent = heading.textContent?.trim() || `Section ${index + 1}`;
+      link.append(label);
+      tree?.append(link);
+    });
+
+    const links = [...navigation.querySelectorAll<HTMLAnchorElement>('[data-heading-id]')];
+    const sections = links
+      .map((link) => ({ link, section: document.getElementById(link.dataset.headingId ?? '') }))
+      .filter((item): item is { link: HTMLAnchorElement; section: HTMLElement } => Boolean(item.section));
+    let scheduled = false;
+
+    const updateActiveHeading = () => {
+      const readingLine = 120;
+      let active = sections[0];
+
+      for (const item of sections) {
+        if (item.section.getBoundingClientRect().top <= readingLine) active = item;
+        else break;
+      }
+
+      links.forEach((link) => {
+        const isActive = link === active?.link;
+        link.classList.toggle('is-active', isActive);
+        if (isActive) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+
+      if (active) {
+        const activeTree = active.link.parentElement;
+        const linkTop = active.link.offsetTop;
+        const visibleTop = activeTree?.scrollTop ?? 0;
+        const visibleBottom = visibleTop + (activeTree?.clientHeight ?? 0);
+        if (activeTree && (linkTop < visibleTop || linkTop + active.link.offsetHeight > visibleBottom)) {
+          activeTree.scrollTo({ top: Math.max(0, linkTop - activeTree.clientHeight / 3), behavior: 'smooth' });
+        }
+      }
+
+      scheduled = false;
+    };
+
+    const scheduleUpdate = () => {
+      if (scheduled) return;
+      scheduled = true;
+      requestAnimationFrame(updateActiveHeading);
+    };
+
+    window.addEventListener('scroll', scheduleUpdate, { passive: true });
+    window.addEventListener('resize', scheduleUpdate, { passive: true });
+    updateActiveHeading();
+  }
+</script>
