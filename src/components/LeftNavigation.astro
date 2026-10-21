@@ -3,24 +3,36 @@ import type { CollectionEntry } from 'astro:content';
 
 interface Props {
   posts: CollectionEntry<'posts'>[];
+  currentSlug?: string;
 }
 
-const { posts } = Astro.props;
+const { posts, currentSlug } = Astro.props;
 const base = import.meta.env.BASE_URL;
-const categories = [...posts.reduce((counts, post) => {
-  counts.set(post.data.category, (counts.get(post.data.category) ?? 0) + 1);
-  return counts;
-}, new Map<string, number>())]
-  .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+const postSlug = (post: CollectionEntry<'posts'>) => post.data.slug ?? post.id.replace(/^wordpress\//, '');
 ---
 <aside class="left-navigation sidebar-panel">
   <div class="panel-heading"><span>🗂️</span><strong>Article Navigation</strong><span class="panel-menu">☰</span></div>
-  <nav class="nav-tree" aria-label="Article categories">
-    <a class="nav-tree-root" data-filter-all href={base}><span>All writing</span><small>{posts.length}</small></a>
-    {categories.map(([name, count]) => (
-      <a data-category-filter={name} href={`${base}?category=${encodeURIComponent(name)}`}>
-        <span>{name}</span><small>{count}</small>
+  <nav class="nav-tree" aria-label="All articles">
+    <a class:list={{ 'nav-tree-root': !currentSlug }} href={base}><span>All writing</span><small>{posts.length}</small></a>
+    {posts.map((post) => {
+      const slug = postSlug(post);
+      return (
+      <a class:list={{ 'is-active': slug === currentSlug }} href={`${base}posts/${slug}/`} aria-current={slug === currentSlug ? 'page' : undefined}>
+        <span>{post.data.title}</span>
       </a>
-    ))}
+      );
+    })}
   </nav>
 </aside>
+
+{currentSlug && (
+  <script is:inline>
+    (() => {
+      const navigation = document.querySelector('.left-navigation .nav-tree');
+      const current = navigation?.querySelector('[aria-current="page"]');
+      if (navigation && current) {
+        navigation.scrollTop = current.offsetTop - navigation.clientHeight / 2 + current.clientHeight / 2;
+      }
+    })();
+  </script>
+)}

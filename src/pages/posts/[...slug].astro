@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import LeftNavigation from '../../components/LeftNavigation.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts', ({ data }) => !data.draft);
@@ -11,6 +12,9 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
+const posts = (await getCollection('posts', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+const currentSlug = post.data.slug ?? post.id.replace(/^wordpress\//, '');
 const { Content, headings } = await render(post);
 const publishedDate = post.data.publishedAt.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 const citationKey = `lai-${post.id.replace(/[^a-z0-9]+/gi, '-').toLowerCase()}`;
@@ -18,7 +22,9 @@ const citation = `@online{${citationKey},\n  title={${post.data.title}},\n  auth
 ---
 
 <BaseLayout title={`${post.data.title} | Haibin's Blog`} description={post.data.description}>
-  <article class="post-page content-shell">
+  <div class="article-page-shell content-shell">
+    <LeftNavigation posts={posts} currentSlug={currentSlug} />
+    <article class="post-page">
     <header class="post-header">
       <p class="eyebrow">{post.data.category}</p>
       <h1>{post.data.title}</h1>
@@ -39,5 +45,6 @@ const citation = `@online{${citationKey},\n  title={${post.data.title}},\n  auth
       <p>Haibin Lai. ({publishedDate}). “{post.data.title}” [Blog post]. Retrieved from <a href={Astro.url.href}>{Astro.url.href}</a></p>
       <pre><code>{citation}</code></pre>
     </section>
-  </article>
+    </article>
+  </div>
 </BaseLayout>
