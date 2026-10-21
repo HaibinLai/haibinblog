@@ -11,6 +11,12 @@ const base = import.meta.env.BASE_URL;
 const postSlug = (post: CollectionEntry<'posts'>) => post.data.slug ?? post.id.replace(/^wordpress\//, '');
 const recent = posts.slice(0, 5);
 const commentCount = posts.reduce((total, post) => total + post.data.commentCount, 0);
+const popularTags = [...posts.reduce((counts, post) => {
+  post.data.tags.forEach((tag) => counts.set(tag, (counts.get(tag) ?? 0) + 1));
+  return counts;
+}, new Map<string, number>())]
+  .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+  .slice(0, 18);
 const formatDate = (date: Date) => date.toLocaleDateString('en-US', {
   month: 'short',
   day: 'numeric',
@@ -19,7 +25,8 @@ const formatDate = (date: Date) => date.toLocaleDateString('en-US', {
 });
 ---
 <aside class="right-sidebar">
-  <section class="author-card sidebar-panel"><div class="author-cover"></div><div class="author-body"><img class="author-avatar" src={`${base}images/avatar.svg`} alt="Haibin" /><div class="author-name">haibin <span>SUSTech</span></div><p class="author-bio">Systems research, LLMs, academic life, and ordinary days.</p><div class="author-stats"><div><strong>{posts.length}</strong><span>Articles</span></div><div><strong>{commentCount}</strong><span>Comments</span></div><div><strong>—</strong><span>Views</span></div></div></div></section>
+  <section class="author-card sidebar-panel"><div class="author-cover" style={`background-image: url('${base}images/blog-cover.jpg')`}></div><div class="author-body"><img class="author-avatar" src={`${base}images/avatar.svg`} alt="Haibin" /><div class="author-name">haibin <span>SUSTech</span></div><p class="author-bio">Systems research, LLMs, academic life, and ordinary days.</p><div class="author-stats"><div><strong>{posts.length}</strong><span>Articles</span></div><div><strong>{commentCount}</strong><span>Comments</span></div><div><strong>—</strong><span>Views</span></div></div></div></section>
   <section class="sidebar-panel recent-panel"><SectionTitle>Recent Update</SectionTitle>{recent.map((post) => <a class="recent-item" href={`${base}posts/${postSlug(post)}/`}><div class="recent-thumb"></div><div><strong>{post.data.title}</strong><time>{formatDate(post.data.publishedAt)}</time></div></a>)}</section>
+  <section class="sidebar-panel tags-panel"><SectionTitle>Popular Tags</SectionTitle><div class="sidebar-tags">{popularTags.map(([tag, count]) => <a data-tag-filter={tag} href={`${base}?tag=${encodeURIComponent(tag)}`}>{tag}<small>{count}</small></a>)}</div></section>
   <section class="sidebar-panel passage-panel"><SectionTitle>Passage</SectionTitle><p>“The future is discovered through the work that survives contact with reality.”</p></section>
 </aside>

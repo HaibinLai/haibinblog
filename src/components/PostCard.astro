@@ -12,7 +12,7 @@ const { title, description, date, category, tags, href } = Astro.props;
 const formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
 ---
 
-<article class="post-card">
+<article class="post-card" data-category={category} data-tags={JSON.stringify(tags)}>
   <div class="post-card-meta"><span>{category}</span><time datetime={date.toISOString()}>{formattedDate}</time></div>
   <h2><a href={href}>{title}</a></h2>
   <p>{description}</p>

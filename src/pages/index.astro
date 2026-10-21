@@ -13,10 +13,10 @@ const postSlug = (post: (typeof posts)[number]) => post.data.slug ?? post.id.rep
 
 <BaseLayout description="Haibin Lai's research notes, essays, and life fragments.">
   <div class="home-layout content-shell">
-    <LeftNavigation />
+    <LeftNavigation posts={posts} />
     <section class="post-feed" aria-label="Recent writing">
       <div class="breadcrumb">Current Location: Main Page / All writing / Main Content</div>
-      <div class="section-heading"><h1>Recent writing</h1><span>{posts.length} posts</span></div>
+      <div class="section-heading"><h1 id="feed-title">Recent writing</h1><span id="feed-count">{posts.length} posts</span></div>
       <div class="post-list">
       {posts.map((post) => (
         <PostCard
@@ -28,8 +28,39 @@ const postSlug = (post: (typeof posts)[number]) => post.data.slug ?? post.id.rep
           href={`${base}posts/${postSlug(post)}/`}
         />
       ))}
+        <p class="empty-filter" hidden>No writing matches this filter.</p>
       </div>
     </section>
     <RightSidebar posts={posts} />
   </div>
 </BaseLayout>
+
+<script is:inline>
+  (() => {
+    const params = new URLSearchParams(window.location.search);
+    const category = params.get('category');
+    const tag = params.get('tag');
+    if (!category && !tag) return;
+
+    const cards = [...document.querySelectorAll('.post-card')];
+    let visible = 0;
+    cards.forEach((card) => {
+      const tags = JSON.parse(card.dataset.tags || '[]');
+      const matches = category ? card.dataset.category === category : tags.includes(tag);
+      card.hidden = !matches;
+      if (matches) visible += 1;
+    });
+
+    const label = category || tag;
+    document.querySelector('#feed-title').textContent = tag ? `Tag: ${label}` : label;
+    document.querySelector('#feed-count').textContent = `${visible} ${visible === 1 ? 'post' : 'posts'}`;
+    document.querySelector('.empty-filter').hidden = visible !== 0;
+
+    const selector = category ? '[data-category-filter]' : '[data-tag-filter]';
+    document.querySelectorAll(selector).forEach((link) => {
+      const value = category ? link.dataset.categoryFilter : link.dataset.tagFilter;
+      link.classList.toggle('is-active', value === label);
+    });
+    document.querySelector('[data-filter-all]')?.classList.remove('nav-tree-root');
+  })();
+</script>

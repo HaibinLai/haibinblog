@@ -1,8 +1,26 @@
 ---
-const categories = ['Computer Science', 'Compilers', 'Distributed Systems', 'OS', 'CPP-Programing', 'Readings', 'Paper Reading', 'Frameworks Analysis', 'Multidisciplinary'];
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  posts: CollectionEntry<'posts'>[];
+}
+
+const { posts } = Astro.props;
 const base = import.meta.env.BASE_URL;
+const categories = [...posts.reduce((counts, post) => {
+  counts.set(post.data.category, (counts.get(post.data.category) ?? 0) + 1);
+  return counts;
+}, new Map<string, number>())]
+  .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
 ---
 <aside class="left-navigation sidebar-panel">
   <div class="panel-heading"><span>🗂️</span><strong>Article Navigation</strong><span class="panel-menu">☰</span></div>
-  <div class="nav-tree"><a class="nav-tree-root" href={base}>All writing</a>{categories.map((name) => <a href={`${base}?category=${name.toLowerCase().replaceAll(' ', '-')}`}>{name}</a>)}</div>
+  <nav class="nav-tree" aria-label="Article categories">
+    <a class="nav-tree-root" data-filter-all href={base}><span>All writing</span><small>{posts.length}</small></a>
+    {categories.map(([name, count]) => (
+      <a data-category-filter={name} href={`${base}?category=${encodeURIComponent(name)}`}>
+        <span>{name}</span><small>{count}</small>
+      </a>
+    ))}
+  </nav>
 </aside>
