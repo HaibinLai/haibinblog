@@ -4,7 +4,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts', ({ data }) => !data.draft);
-  return posts.map((post) => ({ params: { slug: post.id }, props: { post } }));
+  return posts.map((post) => ({
+    params: { slug: post.data.slug ?? post.id.replace(/^wordpress\//, '') },
+    props: { post },
+  }));
 }
 
 const { post } = Astro.props;

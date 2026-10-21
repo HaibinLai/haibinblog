@@ -11,6 +11,12 @@ const posts = defineCollection({
     tags: z.array(z.string()).default([]),
     category: z.string().default('Research'),
     draft: z.boolean().default(false),
+    slug: z.string().optional(),
+    legacySlug: z.string().optional(),
+    wordpressId: z.number().int().optional(),
+    sourceUrl: z.string().url().optional(),
+    commentCount: z.number().int().nonnegative().default(0),
+    importedFromWordPress: z.boolean().default(false),
   }),
 });
 

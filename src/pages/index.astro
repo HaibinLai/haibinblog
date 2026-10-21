@@ -8,6 +8,7 @@ import RightSidebar from '../components/RightSidebar.astro';
 const posts = (await getCollection('posts', ({ data }) => !data.draft))
   .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
 const base = import.meta.env.BASE_URL;
+const postSlug = (post: (typeof posts)[number]) => post.data.slug ?? post.id.replace(/^wordpress\//, '');
 ---
 
 <BaseLayout description="Haibin Lai's research notes, essays, and life fragments.">
@@ -24,7 +25,7 @@ const base = import.meta.env.BASE_URL;
           date={post.data.publishedAt}
           category={post.data.category}
           tags={post.data.tags}
-          href={`${base}posts/${post.id}/`}
+          href={`${base}posts/${postSlug(post)}/`}
         />
       ))}
       </div>

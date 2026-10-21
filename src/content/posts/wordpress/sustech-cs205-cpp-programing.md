@@ -1,0 +1,97 @@
+---
+title: "SUSTech-CS205-CPP-Programing"
+description: "SUSTech-CS205-CPP-Programing Haibin Lai 12211612 Semester: 2024 Spring; Lecturer: Prof. Shiqi Yu Project Name Description Important Point Classification Score 1 A Simple Calculator \"简单\"的计算器 C程序初步了解，基本数据结构的实现，数据的底层存储，内存管…"
+publishedAt: "2024-09-10 22:56:25"
+updatedAt: "2024-09-12 00:10:03"
+category: "CPP"
+tags: ["CPP", "CUDA", "矩阵乘法"]
+draft: false
+slug: "sustech-cs205-cpp-programing"
+legacySlug: "sustech-cs205-cpp-programing"
+wordpressId: 234
+sourceUrl: "https://haibin-blog.vercel.app/index.php/sustech-cs205-cpp-programing/"
+commentCount: 0
+importedFromWordPress: true
+---
+<h1>SUSTech-CS205-CPP-Programing</h1>
+<p>Haibin Lai 12211612</p>
+<p>Semester: 2024 Spring;     Lecturer: Prof. Shiqi Yu</p>
+<table>
+<thead>
+<tr>
+<th><strong>Project</strong></th>
+<th><strong>Name</strong></th>
+<th><strong>Description</strong></th>
+<th><strong>Important Point</strong></th>
+<th><strong>Classification</strong></th>
+<th><strong>Score</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>A Simple Calculator</td>
+<td>&quot;简单&quot;的计算器</td>
+<td>C程序初步了解，基本数据结构的实现，数据的底层存储，内存管理</td>
+<td>basic idea</td>
+<td>97</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Simple Matrix Multiplication</td>
+<td>C和Java的区别</td>
+<td>C是如何编译与运行的，计算机底层是怎么样的</td>
+<td>understanding the system</td>
+<td>99</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Improved Matrix Multiplication in C</td>
+<td>矩阵乘法探究</td>
+<td>怎么样根据系统优化程序，常见的C优化技术，如循环展开、矩阵重排、分块、SIMD与OpenMP并行技术</td>
+<td>boosting in the system</td>
+<td>98</td>
+</tr>
+<tr>
+<td>4</td>
+<td>A Class to Describe a Matrix</td>
+<td>矩阵类的设计</td>
+<td>工程C++是怎么样的，如何设计一个系统，如何管理系统中的各个模块</td>
+<td>design in the system</td>
+<td>98</td>
+</tr>
+<tr>
+<td>5</td>
+<td>GPU Acceleration with CUDA</td>
+<td>CUDA编程</td>
+<td>GPU是什么，加速计算意味着什么，下一代计算机体系结构会是怎么样 的</td>
+<td>application in system</td>
+<td>96</td>
+</tr>
+</tbody>
+</table>
+<h2>什么是于++？</h2>
+<p>这个问题困扰了很多计系学生。一个简单的“Yu”字，意味着给分不确定，不理解，高难度。这门课令许多人谈虎色变，以至于我上学期末跟导师谈起，这学期我想选C/C++时，导师大惊：“万分小心！听说那门课工作量很多！”。然而，我是一个喜欢Project的人，我也不喜欢听别人说啥就是啥，5个Project驱使着我加入到了这学期的100个倒霉蛋里。但是在三次Project结束后，突然有一天我在想，这5个Project到底意味着什么？我为什么要做这5个Project？</p>
+<p>Project1是从计算器这类基础运算开始的。在以往的Java,Python里，我们大多时候不是很关注数据类型，比如float和double，亦或者这些语言都有很好的数据类封装及api。在实现Project1的时候，指针、栈、正则表达式开始引起我们注意。Project1是想告诉我们，C/C++关注于底层，它是比Java颗粒度更小、更精细化的语言。在这门语言上设计一个小系统，才能体验到精细化的感觉。</p>
+<p>Project2是Java和C的比较。我们在过去的优化里大多只是关注算法层面的优化，比如剪枝、更好地局部搜索。但是，我们的代码是如何执行的，C为什么快于Java，似乎研究的同学更少。Project2是想告诉我们，C/C++的精细化与对底层的接近，使得它的程序性能更高，有更多的优化方向。同时，计算机软硬件构成的复杂系统让C/C++执行情况更复杂，执行时不能一概而论。</p>
+<p>Project3是优化浮点数矩阵乘法。在了解到C/C++的高性能后，我们开始实践技术。我们复习并运用了SIMD，OpenMP。但是我们惊讶的发现，OpenBLAS是个强劲的对手。突然，我们的toy程序被一个精密优化的复杂系统所折服。Project3是想告诉我们，作为一门精细的语言，无数程序员用C/C++对程序做了系统性的优化，我们在学习优化同时，也要明白这门语言所创造的系统工程。</p>
+<p>Project4是矩阵类的设计。在这里，我们会参考cv::Mat,学习构建一个大型工程内的一个类。跟之前的底层和优化相比，这回特性和系统占据了主导。封装管理、内存泄露、软copy、运算符重载开始运用。Project4可能是想告诉我们，如何开发一个系统，如何用C/C++搭建系统，如何管理好系统。</p>
+<p>Project5往年Project是神经网络，今年我们与时俱进，来到了CUDA的探索。这两年CUDA与GPU的活跃，让我们看到C/C++在这方面的大放异彩，我们在这次Project中探讨了目前学界在GPU中的应用与探索，描述了一部分NVIDIA在GPU技术中的迭代。我们可以看到，C/C++是一门古老、但至今仍活跃在工业界的语言，它的基础造就了当今各种应用的顺畅运行，让再高大上的机器学习、网络通信、生成式人工智能都能成熟落地，飞入我们每一个寻常百姓家。</p>
+<p>C/C++的Project是变化的，每年计算器、矩阵、神经网络都会轮着来。但是其核心，想必我们从上面的描述中已经发现了，“优化——系统——应用”是我们学习这门底层语言的流程。这是它的特性决定的。因此，单纯地掌握C/C++语法，其实根本没有入门。这就像二战时期日本的“知美派”，知道美国有几艘航空母舰、多少飞机并不能打败美国；了解美国人的出击战术、航母部署方式、思考方式，才能真正击败对手（说的就是你，山本五十六）。</p>
+<p>Project不是卷起来的，而是学到了的。知道了它真正的意图，我们才能像头号玩家里的主角，破解“于”的奥秘，发现游戏里的彩蛋，找到属于自己的知识与财富。</p>
+<h2>CPP Course Website</h2>
+<p><a href="https://github.com/ShiqiYu/CPP">https://github.com/ShiqiYu/CPP</a></p>
+<h2>My Blogs</h2>
+<p><a href="https://haibin-blog.vercel.app/index.php/cpp-project1/">Project 1</a>
+<a href="https://haibin-blog.vercel.app/index.php/cpp-project2-report-matrix-multiplication/">Project 2</a>
+<a href="https://haibin-blog.vercel.app/index.php/cpp-project3-sgemm-optimization/">Project 3</a>
+<a href="https://haibin-blog.vercel.app/index.php/cpp-project4-a-2d-gpu-mat/">Project 4</a>
+<a href="https://haibin-blog.vercel.app/index.php/cpp-project5-the-beginning-of-accelerated-computing/">Project 5</a></p>
+<h2>Main Webpage:</h2>
+<p><a href="https://main--haibincpp1.netlify.app/">CPP (main--haibincpp1.netlify.app)</a></p>
+<h2>CPP Projects online:</h2>
+<p><a href="https://main--haibincpp1.netlify.app/cpp/cpp%20pro1%20web/">CPP Pro1 Web (main--haibincpp1.netlify.app)</a>
+<a href="https://main--haibincpp1.netlify.app/cpp/cpp%20pro2%20web/">CPP Pro2 Web (main--haibincpp1.netlify.app)</a>
+<a href="https://main--haibincpp1.netlify.app/cpp/cpp%20pro3%20web/">CPP Pro3 Web (main--haibincpp1.netlify.app)</a>
+<a href="https://main--haibincpp1.netlify.app/cpp/cpp%20pro4%20web/">CPP Pro4 Web (main--haibincpp1.netlify.app)</a>
+<a href="https://main--haibincpp1.netlify.app/cpp/cpp%20pro5%20web/">CPP Pro5 Web (main--haibincpp1.netlify.app)</a></p>

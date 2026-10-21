@@ -35,3 +35,18 @@ Create a Markdown file in `src/content/moments/`. Provide image URLs in the `ima
 npm run dev
 npm run build
 ```
+
+## Importing from WordPress
+
+Export **All content** from WordPress under **Tools → Export**, then run:
+
+```bash
+python3 scripts/import_wordpress.py /path/to/wordpress-export.xml
+npm run build
+```
+
+The importer writes generated posts to `src/content/posts/wordpress/`. It keeps
+the original HTML for the first migration pass and generates compatibility
+pages for legacy `/index.php/<slug>/` links. Re-running it replaces only that
+generated directory. Draft, pending, and private posts are skipped by default
+so they cannot be accidentally committed to this public repository.
