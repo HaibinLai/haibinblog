@@ -43,6 +43,54 @@ const citation = `@online{${citationKey},\n  title={${post.data.title}},\n  auth
     <div class="article-layout">
       <div class="prose"><Content /></div>
     </div>
+    <script>
+      const tableWrappers: HTMLElement[] = [];
+
+      document.querySelectorAll<HTMLTableElement>('.prose table').forEach((table, index) => {
+        const existingWrapper = table.parentElement?.closest<HTMLElement>('.article-table-scroll');
+        if (existingWrapper) {
+          tableWrappers.push(existingWrapper);
+          return;
+        }
+
+        const wrapper = document.createElement('div');
+        const caption = table.querySelector('caption')?.textContent?.trim();
+        wrapper.className = 'article-table-scroll';
+        wrapper.dataset.tableLabel = caption || `Scrollable table ${index + 1}`;
+        table.before(wrapper);
+        wrapper.append(table);
+        tableWrappers.push(wrapper);
+      });
+
+      const updateScrollableTable = (wrapper: HTMLElement) => {
+        const isScrollable = wrapper.scrollWidth > wrapper.clientWidth + 1;
+        if (isScrollable) {
+          wrapper.tabIndex = 0;
+          wrapper.setAttribute('role', 'region');
+          wrapper.setAttribute('aria-label', wrapper.dataset.tableLabel || 'Scrollable table');
+        } else {
+          wrapper.removeAttribute('tabindex');
+          wrapper.removeAttribute('role');
+          wrapper.removeAttribute('aria-label');
+        }
+      };
+
+      const updateScrollableTables = () => tableWrappers.forEach(updateScrollableTable);
+      requestAnimationFrame(updateScrollableTables);
+
+      if ('ResizeObserver' in window) {
+        const tableResizeObserver = new ResizeObserver((entries) => {
+          entries.forEach((entry) => updateScrollableTable(entry.target as HTMLElement));
+        });
+        tableWrappers.forEach((wrapper) => tableResizeObserver.observe(wrapper));
+      } else {
+        window.addEventListener('resize', updateScrollableTables, { passive: true });
+      }
+
+      document.querySelectorAll<HTMLDetailsElement>('.prose details').forEach((details) => {
+        details.addEventListener('toggle', () => requestAnimationFrame(updateScrollableTables));
+      });
+    </script>
     {post.data.showCitation && (
       <section class="citation">
         <h2>If you need to cite this post</h2>
