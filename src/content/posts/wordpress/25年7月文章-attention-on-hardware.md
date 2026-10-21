@@ -8,7 +8,7 @@ draft: false
 slug: "25年7月文章-attention-on-hardware"
 legacySlug: "25年7月文章-attention-on-hardware"
 wordpressId: 924
-sourceUrl: "https://haibin-blog.vercel.app/index.php/25%e5%b9%b47%e6%9c%88%e6%96%87%e7%ab%a0-attention-on-hardware/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/25%e5%b9%b47%e6%9c%88%e6%96%87%e7%ab%a0-attention-on-hardware/"
 commentCount: 0
 importedFromWordPress: true
 ---

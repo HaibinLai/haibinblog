@@ -9,7 +9,7 @@ draft: false
 slug: "compiler-nfa-dfa-cfg"
 legacySlug: "compiler-nfa-dfa-cfg"
 wordpressId: 990
-sourceUrl: "https://haibin-blog.vercel.app/index.php/compiler-nfa-dfa-cfg/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/compiler-nfa-dfa-cfg/"
 commentCount: 0
 importedFromWordPress: true
 ---

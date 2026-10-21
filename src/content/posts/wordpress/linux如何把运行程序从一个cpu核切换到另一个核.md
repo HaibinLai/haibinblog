@@ -8,7 +8,7 @@ draft: false
 slug: "linux如何把运行程序从一个cpu核切换到另一个核"
 legacySlug: "linux如何把运行程序从一个cpu核切换到另一个核"
 wordpressId: 708
-sourceUrl: "https://haibin-blog.vercel.app/index.php/linux%e5%a6%82%e4%bd%95%e6%8a%8a%e8%bf%90%e8%a1%8c%e7%a8%8b%e5%ba%8f%e4%bb%8e%e4%b8%80%e4%b8%aacpu%e6%a0%b8%e5%88%87%e6%8d%a2%e5%88%b0%e5%8f%a6%e4%b8%80%e4%b8%aa%e6%a0%b8/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/linux%e5%a6%82%e4%bd%95%e6%8a%8a%e8%bf%90%e8%a1%8c%e7%a8%8b%e5%ba%8f%e4%bb%8e%e4%b8%80%e4%b8%aacpu%e6%a0%b8%e5%88%87%e6%8d%a2%e5%88%b0%e5%8f%a6%e4%b8%80%e4%b8%aa%e6%a0%b8/"
 commentCount: 0
 importedFromWordPress: true
 ---

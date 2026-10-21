@@ -9,14 +9,14 @@ draft: false
 slug: "cpp-project5-the-beginning-of-accelerated-computing"
 legacySlug: "cpp-project5-the-beginning-of-accelerated-computing"
 wordpressId: 231
-sourceUrl: "https://haibin-blog.vercel.app/index.php/cpp-project5-the-beginning-of-accelerated-computing/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/cpp-project5-the-beginning-of-accelerated-computing/"
 commentCount: 1
 importedFromWordPress: true
 ---
 <h1><strong>CS205·C/C++ Programming</strong></h1>
 <h1>Project5 Report:  The beginning of Accelerated Computing</h1>
 <hr />
-<p>PDF 版本：<a href="https://haibin-blog.vercel.app/wp-content/uploads/2024/09/Project5赖海斌.pdf">Project 5</a>
+<p>PDF 版本：<a href="https://www.haibinlaiblog.top/wp-content/uploads/2024/09/Project5赖海斌.pdf">Project 5</a>
 Github: <a href="https://github.com/HaibinLai/CS205-CPP-Programing-Project">https://github.com/HaibinLai/CS205-CPP-Programing-Project</a></p>
 <h2>摘要</h2>
 <p>“这是一个令人惊叹的时代，因为我们正处于一场新的工业革命的开始，过去蒸汽机、电力、PC和互联网带来了信息革命，现在是人工智能。前所未有的是，我们正在同时经历两种转变：通用计算的结束和加速计算的开始。”</p>

@@ -9,7 +9,7 @@ draft: false
 slug: "cache-bypassing"
 legacySlug: "cache-bypassing"
 wordpressId: 428
-sourceUrl: "https://haibin-blog.vercel.app/index.php/cache-bypassing/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/cache-bypassing/"
 commentCount: 0
 importedFromWordPress: true
 ---

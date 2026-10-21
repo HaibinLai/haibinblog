@@ -9,7 +9,7 @@ draft: false
 slug: "agent-website"
 legacySlug: "agent-website"
 wordpressId: 1228
-sourceUrl: "https://haibin-blog.vercel.app/index.php/agent-website/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/agent-website/"
 commentCount: 0
 importedFromWordPress: true
 ---

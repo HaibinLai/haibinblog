@@ -9,13 +9,13 @@ draft: false
 slug: "hpl-浮点数理论性能与实际性能相差6倍问题"
 legacySlug: "hpl-浮点数理论性能与实际性能相差6倍问题"
 wordpressId: 382
-sourceUrl: "https://haibin-blog.vercel.app/index.php/hpl-%e6%b5%ae%e7%82%b9%e6%95%b0%e7%90%86%e8%ae%ba%e6%80%a7%e8%83%bd%e4%b8%8e%e5%ae%9e%e9%99%85%e6%80%a7%e8%83%bd%e7%9b%b8%e5%b7%ae6%e5%80%8d%e9%97%ae%e9%a2%98/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/hpl-%e6%b5%ae%e7%82%b9%e6%95%b0%e7%90%86%e8%ae%ba%e6%80%a7%e8%83%bd%e4%b8%8e%e5%ae%9e%e9%99%85%e6%80%a7%e8%83%bd%e7%9b%b8%e5%b7%ae6%e5%80%8d%e9%97%ae%e9%a2%98/"
 commentCount: 0
 importedFromWordPress: true
 ---
 <p>HPL</p>
 <p>为什么是6</p>
-<p><img src="https://haibin-blog.vercel.app/wp-content/uploads/2024/10/image-1730816166519.png" alt="file" /></p>
+<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/10/image-1730816166519.png" alt="file" /></p>
 <p>dispatch </p>
 <p><a href="https://www.nextplatform.com/2021/03/26/deep-dive-into-amds-milan-epyc-7003-architecture/">https://www.nextplatform.com/2021/03/26/deep-dive-into-amds-milan-epyc-7003-architecture/</a></p>
 <p><a href="https://www.nextplatform.com/wp-content/uploads/2021/03/amd-milan-epyc-zen2-versus-zen3.jpg">https://www.nextplatform.com/wp-content/uploads/2021/03/amd-milan-epyc-zen2-versus-zen3.jpg</a></p>

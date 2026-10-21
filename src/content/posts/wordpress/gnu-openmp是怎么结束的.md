@@ -8,7 +8,7 @@ draft: false
 slug: "gnu-openmp是怎么结束的"
 legacySlug: "gnu-openmp是怎么结束的"
 wordpressId: 835
-sourceUrl: "https://haibin-blog.vercel.app/index.php/gnu-openmp%e6%98%af%e6%80%8e%e4%b9%88%e7%bb%93%e6%9d%9f%e7%9a%84/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/gnu-openmp%e6%98%af%e6%80%8e%e4%b9%88%e7%bb%93%e6%9d%9f%e7%9a%84/"
 commentCount: 0
 importedFromWordPress: true
 ---

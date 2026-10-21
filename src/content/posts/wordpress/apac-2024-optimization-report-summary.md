@@ -9,7 +9,7 @@ draft: false
 slug: "apac-2024-optimization-report-summary"
 legacySlug: "apac-2024-optimization-report-summary"
 wordpressId: 412
-sourceUrl: "https://haibin-blog.vercel.app/index.php/apac-2024-optimization-report-summary/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/apac-2024-optimization-report-summary/"
 commentCount: 0
 importedFromWordPress: true
 ---

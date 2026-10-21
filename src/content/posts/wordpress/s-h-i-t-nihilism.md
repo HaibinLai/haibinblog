@@ -9,7 +9,7 @@ draft: false
 slug: "s-h-i-t-nihilism"
 legacySlug: "s-h-i-t-nihilism"
 wordpressId: 1269
-sourceUrl: "https://haibin-blog.vercel.app/index.php/s-h-i-t-nihilism/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/s-h-i-t-nihilism/"
 commentCount: 0
 importedFromWordPress: true
 ---

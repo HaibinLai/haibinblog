@@ -8,7 +8,7 @@ draft: false
 slug: "cidr22-mmap-💩"
 legacySlug: "cidr22-mmap-💩"
 wordpressId: 921
-sourceUrl: "https://haibin-blog.vercel.app/index.php/cidr22-mmap-%f0%9f%92%a9/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/cidr22-mmap-%f0%9f%92%a9/"
 commentCount: 0
 importedFromWordPress: true
 ---

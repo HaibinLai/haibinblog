@@ -8,7 +8,7 @@ draft: false
 slug: "cnn-的两个技术-ugc与batchnorm"
 legacySlug: "cnn-的两个技术-ugc与batchnorm"
 wordpressId: 935
-sourceUrl: "https://haibin-blog.vercel.app/index.php/cnn-%e7%9a%84%e4%b8%a4%e4%b8%aa%e6%8a%80%e6%9c%af-ugc%e4%b8%8ebatchnorm/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/cnn-%e7%9a%84%e4%b8%a4%e4%b8%aa%e6%8a%80%e6%9c%af-ugc%e4%b8%8ebatchnorm/"
 commentCount: 0
 importedFromWordPress: true
 ---

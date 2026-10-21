@@ -9,7 +9,7 @@ draft: false
 slug: "a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2"
 legacySlug: "a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2"
 wordpressId: 1103
-sourceUrl: "https://haibin-blog.vercel.app/index.php/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/"
 commentCount: 0
 importedFromWordPress: true
 ---

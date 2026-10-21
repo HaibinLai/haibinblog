@@ -9,7 +9,7 @@ draft: false
 slug: "parslfest-25-会议记录"
 legacySlug: "parslfest-25-会议记录"
 wordpressId: 957
-sourceUrl: "https://haibin-blog.vercel.app/index.php/parslfest-25-%e4%bc%9a%e8%ae%ae%e8%ae%b0%e5%bd%95/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/parslfest-25-%e4%bc%9a%e8%ae%ae%e8%ae%b0%e5%bd%95/"
 commentCount: 0
 importedFromWordPress: true
 ---

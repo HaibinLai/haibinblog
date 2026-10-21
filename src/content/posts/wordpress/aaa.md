@@ -9,7 +9,7 @@ draft: false
 slug: "aaa"
 legacySlug: "aaa"
 wordpressId: 1137
-sourceUrl: "https://haibin-blog.vercel.app/index.php/aaa/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/aaa/"
 commentCount: 0
 importedFromWordPress: true
 ---

@@ -9,7 +9,7 @@ draft: false
 slug: "nsdi26-can-we-use-mlfq-in-llm-serving"
 legacySlug: "nsdi26-can-we-use-mlfq-in-llm-serving"
 wordpressId: 1039
-sourceUrl: "https://haibin-blog.vercel.app/index.php/nsdi26-can-we-use-mlfq-in-llm-serving/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/nsdi26-can-we-use-mlfq-in-llm-serving/"
 commentCount: 0
 importedFromWordPress: true
 ---

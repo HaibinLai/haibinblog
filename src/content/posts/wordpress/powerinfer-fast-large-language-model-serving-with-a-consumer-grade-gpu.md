@@ -9,7 +9,7 @@ draft: false
 slug: "powerinfer-fast-large-language-model-serving-with-a-consumer-grade-gpu"
 legacySlug: "powerinfer-fast-large-language-model-serving-with-a-consumer-grade-gpu"
 wordpressId: 881
-sourceUrl: "https://haibin-blog.vercel.app/index.php/powerinfer-fast-large-language-model-serving-with-a-consumer-grade-gpu/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/powerinfer-fast-large-language-model-serving-with-a-consumer-grade-gpu/"
 commentCount: 0
 importedFromWordPress: true
 ---

@@ -9,11 +9,11 @@ draft: false
 slug: "sc-2024-passage"
 legacySlug: "sc-2024-passage"
 wordpressId: 679
-sourceUrl: "https://haibin-blog.vercel.app/index.php/sc-2024-passage/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/sc-2024-passage/"
 commentCount: 0
 importedFromWordPress: true
 ---
-<p><a href="https://haibin-blog.vercel.app/index.php/418/%e5%be%ae%e4%bf%a1%e6%88%aa%e5%9b%be_20241118023327/"><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503230117727.jpeg" alt="" /></a></p>
+<p><a href="https://www.haibinlaiblog.top/index.php/418/%e5%be%ae%e4%bf%a1%e6%88%aa%e5%9b%be_20241118023327/"><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503230117727.jpeg" alt="" /></a></p>
 <p>为了寻找下一阶段的工作,同时思考我未来要做什么,我就将 SC 24大概90 篇文章都读了一遍.
 这个栏目是我为了学习HPC而创建，我的解读目的在于了解以下问题：</p>
 <p><strong>研究的问题</strong></p>
@@ -40,8 +40,8 @@ importedFromWordPress: true
 <li>读文章的顺序是什么? 哪些是我们第一次读文章最感兴趣的点?</li>
 <li>如何最快找到相关工作? </li>
 </ol>
-<p><a href="https://haibin-blog.vercel.app/index.php/418/">SC 24 Brief Summary 1－Paper Reading－Haibin's blog</a>
-<a href="https://haibin-blog.vercel.app/index.php/sc24-brief-summary-2/">SC 24 Brief Summary 2－Paper Reading－Haibin's blog</a>
-<a href="https://haibin-blog.vercel.app/index.php/sc-paper-reading-3/">SC 24 Brief Summary 3－Paper Reading－Haibin's blog</a>
-<a href="https://haibin-blog.vercel.app/index.php/sc-24-brief-summary-4/">SC 24 Brief Summary 4－Paper Reading－Haibin's blog</a>
-<a href="https://haibin-blog.vercel.app/index.php/sc-paper-5/">SC 24 Brief Summary 5－Paper Reading－Haibin's blog</a></p>
+<p><a href="https://www.haibinlaiblog.top/index.php/418/">SC 24 Brief Summary 1－Paper Reading－Haibin's blog</a>
+<a href="https://www.haibinlaiblog.top/index.php/sc24-brief-summary-2/">SC 24 Brief Summary 2－Paper Reading－Haibin's blog</a>
+<a href="https://www.haibinlaiblog.top/index.php/sc-paper-reading-3/">SC 24 Brief Summary 3－Paper Reading－Haibin's blog</a>
+<a href="https://www.haibinlaiblog.top/index.php/sc-24-brief-summary-4/">SC 24 Brief Summary 4－Paper Reading－Haibin's blog</a>
+<a href="https://www.haibinlaiblog.top/index.php/sc-paper-5/">SC 24 Brief Summary 5－Paper Reading－Haibin's blog</a></p>

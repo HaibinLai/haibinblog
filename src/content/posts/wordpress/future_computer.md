@@ -9,7 +9,7 @@ draft: false
 slug: "future_computer"
 legacySlug: "future_computer"
 wordpressId: 705
-sourceUrl: "https://haibin-blog.vercel.app/index.php/future_computer/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/future_computer/"
 commentCount: 0
 importedFromWordPress: true
 ---

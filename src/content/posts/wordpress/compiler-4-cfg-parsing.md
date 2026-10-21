@@ -8,7 +8,7 @@ draft: false
 slug: "compiler-4-cfg-parsing"
 legacySlug: "compiler-4-cfg-parsing"
 wordpressId: 995
-sourceUrl: "https://haibin-blog.vercel.app/index.php/compiler-4-cfg-parsing/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/compiler-4-cfg-parsing/"
 commentCount: 0
 importedFromWordPress: true
 ---

@@ -9,7 +9,7 @@ draft: false
 slug: "distributed-systems-and-cloud-computing-review-1"
 legacySlug: "distributed-systems-and-cloud-computing-review-1"
 wordpressId: 1119
-sourceUrl: "https://haibin-blog.vercel.app/index.php/distributed-systems-and-cloud-computing-review-1/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/distributed-systems-and-cloud-computing-review-1/"
 commentCount: 0
 importedFromWordPress: true
 ---

@@ -8,7 +8,7 @@ draft: false
 slug: "从零开始造一颗-risc-v-cpu(一)-项目总览与流水线基础"
 legacySlug: "从零开始造一颗-risc-v-cpu（一）：项目总览与流水线基础"
 wordpressId: 1396
-sourceUrl: "https://haibin-blog.vercel.app/index.php/%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e9%80%a0%e4%b8%80%e9%a2%97-risc-v-cpu%ef%bc%88%e4%b8%80%ef%bc%89%ef%bc%9a%e9%a1%b9%e7%9b%ae%e6%80%bb%e8%a7%88%e4%b8%8e%e6%b5%81%e6%b0%b4%e7%ba%bf%e5%9f%ba%e7%a1%80/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e9%80%a0%e4%b8%80%e9%a2%97-risc-v-cpu%ef%bc%88%e4%b8%80%ef%bc%89%ef%bc%9a%e9%a1%b9%e7%9b%ae%e6%80%bb%e8%a7%88%e4%b8%8e%e6%b5%81%e6%b0%b4%e7%ba%bf%e5%9f%ba%e7%a1%80/"
 commentCount: 0
 importedFromWordPress: true
 ---

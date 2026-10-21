@@ -8,7 +8,7 @@ draft: false
 slug: "eurosys-25-skyserve"
 legacySlug: "eurosys-25-skyserve"
 wordpressId: 910
-sourceUrl: "https://haibin-blog.vercel.app/index.php/eurosys-25-skyserve/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/eurosys-25-skyserve/"
 commentCount: 0
 importedFromWordPress: true
 ---

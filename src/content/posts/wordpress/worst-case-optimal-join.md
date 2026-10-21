@@ -9,7 +9,7 @@ draft: false
 slug: "worst-case-optimal-join"
 legacySlug: "worst-case-optimal-join"
 wordpressId: 696
-sourceUrl: "https://haibin-blog.vercel.app/index.php/worst-case-optimal-join/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/worst-case-optimal-join/"
 commentCount: 0
 importedFromWordPress: true
 ---

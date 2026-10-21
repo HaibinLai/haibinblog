@@ -9,7 +9,7 @@ draft: false
 slug: "distributed-system-4-distributed-snapshots"
 legacySlug: "distributed-system-4-distributed-snapshots"
 wordpressId: 1014
-sourceUrl: "https://haibin-blog.vercel.app/index.php/distributed-system-4-distributed-snapshots/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/distributed-system-4-distributed-snapshots/"
 commentCount: 0
 importedFromWordPress: true
 ---

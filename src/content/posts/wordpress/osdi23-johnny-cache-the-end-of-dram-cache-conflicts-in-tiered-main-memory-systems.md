@@ -8,7 +8,7 @@ draft: false
 slug: "osdi23-johnny-cache-the-end-of-dram-cache-conflicts-in-tiered-main-memory-systems"
 legacySlug: "osdi23-johnny-cache-the-end-of-dram-cache-conflicts-in-tiered-main-memory-systems"
 wordpressId: 902
-sourceUrl: "https://haibin-blog.vercel.app/index.php/osdi23-johnny-cache-the-end-of-dram-cache-conflicts-in-tiered-main-memory-systems/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/osdi23-johnny-cache-the-end-of-dram-cache-conflicts-in-tiered-main-memory-systems/"
 commentCount: 0
 importedFromWordPress: true
 ---

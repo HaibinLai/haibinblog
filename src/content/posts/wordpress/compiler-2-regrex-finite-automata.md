@@ -8,7 +8,7 @@ draft: false
 slug: "compiler-2-regrex-finite-automata"
 legacySlug: "compiler-2-regrex-finite-automata"
 wordpressId: 992
-sourceUrl: "https://haibin-blog.vercel.app/index.php/compiler-2-regrex-finite-automata/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/compiler-2-regrex-finite-automata/"
 commentCount: 0
 importedFromWordPress: true
 ---

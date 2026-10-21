@@ -9,7 +9,7 @@ draft: false
 slug: "os-assignment-process"
 legacySlug: "os-assignment-process"
 wordpressId: 377
-sourceUrl: "https://haibin-blog.vercel.app/index.php/os-assignment-process/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/os-assignment-process/"
 commentCount: 0
 importedFromWordPress: true
 ---

@@ -9,7 +9,7 @@ draft: false
 slug: "asplos13-unikernel-a-special-kernel-for-apps-in-cloud"
 legacySlug: "asplos13-unikernel-a-special-kernel-for-apps-in-cloud"
 wordpressId: 889
-sourceUrl: "https://haibin-blog.vercel.app/index.php/asplos13-unikernel-a-special-kernel-for-apps-in-cloud/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/asplos13-unikernel-a-special-kernel-for-apps-in-cloud/"
 commentCount: 0
 importedFromWordPress: true
 ---

@@ -9,11 +9,11 @@ draft: false
 slug: "gcc是怎么实现openmp的"
 legacySlug: "gcc是怎么实现openmp的？"
 wordpressId: 825
-sourceUrl: "https://haibin-blog.vercel.app/index.php/gcc%e6%98%af%e6%80%8e%e4%b9%88%e5%ae%9e%e7%8e%b0openmp%e7%9a%84%ef%bc%9f/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/gcc%e6%98%af%e6%80%8e%e4%b9%88%e5%ae%9e%e7%8e%b0openmp%e7%9a%84%ef%bc%9f/"
 commentCount: 0
 importedFromWordPress: true
 ---
-<p>由于网上关于GNU openmp的解构比较少，今天我由于工作问题，我也来亲自解答：“为什么OpenMP不能完成 “小而多的并行任务” 的问题。（llvm的解构我之前在博客已经做过 <a href="https://haibin-blog.vercel.app/index.php/openmp%e5%9c%a8llvm%e9%87%8c%e6%98%af%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0%e7%9a%84%ef%bc%9fwip/">llvm 如何实现OpenMP</a> ，其实从结构来看，跟OpenMP的结构基本一致，都遵从OpenMP官方的fork-join 的idea，但是llvm的实现会比较复杂）</p>
+<p>由于网上关于GNU openmp的解构比较少，今天我由于工作问题，我也来亲自解答：“为什么OpenMP不能完成 “小而多的并行任务” 的问题。（llvm的解构我之前在博客已经做过 <a href="https://www.haibinlaiblog.top/index.php/openmp%e5%9c%a8llvm%e9%87%8c%e6%98%af%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0%e7%9a%84%ef%bc%9fwip/">llvm 如何实现OpenMP</a> ，其实从结构来看，跟OpenMP的结构基本一致，都遵从OpenMP官方的fork-join 的idea，但是llvm的实现会比较复杂）</p>
 <h2>学习网页</h2>
 <p>我们所有的学习都可以从这里出发：</p>
 <p>源码 doxygen文档：
@@ -561,7 +561,7 @@ task 类：</li>
 </tbody>
 </table>
 <p>后面的详细逻辑我用GPT生成了，大家可以按照自己的需要看看：
-<a href="https://haibin-blog.vercel.app/index.php/proc_bind-%e5%90%84%e7%ad%96%e7%95%a5%e7%9a%84-place-%e8%ae%a1%e7%ae%97%e9%80%bb%e8%be%91%e3%80%81affinity_thr-%e7%9a%84%e5%86%85%e5%ad%98%e7%ae%a1%e7%90%86%ef%bc%8cgomp_simple_barrier_reinit/">https://haibin-blog.vercel.app/index.php/proc_bind-%e5%90%84%e7%ad%96%e7%95%a5%e7%9a%84-place-%e8%ae%a1%e7%ae%97%e9%80%bb%e8%be%91%e3%80%81affinity_thr-%e7%9a%84%e5%86%85%e5%ad%98%e7%ae%a1%e7%90%86%ef%bc%8cgomp_simple_barrier_reinit/</a></p>
+<a href="https://www.haibinlaiblog.top/index.php/proc_bind-%e5%90%84%e7%ad%96%e7%95%a5%e7%9a%84-place-%e8%ae%a1%e7%ae%97%e9%80%bb%e8%be%91%e3%80%81affinity_thr-%e7%9a%84%e5%86%85%e5%ad%98%e7%ae%a1%e7%90%86%ef%bc%8cgomp_simple_barrier_reinit/">https://www.haibinlaiblog.top/index.php/proc_bind-%e5%90%84%e7%ad%96%e7%95%a5%e7%9a%84-place-%e8%ae%a1%e7%ae%97%e9%80%bb%e8%be%91%e3%80%81affinity_thr-%e7%9a%84%e5%86%85%e5%ad%98%e7%ae%a1%e7%90%86%ef%bc%8cgomp_simple_barrier_reinit/</a></p>
 <p>其有3个核心逻辑：</p>
 <table>
 <thead>
@@ -771,7 +771,7 @@ task 类：</li>
       gomp_init_thread_affinity (attr, p);
     }</code></pre>
 <p>这段代码是 <code>gomp_team_start()</code> 中为新线程进行 <strong>place 绑定（affinity placement）</strong> 的关键部分。它的核心作用是：<strong>根据 OpenMP 的 <code>proc_bind</code> 策略，为每个新线程分配合适的 CPU 运行位置（place），并初始化线程亲和性（thread affinity）</strong>。</p>
-<p>GPT细节分析 <a href="https://haibin-blog.vercel.app/index.php/openmp-%e7%bb%91%e5%ae%9a%e6%a0%b8%e8%b7%9f%e7%ba%bf%e7%a8%8b/">https://haibin-blog.vercel.app/index.php/openmp-%e7%bb%91%e5%ae%9a%e6%a0%b8%e8%b7%9f%e7%ba%bf%e7%a8%8b/</a></p>
+<p>GPT细节分析 <a href="https://www.haibinlaiblog.top/index.php/openmp-%e7%bb%91%e5%ae%9a%e6%a0%b8%e8%b7%9f%e7%ba%bf%e7%a8%8b/">https://www.haibinlaiblog.top/index.php/openmp-%e7%bb%91%e5%ae%9a%e6%a0%b8%e8%b7%9f%e7%ba%bf%e7%a8%8b/</a></p>
 <p>兼容 affinity_count 情况（CPU 绑定时预分配用的占位）。
 为后续 <code>pthread_create</code> 分配启动数据结构数组。</p>
 <h4>分配data</h4>
@@ -807,7 +807,7 @@ task 类：</li>
     gomp_fatal (&quot;Thread creation failed: %s&quot;, strerror (err));</code></pre>
 <h3>收尾同步所有的线程</h3>
 <p>详细分析：
-<a href="https://haibin-blog.vercel.app/index.php/openmp%e7%9a%84barrier%e5%90%8c%e6%ad%a5/">https://haibin-blog.vercel.app/index.php/openmp%e7%9a%84barrier%e5%90%8c%e6%ad%a5/</a></p>
+<a href="https://www.haibinlaiblog.top/index.php/openmp%e7%9a%84barrier%e5%90%8c%e6%ad%a5/">https://www.haibinlaiblog.top/index.php/openmp%e7%9a%84barrier%e5%90%8c%e6%ad%a5/</a></p>
 <p>下面是它的流程图
 <img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250528213009309.png" alt="" /></p>
 <p>其中，<code>gomp_display_affinity_var</code> 是展示的变量，用来调试。最核心的代码还是barrier</p>
@@ -1684,5 +1684,5 @@ ldd openmp_sum</code></pre>
 由于我们在一台2NUMA 24Core(没有超线程)的机器上运行，我们在这里能看到NUMA效应。</p>
 <p>更多的并行加速分析，欢迎看阿姆达尔定律和logP定律的解析。
 我把我的logP定律解析放在了这里：
-<a href="https://haibin-blog.vercel.app/index.php/pram-bsp-logp-model/">https://haibin-blog.vercel.app/index.php/pram-bsp-logp-model/</a></p>
+<a href="https://www.haibinlaiblog.top/index.php/pram-bsp-logp-model/">https://www.haibinlaiblog.top/index.php/pram-bsp-logp-model/</a></p>
 <p>欢迎做更多的实验！</p>

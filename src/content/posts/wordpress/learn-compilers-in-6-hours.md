@@ -9,7 +9,7 @@ draft: false
 slug: "learn-compilers-in-6-hours"
 legacySlug: "learn-compilers-in-6-hours"
 wordpressId: 1133
-sourceUrl: "https://haibin-blog.vercel.app/index.php/learn-compilers-in-6-hours/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/learn-compilers-in-6-hours/"
 commentCount: 1
 importedFromWordPress: true
 ---

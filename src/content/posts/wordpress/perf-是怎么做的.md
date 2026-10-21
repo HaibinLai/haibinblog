@@ -9,7 +9,7 @@ draft: false
 slug: "perf-是怎么做的"
 legacySlug: "perf-是怎么做的"
 wordpressId: 564
-sourceUrl: "https://haibin-blog.vercel.app/index.php/perf-%e6%98%af%e6%80%8e%e4%b9%88%e5%81%9a%e7%9a%84/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/perf-%e6%98%af%e6%80%8e%e4%b9%88%e5%81%9a%e7%9a%84/"
 commentCount: 0
 importedFromWordPress: true
 ---

@@ -9,7 +9,7 @@ draft: false
 slug: "openmp在llvm里是如何实现的-wip"
 legacySlug: "openmp在llvm里是如何实现的？wip"
 wordpressId: 639
-sourceUrl: "https://haibin-blog.vercel.app/index.php/openmp%e5%9c%a8llvm%e9%87%8c%e6%98%af%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0%e7%9a%84%ef%bc%9fwip/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/openmp%e5%9c%a8llvm%e9%87%8c%e6%98%af%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0%e7%9a%84%ef%bc%9fwip/"
 commentCount: 0
 importedFromWordPress: true
 ---

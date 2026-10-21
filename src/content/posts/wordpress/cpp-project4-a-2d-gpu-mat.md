@@ -9,14 +9,14 @@ draft: false
 slug: "cpp-project4-a-2d-gpu-mat"
 legacySlug: "cpp-project4-a-2d-gpu-mat"
 wordpressId: 227
-sourceUrl: "https://haibin-blog.vercel.app/index.php/cpp-project4-a-2d-gpu-mat/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/cpp-project4-a-2d-gpu-mat/"
 commentCount: 1
 importedFromWordPress: true
 ---
 <h1><strong>CS205·C/C++ Programming</strong></h1>
 <h1>Project4 Report:  A 2D GPU Mat</h1>
 <hr />
-<p>PDF 版本：<a href="https://haibin-blog.vercel.app/wp-content/uploads/2024/09/Project4赖海斌.pdf">Project 4</a>
+<p>PDF 版本：<a href="https://www.haibinlaiblog.top/wp-content/uploads/2024/09/Project4赖海斌.pdf">Project 4</a>
 Github: <a href="https://github.com/HaibinLai/CS205-CPP-Programing-Project">https://github.com/HaibinLai/CS205-CPP-Programing-Project</a>
 网页文档：<a href="https://laihb1106205841.github.io/GpuMat.github.io/class_matrix.html">Doxygen</a></p>
 <h2>摘要</h2>

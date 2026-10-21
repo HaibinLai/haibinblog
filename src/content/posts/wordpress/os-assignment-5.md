@@ -9,7 +9,7 @@ draft: false
 slug: "os-assignment-5"
 legacySlug: "os-assignment-5"
 wordpressId: 540
-sourceUrl: "https://haibin-blog.vercel.app/index.php/os-assignment-5/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/os-assignment-5/"
 commentCount: 0
 importedFromWordPress: true
 ---

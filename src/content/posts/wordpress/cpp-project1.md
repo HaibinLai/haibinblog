@@ -9,14 +9,14 @@ draft: false
 slug: "cpp-project1"
 legacySlug: "cpp-project1"
 wordpressId: 134
-sourceUrl: "https://haibin-blog.vercel.app/index.php/cpp-project1/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/cpp-project1/"
 commentCount: 0
 importedFromWordPress: true
 ---
 <h1><strong>CS205</strong> · <strong>C/C++</strong> <strong>Programming</strong></h1>
 <h1><strong>Project1</strong> <strong>Report: A &quot;Simple&quot; Calculator</strong></h1>
 <hr />
-<p>PDF 版本：<a href="https://haibin-blog.vercel.app/wp-content/uploads/2024/08/Project1赖海斌.pdf" title="Project1赖海斌">Project1赖海斌</a>
+<p>PDF 版本：<a href="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/Project1赖海斌.pdf" title="Project1赖海斌">Project1赖海斌</a>
 Github: <a href="https://github.com/HaibinLai/CS205-CPP-Programing-Project">https://github.com/HaibinLai/CS205-CPP-Programing-Project</a></p>
 <h2><strong>摘要</strong></h2>
 <p>在本次 Project 中，我初步用C 实现了一个简单的计算器，可以简单地完成项目需求。 在计算器的输入有效数字小于 8 位时，我阅读了 <strong>IEEE</strong> <strong>754</strong> <strong>标准</strong>，使用 double 的加减法进行 运算。在计算器输入数字大于 8 位时，我<strong>借鉴了</strong> <strong>Postgresql</strong> <strong>数据库</strong>中 numeric 的实现方法， 使用<strong>数组</strong>进行精确计算。我注意到<strong>内存泄露</strong>的问题，并构建了一个内存控制检测系统，可以 减少我的内存泄露。另外，我学习了解了 <strong>OpenMP</strong> <strong>与</strong> <strong>CUDA</strong> 编程上，各自写了一个乘法方 法，可惜由于身体原因没能测试性能。除此之外，我了解了大整数乘法等计算器在现代的应 用，比如在密码学中的加密，科学计算等。我也了解了算法，比如 <strong>Karatsuba</strong> 乘法算法。</p>

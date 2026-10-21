@@ -9,7 +9,7 @@ draft: false
 slug: "google-file-system"
 legacySlug: "google-file-system"
 wordpressId: 263
-sourceUrl: "https://haibin-blog.vercel.app/index.php/google-file-system/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/google-file-system/"
 commentCount: 0
 importedFromWordPress: true
 ---

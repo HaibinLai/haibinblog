@@ -9,7 +9,7 @@ draft: false
 slug: "distributed-and-cloud-computing-assignment-4"
 legacySlug: "distributed-and-cloud-computing-assignment-4"
 wordpressId: 1140
-sourceUrl: "https://haibin-blog.vercel.app/index.php/distributed-and-cloud-computing-assignment-4/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/distributed-and-cloud-computing-assignment-4/"
 commentCount: 0
 importedFromWordPress: true
 ---
@@ -597,5 +597,5 @@ Throughout this process, the <strong>pod anti-affinity</strong> rule ensured tha
 <p>And we can also give some deeper taste on Function as a Service. Try to use K8s to run a FaaS service. That would be cool!</p>
 <h3>Some of my learning records</h3>
 <p>I am also learning CSE5020 Advanced Distributed Systems this semester (just self-taking the class &amp; self learning), and some of my recording is on my blog. Feel free to see them :)
-<a href="https://haibin-blog.vercel.app/">https://haibin-blog.vercel.app/</a></p>
+<a href="https://www.haibinlaiblog.top/">https://www.haibinlaiblog.top/</a></p>
 <p>I am also fascinated in recording everything I see during my studies, like papers, news, blogs, and some travel fun stories. It's really great to post them on a self learning space.</p>

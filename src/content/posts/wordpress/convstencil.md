@@ -1,6 +1,6 @@
 ---
 title: "ConvStencil"
-description: "一个讲的挺不错的组会 https://haibin-blog.vercel.app/wp-content/uploads/2025/01/ConvStencil1.pdf"
+description: "一个讲的挺不错的组会 https://www.haibinlaiblog.top/wp-content/uploads/2025/01/ConvStencil1.pdf"
 publishedAt: "2025-01-06 18:08:00"
 updatedAt: "2025-06-11 06:27:32"
 category: "Paper Reading"
@@ -9,9 +9,9 @@ draft: false
 slug: "convstencil"
 legacySlug: "convstencil"
 wordpressId: 570
-sourceUrl: "https://haibin-blog.vercel.app/index.php/convstencil/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/convstencil/"
 commentCount: 0
 importedFromWordPress: true
 ---
 <p>一个讲的挺不错的组会</p>
-<p><a href="https://haibin-blog.vercel.app/wp-content/uploads/2025/01/ConvStencil1.pdf">https://haibin-blog.vercel.app/wp-content/uploads/2025/01/ConvStencil1.pdf</a></p>
+<p><a href="https://www.haibinlaiblog.top/wp-content/uploads/2025/01/ConvStencil1.pdf">https://www.haibinlaiblog.top/wp-content/uploads/2025/01/ConvStencil1.pdf</a></p>

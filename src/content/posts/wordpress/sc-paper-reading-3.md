@@ -1,6 +1,6 @@
 ---
 title: "SC Paper Reading 3"
-description: "总链接： https://haibin-blog.vercel.app/index.php/sc-2024-passage/ Paper Computational Efficiency and Learning Techniques Murali Emani B311 AcceleratorsApplications and Application FrameworksArtificial Intelligence/Machine…"
+description: "总链接： https://www.haibinlaiblog.top/index.php/sc-2024-passage/ Paper Computational Efficiency and Learning Techniques Murali Emani B311 AcceleratorsApplications and Application FrameworksArtificial Intelligence/Machine L…"
 publishedAt: "2025-03-12 17:59:56"
 updatedAt: "2025-03-25 00:16:12"
 category: "Paper Reading"
@@ -9,13 +9,13 @@ draft: false
 slug: "sc-paper-reading-3"
 legacySlug: "sc-paper-reading-3"
 wordpressId: 665
-sourceUrl: "https://haibin-blog.vercel.app/index.php/sc-paper-reading-3/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/sc-paper-reading-3/"
 commentCount: 0
 importedFromWordPress: true
 ---
-<p><a href="https://haibin-blog.vercel.app/index.php/418/%e5%be%ae%e4%bf%a1%e6%88%aa%e5%9b%be_20241118023327/"><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503121756466.jpeg" alt="" /></a></p>
+<p><a href="https://www.haibinlaiblog.top/index.php/418/%e5%be%ae%e4%bf%a1%e6%88%aa%e5%9b%be_20241118023327/"><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503121756466.jpeg" alt="" /></a></p>
 <p>总链接：
-<a href="https://haibin-blog.vercel.app/index.php/sc-2024-passage/">https://haibin-blog.vercel.app/index.php/sc-2024-passage/</a></p>
+<a href="https://www.haibinlaiblog.top/index.php/sc-2024-passage/">https://www.haibinlaiblog.top/index.php/sc-2024-passage/</a></p>
 <hr />
 <p>Paper   </p>
 <h2>Computational Efficiency and Learning Techniques</h2>

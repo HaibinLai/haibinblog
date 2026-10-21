@@ -8,7 +8,7 @@ draft: false
 slug: "gqa、mha、mqa、mla"
 legacySlug: "gqa、mha、mqa、mla"
 wordpressId: 963
-sourceUrl: "https://haibin-blog.vercel.app/index.php/gqa%e3%80%81mha%e3%80%81mqa%e3%80%81mla/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/gqa%e3%80%81mha%e3%80%81mqa%e3%80%81mla/"
 commentCount: 0
 importedFromWordPress: true
 ---

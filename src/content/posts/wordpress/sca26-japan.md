@@ -9,7 +9,7 @@ draft: false
 slug: "sca26-japan"
 legacySlug: "sca26-japan"
 wordpressId: 1185
-sourceUrl: "https://haibin-blog.vercel.app/index.php/sca26-japan/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/sca26-japan/"
 commentCount: 0
 importedFromWordPress: true
 ---

@@ -8,8 +8,8 @@ draft: false
 slug: "icml26-memarena-agent-memory-benchmark"
 legacySlug: "icml26-memarena-agent-memory-benchmark"
 wordpressId: 1424
-sourceUrl: "https://haibin-blog.vercel.app/index.php/icml26-memarena-agent-memory-benchmark/"
-commentCount: 0
+sourceUrl: "https://www.haibinlaiblog.top/index.php/icml26-memarena-agent-memory-benchmark/"
+commentCount: 1
 importedFromWordPress: true
 ---
 <p>一句话总结：这篇文章揭示了当前 LLM 智能体在处理长期、复杂交互任务时记忆能力的不足，并提供了一个更具挑战性的评估平台来推动该领域的进步</p>

@@ -8,7 +8,7 @@ draft: false
 slug: "fast25-mooncake-组会"
 legacySlug: "fast25-mooncake-组会"
 wordpressId: 919
-sourceUrl: "https://haibin-blog.vercel.app/index.php/fast25-mooncake-%e7%bb%84%e4%bc%9a/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/fast25-mooncake-%e7%bb%84%e4%bc%9a/"
 commentCount: 0
 importedFromWordPress: true
 ---

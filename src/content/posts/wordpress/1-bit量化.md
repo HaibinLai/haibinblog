@@ -9,7 +9,7 @@ draft: false
 slug: "1-bit量化"
 legacySlug: "1-bit量化"
 wordpressId: 794
-sourceUrl: "https://haibin-blog.vercel.app/index.php/1-bit%e9%87%8f%e5%8c%96/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/1-bit%e9%87%8f%e5%8c%96/"
 commentCount: 0
 importedFromWordPress: true
 ---

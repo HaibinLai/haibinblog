@@ -8,14 +8,14 @@ draft: false
 slug: "operating-system-assignment-4"
 legacySlug: "operating-system-assignment-4"
 wordpressId: 553
-sourceUrl: "https://haibin-blog.vercel.app/index.php/operating-system-assignment-4/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/operating-system-assignment-4/"
 commentCount: 0
 importedFromWordPress: true
 ---
 <p>Author:
 Haibin Lai
 12211612</p>
-<p><a href="https://haibin-blog.vercel.app/index.php/os-virtual-memory/">OS: Virtual Memory - Haibin's blog</a></p>
+<p><a href="https://www.haibinlaiblog.top/index.php/os-virtual-memory/">OS: Virtual Memory - Haibin's blog</a></p>
 <h2>Q1</h2>
 <p>Explain how do the CPU hardware and the operating system cooperate in the procedure of address translation.</p>
 <h3>Ans:</h3>

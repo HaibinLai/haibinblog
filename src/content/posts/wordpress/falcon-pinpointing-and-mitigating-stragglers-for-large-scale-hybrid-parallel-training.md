@@ -8,7 +8,7 @@ draft: false
 slug: "falcon-pinpointing-and-mitigating-stragglers-for-large-scale-hybrid-parallel-training"
 legacySlug: "falcon-pinpointing-and-mitigating-stragglers-for-large-scale-hybrid-parallel-training"
 wordpressId: 998
-sourceUrl: "https://haibin-blog.vercel.app/index.php/falcon-pinpointing-and-mitigating-stragglers-for-large-scale-hybrid-parallel-training/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/falcon-pinpointing-and-mitigating-stragglers-for-large-scale-hybrid-parallel-training/"
 commentCount: 0
 importedFromWordPress: true
 ---

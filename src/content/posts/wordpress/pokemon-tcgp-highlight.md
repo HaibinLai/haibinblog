@@ -9,7 +9,7 @@ draft: false
 slug: "pokemon-tcgp-highlight"
 legacySlug: "pokemon-tcgp-highlight"
 wordpressId: 690
-sourceUrl: "https://haibin-blog.vercel.app/index.php/pokemon-tcgp-highlight/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/pokemon-tcgp-highlight/"
 commentCount: 0
 importedFromWordPress: true
 ---

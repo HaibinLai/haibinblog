@@ -9,7 +9,7 @@ draft: false
 slug: "git-文件太大了怎么办"
 legacySlug: "git-文件太大了怎么办"
 wordpressId: 790
-sourceUrl: "https://haibin-blog.vercel.app/index.php/git-%e6%96%87%e4%bb%b6%e5%a4%aa%e5%a4%a7%e4%ba%86%e6%80%8e%e4%b9%88%e5%8a%9e/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/git-%e6%96%87%e4%bb%b6%e5%a4%aa%e5%a4%a7%e4%ba%86%e6%80%8e%e4%b9%88%e5%8a%9e/"
 commentCount: 0
 importedFromWordPress: true
 ---

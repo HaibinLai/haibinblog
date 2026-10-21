@@ -8,7 +8,7 @@ draft: false
 slug: "gridftp-sc25-test-of-time-award"
 legacySlug: "gridftp-sc25-test-of-time-award"
 wordpressId: 1003
-sourceUrl: "https://haibin-blog.vercel.app/index.php/gridftp-sc25-test-of-time-award/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/gridftp-sc25-test-of-time-award/"
 commentCount: 0
 importedFromWordPress: true
 ---

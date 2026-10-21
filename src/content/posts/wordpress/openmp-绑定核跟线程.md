@@ -8,7 +8,7 @@ draft: false
 slug: "openmp-绑定核跟线程"
 legacySlug: "openmp-绑定核跟线程"
 wordpressId: 821
-sourceUrl: "https://haibin-blog.vercel.app/index.php/openmp-%e7%bb%91%e5%ae%9a%e6%a0%b8%e8%b7%9f%e7%ba%bf%e7%a8%8b/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/openmp-%e7%bb%91%e5%ae%9a%e6%a0%b8%e8%b7%9f%e7%ba%bf%e7%a8%8b/"
 commentCount: 0
 importedFromWordPress: true
 ---

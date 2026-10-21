@@ -9,7 +9,7 @@ draft: false
 slug: "review"
 legacySlug: "review"
 wordpressId: 891
-sourceUrl: "https://haibin-blog.vercel.app/index.php/review/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/review/"
 commentCount: 1
 importedFromWordPress: true
 ---

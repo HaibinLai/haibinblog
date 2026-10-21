@@ -9,7 +9,7 @@ draft: false
 slug: "llm-on-cpu"
 legacySlug: "llm-on-cpu"
 wordpressId: 699
-sourceUrl: "https://haibin-blog.vercel.app/index.php/llm-on-cpu/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/llm-on-cpu/"
 commentCount: 0
 importedFromWordPress: true
 ---

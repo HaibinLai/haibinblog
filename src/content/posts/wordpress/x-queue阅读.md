@@ -9,7 +9,7 @@ draft: false
 slug: "x-queue阅读"
 legacySlug: "x-queue阅读"
 wordpressId: 833
-sourceUrl: "https://haibin-blog.vercel.app/index.php/x-queue%e9%98%85%e8%af%bb/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/x-queue%e9%98%85%e8%af%bb/"
 commentCount: 0
 importedFromWordPress: true
 ---

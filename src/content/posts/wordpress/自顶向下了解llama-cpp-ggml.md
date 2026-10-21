@@ -9,7 +9,7 @@ draft: false
 slug: "自顶向下了解llama-cpp-ggml"
 legacySlug: "自顶向下了解llama-cpp-ggml"
 wordpressId: 868
-sourceUrl: "https://haibin-blog.vercel.app/index.php/%e8%87%aa%e9%a1%b6%e5%90%91%e4%b8%8b%e4%ba%86%e8%a7%a3llama-cpp-ggml/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/%e8%87%aa%e9%a1%b6%e5%90%91%e4%b8%8b%e4%ba%86%e8%a7%a3llama-cpp-ggml/"
 commentCount: 0
 importedFromWordPress: true
 ---
@@ -1492,7 +1492,7 @@ ReLU + Mul → Concat</code></pre>
 <p>因此这里的结构就是，我们每过一个计算节点，就会有一个barrier保证同步，然后move on to 下一个节点：</p>
 <p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250616160030033.png" alt="" /></p>
 <p>至于这里OpenMP怎么用 <code>#pragma omp parallel</code> 的，请参见我上一篇文章：
-<a href="https://haibin-blog.vercel.app/index.php/gcc%e6%98%af%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0openmp-parallel-for%e7%9a%84/">gcc是如何实现OpenMP parallel for的－编译原理－Haibin's blog</a></p>
+<a href="https://www.haibinlaiblog.top/index.php/gcc%e6%98%af%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0openmp-parallel-for%e7%9a%84/">gcc是如何实现OpenMP parallel for的－编译原理－Haibin's blog</a></p>
 <h3>ggml_barrier</h3>
 <p>我们同步实现的函数</p>
 <pre><code class="language-CPP">void ggml_barrier(struct ggml_threadpool * tp) {

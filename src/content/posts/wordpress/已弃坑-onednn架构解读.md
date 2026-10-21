@@ -9,13 +9,13 @@ draft: false
 slug: "已弃坑-onednn架构解读"
 legacySlug: "已弃坑：onednn架构解读"
 wordpressId: 872
-sourceUrl: "https://haibin-blog.vercel.app/index.php/%e5%b7%b2%e5%bc%83%e5%9d%91%ef%bc%9aonednn%e6%9e%b6%e6%9e%84%e8%a7%a3%e8%af%bb/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/%e5%b7%b2%e5%bc%83%e5%9d%91%ef%bc%9aonednn%e6%9e%b6%e6%9e%84%e8%a7%a3%e8%af%bb/"
 commentCount: 0
 importedFromWordPress: true
 ---
 <p>PS：这玩意已经不更新了，intel 放弃了哈哈哈哈哈哈哈。</p>
 <p><a href="https://zhuanlan.zhihu.com/p/20510564015">https://zhuanlan.zhihu.com/p/20510564015</a></p>
-<p><img src="https://haibin-blog.vercel.app/wp-content/uploads/2025/06/image-1750142537486.png" alt="file" /></p>
+<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2025/06/image-1750142537486.png" alt="file" /></p>
 <p>oneDNN是Intel开源的深度学习加速库，其前身为MKLDNN，对于Intel自家硬件（CPU以及GPU），oneDNN对神经网络算子的计算过程进行了针对性的优化处理，从而显著提升了神经网络算子在Intel硬件下的计算速度。在训练侧，oneDNN已作为第三方工具被目前几乎所有的主流训练框架（TensorFlow、PyTorch、MXNet等）集成；在推理侧，其是OpenVINO的后端，并也经常作为第三方推理加速库被其它工程调用。</p>
 <h2>学习链接</h2>
 <p>github

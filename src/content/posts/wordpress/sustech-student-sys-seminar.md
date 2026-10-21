@@ -9,7 +9,7 @@ draft: false
 slug: "sustech-student-sys-seminar"
 legacySlug: "sustech-student-sys-seminar"
 wordpressId: 930
-sourceUrl: "https://haibin-blog.vercel.app/index.php/sustech-student-sys-seminar/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/sustech-student-sys-seminar/"
 commentCount: 0
 importedFromWordPress: true
 ---
@@ -22,9 +22,9 @@ importedFromWordPress: true
 <h2>组织过程</h2>
 <p>随后我邀请了好几个在南科大后继续做系统研究的学长学姐，方向涵盖 我们的HPC，DB，OS，MLSys等等。</p>
 <p>我提前准备了几个问题供大家一起讨论。</p>
-<p><img src="https://haibin-blog.vercel.app/wp-content/uploads/2025/08/image-1754626821656.png" alt="file" /></p>
+<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2025/08/image-1754626821656.png" alt="file" /></p>
 <h2>会议</h2>
-<p><img src="https://haibin-blog.vercel.app/wp-content/uploads/2025/08/image-1754627425193.png" alt="file" /></p>
+<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2025/08/image-1754627425193.png" alt="file" /></p>
 <p>来了6-7个同学，大家相互交流了一下各自的经历和理解。</p>
 <p>在课题组内大家交流的比较亲切，但是组外由于是第一次认识，就似乎有点尴尬。并且讨论中我们会互相介绍自己的项目知识，这方面会有些沉闷。</p>
 <p>其他的经验和感受如下：</p>

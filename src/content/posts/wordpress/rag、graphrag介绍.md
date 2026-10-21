@@ -9,8 +9,8 @@ draft: false
 slug: "rag、graphrag介绍"
 legacySlug: "rag、graphrag介绍"
 wordpressId: 644
-sourceUrl: "https://haibin-blog.vercel.app/index.php/rag%e3%80%81graphrag%e4%bb%8b%e7%bb%8d/"
-commentCount: 1
+sourceUrl: "https://www.haibinlaiblog.top/index.php/rag%e3%80%81graphrag%e4%bb%8b%e7%bb%8d/"
+commentCount: 0
 importedFromWordPress: true
 ---
 <p>本文是对这两个概念的转载与学习</p>

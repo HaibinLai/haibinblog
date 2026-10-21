@@ -8,7 +8,7 @@ draft: false
 slug: "osdi25-xsched"
 legacySlug: "osdi25-xsched"
 wordpressId: 937
-sourceUrl: "https://haibin-blog.vercel.app/index.php/osdi25-xsched/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/osdi25-xsched/"
 commentCount: 0
 importedFromWordPress: true
 ---

@@ -8,7 +8,7 @@ draft: false
 slug: "isca25-neoscope-how-resilient-is-my-soc-to-workload-churn"
 legacySlug: "isca25-neoscope-how-resilient-is-my-soc-to-workload-churn"
 wordpressId: 1183
-sourceUrl: "https://haibin-blog.vercel.app/index.php/isca25-neoscope-how-resilient-is-my-soc-to-workload-churn/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/isca25-neoscope-how-resilient-is-my-soc-to-workload-churn/"
 commentCount: 0
 importedFromWordPress: true
 ---

@@ -9,7 +9,7 @@ draft: false
 slug: "icpp24-grace-hopper-gpu中的系统内存管理"
 legacySlug: "icpp24-grace-hopper-gpu中的系统内存管理"
 wordpressId: 965
-sourceUrl: "https://haibin-blog.vercel.app/index.php/icpp24-grace-hopper-gpu%e4%b8%ad%e7%9a%84%e7%b3%bb%e7%bb%9f%e5%86%85%e5%ad%98%e7%ae%a1%e7%90%86/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/icpp24-grace-hopper-gpu%e4%b8%ad%e7%9a%84%e7%b3%bb%e7%bb%9f%e5%86%85%e5%ad%98%e7%ae%a1%e7%90%86/"
 commentCount: 0
 importedFromWordPress: true
 ---

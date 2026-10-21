@@ -9,7 +9,7 @@ draft: false
 slug: "distributed-system-rpc"
 legacySlug: "distributed-system-rpc"
 wordpressId: 981
-sourceUrl: "https://haibin-blog.vercel.app/index.php/distributed-system-rpc/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/distributed-system-rpc/"
 commentCount: 0
 importedFromWordPress: true
 ---

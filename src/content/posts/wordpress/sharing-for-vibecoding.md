@@ -9,7 +9,7 @@ draft: false
 slug: "sharing-for-vibecoding"
 legacySlug: "sharing-for-vibecoding"
 wordpressId: 1083
-sourceUrl: "https://haibin-blog.vercel.app/index.php/sharing-for-vibecoding/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/sharing-for-vibecoding/"
 commentCount: 0
 importedFromWordPress: true
 ---

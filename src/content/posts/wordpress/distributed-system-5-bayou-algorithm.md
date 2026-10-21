@@ -9,7 +9,7 @@ draft: false
 slug: "distributed-system-5-bayou-algorithm"
 legacySlug: "distributed-system-5-bayou-algorithm"
 wordpressId: 1023
-sourceUrl: "https://haibin-blog.vercel.app/index.php/distributed-system-5-bayou-algorithm/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/distributed-system-5-bayou-algorithm/"
 commentCount: 0
 importedFromWordPress: true
 ---
@@ -32,7 +32,7 @@ importedFromWordPress: true
 <p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230012059953.png" alt="image.png" /></p>
 <p>Bayou保证系统是always writable，也就是说client永远可以向server读取或写入数据，并且写完当前副本就立马返回用户。</p>
 <p>这里就引发了两个问题，一个是读取的数据可能存在冲突，此时就需要用application定义的冲突解决方法解决冲突。另一个问题是写入的数据只写进了当前副本，没有传播到其他副本上，所以副本之间不是每时每刻一致的。但Bayou保证，他们总有一天会一致，即eventual consistency。不同副本之间通过Anti-entropy进行沟通。为什么叫Anti-entropy呢？Entropy是信息论中的熵，一般熵越大越无序，anti就反，所以anti-entropy就是要反对这种无序，不同副本间通过沟通（communicate）认可一个写顺序，即两个副本对他们要写的数据，写数据的顺序达成一致。至于这两个副本怎么样对拥有的写操作进行排序，使得这个顺序反应了正确的业务逻辑，主要采用lamport logical clock，在这里就不展开了。</p>
-<p><img src="https://haibin-blog.vercel.app/wp-content/uploads/2025/10/image-1767028791458.png" alt="file" /></p>
+<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2025/10/image-1767028791458.png" alt="file" /></p>
 <ol>
 <li>
 <p>乐观副本控制：先斩后奏的艺术

@@ -8,7 +8,7 @@ draft: false
 slug: "osdi-23-bwos-更好的多线程work-stealing技术-分块"
 legacySlug: "osdi-23-bwos-更好的多线程work-stealing技术-分块"
 wordpressId: 914
-sourceUrl: "https://haibin-blog.vercel.app/index.php/osdi-23-bwos-%e6%9b%b4%e5%a5%bd%e7%9a%84%e5%a4%9a%e7%ba%bf%e7%a8%8bwork-stealing%e6%8a%80%e6%9c%af-%e5%88%86%e5%9d%97/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/osdi-23-bwos-%e6%9b%b4%e5%a5%bd%e7%9a%84%e5%a4%9a%e7%ba%bf%e7%a8%8bwork-stealing%e6%8a%80%e6%9c%af-%e5%88%86%e5%9d%97/"
 commentCount: 0
 importedFromWordPress: true
 ---

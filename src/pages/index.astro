@@ -30,6 +30,6 @@ const postSlug = (post: (typeof posts)[number]) => post.data.slug ?? post.id.rep
       ))}
       </div>
     </section>
-    <RightSidebar />
+    <RightSidebar posts={posts} />
   </div>
 </BaseLayout>

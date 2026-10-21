@@ -8,7 +8,7 @@ draft: false
 slug: "alpaserve-statistical-multiplexing-with-model-parallelism-for-deep-learning-serving"
 legacySlug: "alpaserve-statistical-multiplexing-with-model-parallelism-for-deep-learning-serving"
 wordpressId: 866
-sourceUrl: "https://haibin-blog.vercel.app/index.php/alpaserve-statistical-multiplexing-with-model-parallelism-for-deep-learning-serving/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/alpaserve-statistical-multiplexing-with-model-parallelism-for-deep-learning-serving/"
 commentCount: 0
 importedFromWordPress: true
 ---

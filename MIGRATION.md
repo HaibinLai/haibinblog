@@ -2,15 +2,15 @@
 
 ## Current local prototype
 
-- Source export: `haibin039sblog.WordPress.2026-06-18.xml`
-- Export coverage: 202 posts (197 published, 5 non-public)
-- Export date range: 2024-08-21 through 2026-06-18
-- Imported content: 197 public posts in `src/content/posts/wordpress/`
+- Source export: `haibin039sblog.WordPress.2026-10-21.xml`
+- Export coverage: 257 posts (231 published, 26 non-public)
+- Export date range: 2024-08-21 through 2026-10-10
+- Imported content: 231 public posts in `src/content/posts/wordpress/`
 - Legacy links: `/index.php/<wordpress-slug>/` redirect to the matching Astro post
 - Static build: 399 pages generated successfully
 
-The current export is older than the live WordPress site. A fresh **Tools →
-Export → All content** file is required before the final cutover.
+The October 21 export is the current migration snapshot. Before final cutover,
+export once more if WordPress content has changed since this file was created.
 
 ## Theme mapping
 

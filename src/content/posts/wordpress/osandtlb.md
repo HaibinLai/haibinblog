@@ -9,7 +9,7 @@ draft: false
 slug: "osandtlb"
 legacySlug: "osandtlb"
 wordpressId: 1410
-sourceUrl: "https://haibin-blog.vercel.app/index.php/osandtlb/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/osandtlb/"
 commentCount: 0
 importedFromWordPress: true
 ---

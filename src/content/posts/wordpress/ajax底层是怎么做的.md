@@ -8,7 +8,7 @@ draft: false
 slug: "ajax底层是怎么做的"
 legacySlug: "ajax底层是怎么做的"
 wordpressId: 562
-sourceUrl: "https://haibin-blog.vercel.app/index.php/ajax%e5%ba%95%e5%b1%82%e6%98%af%e6%80%8e%e4%b9%88%e5%81%9a%e7%9a%84/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/ajax%e5%ba%95%e5%b1%82%e6%98%af%e6%80%8e%e4%b9%88%e5%81%9a%e7%9a%84/"
 commentCount: 0
 importedFromWordPress: true
 ---

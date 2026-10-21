@@ -1,6 +1,6 @@
 ---
 title: "我在CPU修PMU：Can We Trust Profiling Results?"
-description: "Can We Trust Profiling Results? Understanding and Fixing the Inaccuracy in Modern Profilers https://par.nsf.gov/servlets/purl/10122098 在上次阅读完博客 # Where Do Interrupts Happen? 后（我的中文解析： https://haibin-blog.vercel.app/inde…"
+description: "Can We Trust Profiling Results? Understanding and Fixing the Inaccuracy in Modern Profilers https://par.nsf.gov/servlets/purl/10122098 在上次阅读完博客 # Where Do Interrupts Happen? 后（我的中文解析： https://www.haibinlaiblog.top/index…"
 publishedAt: "2025-11-11 18:04:32"
 updatedAt: "2025-11-11 18:19:05"
 category: "Paper Reading"
@@ -9,13 +9,13 @@ draft: false
 slug: "can-we-trust-profiling-results"
 legacySlug: "can-we-trust-profiling-results"
 wordpressId: 1062
-sourceUrl: "https://haibin-blog.vercel.app/index.php/can-we-trust-profiling-results/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/can-we-trust-profiling-results/"
 commentCount: 0
 importedFromWordPress: true
 ---
 <p>Can We Trust Profiling Results? Understanding and Fixing the Inaccuracy in Modern Profilers
 <a href="https://par.nsf.gov/servlets/purl/10122098">https://par.nsf.gov/servlets/purl/10122098</a></p>
-<p>在上次阅读完博客 # Where Do Interrupts Happen? 后（我的中文解析：<a href="https://haibin-blog.vercel.app/index.php/where-do-interrupts-happen/">https://haibin-blog.vercel.app/index.php/where-do-interrupts-happen/</a> ），我们了解到，这部分的内容属于 skid / precise event ，即 perf 类软件与实际执行不一致的情况。</p>
+<p>在上次阅读完博客 # Where Do Interrupts Happen? 后（我的中文解析：<a href="https://www.haibinlaiblog.top/index.php/where-do-interrupts-happen/">https://www.haibinlaiblog.top/index.php/where-do-interrupts-happen/</a> ），我们了解到，这部分的内容属于 skid / precise event ，即 perf 类软件与实际执行不一致的情况。</p>
 <p>随后，我们阅读ICS19的来自NCState的Xu Liu老师（目前老师去工业界了）的文章：Can We Trust Profiling Results? Understanding and Fixing the Inaccuracy in Modern Profilers。</p>
 <p>文章链接：<a href="https://par.nsf.gov/servlets/purl/10122098">https://par.nsf.gov/servlets/purl/10122098</a></p>
 <h2>Intro</h2>

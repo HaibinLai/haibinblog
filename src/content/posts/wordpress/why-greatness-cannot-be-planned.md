@@ -2,14 +2,14 @@
 title: "Why Greatness Cannot Be Planned"
 description: "看到一些退休的prof的谷歌学术，做了30年，40多篇文章。仔细一想，人的一生不也就是这些文章和产出。一年一篇工作，不算那些挂名的，似乎也就能发个30来篇，从此之后，就没什么文章了。 5年phd看起来很长，其实好像也就是3-5个关键项目，如果其中有一个改变了世界，已经很不得了了。15年的工作看起来很长，其实也就是那几个项目，改变的机会在哪里？ 一万年太久，只争朝夕。是应该一生做一件事， 还是不断改变方向？ 车灯只能照亮50米，但你同样…"
 publishedAt: "2025-10-11 10:13:11"
-updatedAt: "2026-06-14 00:22:48"
+updatedAt: "2026-09-24 01:18:29"
 category: "Books Reading"
 tags: ["life", "phd"]
 draft: false
 slug: "why-greatness-cannot-be-planned"
 legacySlug: "why-greatness-cannot-be-planned"
 wordpressId: 1026
-sourceUrl: "https://haibin-blog.vercel.app/index.php/why-greatness-cannot-be-planned/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/why-greatness-cannot-be-planned/"
 commentCount: 0
 importedFromWordPress: true
 ---
@@ -58,6 +58,14 @@ importedFromWordPress: true
 <p>学会知识并不带来智慧</p>
 <ul>
 <li>
+<p>What will be left for us to work on?
+Arvind Narayanan, Princeton University <a href="https://www.cs.princeton.edu/~arvindn/talks/icml-2026-annotated-slides/">https://www.cs.princeton.edu/~arvindn/talks/icml-2026-annotated-slides/</a>#</p>
+</li>
+<li>
+<p>当工作不允许我们学习 - Eidos的文章 - 知乎
+<a href="https://zhuanlan.zhihu.com/p/2079008692150723958">https://zhuanlan.zhihu.com/p/2079008692150723958</a></p>
+</li>
+<li>
 <p>真正要寻找的是那些充满了热情，希望做出点成绩来的人
 <a href="https://book.douban.com/review/2289470/">https://book.douban.com/review/2289470/</a></p>
 </li>
@@ -88,6 +96,9 @@ importedFromWordPress: true
 </li>
 <li>
 <p>上海交通大学生存手册 <a href="https://survivesjtu.gitbook.io/survivesjtumanual/">https://survivesjtu.gitbook.io/survivesjtumanual/</a></p>
+</li>
+<li>
+<p>本科两年，我最深的感悟：认知复利 <a href="https://jiaxuanzou0714.github.io/blog/2026/cognitive-compound-interest/">https://jiaxuanzou0714.github.io/blog/2026/cognitive-compound-interest/</a></p>
 </li>
 <li>
 <p>如何发现一个20岁时就值得投资的人 <a href="https://mp.weixin.qq.com/s/VgY-Lx_VDwccpXgsruWoRg?scene=1">https://mp.weixin.qq.com/s/VgY-Lx_VDwccpXgsruWoRg?scene=1</a></p>
@@ -128,7 +139,7 @@ importedFromWordPress: true
 </li>
 <li>
 <p>读博士的难与易-蒋炎岩
-<a href="https://haibin-blog.vercel.app/wp-content/uploads/2025/10/读博士的难与易-蒋炎岩.pdf">https://haibin-blog.vercel.app/wp-content/uploads/2025/10/读博士的难与易-蒋炎岩.pdf</a></p>
+<a href="https://www.haibinlaiblog.top/wp-content/uploads/2025/10/读博士的难与易-蒋炎岩.pdf">https://www.haibinlaiblog.top/wp-content/uploads/2025/10/读博士的难与易-蒋炎岩.pdf</a></p>
 </li>
 <li>
 <p>[博客]给研究生的建议: <a href="https://homes.cs.washington.edu/~mernst/advice/">https://homes.cs.washington.edu/~mernst/advice/</a> </p>
@@ -233,13 +244,13 @@ importedFromWordPress: true
 <a href="https://zhuanlan.zhihu.com/p/2010121710834308802">https://zhuanlan.zhihu.com/p/2010121710834308802</a></p>
 </li>
 <li>
-<p><a href="https://haibin-blog.vercel.app/wp-content/uploads/2025/10/后摩尔时代高性能软件开发的挑战.pdf">后摩尔时代高性能软件开发的挑战</a></p>
+<p><a href="https://www.haibinlaiblog.top/wp-content/uploads/2025/10/后摩尔时代高性能软件开发的挑战.pdf">后摩尔时代高性能软件开发的挑战</a></p>
 </li>
 <li>
-<p><a href="https://haibin-blog.vercel.app/wp-content/uploads/2025/10/体系结构2030未来15年研究愿景.pdf">体系结构2030未来15年研究愿景</a></p>
+<p><a href="https://www.haibinlaiblog.top/wp-content/uploads/2025/10/体系结构2030未来15年研究愿景.pdf">体系结构2030未来15年研究愿景</a></p>
 </li>
 <li>
-<p><a href="https://haibin-blog.vercel.app/wp-content/uploads/2025/10/Systems-Software-Research-is-Irrelevant.pdf">Systems-Software-Research-is-Irrelevant</a></p>
+<p><a href="https://www.haibinlaiblog.top/wp-content/uploads/2025/10/Systems-Software-Research-is-Irrelevant.pdf">Systems-Software-Research-is-Irrelevant</a></p>
 </li>
 <li>
 <p><a href="https://zhuanlan.zhihu.com/p/26502720">ASPLOS系列专访—Mark D. Hill 谈体系结构：中国正从跟随者到创新领导者</a> (In Chinese)</p>

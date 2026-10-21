@@ -8,7 +8,7 @@ draft: false
 slug: "sc25-gllm"
 legacySlug: "sc25-gllm"
 wordpressId: 905
-sourceUrl: "https://haibin-blog.vercel.app/index.php/sc25-gllm/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/sc25-gllm/"
 commentCount: 0
 importedFromWordPress: true
 ---

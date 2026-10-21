@@ -9,11 +9,11 @@ draft: false
 slug: "dncc3-introduction-to-spark"
 legacySlug: "dncc3-introduction-to-spark"
 wordpressId: 1113
-sourceUrl: "https://haibin-blog.vercel.app/index.php/dncc3-introduction-to-spark/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/dncc3-introduction-to-spark/"
 commentCount: 0
 importedFromWordPress: true
 ---
-<p><img src="https://haibin-blog.vercel.app/wp-content/uploads/2025/12/image-1767090779092.png" alt="file" /></p>
+<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2025/12/image-1767090779092.png" alt="file" /></p>
 <p>In this assignment, we need to use Spark to analyze the Parking dataset.</p>
 <h2>Preparing</h2>
 <p>Install <code>pysark</code> and <code>java</code></p>

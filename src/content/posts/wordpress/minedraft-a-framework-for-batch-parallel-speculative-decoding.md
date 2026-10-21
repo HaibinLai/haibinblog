@@ -8,7 +8,7 @@ draft: false
 slug: "minedraft-a-framework-for-batch-parallel-speculative-decoding"
 legacySlug: "minedraft-a-framework-for-batch-parallel-speculative-decoding"
 wordpressId: 1285
-sourceUrl: "https://haibin-blog.vercel.app/index.php/minedraft-a-framework-for-batch-parallel-speculative-decoding/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/minedraft-a-framework-for-batch-parallel-speculative-decoding/"
 commentCount: 0
 importedFromWordPress: true
 ---

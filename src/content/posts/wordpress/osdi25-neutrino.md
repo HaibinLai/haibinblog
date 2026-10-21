@@ -8,7 +8,7 @@ draft: false
 slug: "osdi25-neutrino"
 legacySlug: "osdi25-neutrino"
 wordpressId: 912
-sourceUrl: "https://haibin-blog.vercel.app/index.php/osdi25-neutrino/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/osdi25-neutrino/"
 commentCount: 0
 importedFromWordPress: true
 ---

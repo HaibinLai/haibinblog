@@ -9,7 +9,7 @@ draft: false
 slug: "wip-梁漱溟-china"
 legacySlug: "wip-梁漱溟-china"
 wordpressId: 1267
-sourceUrl: "https://haibin-blog.vercel.app/index.php/wip-%e6%a2%81%e6%bc%b1%e6%ba%9f-china/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/wip-%e6%a2%81%e6%bc%b1%e6%ba%9f-china/"
 commentCount: 0
 importedFromWordPress: true
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Pytorch ATen Matmul CPU 算子解析"
-description: "在上一期 https://haibin-blog.vercel.app/index.php/llm-on-cpu/ ， 我们探讨了各个LLM的具体结构，今天我们就来探寻这些结构/算子的底层实现。 上一期我们探讨的架构：LLM各阶段的代码在pytorch的实现 Pytorch调用栈解析 所以你这边就能看到Pytorch的调用核心逻辑了。它会先决定做什么算子，什么数据。然后回call_impl，此时它会根据之前的config（比如用GPU…"
+description: "在上一期 https://www.haibinlaiblog.top/index.php/llm-on-cpu/ ， 我们探讨了各个LLM的具体结构，今天我们就来探寻这些结构/算子的底层实现。 上一期我们探讨的架构：LLM各阶段的代码在pytorch的实现 Pytorch调用栈解析 所以你这边就能看到Pytorch的调用核心逻辑了。它会先决定做什么算子，什么数据。然后回call_impl，此时它会根据之前的config（比如用GPU还…"
 publishedAt: "2025-06-12 06:10:47"
 category: "Frameworks"
 tags: ["pytorch"]
@@ -8,11 +8,11 @@ draft: false
 slug: "pytorch-aten-matmul-cpu-算子解析"
 legacySlug: "pytorch-aten-matmul-cpu-算子解析"
 wordpressId: 846
-sourceUrl: "https://haibin-blog.vercel.app/index.php/pytorch-aten-matmul-cpu-%e7%ae%97%e5%ad%90%e8%a7%a3%e6%9e%90/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/pytorch-aten-matmul-cpu-%e7%ae%97%e5%ad%90%e8%a7%a3%e6%9e%90/"
 commentCount: 0
 importedFromWordPress: true
 ---
-<p>在上一期 <a href="https://haibin-blog.vercel.app/index.php/llm-on-cpu/">https://haibin-blog.vercel.app/index.php/llm-on-cpu/</a> ， 我们探讨了各个LLM的具体结构，今天我们就来探寻这些结构/算子的底层实现。</p>
+<p>在上一期 <a href="https://www.haibinlaiblog.top/index.php/llm-on-cpu/">https://www.haibinlaiblog.top/index.php/llm-on-cpu/</a> ， 我们探讨了各个LLM的具体结构，今天我们就来探寻这些结构/算子的底层实现。</p>
 <p>上一期我们探讨的架构：LLM各阶段的代码在pytorch的实现
 <img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250611165121785.png" alt="" /></p>
 <h2>Pytorch调用栈解析</h2>

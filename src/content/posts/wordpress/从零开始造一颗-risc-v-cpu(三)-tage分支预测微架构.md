@@ -8,7 +8,7 @@ draft: false
 slug: "从零开始造一颗-risc-v-cpu(三)-tage分支预测微架构"
 legacySlug: "从零开始造一颗-risc-v-cpu（三）：tage分支预测微架构"
 wordpressId: 1400
-sourceUrl: "https://haibin-blog.vercel.app/index.php/%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e9%80%a0%e4%b8%80%e9%a2%97-risc-v-cpu%ef%bc%88%e4%b8%89%ef%bc%89%ef%bc%9atage%e5%88%86%e6%94%af%e9%a2%84%e6%b5%8b%e5%be%ae%e6%9e%b6%e6%9e%84/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e9%80%a0%e4%b8%80%e9%a2%97-risc-v-cpu%ef%bc%88%e4%b8%89%ef%bc%89%ef%bc%9atage%e5%88%86%e6%94%af%e9%a2%84%e6%b5%8b%e5%be%ae%e6%9e%b6%e6%9e%84/"
 commentCount: 0
 importedFromWordPress: true
 ---

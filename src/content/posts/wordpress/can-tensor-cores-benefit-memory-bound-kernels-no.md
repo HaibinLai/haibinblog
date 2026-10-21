@@ -9,7 +9,7 @@ draft: false
 slug: "can-tensor-cores-benefit-memory-bound-kernels-no"
 legacySlug: "can-tensor-cores-benefit-memory-bound-kernels-no"
 wordpressId: 1049
-sourceUrl: "https://haibin-blog.vercel.app/index.php/can-tensor-cores-benefit-memory-bound-kernels-no/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/can-tensor-cores-benefit-memory-bound-kernels-no/"
 commentCount: 0
 importedFromWordPress: true
 ---

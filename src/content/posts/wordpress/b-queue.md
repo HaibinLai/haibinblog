@@ -8,7 +8,7 @@ draft: false
 slug: "b-queue"
 legacySlug: "b-queue"
 wordpressId: 829
-sourceUrl: "https://haibin-blog.vercel.app/index.php/b-queue/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/b-queue/"
 commentCount: 0
 importedFromWordPress: true
 ---

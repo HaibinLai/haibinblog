@@ -8,7 +8,7 @@ draft: false
 slug: "pytorch-intro-everything-you-want-to-know"
 legacySlug: "pytorch-intro-everything-you-want-to-know"
 wordpressId: 838
-sourceUrl: "https://haibin-blog.vercel.app/index.php/pytorch-intro-everything-you-want-to-know/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/pytorch-intro-everything-you-want-to-know/"
 commentCount: 0
 importedFromWordPress: true
 ---

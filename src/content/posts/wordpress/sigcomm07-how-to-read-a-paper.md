@@ -8,7 +8,7 @@ draft: false
 slug: "sigcomm07-how-to-read-a-paper"
 legacySlug: "sigcomm07-how-to-read-a-paper"
 wordpressId: 926
-sourceUrl: "https://haibin-blog.vercel.app/index.php/sigcomm07-how-to-read-a-paper/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/sigcomm07-how-to-read-a-paper/"
 commentCount: 1
 importedFromWordPress: true
 ---

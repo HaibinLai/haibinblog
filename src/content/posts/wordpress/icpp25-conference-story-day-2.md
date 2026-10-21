@@ -8,7 +8,7 @@ draft: false
 slug: "icpp25-conference-story-day-2"
 legacySlug: "icpp25-conference-story-day-2"
 wordpressId: 978
-sourceUrl: "https://haibin-blog.vercel.app/index.php/icpp25-conference-story-day-2/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/icpp25-conference-story-day-2/"
 commentCount: 0
 importedFromWordPress: true
 ---

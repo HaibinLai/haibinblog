@@ -8,7 +8,7 @@ draft: false
 slug: "fail-at-scale-reliability-in-the-face-of-rapid-change"
 legacySlug: "fail-at-scale-reliability-in-the-face-of-rapid-change"
 wordpressId: 841
-sourceUrl: "https://haibin-blog.vercel.app/index.php/fail-at-scale-reliability-in-the-face-of-rapid-change/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/fail-at-scale-reliability-in-the-face-of-rapid-change/"
 commentCount: 1
 importedFromWordPress: true
 ---

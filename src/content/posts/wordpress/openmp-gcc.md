@@ -9,7 +9,7 @@ draft: false
 slug: "openmp-gcc"
 legacySlug: "openmp-gcc"
 wordpressId: 806
-sourceUrl: "https://haibin-blog.vercel.app/index.php/openmp-gcc/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/openmp-gcc/"
 commentCount: 0
 importedFromWordPress: true
 ---

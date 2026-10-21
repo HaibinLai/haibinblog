@@ -9,7 +9,7 @@ draft: false
 slug: "maxime-gonthier-gpu-data-locality-and-out-of-core-task-scheduling"
 legacySlug: "maxime-gonthier-gpu-data-locality-and-out-of-core-task-scheduling"
 wordpressId: 1257
-sourceUrl: "https://haibin-blog.vercel.app/index.php/maxime-gonthier-gpu-data-locality-and-out-of-core-task-scheduling/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/maxime-gonthier-gpu-data-locality-and-out-of-core-task-scheduling/"
 commentCount: 0
 importedFromWordPress: true
 ---

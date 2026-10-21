@@ -9,7 +9,7 @@ draft: false
 slug: "ai-compiler"
 legacySlug: "ai-compiler"
 wordpressId: 1060
-sourceUrl: "https://haibin-blog.vercel.app/index.php/ai-compiler/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/ai-compiler/"
 commentCount: 0
 importedFromWordPress: true
 ---

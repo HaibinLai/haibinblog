@@ -9,14 +9,14 @@ draft: false
 slug: "cpp-project3-sgemm-optimization"
 legacySlug: "cpp-project3-sgemm-optimization"
 wordpressId: 216
-sourceUrl: "https://haibin-blog.vercel.app/index.php/cpp-project3-sgemm-optimization/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/cpp-project3-sgemm-optimization/"
 commentCount: 0
 importedFromWordPress: true
 ---
 <h1><strong>CS205·C/C++ Programming</strong></h1>
 <h1>Project3 Report:  SGEMM Optimization</h1>
 <hr />
-<p>PDF 版本：<a href="https://haibin-blog.vercel.app/wp-content/uploads/2024/09/Project3赖海斌.pdf">Project 3</a>
+<p>PDF 版本：<a href="https://www.haibinlaiblog.top/wp-content/uploads/2024/09/Project3赖海斌.pdf">Project 3</a>
 Github: <a href="https://github.com/HaibinLai/CS205-CPP-Programing-Project">https://github.com/HaibinLai/CS205-CPP-Programing-Project</a></p>
 <h2>摘要</h2>
 <p>在本次Project里我们要优化SGEMM。我们先进行了一些理论探索，然后进行了基准测试。我们对OpenBLAS和Intel MKL进行了测试和底层分析，对其代码结构、指令原理、通信模型进行了研究。这里边无论是不同硬件上的针对优化，还是软件上的分治操作，都是一个复杂的系统工程。而这工程中最重要的一环，便是在“计算-访存”的钢丝绳上保持平衡。我们在这短短的3周内，简单了解工程师们对此的各种思想与工作。</p>

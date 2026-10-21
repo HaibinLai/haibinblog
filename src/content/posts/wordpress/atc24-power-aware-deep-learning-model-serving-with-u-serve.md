@@ -8,7 +8,7 @@ draft: false
 slug: "atc24-power-aware-deep-learning-model-serving-with-u-serve"
 legacySlug: "atc24-power-aware-deep-learning-model-serving-with-u-serve"
 wordpressId: 950
-sourceUrl: "https://haibin-blog.vercel.app/index.php/atc24-power-aware-deep-learning-model-serving-with-u-serve/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/atc24-power-aware-deep-learning-model-serving-with-u-serve/"
 commentCount: 0
 importedFromWordPress: true
 ---

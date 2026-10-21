@@ -9,7 +9,7 @@ draft: false
 slug: "experiment"
 legacySlug: "experiment"
 wordpressId: 593
-sourceUrl: "https://haibin-blog.vercel.app/index.php/experiment/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/experiment/"
 commentCount: 0
 importedFromWordPress: true
 ---

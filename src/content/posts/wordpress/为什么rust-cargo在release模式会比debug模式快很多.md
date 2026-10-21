@@ -9,7 +9,7 @@ draft: false
 slug: "为什么rust-cargo在release模式会比debug模式快很多"
 legacySlug: "为什么rust-cargo在release模式会比debug模式快很多？"
 wordpressId: 356
-sourceUrl: "https://haibin-blog.vercel.app/index.php/%e4%b8%ba%e4%bb%80%e4%b9%88rust-cargo%e5%9c%a8release%e6%a8%a1%e5%bc%8f%e4%bc%9a%e6%af%94debug%e6%a8%a1%e5%bc%8f%e5%bf%ab%e5%be%88%e5%a4%9a%ef%bc%9f/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/%e4%b8%ba%e4%bb%80%e4%b9%88rust-cargo%e5%9c%a8release%e6%a8%a1%e5%bc%8f%e4%bc%9a%e6%af%94debug%e6%a8%a1%e5%bc%8f%e5%bf%ab%e5%be%88%e5%a4%9a%ef%bc%9f/"
 commentCount: 0
 importedFromWordPress: true
 ---

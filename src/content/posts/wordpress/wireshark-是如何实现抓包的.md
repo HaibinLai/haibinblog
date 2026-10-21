@@ -9,12 +9,12 @@ draft: false
 slug: "wireshark-是如何实现抓包的"
 legacySlug: "wireshark-是如何实现抓包的？"
 wordpressId: 372
-sourceUrl: "https://haibin-blog.vercel.app/index.php/wireshark-%e6%98%af%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0%e6%8a%93%e5%8c%85%e7%9a%84%ef%bc%9f/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/wireshark-%e6%98%af%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0%e6%8a%93%e5%8c%85%e7%9a%84%ef%bc%9f/"
 commentCount: 0
 importedFromWordPress: true
 ---
-<p>PPT: <a href="https://haibin-blog.vercel.app/?attachment_id=373" title="为什么wireshark抓不到HTTP">为什么wireshark抓不到HTTP</a></p>
-<p>My summary web page: <a href="https://haibin-blog.vercel.app/wp-content/uploads/2024/12/BPF与npcap库.drawio.html">BPF与npcap库.drawio</a></p>
+<p>PPT: <a href="https://www.haibinlaiblog.top/?attachment_id=373" title="为什么wireshark抓不到HTTP">为什么wireshark抓不到HTTP</a></p>
+<p>My summary web page: <a href="https://www.haibinlaiblog.top/wp-content/uploads/2024/12/BPF与npcap库.drawio.html">BPF与npcap库.drawio</a></p>
 <h1>Wireshark 是如何实现的</h1>
 <p>wireshark的总体结构如下图所示。</p>
 <p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20240925011458.png" alt="" />

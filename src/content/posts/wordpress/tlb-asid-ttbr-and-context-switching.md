@@ -9,7 +9,7 @@ draft: false
 slug: "tlb-asid-ttbr-and-context-switching"
 legacySlug: "tlb-asid-ttbr-and-context-switching"
 wordpressId: 433
-sourceUrl: "https://haibin-blog.vercel.app/index.php/tlb-asid-ttbr-and-context-switching/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/tlb-asid-ttbr-and-context-switching/"
 commentCount: 0
 importedFromWordPress: true
 ---

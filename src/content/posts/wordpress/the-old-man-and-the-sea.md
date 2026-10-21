@@ -9,7 +9,7 @@ draft: false
 slug: "the-old-man-and-the-sea"
 legacySlug: "the-old-man-and-the-sea"
 wordpressId: 1073
-sourceUrl: "https://haibin-blog.vercel.app/index.php/the-old-man-and-the-sea/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/the-old-man-and-the-sea/"
 commentCount: 0
 importedFromWordPress: true
 ---

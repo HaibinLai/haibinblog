@@ -9,7 +9,7 @@ draft: false
 slug: "nsdi23-transparent-gpu-sharing-in-container-clouds-for-deep-learning-workloads"
 legacySlug: "nsdi23-transparent-gpu-sharing-in-container-clouds-for-deep-learning-workloads"
 wordpressId: 953
-sourceUrl: "https://haibin-blog.vercel.app/index.php/nsdi23-transparent-gpu-sharing-in-container-clouds-for-deep-learning-workloads/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/nsdi23-transparent-gpu-sharing-in-container-clouds-for-deep-learning-workloads/"
 commentCount: 0
 importedFromWordPress: true
 ---

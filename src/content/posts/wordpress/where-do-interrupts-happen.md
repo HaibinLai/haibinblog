@@ -9,7 +9,7 @@ draft: false
 slug: "where-do-interrupts-happen"
 legacySlug: "where-do-interrupts-happen"
 wordpressId: 1042
-sourceUrl: "https://haibin-blog.vercel.app/index.php/where-do-interrupts-happen/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/where-do-interrupts-happen/"
 commentCount: 0
 importedFromWordPress: true
 ---

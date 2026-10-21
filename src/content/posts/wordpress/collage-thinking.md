@@ -9,7 +9,7 @@ draft: false
 slug: "collage-thinking"
 legacySlug: "collage-thinking"
 wordpressId: 39
-sourceUrl: "https://haibin-blog.vercel.app/index.php/collage-thinking/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/collage-thinking/"
 commentCount: 3
 importedFromWordPress: true
 ---
@@ -31,4 +31,4 @@ importedFromWordPress: true
 <p>因此，高中和大学的题目不一样，我们的应对方式、思维方式也应该发生改变。线性代数告诉我们对于一个固定的向量我们选取不同的基不同的投影空间，我们所看到的也会千差万别。而这个世界上这样的向量和投影空间可以说是无穷无尽的。我们以怎么样的思维去看待这个世界，怎么去把世界投影成自己心中能理解的模型，我们就能对模型进行优化、改进，从而我们能够改变世界（又和理念论串起来了哈哈哈）。引用之前的年度游戏superliminal一句话，“这是由视角决定的世界，很多时候在正常看来无法解决的问题，或许换一个角度我们会有答案”。这也可能是应对题目变化而对我们的要求，不仅是在高中到大学，在大学到工作，到人生的方方面面，我们的这个思维模型都可以去推广。</p>
 <p>所以，或许我们靠着“高考思维”在高中过得有成果，但是大学对人的mindset是一种革新，我们开始不再单纯以一个题目去看待每一个问题，新的思维和方法也便从中产生。而在未来的人生中，这样的思维，也是十分难能可贵的。</p>
 <p>&nbsp;</p>
-<img class="alignnone size-full wp-image-42" src="https://haibin-blog.vercel.app/wp-content/uploads/2024/08/微信图片_20240821003046.jpg" alt="" width="1706" height="1278" />
+<img class="alignnone size-full wp-image-42" src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/微信图片_20240821003046.jpg" alt="" width="1706" height="1278" />

@@ -8,7 +8,7 @@ draft: false
 slug: "llm-pytorch-profiling-on-cpu"
 legacySlug: "llm-pytorch-profiling-on-cpu"
 wordpressId: 692
-sourceUrl: "https://haibin-blog.vercel.app/index.php/llm-pytorch-profiling-on-cpu/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/llm-pytorch-profiling-on-cpu/"
 commentCount: 0
 importedFromWordPress: true
 ---

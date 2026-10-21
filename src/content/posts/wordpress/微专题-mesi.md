@@ -9,7 +9,7 @@ draft: false
 slug: "微专题-mesi"
 legacySlug: "微专题：mesi"
 wordpressId: 800
-sourceUrl: "https://haibin-blog.vercel.app/index.php/%e5%be%ae%e4%b8%93%e9%a2%98%ef%bc%9amesi/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/%e5%be%ae%e4%b8%93%e9%a2%98%ef%bc%9amesi/"
 commentCount: 0
 importedFromWordPress: true
 ---

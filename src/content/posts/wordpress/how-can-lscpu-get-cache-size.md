@@ -9,7 +9,7 @@ draft: false
 slug: "how-can-lscpu-get-cache-size"
 legacySlug: "how-can-lscpu-get-cache-size"
 wordpressId: 543
-sourceUrl: "https://haibin-blog.vercel.app/index.php/how-can-lscpu-get-cache-size/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/how-can-lscpu-get-cache-size/"
 commentCount: 0
 importedFromWordPress: true
 ---

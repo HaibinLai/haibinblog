@@ -9,7 +9,7 @@ draft: false
 slug: "bigtable-the-beginning-of-big-data"
 legacySlug: "bigtable-the-beginning-of-big-data"
 wordpressId: 461
-sourceUrl: "https://haibin-blog.vercel.app/index.php/bigtable-the-beginning-of-big-data/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/bigtable-the-beginning-of-big-data/"
 commentCount: 0
 importedFromWordPress: true
 ---

@@ -9,7 +9,7 @@ draft: false
 slug: "os-project-part-i-virtio-a-biref-summary"
 legacySlug: "os-project-part-i-virtio-a-biref-summary"
 wordpressId: 443
-sourceUrl: "https://haibin-blog.vercel.app/index.php/os-project-part-i-virtio-a-biref-summary/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/os-project-part-i-virtio-a-biref-summary/"
 commentCount: 0
 importedFromWordPress: true
 ---

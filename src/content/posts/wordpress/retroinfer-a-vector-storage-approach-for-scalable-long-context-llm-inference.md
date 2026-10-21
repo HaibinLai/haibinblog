@@ -8,7 +8,7 @@ draft: false
 slug: "retroinfer-a-vector-storage-approach-for-scalable-long-context-llm-inference"
 legacySlug: "retroinfer-a-vector-storage-approach-for-scalable-long-context-llm-inference"
 wordpressId: 887
-sourceUrl: "https://haibin-blog.vercel.app/index.php/retroinfer-a-vector-storage-approach-for-scalable-long-context-llm-inference/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/retroinfer-a-vector-storage-approach-for-scalable-long-context-llm-inference/"
 commentCount: 0
 importedFromWordPress: true
 ---

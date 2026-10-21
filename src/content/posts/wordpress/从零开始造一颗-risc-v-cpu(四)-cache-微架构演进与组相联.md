@@ -8,7 +8,7 @@ draft: false
 slug: "从零开始造一颗-risc-v-cpu(四)-cache-微架构演进与组相联"
 legacySlug: "从零开始造一颗-risc-v-cpu（四）：cache-微架构演进与组相联"
 wordpressId: 1402
-sourceUrl: "https://haibin-blog.vercel.app/index.php/%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e9%80%a0%e4%b8%80%e9%a2%97-risc-v-cpu%ef%bc%88%e5%9b%9b%ef%bc%89%ef%bc%9acache-%e5%be%ae%e6%9e%b6%e6%9e%84%e6%bc%94%e8%bf%9b%e4%b8%8e%e7%bb%84%e7%9b%b8%e8%81%94/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e9%80%a0%e4%b8%80%e9%a2%97-risc-v-cpu%ef%bc%88%e5%9b%9b%ef%bc%89%ef%bc%9acache-%e5%be%ae%e6%9e%b6%e6%9e%84%e6%bc%94%e8%bf%9b%e4%b8%8e%e7%bb%84%e7%9b%b8%e8%81%94/"
 commentCount: 0
 importedFromWordPress: true
 ---

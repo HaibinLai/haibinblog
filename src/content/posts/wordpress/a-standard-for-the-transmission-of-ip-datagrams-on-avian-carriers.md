@@ -9,7 +9,7 @@ draft: false
 slug: "a-standard-for-the-transmission-of-ip-datagrams-on-avian-carriers"
 legacySlug: "a-standard-for-the-transmission-of-ip-datagrams-on-avian-carriers"
 wordpressId: 388
-sourceUrl: "https://haibin-blog.vercel.app/index.php/a-standard-for-the-transmission-of-ip-datagrams-on-avian-carriers/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/a-standard-for-the-transmission-of-ip-datagrams-on-avian-carriers/"
 commentCount: 0
 importedFromWordPress: true
 ---

@@ -9,7 +9,7 @@ draft: false
 slug: "you-and-your-research"
 legacySlug: "you-and-your-research"
 wordpressId: 1099
-sourceUrl: "https://haibin-blog.vercel.app/index.php/you-and-your-research/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/you-and-your-research/"
 commentCount: 0
 importedFromWordPress: true
 ---

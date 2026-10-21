@@ -1,6 +1,6 @@
 ---
 title: "SC 24 Brief Summary 4"
-description: "总链接： https://haibin-blog.vercel.app/index.php/sc-2024-passage/ Parallel Program Analysis and Code Optimization MCFuser: High-performance and Rapid-fusion of Memory-bound Compute-intensive Operators Authors: Zheng Zhang…"
+description: "总链接： https://www.haibinlaiblog.top/index.php/sc-2024-passage/ Parallel Program Analysis and Code Optimization MCFuser: High-performance and Rapid-fusion of Memory-bound Compute-intensive Operators Authors: Zheng Zhang…"
 publishedAt: "2025-03-15 21:56:24"
 updatedAt: "2025-03-25 00:15:40"
 category: "Paper Reading"
@@ -9,13 +9,13 @@ draft: false
 slug: "sc-24-brief-summary-4"
 legacySlug: "sc-24-brief-summary-4"
 wordpressId: 669
-sourceUrl: "https://haibin-blog.vercel.app/index.php/sc-24-brief-summary-4/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/sc-24-brief-summary-4/"
 commentCount: 0
 importedFromWordPress: true
 ---
-<p><a href="https://haibin-blog.vercel.app/index.php/418/%e5%be%ae%e4%bf%a1%e6%88%aa%e5%9b%be_20241118023327/"><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503152156693.jpeg" alt="" /></a></p>
+<p><a href="https://www.haibinlaiblog.top/index.php/418/%e5%be%ae%e4%bf%a1%e6%88%aa%e5%9b%be_20241118023327/"><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503152156693.jpeg" alt="" /></a></p>
 <p>总链接：
-<a href="https://haibin-blog.vercel.app/index.php/sc-2024-passage/">https://haibin-blog.vercel.app/index.php/sc-2024-passage/</a></p>
+<a href="https://www.haibinlaiblog.top/index.php/sc-2024-passage/">https://www.haibinlaiblog.top/index.php/sc-2024-passage/</a></p>
 <h2>Parallel Program Analysis and Code Optimization</h2>
 <h3>MCFuser: High-performance and Rapid-fusion of Memory-bound Compute-intensive Operators</h3>
 <p>Authors: Zheng Zhang, Donglin Yang, Xiaobo Zhou, Dazhao Cheng</p>

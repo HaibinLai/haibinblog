@@ -9,7 +9,7 @@ draft: false
 slug: "moesys"
 legacySlug: "moesys"
 wordpressId: 778
-sourceUrl: "https://haibin-blog.vercel.app/index.php/moesys/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/moesys/"
 commentCount: 0
 importedFromWordPress: true
 ---

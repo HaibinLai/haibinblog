@@ -9,7 +9,7 @@ draft: false
 slug: "hadoop-前世今生"
 legacySlug: "hadoop：前世今生"
 wordpressId: 258
-sourceUrl: "https://haibin-blog.vercel.app/index.php/hadoop%ef%bc%9a%e5%89%8d%e4%b8%96%e4%bb%8a%e7%94%9f/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/hadoop%ef%bc%9a%e5%89%8d%e4%b8%96%e4%bb%8a%e7%94%9f/"
 commentCount: 0
 importedFromWordPress: true
 ---

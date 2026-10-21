@@ -8,7 +8,7 @@ draft: false
 slug: "eurosys24-orion-gpu-kernel-scheduling-for-ml-inference"
 legacySlug: "eurosys24-orion-gpu-kernel-scheduling-for-ml-inference"
 wordpressId: 1001
-sourceUrl: "https://haibin-blog.vercel.app/index.php/eurosys24-orion-gpu-kernel-scheduling-for-ml-inference/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/eurosys24-orion-gpu-kernel-scheduling-for-ml-inference/"
 commentCount: 0
 importedFromWordPress: true
 ---
@@ -41,7 +41,7 @@ importedFromWordPress: true
 <p>The problem of GPU underutilization is only getting worse as hardware vendors continue to scale GPU memory and compute capacity.</p>
 <p>however, current techniques are either <strong>too coarse-grained</strong> (e.g., <strong>Multi-Instance GPU</strong>s [12], Zico [67], Tick-Tock [94]) or are not sufficiently <strong>interference-aware</strong> (e.g., <strong>Multi-Process Service (MPS)</strong> [25], GPU Streams [15], REEF [50], Paella [75]).</p>
 <p>For MPS and MIG difference:
-<a href="https://haibin-blog.vercel.app/index.php/icpp25-conference-story-day-1/#h36">ICPP25 Conference story: Day 1－学术活动－Haibin's blog</a></p>
+<a href="https://www.haibinlaiblog.top/index.php/icpp25-conference-story-day-1/#h36">ICPP25 Conference story: Day 1－学术活动－Haibin's blog</a></p>
 <p>Nowadays advanced techniques on sharing:</p>
 <p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250918140454069.png" alt="" /></p>
 <p>To help close this gap, we propose Orion1, a <strong>fine-grained, interference-aware GPU scheduler</strong>. Orion maintains perfor mance for a high-priority workload while collocating best effort jobs to maximize GPU utilization and save costs.</p>

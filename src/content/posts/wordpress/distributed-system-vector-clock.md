@@ -9,7 +9,7 @@ draft: false
 slug: "distributed-system-vector-clock"
 legacySlug: "distributed-system-vector-clock"
 wordpressId: 1012
-sourceUrl: "https://haibin-blog.vercel.app/index.php/distributed-system-vector-clock/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/distributed-system-vector-clock/"
 commentCount: 0
 importedFromWordPress: true
 ---

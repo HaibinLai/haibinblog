@@ -9,7 +9,7 @@ draft: false
 slug: "airport-95-automated-baggage-system"
 legacySlug: "airport-95-automated-baggage-system？"
 wordpressId: 1413
-sourceUrl: "https://haibin-blog.vercel.app/index.php/airport-95-automated-baggage-system%ef%bc%9f/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/airport-95-automated-baggage-system%ef%bc%9f/"
 commentCount: 0
 importedFromWordPress: true
 ---
@@ -24,7 +24,7 @@ importedFromWordPress: true
 <p>1991年的丹佛，市政府在市机场里想干件大事。不是建个新机场，虽然这也是个大事，毕竟美国上一座新的大型机场还是1975年的达拉斯。真正让人兴奋的是：他们要让行李自己长腿跑起来。</p>
 <p>想象一下，你从联合航空的柜台托运一个行李箱，它要自己翻山越岭，穿过一英里多的地下隧道，准确找到你飞机的登机口。而且这一切要在35分钟内完成。联合航空说，我们要让飞机快速掉头，不然赚不到钱。传统的牵引车拉着一串推车？太慢了。普通的传送带？距离太远。丹佛需要科幻片里的东西。</p>
 <p>所以他们找到了BAE自动化系统公司。BAE搬来一个原型——一小段轨道，几辆小车，当着联合航空高层的面，让小车嗖嗖地跑起来，稳稳当当地把行李送到目的地。</p>
-<p><img src="https://haibin-blog.vercel.app/wp-content/uploads/2026/06/image-1781538868083.png" alt="file" /></p>
+<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2026/06/image-1781538868083.png" alt="file" /></p>
 <center>图 2. DIA 的自动行李处理系统 [8]</center>
 <p>“好极了！”联合航空说，“就它了。” 丹佛市也点头了，给了BAE 1.93亿美元的合同。虽然另一家Harnischfeger联合体的报价只要1.6亿，而且他们用的技术已经在东京、新加坡的机场跑了好几年。但BAE的原型演示太迷人了。在场的所有人都心照不宣地相信同一件事：系统已经差不多搞定了，只需要“稍微调调软件”。</p>
 <p>这句话，成了整个故事里最著名的遗言。</p>

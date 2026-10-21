@@ -9,14 +9,14 @@ draft: false
 slug: "cpp-project2-report-matrix-multiplication"
 legacySlug: "cpp-project2-report-matrix-multiplication"
 wordpressId: 200
-sourceUrl: "https://haibin-blog.vercel.app/index.php/cpp-project2-report-matrix-multiplication/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/cpp-project2-report-matrix-multiplication/"
 commentCount: 0
 importedFromWordPress: true
 ---
 <h1><strong>CS205·C/C++ Programming</strong></h1>
 <h1><strong>Project2 Report:  Matrix Multiplication</strong></h1>
 <hr />
-<p>PDF 版本：<a href="https://haibin-blog.vercel.app/wp-content/uploads/2024/09/Project2赖海斌.pdf">Project2赖海斌</a>
+<p>PDF 版本：<a href="https://www.haibinlaiblog.top/wp-content/uploads/2024/09/Project2赖海斌.pdf">Project2赖海斌</a>
 Github: <a href="https://github.com/HaibinLai/CS205-CPP-Programing-Project">https://github.com/HaibinLai/CS205-CPP-Programing-Project</a></p>
 <h2>摘要</h2>
 <p>同样是矩阵乘法，Java和C谁更快？在做Project之前，我会凭着经验和对于老师的信任大声告诉你答案。但是在做了本次Project后，我只能笑着不能告诉你答案。我一共做了四个实验，第一个实验发现Java在执行时会自动判定float精度，而C不会。我进而认为Java程序的JVM对Java影响很大，进而去探索了JIT对Java影响和被翻译成汇编的Java和C以及C -O3的x86汇编代码，发现JIT的C1C2编译器效果不明显，而-O3编译优化将原本在栈上的ijk变量优化到放入寄存器中，尝试减少程序的汇编指令数以及减少花费高昂的内存读取指令的次数，因而降低了运行时间。随后实验3我进行了速度测试，发现在不同平台上Java和C的表现有所差异，在软硬件环境和编译器不同的情况下Java还真不一定比C慢。同时我也探测到Java多线程和C OpenMP在通信上的瓶颈，多线程并不一定比单线程强。实验4我探索了Java和C不同的启动方式以及Linux和Windows操作系统唤起程序的方式。同时我还用Intel TopDown性能分析法分析了Java和C程序的运行瓶颈，分析了程序CPI变化的原因。</p>

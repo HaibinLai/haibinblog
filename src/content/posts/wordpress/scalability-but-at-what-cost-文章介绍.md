@@ -9,7 +9,7 @@ draft: false
 slug: "scalability-but-at-what-cost-文章介绍"
 legacySlug: "scalability-but-at-what-cost-文章介绍"
 wordpressId: 761
-sourceUrl: "https://haibin-blog.vercel.app/index.php/scalability-but-at-what-cost-%e6%96%87%e7%ab%a0%e4%bb%8b%e7%bb%8d/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/scalability-but-at-what-cost-%e6%96%87%e7%ab%a0%e4%bb%8b%e7%bb%8d/"
 commentCount: 0
 importedFromWordPress: true
 ---

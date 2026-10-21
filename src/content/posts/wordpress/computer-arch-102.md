@@ -8,7 +8,7 @@ draft: false
 slug: "computer-arch-102"
 legacySlug: "computer-arch-102"
 wordpressId: 1381
-sourceUrl: "https://haibin-blog.vercel.app/index.php/computer-arch-102/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/computer-arch-102/"
 commentCount: 0
 importedFromWordPress: true
 ---

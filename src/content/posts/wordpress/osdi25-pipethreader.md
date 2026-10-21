@@ -9,7 +9,7 @@ draft: false
 slug: "osdi25-pipethreader"
 legacySlug: "osdi25-pipethreader"
 wordpressId: 945
-sourceUrl: "https://haibin-blog.vercel.app/index.php/osdi25-pipethreader/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/osdi25-pipethreader/"
 commentCount: 0
 importedFromWordPress: true
 ---

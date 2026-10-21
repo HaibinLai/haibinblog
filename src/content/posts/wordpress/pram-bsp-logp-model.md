@@ -9,7 +9,7 @@ draft: false
 slug: "pram-bsp-logp-model"
 legacySlug: "pram-bsp-logp-model"
 wordpressId: 656
-sourceUrl: "https://haibin-blog.vercel.app/index.php/pram-bsp-logp-model/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/pram-bsp-logp-model/"
 commentCount: 0
 importedFromWordPress: true
 ---

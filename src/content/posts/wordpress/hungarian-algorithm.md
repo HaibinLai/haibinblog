@@ -9,19 +9,19 @@ draft: false
 slug: "hungarian-algorithm"
 legacySlug: "hungarian-algorithm"
 wordpressId: 88
-sourceUrl: "https://haibin-blog.vercel.app/index.php/hungarian-algorithm/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/hungarian-algorithm/"
 commentCount: 0
 importedFromWordPress: true
 ---
 <h1>Hungarian Algorithm</h1>
 <h2>Algorithm Design and Analysis (H)  Assignment 5</h2>
-<p><img src="https://haibin-blog.vercel.app/wp-content/uploads/2024/08/ADA-Assignment5-Haibin-Lai.001.png" alt="" /></p>
+<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/ADA-Assignment5-Haibin-Lai.001.png" alt="" /></p>
 <p>Name: 赖海斌</p>
 <p>SID: 12211612</p>
 <h2>Abstract</h2>
 <p>In this assignment we try to analyze Hungarian algorithm. It’s an efficient algorithm for solving the min-cost max-matching problem in a bipartite graph. It finds a min-cost perfect matching in O(n^3) time.</p>
-<p><a href="https://haibin-blog.vercel.app/wp-content/uploads/2024/08/ADA-Assignment5-Haibin-Lai.docx" title="ADA Assignment5 Haibin Lai">ADA Assignment5 Haibin Lai</a>
-<a href="https://haibin-blog.vercel.app/wp-content/uploads/2024/08/ADA-Assignment5-Haibin-Lai.docx" title="ADA Assignment5 Haibin Lai">docx</a></p>
+<p><a href="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/ADA-Assignment5-Haibin-Lai.docx" title="ADA Assignment5 Haibin Lai">ADA Assignment5 Haibin Lai</a>
+<a href="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/ADA-Assignment5-Haibin-Lai.docx" title="ADA Assignment5 Haibin Lai">docx</a></p>
 <h2>Pseudocode for Hungarian algorithm</h2>
 <pre><code class="language-python"> def hungarian(node)
  {
@@ -71,7 +71,7 @@ def  dfs_findPath(node start)
 <p>Ultimately, the Hungarian algorithm can find the maximum matching in a bipartite graph.</p>
 <h2>Correctness, running time, and space complexity of the algorithm</h2>
 <p>Hungarian algorithm uses the feature of augmenting paths to reach correctness.</p>
-<p><img src="https://haibin-blog.vercel.app/wp-content/uploads/2024/08/ADA-Assignment5-Haibin-Lai.002.png" alt="" /></p>
+<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/ADA-Assignment5-Haibin-Lai.002.png" alt="" /></p>
 <p>As shown in the diagram, Path 6 is one of the augmenting paths of Graph 5. It can be observed that starting from the unmatched vertex 9, it sequentially follows the edges ( (9, 4) ) -&gt; ( (4, 8) ) -&gt; ( (8, 1) ) -&gt; ( (1, 6) ) -&gt; ( (6, 1) ) to reach the unmatched vertex 1. Clearly, this is an augmenting path.</p>
 <p>We can identify some characteristics of augmenting paths:</p>
 <ol>
@@ -85,7 +85,7 @@ def  dfs_findPath(node start)
 <p>This actually demonstrates the significance of augmenting paths. If an augmenting path is found, by swapping the roles of unmatched vertices and matched edges, the number of matched edges increases by one. This process continues until no augmenting path can be found. </p>
 <p>So every time we run one finding on the algorithm, we will find that a new pair every time.</p>
 <p>Consequently, the total number of matched edges in the entire graph is maximized, which means the maximum matching of the bipartite graph is achieved. So the algo become correct.</p>
-<p><img src="https://haibin-blog.vercel.app/wp-content/uploads/2024/08/ADA-Assignment5-Haibin-Lai.003.png" alt="" /></p>
+<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/ADA-Assignment5-Haibin-Lai.003.png" alt="" /></p>
 <h3>Time Complexity:   <strong>O(VE)</strong></h3>
 <p>The implementation of the Hungarian algorithm is based on the vertex set. In each iteration, a vertex ( node ) is chosen as the starting point to search for augmenting paths. Searching for augmenting paths requires traversing all edges in the edge set ( E ), which can be done using DFS or BFS. Regardless of the method chosen, the time complexity remains ( O(E) ).</p>
 <p>Each vertex can only be selected once in the Hungarian algorithm since we will mark them. Therefore, the overall time complexity of the algorithm is O(VE) .</p>

@@ -8,7 +8,7 @@ draft: false
 slug: "从零开始造一颗-risc-v-cpu(六)-微架构验证体系与-ipc-性"
 legacySlug: "从零开始造一颗-risc-v-cpu（六）：微架构验证体系与-ipc-性"
 wordpressId: 1406
-sourceUrl: "https://haibin-blog.vercel.app/index.php/%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e9%80%a0%e4%b8%80%e9%a2%97-risc-v-cpu%ef%bc%88%e5%85%ad%ef%bc%89%ef%bc%9a%e5%be%ae%e6%9e%b6%e6%9e%84%e9%aa%8c%e8%af%81%e4%bd%93%e7%b3%bb%e4%b8%8e-ipc-%e6%80%a7/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e9%80%a0%e4%b8%80%e9%a2%97-risc-v-cpu%ef%bc%88%e5%85%ad%ef%bc%89%ef%bc%9a%e5%be%ae%e6%9e%b6%e6%9e%84%e9%aa%8c%e8%af%81%e4%bd%93%e7%b3%bb%e4%b8%8e-ipc-%e6%80%a7/"
 commentCount: 0
 importedFromWordPress: true
 ---

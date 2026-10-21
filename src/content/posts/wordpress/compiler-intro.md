@@ -8,7 +8,7 @@ draft: false
 slug: "compiler-intro"
 legacySlug: "compiler-intro"
 wordpressId: 987
-sourceUrl: "https://haibin-blog.vercel.app/index.php/compiler-intro/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/compiler-intro/"
 commentCount: 0
 importedFromWordPress: true
 ---

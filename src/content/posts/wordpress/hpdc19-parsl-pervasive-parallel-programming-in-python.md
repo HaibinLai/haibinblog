@@ -8,7 +8,7 @@ draft: false
 slug: "hpdc19-parsl-pervasive-parallel-programming-in-python"
 legacySlug: "hpdc19-parsl-pervasive-parallel-programming-in-python"
 wordpressId: 843
-sourceUrl: "https://haibin-blog.vercel.app/index.php/hpdc19-parsl-pervasive-parallel-programming-in-python/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/hpdc19-parsl-pervasive-parallel-programming-in-python/"
 commentCount: 0
 importedFromWordPress: true
 ---

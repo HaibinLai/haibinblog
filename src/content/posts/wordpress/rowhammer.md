@@ -9,7 +9,7 @@ draft: false
 slug: "rowhammer"
 legacySlug: "rowhammer"
 wordpressId: 1101
-sourceUrl: "https://haibin-blog.vercel.app/index.php/rowhammer/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/rowhammer/"
 commentCount: 0
 importedFromWordPress: true
 ---

@@ -8,7 +8,7 @@ draft: false
 slug: "huawei-384-节点推理系统赏析"
 legacySlug: "huawei-384-节点推理系统赏析"
 wordpressId: 883
-sourceUrl: "https://haibin-blog.vercel.app/index.php/huawei-384-%e8%8a%82%e7%82%b9%e6%8e%a8%e7%90%86%e7%b3%bb%e7%bb%9f%e8%b5%8f%e6%9e%90/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/huawei-384-%e8%8a%82%e7%82%b9%e6%8e%a8%e7%90%86%e7%b3%bb%e7%bb%9f%e8%b5%8f%e6%9e%90/"
 commentCount: 0
 importedFromWordPress: true
 ---

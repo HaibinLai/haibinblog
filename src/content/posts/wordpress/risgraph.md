@@ -9,7 +9,7 @@ draft: false
 slug: "risgraph"
 legacySlug: "risgraph"
 wordpressId: 591
-sourceUrl: "https://haibin-blog.vercel.app/index.php/risgraph/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/risgraph/"
 commentCount: 0
 importedFromWordPress: true
 ---

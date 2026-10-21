@@ -8,7 +8,7 @@ draft: false
 slug: "从零开始造一颗-risc-v-cpu(五)-乱序执行的来龙去脉与"
 legacySlug: "从零开始造一颗-risc-v-cpu（五）：乱序执行的来龙去脉与"
 wordpressId: 1404
-sourceUrl: "https://haibin-blog.vercel.app/index.php/%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e9%80%a0%e4%b8%80%e9%a2%97-risc-v-cpu%ef%bc%88%e4%ba%94%ef%bc%89%ef%bc%9a%e4%b9%b1%e5%ba%8f%e6%89%a7%e8%a1%8c%e7%9a%84%e6%9d%a5%e9%be%99%e5%8e%bb%e8%84%89%e4%b8%8e/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e9%80%a0%e4%b8%80%e9%a2%97-risc-v-cpu%ef%bc%88%e4%ba%94%ef%bc%89%ef%bc%9a%e4%b9%b1%e5%ba%8f%e6%89%a7%e8%a1%8c%e7%9a%84%e6%9d%a5%e9%be%99%e5%8e%bb%e8%84%89%e4%b8%8e/"
 commentCount: 0
 importedFromWordPress: true
 ---

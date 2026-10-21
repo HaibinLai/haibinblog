@@ -9,13 +9,13 @@ draft: false
 slug: "dncc-assignment-1-parallel-matrix-multiplication"
 legacySlug: "dncc-assignment-1-parallel-matrix-multiplication"
 wordpressId: 1108
-sourceUrl: "https://haibin-blog.vercel.app/index.php/dncc-assignment-1-parallel-matrix-multiplication/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/dncc-assignment-1-parallel-matrix-multiplication/"
 commentCount: 0
 importedFromWordPress: true
 ---
 <p><a href="https://github.com/HaibinLai/Distributed-and-Cloud-Computing.git">https://github.com/HaibinLai/Distributed-and-Cloud-Computing.git</a></p>
 <p>【分布与云计算 - DnCC 复习】 <a href="https://www.bilibili.com/video/BV1eovaBTEW9/?share_source=copy_web&amp;vd_source=72eac555730ba7e7a64f9fa1d7f2b2d4">https://www.bilibili.com/video/BV1eovaBTEW9/?share_source=copy_web&vd_source=72eac555730ba7e7a64f9fa1d7f2b2d4</a></p>
-<p><img src="https://haibin-blog.vercel.app/wp-content/uploads/2025/12/image-1767090453255.png" alt="file" /></p>
+<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2025/12/image-1767090453255.png" alt="file" /></p>
 <h2>Setup</h2>
 <p><strong>Compile</strong></p>
 <p>We can use <code>OpenMPI</code> or <code>Intel MPI</code> to compile and run the code.</p>

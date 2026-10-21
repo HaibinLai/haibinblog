@@ -9,7 +9,7 @@ draft: false
 slug: "distributed-system-time"
 legacySlug: "distributed-system-time"
 wordpressId: 983
-sourceUrl: "https://haibin-blog.vercel.app/index.php/distributed-system-time/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/distributed-system-time/"
 commentCount: 0
 importedFromWordPress: true
 ---

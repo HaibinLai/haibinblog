@@ -8,7 +8,7 @@ draft: false
 slug: "xfasttransformer-架构解读"
 legacySlug: "xfasttransformer-架构解读"
 wordpressId: 861
-sourceUrl: "https://haibin-blog.vercel.app/index.php/xfasttransformer-%e6%9e%b6%e6%9e%84%e8%a7%a3%e8%af%bb/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/xfasttransformer-%e6%9e%b6%e6%9e%84%e8%a7%a3%e8%af%bb/"
 commentCount: 0
 importedFromWordPress: true
 ---

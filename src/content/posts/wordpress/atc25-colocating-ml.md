@@ -9,7 +9,7 @@ draft: false
 slug: "atc25-colocating-ml"
 legacySlug: "atc25-colocating-ml"
 wordpressId: 1175
-sourceUrl: "https://haibin-blog.vercel.app/index.php/atc25-colocating-ml/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/atc25-colocating-ml/"
 commentCount: 0
 importedFromWordPress: true
 ---

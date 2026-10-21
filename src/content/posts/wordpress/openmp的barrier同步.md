@@ -8,7 +8,7 @@ draft: false
 slug: "openmp的barrier同步"
 legacySlug: "openmp的barrier同步"
 wordpressId: 823
-sourceUrl: "https://haibin-blog.vercel.app/index.php/openmp%e7%9a%84barrier%e5%90%8c%e6%ad%a5/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/openmp%e7%9a%84barrier%e5%90%8c%e6%ad%a5/"
 commentCount: 0
 importedFromWordPress: true
 ---

@@ -8,7 +8,7 @@ draft: false
 slug: "icml25-rocket-kv-kv-cache-compression"
 legacySlug: "icml25-rocket-kv-kv-cache-compression"
 wordpressId: 973
-sourceUrl: "https://haibin-blog.vercel.app/index.php/icml25-rocket-kv-kv-cache-compression/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/icml25-rocket-kv-kv-cache-compression/"
 commentCount: 0
 importedFromWordPress: true
 ---

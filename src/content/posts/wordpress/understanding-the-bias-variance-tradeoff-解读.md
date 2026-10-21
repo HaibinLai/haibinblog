@@ -9,7 +9,7 @@ draft: false
 slug: "understanding-the-bias-variance-tradeoff-解读"
 legacySlug: "understanding-the-bias-variance-tradeoff-解读"
 wordpressId: 363
-sourceUrl: "https://haibin-blog.vercel.app/index.php/understanding-the-bias-variance-tradeoff-%e8%a7%a3%e8%af%bb/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/understanding-the-bias-variance-tradeoff-%e8%a7%a3%e8%af%bb/"
 commentCount: 0
 importedFromWordPress: true
 ---

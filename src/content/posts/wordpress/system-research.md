@@ -9,7 +9,7 @@ draft: false
 slug: "system-research"
 legacySlug: "system-research"
 wordpressId: 771
-sourceUrl: "https://haibin-blog.vercel.app/index.php/system-research/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/system-research/"
 commentCount: 0
 importedFromWordPress: true
 ---

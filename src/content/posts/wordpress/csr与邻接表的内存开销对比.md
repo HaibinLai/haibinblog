@@ -9,7 +9,7 @@ draft: false
 slug: "csr与邻接表的内存开销对比"
 legacySlug: "csr与邻接表的内存开销对比"
 wordpressId: 407
-sourceUrl: "https://haibin-blog.vercel.app/index.php/csr%e4%b8%8e%e9%82%bb%e6%8e%a5%e8%a1%a8%e7%9a%84%e5%86%85%e5%ad%98%e5%bc%80%e9%94%80%e5%af%b9%e6%af%94/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/csr%e4%b8%8e%e9%82%bb%e6%8e%a5%e8%a1%a8%e7%9a%84%e5%86%85%e5%ad%98%e5%bc%80%e9%94%80%e5%af%b9%e6%af%94/"
 commentCount: 0
 importedFromWordPress: true
 ---

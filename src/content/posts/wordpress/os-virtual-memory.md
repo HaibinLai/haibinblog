@@ -9,14 +9,14 @@ draft: false
 slug: "os-virtual-memory"
 legacySlug: "os-virtual-memory"
 wordpressId: 438
-sourceUrl: "https://haibin-blog.vercel.app/index.php/os-virtual-memory/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/os-virtual-memory/"
 commentCount: 0
 importedFromWordPress: true
 ---
 <p>Author:
 Haibin Lai
 12211612</p>
-<p><a href="https://haibin-blog.vercel.app/index.php/os-virtual-memory/">OS: Virtual Memory - Haibin's blog</a></p>
+<p><a href="https://www.haibinlaiblog.top/index.php/os-virtual-memory/">OS: Virtual Memory - Haibin's blog</a></p>
 <h2>Q1 Address Translation</h2>
 <p>Explain how do the CPU hardware and the operating system cooperate in the procedure of address translation.</p>
 <h3>Ans:</h3>

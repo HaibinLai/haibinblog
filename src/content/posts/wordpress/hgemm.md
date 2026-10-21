@@ -8,7 +8,7 @@ draft: false
 slug: "hgemm"
 legacySlug: "hgemm"
 wordpressId: 694
-sourceUrl: "https://haibin-blog.vercel.app/index.php/hgemm/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/hgemm/"
 commentCount: 0
 importedFromWordPress: true
 ---
@@ -313,7 +313,7 @@ Result sum: 3.35483e+10</code></pre>
 <p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504121537585.png" alt="" /></p>
 <p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504121537586.png" alt="" /></p>
 <p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504121539012.png" alt="" />
-<a href="https://haibin-blog.vercel.app/index.php/cpp-project2-report-matrix-multiplication/">CPP Project2 Matrix Multiplication－CPP－Haibin's blog</a></p>
+<a href="https://www.haibinlaiblog.top/index.php/cpp-project2-report-matrix-multiplication/">CPP Project2 Matrix Multiplication－CPP－Haibin's blog</a></p>
 <p><a href="https://weedge.github.io/perf-book-cn/zh/">README.md · 现代CPU上的性能分析与优化</a></p>
 <h2>GPU</h2>
 <p><a href="https://github.com/xlite-dev/CUDA-Learn-Notes">xlite-dev/CUDA-Learn-Notes: 📚Modern CUDA Learn Notes: 200+ Tensor/CUDA Cores Kernels🎉, HGEMM, FA2 via MMA and CuTe, 98~100% TFLOPS of cuBLAS/FA2.</a>

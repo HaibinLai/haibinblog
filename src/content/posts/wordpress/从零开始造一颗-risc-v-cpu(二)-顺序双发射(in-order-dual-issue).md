@@ -8,7 +8,7 @@ draft: false
 slug: "从零开始造一颗-risc-v-cpu(二)-顺序双发射(in-order-dual-issue)"
 legacySlug: "从零开始造一颗-risc-v-cpu（二）：顺序双发射（in-order-dual-issue）"
 wordpressId: 1398
-sourceUrl: "https://haibin-blog.vercel.app/index.php/%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e9%80%a0%e4%b8%80%e9%a2%97-risc-v-cpu%ef%bc%88%e4%ba%8c%ef%bc%89%ef%bc%9a%e9%a1%ba%e5%ba%8f%e5%8f%8c%e5%8f%91%e5%b0%84%ef%bc%88in-order-dual-issue%ef%bc%89/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e9%80%a0%e4%b8%80%e9%a2%97-risc-v-cpu%ef%bc%88%e4%ba%8c%ef%bc%89%ef%bc%9a%e9%a1%ba%e5%ba%8f%e5%8f%8c%e5%8f%91%e5%b0%84%ef%bc%88in-order-dual-issue%ef%bc%89/"
 commentCount: 0
 importedFromWordPress: true
 ---

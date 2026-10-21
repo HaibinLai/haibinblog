@@ -9,7 +9,7 @@ draft: false
 slug: "task-based-parallelism-models-and-their-techniques-overivew"
 legacySlug: "task-based-parallelism-models-and-their-techniques-overivew"
 wordpressId: 1143
-sourceUrl: "https://haibin-blog.vercel.app/index.php/task-based-parallelism-models-and-their-techniques-overivew/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/task-based-parallelism-models-and-their-techniques-overivew/"
 commentCount: 0
 importedFromWordPress: true
 ---

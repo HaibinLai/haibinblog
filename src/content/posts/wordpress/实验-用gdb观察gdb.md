@@ -9,7 +9,7 @@ draft: false
 slug: "实验-用gdb观察gdb"
 legacySlug: "实验：用gdb观察gdb"
 wordpressId: 566
-sourceUrl: "https://haibin-blog.vercel.app/index.php/%e5%ae%9e%e9%aa%8c%ef%bc%9a%e7%94%a8gdb%e8%a7%82%e5%af%9fgdb/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/%e5%ae%9e%e9%aa%8c%ef%bc%9a%e7%94%a8gdb%e8%a7%82%e5%af%9fgdb/"
 commentCount: 0
 importedFromWordPress: true
 ---

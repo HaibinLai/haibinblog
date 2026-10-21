@@ -1,6 +1,6 @@
 ---
 title: "SC 24 Brief Summary 2"
-description: "总链接： https://haibin-blog.vercel.app/index.php/sc-2024-passage/ ChatBLAS: The First AI-Generated and Portable BLAS Library 用GPT写的BLAS库 ChatBLAS: The First AI-Generated and Portable BLAS Library We present ChatBLAS, the f…"
+description: "总链接： https://www.haibinlaiblog.top/index.php/sc-2024-passage/ ChatBLAS: The First AI-Generated and Portable BLAS Library 用GPT写的BLAS库 ChatBLAS: The First AI-Generated and Portable BLAS Library We present ChatBLAS, the fi…"
 publishedAt: "2024-12-07 23:38:01"
 updatedAt: "2025-03-25 00:16:57"
 category: "Paper Reading"
@@ -9,13 +9,13 @@ draft: false
 slug: "sc24-brief-summary-2"
 legacySlug: "sc24-brief-summary-2"
 wordpressId: 522
-sourceUrl: "https://haibin-blog.vercel.app/index.php/sc24-brief-summary-2/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/sc24-brief-summary-2/"
 commentCount: 0
 importedFromWordPress: true
 ---
-<p><a href="https://haibin-blog.vercel.app/index.php/418/%e5%be%ae%e4%bf%a1%e6%88%aa%e5%9b%be_20241118023327/"><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080422377.jpeg" alt="" /></a></p>
+<p><a href="https://www.haibinlaiblog.top/index.php/418/%e5%be%ae%e4%bf%a1%e6%88%aa%e5%9b%be_20241118023327/"><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080422377.jpeg" alt="" /></a></p>
 <p>总链接：
-<a href="https://haibin-blog.vercel.app/index.php/sc-2024-passage/">https://haibin-blog.vercel.app/index.php/sc-2024-passage/</a></p>
+<a href="https://www.haibinlaiblog.top/index.php/sc-2024-passage/">https://www.haibinlaiblog.top/index.php/sc-2024-passage/</a></p>
 <hr />
 <h3>ChatBLAS: The First AI-Generated and Portable BLAS Library</h3>
 <p>用GPT写的BLAS库

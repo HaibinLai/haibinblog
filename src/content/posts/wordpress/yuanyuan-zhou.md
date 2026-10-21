@@ -9,7 +9,7 @@ draft: false
 slug: "yuanyuan-zhou"
 legacySlug: "yuanyuan-zhou"
 wordpressId: 792
-sourceUrl: "https://haibin-blog.vercel.app/index.php/yuanyuan-zhou/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/yuanyuan-zhou/"
 commentCount: 0
 importedFromWordPress: true
 ---

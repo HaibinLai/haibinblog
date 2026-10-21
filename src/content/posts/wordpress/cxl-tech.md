@@ -9,7 +9,7 @@ draft: false
 slug: "cxl-tech"
 legacySlug: "cxl-tech"
 wordpressId: 765
-sourceUrl: "https://haibin-blog.vercel.app/index.php/cxl-tech/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/cxl-tech/"
 commentCount: 0
 importedFromWordPress: true
 ---

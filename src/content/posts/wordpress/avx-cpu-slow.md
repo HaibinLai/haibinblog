@@ -9,7 +9,7 @@ draft: false
 slug: "avx-cpu-slow"
 legacySlug: "avx-cpu-slow"
 wordpressId: 1055
-sourceUrl: "https://haibin-blog.vercel.app/index.php/avx-cpu-slow/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/avx-cpu-slow/"
 commentCount: 0
 importedFromWordPress: true
 ---

@@ -1,19 +1,19 @@
 ---
-title: "SUSTech-CS205-CPP-Programing"
-description: "SUSTech-CS205-CPP-Programing Haibin Lai 12211612 Semester: 2024 Spring; Lecturer: Prof. Shiqi Yu Project Name Description Important Point Classification Score 1 A Simple Calculator \"简单\"的计算器 C程序初步了解，基本数据结构的实现，数据的底层存储，内存管…"
+title: "SUSTech-CS205-CPP-Programming"
+description: "SUSTech-CS205-CPP-Programming Haibin Lai 12211612 Semester: 2024 Spring; Lecturer: Prof. Shiqi Yu Project Name Description Important Point Classification Score 1 A Simple Calculator \"简单\"的计算器 C程序初步了解，基本数据结构的实现，数据的底层存储，内存…"
 publishedAt: "2024-09-10 22:56:25"
-updatedAt: "2024-09-12 00:10:03"
+updatedAt: "2026-10-13 04:44:01"
 category: "CPP"
 tags: ["CPP", "CUDA", "矩阵乘法"]
 draft: false
 slug: "sustech-cs205-cpp-programing"
 legacySlug: "sustech-cs205-cpp-programing"
 wordpressId: 234
-sourceUrl: "https://haibin-blog.vercel.app/index.php/sustech-cs205-cpp-programing/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/sustech-cs205-cpp-programing/"
 commentCount: 0
 importedFromWordPress: true
 ---
-<h1>SUSTech-CS205-CPP-Programing</h1>
+<h1>SUSTech-CS205-CPP-Programming</h1>
 <p>Haibin Lai 12211612</p>
 <p>Semester: 2024 Spring;     Lecturer: Prof. Shiqi Yu</p>
 <table>
@@ -82,11 +82,11 @@ importedFromWordPress: true
 <h2>CPP Course Website</h2>
 <p><a href="https://github.com/ShiqiYu/CPP">https://github.com/ShiqiYu/CPP</a></p>
 <h2>My Blogs</h2>
-<p><a href="https://haibin-blog.vercel.app/index.php/cpp-project1/">Project 1</a>
-<a href="https://haibin-blog.vercel.app/index.php/cpp-project2-report-matrix-multiplication/">Project 2</a>
-<a href="https://haibin-blog.vercel.app/index.php/cpp-project3-sgemm-optimization/">Project 3</a>
-<a href="https://haibin-blog.vercel.app/index.php/cpp-project4-a-2d-gpu-mat/">Project 4</a>
-<a href="https://haibin-blog.vercel.app/index.php/cpp-project5-the-beginning-of-accelerated-computing/">Project 5</a></p>
+<p><a href="https://www.haibinlaiblog.top/index.php/cpp-project1/">Project 1</a>
+<a href="https://www.haibinlaiblog.top/index.php/cpp-project2-report-matrix-multiplication/">Project 2</a>
+<a href="https://www.haibinlaiblog.top/index.php/cpp-project3-sgemm-optimization/">Project 3</a>
+<a href="https://www.haibinlaiblog.top/index.php/cpp-project4-a-2d-gpu-mat/">Project 4</a>
+<a href="https://www.haibinlaiblog.top/index.php/cpp-project5-the-beginning-of-accelerated-computing/">Project 5</a></p>
 <h2>Main Webpage:</h2>
 <p><a href="https://main--haibincpp1.netlify.app/">CPP (main--haibincpp1.netlify.app)</a></p>
 <h2>CPP Projects online:</h2>

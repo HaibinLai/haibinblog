@@ -9,8 +9,8 @@ draft: false
 slug: "转载-glibc-malloc的底层原理"
 legacySlug: "转载：glibc-malloc的底层原理"
 wordpressId: 606
-sourceUrl: "https://haibin-blog.vercel.app/index.php/%e8%bd%ac%e8%bd%bd%ef%bc%9aglibc-malloc%e7%9a%84%e5%ba%95%e5%b1%82%e5%8e%9f%e7%90%86/"
-commentCount: 1
+sourceUrl: "https://www.haibinlaiblog.top/index.php/%e8%bd%ac%e8%bd%bd%ef%bc%9aglibc-malloc%e7%9a%84%e5%ba%95%e5%b1%82%e5%8e%9f%e7%90%86/"
+commentCount: 0
 importedFromWordPress: true
 ---
 <p>原作者：

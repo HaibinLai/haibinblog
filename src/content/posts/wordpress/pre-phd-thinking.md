@@ -9,7 +9,7 @@ draft: false
 slug: "pre-phd-thinking"
 legacySlug: "pre-phd-thinking"
 wordpressId: 1280
-sourceUrl: "https://haibin-blog.vercel.app/index.php/pre-phd-thinking/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/pre-phd-thinking/"
 commentCount: 0
 importedFromWordPress: true
 ---

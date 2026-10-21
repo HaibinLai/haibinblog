@@ -8,7 +8,7 @@ draft: false
 slug: "gcc是如何实现openmp-parallel-for的"
 legacySlug: "gcc是如何实现openmp-parallel-for的"
 wordpressId: 827
-sourceUrl: "https://haibin-blog.vercel.app/index.php/gcc%e6%98%af%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0openmp-parallel-for%e7%9a%84/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/gcc%e6%98%af%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0openmp-parallel-for%e7%9a%84/"
 commentCount: 0
 importedFromWordPress: true
 ---

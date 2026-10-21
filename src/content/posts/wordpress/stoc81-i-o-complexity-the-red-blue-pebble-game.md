@@ -8,7 +8,7 @@ draft: false
 slug: "stoc81-i-o-complexity-the-red-blue-pebble-game"
 legacySlug: "stoc81-i-o-complexity-the-red-blue-pebble-game"
 wordpressId: 1163
-sourceUrl: "https://haibin-blog.vercel.app/index.php/stoc81-i-o-complexity-the-red-blue-pebble-game/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/stoc81-i-o-complexity-the-red-blue-pebble-game/"
 commentCount: 0
 importedFromWordPress: true
 ---

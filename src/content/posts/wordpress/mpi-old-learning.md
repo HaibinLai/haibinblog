@@ -8,7 +8,7 @@ draft: false
 slug: "mpi-old-learning"
 legacySlug: "mpi-old-learning"
 wordpressId: 769
-sourceUrl: "https://haibin-blog.vercel.app/index.php/mpi-old-learning/"
+sourceUrl: "https://www.haibinlaiblog.top/index.php/mpi-old-learning/"
 commentCount: 0
 importedFromWordPress: true
 ---
