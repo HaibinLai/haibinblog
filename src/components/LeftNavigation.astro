@@ -13,11 +13,21 @@ const postSlug = (post: CollectionEntry<'posts'>) => post.data.slug ?? post.id.r
 <aside class="left-navigation sidebar-panel">
   <div class="panel-heading"><span>🗂️</span><strong>Article Navigation</strong><span class="panel-menu">☰</span></div>
   <nav class="nav-tree" aria-label="All articles">
-    <a class:list={{ 'nav-tree-root': !currentSlug }} href={base}><span>All writing</span><small>{posts.length}</small></a>
+    <a
+      class:list={{ 'nav-tree-root': true, 'is-active': !currentSlug }}
+      href={base}
+      data-nav-root
+      aria-current={!currentSlug ? 'location' : undefined}
+    ><span>All writing</span><small>{posts.length}</small></a>
     {posts.map((post) => {
       const slug = postSlug(post);
       return (
-      <a class:list={{ 'is-active': slug === currentSlug }} href={`${base}posts/${slug}/`} aria-current={slug === currentSlug ? 'page' : undefined}>
+      <a
+        class:list={{ 'is-active': slug === currentSlug }}
+        href={`${base}posts/${slug}/`}
+        data-post-slug={slug}
+        aria-current={slug === currentSlug ? 'page' : undefined}
+      >
         <span>{post.data.title}</span>
       </a>
       );

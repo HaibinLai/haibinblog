@@ -18,7 +18,7 @@ const { title } = Astro.props;
 
   if (navigation) {
     const tree = navigation.querySelector<HTMLElement>('.article-outline');
-    const articleHeadings = [...document.querySelectorAll<HTMLElement>('.prose h2, .prose h3, .prose h4')];
+    const articleHeadings = [...document.querySelectorAll<HTMLElement>('.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6')];
     const usedIds = new Set<string>(['article-title']);
 
     articleHeadings.forEach((heading, index) => {
@@ -38,7 +38,8 @@ const { title } = Astro.props;
       heading.id = id;
 
       const link = document.createElement('a');
-      link.className = `depth-${heading.tagName.slice(1)}`;
+      const headingLevel = Number(heading.tagName.slice(1));
+      link.className = `depth-${Math.max(2, headingLevel)}`;
       link.href = `#${id}`;
       link.dataset.headingId = id;
       const label = document.createElement('span');
@@ -51,34 +52,55 @@ const { title } = Astro.props;
     const sections = links
       .map((link) => ({ link, section: document.getElementById(link.dataset.headingId ?? '') }))
       .filter((item): item is { link: HTMLAnchorElement; section: HTMLElement } => Boolean(item.section));
+    const desktopSidebar = window.matchMedia('(min-width: 1025px)');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let activeLink: HTMLAnchorElement | null = null;
     let scheduled = false;
 
-    const updateActiveHeading = () => {
-      const readingLine = 120;
-      let active = sections[0];
+    const revealActiveLink = (link: HTMLAnchorElement) => {
+      if (!tree) return;
+      const treeRect = tree.getBoundingClientRect();
+      const linkRect = link.getBoundingClientRect();
+      const edge = 12;
+      if (linkRect.top >= treeRect.top + edge && linkRect.bottom <= treeRect.bottom - edge) return;
 
-      for (const item of sections) {
-        if (item.section.getBoundingClientRect().top <= readingLine) active = item;
-        else break;
-      }
+      const linkTop = tree.scrollTop + linkRect.top - treeRect.top;
+      const target = Math.max(0, linkTop - (tree.clientHeight - linkRect.height) / 2);
+      tree.scrollTo({ top: target, behavior: reduceMotion ? 'auto' : 'smooth' });
+    };
 
+    const setActiveLink = (nextLink: HTMLAnchorElement | undefined) => {
+      if (!nextLink || nextLink === activeLink) return;
       links.forEach((link) => {
-        const isActive = link === active?.link;
+        const isActive = link === nextLink;
         link.classList.toggle('is-active', isActive);
         if (isActive) link.setAttribute('aria-current', 'location');
         else link.removeAttribute('aria-current');
       });
+      activeLink = nextLink;
+      revealActiveLink(nextLink);
+    };
 
-      if (active) {
-        const activeTree = active.link.parentElement;
-        const linkTop = active.link.offsetTop;
-        const visibleTop = activeTree?.scrollTop ?? 0;
-        const visibleBottom = visibleTop + (activeTree?.clientHeight ?? 0);
-        if (activeTree && (linkTop < visibleTop || linkTop + active.link.offsetHeight > visibleBottom)) {
-          activeTree.scrollTo({ top: Math.max(0, linkTop - activeTree.clientHeight / 3), behavior: 'smooth' });
+    const updateActiveHeading = () => {
+      if (!desktopSidebar.matches) {
+        scheduled = false;
+        return;
+      }
+
+      const headerHeight = document.querySelector<HTMLElement>('.site-header')?.getBoundingClientRect().height ?? 62;
+      const readingLine = headerHeight + 58;
+      let active = sections[0];
+
+      if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2) {
+        active = sections[sections.length - 1];
+      } else {
+        for (const item of sections) {
+          if (item.section.getBoundingClientRect().top <= readingLine) active = item;
+          else break;
         }
       }
 
+      setActiveLink(active?.link);
       scheduled = false;
     };
 
@@ -90,6 +112,17 @@ const { title } = Astro.props;
 
     window.addEventListener('scroll', scheduleUpdate, { passive: true });
     window.addEventListener('resize', scheduleUpdate, { passive: true });
+    window.addEventListener('hashchange', scheduleUpdate);
+    window.addEventListener('pageshow', scheduleUpdate);
+
+    if (window.location.hash) {
+      try {
+        const requested = document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
+        requestAnimationFrame(() => requested?.scrollIntoView());
+      } catch {
+        // Ignore malformed URL fragments and keep the article readable.
+      }
+    }
     updateActiveHeading();
   }
 </script>

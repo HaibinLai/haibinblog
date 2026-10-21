@@ -23,16 +23,20 @@ const postSlug = (post: (typeof posts)[number]) => post.data.slug ?? post.id.rep
       <div class="breadcrumb">Current Location: Main Page / All writing / Main Content</div>
       <div class="section-heading"><h1 id="feed-title">Recent writing</h1><span id="feed-count">{posts.length} posts</span></div>
       <div class="post-list">
-      {posts.map((post) => (
+      {posts.map((post) => {
+        const slug = postSlug(post);
+        return (
         <PostCard
+          slug={slug}
           title={post.data.title}
           description={post.data.description}
           date={post.data.publishedAt}
           category={post.data.category}
           tags={post.data.tags}
-          href={`${base}posts/${postSlug(post)}/`}
+          href={`${base}posts/${slug}/`}
         />
-      ))}
+        );
+      })}
         <p class="empty-filter" hidden>No writing matches this filter.</p>
       </div>
     </section>
@@ -42,27 +46,101 @@ const postSlug = (post: (typeof posts)[number]) => post.data.slug ?? post.id.rep
 
 <script is:inline>
   (() => {
+    const cards = [...document.querySelectorAll('.post-card[data-post-slug]')];
     const params = new URLSearchParams(window.location.search);
     const tag = params.get('tag');
-    if (!tag) return;
 
-    const cards = [...document.querySelectorAll('.post-card')];
-    let visible = 0;
-    cards.forEach((card) => {
-      const tags = JSON.parse(card.dataset.tags || '[]');
-      const matches = tags.includes(tag);
-      card.hidden = !matches;
-      if (matches) visible += 1;
-    });
+    if (tag) {
+      let visible = 0;
+      cards.forEach((card) => {
+        const tags = JSON.parse(card.dataset.tags || '[]');
+        const matches = tags.includes(tag);
+        card.hidden = !matches;
+        if (matches) visible += 1;
+      });
 
-    const label = tag;
-    document.querySelector('#feed-title').textContent = `Tag: ${label}`;
-    document.querySelector('#feed-count').textContent = `${visible} ${visible === 1 ? 'post' : 'posts'}`;
-    document.querySelector('.empty-filter').hidden = visible !== 0;
+      document.querySelector('#feed-title').textContent = `Tag: ${tag}`;
+      document.querySelector('#feed-count').textContent = `${visible} ${visible === 1 ? 'post' : 'posts'}`;
+      document.querySelector('.empty-filter').hidden = visible !== 0;
 
-    document.querySelectorAll('[data-tag-filter]').forEach((link) => {
-      const value = link.dataset.tagFilter;
-      link.classList.toggle('is-active', value === label);
-    });
+      document.querySelectorAll('[data-tag-filter]').forEach((link) => {
+        link.classList.toggle('is-active', link.dataset.tagFilter === tag);
+      });
+    }
+
+    const tree = document.querySelector('.left-navigation .nav-tree');
+    const rootLink = tree?.querySelector('[data-nav-root]');
+    const navLinks = [...(tree?.querySelectorAll('[data-post-slug]') ?? [])];
+    const linksBySlug = new Map(navLinks.map((link) => [link.dataset.postSlug, link]));
+    const desktopSidebar = window.matchMedia('(min-width: 1025px)');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let activeLink = null;
+    let scheduled = false;
+
+    const revealActiveLink = (link) => {
+      if (!tree || !link) return;
+      const treeRect = tree.getBoundingClientRect();
+      const linkRect = link.getBoundingClientRect();
+      const edge = 12;
+      if (linkRect.top >= treeRect.top + edge && linkRect.bottom <= treeRect.bottom - edge) return;
+
+      const linkTop = tree.scrollTop + linkRect.top - treeRect.top;
+      const target = Math.max(0, linkTop - (tree.clientHeight - linkRect.height) / 2);
+      tree.scrollTo({ top: target, behavior: reduceMotion ? 'auto' : 'smooth' });
+    };
+
+    const setActiveLink = (nextLink) => {
+      if (!nextLink || nextLink === activeLink) return;
+      [rootLink, ...navLinks].forEach((link) => {
+        if (!link) return;
+        const isActive = link === nextLink;
+        link.classList.toggle('is-active', isActive);
+        if (isActive) link.setAttribute('aria-current', 'location');
+        else link.removeAttribute('aria-current');
+      });
+      activeLink = nextLink;
+      revealActiveLink(nextLink);
+    };
+
+    const updateActivePost = () => {
+      if (!desktopSidebar.matches) {
+        scheduled = false;
+        return;
+      }
+
+      const visibleCards = cards.filter((card) => !card.hidden);
+      if (visibleCards.length === 0) {
+        setActiveLink(rootLink);
+        scheduled = false;
+        return;
+      }
+
+      const headerHeight = document.querySelector('.site-header')?.getBoundingClientRect().height ?? 62;
+      const readingLine = headerHeight + 70;
+      let activeCard = visibleCards[0];
+
+      if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2) {
+        activeCard = visibleCards[visibleCards.length - 1];
+      } else {
+        for (const card of visibleCards) {
+          if (card.getBoundingClientRect().top <= readingLine) activeCard = card;
+          else break;
+        }
+      }
+
+      setActiveLink(linksBySlug.get(activeCard.dataset.postSlug));
+      scheduled = false;
+    };
+
+    const scheduleUpdate = () => {
+      if (scheduled) return;
+      scheduled = true;
+      requestAnimationFrame(updateActivePost);
+    };
+
+    window.addEventListener('scroll', scheduleUpdate, { passive: true });
+    window.addEventListener('resize', scheduleUpdate, { passive: true });
+    window.addEventListener('pageshow', scheduleUpdate);
+    updateActivePost();
   })();
 </script>
