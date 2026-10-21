@@ -62,25 +62,30 @@ const extractFragment = (source = '', featuredImage = '') => {
 };
 
 const siteTimeZone = 'Asia/Shanghai';
-const monthLabel = new Intl.DateTimeFormat('en-CA', {
+const monthLabel = new Intl.DateTimeFormat('zh-CN', {
   year: 'numeric',
-  month: '2-digit',
+  month: 'long',
   timeZone: siteTimeZone,
 });
-const dateLabel = new Intl.DateTimeFormat('en-CA', {
+const dateLabel = new Intl.DateTimeFormat('zh-CN', {
+  month: 'long',
+  day: 'numeric',
+  timeZone: siteTimeZone,
+});
+const fullDateLabel = new Intl.DateTimeFormat('zh-CN', {
   year: 'numeric',
-  month: '2-digit',
+  month: 'long',
   day: '2-digit',
   timeZone: siteTimeZone,
 });
 
 const postSlug = (post: (typeof fragments)[number]) => post.data.slug ?? post.id.replace(/^wordpress\//, '');
-const authorLabel = (author: string) => author.toLowerCase() === 'gb' ? 'Haibin' : author;
+const authorLabel = (author: string) => ['gb', 'haibin'].includes(author.trim().toLowerCase()) ? 'Haibin' : author;
 const groups = fragments.reduce<Array<{
   month: string;
   posts: Array<(typeof fragments)[number] & { fragment: ReturnType<typeof extractFragment> }>;
 }>>((result, post) => {
-  const month = monthLabel.format(post.data.publishedAt).replace('-', '.');
+  const month = monthLabel.format(post.data.publishedAt);
   const entry = {
     ...post,
     fragment: extractFragment(post.rendered?.html ?? post.body ?? '', post.data.featuredImage),
@@ -96,8 +101,15 @@ const groups = fragments.reduce<Array<{
 
 <BaseLayout title="Moments | Haibin's Blog" description="Life fragments and small records from Haibin Lai.">
   <section class="fragments-page content-shell">
-    <header class="fragments-header">
-      <h1>Moments</h1>
+    <header class="moments-profile">
+      <div class="moments-cover" style={`background-image: url('${base}images/blog-cover.jpg')`}>
+        <h1>Moments</h1>
+        <div class="moments-identity">
+          <strong>haibin</strong>
+          <img src={GITHUB_AVATAR_URL} alt="Haibin's GitHub avatar" fetchpriority="high" />
+        </div>
+      </div>
+      <p class="moments-signature">Systems research, LLMs, academic life, and ordinary days.</p>
     </header>
 
     <div class="fragments-list">
@@ -120,7 +132,7 @@ const groups = fragments.reduce<Array<{
                     <div class="fragment-content-wrap">
                       {post.data.title && <h2 class="fragment-title"><a href={href}>{post.data.title}</a></h2>}
                       {post.fragment.html && <div class="fragment-content" data-fragment-content set:html={post.fragment.html} />}
-                      {post.fragment.html && <button type="button" class="fragment-expand" aria-expanded="false">展开</button>}
+                      {post.fragment.html && <button type="button" class="fragment-expand" aria-expanded="false">全文</button>}
                     </div>
                   )}
 
@@ -135,12 +147,17 @@ const groups = fragments.reduce<Array<{
                   )}
 
                   <div class="fragment-meta">
-                    <a href={href}>
-                      <time datetime={post.data.publishedAt.toISOString()}>{dateLabel.format(post.data.publishedAt)}</time>
+                    <div class="fragment-meta-copy">
+                      <a href={href}>
+                        <time datetime={post.data.publishedAt.toISOString()} title={fullDateLabel.format(post.data.publishedAt)}>
+                          {dateLabel.format(post.data.publishedAt)}
+                        </time>
+                      </a>
+                      <a href={href}>详情</a>
+                    </div>
+                    <a class="fragment-action" href={href} aria-label={`查看《${post.data.title}》全文`} title="阅读全文">
+                      <span aria-hidden="true">••</span>
                     </a>
-                    {visibleComments.length > 0
-                      ? <a href={`#${commentsId}`}>{post.data.commentCount} {post.data.commentCount === 1 ? 'Comment' : 'Comments'}</a>
-                      : <span>{post.data.commentCount} Comments</span>}
                   </div>
 
                   {visibleComments.length > 0 && (
@@ -148,12 +165,13 @@ const groups = fragments.reduce<Array<{
                       {visibleComments.map((comment) => (
                         <div class="fragment-comment">
                           <span class="fragment-comment-author">{comment.author}</span>
-                          {comment.replyTo && <span class="fragment-comment-reply">Reply to {comment.replyTo}</span>}
+                          {comment.replyTo && <span class="fragment-comment-reply">回复 {comment.replyTo}</span>}
+                          <span class="fragment-comment-colon">：</span>
                           <span class="fragment-comment-content">{comment.content}</span>
                         </div>
                       ))}
                       {post.data.comments.length > visibleComments.length && (
-                        <a class="fragment-comments-more" href={`${href}#comments`}>View all comments</a>
+                        <a class="fragment-comments-more" href={`${href}#comments`}>查看全部 {post.data.commentCount} 条评论</a>
                       )}
                     </div>
                   )}
@@ -182,7 +200,7 @@ const groups = fragments.reduce<Array<{
       button.addEventListener('click', () => {
         const expanded = content.classList.toggle('is-expanded');
         button.setAttribute('aria-expanded', String(expanded));
-        button.textContent = expanded ? '收起' : '展开';
+        button.textContent = expanded ? '收起' : '全文';
       });
     });
 
@@ -212,19 +230,89 @@ const groups = fragments.reduce<Array<{
 
 <style>
   .fragments-page {
-    width: min(760px, calc(100% - 32px));
-    padding: 28px 0 80px;
+    --moment-blue: #576b95;
+    width: min(720px, calc(100% - 32px));
+    margin-top: 28px;
+    padding: 0 0 56px;
+    overflow: hidden;
+    border: 1px solid color-mix(in srgb, var(--line) 86%, transparent);
+    border-radius: 10px;
+    background: var(--surface);
+    box-shadow: 0 12px 38px rgba(27, 42, 55, .08);
   }
 
-  .fragments-header {
-    padding: 1.2rem 0 1rem 4.2rem;
+  :global(.dark) .fragments-page {
+    --moment-blue: #9caed4;
   }
 
-  .fragments-header h1 {
+  .moments-profile {
+    border-bottom: 1px solid color-mix(in srgb, var(--line) 65%, transparent);
+  }
+
+  .moments-cover {
+    position: relative;
+    height: 248px;
+    background-position: center;
+    background-size: cover;
+  }
+
+  .moments-cover::after {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0, 0, 0, .08) 38%, rgba(0, 0, 0, .58) 100%);
+    content: '';
+  }
+
+  .moments-cover h1 {
+    position: absolute;
+    z-index: 1;
+    top: 18px;
+    left: 24px;
     margin: 0;
-    font-size: 1.45rem;
-    font-weight: 650;
+    color: white;
+    font-size: 1.06rem;
+    font-weight: 600;
+    letter-spacing: .04em;
     line-height: 1.35;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, .32);
+  }
+
+  .moments-identity {
+    position: absolute;
+    z-index: 1;
+    right: 24px;
+    bottom: -36px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .moments-identity strong {
+    color: white;
+    font-size: 1.18rem;
+    font-weight: 650;
+    transform: translateY(-21px);
+    text-shadow: 0 1px 8px rgba(0, 0, 0, .7);
+  }
+
+  .moments-identity img {
+    display: block;
+    width: 84px;
+    height: 84px;
+    border: 3px solid var(--surface);
+    border-radius: 7px;
+    background: var(--surface);
+    object-fit: cover;
+  }
+
+  .moments-signature {
+    min-height: 66px;
+    margin: 0;
+    padding: 44px 24px 13px;
+    color: var(--muted);
+    font-size: .82rem;
+    line-height: 1.5;
+    text-align: right;
   }
 
   .fragments-list {
@@ -234,26 +322,25 @@ const groups = fragments.reduce<Array<{
   }
 
   .fragment-month {
-    position: sticky;
-    top: 4.6rem;
-    z-index: 2;
     align-self: flex-start;
-    margin: .8rem 0 .1rem 4rem;
-    padding: .18rem .55rem;
-    border: 1px solid var(--line);
-    border-radius: 999px;
-    background: color-mix(in srgb, var(--page) 88%, var(--surface));
+    margin: 1.3rem 1.5rem .1rem 5.5rem;
+    padding: 0;
     color: var(--muted);
-    font-size: .78rem;
+    font-size: .74rem;
+    font-weight: 600;
     line-height: 1.5;
   }
 
   .fragment-item {
     display: grid;
     grid-template-columns: 3rem minmax(0, 1fr);
-    gap: .95rem;
-    padding: 1.1rem 0;
+    gap: 1rem;
+    padding: 1.35rem 1.5rem;
     border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, transparent);
+  }
+
+  .fragment-item:last-child {
+    border-bottom: 0;
   }
 
   .fragment-avatar,
@@ -264,7 +351,8 @@ const groups = fragments.reduce<Array<{
   }
 
   .fragment-avatar img {
-    border-radius: 6px;
+    border: 1px solid color-mix(in srgb, var(--line) 70%, transparent);
+    border-radius: 7px;
     object-fit: cover;
   }
 
@@ -274,8 +362,9 @@ const groups = fragments.reduce<Array<{
 
   .fragment-author {
     margin-top: -.1rem;
-    font-weight: 650;
-    line-height: 1.35;
+    font-size: .96rem;
+    font-weight: 600;
+    line-height: 1.4;
   }
 
   .fragment-author a,
@@ -283,26 +372,31 @@ const groups = fragments.reduce<Array<{
   .fragment-comment-author,
   .fragment-comment-reply,
   .fragment-comments-more {
-    color: #50618a;
+    color: var(--moment-blue);
   }
 
   .fragment-title {
-    margin: .25rem 0 .1rem;
-    font-size: .98rem;
-    font-weight: 650;
-    line-height: 1.45;
+    margin: .22rem 0 .12rem;
+    color: var(--ink);
+    font-size: .96rem;
+    font-weight: 600;
+    line-height: 1.55;
+  }
+
+  .fragment-title a:hover {
+    color: var(--moment-blue);
   }
 
   .fragment-content-wrap {
-    margin-top: .35rem;
+    margin-top: .28rem;
   }
 
   .fragment-content {
-    max-height: 5.9em;
+    max-height: 9.48em;
     overflow: hidden;
     color: var(--ink);
-    font-size: .98rem;
-    line-height: 1.72;
+    font-size: .96rem;
+    line-height: 1.58;
     overflow-wrap: anywhere;
   }
 
@@ -344,12 +438,12 @@ const groups = fragments.reduce<Array<{
 
   .fragment-expand {
     display: none;
-    margin: .25rem 0 0;
+    margin: .3rem 0 0;
     padding: 0;
     border: 0;
     background: transparent;
     cursor: pointer;
-    font-size: .92rem;
+    font-size: .88rem;
   }
 
   .fragment-expand.is-visible {
@@ -358,14 +452,14 @@ const groups = fragments.reduce<Array<{
 
   .fragment-media {
     display: grid;
-    gap: .32rem;
-    width: min(100%, 31rem);
-    margin-top: .55rem;
+    gap: 4px;
+    width: min(100%, 29rem);
+    margin-top: .65rem;
   }
 
   .fragment-media[data-count='1'] {
-    grid-template-columns: 1fr;
-    width: min(13.5rem, 70%);
+    display: block;
+    width: min(17rem, 100%);
   }
 
   .fragment-media[data-count='2'],
@@ -386,7 +480,7 @@ const groups = fragments.reduce<Array<{
     padding: 0;
     overflow: hidden;
     border: 0;
-    border-radius: 2px;
+    border-radius: 3px;
     background: color-mix(in srgb, var(--line) 40%, transparent);
     cursor: zoom-in;
   }
@@ -399,6 +493,20 @@ const groups = fragments.reduce<Array<{
     transition: transform .16s ease, filter .16s ease;
   }
 
+  .fragment-media[data-count='1'] .fragment-thumb {
+    width: fit-content;
+    max-width: 100%;
+    aspect-ratio: auto;
+  }
+
+  .fragment-media[data-count='1'] .fragment-thumb img {
+    width: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 22rem;
+    object-fit: contain;
+  }
+
   .fragment-thumb:hover img {
     filter: brightness(.96);
     transform: scale(1.018);
@@ -406,24 +514,71 @@ const groups = fragments.reduce<Array<{
 
   .fragment-meta {
     display: flex;
-    flex-wrap: wrap;
-    gap: .7rem;
-    margin-top: .7rem;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: .75rem;
     color: var(--muted);
-    font-size: .86rem;
+    font-size: .76rem;
+  }
+
+  .fragment-meta-copy {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: .7rem;
+  }
+
+  .fragment-meta-copy a:last-child {
+    color: var(--moment-blue);
   }
 
   .fragment-meta a:hover {
-    color: #50618a;
+    color: var(--moment-blue);
+  }
+
+  .fragment-action {
+    display: inline-flex;
+    width: 34px;
+    height: 22px;
+    flex: 0 0 auto;
+    align-items: center;
+    justify-content: center;
+    border-radius: 3px;
+    background: color-mix(in srgb, var(--line) 58%, transparent);
+    color: var(--moment-blue);
+    font-size: .85rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    line-height: 1;
+  }
+
+  .fragment-action:hover {
+    background: color-mix(in srgb, var(--line) 88%, transparent);
+    color: var(--moment-blue);
   }
 
   .fragment-comments {
-    margin-top: .55rem;
-    padding: .5rem .65rem;
-    background: color-mix(in srgb, var(--line) 24%, transparent);
+    position: relative;
+    margin-top: .6rem;
+    padding: .52rem .65rem;
+    border-radius: 2px;
+    background: color-mix(in srgb, var(--line) 34%, transparent);
     color: var(--ink);
-    font-size: .88rem;
-    line-height: 1.62;
+    font-size: .84rem;
+    line-height: 1.55;
+  }
+
+  .fragment-comments::before {
+    position: absolute;
+    top: -6px;
+    left: 13px;
+    width: 0;
+    height: 0;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid color-mix(in srgb, var(--line) 34%, transparent);
+    border-left: 7px solid transparent;
+    content: '';
   }
 
   .fragment-comment + .fragment-comment {
@@ -434,14 +589,12 @@ const groups = fragments.reduce<Array<{
     font-weight: 650;
   }
 
-  .fragment-comment-author::after,
-  .fragment-comment-reply::after {
-    margin-right: .25rem;
-    content: ':';
-  }
-
   .fragment-comment-reply {
     margin-left: .3rem;
+  }
+
+  .fragment-comment-colon {
+    margin-right: .2rem;
   }
 
   .fragment-comment-content {
@@ -499,17 +652,51 @@ const groups = fragments.reduce<Array<{
 
   @media (max-width: 768px) {
     .fragments-page {
-      width: min(100% - 24px, 760px);
-      padding-top: 18px;
+      width: 100%;
+      margin-top: 0;
+      padding-bottom: 42px;
+      border-right: 0;
+      border-left: 0;
+      border-radius: 0;
+      box-shadow: none;
     }
 
-    .fragments-header {
-      padding-left: 0;
+    .moments-cover {
+      height: 205px;
+    }
+
+    .moments-cover h1 {
+      top: 14px;
+      left: 16px;
+      font-size: .98rem;
+    }
+
+    .moments-identity {
+      right: 16px;
+      bottom: -31px;
+      gap: 10px;
+    }
+
+    .moments-identity strong {
+      font-size: 1.05rem;
+      transform: translateY(-18px);
+    }
+
+    .moments-identity img {
+      width: 72px;
+      height: 72px;
+    }
+
+    .moments-signature {
+      min-height: 59px;
+      padding: 39px 16px 10px;
+      font-size: .76rem;
     }
 
     .fragment-item {
       grid-template-columns: 2.65rem minmax(0, 1fr);
       gap: .75rem;
+      padding: 1.15rem 1rem;
     }
 
     .fragment-avatar,
@@ -523,8 +710,25 @@ const groups = fragments.reduce<Array<{
     }
 
     .fragment-month {
-      top: 4rem;
-      margin-left: 3.4rem;
+      margin: 1.1rem 1rem 0 4.4rem;
+    }
+
+    .fragment-title,
+    .fragment-content {
+      font-size: .95rem;
+    }
+
+    .fragment-content {
+      line-height: 1.58;
+    }
+
+    .fragment-media[data-count='1'] {
+      width: min(15rem, 100%);
+    }
+
+    .fragment-action {
+      width: 44px;
+      height: 36px;
     }
   }
 </style>
