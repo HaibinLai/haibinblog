@@ -1,16 +1,23 @@
 ---
 title: "南科大学生系统研讨会 SUSTech Student Sys Seminar"
 description: "本文大概记录我们第一次南科大系统研讨会的过程和反思。 故事背景 有一天，我想办一个南科大学生的system研究seminar。大概内容是想请几个阶段和领域的学长学姐分享自己的研究，可以是自己的工作，研究的学习历程，研究体会或者单纯的开会经历、做lab的经历。 研讨会的内容可以是不同主题的分享，比如如果有同学能分享\"如何阅读CSAPP这本书”“我们的计算机安全课程project\"“如何上手MLSys里几个经典框架”\"上一段paper做的…"
-publishedAt: "2025-08-08 12:24:15"
-updatedAt: "2025-08-08 12:31:00"
+publishedAt: "2025-08-08T04:24:15Z"
+updatedAt: "2025-08-08T04:31:00Z"
 category: "Academic"
+categories: ["Academic"]
 tags: ["HPC", "研讨会", "系统"]
+author: "GB"
 draft: false
 slug: "sustech-student-sys-seminar"
 legacySlug: "sustech-student-sys-seminar"
+oldSlugs: ["南科大学生系统研讨会-sustech-student-sys-seminar"]
 wordpressId: 930
 sourceUrl: "https://www.haibinlaiblog.top/index.php/sustech-student-sys-seminar/"
 commentCount: 0
+viewCount: 619
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>本文大概记录我们第一次南科大系统研讨会的过程和反思。</p>

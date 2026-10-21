@@ -1,16 +1,23 @@
 ---
 title: "std::unordered_map"
 description: "是的， std::unordered_map 的本质是 哈希表 ，而 std::map 是基于 红黑树 的有序容器。 让我们来详细了解一下 哈希表 是如何实现的，特别是在 unordered_map 中是如何工作的。 1. 哈希表的基本原理 哈希表是基于哈希函数的概念，哈希函数将 键（key） 转换为一个固定大小的数组索引。哈希表的核心结构通常是一个数组，数组中的每个位置叫做 桶 。元素通过哈希函数计算得到哈希值，然后将元素存放到对应…"
-publishedAt: "2025-05-12 23:57:52"
-updatedAt: "2025-05-23 05:07:04"
+publishedAt: "2025-05-12T15:57:52Z"
+updatedAt: "2025-05-22T21:07:04Z"
 category: "Micro Topics"
+categories: ["Micro Topics"]
 tags: ["CPP"]
+author: "GB"
 draft: false
 slug: "stdunordered_map"
 legacySlug: "stdunordered_map"
+oldSlugs: []
 wordpressId: 763
 sourceUrl: "https://www.haibinlaiblog.top/index.php/stdunordered_map/"
 commentCount: 0
+viewCount: 778
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>是的，<code>std::unordered_map</code> 的本质是 <strong>哈希表</strong>，而 <code>std::map</code> 是基于 <strong>红黑树</strong> 的有序容器。</p>

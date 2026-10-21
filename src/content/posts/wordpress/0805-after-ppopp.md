@@ -1,15 +1,22 @@
 ---
 title: "0805 after PPoPP"
 description: "8点投完稿，9点吃了炒饭，10点开会。现在4点36分，躺在床上完全睡不着。 投完这篇PPoPP，哪怕依旧没有中，也意味着我本科最后一份工作的结束。 对这份工作满意吗？从论文最后的数据结果看，还不错。我几乎用上了毕生所学，写作和实验时如同和机器在跳一支久违的双人舞。似乎没什么不满意的，可能唯一的就是做了它一年多快两年。但是久功磨一剑，终于站在了风口下。 现在什么心情呢？有解脱，迷茫，一种高三过去的感觉。18岁时我说青春是一场伟大的漂流…"
-publishedAt: "2026-08-06 03:30:08"
+publishedAt: "2026-08-05T19:30:08Z"
 category: "fragments"
+categories: ["fragments"]
 tags: ["life"]
+author: "GB"
 draft: false
 slug: "0805-after-ppopp"
 legacySlug: "0805-after-ppopp"
+oldSlugs: []
 wordpressId: 1568
 sourceUrl: "https://www.haibinlaiblog.top/index.php/0805-after-ppopp/"
 commentCount: 0
+viewCount: 226
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>8点投完稿，9点吃了炒饭，10点开会。现在4点36分，躺在床上完全睡不着。</p>

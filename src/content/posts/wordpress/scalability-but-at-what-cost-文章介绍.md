@@ -1,16 +1,23 @@
 ---
 title: "Scalability! But at what COST 文章介绍"
 description: "Scalability! But at what COST 文章介绍 hotos15-paper-mcsherry.pdf 这篇文章讲了一个很重要的问题：在图计算这一领域中，我们要去思考，Scalable是否真的带来Effective？ 即使算法的逻辑（如PageRank的迭代公式）看起来相同，分布式系统的实现方式（通信、同步、数据分区、语言开销）引入了大量额外工作，导致性能低于单线程。 多线程或分布式系统的性能不如单线程，可以用一个…"
-publishedAt: "2025-05-12 23:54:52"
-updatedAt: "2025-06-11 06:26:45"
+publishedAt: "2025-05-12T15:54:52Z"
+updatedAt: "2025-06-10T22:26:45Z"
 category: "Paper Reading"
+categories: ["Paper Reading"]
 tags: ["Graph", "HPC"]
+author: "GB"
 draft: false
 slug: "scalability-but-at-what-cost-文章介绍"
 legacySlug: "scalability-but-at-what-cost-文章介绍"
+oldSlugs: []
 wordpressId: 761
 sourceUrl: "https://www.haibinlaiblog.top/index.php/scalability-but-at-what-cost-%e6%96%87%e7%ab%a0%e4%bb%8b%e7%bb%8d/"
 commentCount: 0
+viewCount: 656
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>Scalability! But at what COST 文章介绍</p>

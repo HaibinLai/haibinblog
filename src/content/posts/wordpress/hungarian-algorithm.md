@@ -1,16 +1,24 @@
 ---
 title: "Hungarian Algorithm"
 description: "Hungarian Algorithm Algorithm Design and Analysis (H) Assignment 5 Name: 赖海斌 SID: 12211612 Abstract In this assignment we try to analyze Hungarian algorithm. It’s an efficient algorithm for solving the min-cost max-matc…"
-publishedAt: "2024-08-23 23:43:04"
-updatedAt: "2024-12-07 18:16:34"
+publishedAt: "2024-08-23T15:43:04Z"
+updatedAt: "2024-12-07T10:16:34Z"
 category: "Graph"
+categories: ["Graph"]
 tags: ["图论", "算法", "计算机科学"]
+author: "haibin"
 draft: false
 slug: "hungarian-algorithm"
 legacySlug: "hungarian-algorithm"
+oldSlugs: []
 wordpressId: 88
 sourceUrl: "https://www.haibinlaiblog.top/index.php/hungarian-algorithm/"
 commentCount: 0
+viewCount: 3014
+likeCount: 0
+dislikeCount: 0
+showCitation: true
+featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/08/ADA-Assignment5-Haibin-Lai.003.png"
 importedFromWordPress: true
 ---
 <h1>Hungarian Algorithm</h1>

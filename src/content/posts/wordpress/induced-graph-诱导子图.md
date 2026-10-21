@@ -1,16 +1,24 @@
 ---
 title: "Induced Graph 诱导子图"
 description: "在图论中， 诱导子图 （Induced Subgraph）是从一个图 ( G ) 中通过 (1) 选取一个顶点子集 ( S ) 并 (2) 保留与这些顶点相连接的边来构造的子图。具体地说，诱导子图包含了选定顶点的所有邻接边。 定义 给定一个图 $G = (V, E)$ ，如果从 ( G ) 中选择一个顶点子集 ( S \\subseteq V )，那么 诱导子图 ( $G[S]$ ) 是由顶点集 $S$ 和边集 $E'$ 组成的图，其中…"
-publishedAt: "2024-12-05 04:44:02"
-updatedAt: "2024-12-05 04:44:35"
+publishedAt: "2024-12-04T20:44:02Z"
+updatedAt: "2024-12-04T20:44:35Z"
 category: "Graph"
+categories: ["Graph"]
 tags: ["Graph"]
+author: "GB"
 draft: false
 slug: "induced-graph-诱导子图"
 legacySlug: "induced-graph-诱导子图"
+oldSlugs: []
 wordpressId: 454
 sourceUrl: "https://www.haibinlaiblog.top/index.php/induced-graph-%e8%af%b1%e5%af%bc%e5%ad%90%e5%9b%be/"
 commentCount: 0
+viewCount: 2260
+likeCount: 0
+dislikeCount: 0
+showCitation: true
+featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/12/0C24B0FB10ACCFB08BB5237BF2014E22.jpg"
 importedFromWordPress: true
 ---
 <p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/12/0C24B0FB10ACCFB08BB5237BF2014E22-300x130.jpg" alt="" /></p>

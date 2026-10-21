@@ -1,16 +1,24 @@
 ---
 title: "CPP Project2 Matrix Multiplication"
 description: "CS205·C/C++ Programming Project2 Report: Matrix Multiplication PDF 版本： Project2赖海斌 Github: https://github.com/HaibinLai/CS205-CPP-Programing-Project 摘要 同样是矩阵乘法，Java和C谁更快？在做Project之前，我会凭着经验和对于老师的信任大声告诉你答案。但是在做了本次Project后…"
-publishedAt: "2024-09-06 03:01:15"
-updatedAt: "2024-12-05 04:59:58"
+publishedAt: "2024-09-05T19:01:15Z"
+updatedAt: "2024-12-04T20:59:58Z"
 category: "CPP"
+categories: ["CPP"]
 tags: ["CPP", "矩阵乘法"]
+author: "GB"
 draft: false
 slug: "cpp-project2-report-matrix-multiplication"
 legacySlug: "cpp-project2-report-matrix-multiplication"
+oldSlugs: []
 wordpressId: 200
 sourceUrl: "https://www.haibinlaiblog.top/index.php/cpp-project2-report-matrix-multiplication/"
 commentCount: 0
+viewCount: 3816
+likeCount: 20
+dislikeCount: 3
+showCitation: true
+featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/09/图片2.png"
 importedFromWordPress: true
 ---
 <h1><strong>CS205·C/C++ Programming</strong></h1>

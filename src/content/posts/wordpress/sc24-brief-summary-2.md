@@ -1,16 +1,24 @@
 ---
 title: "SC 24 Brief Summary 2"
 description: "总链接： https://www.haibinlaiblog.top/index.php/sc-2024-passage/ ChatBLAS: The First AI-Generated and Portable BLAS Library 用GPT写的BLAS库 ChatBLAS: The First AI-Generated and Portable BLAS Library We present ChatBLAS, the fi…"
-publishedAt: "2024-12-07 23:38:01"
-updatedAt: "2025-03-25 00:16:57"
+publishedAt: "2024-12-07T15:38:01Z"
+updatedAt: "2025-03-24T16:16:57Z"
 category: "Paper Reading"
+categories: ["Paper Reading"]
 tags: ["HPC", "SC", "超算"]
+author: "GB"
 draft: false
 slug: "sc24-brief-summary-2"
 legacySlug: "sc24-brief-summary-2"
+oldSlugs: []
 wordpressId: 522
 sourceUrl: "https://www.haibinlaiblog.top/index.php/sc24-brief-summary-2/"
 commentCount: 0
+viewCount: 3701
+likeCount: 1
+dislikeCount: 0
+showCitation: true
+featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/11/微信截图_20241118023433.jpg"
 importedFromWordPress: true
 ---
 <p><a href="https://www.haibinlaiblog.top/index.php/418/%e5%be%ae%e4%bf%a1%e6%88%aa%e5%9b%be_20241118023327/"><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080422377.jpeg" alt="" /></a></p>

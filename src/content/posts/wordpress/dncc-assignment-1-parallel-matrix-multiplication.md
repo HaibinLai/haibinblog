@@ -1,16 +1,23 @@
 ---
 title: "DnCC Assignment 1: Parallel Matrix Multiplication"
 description: "https://github.com/HaibinLai/Distributed-and-Cloud-Computing.git 【分布与云计算 - DnCC 复习】 https://www.bilibili.com/video/BV1eovaBTEW9/?share_source=copy_web&vd_source=72eac555730ba7e7a64f9fa1d7f2b2d4 Setup Compile We can use…"
-publishedAt: "2025-12-30 01:00:45"
-updatedAt: "2025-12-30 18:29:36"
+publishedAt: "2025-12-29T17:00:45Z"
+updatedAt: "2025-12-30T10:29:36Z"
 category: "Distributed Systems"
+categories: ["Distributed Systems"]
 tags: []
+author: "GB"
 draft: false
 slug: "dncc-assignment-1-parallel-matrix-multiplication"
 legacySlug: "dncc-assignment-1-parallel-matrix-multiplication"
+oldSlugs: []
 wordpressId: 1108
 sourceUrl: "https://www.haibinlaiblog.top/index.php/dncc-assignment-1-parallel-matrix-multiplication/"
 commentCount: 0
+viewCount: 951
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p><a href="https://github.com/HaibinLai/Distributed-and-Cloud-Computing.git">https://github.com/HaibinLai/Distributed-and-Cloud-Computing.git</a></p>

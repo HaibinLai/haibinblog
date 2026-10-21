@@ -1,16 +1,23 @@
 ---
 title: "DnCC3: Introduction to Spark"
 description: "In this assignment, we need to use Spark to analyze the Parking dataset. Preparing Install pysark and java pip install pyspark sudo apt-get update sudo apt-get install openjdk-17-jdk export JAVA_HOME=/usr/lib/jvm/java-1…"
-publishedAt: "2025-12-30 01:04:24"
-updatedAt: "2025-12-30 18:33:17"
+publishedAt: "2025-12-29T17:04:24Z"
+updatedAt: "2025-12-30T10:33:17Z"
 category: "Distributed Systems"
+categories: ["Distributed Systems"]
 tags: []
+author: "GB"
 draft: false
 slug: "dncc3-introduction-to-spark"
 legacySlug: "dncc3-introduction-to-spark"
+oldSlugs: []
 wordpressId: 1113
 sourceUrl: "https://www.haibinlaiblog.top/index.php/dncc3-introduction-to-spark/"
 commentCount: 0
+viewCount: 1164
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2025/12/image-1767090779092.png" alt="file" /></p>

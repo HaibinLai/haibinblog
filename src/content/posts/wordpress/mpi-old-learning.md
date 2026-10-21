@@ -1,15 +1,22 @@
 ---
 title: "MPI: old learning"
 description: "Tutorials · MPI Tutorial 其实这个问题背后很有意思。mpi属于hpc领域，和现在的hadoop生态本来就不属于一块。 个人觉得一个技术能否流行起来，主要取决于三点:自身性能，易用性，环境。 性能上，mpi适用于计算密集型，在对计算要求比较高的地方，确实比hadoop/spark用的广，比如机器学习， 生物计算 。但是属于io密集型就不会有优势，很多 大数据 任务属于这种情况。 易用性上，mpi无论是编写和运行环…"
-publishedAt: "2025-05-16 02:13:04"
+publishedAt: "2025-05-15T18:13:04Z"
 category: "High Performance Computing"
+categories: ["High Performance Computing"]
 tags: ["HPC", "MPI"]
+author: "GB"
 draft: false
 slug: "mpi-old-learning"
 legacySlug: "mpi-old-learning"
+oldSlugs: []
 wordpressId: 769
 sourceUrl: "https://www.haibinlaiblog.top/index.php/mpi-old-learning/"
 commentCount: 0
+viewCount: 642
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p><a href="https://mpitutorial.com/tutorials/">Tutorials · MPI Tutorial</a></p>

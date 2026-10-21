@@ -1,16 +1,23 @@
 ---
 title: "十年饮冰，难凉热血"
 description: "2026年6月22日，德国科隆。FALCONS战队在接连斩落NAVI、Vitality、Spirit三座大山后，以3:0的绝对碾压之势横扫黑豹FURIA，这艘银河战舰终结了这场熬走十余年遗憾、击碎全网嘲讽的封神之战，捧起了属于他们的Major总冠军奖杯。 整座电竞殿堂人声鼎沸，场馆很大，容得下五万人的呐喊与狂热；场馆也很小，小到最后只剩下了键鼠敲击的脆响、道具爆破的轰鸣，以及唯一一座冠军奖杯。m0NESY的大狙防守， kyousuke…"
-publishedAt: "2026-06-22 05:49:31"
-updatedAt: "2026-06-22 05:49:46"
+publishedAt: "2026-06-21T21:49:31Z"
+updatedAt: "2026-06-21T21:49:46Z"
 category: "fragments"
+categories: ["fragments"]
 tags: ["falcons"]
+author: "GB"
 draft: false
 slug: "falcons"
 legacySlug: "falcons"
+oldSlugs: ["十年饮冰，难凉热血"]
 wordpressId: 1469
 sourceUrl: "https://www.haibinlaiblog.top/index.php/falcons/"
 commentCount: 0
+viewCount: 1835
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>2026年6月22日，德国科隆。FALCONS战队在接连斩落NAVI、Vitality、Spirit三座大山后，以3:0的绝对碾压之势横扫黑豹FURIA，这艘银河战舰终结了这场熬走十余年遗憾、击碎全网嘲讽的封神之战，捧起了属于他们的Major总冠军奖杯。</p>

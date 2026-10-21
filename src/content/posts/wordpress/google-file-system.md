@@ -1,16 +1,23 @@
 ---
 title: "Google File System"
 description: "Google File System (GFS) 是 Google 为满足大规模数据存储和处理需求而设计的分布式文件系统。GFS 的设计目标是处理大量数据并提供高吞吐量的数据访问，这对于 Google 这样的公司在运行其搜索引擎和其他大规模应用时至关重要。 设立一个master可以极大的简化系统的设计，可以很方便地进行全局信息的管理。然而单一的master很容易成为系统的瓶颈，所以只能让其尽可能少的参与读写。客户端从来不从master…"
-publishedAt: "2024-09-18 03:07:00"
-updatedAt: "2024-12-05 05:06:28"
+publishedAt: "2024-09-17T19:07:00Z"
+updatedAt: "2024-12-04T21:06:28Z"
 category: "Big Data"
+categories: ["Big Data"]
 tags: ["大数据", "谷歌"]
+author: "GB"
 draft: false
 slug: "google-file-system"
 legacySlug: "google-file-system"
+oldSlugs: []
 wordpressId: 263
 sourceUrl: "https://www.haibinlaiblog.top/index.php/google-file-system/"
 commentCount: 0
+viewCount: 1436
+likeCount: 1
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>Google File System (GFS) 是 Google 为满足大规模数据存储和处理需求而设计的分布式文件系统。GFS 的设计目标是处理大量数据并提供高吞吐量的数据访问，这对于 Google 这样的公司在运行其搜索引擎和其他大规模应用时至关重要。</p>

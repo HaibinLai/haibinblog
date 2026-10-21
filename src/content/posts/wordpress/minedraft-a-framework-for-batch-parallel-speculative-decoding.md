@@ -1,15 +1,22 @@
 ---
 title: "MINEDRAFT: A Framework for Batch Parallel Speculative Decoding"
 description: "MINEDRAFT: A Framework for Batch Parallel Speculative Decoding 把推测解码打成mini batch，随后在drafter和verifier上分批处理。 在vllm上修改，工程量可观。不错的尝试和idea。 Architecture overview of MINEDRAFT. (Left) The Scheduler manages request life-cycles…"
-publishedAt: "2026-03-23 18:40:13"
+publishedAt: "2026-03-23T10:40:13Z"
 category: "Paper Reading"
+categories: ["Paper Reading"]
 tags: ["HPC", "LLM", "speculative decoding", "vLLM"]
+author: "GB"
 draft: false
 slug: "minedraft-a-framework-for-batch-parallel-speculative-decoding"
 legacySlug: "minedraft-a-framework-for-batch-parallel-speculative-decoding"
+oldSlugs: []
 wordpressId: 1285
 sourceUrl: "https://www.haibinlaiblog.top/index.php/minedraft-a-framework-for-batch-parallel-speculative-decoding/"
 commentCount: 0
+viewCount: 854
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>MINEDRAFT: A Framework for Batch Parallel Speculative Decoding</p>

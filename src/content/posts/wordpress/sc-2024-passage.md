@@ -1,16 +1,23 @@
 ---
 title: "SC 2024 文章简介及相关解读"
 description: "为了寻找下一阶段的工作,同时思考我未来要做什么,我就将 SC 24大概90 篇文章都读了一遍. 这个栏目是我为了学习HPC而创建，我的解读目的在于了解以下问题： 研究的问题 HPC方向,大家都关注什么? 有哪些方向? 大家都在做什么? 常见的优化手段有什么? 做的工作需要哪些背景? 需要数学, 材料, 计算中心, 企业应用, 科学计算程序的相关经验? 文章的知识背景有哪些? 问题是从哪里来的? 工作的数据从哪里来的? 我们需要什么样的…"
-publishedAt: "2025-03-24 08:53:44"
-updatedAt: "2025-03-25 08:14:31"
+publishedAt: "2025-03-24T00:53:44Z"
+updatedAt: "2025-03-25T00:14:31Z"
 category: "Paper Reading"
+categories: ["Paper Reading"]
 tags: ["SC", "人生感悟", "并行计算"]
+author: "GB"
 draft: false
 slug: "sc-2024-passage"
 legacySlug: "sc-2024-passage"
+oldSlugs: ["sc-2024-文章简介及相关解读"]
 wordpressId: 679
 sourceUrl: "https://www.haibinlaiblog.top/index.php/sc-2024-passage/"
 commentCount: 0
+viewCount: 1661
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p><a href="https://www.haibinlaiblog.top/index.php/418/%e5%be%ae%e4%bf%a1%e6%88%aa%e5%9b%be_20241118023327/"><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503230117727.jpeg" alt="" /></a></p>

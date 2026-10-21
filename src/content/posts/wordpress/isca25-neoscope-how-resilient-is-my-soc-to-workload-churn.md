@@ -1,15 +1,22 @@
 ---
 title: "ISCA25 Neoscope: How Resilient Is My SoC to Workload Churn?"
 description: "未来的硬件怎么应对不断演变的软件？ https://dl.acm.org/doi/pdf/10.1145/3695053.3731014 这篇文章是 ISCA 2025 的论文 《Neoscope: How Resilient Is My SoC to Workload Churn?》 ，核心在回答一个非常系统/架构导向的问题： 当软件和工作负载不断演进（churn）时，一个 SoC 设计在整个生命周期内还能保持多“好”？ 其建模并定…"
-publishedAt: "2026-02-01 21:22:55"
+publishedAt: "2026-02-01T13:22:55Z"
 category: "Paper Reading"
+categories: ["Paper Reading"]
 tags: ["Arch", "ISCA"]
+author: "GB"
 draft: false
 slug: "isca25-neoscope-how-resilient-is-my-soc-to-workload-churn"
 legacySlug: "isca25-neoscope-how-resilient-is-my-soc-to-workload-churn"
+oldSlugs: []
 wordpressId: 1183
 sourceUrl: "https://www.haibinlaiblog.top/index.php/isca25-neoscope-how-resilient-is-my-soc-to-workload-churn/"
 commentCount: 0
+viewCount: 765
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <h2>未来的硬件怎么应对不断演变的软件？</h2>

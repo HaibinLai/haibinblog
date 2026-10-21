@@ -1,15 +1,22 @@
 ---
 title: "牛来"
 description: "目前我认为三个Agent和人类最后的困难：long context，持续学习，稀缺数据点。 爱上问题，而不是爱上方法。 做一个MVP。 金字塔的叙事。 https://www.normaltech.ai/p/what-will-be-left-for-us-to-work 原来是 LLM 生成文本啊，不知道的还以为是把输入剁成一堆拿大量文本统计出的最常见字符串组合的词元，高频组合各占一个词元而生僻词拆成更小的子词元，查询一张几万行的大…"
-publishedAt: "2026-08-31 23:44:23"
+publishedAt: "2026-08-31T15:44:23Z"
 category: "fragments"
+categories: ["fragments"]
 tags: ["AI"]
+author: "GB"
 draft: false
 slug: "niu-lai"
 legacySlug: "niu-lai"
+oldSlugs: []
 wordpressId: 1653
 sourceUrl: "https://www.haibinlaiblog.top/index.php/niu-lai/"
 commentCount: 0
+viewCount: 230
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>目前我认为三个Agent和人类最后的困难：long context，持续学习，稀缺数据点。</p>

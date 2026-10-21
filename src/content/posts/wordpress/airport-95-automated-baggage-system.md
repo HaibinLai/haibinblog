@@ -1,16 +1,23 @@
 ---
 title: "Airport 95: Automated Baggage System?"
 description: "Paper Link https://dl.acm.org/doi/pdf/10.1145/227531.227544 一篇1996年的老文章。作为课程学习阅读。 这篇文章《Airport 95: Automated Baggage System?》由 A. John Swartz 撰写，主要分析了丹佛国际机场（DIA）自动行李处理系统的失败案例。文章以该项目为研究对象，探讨了大型软件/系统工程中常见的管理问题，并呼吁软件工程界系统性…"
-publishedAt: "2026-06-15 23:57:13"
-updatedAt: "2026-06-16 00:32:12"
+publishedAt: "2026-06-15T15:57:13Z"
+updatedAt: "2026-06-15T16:32:12Z"
 category: "文章翻译"
+categories: ["文章翻译"]
 tags: ["SE"]
+author: "GB"
 draft: false
 slug: "airport-95-automated-baggage-system"
 legacySlug: "airport-95-automated-baggage-system？"
+oldSlugs: []
 wordpressId: 1413
 sourceUrl: "https://www.haibinlaiblog.top/index.php/airport-95-automated-baggage-system%ef%bc%9f/"
 commentCount: 0
+viewCount: 670
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <h2>Paper Link</h2>

@@ -1,16 +1,23 @@
 ---
 title: "LLM Parameter Estimation"
 description: "大模型参数量估计推导 1. 为什么需要估计参数量？ 大模型（如 BERT、GPT、LLaMA）参数量通常亿级甚至万亿级，估计参数量有助于： 硬件需求评估 ：参数量影响内存和计算资源需求。 模型规模比较 ：参数量反映复杂度和潜在能力。 优化设计 ：在资源有限时，调整结构以平衡性能和效率。 参数量由模型的各个组成部分（层、权重矩阵、偏置等）决定，以下以 Transformer 架构为例推导。 2. Transformer 架构核心组件 T…"
-publishedAt: "2025-05-12 03:38:43"
-updatedAt: "2025-05-12 04:43:15"
+publishedAt: "2025-05-11T19:38:43Z"
+updatedAt: "2025-05-11T20:43:15Z"
 category: "High Performance Computing"
+categories: ["High Performance Computing"]
 tags: ["LLM", "Transformer"]
+author: "GB"
 draft: false
 slug: "llm-parameter-estimation"
 legacySlug: "llm-parameter-estimation"
+oldSlugs: []
 wordpressId: 711
 sourceUrl: "https://www.haibinlaiblog.top/index.php/llm-parameter-estimation/"
 commentCount: 0
+viewCount: 1040
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <h1>大模型参数量估计推导</h1>

@@ -1,16 +1,23 @@
 ---
 title: "MoonshotAI: Sharing for VibeCoding Examples and Debug Techniques"
 description: "Vibe coding Meetup北京场｜VibeCoding案例和Debug技巧 https://www.douyin.com/video/7543627062267923747 这个视频记录了月之暗面Kimi对vibe coding的分享。 软件工程： 没有银弹 -> AI? 现在AI可以跑几十分钟，处理大量的数据+代码 windsurf 收购 Claude Code | Cursor | Windsurf | Copilot…"
-publishedAt: "2025-12-04 04:43:44"
-updatedAt: "2025-12-12 17:31:45"
+publishedAt: "2025-12-03T20:43:44Z"
+updatedAt: "2025-12-12T09:31:45Z"
 category: "Academic"
+categories: ["Academic"]
 tags: []
+author: "GB"
 draft: false
 slug: "sharing-for-vibecoding"
 legacySlug: "sharing-for-vibecoding"
+oldSlugs: ["moonshotai-sharing-for-vibecoding-examples-and-debug-techniques"]
 wordpressId: 1083
 sourceUrl: "https://www.haibinlaiblog.top/index.php/sharing-for-vibecoding/"
 commentCount: 0
+viewCount: 585
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <h2>Vibe coding</h2>

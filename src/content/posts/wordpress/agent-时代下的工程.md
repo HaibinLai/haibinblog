@@ -1,15 +1,22 @@
 ---
 title: "Agent 时代下的工程"
 description: "我在之前这篇文章里讲述了我如何与AI协作完成2000行的作业： https://www.haibinlaiblog.top/index.php/%e6%80%8e%e4%b9%88%e7%94%a8ai%e5%86%992000%e8%a1%8c%e7%9a%84%e5%a4%a7%e4%bd%9c%e4%b8%9a/ 然而时代变迁，从25年11月到26年3月，Agent的生产力已经远远超乎我的想象。 比如我前两天让AI去总结SC25…"
-publishedAt: "2026-07-27 21:28:40"
+publishedAt: "2026-07-27T13:28:40Z"
 category: "fragments"
+categories: ["fragments"]
 tags: []
+author: "GB"
 draft: false
 slug: "agent-时代下的工程"
 legacySlug: "agent-时代下的工程"
+oldSlugs: []
 wordpressId: 1517
 sourceUrl: "https://www.haibinlaiblog.top/index.php/agent-%e6%97%b6%e4%bb%a3%e4%b8%8b%e7%9a%84%e5%b7%a5%e7%a8%8b/"
 commentCount: 0
+viewCount: 313
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>我在之前这篇文章里讲述了我如何与AI协作完成2000行的作业：

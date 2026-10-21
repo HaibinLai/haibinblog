@@ -1,15 +1,22 @@
 ---
 title: "OpenMP 绑定核跟线程"
 description: "for (; i < nthreads; ++i) { int err; start_data->ts.place_partition_off = thr->ts.place_partition_off; start_data->ts.place_partition_len = thr->ts.place_partition_len; start_data->place = 0; if ( (gomp_places_list != N…"
-publishedAt: "2025-05-29 10:18:23"
+publishedAt: "2025-05-29T02:18:23Z"
 category: "Micro Topics"
+categories: ["Micro Topics"]
 tags: []
+author: "GB"
 draft: false
 slug: "openmp-绑定核跟线程"
 legacySlug: "openmp-绑定核跟线程"
+oldSlugs: []
 wordpressId: 821
 sourceUrl: "https://www.haibinlaiblog.top/index.php/openmp-%e7%bb%91%e5%ae%9a%e6%a0%b8%e8%b7%9f%e7%ba%bf%e7%a8%8b/"
 commentCount: 0
+viewCount: 694
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <pre><code class="language-CPP">  for (; i &lt; nthreads; ++i)

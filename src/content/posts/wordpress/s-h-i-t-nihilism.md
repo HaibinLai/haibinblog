@@ -1,16 +1,23 @@
 ---
 title: "S.H.I.T 中国青年虚无主义体验的形成机制与生命意义重建路径研究"
 description: "paper link: https://shitjournal.org/preprints/7bce9b92-88ef-4f58-ad9b-e84850799939 文章探讨了为什么很多中国青年（初中生、高中生以及大学生）陷入迷茫与虚无主义 1. 为什么会形成虚无主义 文章章节1、2节讨论了这一问题。 作者认为，大部分中国青年最初生长在封闭环境（如学校、家庭）。其环境的封闭性体现在：对人生目标这一“目标函数”的单一性，如“好好学习就会…"
-publishedAt: "2026-03-10 17:26:28"
-updatedAt: "2026-03-10 17:28:10"
+publishedAt: "2026-03-10T09:26:28Z"
+updatedAt: "2026-03-10T09:28:10Z"
 category: "Life"
+categories: ["Life"]
 tags: ["life"]
+author: "GB"
 draft: false
 slug: "s-h-i-t-nihilism"
 legacySlug: "s-h-i-t-nihilism"
+oldSlugs: ["s-h-i-t-中国青年虚无主义体验的形成机制与生命意义重"]
 wordpressId: 1269
 sourceUrl: "https://www.haibinlaiblog.top/index.php/s-h-i-t-nihilism/"
 commentCount: 0
+viewCount: 1791
+likeCount: 1
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>paper link:

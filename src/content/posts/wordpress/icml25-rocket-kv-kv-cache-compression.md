@@ -1,15 +1,22 @@
 ---
 title: "ICML25 Rocket KV - KV Cache Compression"
 description: "kaixin li github repo: NVlabs/RocketKV: [ICML 2025] RocketKV: Accelerating Long-Context LLM Inference via Two-Stage KV Cache Compression To learn LLM KV Cache Compression October2001/Awesome-KV-Cache-Compression: 📰 Must…"
-publishedAt: "2025-09-16 11:38:47"
+publishedAt: "2025-09-16T03:38:47Z"
 category: "Paper Reading"
+categories: ["Paper Reading"]
 tags: ["ICML"]
+author: "GB"
 draft: false
 slug: "icml25-rocket-kv-kv-cache-compression"
 legacySlug: "icml25-rocket-kv-kv-cache-compression"
+oldSlugs: []
 wordpressId: 973
 sourceUrl: "https://www.haibinlaiblog.top/index.php/icml25-rocket-kv-kv-cache-compression/"
 commentCount: 0
+viewCount: 3416
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>kaixin li</p>

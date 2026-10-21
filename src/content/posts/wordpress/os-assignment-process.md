@@ -1,16 +1,24 @@
 ---
 title: "OS Assignment: Process"
 description: "Author: Haibin Lai Student ID: 12211612 1 Three \"Easy\" Pieces 1.1 Three Easy pieces of Operating System: Virtualization Concurrency Persistence Explain: Virtualization means OS will make a high level abstraction on the…"
-publishedAt: "2024-10-24 22:43:55"
-updatedAt: "2024-12-01 19:57:52"
+publishedAt: "2024-10-24T14:43:55Z"
+updatedAt: "2024-12-01T11:57:52Z"
 category: "OS"
+categories: ["OS"]
 tags: ["OS", "Process", "进程"]
+author: "GB"
 draft: false
 slug: "os-assignment-process"
 legacySlug: "os-assignment-process"
+oldSlugs: []
 wordpressId: 377
 sourceUrl: "https://www.haibinlaiblog.top/index.php/os-assignment-process/"
 commentCount: 0
+viewCount: 2078
+likeCount: 0
+dislikeCount: 0
+showCitation: true
+featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/10/contextSw2itch.png"
 importedFromWordPress: true
 ---
 <p>Author: Haibin Lai

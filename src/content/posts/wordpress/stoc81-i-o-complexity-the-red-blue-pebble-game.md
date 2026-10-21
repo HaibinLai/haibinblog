@@ -1,15 +1,22 @@
 ---
 title: "STOC81 I/O Complexity: The Red-Blue Pebble Game"
 description: "STOC81 I/O Complexity: The Red-Blue Pebble Game 这是一篇理论计算机科学文章，但是描述了一个非常有趣的问题：就像时间复杂度一样，我们能不能做一个I/O复杂度，衡量一个程序最少要进行多少次I/O? 文章链接： https://www.eecs.harvard.edu/~htk/publication/1981-stoc-hong-kung.pdf Compute不贵，I/O才贵 随着现代的C…"
-publishedAt: "2026-01-09 20:01:07"
+publishedAt: "2026-01-09T12:01:07Z"
 category: "Paper Reading"
+categories: ["Paper Reading"]
 tags: ["I/O", "STOC"]
+author: "GB"
 draft: false
 slug: "stoc81-i-o-complexity-the-red-blue-pebble-game"
 legacySlug: "stoc81-i-o-complexity-the-red-blue-pebble-game"
+oldSlugs: []
 wordpressId: 1163
 sourceUrl: "https://www.haibinlaiblog.top/index.php/stoc81-i-o-complexity-the-red-blue-pebble-game/"
 commentCount: 0
+viewCount: 1489
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>STOC81 I/O Complexity: The Red-Blue Pebble Game</p>

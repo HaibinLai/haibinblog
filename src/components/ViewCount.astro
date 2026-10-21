@@ -1,0 +1,17 @@
+---
+interface Props {
+  scope: 'site' | 'page';
+  value: number;
+  class?: string;
+}
+
+const { scope, value, class: className } = Astro.props;
+const formatted = new Intl.NumberFormat('en-US').format(value);
+---
+
+<span
+  class={className}
+  data-view-count={scope}
+  data-view-baseline={value}
+  aria-live="polite"
+>{formatted}</span>

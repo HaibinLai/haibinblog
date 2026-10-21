@@ -1,16 +1,23 @@
 ---
 title: "图个数问题与burnside引理"
 description: "问题 一个图G（V,E），如果有8个顶点，一共有多少个这样的图？ 这个问题涉及到一个有趣的burnside引理，今天我们借这个问题来学习下这个图论引理。 不考虑同构情况 在这种情况下，我们假设每个顶点和边都有id，也就是他们是独一无二的。 如果默认是 无向简单图 ，也就是： 顶点已经固定为 8 个； 没有自环； 两个顶点之间最多一条边； 边没有方向。 那么 8 个顶点之间最多有 \\binom{8}{2}=\\frac{8\\times 7…"
-publishedAt: "2026-07-19 00:18:25"
-updatedAt: "2026-07-21 18:46:31"
+publishedAt: "2026-07-18T16:18:25Z"
+updatedAt: "2026-07-21T10:46:31Z"
 category: "Graph"
+categories: ["Graph"]
 tags: ["图论"]
+author: "GB"
 draft: false
 slug: "graph_number"
 legacySlug: "graph_number"
+oldSlugs: ["图个数问题"]
 wordpressId: 1489
 sourceUrl: "https://www.haibinlaiblog.top/index.php/graph_number/"
 commentCount: 0
+viewCount: 746
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <h2>问题</h2>

@@ -1,16 +1,23 @@
 ---
 title: "计算机体系结构未来发展预测"
 description: "tldr: 专用的硬件将成为计算主流 多节点情况下，CPU的核数将稳定保持在16-48核内。多节点的目标不再是更多CPU，而是能控制更多GPU等特殊硬件 特殊内存、特殊网络通信等组件将更加主流 云服务主导，个人与仓储计算差异化 软件-硬件协同设计 可持续计算，能耗成为一个关键因素 计算机CPU性能增长缓慢 下文来自David Pattersen的《计算机体系结构：量化研究方法》： 提高能效-性能-成本的唯一途径是专业化。 时钟增长缓慢…"
-publishedAt: "2025-05-09 20:31:58"
-updatedAt: "2025-05-09 21:30:59"
+publishedAt: "2025-05-09T12:31:58Z"
+updatedAt: "2025-05-09T13:30:59Z"
 category: "Computer Science"
+categories: ["Computer Science"]
 tags: ["HPC", "体系结构"]
+author: "GB"
 draft: false
 slug: "future_computer"
 legacySlug: "future_computer"
+oldSlugs: ["计算机体系结构未来发展预测"]
 wordpressId: 705
 sourceUrl: "https://www.haibinlaiblog.top/index.php/future_computer/"
 commentCount: 0
+viewCount: 3835
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>tldr:</p>

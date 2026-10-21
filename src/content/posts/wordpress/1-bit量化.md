@@ -1,16 +1,23 @@
 ---
 title: "1-bit量化"
 description: "用AI生成的。省着点看。 1-bit大模型指的是采用1-bit量化（即权重仅用+1或-1表示）的神经网络模型，具体在本文件中指的是 BitNet ，一种专为大规模语言模型设计的1-bit Transformer架构。以下是关于BitNet和1-bit大模型的关键点总结： 1. 什么是BitNet？ BitNet 是一种1-bit Transformer架构，通过将模型权重量化为1-bit（二值化，+1或-1），并结合量化激活（如8-b…"
-publishedAt: "2025-05-22 05:07:31"
-updatedAt: "2025-05-23 05:07:51"
+publishedAt: "2025-05-21T21:07:31Z"
+updatedAt: "2025-05-22T21:07:51Z"
 category: "Micro Topics"
+categories: ["Micro Topics"]
 tags: ["量化"]
+author: "GB"
 draft: false
 slug: "1-bit量化"
 legacySlug: "1-bit量化"
+oldSlugs: []
 wordpressId: 794
 sourceUrl: "https://www.haibinlaiblog.top/index.php/1-bit%e9%87%8f%e5%8c%96/"
 commentCount: 0
+viewCount: 1554
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>用AI生成的。省着点看。</p>

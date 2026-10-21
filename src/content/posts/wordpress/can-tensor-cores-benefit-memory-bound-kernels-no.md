@@ -1,16 +1,23 @@
 ---
 title: "Can Tensor Cores Benefit Memory-Bound Kernels? (NO!)"
 description: "本文学习自 Can Tensor Cores Benefit Memory-Bound Kernels? (NO!) https://dl.acm.org/doi/pdf/10.1145/3725798.3725803 这篇文章提出了一个有点惊人的观点：Tensorcore在面对 memory bound 的kernel/算子时效果并不是很好！文章用优秀的理论公式分析+实验验证了这点。读懂这篇文章，就能懂Roofline model的…"
-publishedAt: "2025-11-02 04:08:20"
-updatedAt: "2025-11-02 05:38:51"
+publishedAt: "2025-11-01T20:08:20Z"
+updatedAt: "2025-11-01T21:38:51Z"
 category: "Paper Reading"
+categories: ["Paper Reading"]
 tags: ["GPU", "HPC", "RooflineModel", "Tensorcore"]
+author: "GB"
 draft: false
 slug: "can-tensor-cores-benefit-memory-bound-kernels-no"
 legacySlug: "can-tensor-cores-benefit-memory-bound-kernels-no"
+oldSlugs: []
 wordpressId: 1049
 sourceUrl: "https://www.haibinlaiblog.top/index.php/can-tensor-cores-benefit-memory-bound-kernels-no/"
 commentCount: 0
+viewCount: 924
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>本文学习自 Can Tensor Cores Benefit Memory-Bound Kernels? (NO!) <a href="https://dl.acm.org/doi/pdf/10.1145/3725798.3725803">https://dl.acm.org/doi/pdf/10.1145/3725798.3725803</a></p>

@@ -1,15 +1,22 @@
 ---
 title: "HGEMM"
 description: "赖海斌 ROI on HGEMM 矩阵参数 不同size的标准矩阵: 32 256 2048 8192 16384 32768 ...... 矩阵形式： 正常矩阵（256 X 256） 特殊形状矩阵（有边界条件） 257 2049 // ? 稀疏矩阵（不同处理方式）// ? 复杂矩阵（行列相差极大，如 M=2048, N=8, K=2048） API GEMM API void hgemm(const float16_t* A, co…"
-publishedAt: "2025-04-16 03:58:59"
+publishedAt: "2025-04-15T19:58:59Z"
 category: "High Performance Computing"
+categories: ["High Performance Computing"]
 tags: ["GEMM", "HPC"]
+author: "GB"
 draft: false
 slug: "hgemm"
 legacySlug: "hgemm"
+oldSlugs: []
 wordpressId: 694
 sourceUrl: "https://www.haibinlaiblog.top/index.php/hgemm/"
 commentCount: 0
+viewCount: 1588
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>赖海斌</p>

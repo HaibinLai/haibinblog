@@ -1,16 +1,23 @@
 ---
 title: "Distributed System 3: Vector Clock"
 description: "Review: Time is important in Distributed, for determine sequence. But we can't find a sync time for everyone. Vector Clock Lamport didn't solve: Solution: use a vector clock 两个向量一样：同一个事件 一个向量小于另一个向量：所有元素都小于等于，但是不能全部等于 并…"
-publishedAt: "2025-10-11 09:59:19"
-updatedAt: "2025-10-11 10:01:48"
+publishedAt: "2025-10-11T01:59:19Z"
+updatedAt: "2025-10-11T02:01:48Z"
 category: "Distributed Systems"
+categories: ["Distributed Systems"]
 tags: ["Distributed System"]
+author: "GB"
 draft: false
 slug: "distributed-system-vector-clock"
 legacySlug: "distributed-system-vector-clock"
+oldSlugs: []
 wordpressId: 1012
 sourceUrl: "https://www.haibinlaiblog.top/index.php/distributed-system-vector-clock/"
 commentCount: 0
+viewCount: 658
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>Review:</p>

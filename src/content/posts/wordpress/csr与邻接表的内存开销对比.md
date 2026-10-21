@@ -1,16 +1,24 @@
 ---
 title: "CSR与邻接表的内存开销对比"
 description: "邻接列表（Adjacency List） 和 压缩稀疏行（CSR，Compressed Sparse Row） 是两种常见的图表示方法，它们的空间效率在不同情况下有所差异。具体来说，哪个表示法更节省空间，取决于图的稀疏程度和实际的存储需求。 1. 邻接列表（Adjacency List） 在邻接列表中，每个顶点有一个列表，存储与该顶点相邻的所有顶点。每个顶点的邻接列表可能包含不同数量的邻居，因此每个顶点的存储大小是变化的。 结构 ：…"
-publishedAt: "2024-11-07 02:09:06"
-updatedAt: "2025-05-23 05:05:39"
+publishedAt: "2024-11-06T18:09:06Z"
+updatedAt: "2025-05-22T21:05:39Z"
 category: "Micro Topics"
+categories: ["Micro Topics"]
 tags: ["图存储", "图计算"]
+author: "GB"
 draft: false
 slug: "csr与邻接表的内存开销对比"
 legacySlug: "csr与邻接表的内存开销对比"
+oldSlugs: []
 wordpressId: 407
 sourceUrl: "https://www.haibinlaiblog.top/index.php/csr%e4%b8%8e%e9%82%bb%e6%8e%a5%e8%a1%a8%e7%9a%84%e5%86%85%e5%ad%98%e5%bc%80%e9%94%80%e5%af%b9%e6%af%94/"
 commentCount: 0
+viewCount: 1275
+likeCount: 0
+dislikeCount: 0
+showCitation: true
+featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/08/95350.jpg"
 importedFromWordPress: true
 ---
 <p><strong>邻接列表（Adjacency List）</strong> 和 <strong>压缩稀疏行（CSR，Compressed Sparse Row）</strong> 是两种常见的图表示方法，它们的空间效率在不同情况下有所差异。具体来说，哪个表示法更节省空间，取决于图的稀疏程度和实际的存储需求。</p>

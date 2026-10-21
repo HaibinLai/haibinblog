@@ -1,16 +1,23 @@
 ---
 title: "Distributed System 4: Chandy-Lamport Algorithm"
 description: "Snapshots: save the data 我们想要捕捉系统在某一时刻 TTT 的 一致全局状态 ，包括： 每个进程的本地状态； 每条通道上的消息状态（即“正在飞”的消息）。 常见应用场景： 检查点恢复（Checkpoint / Rollback Recovery） 检测全局死锁 检测全局不变式（如是否所有账户加和为常数） 调试 / 稳定状态检测（如终止检测） 问题是： 在分布式系统中没有全局时钟，进程之间的消息异步传递，我们无…"
-publishedAt: "2025-10-11 10:00:10"
-updatedAt: "2026-01-09 17:49:24"
+publishedAt: "2025-10-11T02:00:10Z"
+updatedAt: "2026-01-09T09:49:24Z"
 category: "Distributed Systems"
+categories: ["Distributed Systems"]
 tags: ["Snapshots"]
+author: "GB"
 draft: false
 slug: "distributed-system-4-distributed-snapshots"
 legacySlug: "distributed-system-4-distributed-snapshots"
+oldSlugs: ["distributed-system-5-distributed-snapshots"]
 wordpressId: 1014
 sourceUrl: "https://www.haibinlaiblog.top/index.php/distributed-system-4-distributed-snapshots/"
 commentCount: 0
+viewCount: 889
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>Snapshots: save the data </p>

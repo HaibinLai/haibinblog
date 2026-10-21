@@ -1,16 +1,24 @@
 ---
 title: "How can lscpu get Cache size"
 description: "Since Operating System corporate little with Cache, How can lscpu knows the size of them? The CPUID Explorer: Part 2 Answer: CPUID Register From CPUID register! CPUID is an instruction in x86 and x86-64 processors that…"
-publishedAt: "2024-12-13 22:49:15"
-updatedAt: "2024-12-13 22:53:06"
+publishedAt: "2024-12-13T14:49:15Z"
+updatedAt: "2024-12-13T14:53:06Z"
 category: "OS"
+categories: ["OS"]
 tags: ["CPU", "Linux", "OS"]
+author: "GB"
 draft: false
 slug: "how-can-lscpu-get-cache-size"
 legacySlug: "how-can-lscpu-get-cache-size"
+oldSlugs: []
 wordpressId: 543
 sourceUrl: "https://www.haibinlaiblog.top/index.php/how-can-lscpu-get-cache-size/"
 commentCount: 0
+viewCount: 1001
+likeCount: 0
+dislikeCount: 0
+showCitation: true
+featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/12/629CB5C1BC8AB66E94EF878A0DE542AC.jpg"
 importedFromWordPress: true
 ---
 <p>Since Operating System corporate little with Cache, How can <code>lscpu</code> knows the size of them?</p>

@@ -1,6 +1,7 @@
 # Haibin's Blog
 
-A static, versioned rebuild of Haibin's blog, built with Astro and ready for Vercel.
+A static, versioned rebuild of Haibin's blog, built with Astro and deployed to
+GitHub Pages.
 
 ## Writing a post
 
@@ -25,9 +26,11 @@ $$
 $$
 ```
 
-## Writing a moment
+## Publishing a Moment
 
-Create a Markdown file in `src/content/moments/`. Provide image URLs in the `images` frontmatter list. They render as small thumbnails and open at full size when clicked.
+Moments are regular posts whose category list contains `fragments`. They appear
+both in the main article archive and in `/moments/`, where their text, images,
+dates, and comment counts are rendered as a chronological feed.
 
 ## Commands
 
@@ -46,7 +49,17 @@ npm run build
 ```
 
 The importer writes generated posts to `src/content/posts/wordpress/`. It keeps
-the original HTML for the first migration pass and generates compatibility
-pages for legacy `/index.php/<slug>/` links. Re-running it replaces only that
-generated directory. Draft, pending, and private posts are skipped by default
-so they cannot be accidentally committed to this public repository.
+the original HTML and imports categories, author, dates, historical views,
+likes, featured images, old slugs, and the citation setting. It also generates
+compatibility pages for current and older `/index.php/<slug>/` links. Re-running
+it replaces only that generated directory. Draft, pending, private, and
+password-protected posts are skipped by default so they cannot be accidentally
+committed to this public repository.
+
+## View counter
+
+The static site always renders the migration baselines: **363,842** total views
+and each post's exported WordPress count. Continued counting uses the
+Cloudflare Worker + D1 service in [`services/view-counter`](services/view-counter/README.md).
+After deploying it, set the GitHub Actions repository variable
+`PUBLIC_VIEW_COUNTER_URL` to the Worker URL and rerun the Pages workflow.

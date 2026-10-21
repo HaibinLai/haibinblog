@@ -1,16 +1,23 @@
 ---
 title: "已弃坑：oneDNN架构解读"
 description: "PS：这玩意已经不更新了，intel 放弃了哈哈哈哈哈哈哈。 https://zhuanlan.zhihu.com/p/20510564015 oneDNN是Intel开源的深度学习加速库，其前身为MKLDNN，对于Intel自家硬件（CPU以及GPU），oneDNN对神经网络算子的计算过程进行了针对性的优化处理，从而显著提升了神经网络算子在Intel硬件下的计算速度。在训练侧，oneDNN已作为第三方工具被目前几乎所有的主流训练框架…"
-publishedAt: "2025-06-17 14:34:01"
-updatedAt: "2025-06-17 14:42:45"
+publishedAt: "2025-06-17T06:34:01Z"
+updatedAt: "2025-06-17T06:42:45Z"
 category: "Frameworks"
+categories: ["Frameworks"]
 tags: []
+author: "GB"
 draft: false
 slug: "已弃坑-onednn架构解读"
 legacySlug: "已弃坑：onednn架构解读"
+oldSlugs: []
 wordpressId: 872
 sourceUrl: "https://www.haibinlaiblog.top/index.php/%e5%b7%b2%e5%bc%83%e5%9d%91%ef%bc%9aonednn%e6%9e%b6%e6%9e%84%e8%a7%a3%e8%af%bb/"
 commentCount: 0
+viewCount: 1679
+likeCount: 10
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>PS：这玩意已经不更新了，intel 放弃了哈哈哈哈哈哈哈。</p>

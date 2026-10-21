@@ -1,15 +1,22 @@
 ---
 title: "Eurosys24 Orion - GPU Kernel Scheduling for ML Inference"
 description: "Paper Orion: Interference-aware, Fine-grained GPU Sharing for ML Applications Github eth-easl/orion: An interference-aware scheduler for fine-grained GPU sharing Abstract GPUs are critical for maximizing the throughput-…"
-publishedAt: "2025-10-10 13:41:48"
+publishedAt: "2025-10-10T05:41:48Z"
 category: "Paper Reading"
+categories: ["Paper Reading"]
 tags: ["eurosys", "GPU"]
+author: "GB"
 draft: false
 slug: "eurosys24-orion-gpu-kernel-scheduling-for-ml-inference"
 legacySlug: "eurosys24-orion-gpu-kernel-scheduling-for-ml-inference"
+oldSlugs: []
 wordpressId: 1001
 sourceUrl: "https://www.haibinlaiblog.top/index.php/eurosys24-orion-gpu-kernel-scheduling-for-ml-inference/"
 commentCount: 0
+viewCount: 2457
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>Paper

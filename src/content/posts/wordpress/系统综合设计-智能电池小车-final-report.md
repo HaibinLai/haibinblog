@@ -1,16 +1,23 @@
 ---
 title: "系统综合设计 智能电池小车 Final Report"
 description: "作者 ：赖海斌 覃仁杰 陈沛安 摘要 在本次SDIM101课程中，我们小组制作了一辆碳纤维锌电池寻轨小车。小车整体结构采用拱形构造，设计上分为多层，上层将压力点化为面，中层电池采用三并两串的接线为小车提供动力，下层主板驱动小车巡线。小组采用预浸料+真空袋的方式制作小车车身，底板上装配电池组，控制上采用PID算法进行巡线。在制作中，我们采用仿真+实验的方式改善小车在巡线与三点弯测试中的效果，并最终在巡线测试中10分钟内完成27圈，在三点…"
-publishedAt: "2024-08-21 00:02:17"
-updatedAt: "2024-12-05 04:56:46"
+publishedAt: "2024-08-20T16:02:17Z"
+updatedAt: "2024-12-04T20:56:46Z"
 category: "Cross Subjects"
+categories: ["Cross Subjects"]
 tags: ["PID", "控制理论", "机器学习", "电池", "计算机科学"]
+author: "haibin"
 draft: false
 slug: "系统综合设计-智能电池小车-final-report"
 legacySlug: "系统综合设计-智能电池小车-final-report"
+oldSlugs: []
 wordpressId: 28
 sourceUrl: "https://www.haibinlaiblog.top/index.php/%e7%b3%bb%e7%bb%9f%e7%bb%bc%e5%90%88%e8%ae%be%e8%ae%a1-%e6%99%ba%e8%83%bd%e7%94%b5%e6%b1%a0%e5%b0%8f%e8%bd%a6-final-report/"
 commentCount: 0
+viewCount: 3118
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p><strong>作者</strong>：赖海斌 覃仁杰 陈沛安</p>

@@ -1,0 +1,61 @@
+---
+const endpoint = (import.meta.env.PUBLIC_VIEW_COUNTER_URL ?? '').replace(/\/$/, '');
+const base = import.meta.env.BASE_URL;
+---
+
+<script is:inline define:vars={{ endpoint, base }}>
+  (() => {
+    if (!endpoint) return;
+
+    const storageKey = 'haibin-viewer-id';
+    let visitorId;
+    try {
+      visitorId = localStorage.getItem(storageKey);
+    } catch {}
+    if (!visitorId) {
+      visitorId = globalThis.crypto?.randomUUID?.()
+        ?? `${Date.now().toString(36)}-${Math.random().toString(36).slice(2)}`;
+      try {
+        localStorage.setItem(storageKey, visitorId);
+      } catch {}
+    }
+
+    const normalizedBase = base.endsWith('/') ? base : `${base}/`;
+    let path = window.location.pathname;
+    if (normalizedBase !== '/' && path.startsWith(normalizedBase)) {
+      path = `/${path.slice(normalizedBase.length)}`;
+    }
+    path = `/${path.replace(/^\/+|\/+$/g, '')}`;
+    if (path === '/') path = '/';
+    else path += '/';
+
+    fetch(`${endpoint}/view`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ path, visitorId }),
+      mode: 'cors',
+      credentials: 'omit',
+      keepalive: true,
+    })
+      .then((response) => {
+        if (!response.ok) throw new Error(`view counter returned ${response.status}`);
+        return response.json();
+      })
+      .then(({ siteTotal, pageTotal }) => {
+        const format = (value) => new Intl.NumberFormat('en-US').format(value);
+        if (Number.isFinite(siteTotal)) {
+          document.querySelectorAll('[data-view-count="site"]').forEach((node) => {
+            node.textContent = format(siteTotal);
+          });
+        }
+        if (Number.isFinite(pageTotal)) {
+          document.querySelectorAll('[data-view-count="page"]').forEach((node) => {
+            node.textContent = format(pageTotal);
+          });
+        }
+      })
+      .catch(() => {
+        // The build-time historical value remains visible when the service is unavailable.
+      });
+  })();
+</script>

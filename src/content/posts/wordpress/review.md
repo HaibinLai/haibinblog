@@ -1,16 +1,23 @@
 ---
 title: "复盘:科研里的反向传播"
 description: "写在做科研的一年 如果一个End2End神经网络的产出是一篇paper，那么复盘是这个网络的反向传播。人们通过复盘，可以调节 “在探索阶段应该跑更多baseline”，“时刻注意我们要做的主题” 等决策想法，从而做到更有效的科研探索。因此，时不时在输出后进行复盘非常重要。 这篇文章在写什么？ 出于兴趣，我开始了计算机系统的研究。在简单看了一些书和talk后，我就找了我的好老板，一起 “创业” 找idea干paper了。做研究很不容易…"
-publishedAt: "2025-07-22 03:09:54"
-updatedAt: "2025-07-23 09:21:19"
+publishedAt: "2025-07-21T19:09:54Z"
+updatedAt: "2025-07-23T01:21:19Z"
 category: "Books Reading"
+categories: ["Books Reading"]
 tags: ["HPC", "人生", "科研"]
+author: "GB"
 draft: false
 slug: "review"
 legacySlug: "review"
+oldSlugs: ["复盘-科研里的反向传播"]
 wordpressId: 891
 sourceUrl: "https://www.haibinlaiblog.top/index.php/review/"
 commentCount: 1
+viewCount: 3872
+likeCount: 21
+dislikeCount: 3
+showCitation: true
 importedFromWordPress: true
 ---
 <h1>写在做科研的一年</h1>

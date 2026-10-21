@@ -1,15 +1,22 @@
 ---
 title: "LLM Pytorch Profiling on CPU"
 description: "This passage is for my own profile for LLM meta-llama/Llama-3.2-1B We do an indepth analysis for LLM using pytorch profiler and Intel Vtune life is short, but it’s long enough to be foolish import torch from transformer…"
-publishedAt: "2025-04-05 06:53:32"
+publishedAt: "2025-04-04T22:53:32Z"
 category: "High Performance Computing"
+categories: ["High Performance Computing"]
 tags: []
+author: "GB"
 draft: false
 slug: "llm-pytorch-profiling-on-cpu"
 legacySlug: "llm-pytorch-profiling-on-cpu"
+oldSlugs: []
 wordpressId: 692
 sourceUrl: "https://www.haibinlaiblog.top/index.php/llm-pytorch-profiling-on-cpu/"
 commentCount: 0
+viewCount: 1941
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p><strong>This passage is for my own profile for LLM meta-llama/Llama-3.2-1B</strong></p>

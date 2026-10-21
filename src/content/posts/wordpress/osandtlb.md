@@ -1,16 +1,23 @@
 ---
 title: "OS与硬件的交互：TLB"
 description: "我： 我已经知道了 OS 里的物理地址和虚拟地址。那难道每次我进行内存访问，都要进行一次转换吗？ GPT： 是的，从概念上说，每次内存访问都需要把虚拟地址翻译成物理地址。但这不是每次都由操作系统慢慢查表完成，而主要由硬件完成。CPU 里有一个叫 TLB 的缓存，它保存最近用过的地址翻译结果。如果 TLB 命中，虚拟地址可以很快转换成物理地址；如果 TLB miss，硬件才会去查 page table。 我： 这里，TLB 是硬件在做和…"
-publishedAt: "2026-06-09 21:51:46"
-updatedAt: "2026-06-09 21:52:09"
+publishedAt: "2026-06-09T13:51:46Z"
+updatedAt: "2026-06-09T13:52:09Z"
 category: "OS"
+categories: ["OS"]
 tags: ["TLB"]
+author: "GB"
 draft: false
 slug: "osandtlb"
 legacySlug: "osandtlb"
+oldSlugs: ["os与硬件的交互：tlb"]
 wordpressId: 1410
 sourceUrl: "https://www.haibinlaiblog.top/index.php/osandtlb/"
 commentCount: 0
+viewCount: 694
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p><strong>我：</strong> 我已经知道了 OS 里的物理地址和虚拟地址。那难道每次我进行内存访问，都要进行一次转换吗？</p>

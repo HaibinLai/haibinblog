@@ -2,14 +2,27 @@
 import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
-  const posts = await getCollection(
-    'posts',
-    ({ data }) => !data.draft && Boolean(data.legacySlug),
-  );
+  const posts = await getCollection('posts', ({ data }) => !data.draft);
+  const routes = new Map<string, string>();
 
-  return posts.map((post) => ({
-    params: { slug: post.data.legacySlug },
-    props: { destination: `/posts/${post.data.slug ?? post.id.replace(/^wordpress\//, '')}/` },
+  for (const post of posts) {
+    const destination = `/posts/${post.data.slug ?? post.id.replace(/^wordpress\//, '')}/`;
+    const aliases = [post.data.legacySlug, ...post.data.oldSlugs]
+      .filter((slug): slug is string => Boolean(slug))
+      .map((slug) => slug.replace(/^\/+|\/+$/g, ''));
+
+    for (const alias of aliases) {
+      const existing = routes.get(alias);
+      if (existing && existing !== destination) {
+        throw new Error(`Legacy route collision for ${alias}: ${existing} and ${destination}`);
+      }
+      routes.set(alias, destination);
+    }
+  }
+
+  return [...routes].map(([slug, destination]) => ({
+    params: { slug },
+    props: { destination },
   }));
 }
 

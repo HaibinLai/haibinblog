@@ -1,16 +1,24 @@
 ---
 title: "CPP Project5: The beginning of Accelerated Computing"
 description: "CS205·C/C++ Programming Project5 Report: The beginning of Accelerated Computing PDF 版本： Project 5 Github: https://github.com/HaibinLai/CS205-CPP-Programing-Project 摘要 “这是一个令人惊叹的时代，因为我们正处于一场新的工业革命的开始，过去蒸汽机、电力、PC和互联网带来了信息…"
-publishedAt: "2024-09-09 20:51:47"
-updatedAt: "2024-12-05 05:03:56"
+publishedAt: "2024-09-09T12:51:47Z"
+updatedAt: "2024-12-04T21:03:56Z"
 category: "CPP"
+categories: ["CPP"]
 tags: ["CPP", "CUDA", "矩阵乘法"]
+author: "GB"
 draft: false
 slug: "cpp-project5-the-beginning-of-accelerated-computing"
 legacySlug: "cpp-project5-the-beginning-of-accelerated-computing"
+oldSlugs: []
 wordpressId: 231
 sourceUrl: "https://www.haibinlaiblog.top/index.php/cpp-project5-the-beginning-of-accelerated-computing/"
 commentCount: 1
+viewCount: 3469
+likeCount: 0
+dislikeCount: 0
+showCitation: true
+featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/09/图片-2.png"
 importedFromWordPress: true
 ---
 <h1><strong>CS205·C/C++ Programming</strong></h1>

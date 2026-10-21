@@ -1,15 +1,22 @@
 ---
 title: "25年7月文章 Attention on Hardware"
 description: "link: SystolicAttention: Fusing FlashAttention within a Single Systolic Array 这篇文章提出了一种针对 Transformer 模型中的 FlashAttention 加速的新架构 FSA（ Full Systolic Attention ），旨在解决现有 基于 systolic array 的加速器在执行 FlashAttention 时利用率低 的问题。作…"
-publishedAt: "2025-08-06 01:59:53"
+publishedAt: "2025-08-05T17:59:53Z"
 category: "Paper Reading"
+categories: ["Paper Reading"]
 tags: ["GPU"]
+author: "GB"
 draft: false
 slug: "25年7月文章-attention-on-hardware"
 legacySlug: "25年7月文章-attention-on-hardware"
+oldSlugs: []
 wordpressId: 924
 sourceUrl: "https://www.haibinlaiblog.top/index.php/25%e5%b9%b47%e6%9c%88%e6%96%87%e7%ab%a0-attention-on-hardware/"
 commentCount: 0
+viewCount: 1187
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>link: <a href="https://arxiv.org/pdf/2507.11331">SystolicAttention: Fusing FlashAttention within a Single Systolic Array</a></p>

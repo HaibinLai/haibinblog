@@ -1,16 +1,23 @@
 ---
 title: "Yuanyuan Zhou 教授创业分享"
 description: "非常推荐大家看看周源源教授在系统方向创业的分享 https://www.youtube.com/live/KTcu33RghQs?si=a14SjuAE1V78sh3W Bio: Yuanyuan Zhou (周源源）is a Qualcomm Chair Professor in Mobile Computing at University of California, San Diego (UCSD) since 2009. Pr…"
-publishedAt: "2025-05-22 02:23:38"
-updatedAt: "2025-06-11 06:26:13"
+publishedAt: "2025-05-21T18:23:38Z"
+updatedAt: "2025-06-10T22:26:13Z"
 category: "Paper Reading"
+categories: ["Paper Reading"]
 tags: ["人生感悟", "公司"]
+author: "GB"
 draft: false
 slug: "yuanyuan-zhou"
 legacySlug: "yuanyuan-zhou"
+oldSlugs: ["yuanyuan-zhou-教授创业分享"]
 wordpressId: 792
 sourceUrl: "https://www.haibinlaiblog.top/index.php/yuanyuan-zhou/"
 commentCount: 0
+viewCount: 790
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>非常推荐大家看看周源源教授在系统方向创业的分享</p>

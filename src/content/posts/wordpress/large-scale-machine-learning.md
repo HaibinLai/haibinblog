@@ -1,16 +1,23 @@
 ---
 title: "Large Scale Machine Learning"
 description: "机器学习优化公式学习笔记 主题：Lipschitz 连续性、Lipschitz smoothness、quadratic upper bound（descent lemma）、strong convexity、PL inequality，以及梯度下降的一步下降、contraction、linear/geometric convergence 和 condition number。 记号约定：目标函数为 F: R^d -> R ，梯度为…"
-publishedAt: "2026-10-01 03:08:22"
-updatedAt: "2026-10-01 03:41:37"
+publishedAt: "2026-09-30T19:08:22Z"
+updatedAt: "2026-09-30T19:41:37Z"
 category: "Machine Learning"
+categories: ["Machine Learning"]
 tags: ["AI", "ML"]
+author: "GB"
 draft: false
 slug: "large-scale-machine-learning"
 legacySlug: "large-scale-machine-learning"
+oldSlugs: []
 wordpressId: 1687
 sourceUrl: "https://www.haibinlaiblog.top/index.php/large-scale-machine-learning/"
 commentCount: 0
+viewCount: 245
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <h1>机器学习优化公式学习笔记</h1>

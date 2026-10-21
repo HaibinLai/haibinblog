@@ -1,16 +1,24 @@
 ---
 title: "OS: Virtual Memory"
 description: "Author: Haibin Lai 12211612 OS: Virtual Memory - Haibin's blog Q1 Address Translation Explain how do the CPU hardware and the operating system cooperate in the procedure of address translation. Ans: The hardware-based a…"
-publishedAt: "2024-12-01 19:49:48"
-updatedAt: "2024-12-05 05:05:13"
+publishedAt: "2024-12-01T11:49:48Z"
+updatedAt: "2024-12-04T21:05:13Z"
 category: "OS"
+categories: ["OS"]
 tags: ["OS", "System"]
+author: "GB"
 draft: false
 slug: "os-virtual-memory"
 legacySlug: "os-virtual-memory"
+oldSlugs: []
 wordpressId: 438
 sourceUrl: "https://www.haibinlaiblog.top/index.php/os-virtual-memory/"
 commentCount: 0
+viewCount: 1443
+likeCount: 0
+dislikeCount: 0
+showCitation: true
+featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/12/微信截图_20241201194912.jpg"
 importedFromWordPress: true
 ---
 <p>Author:

@@ -1,15 +1,22 @@
 ---
 title: "最后的观星人 读书笔记"
 description: "这些天我看了一本书《最后的观星人》。这本书的作者emily是一位天文学教授，她分享了她在读天文学phd时各种观星故事。天文学的phd主要工作是做数据分析以及到全世界各个望远镜里观测，emily分享了去天文台观测的各种搞笑亦或艰难的故事，比如设备坏了要当临时机械工程师，在通宵熬夜看数据时怎么跟疲倦和3000米高原的寒冷斗争，睡觉时与头部大的狼蛛共眠，操控望远镜时造成了几千万美元的损失等等。 总的来说，这本书无时无刻写出了作者对天文学的热…"
-publishedAt: "2026-09-09 01:31:51"
+publishedAt: "2026-09-08T17:31:51Z"
 category: "Books Reading"
+categories: ["Books Reading"]
 tags: ["天文学"]
+author: "GB"
 draft: false
 slug: "zui-hou-de-guan-xing-ren-du-shu-bi-ji"
 legacySlug: "zui-hou-de-guan-xing-ren-du-shu-bi-ji"
+oldSlugs: []
 wordpressId: 1656
 sourceUrl: "https://www.haibinlaiblog.top/index.php/zui-hou-de-guan-xing-ren-du-shu-bi-ji/"
 commentCount: 0
+viewCount: 189
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>这些天我看了一本书《最后的观星人》。这本书的作者emily是一位天文学教授，她分享了她在读天文学phd时各种观星故事。天文学的phd主要工作是做数据分析以及到全世界各个望远镜里观测，emily分享了去天文台观测的各种搞笑亦或艰难的故事，比如设备坏了要当临时机械工程师，在通宵熬夜看数据时怎么跟疲倦和3000米高原的寒冷斗争，睡觉时与头部大的狼蛛共眠，操控望远镜时造成了几千万美元的损失等等。</p>

@@ -1,16 +1,24 @@
 ---
 title: "Bigtable: The beginning of Big Data"
 description: "Bigtable is a distributed storage system for managing structured data that is designed to scale to a very large size: petabytes of data across thousands of commodity servers. GFS的出现虽然解决了海量数据的存储问题，但是还是存在一个问题就是如果我存放的数据是结构…"
-publishedAt: "2024-12-05 04:53:06"
-updatedAt: "2024-12-05 04:54:36"
+publishedAt: "2024-12-04T20:53:06Z"
+updatedAt: "2024-12-04T20:54:36Z"
 category: "Big Data"
+categories: ["Big Data"]
 tags: ["big data", "bigtable"]
+author: "GB"
 draft: false
 slug: "bigtable-the-beginning-of-big-data"
 legacySlug: "bigtable-the-beginning-of-big-data"
+oldSlugs: []
 wordpressId: 461
 sourceUrl: "https://www.haibinlaiblog.top/index.php/bigtable-the-beginning-of-big-data/"
 commentCount: 0
+viewCount: 2909
+likeCount: 0
+dislikeCount: 0
+showCitation: true
+featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/12/AMUR8970.png"
 importedFromWordPress: true
 ---
 <p>Bigtable is a distributed storage system for managing structured data that is designed to scale to a very large size: petabytes of data across thousands of commodity servers.</p>

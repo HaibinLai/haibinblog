@@ -1,16 +1,23 @@
 ---
 title: "OSDI25 PipeThreader"
 description: "PipeThreader: Software-Defined Pipelining for Efficient DNN Execution AlpaServe 简单总结 背景问题 现在的深度学习模型越来越大，单块 GPU 内存不够用。 多模型在线服务要保证低延迟、高吞吐量，但请求量有时会突然激增，传统方法效率低。 核心想法 模型并行 ：把一个模型拆成几部分放到多块 GPU 上。 统计多路复用 ：当一个模型暂时不用 GPU，其他模型可以…"
-publishedAt: "2025-08-21 18:38:45"
-updatedAt: "2025-08-21 18:40:37"
+publishedAt: "2025-08-21T10:38:45Z"
+updatedAt: "2025-08-21T10:40:37Z"
 category: "Paper Reading"
+categories: ["Paper Reading"]
 tags: ["osdi"]
+author: "GB"
 draft: false
 slug: "osdi25-pipethreader"
 legacySlug: "osdi25-pipethreader"
+oldSlugs: []
 wordpressId: 945
 sourceUrl: "https://www.haibinlaiblog.top/index.php/osdi25-pipethreader/"
 commentCount: 0
+viewCount: 1020
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>PipeThreader: Software-Defined Pipelining for Efficient DNN Execution</p>

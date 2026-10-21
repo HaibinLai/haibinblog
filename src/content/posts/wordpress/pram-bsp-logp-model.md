@@ -1,16 +1,23 @@
 ---
 title: "PRAM, BSP, logP Model"
 description: "简单介绍 PRAM 、 BSP 和 logP 这三种并行计算模型。 学习参考链接： 《高性能计算与云计算》第五讲并行算法设计 - 豆丁网Docin 1. PRAM（Parallel Random Access Machine）模型 PRAM 是一种理想化的并行计算模型，用来描述并行算法的运行方式。你可以把它想象成一个理想的并行计算机，具有无限多个处理器（CPU），这些处理器可以 同时访问 共享的内存。 特点 ：所有的处理器可以 同时读…"
-publishedAt: "2025-03-08 01:32:20"
-updatedAt: "2025-03-08 01:34:05"
+publishedAt: "2025-03-07T17:32:20Z"
+updatedAt: "2025-03-07T17:34:05Z"
 category: "High Performance Computing"
+categories: ["High Performance Computing"]
 tags: ["HPC", "并行计算"]
+author: "GB"
 draft: false
 slug: "pram-bsp-logp-model"
 legacySlug: "pram-bsp-logp-model"
+oldSlugs: []
 wordpressId: 656
 sourceUrl: "https://www.haibinlaiblog.top/index.php/pram-bsp-logp-model/"
 commentCount: 0
+viewCount: 1628
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>简单介绍<strong>PRAM</strong>、<strong>BSP</strong> 和 <strong>logP</strong> 这三种并行计算模型。</p>

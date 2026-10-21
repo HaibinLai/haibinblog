@@ -1,16 +1,23 @@
 ---
 title: "SC Paper Summary 5"
 description: "总链接： https://www.haibinlaiblog.top/index.php/sc-2024-passage/ Matrix Computations on Tensor Cores AmgT: Algebraic Multigrid Solver on Tensor Cores (Best Paper Finalist) Super Scientific Software Laboratory, Dept. of CST…"
-publishedAt: "2025-03-23 01:17:56"
-updatedAt: "2025-03-25 00:14:18"
+publishedAt: "2025-03-22T17:17:56Z"
+updatedAt: "2025-03-24T16:14:18Z"
 category: "Paper Reading"
+categories: ["Paper Reading"]
 tags: ["HPC", "SC", "计算机", "高性能计算"]
+author: "GB"
 draft: false
 slug: "sc-paper-5"
 legacySlug: "sc-paper-5"
+oldSlugs: []
 wordpressId: 676
 sourceUrl: "https://www.haibinlaiblog.top/index.php/sc-paper-5/"
 commentCount: 0
+viewCount: 2198
+likeCount: 2
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p><a href="https://www.haibinlaiblog.top/index.php/418/%e5%be%ae%e4%bf%a1%e6%88%aa%e5%9b%be_20241118023327/"><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503230117727.jpeg" alt="" /></a></p>

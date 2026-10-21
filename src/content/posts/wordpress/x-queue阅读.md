@@ -1,16 +1,23 @@
 ---
 title: "X-Queue阅读"
 description: "Abstract—Achieving efficient task parallelism on many-core architectures is an important challenge. The widely used GNU OpenMP implementation of the popular OpenMP parallel pro gramming model incurs high overhead for fi…"
-publishedAt: "2025-06-03 09:35:02"
-updatedAt: "2025-06-12 05:42:59"
+publishedAt: "2025-06-03T01:35:02Z"
+updatedAt: "2025-06-11T21:42:59Z"
 category: "High Performance Computing"
+categories: ["High Performance Computing", "Paper Reading"]
 tags: ["科研"]
+author: "GB"
 draft: false
 slug: "x-queue阅读"
 legacySlug: "x-queue阅读"
+oldSlugs: []
 wordpressId: 833
 sourceUrl: "https://www.haibinlaiblog.top/index.php/x-queue%e9%98%85%e8%af%bb/"
 commentCount: 0
+viewCount: 794
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>Abstract—Achieving efficient task parallelism on many-core architectures is an important challenge. The widely used GNU OpenMP implementation of the popular OpenMP parallel pro gramming model incurs high overhead for fine-grained, short running tasks due to time spent on runtime synchronization. In this work, we introduce and analyze three key advances that collectively achieve significant performance gains. First, we introduce XQueue, a lock-less concurrent queue implementation to replace GNU’s priority task queue and remove the global task lock. Second, we develop a scalable, efficient, and hybrid lock-free/lock-less distributed tree barrier to address the high hardware synchronization overhead from GNU’s centralized barrier. Third, we develop two lock-less and NUMA-aware load balancing strategies. We evaluate our implementation using Barcelona OpenMP Task Suite (BOTS) benchmarks. We show that the use of XQueue and the distributed tree barrier can improve performance by up to 1522.8× compared to the original GNUOpenMP.Wefurther show that lock-less load balancing can improve performance by up to 4× compared to GNU OpenMP using XQueue.</p>

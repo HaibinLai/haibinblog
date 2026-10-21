@@ -1,0 +1,24 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "haibinblog-view-counter",
+  "main": "src/index.js",
+  "compatibility_date": "2026-10-21",
+  "observability": {
+    "enabled": true
+  },
+  "vars": {
+    "DEDUP_WINDOW_SECONDS": "86400",
+    "GITHUB_BASE_PATH": "/haibinblog",
+    "EVENT_RETENTION_DAYS": "8"
+  },
+  "triggers": {
+    "crons": ["17 4 * * *"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "haibinblog-view-counter",
+      "database_id": "REPLACE_WITH_D1_DATABASE_ID"
+    }
+  ]
+}

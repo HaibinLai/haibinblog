@@ -1,16 +1,23 @@
 ---
 title: "ConvStencil"
 description: "一个讲的挺不错的组会 https://www.haibinlaiblog.top/wp-content/uploads/2025/01/ConvStencil1.pdf"
-publishedAt: "2025-01-06 18:08:00"
-updatedAt: "2025-06-11 06:27:32"
+publishedAt: "2025-01-06T10:08:00Z"
+updatedAt: "2025-06-10T22:27:32Z"
 category: "Paper Reading"
+categories: ["Paper Reading"]
 tags: ["HPC", "Stencil"]
+author: "GB"
 draft: false
 slug: "convstencil"
 legacySlug: "convstencil"
+oldSlugs: []
 wordpressId: 570
 sourceUrl: "https://www.haibinlaiblog.top/index.php/convstencil/"
 commentCount: 0
+viewCount: 1007
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>一个讲的挺不错的组会</p>

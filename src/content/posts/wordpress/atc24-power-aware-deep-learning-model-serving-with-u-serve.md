@@ -1,15 +1,22 @@
 ---
 title: "ATC24 Power-aware Deep Learning Model Serving with u-Serve"
 description: "Power-aware Deep Learning Model Serving with u-Serve 这篇文章是发表于2024年 USENIX ATC'24 的论文，标题为《Power-aware Deep Learning Model Serving with μ-Serve》，作者来自伊利诺伊大学厄巴纳-香槟分校和IBM Research。论文聚焦于深度学习（DL）模型服务（即推理）中的功率优化问题，提出一个名为μ-Serve…"
-publishedAt: "2025-08-26 12:15:01"
+publishedAt: "2025-08-26T04:15:01Z"
 category: "Paper Reading"
+categories: ["Paper Reading"]
 tags: ["ATC", "Cloud", "HPC", "调度"]
+author: "GB"
 draft: false
 slug: "atc24-power-aware-deep-learning-model-serving-with-u-serve"
 legacySlug: "atc24-power-aware-deep-learning-model-serving-with-u-serve"
+oldSlugs: []
 wordpressId: 950
 sourceUrl: "https://www.haibinlaiblog.top/index.php/atc24-power-aware-deep-learning-model-serving-with-u-serve/"
 commentCount: 0
+viewCount: 1092
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <h2>Power-aware Deep Learning Model Serving with u-Serve</h2>

@@ -1,16 +1,23 @@
 ---
 title: "Why Greatness Cannot Be Planned"
 description: "看到一些退休的prof的谷歌学术，做了30年，40多篇文章。仔细一想，人的一生不也就是这些文章和产出。一年一篇工作，不算那些挂名的，似乎也就能发个30来篇，从此之后，就没什么文章了。 5年phd看起来很长，其实好像也就是3-5个关键项目，如果其中有一个改变了世界，已经很不得了了。15年的工作看起来很长，其实也就是那几个项目，改变的机会在哪里？ 一万年太久，只争朝夕。是应该一生做一件事， 还是不断改变方向？ 车灯只能照亮50米，但你同样…"
-publishedAt: "2025-10-11 10:13:11"
-updatedAt: "2026-09-24 01:18:29"
+publishedAt: "2025-10-11T02:13:11Z"
+updatedAt: "2026-09-23T17:18:29Z"
 category: "Books Reading"
+categories: ["Books Reading"]
 tags: ["life", "phd"]
+author: "GB"
 draft: false
 slug: "why-greatness-cannot-be-planned"
 legacySlug: "why-greatness-cannot-be-planned"
+oldSlugs: []
 wordpressId: 1026
 sourceUrl: "https://www.haibinlaiblog.top/index.php/why-greatness-cannot-be-planned/"
 commentCount: 0
+viewCount: 1677
+likeCount: 12
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>看到一些退休的prof的谷歌学术，做了30年，40多篇文章。仔细一想，人的一生不也就是这些文章和产出。一年一篇工作，不算那些挂名的，似乎也就能发个30来篇，从此之后，就没什么文章了。</p>

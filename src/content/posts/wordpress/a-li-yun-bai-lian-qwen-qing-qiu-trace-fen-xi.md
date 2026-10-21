@@ -1,15 +1,22 @@
 ---
 title: "阿里云百炼 Qwen 请求 Trace 分析"
 description: "数据来自阿里云百炼上的 Qwen 推理集群，Apache 2.0 开源。 文中统计均由全量扫描四条 JSONL 得到（每条数据约 2 小时）。 这份开源请求数据集的仓库存有2小时 C 端聊天、B 端 API、长思维链、代码助手四类流量。 这是什么数据？ Qwen-Bailian Anonymous Dataset 每条记录有到达时间、输入/输出长度、会话父子关系、请求类型，以及按 16 token 一块 哈希后的 hash_ids…"
-publishedAt: "2026-09-25 16:02:04"
+publishedAt: "2026-09-25T08:02:04Z"
 category: "Data Mining"
+categories: ["Data Mining"]
 tags: ["AI", "GPU"]
+author: "GB"
 draft: false
 slug: "a-li-yun-bai-lian-qwen-qing-qiu-trace-fen-xi"
 legacySlug: "a-li-yun-bai-lian-qwen-qing-qiu-trace-fen-xi"
+oldSlugs: []
 wordpressId: 1674
 sourceUrl: "https://www.haibinlaiblog.top/index.php/a-li-yun-bai-lian-qwen-qing-qiu-trace-fen-xi/"
 commentCount: 0
+viewCount: 362
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <blockquote>

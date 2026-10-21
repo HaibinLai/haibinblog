@@ -1,16 +1,23 @@
 ---
 title: "Rowhammer 行锤攻击"
 description: "Intro Learn from Prof. Onur Mutlu: https://www.youtube.com/live/mEt-hhLHBG4?si=TsmRN04wcqbcQs0e Rowhammer（行锤攻击） 是一种硬件层面的安全漏洞，主要发生在 DRAM 内存 中。攻击者不需要破解软件或操作系统，只要反复高速访问（“hammer”）同一行或相邻行内存，就有可能导致相邻内存行的比特翻转（0→1 或 1→0），从而破坏数据…"
-publishedAt: "2025-12-30 00:48:56"
-updatedAt: "2025-12-30 00:49:10"
+publishedAt: "2025-12-29T16:48:56Z"
+updatedAt: "2025-12-29T16:49:10Z"
 category: "Micro Topics"
+categories: ["Micro Topics"]
 tags: ["Arch"]
+author: "GB"
 draft: false
 slug: "rowhammer"
 legacySlug: "rowhammer"
+oldSlugs: ["rowhammer-行锤攻击"]
 wordpressId: 1101
 sourceUrl: "https://www.haibinlaiblog.top/index.php/rowhammer/"
 commentCount: 0
+viewCount: 516
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <h2>Intro</h2>

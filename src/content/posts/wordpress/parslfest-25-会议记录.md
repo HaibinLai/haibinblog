@@ -1,16 +1,23 @@
 ---
 title: "ParslFest 25 会议记录"
 description: "ParslFest 会议的目标是找到新的idea和设计，以及展示一些用户案例。 Parsl: Parallel Scripting in Python Join our dedicated #parslfest2025 channel on Slack to connect with fellow attendees, ask questions, etc. Not on Parsl Slack yet? Join our space…"
-publishedAt: "2025-08-29 21:54:48"
-updatedAt: "2025-08-30 02:49:59"
+publishedAt: "2025-08-29T13:54:48Z"
+updatedAt: "2025-08-29T18:49:59Z"
 category: "Conference"
+categories: ["Conference"]
 tags: ["HPC", "Parsl", "会议"]
+author: "GB"
 draft: false
 slug: "parslfest-25-会议记录"
 legacySlug: "parslfest-25-会议记录"
+oldSlugs: []
 wordpressId: 957
 sourceUrl: "https://www.haibinlaiblog.top/index.php/parslfest-25-%e4%bc%9a%e8%ae%ae%e8%ae%b0%e5%bd%95/"
 commentCount: 0
+viewCount: 934
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250828132608190.png" alt="" /></p>

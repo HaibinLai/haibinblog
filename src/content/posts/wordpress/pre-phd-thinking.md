@@ -1,16 +1,23 @@
 ---
 title: "pre-PhD: thinking & planning"
 description: "来MSRA后，与很多人进行了观点交流和碰撞，真是开拓眼界了。信息密度大，可是任务紧凑，没能每一个idea都细细分析，在这里只能把他们大杂烩。如果有冲突或者重合，纯属个人臆想。 我目前最想去寻找的答案，就是未来5年的phd要做什么。时代的变动非常激烈，在AI的冲击下，传统的system以及HPC的研究方法、方向乃至思路都有可能发生翻天覆地的变革。 System 研究要追上Agent 步伐 古法编程一直是我们System&HPC人“引以为…"
-publishedAt: "2026-03-20 23:17:38"
-updatedAt: "2026-03-20 23:30:34"
+publishedAt: "2026-03-20T15:17:38Z"
+updatedAt: "2026-03-20T15:30:34Z"
 category: "Academic"
+categories: ["Academic"]
 tags: ["idea", "phd", "规划"]
+author: "GB"
 draft: false
 slug: "pre-phd-thinking"
 legacySlug: "pre-phd-thinking"
+oldSlugs: ["pre-phd-的思考和规划"]
 wordpressId: 1280
 sourceUrl: "https://www.haibinlaiblog.top/index.php/pre-phd-thinking/"
 commentCount: 0
+viewCount: 1314
+likeCount: 1
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>来MSRA后，与很多人进行了观点交流和碰撞，真是开拓眼界了。信息密度大，可是任务紧凑，没能每一个idea都细细分析，在这里只能把他们大杂烩。如果有冲突或者重合，纯属个人臆想。</p>

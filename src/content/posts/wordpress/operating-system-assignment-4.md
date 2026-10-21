@@ -1,15 +1,23 @@
 ---
 title: "Operating System Assignment 4"
 description: "Author: Haibin Lai 12211612 OS: Virtual Memory - Haibin's blog Q1 Explain how do the CPU hardware and the operating system cooperate in the procedure of address translation. Ans: The hardware-based address translation i…"
-publishedAt: "2024-12-20 20:43:22"
+publishedAt: "2024-12-20T12:43:22Z"
 category: "OS"
+categories: ["OS"]
 tags: ["OS"]
+author: "GB"
 draft: false
 slug: "operating-system-assignment-4"
 legacySlug: "operating-system-assignment-4"
+oldSlugs: []
 wordpressId: 553
 sourceUrl: "https://www.haibinlaiblog.top/index.php/operating-system-assignment-4/"
 commentCount: 0
+viewCount: 1273
+likeCount: 0
+dislikeCount: 0
+showCitation: true
+featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/12/B51AFAE83CC03555D07BA8CE87DAC493.jpg"
 importedFromWordPress: true
 ---
 <p>Author:

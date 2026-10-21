@@ -1,15 +1,22 @@
 ---
 title: "huawei 384 节点推理系统赏析"
 description: "我最好奇的是，这种extreme parallelism是怎么做的。 技术报告 *Serving Large Language Models on Huawei CloudMatrix384 用1机384节点来执行Deepseek R1 671B的推理，采用了3个优化 优化1 一个p2p的架构，将LLM推理拆解为prefill, decode, caching 优化2 large-scale expert parallelism fo…"
-publishedAt: "2025-06-22 12:02:05"
+publishedAt: "2025-06-22T04:02:05Z"
 category: "Paper Reading"
+categories: ["Paper Reading"]
 tags: ["HPC", "MLSys"]
+author: "GB"
 draft: false
 slug: "huawei-384-节点推理系统赏析"
 legacySlug: "huawei-384-节点推理系统赏析"
+oldSlugs: []
 wordpressId: 883
 sourceUrl: "https://www.haibinlaiblog.top/index.php/huawei-384-%e8%8a%82%e7%82%b9%e6%8e%a8%e7%90%86%e7%b3%bb%e7%bb%9f%e8%b5%8f%e6%9e%90/"
 commentCount: 0
+viewCount: 3893
+likeCount: 99
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>我最好奇的是，这种extreme parallelism是怎么做的。</p>

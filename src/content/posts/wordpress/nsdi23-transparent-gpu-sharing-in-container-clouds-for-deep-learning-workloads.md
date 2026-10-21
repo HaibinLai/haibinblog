@@ -1,16 +1,23 @@
 ---
 title: "NSDI23 Transparent GPU Sharing in Container Clouds  for Deep Learning Workloads"
 description: "这篇文章介绍了一种名为 TGS (Transparent GPU Sharing) 的系统，旨在在容器云环境中在OS层为深度学习（DL）训练工作负载提供透明的GPU共享，以提高GPU利用率并减少作业完成时间。 links: https://www.usenix.org/conference/nsdi23/presentation/wu 1. 背景与动机 容器云与DL训练 ：容器（如Docker）在数据中心中广泛用于资源管理和部署，提供…"
-publishedAt: "2025-08-29 03:16:08"
-updatedAt: "2025-08-29 03:16:56"
+publishedAt: "2025-08-28T19:16:08Z"
+updatedAt: "2025-08-28T19:16:56Z"
 category: "Paper Reading"
+categories: ["Paper Reading"]
 tags: ["GPU", "HPC", "NSDI"]
+author: "GB"
 draft: false
 slug: "nsdi23-transparent-gpu-sharing-in-container-clouds-for-deep-learning-workloads"
 legacySlug: "nsdi23-transparent-gpu-sharing-in-container-clouds-for-deep-learning-workloads"
+oldSlugs: []
 wordpressId: 953
 sourceUrl: "https://www.haibinlaiblog.top/index.php/nsdi23-transparent-gpu-sharing-in-container-clouds-for-deep-learning-workloads/"
 commentCount: 0
+viewCount: 1108
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>这篇文章介绍了一种名为 <strong>TGS (Transparent GPU Sharing)</strong> 的系统，旨在在容器云环境中在OS层为深度学习（DL）训练工作负载提供透明的GPU共享，以提高GPU利用率并减少作业完成时间。</p>

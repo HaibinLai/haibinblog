@@ -1,16 +1,23 @@
 ---
 title: "Distributed System 1: RPC"
 description: "This is a course taught in SUSTech 2025 Fall by Prof. Zhuozhao Li. RPC 为什么要有RPC 因为我们不想socket编程 Goal: Easy-to-program network communication that makes client-server communication transparent RPC 要解决的问题 异构 Failure 性能 For…"
-publishedAt: "2025-09-17 11:20:38"
-updatedAt: "2025-10-11 10:01:35"
+publishedAt: "2025-09-17T03:20:38Z"
+updatedAt: "2025-10-11T02:01:35Z"
 category: "Distributed Systems"
+categories: ["Distributed Systems"]
 tags: ["rpc"]
+author: "GB"
 draft: false
 slug: "distributed-system-rpc"
 legacySlug: "distributed-system-rpc"
+oldSlugs: []
 wordpressId: 981
 sourceUrl: "https://www.haibinlaiblog.top/index.php/distributed-system-rpc/"
 commentCount: 0
+viewCount: 691
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>This is a course taught in SUSTech 2025 Fall by Prof. Zhuozhao Li. </p>

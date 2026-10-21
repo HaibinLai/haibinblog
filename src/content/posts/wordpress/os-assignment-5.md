@@ -1,16 +1,24 @@
 ---
 title: "OS Assignment 5"
 description: "赖海斌 12211612 1. Question1 [50pts] In a demand-paging memory management system, suppose the page table contents for a certain process are as follows (for a single-level page table, with H denoting hexadecimal values): Vi…"
-publishedAt: "2024-12-10 00:18:27"
-updatedAt: "2024-12-13 22:55:09"
+publishedAt: "2024-12-09T16:18:27Z"
+updatedAt: "2024-12-13T14:55:09Z"
 category: "OS"
+categories: ["OS"]
 tags: ["OS"]
+author: "GB"
 draft: false
 slug: "os-assignment-5"
 legacySlug: "os-assignment-5"
+oldSlugs: []
 wordpressId: 540
 sourceUrl: "https://www.haibinlaiblog.top/index.php/os-assignment-5/"
 commentCount: 0
+viewCount: 1230
+likeCount: 1
+dislikeCount: 0
+showCitation: true
+featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/12/图片12.png"
 importedFromWordPress: true
 ---
 <p>赖海斌

@@ -1,16 +1,23 @@
 ---
 title: "LEGO: Supporting LLM-enhanced Games with One Gaming GPU"
 description: "LEGO: Supporting LLM-enhanced Games with One Gaming GPU paper: https://ieeexplore.ieee.org/document/11408477 HPCA2026 (CCF-A) Repo: https://github.com/sjtu-epcc/LEGO Professor: https://mivenhan.github.io/ An algorithm-s…"
-publishedAt: "2026-06-23 15:37:07"
-updatedAt: "2026-06-23 20:31:16"
+publishedAt: "2026-06-23T07:37:07Z"
+updatedAt: "2026-06-23T12:31:16Z"
 category: "Paper Reading"
+categories: ["Paper Reading"]
 tags: ["GPU", "Scheduling", "并行计算"]
+author: "haibin"
 draft: false
 slug: "lego-supporting-llm-enhanced-games-with-one-gaming-gpu"
 legacySlug: "lego-supporting-llm-enhanced-games-with-one-gaming-gpu"
+oldSlugs: []
 wordpressId: 1471
 sourceUrl: "https://www.haibinlaiblog.top/index.php/lego-supporting-llm-enhanced-games-with-one-gaming-gpu/"
 commentCount: 0
+viewCount: 630
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <h2>LEGO: Supporting LLM-enhanced Games with One Gaming GPU</h2>

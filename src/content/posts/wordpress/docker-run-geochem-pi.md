@@ -1,16 +1,23 @@
 ---
 title: "Docker run Geochem Pi"
 description: "安装 pip本地镜像问题 apt-get本地镜像问题 部署 部署后端可以选择自动部署 yarn没有安装： yarn install 5173而非3001 启动时为 --host暴露端口 使用版本： 华为云 端口暴露 宝塔Linux ssl证书、Docker管理"
-publishedAt: "2024-08-25 17:30:54"
-updatedAt: "2024-09-07 00:09:57"
+publishedAt: "2024-08-25T09:30:54Z"
+updatedAt: "2024-09-06T16:09:57Z"
 category: "Cross Subjects"
+categories: ["Cross Subjects"]
 tags: ["Docker", "地球化学", "机器学习"]
+author: "haibin"
 draft: false
 slug: "docker-run-geochem-pi"
 legacySlug: "docker-run-geochem-pi"
+oldSlugs: []
 wordpressId: 103
 sourceUrl: "https://www.haibinlaiblog.top/index.php/docker-run-geochem-pi/"
 commentCount: 0
+viewCount: 868
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <h2>安装</h2>

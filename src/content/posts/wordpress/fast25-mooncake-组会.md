@@ -1,15 +1,22 @@
 ---
 title: "FAST25 Mooncake 组会"
 description: "组会录播 【组会FAST25-Mooncake讨论会】 https://www.bilibili.com/video/BV1ZkgUz5E5n/?share_source=copy_web&vd_source=72eac555730ba7e7a64f9fa1d7f2b2d4 学习笔记 【【RG 25 Spring】[FAST'25] Mooncake】 https://www.bilibili.com/video/BV1KmJ8zaE…"
-publishedAt: "2025-08-02 01:54:31"
+publishedAt: "2025-08-01T17:54:31Z"
 category: "Paper Reading"
+categories: ["Paper Reading"]
 tags: ["FAST", "GPU", "LLM"]
+author: "GB"
 draft: false
 slug: "fast25-mooncake-组会"
 legacySlug: "fast25-mooncake-组会"
+oldSlugs: []
 wordpressId: 919
 sourceUrl: "https://www.haibinlaiblog.top/index.php/fast25-mooncake-%e7%bb%84%e4%bc%9a/"
 commentCount: 0
+viewCount: 842
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <h1>组会录播</h1>

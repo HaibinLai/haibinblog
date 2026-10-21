@@ -1,15 +1,22 @@
 ---
 title: "Compiler 4: CFG, Parsing"
 description: "CFG Terminal: 对应loop，对应if，对应XX Productions: 产生式 Derivation推导 CFG可以推导很多不同的式子 Notations Terminologies 文法的句型 这里我们看到，文法 最左推导 & 最右推导 在编译原理中， 最左推导 和 最右推导 都是从文法的开始符号（Start Symbol）出发，通过不断用产生式替换非终结符，逐步推导出一个句子的过程。区别在于： 每一步选择替换的非终…"
-publishedAt: "2025-09-29 20:11:29"
+publishedAt: "2025-09-29T12:11:29Z"
 category: "Compilers"
+categories: ["Compilers"]
 tags: ["CFG"]
+author: "GB"
 draft: false
 slug: "compiler-4-cfg-parsing"
 legacySlug: "compiler-4-cfg-parsing"
+oldSlugs: []
 wordpressId: 995
 sourceUrl: "https://www.haibinlaiblog.top/index.php/compiler-4-cfg-parsing/"
 commentCount: 0
+viewCount: 1019
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250929140734725.png" alt="image.png" /></p>

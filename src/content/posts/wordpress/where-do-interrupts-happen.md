@@ -1,16 +1,23 @@
 ---
 title: "Where do interrupts happen? 中断触发点在OOO处理器中的分布——神文解析"
 description: "神文解析：Where do interrupts happen? 原文： https://travisdowns.github.io/blog/2019/08/20/interrupts.html 看完标题和第一句话，我就知道今晚这篇文章要让我睡不着了。看懂这篇文章需要一定的体系结构基础，对OoO，中断的机制比较了解。 在中文网站上我似乎没有看到类似的讨论。在考虑后，我决定将本文写为解析。我会将我的解析和信息汇总与原文翻译区分。本文的…"
-publishedAt: "2025-10-23 01:42:08"
-updatedAt: "2025-12-12 17:54:38"
+publishedAt: "2025-10-22T17:42:08Z"
+updatedAt: "2025-12-12T09:54:38Z"
 category: "Architecture"
+categories: ["Architecture"]
 tags: ["OOO", "中断", "体系结构"]
+author: "GB"
 draft: false
 slug: "where-do-interrupts-happen"
 legacySlug: "where-do-interrupts-happen"
+oldSlugs: ["where-do-interrupts-happen-中断触发点在ooo处理器中的分布-神文解"]
 wordpressId: 1042
 sourceUrl: "https://www.haibinlaiblog.top/index.php/where-do-interrupts-happen/"
 commentCount: 0
+viewCount: 955
+likeCount: 1
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <h2>神文解析：Where do interrupts happen?</h2>

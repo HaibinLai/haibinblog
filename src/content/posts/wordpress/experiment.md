@@ -1,16 +1,23 @@
 ---
 title: "Experiment"
 description: "Run on WSL Setup WSL X11 environment Run the image # load asterinas 0.11.0 docker load -i .\\asterinas.tar # run the image with X11 forwarding sudo docker run -it --privileged -v $(pwd)/asterinas:/root/asterinas -e DISPL…"
-publishedAt: "2025-01-12 23:48:11"
-updatedAt: "2025-01-13 16:00:00"
+publishedAt: "2025-01-12T15:48:11Z"
+updatedAt: "2025-01-13T08:00:00Z"
 category: "OS"
+categories: ["OS"]
 tags: ["OS"]
+author: "GB"
 draft: false
 slug: "experiment"
 legacySlug: "experiment"
+oldSlugs: []
 wordpressId: 593
 sourceUrl: "https://www.haibinlaiblog.top/index.php/experiment/"
 commentCount: 0
+viewCount: 1025
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <h2>Run on WSL</h2>

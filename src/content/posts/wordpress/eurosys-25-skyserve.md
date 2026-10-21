@@ -1,15 +1,22 @@
 ---
 title: "Eurosys 25 Skyserve"
 description: "来自大名鼎鼎的UCB Sky Computing Lab 他们尝试在云里运行LLM Serve 然后他们考虑的场景是 Spot inference。这个场景类似于云的instance很吃紧，然后会经常的扩增和缩小。在这种 动态场景 下做一个能fault tolerance, load balance的一个推理引擎调度系统。 AI也是微服务 Sky serve 首先把LLM服务当成微服务看待。在这种情况下 In summary, thi…"
-publishedAt: "2025-07-30 01:37:43"
+publishedAt: "2025-07-29T17:37:43Z"
 category: "Paper Reading"
+categories: ["Paper Reading"]
 tags: ["eurosys", "System", "云计算"]
+author: "GB"
 draft: false
 slug: "eurosys-25-skyserve"
 legacySlug: "eurosys-25-skyserve"
+oldSlugs: []
 wordpressId: 910
 sourceUrl: "https://www.haibinlaiblog.top/index.php/eurosys-25-skyserve/"
 commentCount: 0
+viewCount: 689
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>来自大名鼎鼎的UCB Sky Computing Lab</p>

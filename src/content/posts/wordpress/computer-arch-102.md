@@ -1,15 +1,22 @@
 ---
 title: "Computer Arch 102"
 description: "项目 从计算机课堂的5级流水线进一步进阶，制作更强大的CPU。 github: https://github.com/HaibinLai/simple-CPU.git 使用指令集：RISC-V 多发射（Superscalar） Superscalar（超标量）是指 CPU 在一个时钟周期里，不再只发射（issue）一条指令，而是同时发射多条彼此独立的指令到不同执行单元。例如一个现代 CPU 可能同时执行整数加法、浮点乘法、load/s…"
-publishedAt: "2026-05-07 17:30:14"
+publishedAt: "2026-05-07T09:30:14Z"
 category: "Architecture"
+categories: ["Architecture"]
 tags: ["CPU", "RISC-V"]
+author: "haibin"
 draft: false
 slug: "computer-arch-102"
 legacySlug: "computer-arch-102"
+oldSlugs: []
 wordpressId: 1381
 sourceUrl: "https://www.haibinlaiblog.top/index.php/computer-arch-102/"
 commentCount: 0
+viewCount: 656
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <h2>项目</h2>

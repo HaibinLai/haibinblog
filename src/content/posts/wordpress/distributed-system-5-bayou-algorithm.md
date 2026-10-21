@@ -1,16 +1,23 @@
 ---
 title: "Distributed System 5: Bayou Algorithm"
 description: "分布式一致性 怎么在弱网情况下保证事件一致性，弱网指的是，只能时不时连接一下。 Bayou [bayou]（1995） Bayou是一篇神奇的论文，在1995年这个互联网还没有普及的时代，就开始讨论分布式系统中弱一致性的问题。Bayou考虑的应用场景是移动设备不具备稳定的网络连接，如何保证这些不具备稳定网络连接的设备组成集群，处理读写操作时，用户看到的数据是合理的。Dynamo [dynamo] （2007） Dynamo也是一个弱一…"
-publishedAt: "2025-10-11 10:02:40"
-updatedAt: "2026-01-09 18:27:10"
+publishedAt: "2025-10-11T02:02:40Z"
+updatedAt: "2026-01-09T10:27:10Z"
 category: "Distributed Systems"
+categories: ["Distributed Systems"]
 tags: ["Bayou"]
+author: "GB"
 draft: false
 slug: "distributed-system-5-bayou-algorithm"
 legacySlug: "distributed-system-5-bayou-algorithm"
+oldSlugs: []
 wordpressId: 1023
 sourceUrl: "https://www.haibinlaiblog.top/index.php/distributed-system-5-bayou-algorithm/"
 commentCount: 0
+viewCount: 1139
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <h2>分布式一致性</h2>

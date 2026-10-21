@@ -1,16 +1,23 @@
 ---
 title: "A Simple Merch Store Backend: Distributed and Cloud Computing Assignment 2"
 description: "Scores 95+10=105 (extra: 5) Summary: The impl is nice in general, and the report is awesome! Yes, this is an assignment where you should follow certain instructions and submit certain stuff, but just like what you menti…"
-publishedAt: "2025-12-30 00:53:22"
-updatedAt: "2025-12-30 18:32:19"
+publishedAt: "2025-12-29T16:53:22Z"
+updatedAt: "2025-12-30T10:32:19Z"
 category: "Distributed Systems"
+categories: ["Distributed Systems"]
 tags: ["Cloud", "作业"]
+author: "GB"
 draft: false
 slug: "a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2"
 legacySlug: "a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2"
+oldSlugs: []
 wordpressId: 1103
 sourceUrl: "https://www.haibinlaiblog.top/index.php/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/"
 commentCount: 0
+viewCount: 1493
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <h2>Scores</h2>

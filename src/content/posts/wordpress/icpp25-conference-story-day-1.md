@@ -1,16 +1,23 @@
 ---
 title: "ICPP25 Conference story: Day 1"
 description: "ICPP Conference 会议 Congrats to all accepted papers! Welcome Ceremony 185 Attendee come to the conference! We have 292 submission and 78 of them are accepted! The Chairman's Welcoming! Jack Dongarra, \"An Overview of High…"
-publishedAt: "2025-09-10 14:01:25"
-updatedAt: "2025-09-16 17:29:49"
+publishedAt: "2025-09-10T06:01:25Z"
+updatedAt: "2025-09-16T09:29:49Z"
 category: "Academic"
+categories: ["Academic"]
 tags: ["ICPP"]
+author: "GB"
 draft: false
 slug: "icpp25-conference-story-day-1"
 legacySlug: "icpp25-conference-story-day-1"
+oldSlugs: []
 wordpressId: 970
 sourceUrl: "https://www.haibinlaiblog.top/index.php/icpp25-conference-story-day-1/"
 commentCount: 0
+viewCount: 1178
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <h1>ICPP Conference 会议</h1>

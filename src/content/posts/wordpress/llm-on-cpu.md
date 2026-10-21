@@ -1,16 +1,24 @@
 ---
 title: "LLM on CPU 推理流程python源码解析"
 description: "其他框架解析： vllm 框架解析： LLM 高速推理框架 vLLM 源代码分析 / vLLM Source Code Analysis - 知乎 vLLM: Easy, Fast, and Cheap LLM Serving with PagedAttention | vLLM Blog llama.cpp llama.cpp源码解读--推理流程总览 - 知乎 纯新手教程：用llama.cpp本地部署DeepSeek蒸馏模型 - 知…"
-publishedAt: "2025-04-18 11:24:42"
-updatedAt: "2025-06-12 06:24:32"
+publishedAt: "2025-04-18T03:24:42Z"
+updatedAt: "2025-06-11T22:24:32Z"
 category: "Frameworks"
+categories: ["Frameworks", "High Performance Computing"]
 tags: ["CPP", "CPU", "HPC", "LLM", "pytorch"]
+author: "GB"
 draft: false
 slug: "llm-on-cpu"
 legacySlug: "llm-on-cpu"
+oldSlugs: ["llm-on-cpu-推理源码解析"]
 wordpressId: 699
 sourceUrl: "https://www.haibinlaiblog.top/index.php/llm-on-cpu/"
 commentCount: 0
+viewCount: 2843
+likeCount: 0
+dislikeCount: 0
+showCitation: true
+featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2025/04/8ED59E29A10078B5E11BF51F0F76309F.jpg"
 importedFromWordPress: true
 ---
 <p>其他框架解析：

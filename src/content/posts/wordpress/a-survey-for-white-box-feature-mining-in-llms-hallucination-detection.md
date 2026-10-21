@@ -1,16 +1,23 @@
 ---
 title: "A Survey for White-Box Feature Mining in LLMs' Hallucination Detection"
 description: "White-Box Feature Mining for Hallucination Detection in Large Language Models This post is adapted from my CS306 Data Mining course report. The original PDF version is available here: data_mining_personal.pdf . Abstract…"
-publishedAt: "2026-08-10 01:49:30"
-updatedAt: "2026-08-10 03:12:57"
+publishedAt: "2026-08-09T17:49:30Z"
+updatedAt: "2026-08-09T19:12:57Z"
 category: "Academic"
+categories: ["Academic"]
 tags: ["big data", "data mining"]
+author: "GB"
 draft: false
 slug: "a-survey-for-white-box-feature-mining-in-llms-hallucination-detection"
 legacySlug: "a-survey-for-white-box-feature-mining-in-llms-hallucination-detection"
+oldSlugs: []
 wordpressId: 1580
 sourceUrl: "https://www.haibinlaiblog.top/index.php/a-survey-for-white-box-feature-mining-in-llms-hallucination-detection/"
 commentCount: 0
+viewCount: 1087
+likeCount: 1
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <h1>White-Box Feature Mining for Hallucination Detection in Large Language Models</h1>

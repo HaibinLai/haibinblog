@@ -1,16 +1,24 @@
 ---
 title: "Cache Bypassing"
 description: "记录一个技术。文章用GPT生成的。 Cache Bypassing 是一种计算机体系结构中的优化技术，它通过直接将数据从主内存传送到处理器，而绕过处理器的缓存（cache）层级。通常，处理器缓存（如L1、L2缓存）用于减少访问主内存的延迟，但在某些情况下，绕过缓存可能是更高效的选择。 Cache Bypassing的背景 处理器缓存是一个快速的存储层次，用来减少访问主内存的时间。数据通常被加载到缓存中，当处理器需要访问这些数据时，它首…"
-publishedAt: "2024-11-22 15:13:52"
-updatedAt: "2024-12-05 04:55:28"
+publishedAt: "2024-11-22T07:13:52Z"
+updatedAt: "2024-12-04T20:55:28Z"
 category: "GPU"
+categories: ["GPU"]
 tags: []
+author: "GB"
 draft: false
 slug: "cache-bypassing"
 legacySlug: "cache-bypassing"
+oldSlugs: []
 wordpressId: 428
 sourceUrl: "https://www.haibinlaiblog.top/index.php/cache-bypassing/"
 commentCount: 0
+viewCount: 1296
+likeCount: 0
+dislikeCount: 0
+showCitation: true
+featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/11/微信截图_20241122151501.jpg"
 importedFromWordPress: true
 ---
 <p>记录一个技术。文章用GPT生成的。</p>

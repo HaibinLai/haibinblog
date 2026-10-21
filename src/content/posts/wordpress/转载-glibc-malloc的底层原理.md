@@ -1,16 +1,24 @@
 ---
 title: "转载：glibc malloc的底层原理"
 description: "原作者： https://sploitfun.wordpress.com/2015/02/10/understanding-glibc-malloc/comment-page-1/?blogsub=confirming#subscribe-blog%E3%80%82 中文翻译原作： https://blog.csdn.net/maokelong95/article/details/51989081 https://zhuanlan.z…"
-publishedAt: "2025-01-27 05:57:31"
-updatedAt: "2025-06-11 06:27:38"
+publishedAt: "2025-01-26T21:57:31Z"
+updatedAt: "2025-06-10T22:27:38Z"
 category: "Paper Reading"
+categories: ["Paper Reading"]
 tags: ["内存", "内存管理", "操作系统"]
+author: "GB"
 draft: false
 slug: "转载-glibc-malloc的底层原理"
 legacySlug: "转载：glibc-malloc的底层原理"
+oldSlugs: []
 wordpressId: 606
 sourceUrl: "https://www.haibinlaiblog.top/index.php/%e8%bd%ac%e8%bd%bd%ef%bc%9aglibc-malloc%e7%9a%84%e5%ba%95%e5%b1%82%e5%8e%9f%e7%90%86/"
 commentCount: 0
+viewCount: 1390
+likeCount: 0
+dislikeCount: 0
+showCitation: true
+featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2025/01/微信图片_20250127055634.png"
 importedFromWordPress: true
 ---
 <p>原作者：

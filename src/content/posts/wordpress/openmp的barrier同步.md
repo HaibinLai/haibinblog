@@ -1,15 +1,22 @@
 ---
 title: "OpenMP的barrier同步"
 description: "do_release: if (nested) gomp_barrier_wait (&team->barrier); else gomp_simple_barrier_wait (&pool->threads_dock); /* Decrease the barrier threshold to match the number of threads that should arrive back at the end of thi…"
-publishedAt: "2025-05-29 10:27:53"
+publishedAt: "2025-05-29T02:27:53Z"
 category: "Micro Topics"
+categories: ["Micro Topics"]
 tags: []
+author: "GB"
 draft: false
 slug: "openmp的barrier同步"
 legacySlug: "openmp的barrier同步"
+oldSlugs: []
 wordpressId: 823
 sourceUrl: "https://www.haibinlaiblog.top/index.php/openmp%e7%9a%84barrier%e5%90%8c%e6%ad%a5/"
 commentCount: 0
+viewCount: 688
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <pre><code class="language-CPP"> do_release:

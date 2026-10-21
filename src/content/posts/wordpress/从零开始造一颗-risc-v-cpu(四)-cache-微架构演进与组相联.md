@@ -1,15 +1,22 @@
 ---
 title: "从零开始造一颗 RISC-V CPU（四）：Cache 微架构演进与组相联设计"
 description: "从零开始造一颗 RISC-V CPU（四）：Cache 微架构演进与组相联设计深度解析 系列博客第 4 篇 —— 深入探讨存储器层级（Memory Hierarchy）的底层硬件机制。本文将从早期的“存储墙”问题出发，讲解从直接映射（Direct Mapped）到 2路组相联（2-Way Set-Associative）的架构演进，并结合完整的微架构数据通路（Mermaid 框图）与 Verilog 源码，极为细致地剖析这套 L1 C…"
-publishedAt: "2026-06-07 14:23:07"
+publishedAt: "2026-06-07T06:23:07Z"
 category: "Architecture"
+categories: ["Architecture"]
 tags: ["CPU"]
+author: "GB"
 draft: false
 slug: "从零开始造一颗-risc-v-cpu(四)-cache-微架构演进与组相联"
 legacySlug: "从零开始造一颗-risc-v-cpu（四）：cache-微架构演进与组相联"
+oldSlugs: []
 wordpressId: 1402
 sourceUrl: "https://www.haibinlaiblog.top/index.php/%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e9%80%a0%e4%b8%80%e9%a2%97-risc-v-cpu%ef%bc%88%e5%9b%9b%ef%bc%89%ef%bc%9acache-%e5%be%ae%e6%9e%b6%e6%9e%84%e6%bc%94%e8%bf%9b%e4%b8%8e%e7%bb%84%e7%9b%b8%e8%81%94/"
 commentCount: 0
+viewCount: 636
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <h1>从零开始造一颗 RISC-V CPU（四）：Cache 微架构演进与组相联设计深度解析</h1>

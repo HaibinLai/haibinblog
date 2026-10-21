@@ -1,16 +1,24 @@
 ---
 title: "APAC 2024 Optimization Summary: HPC"
 description: "HPC Groups: ZuDong Li (leader) Haibin Lai Benxiang Xiao Zixu Wang Wenhan Tan Wenbo An AI Groups: Yukun Yang Honglie Li Junyu Su Abstract In this report, we detail the optimization efforts conducted on two key applicatio…"
-publishedAt: "2024-11-10 02:18:56"
-updatedAt: "2024-12-05 04:55:15"
+publishedAt: "2024-11-09T18:18:56Z"
+updatedAt: "2024-12-04T20:55:15Z"
 category: "Computer Science"
+categories: ["Computer Science"]
 tags: ["HPC", "高性能计算"]
+author: "GB"
 draft: false
 slug: "apac-2024-optimization-report-summary"
 legacySlug: "apac-2024-optimization-report-summary"
+oldSlugs: []
 wordpressId: 412
 sourceUrl: "https://www.haibinlaiblog.top/index.php/apac-2024-optimization-report-summary/"
 commentCount: 0
+viewCount: 1995
+likeCount: 0
+dislikeCount: 0
+showCitation: true
+featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/11/微信截图_20241110022340.jpg"
 importedFromWordPress: true
 ---
 <p><strong>HPC Groups:</strong>

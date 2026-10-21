@@ -1,15 +1,22 @@
 ---
 title: "Compiler 2: Regrex, Finite Automata"
 description: "语言运算 Regular Expression 形式语言 For describing Languages / Patterns if, else, ... 形式化定义正则表达式（regular expression, regexp），给出了一系列归纳规则（induction rules） Basic $\\epsilon$ is a regexp, $L(\\epsilon) = {\\epsilon}$ And if a is a sy…"
-publishedAt: "2025-09-25 01:39:49"
+publishedAt: "2025-09-24T17:39:49Z"
 category: "Compilers"
+categories: ["Compilers"]
 tags: []
+author: "GB"
 draft: false
 slug: "compiler-2-regrex-finite-automata"
 legacySlug: "compiler-2-regrex-finite-automata"
+oldSlugs: []
 wordpressId: 992
 sourceUrl: "https://www.haibinlaiblog.top/index.php/compiler-2-regrex-finite-automata/"
 commentCount: 0
+viewCount: 834
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <h2>语言运算</h2>

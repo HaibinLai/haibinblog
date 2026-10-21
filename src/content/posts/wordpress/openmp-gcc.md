@@ -1,16 +1,23 @@
 ---
 title: "OpenMP在gcc里是如何启动的？"
 description: "图片未显示锁竞争（Lock Contention = 0s），表明 PyTorch 或 MKL 可能绕过 GOMP 的全局任务锁，使用原子操作或分区任务。 /* This structure is used to communicate across pthread_create. */ struct gomp_thread_start_data { void (*fn) (void *); void *fn_data; struct…"
-publishedAt: "2025-05-23 17:42:20"
-updatedAt: "2025-05-23 17:42:38"
+publishedAt: "2025-05-23T09:42:20Z"
+updatedAt: "2025-05-23T09:42:38Z"
 category: "Compilers"
+categories: ["Compilers"]
 tags: ["OpenMP"]
+author: "GB"
 draft: false
 slug: "openmp-gcc"
 legacySlug: "openmp-gcc"
+oldSlugs: ["openmp在gcc里是如何启动的？"]
 wordpressId: 806
 sourceUrl: "https://www.haibinlaiblog.top/index.php/openmp-gcc/"
 commentCount: 0
+viewCount: 745
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <ul>

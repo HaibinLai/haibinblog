@@ -1,16 +1,23 @@
 ---
 title: "CXL技术：历史、技术与展望"
 description: "Research on the CXL Memory CXL (Compute Express Link) 技术是一种基于PCIe IO的缓存一致性互联标准, 其旨在提供主机处理器与加速器、内存缓冲器和智能 I/O 设备之间的高带宽、低延迟连接。 CXL在延迟和带宽方面比传统的远程直接内存访问（RDMA）技术有所改进，基于 CXL 内存的存算分离架构的趋势会继续，更多标准化和生态开发会出来。但在处理高并发和高吞吐量任务时，与本地内存相…"
-publishedAt: "2025-05-14 05:53:05"
-updatedAt: "2025-05-14 05:54:50"
+publishedAt: "2025-05-13T21:53:05Z"
+updatedAt: "2025-05-13T21:54:50Z"
 category: "High Performance Computing"
+categories: ["High Performance Computing"]
 tags: ["CXL", "HPC"]
+author: "GB"
 draft: false
 slug: "cxl-tech"
 legacySlug: "cxl-tech"
+oldSlugs: ["cxl技术：历史、技术与展望"]
 wordpressId: 765
 sourceUrl: "https://www.haibinlaiblog.top/index.php/cxl-tech/"
 commentCount: 0
+viewCount: 2490
+likeCount: 3
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <h2>Research on the CXL Memory</h2>

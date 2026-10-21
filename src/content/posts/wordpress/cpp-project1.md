@@ -1,16 +1,24 @@
 ---
 title: "CPP Project1 A “Simple” Calculator"
 description: "CS205 · C/C++ Programming Project1 Report: A \"Simple\" Calculator PDF 版本： Project1赖海斌 Github: https://github.com/HaibinLai/CS205-CPP-Programing-Project 摘要 在本次 Project 中，我初步用C 实现了一个简单的计算器，可以简单地完成项目需求。 在计算器的输入有效数字小于 8 位时，我…"
-publishedAt: "2024-08-27 17:20:19"
-updatedAt: "2024-12-05 04:59:32"
+publishedAt: "2024-08-27T09:20:19Z"
+updatedAt: "2024-12-04T20:59:32Z"
 category: "CPP"
+categories: ["CPP"]
 tags: ["CPP", "内存管理"]
+author: "haibin"
 draft: false
 slug: "cpp-project1"
 legacySlug: "cpp-project1"
+oldSlugs: []
 wordpressId: 134
 sourceUrl: "https://www.haibinlaiblog.top/index.php/cpp-project1/"
 commentCount: 0
+viewCount: 4434
+likeCount: 0
+dislikeCount: 0
+showCitation: true
+featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/08/图片1-2.png"
 importedFromWordPress: true
 ---
 <h1><strong>CS205</strong> · <strong>C/C++</strong> <strong>Programming</strong></h1>

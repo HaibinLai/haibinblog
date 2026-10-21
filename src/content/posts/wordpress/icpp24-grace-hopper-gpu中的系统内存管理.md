@@ -1,16 +1,23 @@
 ---
 title: "ICPP24 Grace Hopper GPU中的系统内存管理"
 description: "文章链接： Harnessing Integrated CPU-GPU System Memory for HPC: a first look into Grace Hopper NVIDIA Grace Hopper 与 NVLink Fusion 架构对异构并行计算优化的影响 - William的文章 - 知乎 https://zhuanlan.zhihu.com/p/1911971133923754274 Grace Hoppe…"
-publishedAt: "2025-08-30 12:15:43"
-updatedAt: "2025-08-30 12:27:58"
+publishedAt: "2025-08-30T04:15:43Z"
+updatedAt: "2025-08-30T04:27:58Z"
 category: "Paper Reading"
+categories: ["Paper Reading"]
 tags: ["GH200", "GPU", "ICPP", "异构计算"]
+author: "GB"
 draft: false
 slug: "icpp24-grace-hopper-gpu中的系统内存管理"
 legacySlug: "icpp24-grace-hopper-gpu中的系统内存管理"
+oldSlugs: []
 wordpressId: 965
 sourceUrl: "https://www.haibinlaiblog.top/index.php/icpp24-grace-hopper-gpu%e4%b8%ad%e7%9a%84%e7%b3%bb%e7%bb%9f%e5%86%85%e5%ad%98%e7%ae%a1%e7%90%86/"
 commentCount: 0
+viewCount: 1849
+likeCount: 2
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>文章链接：<a href="https://dl.acm.org/doi/pdf/10.1145/3673038.3673110">Harnessing Integrated CPU-GPU System Memory for HPC: a first look into Grace Hopper</a>

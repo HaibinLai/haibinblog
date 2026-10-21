@@ -1,16 +1,23 @@
 ---
 title: "ASPLOS08 - Overshadow: A Virtualization-Based Approach to Retrofitting Protection in Commodity Operating System"
 description: "来自我的操作系统课的第二次Pre 这篇文章是在硬件虚拟化时代之前的科技与狠活 现有的保护应用的方法有从应用入手，从OS入手，从HW入手，从虚拟机入手。但是他们都有点昂贵，那我们能不能从VMM虚拟机管理器这个角度入手？ 完整PPT Overshadow Overshadow 用了一个clocking的机制来确保要保护的程序不会被恶意程序访问"
-publishedAt: "2025-06-13 00:22:31"
-updatedAt: "2025-06-13 00:24:18"
+publishedAt: "2025-06-12T16:22:31Z"
+updatedAt: "2025-06-12T16:24:18Z"
 category: "OS"
+categories: ["OS", "Paper Reading"]
 tags: ["OS", "虚拟化"]
+author: "GB"
 draft: false
 slug: "overshadow-a-virtualization-based-approach-to-retrofitting-protection-in-commodity-operating-system"
 legacySlug: "overshadow-a-virtualization-based-approach-to-retrofitting-protection-in-commodity-operating-system"
+oldSlugs: []
 wordpressId: 853
 sourceUrl: "https://www.haibinlaiblog.top/index.php/overshadow-a-virtualization-based-approach-to-retrofitting-protection-in-commodity-operating-system/"
 commentCount: 0
+viewCount: 549
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>来自我的操作系统课的第二次Pre</p>

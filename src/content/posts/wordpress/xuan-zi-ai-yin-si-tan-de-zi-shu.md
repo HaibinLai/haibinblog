@@ -1,15 +1,22 @@
 ---
 title: "选自爱因斯坦的自述"
 description: "我在年少时便早熟地意识到，大多数人终其一生孜孜以求的希望与奋斗，其实都是虚妄。我也很快看清，这种追逐是残酷的，只是在当年，它被虚伪与华丽的辞藻掩盖得比今天更严重。每个人都因肉体存在而被迫卷入这场追逐。满足肠胃的需求或许可以通过这种参与实现，但作为有思想、有情感的人，却无法因此得到满足。 我最初的出路是宗教，它通过传统的教育机器被植入每个孩子的心中。于是，尽管我出身于完全不信教的犹太家庭，却一度拥有虔诚的宗教信仰，这份信仰在我 12 岁…"
-publishedAt: "2026-09-22 14:30:48"
+publishedAt: "2026-09-22T06:30:48Z"
 category: "fragments"
+categories: ["fragments"]
 tags: ["人生"]
+author: "GB"
 draft: false
 slug: "xuan-zi-ai-yin-si-tan-de-zi-shu"
 legacySlug: "xuan-zi-ai-yin-si-tan-de-zi-shu"
+oldSlugs: []
 wordpressId: 1666
 sourceUrl: "https://www.haibinlaiblog.top/index.php/xuan-zi-ai-yin-si-tan-de-zi-shu/"
 commentCount: 0
+viewCount: 161
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>我在年少时便早熟地意识到，大多数人终其一生孜孜以求的希望与奋斗，其实都是虚妄。我也很快看清，这种追逐是残酷的，只是在当年，它被虚伪与华丽的辞藻掩盖得比今天更严重。每个人都因肉体存在而被迫卷入这场追逐。满足肠胃的需求或许可以通过这种参与实现，但作为有思想、有情感的人，却无法因此得到满足。</p>

@@ -1,15 +1,22 @@
 ---
 title: "OSDI 23 BWoS 更好的多线程work-stealing技术——分块"
 description: "一篇有趣的文章，做的是新的多生产者多消费者的队列。 我猜这篇是他们做量化的同学搞的哈哈哈哈哈。 PowerPoint Presentation OSDI 2023 论文评述 Day3-Session11: Verify Your Bits - 知乎 stdexec/include/exec/ detail/ bwos_lifo_queue.hpp at main · NVIDIA/stdexec BWoS Work-Stealing…"
-publishedAt: "2025-07-30 04:42:48"
+publishedAt: "2025-07-29T20:42:48Z"
 category: "Paper Reading"
+categories: ["Paper Reading"]
 tags: ["osdi", "work-stealing", "多线程", "高性能计算"]
+author: "GB"
 draft: false
 slug: "osdi-23-bwos-更好的多线程work-stealing技术-分块"
 legacySlug: "osdi-23-bwos-更好的多线程work-stealing技术-分块"
+oldSlugs: []
 wordpressId: 914
 sourceUrl: "https://www.haibinlaiblog.top/index.php/osdi-23-bwos-%e6%9b%b4%e5%a5%bd%e7%9a%84%e5%a4%9a%e7%ba%bf%e7%a8%8bwork-stealing%e6%8a%80%e6%9c%af-%e5%88%86%e5%9d%97/"
 commentCount: 0
+viewCount: 900
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>一篇有趣的文章，做的是新的多生产者多消费者的队列。</p>

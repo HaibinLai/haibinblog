@@ -1,15 +1,23 @@
 ---
 title: "Linux如何把运行程序从一个CPU核切换到另一个核"
 description: "为什么会出现cpu使用率偶数核比奇数核高 - 知乎 Linux 通过以下机制实现多核识别和任务并行分配： 识别多核硬件 ： Linux 内核在启动时通过 CPU 拓扑信息 （从硬件和固件获取）来检测系统中可用的 CPU 核心数量和特性。这些信息通常由 ACPI（高级配置与电源接口） 或 Device Tree 提供。 内核通过读取 /proc/cpuinfo 或 sysfs （如 /sys/devices/system/cpu/ ）中…"
-publishedAt: "2025-05-12 03:32:29"
+publishedAt: "2025-05-11T19:32:29Z"
 category: "OS"
+categories: ["OS"]
 tags: ["OS", "操作系统"]
+author: "GB"
 draft: false
 slug: "linux如何把运行程序从一个cpu核切换到另一个核"
 legacySlug: "linux如何把运行程序从一个cpu核切换到另一个核"
+oldSlugs: []
 wordpressId: 708
 sourceUrl: "https://www.haibinlaiblog.top/index.php/linux%e5%a6%82%e4%bd%95%e6%8a%8a%e8%bf%90%e8%a1%8c%e7%a8%8b%e5%ba%8f%e4%bb%8e%e4%b8%80%e4%b8%aacpu%e6%a0%b8%e5%88%87%e6%8d%a2%e5%88%b0%e5%8f%a6%e4%b8%80%e4%b8%aa%e6%a0%b8/"
 commentCount: 0
+viewCount: 1217
+likeCount: 0
+dislikeCount: 0
+showCitation: true
+featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2025/05/592D9B6ABBA9EBDA78EE6209D00993B7.jpg"
 importedFromWordPress: true
 ---
 <p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202505111428359.png" alt="" /></p>

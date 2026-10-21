@@ -1,15 +1,22 @@
 ---
 title: "从零开始造一颗 RISC-V CPU（二）：顺序双发射（In-Order Dual-Issue）"
 description: "从零开始造一颗 RISC-V CPU（二）：顺序双发射（In-Order Dual-Issue）基线架构与冒险黑洞 系列博客第 2 篇 —— 这是一个非常有意思的工程伏笔：为什么我们最终走向了“乱序执行（OoO）”？本文将解剖我们的基线版本（main 分支）—— 顺序双发射（In-Order Dual-Issue）架构。我们将看看在这套初代架构中，为了保证两条指令同时无碰撞地在深浅管线中平行飞奔，前端译码器（ID）必须设置多少道保守而…"
-publishedAt: "2026-06-07 14:17:53"
+publishedAt: "2026-06-07T06:17:53Z"
 category: "Architecture"
+categories: ["Architecture"]
 tags: ["CPU"]
+author: "GB"
 draft: false
 slug: "从零开始造一颗-risc-v-cpu(二)-顺序双发射(in-order-dual-issue)"
 legacySlug: "从零开始造一颗-risc-v-cpu（二）：顺序双发射（in-order-dual-issue）"
+oldSlugs: []
 wordpressId: 1398
 sourceUrl: "https://www.haibinlaiblog.top/index.php/%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e9%80%a0%e4%b8%80%e9%a2%97-risc-v-cpu%ef%bc%88%e4%ba%8c%ef%bc%89%ef%bc%9a%e9%a1%ba%e5%ba%8f%e5%8f%8c%e5%8f%91%e5%b0%84%ef%bc%88in-order-dual-issue%ef%bc%89/"
 commentCount: 0
+viewCount: 766
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <h1>从零开始造一颗 RISC-V CPU（二）：顺序双发射（In-Order Dual-Issue）基线架构与冒险黑洞</h1>

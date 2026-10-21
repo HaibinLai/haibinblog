@@ -1,16 +1,23 @@
 ---
 title: "Task-based Parallelism models and their techniques Overivew"
 description: "So far there are many task programming models. Charm++ Website: https://charmplusplus.org/applications/ Github: https://github.com/charmplusplus/charm Tutorial: https://charm.readthedocs.io/en/latest/index.html From UIU…"
-publishedAt: "2026-01-07 16:40:39"
-updatedAt: "2026-01-07 16:57:00"
+publishedAt: "2026-01-07T08:40:39Z"
+updatedAt: "2026-01-07T08:57:00Z"
 category: "High Performance Computing"
+categories: ["High Performance Computing"]
 tags: ["HPC"]
+author: "GB"
 draft: false
 slug: "task-based-parallelism-models-and-their-techniques-overivew"
 legacySlug: "task-based-parallelism-models-and-their-techniques-overivew"
+oldSlugs: []
 wordpressId: 1143
 sourceUrl: "https://www.haibinlaiblog.top/index.php/task-based-parallelism-models-and-their-techniques-overivew/"
 commentCount: 0
+viewCount: 1265
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>So far there are many task programming models.</p>

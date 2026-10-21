@@ -1,16 +1,23 @@
 ---
 title: "我在CPU修PMU：Can We Trust Profiling Results?"
 description: "Can We Trust Profiling Results? Understanding and Fixing the Inaccuracy in Modern Profilers https://par.nsf.gov/servlets/purl/10122098 在上次阅读完博客 # Where Do Interrupts Happen? 后（我的中文解析： https://www.haibinlaiblog.top/index…"
-publishedAt: "2025-11-11 18:04:32"
-updatedAt: "2025-11-11 18:19:05"
+publishedAt: "2025-11-11T10:04:32Z"
+updatedAt: "2025-11-11T10:19:05Z"
 category: "Paper Reading"
+categories: ["Paper Reading"]
 tags: ["HPC", "ICS"]
+author: "GB"
 draft: false
 slug: "can-we-trust-profiling-results"
 legacySlug: "can-we-trust-profiling-results"
+oldSlugs: ["我在cpu修pmu：can-we-trust-profiling-results"]
 wordpressId: 1062
 sourceUrl: "https://www.haibinlaiblog.top/index.php/can-we-trust-profiling-results/"
 commentCount: 0
+viewCount: 1110
+likeCount: 1
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>Can We Trust Profiling Results? Understanding and Fixing the Inaccuracy in Modern Profilers

@@ -1,16 +1,23 @@
 ---
 title: "In-depth analysis: RetroInfer: A Vector-Storage Approach for  Scalable Long-Context LLM Inference"
 description: "之前用LLM看文章，后来发现同样20分钟时间，学到的东西其实不如自己认真读读+关键问题请教。 KVCache可以用上 RAG 技术吗？ 这篇文章的idea是：能不能 \"build KVCache as a Vector Storage System.\" 在长上下文情况中，KVCache经常超出显存，那么我们只能把多余的KVCache存进CPU内存里。而这样就很慢（CPU-GPU传输慢且数据量大）。一种方法是利用LLM的“稀疏”，我们发…"
-publishedAt: "2026-01-08 21:52:26"
-updatedAt: "2026-01-08 23:51:40"
+publishedAt: "2026-01-08T13:52:26Z"
+updatedAt: "2026-01-08T15:51:40Z"
 category: "Paper Reading"
+categories: ["Paper Reading"]
 tags: ["KVCache", "MLSys", "RAG"]
+author: "GB"
 draft: false
 slug: "in-depth-analysis-retroinfer-a-vector-storage-approach-for-scalable-long-context-llm-inference"
 legacySlug: "in-depth-analysis-retroinfer-a-vector-storage-approach-for-scalable-long-context-llm-inference"
+oldSlugs: []
 wordpressId: 1151
 sourceUrl: "https://www.haibinlaiblog.top/index.php/in-depth-analysis-retroinfer-a-vector-storage-approach-for-scalable-long-context-llm-inference/"
 commentCount: 0
+viewCount: 1988
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>之前用LLM看文章，后来发现同样20分钟时间，学到的东西其实不如自己认真读读+关键问题请教。</p>

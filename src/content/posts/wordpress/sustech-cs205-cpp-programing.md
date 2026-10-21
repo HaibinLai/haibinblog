@@ -1,16 +1,24 @@
 ---
 title: "SUSTech-CS205-CPP-Programming"
 description: "SUSTech-CS205-CPP-Programming Haibin Lai 12211612 Semester: 2024 Spring; Lecturer: Prof. Shiqi Yu Project Name Description Important Point Classification Score 1 A Simple Calculator \"简单\"的计算器 C程序初步了解，基本数据结构的实现，数据的底层存储，内存…"
-publishedAt: "2024-09-10 22:56:25"
-updatedAt: "2026-10-13 04:44:01"
+publishedAt: "2024-09-10T14:56:25Z"
+updatedAt: "2026-10-12T20:44:01Z"
 category: "CPP"
+categories: ["CPP"]
 tags: ["CPP", "CUDA", "矩阵乘法"]
+author: "GB"
 draft: false
 slug: "sustech-cs205-cpp-programing"
 legacySlug: "sustech-cs205-cpp-programing"
+oldSlugs: []
 wordpressId: 234
 sourceUrl: "https://www.haibinlaiblog.top/index.php/sustech-cs205-cpp-programing/"
 commentCount: 0
+viewCount: 1865
+likeCount: 3
+dislikeCount: 0
+showCitation: true
+featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/09/微信截图_20240910225737.jpg"
 importedFromWordPress: true
 ---
 <h1>SUSTech-CS205-CPP-Programming</h1>

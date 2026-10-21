@@ -1,15 +1,22 @@
 ---
 title: "从零开始造一颗 RISC-V CPU（五）：乱序执行的来龙去脉与微架构实现"
 description: "从零开始造一颗 RISC-V CPU（五）：乱序执行的来龙去脉与微架构实现 系列博客第 5 篇 —— 深入探讨乱序执行（Out-of-Order Execution）的底层硬件机制。本文将从体系结构历史出发，讲解 Tomasulo 算法的演进，并结合完整的微架构全景图（Mermaid 框图）与核心 Verilog 源码，解析我们在 1000 多行代码内构建的这套乱序执行引擎。 1. 乱序执行的来龙去脉：突破性能的“柏林墙” 在早期顺序…"
-publishedAt: "2026-06-07 14:25:17"
+publishedAt: "2026-06-07T06:25:17Z"
 category: "Architecture"
+categories: ["Architecture"]
 tags: ["CPU"]
+author: "GB"
 draft: false
 slug: "从零开始造一颗-risc-v-cpu(五)-乱序执行的来龙去脉与"
 legacySlug: "从零开始造一颗-risc-v-cpu（五）：乱序执行的来龙去脉与"
+oldSlugs: []
 wordpressId: 1404
 sourceUrl: "https://www.haibinlaiblog.top/index.php/%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e9%80%a0%e4%b8%80%e9%a2%97-risc-v-cpu%ef%bc%88%e4%ba%94%ef%bc%89%ef%bc%9a%e4%b9%b1%e5%ba%8f%e6%89%a7%e8%a1%8c%e7%9a%84%e6%9d%a5%e9%be%99%e5%8e%bb%e8%84%89%e4%b8%8e/"
 commentCount: 0
+viewCount: 1014
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <h1>从零开始造一颗 RISC-V CPU（五）：乱序执行的来龙去脉与微架构实现</h1>

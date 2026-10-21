@@ -1,16 +1,23 @@
 ---
 title: "ASPLOS13 Unikernel: A Special Kernel for Apps in cloud"
 description: "login_oct15_02_kantee.pdf Unikernels - Rethinking Cloud Infrastructure Unikernels: library operating systems for the cloud: ACM SIGARCH Computer Architecture News: Vol 41, No 1 (1 条消息) Unikernel: 从不入门到入门 - 知乎 This passa…"
-publishedAt: "2025-07-19 00:11:46"
-updatedAt: "2025-07-22 03:51:28"
+publishedAt: "2025-07-18T16:11:46Z"
+updatedAt: "2025-07-21T19:51:28Z"
 category: "OS"
+categories: ["OS"]
 tags: ["OS"]
+author: "GB"
 draft: false
 slug: "asplos13-unikernel-a-special-kernel-for-apps-in-cloud"
 legacySlug: "asplos13-unikernel-a-special-kernel-for-apps-in-cloud"
+oldSlugs: []
 wordpressId: 889
 sourceUrl: "https://www.haibinlaiblog.top/index.php/asplos13-unikernel-a-special-kernel-for-apps-in-cloud/"
 commentCount: 0
+viewCount: 811
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p><a href="http://www.fixup.fi/misc/usenix-login-2015/login_oct15_02_kantee.pdf">login_oct15_02_kantee.pdf</a>

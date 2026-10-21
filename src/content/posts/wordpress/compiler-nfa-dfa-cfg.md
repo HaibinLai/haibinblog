@@ -1,16 +1,23 @@
 ---
 title: "Compiler 3: NFA, DFA, CFG"
 description: "第一章最后一部分+CFG Convert NFA to DFA The algorithm here is to explore the state [1,2,3,4,6,7,8] 是在move[A,a]后能达到的所有状态 ![[Pasted image 20250921142734.png]] 我们用达到闭包的个数，来判定目前的状态 Start State A (We have 0), Accepting States E (We…"
-publishedAt: "2025-09-25 01:35:23"
-updatedAt: "2025-09-25 01:39:22"
+publishedAt: "2025-09-24T17:35:23Z"
+updatedAt: "2025-09-24T17:39:22Z"
 category: "Compilers"
+categories: ["Compilers"]
 tags: []
+author: "GB"
 draft: false
 slug: "compiler-nfa-dfa-cfg"
 legacySlug: "compiler-nfa-dfa-cfg"
+oldSlugs: []
 wordpressId: 990
 sourceUrl: "https://www.haibinlaiblog.top/index.php/compiler-nfa-dfa-cfg/"
 commentCount: 0
+viewCount: 939
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>第一章最后一部分+CFG</p>

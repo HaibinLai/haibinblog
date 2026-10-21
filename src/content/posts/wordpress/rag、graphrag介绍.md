@@ -1,16 +1,23 @@
 ---
 title: "RAG、GraphRAG介绍"
 description: "本文是对这两个概念的转载与学习 部署效果： RAG介绍 1 2 3 检索增强生成（RAG） 是一种结合信息检索和生成模型的技术，用于提高大语言模型（LLM）的回答准确性和深度 1 2 。 检索增强生成（Retrieval Augmented Generation，RAG）整合了从庞大知识库中检索到的相关信息，并以此为基础，指导大型语言模型生成更为精准的答案，显著提升了回答的准确性与深度。 LLM 擅长语言理解、推理和生成等任务，但也存…"
-publishedAt: "2025-02-22 19:06:53"
-updatedAt: "2025-02-25 00:51:35"
+publishedAt: "2025-02-22T11:06:53Z"
+updatedAt: "2025-02-24T16:51:35Z"
 category: "Machine Learning"
+categories: ["Machine Learning"]
 tags: ["Graph", "GraphRAG", "图论"]
+author: "GB"
 draft: false
 slug: "rag、graphrag介绍"
 legacySlug: "rag、graphrag介绍"
+oldSlugs: []
 wordpressId: 644
 sourceUrl: "https://www.haibinlaiblog.top/index.php/rag%e3%80%81graphrag%e4%bb%8b%e7%bb%8d/"
 commentCount: 0
+viewCount: 2413
+likeCount: 3
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>本文是对这两个概念的转载与学习</p>

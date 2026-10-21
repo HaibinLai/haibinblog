@@ -1,0 +1,17 @@
+{
+  "name": "haibinblog-view-counter",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "seed:pages": "node scripts/generate-page-seed.mjs",
+    "db:local:init": "npm run seed:pages && wrangler d1 execute haibinblog-view-counter --local --file=./schema.sql && wrangler d1 execute haibinblog-view-counter --local --file=./seed.sql && wrangler d1 execute haibinblog-view-counter --local --file=./page-seed.sql",
+    "db:remote:init": "npm run seed:pages && wrangler d1 execute haibinblog-view-counter --remote --file=./schema.sql && wrangler d1 execute haibinblog-view-counter --remote --file=./seed.sql && wrangler d1 execute haibinblog-view-counter --remote --file=./page-seed.sql",
+    "test": "npm run seed:pages && node --test tests/worker.test.mjs && python3 tests/schema_test.py"
+  },
+  "devDependencies": {
+    "wrangler": "^4.151.0"
+  }
+}

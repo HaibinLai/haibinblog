@@ -1,16 +1,23 @@
 ---
 title: "NSDI26: Can we use MLFQ in LLM Serving?"
 description: "This paper is in arxiv for 2 years. Then it goes into NSDI26. Maybe we can see the difference between versions of 2023 and 2026. Paper link: https://arxiv.org/pdf/2305.05920 Main idea: Can we use MLFQ, a scheduling algo…"
-publishedAt: "2025-10-21 18:25:11"
-updatedAt: "2025-10-21 18:26:31"
+publishedAt: "2025-10-21T10:25:11Z"
+updatedAt: "2025-10-21T10:26:31Z"
 category: "Paper Reading"
+categories: ["Paper Reading"]
 tags: ["Inference", "LLM", "NSDI"]
+author: "GB"
 draft: false
 slug: "nsdi26-can-we-use-mlfq-in-llm-serving"
 legacySlug: "nsdi26-can-we-use-mlfq-in-llm-serving"
+oldSlugs: []
 wordpressId: 1039
 sourceUrl: "https://www.haibinlaiblog.top/index.php/nsdi26-can-we-use-mlfq-in-llm-serving/"
 commentCount: 0
+viewCount: 5089
+likeCount: 1
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>This paper is in arxiv for 2 years. Then it goes into NSDI26. Maybe we can see the difference between versions of 2023 and 2026.</p>

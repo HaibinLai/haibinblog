@@ -1,16 +1,23 @@
 ---
 title: "Distributed Systems and Cloud Computing: Review 1"
 description: "This is the self-review pack of Distributed Systems and Cloud Computing. We have lesson 1-5. Lesson 1 Presentation – Effective communication of information rather than of data – Code and number conversion – Transmission…"
-publishedAt: "2025-12-30 15:42:51"
-updatedAt: "2025-12-30 16:12:00"
+publishedAt: "2025-12-30T07:42:51Z"
+updatedAt: "2025-12-30T08:12:00Z"
 category: "Distributed Systems"
+categories: ["Distributed Systems"]
 tags: []
+author: "GB"
 draft: false
 slug: "distributed-systems-and-cloud-computing-review-1"
 legacySlug: "distributed-systems-and-cloud-computing-review-1"
+oldSlugs: []
 wordpressId: 1119
 sourceUrl: "https://www.haibinlaiblog.top/index.php/distributed-systems-and-cloud-computing-review-1/"
 commentCount: 0
+viewCount: 991
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>This is the self-review pack of Distributed Systems and Cloud Computing. We have lesson 1-5.</p>

@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import ViewTracker from '../components/ViewTracker.astro';
 
 interface Props {
   title?: string;
@@ -38,5 +39,6 @@ const base = import.meta.env.BASE_URL;
       if (localStorage.getItem('haibin-theme') === 'dark') document.documentElement.classList.add('dark');
       toggle?.addEventListener('click', () => { document.documentElement.classList.toggle('dark'); localStorage.setItem('haibin-theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light'); });
     </script>
+    <ViewTracker />
   </body>
 </html>

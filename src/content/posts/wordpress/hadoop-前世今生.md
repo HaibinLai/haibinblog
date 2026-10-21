@@ -1,16 +1,23 @@
 ---
 title: "Hadoop：前世今生"
 description: "Streaming system A type of data processing engine that is designed with infinite datasets in mind. Hadoop的起源：Nutch Lucene 全文检索 1997年，Doug Cutting，后来hadoop的创始人之一，用Java写了Lucene并将其开源，目标是为各种应用软件加入全文检索功能。Lucene受到了大家的热烈追捧，大家知…"
-publishedAt: "2024-09-15 03:39:09"
-updatedAt: "2024-09-15 06:07:18"
+publishedAt: "2024-09-14T19:39:09Z"
+updatedAt: "2024-09-14T22:07:18Z"
 category: "Big Data"
+categories: ["Big Data"]
 tags: ["GFS", "Hadoop", "HDFS", "MapReduce", "大数据"]
+author: "GB"
 draft: false
 slug: "hadoop-前世今生"
 legacySlug: "hadoop：前世今生"
+oldSlugs: []
 wordpressId: 258
 sourceUrl: "https://www.haibinlaiblog.top/index.php/hadoop%ef%bc%9a%e5%89%8d%e4%b8%96%e4%bb%8a%e7%94%9f/"
 commentCount: 0
+viewCount: 1133
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>Streaming system</p>

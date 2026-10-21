@@ -1,16 +1,23 @@
 ---
 title: "Caseboard：像侦探一样做科研"
 description: "我一开始想写的是一篇博客，记录我在AI coding和research里对软件工程新的想法。比如我们曾经经历了“如何让新agent接手学习老agent的代码”，“让人类拯救被agent毁坏的代码工程”这些故事。但是我发现，我的这些观察都非常的零散，当我开始用一个结构化的语言去讲述他们的时候，我总是不知道怎么衔接和叙述 后来有一天我开始用意识流或者魔幻现实的视角去描述，发现效果非常有趣。大概故事的内容是四年前AI还只是一只猫娘，现在猫娘…"
-publishedAt: "2026-09-17 11:00:28"
-updatedAt: "2026-09-17 11:00:50"
+publishedAt: "2026-09-17T03:00:28Z"
+updatedAt: "2026-09-17T03:00:50Z"
 category: "复盘"
+categories: ["复盘"]
 tags: ["AI", "Research"]
+author: "GB"
 draft: false
 slug: "caseboard-xiang-zhen-tan-yi-yang-zuo-ke-yan"
 legacySlug: "caseboard-xiang-zhen-tan-yi-yang-zuo-ke-yan"
+oldSlugs: []
 wordpressId: 1662
 sourceUrl: "https://www.haibinlaiblog.top/index.php/caseboard-xiang-zhen-tan-yi-yang-zuo-ke-yan/"
 commentCount: 1
+viewCount: 201
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>我一开始想写的是一篇博客，记录我在AI coding和research里对软件工程新的想法。比如我们曾经经历了“如何让新agent接手学习老agent的代码”，“让人类拯救被agent毁坏的代码工程”这些故事。但是我发现，我的这些观察都非常的零散，当我开始用一个结构化的语言去讲述他们的时候，我总是不知道怎么衔接和叙述</p>

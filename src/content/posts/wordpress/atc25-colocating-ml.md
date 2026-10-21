@@ -1,16 +1,23 @@
 ---
 title: "ATC25 Colocating ML Inference and Training with Fast GPU Memory Handover"
 description: "今天yf来分享一篇来自IPADS的ATC25文章。 Colocating ML Inference and Training with Fast GPU Memory Handover 简短点评：依旧IPADS特有的大工程，TVM+vLLM+NCCL+Pytorch 开组会大家一起问了很多问题。 https://ipads.se.sjtu.edu.cn/_media/publications/sirius-atc25.pdf 这篇文章…"
-publishedAt: "2026-01-15 13:10:41"
-updatedAt: "2026-01-15 13:11:19"
+publishedAt: "2026-01-15T05:10:41Z"
+updatedAt: "2026-01-15T05:11:19Z"
 category: "Paper Reading"
+categories: ["Paper Reading"]
 tags: ["DNN", "GPU", "IPADS"]
+author: "GB"
 draft: false
 slug: "atc25-colocating-ml"
 legacySlug: "atc25-colocating-ml"
+oldSlugs: ["atc25-colocating-ml-inference-and-training-with-fast-gpu-memory-handover"]
 wordpressId: 1175
 sourceUrl: "https://www.haibinlaiblog.top/index.php/atc25-colocating-ml/"
 commentCount: 0
+viewCount: 1196
+likeCount: 2
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>今天yf来分享一篇来自IPADS的ATC25文章。

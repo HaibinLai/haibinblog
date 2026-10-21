@@ -1,16 +1,24 @@
 ---
 title: "CPP Project4: A 2D GPU Mat"
 description: "CS205·C/C++ Programming Project4 Report: A 2D GPU Mat PDF 版本： Project 4 Github: https://github.com/HaibinLai/CS205-CPP-Programing-Project 网页文档： Doxygen 摘要 本次项目的重点在于开发了一个功能强大的GPU矩阵类，该类实现了多数据输入、运算符重载、感兴趣区域（ROI）操作、内存管理以及跨G…"
-publishedAt: "2024-09-09 13:51:09"
-updatedAt: "2024-12-05 05:01:29"
+publishedAt: "2024-09-09T05:51:09Z"
+updatedAt: "2024-12-04T21:01:29Z"
 category: "CPP"
+categories: ["CPP"]
 tags: ["CPP", "CUDA", "GPU", "Matrix"]
+author: "GB"
 draft: false
 slug: "cpp-project4-a-2d-gpu-mat"
 legacySlug: "cpp-project4-a-2d-gpu-mat"
+oldSlugs: []
 wordpressId: 227
 sourceUrl: "https://www.haibinlaiblog.top/index.php/cpp-project4-a-2d-gpu-mat/"
 commentCount: 1
+viewCount: 2128
+likeCount: 1
+dislikeCount: 0
+showCitation: true
+featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/09/图片-1.png"
 importedFromWordPress: true
 ---
 <h1><strong>CS205·C/C++ Programming</strong></h1>

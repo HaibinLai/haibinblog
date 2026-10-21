@@ -1,16 +1,23 @@
 ---
 title: "Learning how to detect AI-generated text: use RAID benchmarks as an example"
 description: "RAID Benchmark: Multi-Generator Detection & Adversarial Robustness Analysis 数据挖掘方面的小项目。最核心的idea是，AI生成的文本短小，且喜欢概括核心思想。检测的主要办法是再用AI跑，看困惑度。 final report: https://github.com/HaibinLai/HC3/blob/main/reports/data_mining_proj%…"
-publishedAt: "2026-08-09 15:01:08"
-updatedAt: "2026-08-09 15:13:43"
+publishedAt: "2026-08-09T07:01:08Z"
+updatedAt: "2026-08-09T07:13:43Z"
 category: "principle"
+categories: ["principle"]
 tags: ["AI", "GPT"]
+author: "GB"
 draft: false
 slug: "learning-how-to-detect-ai-generated-text-use-raid-benchmarks-as-an-example"
 legacySlug: "learning-how-to-detect-ai-generated-text-use-raid-benchmarks-as-an-example"
+oldSlugs: []
 wordpressId: 1570
 sourceUrl: "https://www.haibinlaiblog.top/index.php/learning-how-to-detect-ai-generated-text-use-raid-benchmarks-as-an-example/"
 commentCount: 0
+viewCount: 819
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <h1>RAID Benchmark: Multi-Generator Detection &amp; Adversarial Robustness Analysis</h1>

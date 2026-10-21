@@ -1,15 +1,22 @@
 ---
 title: "GQA、MHA、MQA、MLA"
 description: "在苏剑林博客+油管上有更好的介绍。 GQA（Grouped Query Attention，组查询注意力）是注意力机制（Attention）的一种优化变体，主要用于提高大型语言模型（LLM）的计算效率和内存使用效率，同时尽量保持模型性能。它在注意力机制中起到 优化多头注意力（Multi-Head Attention, MHA） 的作用，特别是在 Transformer 模型中。以下我会用简单易懂的语言解释 GQA 的作用和原理，尽量避…"
-publishedAt: "2025-08-30 02:56:15"
+publishedAt: "2025-08-29T18:56:15Z"
 category: "Machine Learning"
+categories: ["Machine Learning"]
 tags: ["LLM"]
+author: "GB"
 draft: false
 slug: "gqa、mha、mqa、mla"
 legacySlug: "gqa、mha、mqa、mla"
+oldSlugs: []
 wordpressId: 963
 sourceUrl: "https://www.haibinlaiblog.top/index.php/gqa%e3%80%81mha%e3%80%81mqa%e3%80%81mla/"
 commentCount: 0
+viewCount: 2936
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>在苏剑林博客+油管上有更好的介绍。</p>

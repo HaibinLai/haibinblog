@@ -1,16 +1,23 @@
 ---
 title: "PowerInfer: Fast Large Language Model Serving with a  Consumer-grade GPU"
 description: "推理引擎会成为新时代的操作系统吗？ RG-1210 PowerInfer: Fast Large Language Model Serving with a Consumer-grade GPU 2406.06282 【【RG 24 Fall】PowerInfer: Fast Large Language Model Serving with a Consumer-grad..】 https://www.bilibili.com/vi…"
-publishedAt: "2025-06-22 12:00:19"
-updatedAt: "2025-06-22 12:00:31"
+publishedAt: "2025-06-22T04:00:19Z"
+updatedAt: "2025-06-22T04:00:31Z"
 category: "Paper Reading"
+categories: ["Paper Reading"]
 tags: ["HPC", "MLSys"]
+author: "GB"
 draft: false
 slug: "powerinfer-fast-large-language-model-serving-with-a-consumer-grade-gpu"
 legacySlug: "powerinfer-fast-large-language-model-serving-with-a-consumer-grade-gpu"
+oldSlugs: []
 wordpressId: 881
 sourceUrl: "https://www.haibinlaiblog.top/index.php/powerinfer-fast-large-language-model-serving-with-a-consumer-grade-gpu/"
 commentCount: 0
+viewCount: 1242
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>推理引擎会成为新时代的操作系统吗？</p>

@@ -1,15 +1,22 @@
 ---
 title: "GNU OpenMP是怎么结束的"
 description: "gcc/libgomp/config/posix/simple-bar.h at 4e47e2f833732c5d9a3c3e69dc753f99b3a56737 · gcc-mirror/gcc gcc/libgomp/parallel.c at e2bf0b3910de7e65363435f0a7fa606e2448a677 · gcc-mirror/gcc void GOMP_parallel_end (void) { stru…"
-publishedAt: "2025-06-04 01:18:35"
+publishedAt: "2025-06-03T17:18:35Z"
 category: "Micro Topics"
+categories: ["Micro Topics"]
 tags: []
+author: "GB"
 draft: false
 slug: "gnu-openmp是怎么结束的"
 legacySlug: "gnu-openmp是怎么结束的"
+oldSlugs: []
 wordpressId: 835
 sourceUrl: "https://www.haibinlaiblog.top/index.php/gnu-openmp%e6%98%af%e6%80%8e%e4%b9%88%e7%bb%93%e6%9d%9f%e7%9a%84/"
 commentCount: 0
+viewCount: 683
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p><a href="https://github.com/gcc-mirror/gcc/blob/4e47e2f833732c5d9a3c3e69dc753f99b3a56737/libgomp/config/posix/simple-bar.h#L58">gcc/libgomp/config/posix/simple-bar.h at 4e47e2f833732c5d9a3c3e69dc753f99b3a56737 · gcc-mirror/gcc</a></p>

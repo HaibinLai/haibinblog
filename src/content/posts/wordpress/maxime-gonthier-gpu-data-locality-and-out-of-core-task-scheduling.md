@@ -1,16 +1,23 @@
 ---
 title: "Maxime Gonthier - GPU data locality and out-of-core task scheduling"
 description: "title brief introduction: time line videos links (personal only): https://www.bilibili.com/video/BV13KAkzcECz/?vd_source=4871cfa497362c1a843af2ecff18ab7f basic question \\ 先测一个简单版本，如2min，然后知道计算时间，接着进行5h的跑"
-publishedAt: "2026-02-26 23:12:10"
-updatedAt: "2026-02-26 23:12:48"
+publishedAt: "2026-02-26T15:12:10Z"
+updatedAt: "2026-02-26T15:12:48Z"
 category: "Academic"
+categories: ["Academic"]
 tags: ["talks"]
+author: "GB"
 draft: false
 slug: "maxime-gonthier-gpu-data-locality-and-out-of-core-task-scheduling"
 legacySlug: "maxime-gonthier-gpu-data-locality-and-out-of-core-task-scheduling"
+oldSlugs: []
 wordpressId: 1257
 sourceUrl: "https://www.haibinlaiblog.top/index.php/maxime-gonthier-gpu-data-locality-and-out-of-core-task-scheduling/"
 commentCount: 0
+viewCount: 576
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <ol>

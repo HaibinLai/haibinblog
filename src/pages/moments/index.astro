@@ -1,29 +1,456 @@
 ---
-import { getCollection, render } from 'astro:content';
+import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
-const moments = (await getCollection('moments', ({ data }) => !data.draft))
-  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+const base = import.meta.env.BASE_URL;
+const fragments = (await getCollection(
+  'posts',
+  ({ data }) => !data.draft && [data.category, ...data.categories]
+    .some((category) => category.toLowerCase() === 'fragments'),
+)).sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+
+const decodeAttribute = (value: string) => value
+  .replaceAll('&amp;', '&')
+  .replaceAll('&quot;', '"')
+  .replaceAll('&#039;', "'")
+  .replaceAll('&lt;', '<')
+  .replaceAll('&gt;', '>');
+
+const readAttribute = (tag: string, name: string) => {
+  const quoted = tag.match(new RegExp(`\\s${name}=["']([^"']*)["']`, 'i'));
+  const unquoted = tag.match(new RegExp(`\\s${name}=([^\\s>]+)`, 'i'));
+  return decodeAttribute(quoted?.[1] ?? unquoted?.[1] ?? '');
+};
+
+const extractFragment = (source = '') => {
+  const images: Array<{ src: string; alt: string }> = [];
+
+  const collectImages = (markup: string) => {
+    for (const match of markup.matchAll(/<img\b[^>]*>/gi)) {
+      const src = readAttribute(match[0], 'src');
+      if (src) images.push({ src, alt: readAttribute(match[0], 'alt') });
+    }
+  };
+
+  let html = source.replace(/<figure\b[^>]*>[\s\S]*?<\/figure>/gi, (figure) => {
+    collectImages(figure);
+    return '';
+  });
+
+  html = html.replace(/<img\b[^>]*>/gi, (image) => {
+    collectImages(image);
+    return '';
+  });
+
+  // WordPress often wraps an image in its own paragraph and link. Remove the
+  // wrappers left behind after the image is moved into the media grid.
+  html = html
+    .replace(/<a\b[^>]*>\s*<\/a>/gi, '')
+    .replace(/<p\b[^>]*>\s*<\/p>/gi, '')
+    .trim();
+
+  return { html, images: images.slice(0, 9) };
+};
+
+const monthLabel = new Intl.DateTimeFormat('en-CA', {
+  year: 'numeric',
+  month: '2-digit',
+});
+
+const dateLabel = new Intl.DateTimeFormat('zh-CN', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+
+const postSlug = (post: (typeof fragments)[number]) => post.data.slug ?? post.id.replace(/^wordpress\//, '');
+const groups = fragments.reduce<Array<{ month: string; posts: Array<(typeof fragments)[number] & { fragment: ReturnType<typeof extractFragment> }> }>>(
+  (result, post) => {
+    const month = monthLabel.format(post.data.publishedAt).replace('-', '.');
+    const entry = { ...post, fragment: extractFragment(post.rendered?.html ?? post.body ?? '') };
+    const current = result.at(-1);
+
+    if (!current || current.month !== month) result.push({ month, posts: [entry] });
+    else current.posts.push(entry);
+
+    return result;
+  },
+  [],
+);
 ---
 
-<BaseLayout title="Moments | Haibin's Blog" description="Small records from Haibin's days.">
-  <section class="moments-page content-shell">
-    <div class="moments-heading"><p class="eyebrow">MOMENTS</p><h1>Small records, kept close.</h1></div>
-    <div class="moment-list">
-      {moments.map(async (moment) => {
-        const { Content } = await render(moment);
-        return (
-          <article class="moment">
-            <time datetime={moment.data.publishedAt.toISOString()}>{moment.data.publishedAt.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })}</time>
-            <div class="prose"><Content /></div>
-            {moment.data.images.length > 0 && (
-              <div class:list={['moment-images', { 'is-single': moment.data.images.length === 1 }]}>
-                {moment.data.images.map((image) => <a href={image}><img src={image} loading="lazy" alt="Moment image" /></a>)}
-              </div>
-            )}
-          </article>
-        );
-      })}
+<BaseLayout title="Moments | Haibin's Blog" description="Life fragments and small records from Haibin Lai.">
+  <section class="fragments-page content-shell">
+    <header class="fragments-header">
+      <p class="eyebrow">LIFE FRAGMENTS</p>
+      <h1>Moments</h1>
+      <p>{fragments.length} fragments, ordered from newest to oldest.</p>
+    </header>
+
+    <div class="fragments-list">
+      {groups.map((group) => (
+        <section class="fragment-group" aria-labelledby={`month-${group.month}`}>
+          <h2 class="fragment-month" id={`month-${group.month}`}>{group.month}</h2>
+          {group.posts.map((post) => {
+            const href = `${base}posts/${postSlug(post)}/`;
+            return (
+              <article class="fragment-item">
+                <a class="fragment-avatar" href={base} aria-label="Haibin Lai">
+                  <img src={`${base}images/avatar.svg`} loading="lazy" alt="Haibin Lai" />
+                </a>
+
+                <div class="fragment-body">
+                  <div class="fragment-author"><a href={base}>Haibin Lai</a></div>
+                  <div class="fragment-content-wrap">
+                    <h3 class="fragment-title"><a href={href}>{post.data.title}</a></h3>
+                    {post.fragment.html && <div class="fragment-content" data-fragment-content set:html={post.fragment.html} />}
+                    {post.fragment.html && <button type="button" class="fragment-expand" aria-expanded="false">展开</button>}
+                  </div>
+
+                  {post.fragment.images.length > 0 && (
+                    <div class="fragment-media" data-count={post.fragment.images.length}>
+                      {post.fragment.images.map((image) => (
+                        <button type="button" class="fragment-thumb" data-fragment-image={image.src} aria-label="查看大图">
+                          <img src={image.src} loading="lazy" alt={image.alt || post.data.title} />
+                        </button>
+                      ))}
+                    </div>
+                  )}
+
+                  <div class="fragment-meta">
+                    <a href={href}>
+                      <time datetime={post.data.publishedAt.toISOString()}>{dateLabel.format(post.data.publishedAt)}</time>
+                    </a>
+                    <span>{post.data.commentCount} {post.data.commentCount === 1 ? 'Comment' : 'Comments'}</span>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
+        </section>
+      ))}
     </div>
   </section>
+
+  <dialog class="fragment-lightbox" aria-label="图片预览">
+    <button class="fragment-lightbox-close" type="button" aria-label="关闭">&times;</button>
+    <img alt="" />
+  </dialog>
 </BaseLayout>
+
+<script>
+  const initialiseFragments = () => {
+    document.querySelectorAll<HTMLElement>('[data-fragment-content]').forEach((content) => {
+      const button = content.parentElement?.querySelector<HTMLButtonElement>('.fragment-expand');
+      if (!button || content.scrollHeight <= content.clientHeight + 2) return;
+
+      button.classList.add('is-visible');
+      button.addEventListener('click', () => {
+        const expanded = content.classList.toggle('is-expanded');
+        button.setAttribute('aria-expanded', String(expanded));
+        button.textContent = expanded ? '收起' : '展开';
+      });
+    });
+
+    const lightbox = document.querySelector<HTMLDialogElement>('.fragment-lightbox');
+    const lightboxImage = lightbox?.querySelector<HTMLImageElement>('img');
+    const closeButton = lightbox?.querySelector<HTMLButtonElement>('.fragment-lightbox-close');
+
+    document.querySelectorAll<HTMLButtonElement>('[data-fragment-image]').forEach((button) => {
+      button.addEventListener('click', () => {
+        if (!lightbox || !lightboxImage || !button.dataset.fragmentImage) return;
+        const thumbnail = button.querySelector<HTMLImageElement>('img');
+        lightboxImage.src = button.dataset.fragmentImage;
+        lightboxImage.alt = thumbnail?.alt ?? '';
+        lightbox.showModal();
+      });
+    });
+
+    closeButton?.addEventListener('click', () => lightbox?.close());
+    lightbox?.addEventListener('click', (event) => {
+      if (event.target === lightbox) lightbox.close();
+    });
+    lightbox?.addEventListener('close', () => lightboxImage?.removeAttribute('src'));
+  };
+
+  initialiseFragments();
+</script>
+
+<style>
+  .fragments-page {
+    width: min(760px, calc(100% - 32px));
+    padding: 42px 0 80px;
+  }
+
+  .fragments-header {
+    padding: 0 0 24px 64px;
+  }
+
+  .fragments-header h1 {
+    margin: 0;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 600;
+    line-height: 1.2;
+  }
+
+  .fragments-header > p:last-child {
+    margin: 10px 0 0;
+    color: var(--muted);
+    font-size: .9rem;
+  }
+
+  .fragment-group {
+    position: relative;
+  }
+
+  .fragment-month {
+    position: sticky;
+    top: 74px;
+    z-index: 2;
+    width: max-content;
+    margin: 13px 0 2px 62px;
+    padding: 2px 9px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--page) 88%, var(--surface));
+    color: var(--muted);
+    font-size: .78rem;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+
+  .fragment-item {
+    display: grid;
+    grid-template-columns: 48px minmax(0, 1fr);
+    gap: 15px;
+    padding: 18px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .fragment-avatar,
+  .fragment-avatar img {
+    display: block;
+    width: 48px;
+    height: 48px;
+  }
+
+  .fragment-avatar img {
+    padding: 4px;
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    background: var(--surface);
+    object-fit: contain;
+  }
+
+  .fragment-body {
+    min-width: 0;
+  }
+
+  .fragment-author {
+    margin-top: -2px;
+    color: #50618a;
+    font-weight: 650;
+    line-height: 1.35;
+  }
+
+  .fragment-title {
+    margin: 4px 0 2px;
+    font-size: .98rem;
+    font-weight: 650;
+    line-height: 1.45;
+  }
+
+  .fragment-content-wrap {
+    margin-top: 5px;
+  }
+
+  .fragment-content {
+    max-height: 5.9em;
+    overflow: hidden;
+    color: var(--ink);
+    font-size: .98rem;
+    line-height: 1.72;
+    overflow-wrap: anywhere;
+  }
+
+  .fragment-content.is-expanded {
+    max-height: none;
+  }
+
+  .fragment-content :global(p) {
+    margin: 0 0 6px;
+  }
+
+  .fragment-content :global(p:last-child) {
+    margin-bottom: 0;
+  }
+
+  .fragment-content :global(a) {
+    color: var(--accent-dark);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .fragment-content :global(h1),
+  .fragment-content :global(h2),
+  .fragment-content :global(h3),
+  .fragment-content :global(h4) {
+    margin: .8em 0 .35em;
+    font-size: 1.02rem;
+    line-height: 1.45;
+  }
+
+  .fragment-content :global(pre) {
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 12px;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    font-size: .82rem;
+  }
+
+  .fragment-expand {
+    display: none;
+    margin: 4px 0 0;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #50618a;
+    cursor: pointer;
+    font-size: .92rem;
+  }
+
+  .fragment-expand.is-visible {
+    display: inline-flex;
+  }
+
+  .fragment-media {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+    width: min(100%, 496px);
+    margin-top: 9px;
+  }
+
+  .fragment-media[data-count='1'] {
+    grid-template-columns: 1fr;
+    width: min(70%, 216px);
+  }
+
+  .fragment-media[data-count='2'],
+  .fragment-media[data-count='4'] {
+    grid-template-columns: repeat(2, 1fr);
+    width: min(86%, 320px);
+  }
+
+  .fragment-thumb {
+    width: 100%;
+    aspect-ratio: 1;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    border-radius: 3px;
+    background: var(--line);
+    cursor: zoom-in;
+  }
+
+  .fragment-thumb img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .16s ease, filter .16s ease;
+  }
+
+  .fragment-thumb:hover img {
+    filter: brightness(.96);
+    transform: scale(1.018);
+  }
+
+  .fragment-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 11px;
+    margin-top: 11px;
+    color: var(--muted);
+    font-size: .86rem;
+  }
+
+  .fragment-meta a:hover {
+    color: #50618a;
+  }
+
+  .fragment-lightbox {
+    width: 100vw;
+    height: 100vh;
+    max-width: none;
+    max-height: none;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    overflow: hidden;
+  }
+
+  .fragment-lightbox[open] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .fragment-lightbox::backdrop {
+    background: rgba(0, 0, 0, .9);
+  }
+
+  .fragment-lightbox img {
+    max-width: 94vw;
+    max-height: 94vh;
+    object-fit: contain;
+  }
+
+  .fragment-lightbox-close {
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 1;
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .18);
+    color: white;
+    cursor: pointer;
+    font-size: 1.45rem;
+    line-height: 1;
+  }
+
+  @media (max-width: 760px) {
+    .fragments-page {
+      padding-top: 28px;
+    }
+
+    .fragments-header {
+      padding-left: 0;
+    }
+
+    .fragment-month {
+      top: 68px;
+      margin-left: 54px;
+    }
+
+    .fragment-item {
+      grid-template-columns: 42px minmax(0, 1fr);
+      gap: 12px;
+    }
+
+    .fragment-avatar,
+    .fragment-avatar img {
+      width: 42px;
+      height: 42px;
+    }
+
+    .fragment-media {
+      width: 100%;
+    }
+  }
+</style>

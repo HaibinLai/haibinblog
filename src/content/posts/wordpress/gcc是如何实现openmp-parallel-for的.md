@@ -1,15 +1,22 @@
 ---
 title: "gcc是如何实现OpenMP parallel for的"
 description: "学习网页 本次我们主要会聚焦team.c 和loop.c: gcc/libgomp/loop.c at master · gcc-mirror/gcc gcc/libgomp/team.c at master · gcc-mirror/gcc OpenMP For Construct dynamic 调度方式实现原理和源码分析 - 一无是处的研究僧 - 博客园 TL; DR TL;DR： 大概idea就是，先分块，后并行。并行的模块我…"
-publishedAt: "2025-06-02 19:15:05"
+publishedAt: "2025-06-02T11:15:05Z"
 category: "Compilers"
+categories: ["Compilers"]
 tags: []
+author: "GB"
 draft: false
 slug: "gcc是如何实现openmp-parallel-for的"
 legacySlug: "gcc是如何实现openmp-parallel-for的"
+oldSlugs: []
 wordpressId: 827
 sourceUrl: "https://www.haibinlaiblog.top/index.php/gcc%e6%98%af%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0openmp-parallel-for%e7%9a%84/"
 commentCount: 0
+viewCount: 1157
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <h2>学习网页</h2>

@@ -1,15 +1,22 @@
 ---
 title: "OSDI23 Johnny Cache: the End of DRAM Cache Conflicts (in Tiered Main Memory Systems)"
 description: "本文解决的是这样的一种情况： 在计算机有CXL、SSD等比DRAM 的存储level更低的存储（文中一般称PMEM）下，现有的“把DRAM当PMEM的Cache”的操作易导致生日冲突，引起Rewrite性能下降。Johnny Cache用了新策略（线性的写）避免了该冲突。 In par ticular, we demonstrate that the poor performance observed in earlier hardw…"
-publishedAt: "2025-07-23 01:58:54"
+publishedAt: "2025-07-22T17:58:54Z"
 category: "Paper Reading"
+categories: ["Paper Reading"]
 tags: ["Memory", "OS"]
+author: "GB"
 draft: false
 slug: "osdi23-johnny-cache-the-end-of-dram-cache-conflicts-in-tiered-main-memory-systems"
 legacySlug: "osdi23-johnny-cache-the-end-of-dram-cache-conflicts-in-tiered-main-memory-systems"
+oldSlugs: []
 wordpressId: 902
 sourceUrl: "https://www.haibinlaiblog.top/index.php/osdi23-johnny-cache-the-end-of-dram-cache-conflicts-in-tiered-main-memory-systems/"
 commentCount: 0
+viewCount: 629
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>本文解决的是这样的一种情况：</p>

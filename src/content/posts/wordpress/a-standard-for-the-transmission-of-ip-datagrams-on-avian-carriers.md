@@ -1,16 +1,24 @@
 ---
 title: "A Standard for the Transmission of IP Datagrams on Avian Carriers"
 description: "基于信鸽的IP网络传输 This protocol is in RFC 1149 version https://datatracker.ietf.org/doc/html/rfc1149 A Standard for the Transmission of IP Datagrams on Avian Carriers Status of this Memo This memo describes an experimental me…"
-publishedAt: "2024-10-29 21:18:10"
-updatedAt: "2024-11-05 22:10:48"
+publishedAt: "2024-10-29T13:18:10Z"
+updatedAt: "2024-11-05T14:10:48Z"
 category: "Computer Network"
+categories: ["Computer Network"]
 tags: ["IP", "计算机网络"]
+author: "GB"
 draft: false
 slug: "a-standard-for-the-transmission-of-ip-datagrams-on-avian-carriers"
 legacySlug: "a-standard-for-the-transmission-of-ip-datagrams-on-avian-carriers"
+oldSlugs: []
 wordpressId: 388
 sourceUrl: "https://www.haibinlaiblog.top/index.php/a-standard-for-the-transmission-of-ip-datagrams-on-avian-carriers/"
 commentCount: 0
+viewCount: 1260
+likeCount: 1
+dislikeCount: 9
+showCitation: true
+featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/10/Screenshot-2023-08-10-171501.png"
 importedFromWordPress: true
 ---
 <p>基于信鸽的IP网络传输

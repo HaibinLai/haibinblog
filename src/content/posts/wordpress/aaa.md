@@ -1,16 +1,23 @@
 ---
 title: "America Against America"
 description: "美国反对美国 第一次系统性思考美国，始于高中时读林达夫妇的《历史深处的忧虑》。后来又看了托克维尔的《论美国的民主》。再然后到今天 Hu'ning Wang 的《美国反对美国》。几个来自不同时间、不同国籍、不同立场的作者在他们的书里，对美国政治、经济、文化进行了多方面的观察。于我而言，我也从纪录片到真正踏上这块陌生的土地过上半年生活。再重新思考书里提到的一切，有了很多新的体验。 同样是游历半年，王考察了更多人和地区，比起计算机技术问题…"
-publishedAt: "2026-01-04 22:58:27"
-updatedAt: "2026-01-08 23:53:19"
+publishedAt: "2026-01-04T14:58:27Z"
+updatedAt: "2026-01-08T15:53:19Z"
 category: "Books Reading"
+categories: ["Books Reading"]
 tags: ["AAA"]
+author: "GB"
 draft: false
 slug: "aaa"
 legacySlug: "aaa"
+oldSlugs: []
 wordpressId: 1137
 sourceUrl: "https://www.haibinlaiblog.top/index.php/aaa/"
 commentCount: 0
+viewCount: 2266
+likeCount: 1
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <h1>美国反对美国</h1>

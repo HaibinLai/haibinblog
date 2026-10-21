@@ -1,15 +1,22 @@
 ---
 title: "Pytorch Intro: Everything you want to know"
 description: "Pytorch 本质是和python完全不一样的东西。然后这东西本质是拿来训练模型的，其他的事情它干的一般般的。 学习链接 官方教程 Welcome to PyTorch Tutorials — PyTorch Tutorials 2.7.0+cu126 documentation Learning PyTorch with Examples — PyTorch Tutorials 2.7.0+cu126 documentation…"
-publishedAt: "2025-06-11 05:09:54"
+publishedAt: "2025-06-10T21:09:54Z"
 category: "Machine Learning"
+categories: ["Machine Learning"]
 tags: ["ML", "pytorch"]
+author: "GB"
 draft: false
 slug: "pytorch-intro-everything-you-want-to-know"
 legacySlug: "pytorch-intro-everything-you-want-to-know"
+oldSlugs: []
 wordpressId: 838
 sourceUrl: "https://www.haibinlaiblog.top/index.php/pytorch-intro-everything-you-want-to-know/"
 commentCount: 0
+viewCount: 1251
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>Pytorch 本质是和python完全不一样的东西。然后这东西本质是拿来训练模型的，其他的事情它干的一般般的。</p>

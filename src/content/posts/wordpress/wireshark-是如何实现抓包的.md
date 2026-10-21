@@ -1,16 +1,24 @@
 ---
 title: "Wireshark 是如何实现抓包的？"
 description: "PPT: 为什么wireshark抓不到HTTP My summary web page: BPF与npcap库.drawio Wireshark 是如何实现的 wireshark的总体结构如下图所示。 【wireshark】Wireshark原理分析与二次开发系列 - 赵子清 - 博客园 (cnblogs.com) 抓包 捕获从网络适配器提取包,并将其保存到硬盘上. 访问底层网络适配器需要提升的权限，因此和底层网卡抓包的功能被封装在…"
-publishedAt: "2024-10-13 13:17:37"
-updatedAt: "2024-12-07 17:32:04"
+publishedAt: "2024-10-13T05:17:37Z"
+updatedAt: "2024-12-07T09:32:04Z"
 category: "Computer Network"
+categories: ["Computer Network"]
 tags: ["OS", "Wireshark", "网络"]
+author: "GB"
 draft: false
 slug: "wireshark-是如何实现抓包的"
 legacySlug: "wireshark-是如何实现抓包的？"
+oldSlugs: []
 wordpressId: 372
 sourceUrl: "https://www.haibinlaiblog.top/index.php/wireshark-%e6%98%af%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0%e6%8a%93%e5%8c%85%e7%9a%84%ef%bc%9f/"
 commentCount: 0
+viewCount: 1534
+likeCount: 0
+dislikeCount: 0
+showCitation: true
+featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/10/图片1.png"
 importedFromWordPress: true
 ---
 <p>PPT: <a href="https://www.haibinlaiblog.top/?attachment_id=373" title="为什么wireshark抓不到HTTP">为什么wireshark抓不到HTTP</a></p>

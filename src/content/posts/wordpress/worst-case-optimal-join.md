@@ -1,16 +1,24 @@
 ---
 title: "Worst-Case Optimal Join"
 description: "最坏情况下最优连接（Worst-Case Optimal Joins） - 知乎 _Amine Mhedhbi and Semih Salihoglu. 2019. Optimizing subgraph queries by combining binary and worst-case optimal joins. Proc. VLDB Endow. 12, 11 (July 2019), 1692–1704. DOI: http…"
-publishedAt: "2025-04-18 08:08:47"
-updatedAt: "2025-05-23 05:07:16"
+publishedAt: "2025-04-18T00:08:47Z"
+updatedAt: "2025-05-22T21:07:16Z"
 category: "Micro Topics"
+categories: ["Micro Topics"]
 tags: ["DB", "Graph", "图存储", "大数据"]
+author: "GB"
 draft: false
 slug: "worst-case-optimal-join"
 legacySlug: "worst-case-optimal-join"
+oldSlugs: []
 wordpressId: 696
 sourceUrl: "https://www.haibinlaiblog.top/index.php/worst-case-optimal-join/"
 commentCount: 0
+viewCount: 964
+likeCount: 0
+dislikeCount: 0
+showCitation: true
+featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2025/04/1B736C5EEC950EBE12A57DDAD2EE40CD.jpg"
 importedFromWordPress: true
 ---
 <p><a href="https://zhuanlan.zhihu.com/p/116919516">最坏情况下最优连接（Worst-Case Optimal Joins） - 知乎</a></p>

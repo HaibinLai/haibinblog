@@ -1,16 +1,23 @@
 ---
 title: "构建之法 - 学习笔记"
 description: "因为是自己边读边记录的，会有些乱 章节 1 概论 讨论了什么是软件工程，小项目跟公司级别的大项目的区别。各种工程化和管理化的方法。 纸飞机、莱特兄弟的飞机、波音747客机的飞机例子举的非常好，让人对大型软件项目有了更深的理解。 这些天我在调制SGLang的时候，也遇到了类似的问题。LLM Serving已经进入到了一个非常复杂的问题境界，如同当年Oracle和MS Server一样复杂，每个公司都需要特例化部署。而软件的复杂性让整个系…"
-publishedAt: "2026-07-09 17:20:16"
-updatedAt: "2026-07-15 03:02:57"
+publishedAt: "2026-07-09T09:20:16Z"
+updatedAt: "2026-07-14T19:02:57Z"
 category: "Books Reading"
+categories: ["Books Reading"]
 tags: []
+author: "haibin"
 draft: false
 slug: "ms-gjzf"
 legacySlug: "ms-gjzf"
+oldSlugs: ["构建之法-学习笔记"]
 wordpressId: 1486
 sourceUrl: "https://www.haibinlaiblog.top/index.php/ms-gjzf/"
 commentCount: 1
+viewCount: 1192
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>因为是自己边读边记录的，会有些乱</p>

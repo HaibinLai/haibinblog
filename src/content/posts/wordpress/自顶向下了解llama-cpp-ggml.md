@@ -1,16 +1,23 @@
 ---
 title: "自顶向下了解llama.cpp - ggml"
 description: "由于工作要求，我尝试识读了llama.cpp框架在cpu端侧的推理情况。其实GPU端的结构我推测跟cpu差不多，只不过在底层算子会有区别，但是上层计算图等架构应该是差不多的。 好的，以下是我这个生成式AI给您生成的20000字长文（ChatGPT 也可能会犯错。请核查重要信息。）： 学习链接 HF 导引 Introduction to ggml github源码 ggml 源码搭建 llama.cpp/docs/build.md at…"
-publishedAt: "2025-06-17 04:44:43"
-updatedAt: "2025-06-17 05:18:21"
+publishedAt: "2025-06-16T20:44:43Z"
+updatedAt: "2025-06-16T21:18:21Z"
 category: "Frameworks"
+categories: ["Frameworks", "High Performance Computing"]
 tags: []
+author: "GB"
 draft: false
 slug: "自顶向下了解llama-cpp-ggml"
 legacySlug: "自顶向下了解llama-cpp-ggml"
+oldSlugs: []
 wordpressId: 868
 sourceUrl: "https://www.haibinlaiblog.top/index.php/%e8%87%aa%e9%a1%b6%e5%90%91%e4%b8%8b%e4%ba%86%e8%a7%a3llama-cpp-ggml/"
 commentCount: 0
+viewCount: 8305
+likeCount: 262
+dislikeCount: 3
+showCitation: true
 importedFromWordPress: true
 ---
 <p>由于工作要求，我尝试识读了llama.cpp框架在cpu端侧的推理情况。其实GPU端的结构我推测跟cpu差不多，只不过在底层算子会有区别，但是上层计算图等架构应该是差不多的。</p>

@@ -1,16 +1,23 @@
 ---
 title: "我们在高中和大学遇到的题目是一样的吗"
 description: "这篇文章算是自己一年学习的小感悟，也是想给刚入大学的同学们一点思考。 大学一年，学习到很多新知识，新概念，这里边碰到了很多新问题，新题目。在高中，问题的核心，是抓定义，抓套路。但是，大学里边的问题，更多的是探索定义，探索证明。这里边要求我们转变问题思维。 在高中，我们都是做题高手，接受了大量题目的练习后，我们遇到卷子可以拿笔就写，遇到问题直接开动。我常笑我们是做题机器，试卷就是输入，看到第一题立马调用程序，2个小时后输出程序结果，检查…"
-publishedAt: "2024-08-21 00:29:27"
-updatedAt: "2026-01-19 19:18:47"
+publishedAt: "2024-08-20T16:29:27Z"
+updatedAt: "2026-01-19T11:18:47Z"
 category: "Books Reading"
+categories: ["Books Reading"]
 tags: ["人生感悟", "大学学习"]
+author: "haibin"
 draft: false
 slug: "collage-thinking"
 legacySlug: "collage-thinking"
+oldSlugs: ["我们在高中和大学遇到的题目是一样的吗"]
 wordpressId: 39
 sourceUrl: "https://www.haibinlaiblog.top/index.php/collage-thinking/"
 commentCount: 3
+viewCount: 44763
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>这篇文章算是自己一年学习的小感悟，也是想给刚入大学的同学们一点思考。</p>

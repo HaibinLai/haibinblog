@@ -1,15 +1,22 @@
 ---
 title: "GridFTP: SC25 Test of Time Award"
 description: "How to move massive data from server to client? How to serve multiple users around the world to use the compute machine? This technology was not invented in cloud computing, but grid computing. And this is the paper pub…"
-publishedAt: "2025-10-10 21:07:29"
+publishedAt: "2025-10-10T13:07:29Z"
 category: "Paper Reading"
+categories: ["Paper Reading"]
 tags: ["Cloud", "grid computing", "HPC", "Network"]
+author: "GB"
 draft: false
 slug: "gridftp-sc25-test-of-time-award"
 legacySlug: "gridftp-sc25-test-of-time-award"
+oldSlugs: []
 wordpressId: 1003
 sourceUrl: "https://www.haibinlaiblog.top/index.php/gridftp-sc25-test-of-time-award/"
 commentCount: 0
+viewCount: 1180
+likeCount: 3
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p><strong>How to move massive data from server to client? How to serve multiple users around the world to use the compute machine? </strong></p>

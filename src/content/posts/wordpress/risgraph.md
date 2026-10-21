@@ -1,16 +1,23 @@
 ---
 title: "Risgraph"
 description: "RisGraph: A Real-Time Streaming System for Evolving Graphs to Support Sub-millisecond Per-update Analysis at Millions Ops/s low latency and high though put Batch 能解决 high thoughput , 但是很多信息消失，同时实时性不够 stream 能解决 low late…"
-publishedAt: "2025-01-12 14:52:06"
-updatedAt: "2025-06-11 06:27:25"
+publishedAt: "2025-01-12T06:52:06Z"
+updatedAt: "2025-06-10T22:27:25Z"
 category: "Paper Reading"
+categories: ["Paper Reading"]
 tags: ["HPC"]
+author: "GB"
 draft: false
 slug: "risgraph"
 legacySlug: "risgraph"
+oldSlugs: []
 wordpressId: 591
 sourceUrl: "https://www.haibinlaiblog.top/index.php/risgraph/"
 commentCount: 0
+viewCount: 809
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>RisGraph: A Real-Time Streaming System for Evolving Graphs to Support Sub-millisecond Per-update Analysis at Millions Ops/s</p>

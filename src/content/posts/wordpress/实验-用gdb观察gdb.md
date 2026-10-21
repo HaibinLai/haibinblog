@@ -1,16 +1,23 @@
 ---
 title: "[WIP] 实验：用gdb观察gdb"
 description: "Can I use gdb to observe gdb? I always forget how gdb was made. for me, I went though the website on stackoverflow of Zhihu serveral times only for this question, and I always forget everything about ptrace . And I thin…"
-publishedAt: "2025-01-05 11:07:18"
-updatedAt: "2025-01-07 08:36:11"
+publishedAt: "2025-01-05T03:07:18Z"
+updatedAt: "2025-01-07T00:36:11Z"
 category: "OS"
+categories: ["OS"]
 tags: ["OS"]
+author: "GB"
 draft: false
 slug: "实验-用gdb观察gdb"
 legacySlug: "实验：用gdb观察gdb"
+oldSlugs: []
 wordpressId: 566
 sourceUrl: "https://www.haibinlaiblog.top/index.php/%e5%ae%9e%e9%aa%8c%ef%bc%9a%e7%94%a8gdb%e8%a7%82%e5%af%9fgdb/"
 commentCount: 0
+viewCount: 794
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <h2>Can I use gdb to observe gdb?</h2>

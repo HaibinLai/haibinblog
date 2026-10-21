@@ -1,16 +1,23 @@
 ---
 title: "(WIP) 梁漱溟 中国文化要义"
 description: "认识老中国，建设新中国 梁在书的前言中介绍了为什么写这本书：为中国问题所困挠，希望从文化中找到解答。 本书一名《中国民族之前途》。内容分上下两部：上半部为认识中国 问题之部，下半部为解决中国问题之部――因要解决一个问题，必须 先认识此一问题。中国问题盖从近百年世界大交通，西洋人的势力和 西洋文化蔓延到东方来，乃发生的。要认识中国问题，即必得明白中 国社会在近百年所引起之变化及其内外形势。而明白当初未曾变的老 中国社会，又为明白其变化之…"
-publishedAt: "2026-03-09 18:28:48"
-updatedAt: "2026-03-09 18:29:10"
+publishedAt: "2026-03-09T10:28:48Z"
+updatedAt: "2026-03-09T10:29:10Z"
 category: "Books Reading"
+categories: ["Books Reading"]
 tags: ["人生"]
+author: "GB"
 draft: false
 slug: "wip-梁漱溟-china"
 legacySlug: "wip-梁漱溟-china"
+oldSlugs: ["wip-梁漱溟-中国文化要义"]
 wordpressId: 1267
 sourceUrl: "https://www.haibinlaiblog.top/index.php/wip-%e6%a2%81%e6%bc%b1%e6%ba%9f-china/"
 commentCount: 0
+viewCount: 601
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <h2>认识老中国，建设新中国</h2>

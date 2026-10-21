@@ -1,16 +1,23 @@
 ---
 title: "The bitter lesson"
 description: "https://www.cs.utexas.edu/~eunsol/courses/data/bitter_lesson.pdf Most AI research has been conducted as if the computation available to the agent were constant (in which case leveraging human knowledge would be one of t…"
-publishedAt: "2026-10-06 08:51:48"
-updatedAt: "2026-10-06 08:52:59"
+publishedAt: "2026-10-06T00:51:48Z"
+updatedAt: "2026-10-06T00:52:59Z"
 category: "fragments"
+categories: ["fragments"]
 tags: ["AI", "GPU", "Hardware"]
+author: "GB"
 draft: false
 slug: "the-bitter-lesson"
 legacySlug: "the-bitter-lesson"
+oldSlugs: []
 wordpressId: 1692
 sourceUrl: "https://www.haibinlaiblog.top/index.php/the-bitter-lesson/"
 commentCount: 0
+viewCount: 96
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p><a href="https://www.cs.utexas.edu/~eunsol/courses/data/bitter_lesson.pdf">https://www.cs.utexas.edu/~eunsol/courses/data/bitter_lesson.pdf</a></p>

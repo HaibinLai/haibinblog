@@ -1,15 +1,22 @@
 ---
 title: "SC25 gLLM"
 description: "gLLM: Global Balanced Pipeline Parallelism System for Distributed LLM Serving with Token Throttling 几种并行方法 尝试消除泡泡： 目前在LLM推理里有两种不平衡： stage 间不平衡 inter-stage dependency, where a stage cannot begin computation until the pre…"
-publishedAt: "2025-07-23 12:28:58"
+publishedAt: "2025-07-23T04:28:58Z"
 category: "Paper Reading"
+categories: ["Paper Reading"]
 tags: ["LLM"]
+author: "GB"
 draft: false
 slug: "sc25-gllm"
 legacySlug: "sc25-gllm"
+oldSlugs: []
 wordpressId: 905
 sourceUrl: "https://www.haibinlaiblog.top/index.php/sc25-gllm/"
 commentCount: 0
+viewCount: 630
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>gLLM: Global Balanced Pipeline Parallelism System for Distributed LLM Serving with Token Throttling</p>

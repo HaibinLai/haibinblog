@@ -1,15 +1,22 @@
 ---
 title: "Listening to Tianyin Xu: Notes and Reflections"
 description: "This blog is generated from https://www.haibinlaiblog.top/index.php/ting-tianyin-xu-lao-shi-de-bo-ke/ . I am trying to make a bilingual version for the blogs. Maybe it will be online later. Listening to Tianyin Xu: Note…"
-publishedAt: "2026-10-06 10:34:16"
+publishedAt: "2026-10-06T02:34:16Z"
 category: "复盘"
+categories: ["复盘"]
 tags: ["AI", "GPU", "TLA"]
+author: "GB"
 draft: false
 slug: "listening-to-tianyin-xu-notes-and-reflections"
 legacySlug: "listening-to-tianyin-xu-notes-and-reflections"
+oldSlugs: []
 wordpressId: 1696
 sourceUrl: "https://www.haibinlaiblog.top/index.php/listening-to-tianyin-xu-notes-and-reflections/"
 commentCount: 1
+viewCount: 159
+likeCount: 1
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>This blog is generated from <a href="https://www.haibinlaiblog.top/index.php/ting-tianyin-xu-lao-shi-de-bo-ke/">https://www.haibinlaiblog.top/index.php/ting-tianyin-xu-lao-shi-de-bo-ke/</a> . I am trying to make a bilingual version for the blogs. Maybe it will be online later.</p>

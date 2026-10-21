@@ -1,15 +1,22 @@
 ---
 title: "CNN 的两个技术: UGC与BatchNorm"
 description: "Unstructured Group Convolution 1. 普通 Group Convolution Group Convolution（分组卷积） 最早是 AlexNet（2012）用来解决 GPU 显存不足问题的。 做法 ：把输入通道分成几个组，每个组只跟自己的卷积核组连接计算。 好处 ：减少计算量和参数量（比如输入 64 个通道，分成 4 组，每组只卷 16 个通道，计算量大幅下降）。 结构特征 ：分组是规则且固定的，比…"
-publishedAt: "2025-08-09 07:34:29"
+publishedAt: "2025-08-08T23:34:29Z"
 category: "Machine Learning"
+categories: ["Machine Learning"]
 tags: ["CNN"]
+author: "GB"
 draft: false
 slug: "cnn-的两个技术-ugc与batchnorm"
 legacySlug: "cnn-的两个技术-ugc与batchnorm"
+oldSlugs: []
 wordpressId: 935
 sourceUrl: "https://www.haibinlaiblog.top/index.php/cnn-%e7%9a%84%e4%b8%a4%e4%b8%aa%e6%8a%80%e6%9c%af-ugc%e4%b8%8ebatchnorm/"
 commentCount: 0
+viewCount: 816
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <h2>Unstructured Group Convolution</h2>

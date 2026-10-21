@@ -1,15 +1,22 @@
 ---
 title: "xFastTransformer 架构解读"
 description: "省流：这东西2年前做的，最麻烦的是文档很少，基本都要从零开始研究代码，考虑时间成本我没有花很多精力。 如果大家想在单机上用CPU推理，也可以试试intel pytorch extension或者llama.cpp。（不过xFt相比他们俩的好处是，它的代码结构也相对比较简单易懂，大家都可以自由选择） 但是目前这个东西没有用计算图优化，它每次计算都要重开openmp并行域，感觉这会出点问题。 Examples — Intel® Exten…"
-publishedAt: "2025-06-13 12:57:14"
+publishedAt: "2025-06-13T04:57:14Z"
 category: "Frameworks"
+categories: ["Frameworks", "High Performance Computing"]
 tags: ["CPP", "推理引擎"]
+author: "GB"
 draft: false
 slug: "xfasttransformer-架构解读"
 legacySlug: "xfasttransformer-架构解读"
+oldSlugs: []
 wordpressId: 861
 sourceUrl: "https://www.haibinlaiblog.top/index.php/xfasttransformer-%e6%9e%b6%e6%9e%84%e8%a7%a3%e8%af%bb/"
 commentCount: 0
+viewCount: 1274
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>省流：这东西2年前做的，最麻烦的是文档很少，基本都要从零开始研究代码，考虑时间成本我没有花很多精力。

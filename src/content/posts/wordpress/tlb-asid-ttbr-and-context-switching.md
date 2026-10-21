@@ -1,16 +1,24 @@
 ---
 title: "TLB, ASID, TTBR And Context Switching"
 description: "本文是在实验课上看一些文章和GPT整理的，不完全 Linux内存管理笔记----TLB-阿里云开发者社区 面试官：不同进程对应相同的虚拟地址，在 TLB 是如何区分的？-腾讯云开发者社区-腾讯云 Linux进程管理+内存管理：进程切换的TLB处理（ASID-address space ID、PCID-process context ID）_进程的asid-CSDN博客 TLB、PCID与ASID的故事_pcid机制-CSDN博客 1…"
-publishedAt: "2024-11-27 21:30:42"
-updatedAt: "2024-12-01 19:57:30"
+publishedAt: "2024-11-27T13:30:42Z"
+updatedAt: "2024-12-01T11:57:30Z"
 category: "OS"
+categories: ["OS"]
 tags: ["HPC", "OS"]
+author: "GB"
 draft: false
 slug: "tlb-asid-ttbr-and-context-switching"
 legacySlug: "tlb-asid-ttbr-and-context-switching"
+oldSlugs: []
 wordpressId: 433
 sourceUrl: "https://www.haibinlaiblog.top/index.php/tlb-asid-ttbr-and-context-switching/"
 commentCount: 0
+viewCount: 2698
+likeCount: 0
+dislikeCount: 0
+showCitation: true
+featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/11/20241127200450.png"
 importedFromWordPress: true
 ---
 <p>本文是在实验课上看一些文章和GPT整理的，不完全</p>

@@ -1,15 +1,22 @@
 ---
 title: "HPDC19: Parsl: Pervasive Parallel Programming in Python"
 description: "《Parsl: Pervasive Parallel Programming in Python》，发表在HPDC '19会议上，作者来自芝加哥大学、阿贡国家实验室等机构。以下是对文章内容的简要介绍： 核心内容 文章介绍了一个名为 Parsl 的Python并行脚本库，旨在通过简单、可扩展和灵活的方式增强Python的并行编程能力。Parsl通过在Python中引入特定的构造（constructs），允许开发者轻松表达程序中的并行性…"
-publishedAt: "2025-06-12 04:48:52"
+publishedAt: "2025-06-11T20:48:52Z"
 category: "Paper Reading"
+categories: ["Paper Reading"]
 tags: ["HPC", "并行计算"]
+author: "GB"
 draft: false
 slug: "hpdc19-parsl-pervasive-parallel-programming-in-python"
 legacySlug: "hpdc19-parsl-pervasive-parallel-programming-in-python"
+oldSlugs: []
 wordpressId: 843
 sourceUrl: "https://www.haibinlaiblog.top/index.php/hpdc19-parsl-pervasive-parallel-programming-in-python/"
 commentCount: 0
+viewCount: 676
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>《Parsl: Pervasive Parallel Programming in Python》，发表在HPDC '19会议上，作者来自芝加哥大学、阿贡国家实验室等机构。以下是对文章内容的简要介绍：</p>

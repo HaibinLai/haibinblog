@@ -1,15 +1,22 @@
 ---
 title: "Q群聊天记录"
 description: "前些天我思考过一个问题，目前的AI对专家的学习可能有很长的路，专家的培养环境复杂，比如去A、B、C Lab的交流合作，和不同人类交流。这个交互有两个困难：数据稀少和经验复杂。后者我觉得是可以解决的，因为你可以把“research taste”等高级想法理解为一个高维度的知识。前者可能要做很多工作。我的意思是，tairan可以作为这个数据集的一个sample 之前老板也和我严肃讨论过这个问题。做科研数量有了后 最重要是求max，也就是最…"
-publishedAt: "2026-06-21 18:58:55"
+publishedAt: "2026-06-21T10:58:55Z"
 category: "fragments"
+categories: ["fragments"]
 tags: []
+author: "GB"
 draft: false
 slug: "q群聊天记录"
 legacySlug: "q群聊天记录"
+oldSlugs: []
 wordpressId: 1452
 sourceUrl: "https://www.haibinlaiblog.top/index.php/q%e7%be%a4%e8%81%8a%e5%a4%a9%e8%ae%b0%e5%bd%95/"
 commentCount: 0
+viewCount: 229
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>前些天我思考过一个问题，目前的AI对专家的学习可能有很长的路，专家的培养环境复杂，比如去A、B、C Lab的交流合作，和不同人类交流。这个交互有两个困难：数据稀少和经验复杂。后者我觉得是可以解决的，因为你可以把“research taste”等高级想法理解为一个高维度的知识。前者可能要做很多工作。我的意思是，tairan可以作为这个数据集的一个sample</p>

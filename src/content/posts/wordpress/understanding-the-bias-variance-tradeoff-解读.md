@@ -1,16 +1,24 @@
 ---
 title: "Understanding the Bias-Variance Tradeoff 解读"
 description: "Webpage: Understanding the Bias-Variance Tradeoff (fortmann-roe.com) Introduction When we discuss prediction models, prediction errors can be decomposed into two main subcomponents we care about: error due to \"bias\" and…"
-publishedAt: "2024-10-09 15:47:29"
-updatedAt: "2025-06-11 06:28:12"
+publishedAt: "2024-10-09T07:47:29Z"
+updatedAt: "2025-06-10T22:28:12Z"
 category: "Machine Learning"
+categories: ["Machine Learning", "Paper Reading"]
 tags: ["偏差", "机器学习", "过拟合"]
+author: "GB"
 draft: false
 slug: "understanding-the-bias-variance-tradeoff-解读"
 legacySlug: "understanding-the-bias-variance-tradeoff-解读"
+oldSlugs: []
 wordpressId: 363
 sourceUrl: "https://www.haibinlaiblog.top/index.php/understanding-the-bias-variance-tradeoff-%e8%a7%a3%e8%af%bb/"
 commentCount: 0
+viewCount: 1149
+likeCount: 1
+dislikeCount: 0
+showCitation: true
+featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/10/F433B7FA8CEB2AD22AA1552548544FD1.png"
 importedFromWordPress: true
 ---
 <p>Webpage: <a href="https://scott.fortmann-roe.com/docs/BiasVariance.html">Understanding the Bias-Variance Tradeoff (fortmann-roe.com)</a></p>

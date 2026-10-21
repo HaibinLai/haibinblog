@@ -1,15 +1,22 @@
 ---
 title: "proc_bind 各策略的 place 计算逻辑、affinity_thr 的内存管理，gomp_simple_barrier_reinit 如何保证同步"
 description: "很好！你提的这三个点都直指 GOMP_parallel 线程调度核心机制。我们逐一详细剖析这三项： 🔢 一、 proc_bind 各策略下的 place 计算逻辑 这个逻辑体现在你贴出的代码中 switch (bind) 语句块下的 线程 affinity 计算部分 ，其作用是：为第 i 个线程计算它应绑定的 place_partition_off 和 place_partition_len 。 proc_bind(master) 策…"
-publishedAt: "2025-05-29 09:54:54"
+publishedAt: "2025-05-29T01:54:54Z"
 category: "Micro Topics"
+categories: ["Micro Topics"]
 tags: []
+author: "GB"
 draft: false
 slug: "proc_bind-各策略的-place-计算逻辑、affinity_thr-的内存管理,gomp_simple_barrier_reinit"
 legacySlug: "proc_bind-各策略的-place-计算逻辑、affinity_thr-的内存管理，gomp_simple_barrier_reinit"
+oldSlugs: []
 wordpressId: 819
 sourceUrl: "https://www.haibinlaiblog.top/index.php/proc_bind-%e5%90%84%e7%ad%96%e7%95%a5%e7%9a%84-place-%e8%ae%a1%e7%ae%97%e9%80%bb%e8%be%91%e3%80%81affinity_thr-%e7%9a%84%e5%86%85%e5%ad%98%e7%ae%a1%e7%90%86%ef%bc%8cgomp_simple_barrier_reinit/"
 commentCount: 0
+viewCount: 783
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>很好！你提的这三个点都直指 <code>GOMP_parallel</code> 线程调度核心机制。我们逐一详细剖析这三项：</p>

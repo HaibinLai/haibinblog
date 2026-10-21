@@ -1,16 +1,23 @@
 ---
 title: "微专题：MESI"
 description: "全知乎最详细的并发研究之CPU缓存一致性协议(MESI)有这一篇就够了！ - 知乎 多核CPU多级缓存一致性协议MESI 多核CPU的情况下有多个一级缓存，如何保证缓存内部数据的一致,不让系统数据混乱。这里就引出了一个一致性的协议MESI。 MESI协议 缓存状态 MESI 是指4中状态的首字母。每个Cache line有4个状态，可用2个bit表示，它们分别是： 缓存行（Cache line）:缓存存储数据的单元。 状态 描述 监听…"
-publishedAt: "2025-05-22 07:00:05"
-updatedAt: "2025-05-22 07:07:21"
+publishedAt: "2025-05-21T23:00:05Z"
+updatedAt: "2025-05-21T23:07:21Z"
 category: "Micro Topics"
+categories: ["Micro Topics"]
 tags: []
+author: "GB"
 draft: false
 slug: "微专题-mesi"
 legacySlug: "微专题：mesi"
+oldSlugs: []
 wordpressId: 800
 sourceUrl: "https://www.haibinlaiblog.top/index.php/%e5%be%ae%e4%b8%93%e9%a2%98%ef%bc%9amesi/"
 commentCount: 0
+viewCount: 588
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p><a href="https://zhuanlan.zhihu.com/p/467782159">全知乎最详细的并发研究之CPU缓存一致性协议(MESI)有这一篇就够了！ - 知乎</a></p>

@@ -9,6 +9,7 @@ script again replaces only files inside src/content/posts/wordpress.
 from __future__ import annotations
 
 import argparse
+from datetime import datetime
 import html
 import json
 import re
@@ -24,7 +25,8 @@ from urllib.parse import unquote, urlparse
 WP = "http://wordpress.org/export/1.2/"
 CONTENT = "http://purl.org/rss/1.0/modules/content/"
 EXCERPT = "http://wordpress.org/export/1.2/excerpt/"
-NS = {"wp": WP, "content": CONTENT, "excerpt": EXCERPT}
+DC = "http://purl.org/dc/elements/1.1/"
+NS = {"wp": WP, "content": CONTENT, "excerpt": EXCERPT, "dc": DC}
 INVALID_XML_CONTROLS = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f]")
 
 
@@ -73,6 +75,37 @@ def yaml_value(value: object) -> str:
     return json.dumps(value, ensure_ascii=False)
 
 
+def wordpress_gmt_date(value: str) -> str:
+    """Convert a WXR UTC timestamp to an explicit ISO-8601 UTC timestamp."""
+    try:
+        parsed = datetime.strptime(value, "%Y-%m-%d %H:%M:%S")
+    except ValueError as error:
+        raise ValueError(f"Invalid WordPress GMT date: {value!r}") from error
+    return parsed.strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
+def postmeta(item: ET.Element) -> dict[str, list[str]]:
+    values: dict[str, list[str]] = {}
+    for entry in item.findall("wp:postmeta", NS):
+        key = entry.findtext("wp:meta_key", default="", namespaces=NS)
+        value = entry.findtext("wp:meta_value", default="", namespaces=NS)
+        values.setdefault(key, []).append(value)
+    return values
+
+
+def latest_meta(metadata: dict[str, list[str]], key: str, default: str = "") -> str:
+    values = metadata.get(key)
+    return values[-1] if values else default
+
+
+def nonnegative_meta_int(metadata: dict[str, list[str]], key: str) -> int:
+    raw = latest_meta(metadata, key, "0").strip()
+    try:
+        return max(0, int(raw or 0))
+    except ValueError:
+        return 0
+
+
 def parse_wxr(path: Path) -> ET.Element:
     source = path.read_text(encoding="utf-8")
     cleaned = INVALID_XML_CONTROLS.sub("", source)
@@ -113,6 +146,13 @@ def main() -> int:
         for item in items
         if item.findtext("wp:post_type", default="", namespaces=NS) == "post"
     ]
+    attachment_urls = {
+        item.findtext("wp:post_id", default="", namespaces=NS): item.findtext(
+            "wp:attachment_url", default="", namespaces=NS
+        )
+        for item in items
+        if item.findtext("wp:post_type", default="", namespaces=NS) == "attachment"
+    }
 
     output = args.output
     if output.exists():
@@ -149,8 +189,13 @@ def main() -> int:
         body = item.findtext("content:encoded", default="", namespaces=NS).strip()
         body = "\n".join(line.rstrip() for line in body.splitlines())
         excerpt = item.findtext("excerpt:encoded", default="", namespaces=NS)
-        published = item.findtext("wp:post_date", default="", namespaces=NS)
-        updated = item.findtext("wp:post_modified", default="", namespaces=NS)
+        published = wordpress_gmt_date(
+            item.findtext("wp:post_date_gmt", default="", namespaces=NS)
+        )
+        updated = wordpress_gmt_date(
+            item.findtext("wp:post_modified_gmt", default="", namespaces=NS)
+        )
+        author = item.findtext("dc:creator", default="", namespaces=NS).strip()
         source_url = item.findtext("link", default="")
         categories = [
             category.text or ""
@@ -164,6 +209,23 @@ def main() -> int:
         ]
         category = categories[0] if categories else "Uncategorized"
         old_slug = legacy_slug(item, raw_slug or slug)
+        metadata = postmeta(item)
+        old_slugs = list(
+            dict.fromkeys(
+                unquote(value).strip("/")
+                for value in metadata.get("_wp_old_slug", [])
+                if value.strip("/")
+            )
+        )
+        featured_image = attachment_urls.get(
+            latest_meta(metadata, "_thumbnail_id"), ""
+        ).strip()
+        view_count = nonnegative_meta_int(metadata, "post_views_count")
+        like_count = nonnegative_meta_int(metadata, "post_nice_count")
+        dislike_count = nonnegative_meta_int(metadata, "post_bad_count")
+        # The original theme treats a missing per-post value as enabled and
+        # suppresses the citation only when the stored value is exactly "0".
+        show_citation = latest_meta(metadata, "nicen_show_citation") != "0"
         comment_count = sum(
             comment.findtext("wp:comment_approved", default="", namespaces=NS) == "1"
             for comment in item.findall("wp:comment", NS)
@@ -180,18 +242,27 @@ def main() -> int:
         frontmatter.extend(
             [
                 f"category: {yaml_value(category)}",
+                f"categories: {yaml_value(categories or [category])}",
                 f"tags: {yaml_value(tags)}",
+                f"author: {yaml_value(author or 'Haibin Lai')}",
                 f"draft: {'false' if status == 'publish' else 'true'}",
                 f"slug: {yaml_value(slug)}",
                 f"legacySlug: {yaml_value(old_slug)}",
+                f"oldSlugs: {yaml_value(old_slugs)}",
                 f"wordpressId: {int(post_id or 0)}",
                 f"sourceUrl: {yaml_value(source_url)}",
                 f"commentCount: {comment_count}",
+                f"viewCount: {view_count}",
+                f"likeCount: {like_count}",
+                f"dislikeCount: {dislike_count}",
+                f"showCitation: {'true' if show_citation else 'false'}",
                 "importedFromWordPress: true",
                 "---",
                 "",
             ]
         )
+        if featured_image:
+            frontmatter.insert(-3, f"featuredImage: {yaml_value(featured_image)}")
         (output / f"{slug}.md").write_text(
             "\n".join(frontmatter) + body + "\n", encoding="utf-8"
         )

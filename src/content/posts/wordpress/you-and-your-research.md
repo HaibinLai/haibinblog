@@ -1,16 +1,23 @@
 ---
 title: "You and your research | Richard W. Hamming"
 description: "你和你的研究 https://gwern.net/doc/science/1986-hamming Great work is something else than mere brains. Brains are measured in various ways. In mathematics, theoretical physics, astrophysics, typically brains correlates to a g…"
-publishedAt: "2025-12-30 00:46:27"
-updatedAt: "2025-12-30 00:46:59"
+publishedAt: "2025-12-29T16:46:27Z"
+updatedAt: "2025-12-29T16:46:59Z"
 category: "Paper Reading"
+categories: ["Paper Reading"]
 tags: ["研究"]
+author: "GB"
 draft: false
 slug: "you-and-your-research"
 legacySlug: "you-and-your-research"
+oldSlugs: ["you-and-your-research-richard-w-hamming"]
 wordpressId: 1099
 sourceUrl: "https://www.haibinlaiblog.top/index.php/you-and-your-research/"
 commentCount: 0
+viewCount: 585
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>你和你的研究</p>

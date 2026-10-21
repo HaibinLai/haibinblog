@@ -1,16 +1,23 @@
 ---
 title: "接下来的blog写什么好"
 description: "我对我的博客进行了浏览数据挖掘和分析，并且把最重要的博客交给了AI阅读。我发现AI给我的反馈很死板并且很无聊，我从而意识到我应该多加入一些有生活气息的博客内容，他们应该文字不多图片多短平快显示我的生活状态。接着我把这个需求交给了AI，它来制作一个新的板块。经过探索我认为应该做一个类似微信朋友圈的模块，然后我就可以在博客发朋友圈。 但是为什么要在博客发朋友圈而不是在微信发朋友圈呢，我觉得这样可以展示我是一个人类。我最近开始意识到，AI不…"
-publishedAt: "2026-06-21 18:14:35"
-updatedAt: "2026-06-21 18:16:13"
+publishedAt: "2026-06-21T10:14:35Z"
+updatedAt: "2026-06-21T10:16:13Z"
 category: "fragments"
+categories: ["fragments"]
 tags: ["live"]
+author: "GB"
 draft: false
 slug: "blogs-where"
 legacySlug: "blogs-where"
+oldSlugs: ["接下来的blog写什么好"]
 wordpressId: 1436
 sourceUrl: "https://www.haibinlaiblog.top/index.php/blogs-where/"
 commentCount: 0
+viewCount: 417
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>我对我的博客进行了浏览数据挖掘和分析，并且把最重要的博客交给了AI阅读。我发现AI给我的反馈很死板并且很无聊，我从而意识到我应该多加入一些有生活气息的博客内容，他们应该文字不多图片多短平快显示我的生活状态。接着我把这个需求交给了AI，它来制作一个新的板块。经过探索我认为应该做一个类似微信朋友圈的模块，然后我就可以在博客发朋友圈。</p>

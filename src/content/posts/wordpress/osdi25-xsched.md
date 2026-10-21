@@ -1,15 +1,22 @@
 ---
 title: "OSDI25 XSched"
 description: "scheduling for XPUs 在XPU上实现抢占式调度 CPU的抢占式调度 抢占式调度（Preemptive Scheduling）是一种 操作系统调度策略 ，核心思想是： 当有更高优先级或更紧急的任务需要运行时，操作系统可以 立即中断当前正在运行的任务 ，把 CPU 资源“抢”过来给那个更高优先级的任务。 XPU XPU: FPGA, NPU, GPU 目前在XPU上做了很多的任务 但是好像没有什么调度 Opps: 抽象成…"
-publishedAt: "2025-08-12 11:45:56"
+publishedAt: "2025-08-12T03:45:56Z"
 category: "Paper Reading"
+categories: ["Paper Reading"]
 tags: ["GPU", "osdi", "XPU"]
+author: "GB"
 draft: false
 slug: "osdi25-xsched"
 legacySlug: "osdi25-xsched"
+oldSlugs: []
 wordpressId: 937
 sourceUrl: "https://www.haibinlaiblog.top/index.php/osdi25-xsched/"
 commentCount: 0
+viewCount: 1136
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>scheduling for XPUs</p>

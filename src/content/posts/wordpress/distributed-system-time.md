@@ -1,16 +1,23 @@
 ---
 title: "Distributed System 2: Time"
 description: "不同的机器需要同步 分布式实时操作系统研究的是 如何在分布式多节点环境中，提供确定性调度、时间同步、实时通信与容错机制，从而保证关键任务的 deadline 被满足 。它既是操作系统的研究热点，也与工业控制、车联网、航空航天等应用紧密相关。 下面的图片是： 分布式系统需要同步 同步非常困难 我们是无法完全同步的，只能尽力同步 网络时间协议： Cristian's algorithm 我们很不幸，是无法给每个设备装GPS的 GPS贵 G…"
-publishedAt: "2025-09-17 11:23:32"
-updatedAt: "2025-10-11 10:01:40"
+publishedAt: "2025-09-17T03:23:32Z"
+updatedAt: "2025-10-11T02:01:40Z"
 category: "Distributed Systems"
+categories: ["Distributed Systems"]
 tags: ["time"]
+author: "GB"
 draft: false
 slug: "distributed-system-time"
 legacySlug: "distributed-system-time"
+oldSlugs: []
 wordpressId: 983
 sourceUrl: "https://www.haibinlaiblog.top/index.php/distributed-system-time/"
 commentCount: 0
+viewCount: 733
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>不同的机器需要同步</p>

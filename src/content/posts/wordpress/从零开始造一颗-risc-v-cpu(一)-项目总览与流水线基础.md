@@ -1,15 +1,22 @@
 ---
 title: "从零开始造一颗 RISC-V CPU（一）：项目总览与流水线基础"
 description: "从零开始造一颗 RISC-V CPU（一）：项目总览与流水线基础 系列博客第 1 篇 —— 介绍整个项目的动机、架构全貌、8 级流水线设计以及关键的 hazard 处理。 项目地址： https://github.com/HaibinLai/simple-CPU/tree/main/docs 为什么要自己造 CPU？ 每年的计算机组成原理课，都有一个调bug到想死的大作业： 用 Verilog 实现一颗 RISC-V CPU 。今天我…"
-publishedAt: "2026-06-07 14:13:11"
+publishedAt: "2026-06-07T06:13:11Z"
 category: "Architecture"
+categories: ["Architecture"]
 tags: ["CPU"]
+author: "GB"
 draft: false
 slug: "从零开始造一颗-risc-v-cpu(一)-项目总览与流水线基础"
 legacySlug: "从零开始造一颗-risc-v-cpu（一）：项目总览与流水线基础"
+oldSlugs: []
 wordpressId: 1396
 sourceUrl: "https://www.haibinlaiblog.top/index.php/%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e9%80%a0%e4%b8%80%e9%a2%97-risc-v-cpu%ef%bc%88%e4%b8%80%ef%bc%89%ef%bc%9a%e9%a1%b9%e7%9b%ae%e6%80%bb%e8%a7%88%e4%b8%8e%e6%b5%81%e6%b0%b4%e7%ba%bf%e5%9f%ba%e7%a1%80/"
 commentCount: 0
+viewCount: 616
+likeCount: 1
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <h1>从零开始造一颗 RISC-V CPU（一）：项目总览与流水线基础</h1>

@@ -1,16 +1,24 @@
 ---
 title: "OS Project part I VirtIO, a biref summary"
 description: "制作基于VirtIO设备驱动 设备驱动需要做什么？ 设备初始化 从硬件读取数据，将数据传送进内核 读取内核数据，写入硬件 检测和处理设备错误 Intro: 虚拟化 全虚拟化 是指 虚拟化软件 （VMM）遵循硬件的规范，完整模拟硬件逻辑，这种方式对 guest 操作系统是透明的，即 guest 操作系统不需要做任何修改。全虚拟化模拟的设备与硬件设备对于 驱动程序 并无不同。全虚拟化的设备性能较低，因为完全按照硬件的规范来模拟硬件逻辑，这…"
-publishedAt: "2024-12-01 19:54:48"
-updatedAt: "2024-12-05 05:04:57"
+publishedAt: "2024-12-01T11:54:48Z"
+updatedAt: "2024-12-04T21:04:57Z"
 category: "OS"
+categories: ["OS"]
 tags: ["CPU", "OS", "System"]
+author: "GB"
 draft: false
 slug: "os-project-part-i-virtio-a-biref-summary"
 legacySlug: "os-project-part-i-virtio-a-biref-summary"
+oldSlugs: []
 wordpressId: 443
 sourceUrl: "https://www.haibinlaiblog.top/index.php/os-project-part-i-virtio-a-biref-summary/"
 commentCount: 0
+viewCount: 2234
+likeCount: 0
+dislikeCount: 0
+showCitation: true
+featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/12/微信截图_20241201195421.jpg"
 importedFromWordPress: true
 ---
 <h2>制作基于VirtIO设备驱动</h2>

@@ -1,15 +1,22 @@
 ---
 title: "Fail at Scale: Reliability in the face of rapid change"
 description: "本keynote来自 Fail at Scale: Reliability in the face of rapid change Fail at Scale: Reliability in the face of rapid change: Queue: Vol 13, No 8 One of Facebook's cultural values is embracing failure. This can be seen in t…"
-publishedAt: "2025-06-11 06:25:31"
+publishedAt: "2025-06-10T22:25:31Z"
 category: "Paper Reading"
+categories: ["Paper Reading"]
 tags: ["FaaS", "HPC", "System"]
+author: "GB"
 draft: false
 slug: "fail-at-scale-reliability-in-the-face-of-rapid-change"
 legacySlug: "fail-at-scale-reliability-in-the-face-of-rapid-change"
+oldSlugs: []
 wordpressId: 841
 sourceUrl: "https://www.haibinlaiblog.top/index.php/fail-at-scale-reliability-in-the-face-of-rapid-change/"
 commentCount: 1
+viewCount: 1128
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>本keynote来自 Fail at Scale: Reliability in the face of rapid change

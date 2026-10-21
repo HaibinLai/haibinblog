@@ -1,15 +1,22 @@
 ---
 title: "B-Queue"
 description: "3_2.eps B-Queue 是一种面向多核架构中核间通信的高效、实用的 单生产者-单消费者（SPSC）无锁队列 ，其设计旨在解决现有并发无锁队列（CLF queue）在真实应用中存在的性能退化与死锁难题。 背景动机 多核系统中，线程间通常通过共享内存进行通信，CLF 队列被广泛用于核心间通信。然而现有的方案（如 FastForward 和 MCRingBuffer）存在如下问题： 性能仅在理想条件（如 L1 缓存驻留）下突出 ，在…"
-publishedAt: "2025-06-02 23:32:30"
+publishedAt: "2025-06-02T15:32:30Z"
 category: "Distributed Systems"
+categories: ["Distributed Systems"]
 tags: ["gcc", "queue"]
+author: "GB"
 draft: false
 slug: "b-queue"
 legacySlug: "b-queue"
+oldSlugs: []
 wordpressId: 829
 sourceUrl: "https://www.haibinlaiblog.top/index.php/b-queue/"
 commentCount: 0
+viewCount: 683
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p><a href="http://staff.ustc.edu.cn/~bhua/network_algorithmics_2020/B-Queue.pdf">3_2.eps</a></p>

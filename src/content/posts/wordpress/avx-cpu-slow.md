@@ -1,16 +1,23 @@
 ---
 title: "神文解析：AVX 是怎么让你的CPU频率更慢的？"
 description: "GB！ 本文依旧是超神作者 Travis Downs https://x.com/trav_downs 的技术博客解读。文章链接 Gathering Intel on Intel AVX-512 Transitions https://travisdowns.github.io/blog/2020/01/17/avxfreq1.html 本文是在其基础上的分析与解读，若内容涉及侵权，请与我联系，我将立即进行修正或删除。 AVX/AVX…"
-publishedAt: "2025-11-06 02:23:25"
-updatedAt: "2025-12-12 18:37:36"
+publishedAt: "2025-11-05T18:23:25Z"
+updatedAt: "2025-12-12T10:37:36Z"
 category: "文章翻译"
+categories: ["文章翻译"]
 tags: ["AVX", "HPC", "profile"]
+author: "GB"
 draft: false
 slug: "avx-cpu-slow"
 legacySlug: "avx-cpu-slow"
+oldSlugs: ["神文解析：avx-是怎么让你的cpu频率更慢的？"]
 wordpressId: 1055
 sourceUrl: "https://www.haibinlaiblog.top/index.php/avx-cpu-slow/"
 commentCount: 0
+viewCount: 1746
+likeCount: 1
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>GB！</p>

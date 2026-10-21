@@ -1,16 +1,24 @@
 ---
 title: "为什么Rust cargo在release模式会比debug模式快很多？"
 description: "为什么Rust cargo在release模式会比debug模式快很多？ gpt给了一个笼统的答案，我们用矩阵乘法的例子来看看这里边的差异： debug模式中会有precondition check（图2）对程序可能的错误进行检测，这占据了其大部分运行时间，而图3 release模式下没有检查，方法栈也更少。 release模式会使用SIMD，相比图4 debug模式，图5 release模式用了intel SSE指令集中的mmx寄存…"
-publishedAt: "2024-09-22 16:15:39"
-updatedAt: "2024-12-01 19:57:58"
+publishedAt: "2024-09-22T08:15:39Z"
+updatedAt: "2024-12-01T11:57:58Z"
 category: "OS"
+categories: ["OS"]
 tags: ["Rust"]
+author: "GB"
 draft: false
 slug: "为什么rust-cargo在release模式会比debug模式快很多"
 legacySlug: "为什么rust-cargo在release模式会比debug模式快很多？"
+oldSlugs: []
 wordpressId: 356
 sourceUrl: "https://www.haibinlaiblog.top/index.php/%e4%b8%ba%e4%bb%80%e4%b9%88rust-cargo%e5%9c%a8release%e6%a8%a1%e5%bc%8f%e4%bc%9a%e6%af%94debug%e6%a8%a1%e5%bc%8f%e5%bf%ab%e5%be%88%e5%a4%9a%ef%bc%9f/"
 commentCount: 0
+viewCount: 840
+likeCount: 0
+dislikeCount: 0
+showCitation: true
+featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/09/IMG_6808.jpg"
 importedFromWordPress: true
 ---
 <p>为什么Rust cargo在release模式会比debug模式快很多？</p>

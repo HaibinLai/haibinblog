@@ -1,15 +1,22 @@
 ---
 title: "SIGCOMM07 How to read a paper"
 description: "How to read a paper | ACM SIGCOMM Computer Communication Review 没想到真有这种神奇文章，讲怎么读文章。很好，我就用你的方法来读你的文章。 S. Keshav教授写了这篇paper分享了自己多年来阅读论文的经验——即 \"three-pass\"方法 。它的关键思想是拿到一篇paper不要直接开始从头读到尾，而是分三遍去阅读。每一遍都有明确的目标，是一个 循序渐进 的过程。 第…"
-publishedAt: "2025-08-06 06:36:57"
+publishedAt: "2025-08-05T22:36:57Z"
 category: "Paper Reading"
+categories: ["Paper Reading"]
 tags: ["SIGCOMM"]
+author: "GB"
 draft: false
 slug: "sigcomm07-how-to-read-a-paper"
 legacySlug: "sigcomm07-how-to-read-a-paper"
+oldSlugs: []
 wordpressId: 926
 sourceUrl: "https://www.haibinlaiblog.top/index.php/sigcomm07-how-to-read-a-paper/"
 commentCount: 1
+viewCount: 1405
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p><a href="https://dl.acm.org/doi/abs/10.1145/1273445.1273458">How to read a paper | ACM SIGCOMM Computer Communication Review</a></p>

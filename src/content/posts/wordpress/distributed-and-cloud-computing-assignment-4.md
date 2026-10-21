@@ -1,16 +1,23 @@
 ---
 title: "Distributed and Cloud Computing Assignment 4"
 description: "Feedback Feedback to Learner 12/30/25 3:55 PM 82+5=87 (extra: 0) > Summary: As we demonstrated in the lab, you should pre-assign labels and taints to cluster nodes using Kind config YAML. Other parts are all perfect! >…"
-publishedAt: "2026-01-07 04:32:26"
-updatedAt: "2026-01-07 04:34:44"
+publishedAt: "2026-01-06T20:32:26Z"
+updatedAt: "2026-01-06T20:34:44Z"
 category: "Distributed Systems"
+categories: ["Distributed Systems"]
 tags: ["Distributed System"]
+author: "GB"
 draft: false
 slug: "distributed-and-cloud-computing-assignment-4"
 legacySlug: "distributed-and-cloud-computing-assignment-4"
+oldSlugs: []
 wordpressId: 1140
 sourceUrl: "https://www.haibinlaiblog.top/index.php/distributed-and-cloud-computing-assignment-4/"
 commentCount: 0
+viewCount: 859
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <h2>Feedback</h2>

@@ -1,16 +1,23 @@
 ---
 title: "System Research 研究周期"
 description: "我们把我们的研究分为了6个周期 节点1：规划 规划project task，建立对该领域的视野 思考目前sota的方向还没有完成的地方 列出可能的project task，针对每个task的竞争程度和发展程度，制定符合个人能力的project task 视野 研究领域：GPM、SM在并行计算、GPU计算中的应用。 静态图sota G2Miner/Mercury 他们很好的用GPU解决的GPU并行来处理静态图的GPM算法 动态图/Con…"
-publishedAt: "2025-05-16 14:26:57"
-updatedAt: "2025-06-12 06:24:17"
+publishedAt: "2025-05-16T06:26:57Z"
+updatedAt: "2025-06-11T22:24:17Z"
 category: "Computer Science"
+categories: ["Computer Science", "Paper Reading"]
 tags: ["CS", "Research"]
+author: "GB"
 draft: false
 slug: "system-research"
 legacySlug: "system-research"
+oldSlugs: ["system-research-研究周期"]
 wordpressId: 771
 sourceUrl: "https://www.haibinlaiblog.top/index.php/system-research/"
 commentCount: 0
+viewCount: 851
+likeCount: 1
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>我们把我们的研究分为了6个周期</p>

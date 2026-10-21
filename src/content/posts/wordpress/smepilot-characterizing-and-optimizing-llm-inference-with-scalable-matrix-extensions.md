@@ -1,15 +1,22 @@
 ---
 title: "SMEPilot: Characterizing and Optimizing LLM Inference with Scalable Matrix Extensions"
 description: "来自IPADS的文章。这篇文章把ARM里的矩阵加速器SME用在CPU LLM Serving上。SME是ARM提出的一个加速装置，功能类似Intel的AMX加速器（AMX类似GPU里的TensorCore） Modern CPUs increasingly integrate matrix extensions, such as Arm Scalable Matrix Extension (SME) ARM的SME跟Intel里AMX…"
-publishedAt: "2026-08-30 20:54:15"
+publishedAt: "2026-08-30T12:54:15Z"
 category: "Academic"
+categories: ["Academic"]
 tags: ["ARM", "CPU", "Infra", "SME", "System"]
+author: "GB"
 draft: false
 slug: "smepilot-characterizing-and-optimizing-llm-inference-with-scalable-matrix-extensions"
 legacySlug: "smepilot-characterizing-and-optimizing-llm-inference-with-scalable-matrix-extensions"
+oldSlugs: []
 wordpressId: 1649
 sourceUrl: "https://www.haibinlaiblog.top/index.php/smepilot-characterizing-and-optimizing-llm-inference-with-scalable-matrix-extensions/"
 commentCount: 0
+viewCount: 263
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>来自IPADS的文章。这篇文章把ARM里的矩阵加速器SME用在CPU LLM Serving上。SME是ARM提出的一个加速装置，功能类似Intel的AMX加速器（AMX类似GPU里的TensorCore）</p>

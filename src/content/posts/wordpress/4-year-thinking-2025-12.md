@@ -1,16 +1,23 @@
 ---
 title: "采访稿子 2025.12"
 description: "采访于2025年11月28日，此时我还没确定任何未来的offer，agent的时代刚刚拉开序幕。以下内容主要记录个人经历和思考，不代表所有计算机学生的最佳路径。内容根据录音有修改。 学姐： 同学你好！今天的访谈是我们课题组研究的一部分，主题是南科大学生的成长、课程作息和专业选择。我们希望了解你们在南科大的真实感受和体验。 BIN： 学姐好，我是BIN，是树德书院计算机科学与技术专业的大四学生。目前我的升学意向是读博士，主要申请计算机系…"
-publishedAt: "2026-08-14 22:14:27"
-updatedAt: "2026-08-14 22:50:14"
+publishedAt: "2026-08-14T14:14:27Z"
+updatedAt: "2026-08-14T14:50:14Z"
 category: "复盘"
+categories: ["复盘"]
 tags: ["life", "本科"]
+author: "haibin"
 draft: false
 slug: "4-year-thinking-2025-12"
 legacySlug: "4-year-thinking-2025-12"
+oldSlugs: ["采访稿子-2025-12"]
 wordpressId: 1602
 sourceUrl: "https://www.haibinlaiblog.top/index.php/4-year-thinking-2025-12/"
 commentCount: 0
+viewCount: 444
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>采访于2025年11月28日，此时我还没确定任何未来的offer，agent的时代刚刚拉开序幕。以下内容主要记录个人经历和思考，不代表所有计算机学生的最佳路径。内容根据录音有修改。</p>

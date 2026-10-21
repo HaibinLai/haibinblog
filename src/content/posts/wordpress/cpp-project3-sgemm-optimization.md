@@ -1,16 +1,24 @@
 ---
 title: "CPP Project3 SGEMM Optimization"
 description: "CS205·C/C++ Programming Project3 Report: SGEMM Optimization PDF 版本： Project 3 Github: https://github.com/HaibinLai/CS205-CPP-Programing-Project 摘要 在本次Project里我们要优化SGEMM。我们先进行了一些理论探索，然后进行了基准测试。我们对OpenBLAS和Intel MKL进行了测试和…"
-publishedAt: "2024-09-08 23:20:18"
-updatedAt: "2024-12-05 05:01:11"
+publishedAt: "2024-09-08T15:20:18Z"
+updatedAt: "2024-12-04T21:01:11Z"
 category: "CPP"
+categories: ["CPP"]
 tags: ["BLAS", "CPP", "矩阵乘法"]
+author: "GB"
 draft: false
 slug: "cpp-project3-sgemm-optimization"
 legacySlug: "cpp-project3-sgemm-optimization"
+oldSlugs: []
 wordpressId: 216
 sourceUrl: "https://www.haibinlaiblog.top/index.php/cpp-project3-sgemm-optimization/"
 commentCount: 0
+viewCount: 2903
+likeCount: 3
+dislikeCount: 0
+showCitation: true
+featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/09/图片.png"
 importedFromWordPress: true
 ---
 <h1><strong>CS205·C/C++ Programming</strong></h1>

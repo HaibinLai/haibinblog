@@ -1,15 +1,22 @@
 ---
 title: "ICPP25 Conference story: Day 2"
 description: "Anne Elster, \"Parallel Computing and Geophysical Forecasting\" Professor Anne C. Elster Norwegian Univ. of Science and Technology Center for Geophysical Forecasting University of Texas at Austin Geophysical forecasting o…"
-publishedAt: "2025-09-16 18:06:44"
+publishedAt: "2025-09-16T10:06:44Z"
 category: "Academic"
+categories: ["Academic"]
 tags: ["HPC", "ICPP"]
+author: "GB"
 draft: false
 slug: "icpp25-conference-story-day-2"
 legacySlug: "icpp25-conference-story-day-2"
+oldSlugs: []
 wordpressId: 978
 sourceUrl: "https://www.haibinlaiblog.top/index.php/icpp25-conference-story-day-2/"
 commentCount: 0
+viewCount: 1470
+likeCount: 1
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250916173910299.png" alt="16d4a3b80eb7a9b440a92e21425f314b.jpg" /></p>

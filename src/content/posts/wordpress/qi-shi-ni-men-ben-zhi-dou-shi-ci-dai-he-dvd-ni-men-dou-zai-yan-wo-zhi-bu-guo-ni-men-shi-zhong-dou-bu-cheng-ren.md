@@ -1,16 +1,23 @@
 ---
 title: "其实你们本质都是磁带和DVD，你们都在演我只不过你们始终都不承认"
 description: "https://arxiv.org/abs/2610.08144 In particular, we show that the formalised Lean proof does not correspond to the NL proof of blow-up of solutions to the Navier-Stokes equations. 这篇文章讲的应该是AI写的Lean4跟数学语言证明间有差距。然后指出GPT在NS…"
-publishedAt: "2026-10-08 15:07:33"
-updatedAt: "2026-10-08 15:07:55"
+publishedAt: "2026-10-08T07:07:33Z"
+updatedAt: "2026-10-08T07:07:55Z"
 category: "fragments"
+categories: ["fragments"]
 tags: ["AI"]
+author: "GB"
 draft: false
 slug: "qi-shi-ni-men-ben-zhi-dou-shi-ci-dai-he-dvd-ni-men-dou-zai-yan-wo-zhi-bu-guo-ni-men-shi-zhong-dou-bu-cheng-ren"
 legacySlug: "qi-shi-ni-men-ben-zhi-dou-shi-ci-dai-he-dvd-ni-men-dou-zai-yan-wo-zhi-bu-guo-ni-men-shi-zhong-dou-bu-cheng-ren"
+oldSlugs: []
 wordpressId: 1698
 sourceUrl: "https://www.haibinlaiblog.top/index.php/qi-shi-ni-men-ben-zhi-dou-shi-ci-dai-he-dvd-ni-men-dou-zai-yan-wo-zhi-bu-guo-ni-men-shi-zhong-dou-bu-cheng-ren/"
 commentCount: 0
+viewCount: 137
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p><a href="https://arxiv.org/abs/2610.08144">https://arxiv.org/abs/2610.08144</a></p>

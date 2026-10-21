@@ -1,16 +1,23 @@
 ---
 title: "Agent + Website"
 description: "WebTactix Semantic Tree-Guided Parallel Multi-Agent Planning for Web Task — 基于语义树引导的并行多代理规划框架。 将任务变成搜索树 Agent并行的BFS去决策完成最佳搜索 任务预处理 将用户请求转换成明确的约束集合，这样可以清晰地检测任务是否完成。 简化观察 (AxTree) 把原始的网页可访问性树转换为简化文本版的 AxTree。 去除重复元素。对重复结构…"
-publishedAt: "2026-02-10 09:47:56"
-updatedAt: "2026-02-10 09:48:07"
+publishedAt: "2026-02-10T01:47:56Z"
+updatedAt: "2026-02-10T01:48:07Z"
 category: "Frameworks"
+categories: ["Frameworks"]
 tags: ["LLM"]
+author: "GB"
 draft: false
 slug: "agent-website"
 legacySlug: "agent-website"
+oldSlugs: []
 wordpressId: 1228
 sourceUrl: "https://www.haibinlaiblog.top/index.php/agent-website/"
 commentCount: 0
+viewCount: 1184
+likeCount: 3
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <h2>WebTactix</h2>

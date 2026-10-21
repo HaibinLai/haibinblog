@@ -1,15 +1,22 @@
 ---
 title: "RetroInfer A Vector Storage Approach for Scalable Long-Context LLM Inference"
 description: "RetroInfer: A Vector Storage Approach for Scalable Long-Context LLM Inference 微软新突破：RetroInfer如何让AI模型处理百万级文本不再\"卡顿\"？ microsoft/RetrievalAttention: Scalable long-context LLM decoding that leverages sparsity—by treating th…"
-publishedAt: "2025-07-04 02:42:49"
+publishedAt: "2025-07-03T18:42:49Z"
 category: "Paper Reading"
+categories: ["Paper Reading"]
 tags: []
+author: "GB"
 draft: false
 slug: "retroinfer-a-vector-storage-approach-for-scalable-long-context-llm-inference"
 legacySlug: "retroinfer-a-vector-storage-approach-for-scalable-long-context-llm-inference"
+oldSlugs: []
 wordpressId: 887
 sourceUrl: "https://www.haibinlaiblog.top/index.php/retroinfer-a-vector-storage-approach-for-scalable-long-context-llm-inference/"
 commentCount: 0
+viewCount: 648
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>RetroInfer: A Vector Storage Approach for Scalable Long-Context LLM Inference</p>

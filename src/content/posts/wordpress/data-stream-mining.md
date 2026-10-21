@@ -1,15 +1,22 @@
 ---
 title: "Data Stream Mining"
 description: "Stream Data is becoming more and more important SGD as an example Problems: Sampling data from a stream Queries over sliding windows APP Question1：Sampling"
-publishedAt: "2024-08-25 20:41:57"
+publishedAt: "2024-08-25T12:41:57Z"
 category: "Data Mining"
+categories: ["Data Mining"]
 tags: ["图", "数据", "流式计算"]
+author: "haibin"
 draft: false
 slug: "data-stream-mining"
 legacySlug: "data-stream-mining"
+oldSlugs: []
 wordpressId: 129
 sourceUrl: "https://www.haibinlaiblog.top/index.php/data-stream-mining/"
 commentCount: 0
+viewCount: 837
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>Stream Data is becoming more and more important</p>

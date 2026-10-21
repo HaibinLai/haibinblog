@@ -1,15 +1,22 @@
 ---
 title: "从零开始造一颗 RISC-V CPU（三）：TAGE分支预测微架构"
 description: "从零开始造一颗 RISC-V CPU（三）：分支预测微架构 — 从 Bimodal 到 TAGE 引擎的硬核解析 系列博客第 3 篇 —— 深入探讨影响深级流水线性能的核心命题：分支预测（Branch Prediction）。本文将通过微架构层面的演进逻辑，讲解从基础的 Bimodal 到目前工业界最先进的 TAGE（TAgged GEometric History Length）预测器的算法本质，并结合微架构数据通路（Mermaid…"
-publishedAt: "2026-06-07 14:20:12"
+publishedAt: "2026-06-07T06:20:12Z"
 category: "Architecture"
+categories: ["Architecture"]
 tags: ["CPU"]
+author: "GB"
 draft: false
 slug: "从零开始造一颗-risc-v-cpu(三)-tage分支预测微架构"
 legacySlug: "从零开始造一颗-risc-v-cpu（三）：tage分支预测微架构"
+oldSlugs: []
 wordpressId: 1400
 sourceUrl: "https://www.haibinlaiblog.top/index.php/%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e9%80%a0%e4%b8%80%e9%a2%97-risc-v-cpu%ef%bc%88%e4%b8%89%ef%bc%89%ef%bc%9atage%e5%88%86%e6%94%af%e9%a2%84%e6%b5%8b%e5%be%ae%e6%9e%b6%e6%9e%84/"
 commentCount: 0
+viewCount: 852
+likeCount: 34
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <h1>从零开始造一颗 RISC-V CPU（三）：分支预测微架构 — 从 Bimodal 到 TAGE 引擎的硬核解析</h1>

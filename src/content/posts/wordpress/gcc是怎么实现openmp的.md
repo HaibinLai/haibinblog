@@ -1,16 +1,23 @@
 ---
 title: "gcc是怎么实现OpenMP的？"
 description: "由于网上关于GNU openmp的解构比较少，今天我由于工作问题，我也来亲自解答：“为什么OpenMP不能完成 “小而多的并行任务” 的问题。（llvm的解构我之前在博客已经做过 llvm 如何实现OpenMP ，其实从结构来看，跟OpenMP的结构基本一致，都遵从OpenMP官方的fork-join 的idea，但是llvm的实现会比较复杂） 学习网页 我们所有的学习都可以从这里出发： 源码 doxygen文档： Libgomp:…"
-publishedAt: "2025-05-29 11:32:58"
-updatedAt: "2025-06-12 06:11:37"
+publishedAt: "2025-05-29T03:32:58Z"
+updatedAt: "2025-06-11T22:11:37Z"
 category: "Frameworks"
+categories: ["Frameworks", "High Performance Computing"]
 tags: []
+author: "GB"
 draft: false
 slug: "gcc是怎么实现openmp的"
 legacySlug: "gcc是怎么实现openmp的？"
+oldSlugs: []
 wordpressId: 825
 sourceUrl: "https://www.haibinlaiblog.top/index.php/gcc%e6%98%af%e6%80%8e%e4%b9%88%e5%ae%9e%e7%8e%b0openmp%e7%9a%84%ef%bc%9f/"
 commentCount: 0
+viewCount: 2334
+likeCount: 1
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>由于网上关于GNU openmp的解构比较少，今天我由于工作问题，我也来亲自解答：“为什么OpenMP不能完成 “小而多的并行任务” 的问题。（llvm的解构我之前在博客已经做过 <a href="https://www.haibinlaiblog.top/index.php/openmp%e5%9c%a8llvm%e9%87%8c%e6%98%af%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0%e7%9a%84%ef%bc%9fwip/">llvm 如何实现OpenMP</a> ，其实从结构来看，跟OpenMP的结构基本一致，都遵从OpenMP官方的fork-join 的idea，但是llvm的实现会比较复杂）</p>

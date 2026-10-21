@@ -1,16 +1,24 @@
 ---
 title: "SC 24 Brief Summary 4"
 description: "总链接： https://www.haibinlaiblog.top/index.php/sc-2024-passage/ Parallel Program Analysis and Code Optimization MCFuser: High-performance and Rapid-fusion of Memory-bound Compute-intensive Operators Authors: Zheng Zhang…"
-publishedAt: "2025-03-15 21:56:24"
-updatedAt: "2025-03-25 00:15:40"
+publishedAt: "2025-03-15T13:56:24Z"
+updatedAt: "2025-03-24T16:15:40Z"
 category: "Paper Reading"
+categories: ["Paper Reading"]
 tags: ["HPC", "SC", "System", "云计算", "并行计算", "高性能计算"]
+author: "GB"
 draft: false
 slug: "sc-24-brief-summary-4"
 legacySlug: "sc-24-brief-summary-4"
+oldSlugs: []
 wordpressId: 669
 sourceUrl: "https://www.haibinlaiblog.top/index.php/sc-24-brief-summary-4/"
 commentCount: 0
+viewCount: 3086
+likeCount: 2
+dislikeCount: 0
+showCitation: true
+featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/11/微信截图_20241118023433.jpg"
 importedFromWordPress: true
 ---
 <p><a href="https://www.haibinlaiblog.top/index.php/418/%e5%be%ae%e4%bf%a1%e6%88%aa%e5%9b%be_20241118023327/"><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503152156693.jpeg" alt="" /></a></p>

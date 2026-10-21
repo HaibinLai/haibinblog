@@ -1,16 +1,23 @@
 ---
 title: "拿下手枪局和首杀对赢得CS比赛有正面影响"
 description: "文章链接： https://pdfs.semanticscholar.org/3518/8ef0f4bbd7b1209b186ee943d7868832fc7c.pdf 文章标题：Effect of Pistol Round and First Kill on Match Outcome in the Counter-Strike: Global Offensive Major Esports Championships 这篇文章分析…"
-publishedAt: "2026-06-24 17:07:06"
-updatedAt: "2026-06-24 17:08:52"
+publishedAt: "2026-06-24T09:07:06Z"
+updatedAt: "2026-06-24T09:08:52Z"
 category: "Academic"
+categories: ["Academic"]
 tags: []
+author: "haibin"
 draft: false
 slug: "cs-pistol-round"
 legacySlug: "cs-pistol-round"
+oldSlugs: ["拿下手枪局和首杀对赢得cs比赛有正面影响"]
 wordpressId: 1476
 sourceUrl: "https://www.haibinlaiblog.top/index.php/cs-pistol-round/"
 commentCount: 0
+viewCount: 524
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>文章链接：<a href="https://pdfs.semanticscholar.org/3518/8ef0f4bbd7b1209b186ee943d7868832fc7c.pdf">https://pdfs.semanticscholar.org/3518/8ef0f4bbd7b1209b186ee943d7868832fc7c.pdf</a></p>

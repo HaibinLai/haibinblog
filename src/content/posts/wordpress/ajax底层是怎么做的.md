@@ -1,15 +1,22 @@
 ---
 title: "Ajax底层是怎么做的"
 description: "省流：HTTP通信+XML数据结构 AJAX（Asynchronous JavaScript and XML）的底层原理涉及浏览器与服务器之间的异步通信。AJAX 的关键在于通过 JavaScript 实现网页的异步请求，而不需要重新加载整个页面。它使得网页可以在不干扰用户操作的情况下，部分更新页面内容。其底层原理主要涉及以下几个方面： 1. XMLHttpRequest 对象 XMLHttpRequest （XHR）是 AJAX 的…"
-publishedAt: "2025-01-05 10:56:18"
+publishedAt: "2025-01-05T02:56:18Z"
 category: "Computer Network"
+categories: ["Computer Network"]
 tags: ["Network", "网络", "计算机网络"]
+author: "GB"
 draft: false
 slug: "ajax底层是怎么做的"
 legacySlug: "ajax底层是怎么做的"
+oldSlugs: []
 wordpressId: 562
 sourceUrl: "https://www.haibinlaiblog.top/index.php/ajax%e5%ba%95%e5%b1%82%e6%98%af%e6%80%8e%e4%b9%88%e5%81%9a%e7%9a%84/"
 commentCount: 0
+viewCount: 1212
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>省流：HTTP通信+XML数据结构</p>

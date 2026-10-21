@@ -1,15 +1,22 @@
 ---
 title: "FALCON: Pinpointing and Mitigating Stragglers for Large-Scale Hybrid-Parallel Training"
 description: "FALCON: Pinpointing and Mitigating Stragglers for Large-Scale Hybrid-Parallel Training Fail-slows, or stragglers, are common but largely unheeded problems in large-scale hybrid-parallel training that spans thousands of…"
-publishedAt: "2025-09-30 11:15:30"
+publishedAt: "2025-09-30T03:15:30Z"
 category: "Paper Reading"
+categories: ["Paper Reading"]
 tags: ["大规模集群", "故障控制"]
+author: "GB"
 draft: false
 slug: "falcon-pinpointing-and-mitigating-stragglers-for-large-scale-hybrid-parallel-training"
 legacySlug: "falcon-pinpointing-and-mitigating-stragglers-for-large-scale-hybrid-parallel-training"
+oldSlugs: []
 wordpressId: 998
 sourceUrl: "https://www.haibinlaiblog.top/index.php/falcon-pinpointing-and-mitigating-stragglers-for-large-scale-hybrid-parallel-training/"
 commentCount: 0
+viewCount: 1374
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <h2>FALCON: Pinpointing and Mitigating Stragglers for Large-Scale Hybrid-Parallel Training</h2>

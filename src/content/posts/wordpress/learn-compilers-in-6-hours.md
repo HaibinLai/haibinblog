@@ -1,16 +1,23 @@
 ---
 title: "Learn Compilers in 6 hours"
 description: "半个学期在申请，半个学期在忙paper，基本上没怎么动过这个课程。但是课程整体考试是不难的。 高效“备考” 周一下午16:30的考试，我从周一凌晨3点开始学，早上9点结束。睡5小时下午2点起床吃早餐+洗澡，然后考试，69/100。 反正大四了，过了就行，分数就图一乐。 这个人讲的最好，古希腊掌管编译器的神明。只讲题目，全程干货。 【【武汉大学】编译原理混子速成——面向期末试卷复习：全集】 https://www.bilibili.co…"
-publishedAt: "2025-12-30 18:52:49"
-updatedAt: "2026-01-12 21:57:55"
+publishedAt: "2025-12-30T10:52:49Z"
+updatedAt: "2026-01-12T13:57:55Z"
 category: "Compilers"
+categories: ["Compilers"]
 tags: ["Compilers"]
+author: "GB"
 draft: false
 slug: "learn-compilers-in-6-hours"
 legacySlug: "learn-compilers-in-6-hours"
+oldSlugs: []
 wordpressId: 1133
 sourceUrl: "https://www.haibinlaiblog.top/index.php/learn-compilers-in-6-hours/"
 commentCount: 1
+viewCount: 1068
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>半个学期在申请，半个学期在忙paper，基本上没怎么动过这个课程。但是课程整体考试是不难的。</p>

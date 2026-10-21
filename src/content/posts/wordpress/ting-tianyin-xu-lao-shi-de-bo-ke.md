@@ -1,15 +1,22 @@
 ---
 title: "听Tianyin Xu老师的播客"
 description: "我第一次知道Tianyin老师，是我在翻各个学校导师主页时看到了他的主页。Tianyin的主页非常有意思，让我发现原来兴趣和学术可以这么硬核地展现。刚好我妈在旁边，笑着说感觉这个老师的风格和我很相似。可能是因为都看起来喜欢技术？后来25年我在芝加哥的时候去了两次UIUC，但是老师刚好都不在，后来才知道Tianyin那时在MSRA。结果26年我来了MSRA，然后老师又走了哈哈哈。 我刷到月球大叔的播客里对Tianyin的采访时，就一次性…"
-publishedAt: "2026-09-30 13:02:44"
+publishedAt: "2026-09-30T05:02:44Z"
 category: "principle"
+categories: ["principle"]
 tags: ["AI", "phd", "System", "TLA", "UIUC", "人生"]
+author: "GB"
 draft: false
 slug: "ting-tianyin-xu-lao-shi-de-bo-ke"
 legacySlug: "ting-tianyin-xu-lao-shi-de-bo-ke"
+oldSlugs: []
 wordpressId: 1684
 sourceUrl: "https://www.haibinlaiblog.top/index.php/ting-tianyin-xu-lao-shi-de-bo-ke/"
 commentCount: 0
+viewCount: 219
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <blockquote>

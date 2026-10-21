@@ -1,15 +1,22 @@
 ---
 title: "Compiler: Intro"
 description: "Operations on Languages Languages: accountable for strings Lexer Lexical Analyzer（词法分析器，也叫 Scanner）在编译器中扮演着 前端第一步的角色 。它的主要任务是把源代码（程序员写的字符序列）转化为 Token 序列 ，供后续的语法分析器（Parser）使用。下面我分点介绍它的作用： 1. 输入与输出 输入 ：源程序（字符流，如 if (x > 0…"
-publishedAt: "2025-09-17 15:28:00"
+publishedAt: "2025-09-17T07:28:00Z"
 category: "Compilers"
+categories: ["Compilers"]
 tags: ["gcc"]
+author: "GB"
 draft: false
 slug: "compiler-intro"
 legacySlug: "compiler-intro"
+oldSlugs: []
 wordpressId: 987
 sourceUrl: "https://www.haibinlaiblog.top/index.php/compiler-intro/"
 commentCount: 0
+viewCount: 964
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>Operations on Languages

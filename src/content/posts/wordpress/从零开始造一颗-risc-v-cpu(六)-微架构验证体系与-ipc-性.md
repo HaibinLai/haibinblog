@@ -1,15 +1,22 @@
 ---
 title: "从零开始造一颗 RISC-V CPU（六）：微架构验证体系与 IPC 性能评估"
 description: "从零开始造一颗 RISC-V CPU（六）：微架构验证体系与 IPC 性能评估报告 系列博客第 6 篇（最终篇） —— 在现代 CPU 设计中，验证（Verification）往往占据了流片前 70% 的工作量。本文将全面解析我们如何通过 Python 构建指令集模拟器（ISS）、约束随机验证（CRV）以及端到端的状态机快照比对，验证这套复杂的双发乱序引擎，并给出最终的微架构 IPC 性能跑分。 1. 硅片上的混沌：为什么 CPU 验…"
-publishedAt: "2026-06-07 14:32:48"
+publishedAt: "2026-06-07T06:32:48Z"
 category: "Architecture"
+categories: ["Architecture"]
 tags: ["CPU"]
+author: "GB"
 draft: false
 slug: "从零开始造一颗-risc-v-cpu(六)-微架构验证体系与-ipc-性"
 legacySlug: "从零开始造一颗-risc-v-cpu（六）：微架构验证体系与-ipc-性"
+oldSlugs: []
 wordpressId: 1406
 sourceUrl: "https://www.haibinlaiblog.top/index.php/%e4%bb%8e%e9%9b%b6%e5%bc%80%e5%a7%8b%e9%80%a0%e4%b8%80%e9%a2%97-risc-v-cpu%ef%bc%88%e5%85%ad%ef%bc%89%ef%bc%9a%e5%be%ae%e6%9e%b6%e6%9e%84%e9%aa%8c%e8%af%81%e4%bd%93%e7%b3%bb%e4%b8%8e-ipc-%e6%80%a7/"
 commentCount: 0
+viewCount: 648
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <h1>从零开始造一颗 RISC-V CPU（六）：微架构验证体系与 IPC 性能评估报告</h1>

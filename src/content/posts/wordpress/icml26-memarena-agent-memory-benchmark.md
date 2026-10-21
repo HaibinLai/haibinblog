@@ -1,15 +1,22 @@
 ---
 title: "ICML26 Memarena Agent Memory Benchmark"
 description: "一句话总结：这篇文章揭示了当前 LLM 智能体在处理长期、复杂交互任务时记忆能力的不足，并提供了一个更具挑战性的评估平台来推动该领域的进步 已有benchmark的特点 Large language model (LLM) agents have two complementary core capabilities: the ability to memorize task-relevant knowledge over time…"
-publishedAt: "2026-06-18 14:13:00"
+publishedAt: "2026-06-18T06:13:00Z"
 category: "Academic"
+categories: ["Academic"]
 tags: ["Agents", "ICML"]
+author: "haibin"
 draft: false
 slug: "icml26-memarena-agent-memory-benchmark"
 legacySlug: "icml26-memarena-agent-memory-benchmark"
+oldSlugs: []
 wordpressId: 1424
 sourceUrl: "https://www.haibinlaiblog.top/index.php/icml26-memarena-agent-memory-benchmark/"
 commentCount: 1
+viewCount: 1816
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>一句话总结：这篇文章揭示了当前 LLM 智能体在处理长期、复杂交互任务时记忆能力的不足，并提供了一个更具挑战性的评估平台来推动该领域的进步</p>

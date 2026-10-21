@@ -1,16 +1,23 @@
 ---
 title: "The Old Man and the Sea 劳而不获"
 description: "《老人与海》发生在上世纪的古巴，那个离我和我的世界很远的地方。一个渔夫钓上一条大鱼，随后与风暴中的鲨鱼搏斗，最终鱼肉都被它们啃食干净，只带回了鱼骨。 高中的我很不解。一个拼尽全力却无功而返的故事，听起来没什么意义。我不解老人到底在想什么，为何要去进行一场毫无意义的搏斗。简直和堂吉柯德一样，执拗而又带有一点愚笨和悲哀。 老人与海。有人说这是他见过最不对等的两个事物放在同一个标题里。老人有什么能力跟大海搏斗呢，搏斗后的结局，排去彩排赌徒般…"
-publishedAt: "2025-11-28 03:22:05"
-updatedAt: "2025-11-29 17:30:08"
+publishedAt: "2025-11-27T19:22:05Z"
+updatedAt: "2025-11-29T09:30:08Z"
 category: "Books Reading"
+categories: ["Books Reading"]
 tags: ["老人与海"]
+author: "GB"
 draft: false
 slug: "the-old-man-and-the-sea"
 legacySlug: "the-old-man-and-the-sea"
+oldSlugs: ["the-old-man-and-the-sea-劳而不获"]
 wordpressId: 1073
 sourceUrl: "https://www.haibinlaiblog.top/index.php/the-old-man-and-the-sea/"
 commentCount: 0
+viewCount: 695
+likeCount: 0
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>《老人与海》发生在上世纪的古巴，那个离我和我的世界很远的地方。一个渔夫钓上一条大鱼，随后与风暴中的鲨鱼搏斗，最终鱼肉都被它们啃食干净，只带回了鱼骨。</p>

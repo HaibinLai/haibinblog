@@ -2,6 +2,8 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleNavigation from '../../components/ArticleNavigation.astro';
+import RightSidebar from '../../components/RightSidebar.astro';
+import ViewCount from '../../components/ViewCount.astro';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts', ({ data }) => !data.draft);
@@ -12,8 +14,12 @@ export async function getStaticPaths() {
 }
 
 const { post } = Astro.props;
+const allPosts = (await getCollection('posts', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
 const { Content } = await render(post);
 const publishedDate = post.data.publishedAt.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+const updatedDate = post.data.updatedAt?.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+const authorName = ['GB', 'haibin'].includes(post.data.author) ? 'Haibin Lai' : post.data.author;
 const citationKey = `lai-${post.id.replace(/[^a-z0-9]+/gi, '-').toLowerCase()}`;
 const citation = `@online{${citationKey},\n  title={${post.data.title}},\n  author={Haibin Lai},\n  year={${post.data.publishedAt.getFullYear()}},\n  url={${Astro.url.href}},\n}`;
 ---
@@ -26,16 +32,25 @@ const citation = `@online{${citationKey},\n  title={${post.data.title}},\n  auth
       <p class="eyebrow">{post.data.category}</p>
       <h1 id="article-title">{post.data.title}</h1>
       <p class="post-description">{post.data.description}</p>
-      <div class="post-info"><span>Haibin Lai</span><time datetime={post.data.publishedAt.toISOString()}>{publishedDate}</time></div>
+      <div class="post-info">
+        <span>{authorName || 'Haibin Lai'}</span>
+        <time datetime={post.data.publishedAt.toISOString()}>{publishedDate}</time>
+        {updatedDate && <span>Updated {updatedDate}</span>}
+        <span><ViewCount scope="page" value={post.data.viewCount ?? 0} /> views</span>
+        <span>{post.data.commentCount} comments</span>
+      </div>
     </header>
     <div class="article-layout">
       <div class="prose"><Content /></div>
     </div>
-    <section class="citation">
-      <h2>If you need to cite this post</h2>
-      <p>Haibin Lai. ({publishedDate}). “{post.data.title}” [Blog post]. Retrieved from <a href={Astro.url.href}>{Astro.url.href}</a></p>
-      <pre><code>{citation}</code></pre>
-    </section>
+    {post.data.showCitation && (
+      <section class="citation">
+        <h2>If you need to cite this post</h2>
+        <p>Haibin Lai. ({publishedDate}). “{post.data.title}” [Blog post]. Retrieved from <a href={Astro.url.href}>{Astro.url.href}</a></p>
+        <pre><code>{citation}</code></pre>
+      </section>
+    )}
     </article>
+    <RightSidebar posts={allPosts} />
   </div>
 </BaseLayout>

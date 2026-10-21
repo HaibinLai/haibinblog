@@ -1,16 +1,23 @@
 ---
 title: "SCA26 Trip to Japan"
 description: "可能是一篇比较流水账的游记，提前磕个头说个抱歉（ PS: 我插入了一些歌曲在行程中，欢迎点击来听听 :) 时隔九年，我再次踏上关西的土地。 飞机降落在关西国际机场，摆渡车玻璃厚实，却显出深圳未曾有的清凉，混合着机场里特有的淡淡的、干燥的清洁剂味。阳光在金属扶手上跳跃，窗外运行李的小车有条不紊地卸货，更远处是静默的塔台与深蓝的大海。 九年一瞬，这些情景仿佛昨日。很多坐标没有变，但坐标系里的人与故事天翻地覆。我去了老景点，也有新景点。我见…"
-publishedAt: "2026-02-04 00:47:03"
-updatedAt: "2026-03-01 14:09:04"
+publishedAt: "2026-02-03T16:47:03Z"
+updatedAt: "2026-03-01T06:09:04Z"
 category: "Life"
+categories: ["Life"]
 tags: ["HPC", "Japan", "SCA26"]
+author: "GB"
 draft: false
 slug: "sca26-japan"
 legacySlug: "sca26-japan"
+oldSlugs: ["sca26-日本行"]
 wordpressId: 1185
 sourceUrl: "https://www.haibinlaiblog.top/index.php/sca26-japan/"
 commentCount: 0
+viewCount: 11881
+likeCount: 5
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <p>可能是一篇比较流水账的游记，提前磕个头说个抱歉（</p>

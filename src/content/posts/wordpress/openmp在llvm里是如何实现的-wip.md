@@ -1,16 +1,23 @@
 ---
 title: "OpenMP在llvm里是如何实现的？"
 description: "基础知识：编译器的结构 编译器中的“前端”和“后端”是两个重要的组成部分，它们负责编译过程的不同阶段。我们可以将编译器看作一个“处理流水线”，前端和后端各自执行不同的任务。 前端 ：负责将源代码解析成抽象语法树并生成中间代码，确保代码的语法和语义正确。 词法分析、语法分析、语义分析和中间代码生成。 后端 ：负责优化中间代码并生成目标机器代码，最终输出可执行文件。 优化、目标代码生成、汇编、链接。 前端（Frontend） 编译器的前端…"
-publishedAt: "2025-02-17 03:55:57"
-updatedAt: "2025-02-24 02:56:56"
+publishedAt: "2025-02-16T19:55:57Z"
+updatedAt: "2025-02-23T18:56:56Z"
 category: "Compilers"
+categories: ["Compilers"]
 tags: ["HPC", "OpenMP", "OS"]
+author: "GB"
 draft: false
 slug: "openmp在llvm里是如何实现的-wip"
 legacySlug: "openmp在llvm里是如何实现的？wip"
+oldSlugs: []
 wordpressId: 639
 sourceUrl: "https://www.haibinlaiblog.top/index.php/openmp%e5%9c%a8llvm%e9%87%8c%e6%98%af%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0%e7%9a%84%ef%bc%9fwip/"
 commentCount: 0
+viewCount: 3737
+likeCount: 2
+dislikeCount: 0
+showCitation: true
 importedFromWordPress: true
 ---
 <h2>基础知识：编译器的结构</h2>
