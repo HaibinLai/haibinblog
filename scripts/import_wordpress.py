@@ -121,14 +121,21 @@ def main() -> int:
 
     used: set[str] = set()
     counts: dict[str, int] = {}
+    skipped_password_protected = 0
     for item in posts:
         status = item.findtext("wp:status", default="draft", namespaces=NS)
+        post_password = item.findtext(
+            "wp:post_password", default="", namespaces=NS
+        ).strip()
         allowed_statuses = (
             {"publish", "draft", "pending", "private"}
             if args.include_non_public
             else {"publish"}
         )
         if status not in allowed_statuses:
+            continue
+        if post_password and not args.include_non_public:
+            skipped_password_protected += 1
             continue
 
         post_id = item.findtext("wp:post_id", default="0", namespaces=NS)
@@ -192,6 +199,11 @@ def main() -> int:
 
     print(f"Imported {sum(counts.values())} posts into {output}")
     print("Statuses: " + ", ".join(f"{key}={value}" for key, value in sorted(counts.items())))
+    if skipped_password_protected:
+        print(
+            "Skipped password-protected posts: "
+            f"{skipped_password_protected} (use --include-non-public only for private output)"
+        )
     return 0
 
 
