@@ -30,3 +30,27 @@ const formatDate = (date: Date) => date.toLocaleDateString('en-US', {
   <section class="sidebar-panel tags-panel"><SectionTitle>Popular Tags</SectionTitle><div class="sidebar-tags">{popularTags.map(([tag, count]) => <a data-tag-filter={tag} href={`${base}?tag=${encodeURIComponent(tag)}`}>{tag}<small>{count}</small></a>)}</div></section>
   <section class="sidebar-panel passage-panel"><SectionTitle>Passage</SectionTitle><p>“The future is discovered through the work that survives contact with reality.”</p></section>
 </aside>
+
+<script>
+  const sidebar = document.querySelector<HTMLElement>('.right-sidebar');
+
+  if (sidebar) {
+    const topGap = 90;
+    const bottomGap = 16;
+
+    const updateStickyPosition = () => {
+      const sidebarHeight = sidebar.scrollHeight;
+      const availableHeight = window.innerHeight - topGap - bottomGap;
+      const stickyTop = sidebarHeight <= availableHeight
+        ? topGap
+        : window.innerHeight - sidebarHeight - bottomGap;
+
+      sidebar.style.setProperty('--right-sidebar-top', `${stickyTop}px`);
+    };
+
+    const resizeObserver = new ResizeObserver(updateStickyPosition);
+    resizeObserver.observe(sidebar);
+    window.addEventListener('resize', updateStickyPosition, { passive: true });
+    updateStickyPosition();
+  }
+</script>
