@@ -84,6 +84,21 @@ const postSlug = (post: (typeof posts)[number]) => post.data.slug ?? post.id.rep
     const rootLink = tree?.querySelector('[data-nav-root]');
     const navLinks = [...(tree?.querySelectorAll('[data-post-slug]') ?? [])];
     const linksBySlug = new Map(navLinks.map((link) => [link.dataset.postSlug, link]));
+    if (tag || category) {
+      const visibleSlugs = new Set(cards
+        .filter((card) => !card.hidden)
+        .map((card) => card.dataset.postSlug));
+      navLinks.forEach((link) => {
+        link.hidden = !visibleSlugs.has(link.dataset.postSlug);
+      });
+
+      const label = tag || category;
+      const rootLabel = rootLink?.querySelector('span');
+      const rootCount = rootLink?.querySelector('small');
+      if (rootLabel) rootLabel.textContent = `${label} articles`;
+      if (rootCount) rootCount.textContent = String(visibleSlugs.size);
+      tree?.setAttribute('aria-label', `${label} articles`);
+    }
     const desktopSidebar = window.matchMedia('(min-width: 1025px)');
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     let activeLink = null;
