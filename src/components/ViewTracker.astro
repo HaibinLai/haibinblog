@@ -1,7 +1,7 @@
 ---
 const endpoint = (
   import.meta.env.PUBLIC_VIEW_COUNTER_URL
-  ?? 'https://haibinblog-view-counter.haibinlai.workers.dev'
+  || 'https://haibinblog-view-counter.haibinlai.workers.dev'
 ).replace(/\/$/, '');
 const base = import.meta.env.BASE_URL;
 ---
