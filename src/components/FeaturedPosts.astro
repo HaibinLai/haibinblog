@@ -1,0 +1,83 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  posts: CollectionEntry<'posts'>[];
+}
+
+const { posts } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const postSlug = (post: CollectionEntry<'posts'>) => post.data.slug ?? post.id.replace(/^wordpress\//, '');
+const resolveImage = (source: string) => /^(?:https?:)?\/\//.test(source)
+  ? source
+  : `${base}${source.replace(/^\/+/, '')}`;
+const firstBodyImage = (post: CollectionEntry<'posts'>) => (
+  post.body?.match(/<img\b[^>]*?\bsrc=["']([^"']+)/i)?.[1]
+);
+const featuredImage = (post: CollectionEntry<'posts'>) => resolveImage(
+  post.data.featuredBannerImage
+    ?? post.data.featuredImage
+    ?? firstBodyImage(post)
+    ?? 'images/blog-cover.jpg',
+);
+const formatDate = (date: Date) => date.toLocaleDateString('en-US', {
+  month: 'short',
+  day: 'numeric',
+  year: 'numeric',
+  timeZone: 'UTC',
+});
+const formatViews = (value: number) => new Intl.NumberFormat('en-US').format(value);
+
+const featured: CollectionEntry<'posts'>[] = [];
+const occupiedSlots = new Set<number>();
+for (const post of [...posts]
+  .filter((entry) => entry.data.featuredRank !== undefined)
+  .sort((a, b) => (
+    (a.data.featuredRank ?? 4) - (b.data.featuredRank ?? 4)
+    || b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf()
+  ))) {
+  const rank = post.data.featuredRank;
+  if (rank === undefined) continue;
+  if (occupiedSlots.has(rank)) {
+    throw new Error(`[featured-posts] Slot ${rank} is assigned to more than one post.`);
+  }
+  occupiedSlots.add(rank);
+  featured.push(post);
+}
+---
+
+{featured.length > 0 && (
+  <section class={`featured-posts featured-count-${featured.length}`} aria-labelledby="featured-heading">
+    <div class="featured-heading">
+      <div>
+        <span class="featured-kicker">Editor&rsquo;s picks</span>
+        <h2 id="featured-heading">Featured writing</h2>
+      </div>
+      <span class="featured-count">{featured.length} selected</span>
+    </div>
+    <div class="featured-grid">
+      {featured.map((post, index) => {
+        const slug = postSlug(post);
+        const visualSlot = index + 1;
+        const title = post.data.featuredTitle ?? post.data.title;
+        const label = post.data.featuredLabel ?? post.data.category;
+        return (
+          <article class={`featured-card featured-slot-${visualSlot}`}>
+            <a href={`${base}posts/${slug}/`} aria-label={`Read ${title}`}>
+              <img src={featuredImage(post)} alt="" loading={visualSlot === 1 ? 'eager' : 'lazy'} />
+              <span class="featured-shade" aria-hidden="true"></span>
+              <span class="featured-label">{label}</span>
+              <div class="featured-card-copy">
+                <h3>{title}</h3>
+                <span class="featured-meta">
+                  <time datetime={post.data.publishedAt.toISOString()}>{formatDate(post.data.publishedAt)}</time>
+                  <span><span aria-hidden="true">◉</span> {formatViews(post.data.viewCount)} views</span>
+                </span>
+              </div>
+            </a>
+          </article>
+        );
+      })}
+    </div>
+  </section>
+)}

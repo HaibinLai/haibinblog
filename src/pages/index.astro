@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PostCard from '../components/PostCard.astro';
+import FeaturedPosts from '../components/FeaturedPosts.astro';
 import LeftNavigation from '../components/LeftNavigation.astro';
 import RightSidebar from '../components/RightSidebar.astro';
 
@@ -21,6 +22,7 @@ const postSlug = (post: (typeof posts)[number]) => post.data.slug ?? post.id.rep
     <LeftNavigation posts={posts} />
     <section class="post-feed" aria-label="Recent writing">
       <div class="breadcrumb">Current Location: Main Page / All writing / Main Content</div>
+      <FeaturedPosts posts={posts} />
       <div class="section-heading"><h1 id="feed-title">Recent writing</h1><span id="feed-count">{posts.length} posts</span></div>
       <div class="post-list">
       {posts.map((post) => {
@@ -47,10 +49,12 @@ const postSlug = (post: (typeof posts)[number]) => post.data.slug ?? post.id.rep
 <script is:inline>
   (() => {
     const cards = [...document.querySelectorAll('.post-card[data-post-slug]')];
+    const featuredPosts = document.querySelector('.featured-posts');
     const params = new URLSearchParams(window.location.search);
     const tag = params.get('tag');
 
     if (tag) {
+      if (featuredPosts) featuredPosts.hidden = true;
       let visible = 0;
       cards.forEach((card) => {
         const tags = JSON.parse(card.dataset.tags || '[]');
@@ -117,7 +121,7 @@ const postSlug = (post: (typeof posts)[number]) => post.data.slug ?? post.id.rep
 
       const headerHeight = document.querySelector('.site-header')?.getBoundingClientRect().height ?? 62;
       const readingLine = headerHeight + 70;
-      let activeCard = visibleCards[0];
+      let activeCard = null;
 
       if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 2) {
         activeCard = visibleCards[visibleCards.length - 1];
@@ -128,7 +132,9 @@ const postSlug = (post: (typeof posts)[number]) => post.data.slug ?? post.id.rep
         }
       }
 
-      setActiveLink(linksBySlug.get(activeCard.dataset.postSlug));
+      setActiveLink(activeCard
+        ? linksBySlug.get(activeCard.dataset.postSlug)
+        : rootLink);
       scheduled = false;
     };
 

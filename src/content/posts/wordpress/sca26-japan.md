@@ -13,6 +13,10 @@ legacySlug: "sca26-japan"
 oldSlugs: ["sca26-日本行"]
 wordpressId: 1185
 sourceUrl: "https://www.haibinlaiblog.top/index.php/sca26-japan/"
+featuredRank: 3
+featuredTitle: "SCA26 旅行日志"
+featuredLabel: "Travel"
+featuredBannerImage: "images/featured/sca26-japan.webp"
 commentCount: 0
 viewCount: 11881
 likeCount: 5

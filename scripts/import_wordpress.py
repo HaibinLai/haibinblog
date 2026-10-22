@@ -82,9 +82,9 @@ def yaml_value(value: object) -> str:
     return json.dumps(value, ensure_ascii=False)
 
 
-def preserved_bilingual_metadata(output: Path) -> dict[str, tuple[str, str]]:
-    """Keep manually assigned language fields across generated-directory rebuilds."""
-    preserved: dict[str, tuple[str, str]] = {}
+def preserved_frontmatter_metadata(output: Path) -> dict[str, dict[str, object]]:
+    """Keep editorial fields that may not exist in an older WordPress export."""
+    preserved: dict[str, dict[str, object]] = {}
     if not output.exists():
         return preserved
 
@@ -96,8 +96,16 @@ def preserved_bilingual_metadata(output: Path) -> dict[str, tuple[str, str]]:
         if end == -1:
             continue
         header = source[4:end]
-        values: dict[str, str] = {}
-        for key in ("language", "translationKey", "wordpressId"):
+        values: dict[str, object] = {}
+        for key in (
+            "language",
+            "translationKey",
+            "featuredRank",
+            "featuredTitle",
+            "featuredLabel",
+            "featuredBannerImage",
+            "wordpressId",
+        ):
             match = re.search(rf"(?m)^{key}:\s*(.+?)\s*$", header)
             if not match:
                 continue
@@ -109,15 +117,13 @@ def preserved_bilingual_metadata(output: Path) -> dict[str, tuple[str, str]]:
             if isinstance(parsed, str):
                 values[key] = parsed.strip()
             elif isinstance(parsed, int):
-                values[key] = str(parsed)
+                values[key] = parsed
 
-        language = values.get("language", "")
-        translation_key = values.get("translationKey", "")
-        if language in SUPPORTED_LANGUAGES:
-            value = (language, translation_key)
-            preserved[f"slug:{path.stem}"] = value
-            if values.get("wordpressId", "").isdigit():
-                preserved[f"wordpressId:{values['wordpressId']}"] = value
+        wordpress_id = values.pop("wordpressId", None)
+        if values:
+            preserved[f"slug:{path.stem}"] = values
+            if isinstance(wordpress_id, int):
+                preserved[f"wordpressId:{wordpress_id}"] = values
 
     return preserved
 
@@ -202,7 +208,7 @@ def main() -> int:
     }
 
     output = args.output
-    preserved_bilingual = preserved_bilingual_metadata(output)
+    preserved_frontmatter = preserved_frontmatter_metadata(output)
     if output.exists():
         shutil.rmtree(output)
     output.mkdir(parents=True)
@@ -262,10 +268,16 @@ def main() -> int:
         category = categories[0] if categories else "Uncategorized"
         old_slug = legacy_slug(item, raw_slug or slug)
         metadata = postmeta(item)
-        language, translation_key = preserved_bilingual.get(
+        preserved = preserved_frontmatter.get(
             f"wordpressId:{post_id}",
-            preserved_bilingual.get(f"slug:{slug}", ("", "")),
+            preserved_frontmatter.get(f"slug:{slug}", {}),
         )
+        language = str(preserved.get("language", ""))
+        translation_key = str(preserved.get("translationKey", ""))
+        featured_rank = preserved.get("featuredRank")
+        featured_title = str(preserved.get("featuredTitle", ""))
+        featured_label = str(preserved.get("featuredLabel", ""))
+        featured_banner_image = str(preserved.get("featuredBannerImage", ""))
         imported_language = latest_meta(metadata, "nicen_language").strip()
         imported_translation_key = latest_meta(
             metadata, "nicen_translation_group"
@@ -288,6 +300,23 @@ def main() -> int:
                 file=sys.stderr,
             )
             translation_key = ""
+        if "nicen_home_feature_position" in metadata:
+            imported_rank = latest_meta(
+                metadata, "nicen_home_feature_position"
+            ).strip()
+            featured_rank = int(imported_rank) if imported_rank in {"1", "2", "3"} else None
+        if "nicen_home_feature_title" in metadata:
+            featured_title = latest_meta(
+                metadata, "nicen_home_feature_title"
+            ).strip()
+        if "nicen_home_feature_label" in metadata:
+            featured_label = latest_meta(
+                metadata, "nicen_home_feature_label"
+            ).strip()
+        if "nicen_home_feature_image" in metadata:
+            featured_banner_image = latest_meta(
+                metadata, "nicen_home_feature_image"
+            ).strip()
         old_slugs = list(
             dict.fromkeys(
                 unquote(value).strip("/")
@@ -368,6 +397,23 @@ def main() -> int:
                     f"translationKey: {yaml_value(translation_key)}"
                 )
             frontmatter[slug_index + 1:slug_index + 1] = language_fields
+        featured_fields = []
+        if isinstance(featured_rank, int) and featured_rank in {1, 2, 3}:
+            featured_fields.append(f"featuredRank: {featured_rank}")
+        if featured_title:
+            featured_fields.append(f"featuredTitle: {yaml_value(featured_title)}")
+        if featured_label:
+            featured_fields.append(f"featuredLabel: {yaml_value(featured_label)}")
+        if featured_banner_image:
+            featured_fields.append(
+                f"featuredBannerImage: {yaml_value(featured_banner_image)}"
+            )
+        if featured_fields:
+            source_index = next(
+                index for index, line in enumerate(frontmatter)
+                if line.startswith("sourceUrl: ")
+            )
+            frontmatter[source_index:source_index] = featured_fields
         if comments:
             frontmatter.append(f"comments: {yaml_value(comments)}")
         frontmatter.extend(

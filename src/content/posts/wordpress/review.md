@@ -13,6 +13,10 @@ legacySlug: "review"
 oldSlugs: ["复盘-科研里的反向传播"]
 wordpressId: 891
 sourceUrl: "https://www.haibinlaiblog.top/index.php/review/"
+featuredRank: 1
+featuredTitle: "复盘：科研里的反向传播"
+featuredLabel: "Research"
+featuredBannerImage: "images/featured/research-review.webp"
 commentCount: 1
 viewCount: 3872
 likeCount: 21
