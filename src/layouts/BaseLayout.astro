@@ -43,7 +43,34 @@ const base = import.meta.env.BASE_URL;
         <label class="search-box"><span aria-hidden="true">⌕</span><input type="search" placeholder="Enter keywords to search" aria-label="Search" /></label>
         <button class="theme-toggle" type="button" aria-label="Toggle dark mode">☼</button>
         <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-controls="site-navigation" aria-expanded="false">☰</button>
-        <nav id="site-navigation" aria-label="Primary navigation"><a href={base}>Homepage⌄</a><a href={`${base}moments/`}>Moments</a><a href={`${base}about/`}>GLHF⌄</a><a href={`${base}about/`}>My Friends</a><a href="https://github.com/HaibinLai" rel="me">My Github</a><a href="https://haibinlai.github.io" rel="me">My CV</a></nav>
+        <nav id="site-navigation" class="primary-nav" aria-label="Primary navigation">
+          <div class="nav-group">
+            <a class="nav-parent" href={base}>Homepage <span aria-hidden="true">⌄</span></a>
+            <div class="nav-submenu" aria-label="Homepage categories">
+              <a href={`${base}?category=CPP`}>CPP</a>
+              <a href={`${base}?category=OS`}>OS</a>
+              <a href={`${base}?category=Compilers`}>编译器</a>
+              <a href={`${base}?category=${encodeURIComponent('复盘')}`}>复盘</a>
+            </div>
+          </div>
+          <a href={`${base}moments/`}>Moments</a>
+          <div class="nav-group nav-group-wide">
+            <a class="nav-parent" href="https://haibinlai.github.io/self_thinking/">GLHF <span aria-hidden="true">⌄</span></a>
+            <div class="nav-submenu" aria-label="GLHF tools and statistics">
+              <span class="nav-submenu-label">Tools</span>
+              <a href="https://haibinlai.github.io/self_thinking/">Caseboard</a>
+              <a href="https://www.haibinlaiblog.top/index.php/clipboard/">剪贴板</a>
+              <a href="https://www.haibinlaiblog.top/index.php/todo-list/">Todo List</a>
+              <span class="nav-submenu-label">Statistics</span>
+              <a href="https://www.haibinlaiblog.top/index.php/sum-of-the-blog/">Sum of the Blog</a>
+              <a href="https://www.haibinlaiblog.top/index.php/%e9%98%85%e8%af%bb%e8%b6%8b%e5%8a%bf/">阅读趋势</a>
+              <a href={`${base}posts/caseboard-xiang-zhen-tan-yi-yang-zuo-ke-yan/`}>Caseboard 文章</a>
+            </div>
+          </div>
+          <a href={`${base}about/`}>My Friends</a>
+          <a href="https://github.com/HaibinLai" rel="me">My Github</a>
+          <a href="https://haibinlai.github.io" rel="me">My CV</a>
+        </nav>
       </div>
     </header>
     <main><slot /></main>

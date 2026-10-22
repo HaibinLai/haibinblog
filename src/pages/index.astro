@@ -53,27 +53,31 @@ const postSlug = (post: (typeof posts)[number]) => post.data.slug ?? post.id.rep
     const featuredPosts = document.querySelector('.featured-posts');
     const params = new URLSearchParams(window.location.search);
     const tag = params.get('tag');
+    const category = params.get('category');
 
-    if (tag) {
+    if (tag || category) {
       if (featuredPosts) featuredPosts.hidden = true;
       let visible = 0;
       cards.forEach((card) => {
         const tags = JSON.parse(card.dataset.tags || '[]');
-        const matches = tags.includes(tag);
+        const matches = tag ? tags.includes(tag) : card.dataset.category === category;
         card.hidden = !matches;
         if (matches) visible += 1;
       });
 
       const filterStatus = document.querySelector('#feed-status');
       if (filterStatus) {
-        filterStatus.textContent = `${tag} · ${visible} ${visible === 1 ? 'post' : 'posts'}`;
+        const label = tag || category;
+        filterStatus.textContent = `${label} · ${visible} ${visible === 1 ? 'post' : 'posts'}`;
         filterStatus.hidden = false;
       }
       document.querySelector('.empty-filter').hidden = visible !== 0;
 
-      document.querySelectorAll('[data-tag-filter]').forEach((link) => {
-        link.classList.toggle('is-active', link.dataset.tagFilter === tag);
-      });
+      if (tag) {
+        document.querySelectorAll('[data-tag-filter]').forEach((link) => {
+          link.classList.toggle('is-active', link.dataset.tagFilter === tag);
+        });
+      }
     }
 
     const tree = document.querySelector('.left-navigation .nav-tree');
