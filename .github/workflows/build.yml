@@ -37,6 +37,8 @@ jobs:
         run: npm run build
         env:
           PUBLIC_VIEW_COUNTER_URL: ${{ vars.PUBLIC_VIEW_COUNTER_URL }}
+          PUBLIC_SITE_URL: ${{ vars.PUBLIC_SITE_URL }}
+          PUBLIC_BASE_PATH: ${{ vars.PUBLIC_BASE_PATH }}
 
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3

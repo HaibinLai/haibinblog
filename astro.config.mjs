@@ -9,8 +9,8 @@ import remarkCallouts from './src/plugins/remark-callouts.mjs';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://haibinlai.github.io',
-  base: '/haibinblog/',
+  site: process.env.PUBLIC_SITE_URL || 'https://haibinlai.github.io',
+  base: process.env.PUBLIC_BASE_PATH || '/haibinblog/',
   markdown: {
     processor: unified({
       remarkPlugins: [remarkMath, remarkCallouts],
