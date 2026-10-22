@@ -7,9 +7,17 @@
     "dev": "wrangler dev",
     "deploy": "wrangler deploy",
     "db:local:init": "wrangler d1 execute haibinblog-private --local --file=./schema.sql",
-    "db:remote:init": "wrangler d1 execute haibinblog-private --remote --file=./schema.sql"
+    "db:remote:init": "wrangler d1 execute haibinblog-private --remote --file=./schema.sql",
+    "import:wordpress": "node scripts/import-wordpress-private.mjs"
   },
   "devDependencies": {
     "wrangler": "^4.151.0"
+  },
+  "dependencies": {
+    "dompurify": "^3.4.17",
+    "fast-xml-parser": "^5.11.2",
+    "marked": "^18.1.1",
+    "turndown": "^7.2.4",
+    "turndown-plugin-gfm": "^1.0.2"
   }
 }

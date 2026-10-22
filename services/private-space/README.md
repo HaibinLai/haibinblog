@@ -23,3 +23,18 @@ npm run dev
 npm run db:remote:init
 npm run deploy
 ```
+
+## Import private WordPress posts
+
+Generate an idempotent D1 import from a WordPress **All content** WXR export:
+
+```sh
+npm run import:wordpress -- /path/to/wordpress-export.xml
+npx wrangler d1 execute haibinblog-private --remote --file=.private-import/private-posts.sql
+```
+
+The importer selects WordPress private and password-protected posts, converts
+their HTML to GitHub-flavored Markdown, and inserts them with stable `wp-ID`
+keys. Existing rows are never overwritten, so later edits in Private Space are
+preserved. Original WordPress passwords are not copied. Generated SQL and its
+private metadata manifest stay under the gitignored `.private-import/` folder.
