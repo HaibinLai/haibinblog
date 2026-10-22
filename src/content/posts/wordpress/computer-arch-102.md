@@ -160,4 +160,4 @@ add r1, ...</code></pre>
 </tr>
 </tbody>
 </table>
-<p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/05/20260507172916198.png" alt="4ca87b06a87cac1cbcc5f13d17489cd6.jpg|140" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-05/computer-arch-102/body-001-c8f55e09d54b.webp" alt="4ca87b06a87cac1cbcc5f13d17489cd6.jpg|140" /></p>

@@ -58,11 +58,11 @@ BLAS API <a href="https://www.netlib.org/blas/blasqr.pdf">blasqr.pdf</a>
 <strong>NUMA Aware Memory alloc (Jemalloc etc)</strong>
 <a href="https://www.notion.so/Pytorch-OpenMP-1c25ab55420e80449eb4f7d4619fb85e?pvs=4#1c45ab55420e808db07ec882a485241a">https://www.notion.so/Pytorch-OpenMP-1c25ab55420e80449eb4f7d4619fb85e?pvs=4#1c45ab55420e808db07ec882a485241a</a>
 <a href="https://pytorch.org/tutorials/intermediate/torchserve_with_ipex.html">https://pytorch.org/tutorials/intermediate/torchserve_with_ipex.html</a>
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504121438087.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504121532808.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/hgemm/body-001-bc2ceeb2b519.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/hgemm/body-002-ef1739a4133f.webp" alt="" /></p>
 <p>首先，CPU上FP16计算非常少</p>
 <p>似乎GNU也不支持FP16
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504121425966.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/hgemm/body-003-7449f5c40dce.webp" alt="" /></p>
 <pre><code class="language-CPP">fp_avx2.cpp:5:19: error: ‘_Float16’ does not name a type; did you mean ‘_Float64’?
     5 | using float16_t = _Float16;
       |                   ^~~~~~~~
@@ -73,7 +73,7 @@ BLAS API <a href="https://www.netlib.org/blas/blasqr.pdf">blasqr.pdf</a>
 <a href="https://builders.intel.com/docs/networkbuilders/intel-avx-512-fp16-instruction-set-for-intel-xeon-processor-based-products-technology-guide-1710148129.pdf">Intel® AVX-512 - FP16 Instruction Set for Intel® Xeon® Processor-Based Products Technology Guide</a></p>
 <p>按照手册进行编程，发现：
 但，好像很多机器不能用AVX512
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504121424824.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/hgemm/body-004-f8e21dba887f.webp" alt="" /></p>
 <p>思路：从Pytorch 下手</p>
 <pre><code class="language-python">import torch
 from transformers import pipeline
@@ -318,9 +318,9 @@ Result sum: 3.35483e+10</code></pre>
 <li>给一个优化方向的博客</li>
 <li>给一个调优VTune的介绍文档+如何在Pytorch里跑起来的文档</li>
 </ol>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504121537585.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504121537586.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504121539012.png" alt="" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/hgemm/body-005-c444af38ce6b.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/hgemm/body-006-21c67a14be33.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/hgemm/body-007-216a38b6b0db.webp" alt="" />
 <a href="https://www.haibinlaiblog.top/index.php/cpp-project2-report-matrix-multiplication/">CPP Project2 Matrix Multiplication－CPP－Haibin's blog</a></p>
 <p><a href="https://weedge.github.io/perf-book-cn/zh/">README.md · 现代CPU上的性能分析与优化</a></p>
 <h2>GPU</h2>
@@ -344,7 +344,7 @@ TMA</p>
 <p><a href="https://zhuanlan.zhihu.com/p/638522893">一步步优化 GEMM by Tensorcore - 知乎</a></p>
 <p>bank conflict</p>
 <p>ldgsts
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504121818119.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/hgemm/body-008-a832e9a47d3e.webp" alt="" /></p>
 <p>reg</p>
 <p>prefetch</p>
 <h4><strong>Nsight Compute</strong></h4>

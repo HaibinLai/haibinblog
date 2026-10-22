@@ -36,8 +36,8 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <h4>Legitimate workload changes</h4>
 <p>When Barack Obama won the 2008 U.S. Presidential election, his Facebook page experienced record levels of activity.</p>
 <h4>Human error</h4>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250610172102867.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250525235444573.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/fail-at-scale-reliability-in-the-face-of-rapid-change/body-001-4825a14db616.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/fail-at-scale-reliability-in-the-face-of-rapid-change/body-002-8ea03e32c9a8.webp" alt="" /></p>
 <p>虽然故障原因千奇变怪，但是本质分为三大类，或多或少都是因为这些放大了失败，引起级联故障</p>
 <h4>1.配置变更</h4>
 <h4>2.对核心服务的强依赖</h4>
@@ -51,10 +51,10 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <p>大多数服务以 FIFO 的顺序处理队列。然而，在大量排队期间，先入的请求往往已经等了很久，用户可能已经放弃了请求相关的行为。这时候处理先入队的请求，会将资源耗费在一个不太可能使用户受益的请求上。</p>
 <p>FB 的服务使用自适应后进先出的算法来处理请求。在正常的操作条件下，请求是 FIFO 处理模式，但是当队列开始任务堆积时，则切换至 LIFO 模式。如图 2 所示，自适应 LIFO 和 CoDel 可以很好地配合。CoDel 设置了较短的超时时间，防止了形成长队列，而自适应 LIFO 模式将新的请求放在队列的前面，最大限度地提高了它们满足 CoDel 设置的最后期限的机会。HHVM 实现了这个后进先出算法。</p>
 <p>当业务请理慢，请求堆积时，超时的请求，用户可能己经重试了，还不如处理后入队的请求</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250526000115429.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/fail-at-scale-reliability-in-the-face-of-rapid-change/body-003-bfbc163e79ee.webp" alt="" /></p>
 <h2>Queuing</h2>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250526000559283.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250526001000566.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/fail-at-scale-reliability-in-the-face-of-rapid-change/body-004-8926751f53b2.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/fail-at-scale-reliability-in-the-face-of-rapid-change/body-005-d58bd2fb4898.webp" alt="" /></p>
 <h2>Methods</h2>
 <p>Facebook has developed a methodology called DERP (for detection, escalation, remediation, and prevention) to aid in productive incident reviews.</p>
 <p>• <strong>Detection.</strong> How was the issue detected—alarms, dashboards, user reports?
@@ -62,7 +62,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 • <strong>Remediation.</strong> What steps were taken to fix the issue? Can these steps be automated?
 • <strong>Prevention.</strong> What improvements could remove the risk of this type of failure happening again? How could you have failed gracefully, or failed faster to reduce the impact of this failure?</p>
 <p>DERP helps analyze every step of the incident at hand. With the aid of this analysis, even if you cannot prevent this type of incident from happening again, you will at least be able to recover faster the next time.</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250526001753994.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/fail-at-scale-reliability-in-the-face-of-rapid-change/body-006-d82a4dc1b9fe.webp" alt="" /></p>
 <p>A &quot;move-fast&quot; mentality does not have to be at odds with reliability. To make these philosophies compatible,</p>
 <p>Facebook's infrastructure provides safety valves: our configuration system protects against rapid deployment of bad configurations; our core services provide clients with hardened APIs to protect against failure; and our core libraries prevent resource exhaustion in the face of latency.</p>
 <p>所有的研究要复盘。并且要总结错误。其实就跟第一次配博客一样，每一次的工程失败其实都是经验。他们并非代表说我们是笨蛋，而是会让我们更加成熟。</p>

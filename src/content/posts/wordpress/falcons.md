@@ -29,8 +29,8 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <p>不少玩家看着他一步一步艰难走到今天，但随着失望越来越多，或许连他心里也曾想过放弃。在他们成功登顶前，或多或少都未曾被命运宽容以待。人生的风霜磨练着意志，令他们也不知自己会在何时倒下。莫欺少年穷的剧本在网文中常见，但在生活中谁知道接下来会发生什么？</p>
 <p>&quot;Maybe not today, maybe not tomorrow, maybe not next month. But one day, I'll be the champion.&quot;</p>
 <p>我想起贺炜老师的解说，“请不要相信胜利像山坡上的蒲公英一样唾手可得，但请相信世上总有美好值得我们全力以赴，哪怕粉身碎骨。” 请你们尽情享受你们的胜利吧，This is the day you've been waiting for! 感谢 猎鹰FALCONS 在这个平凡无奇的周一为我们点燃了一把久违的火。有关梦想与热血的故事从来不会过时。</p>
-<p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/06/20260622020831026.png" alt="image.png" /></p>
-<p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/06/5c54d57e63c3370dc07aebf449527c8f.jpeg" alt="5c54d57e63c3370dc07aebf449527c8f.jpeg" /></p>
-<p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/06/338a95f9278b31185a39a1167bc2eca2.png" alt="338a95f9278b31185a39a1167bc2eca2.png" /></p>
-<p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/06/57b8094628796a539cbf9f5f5dba9d6c.png" alt="57b8094628796a539cbf9f5f5dba9d6c.png" /></p>
-<p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/06/20260622052128422.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-06/falcons/body-001-25e08b39482d.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-06/falcons/body-002-2c84a22b5096.webp" alt="5c54d57e63c3370dc07aebf449527c8f.jpeg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-06/falcons/body-003-1c906b5c8632.webp" alt="338a95f9278b31185a39a1167bc2eca2.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-06/falcons/body-004-361534ef1c28.webp" alt="57b8094628796a539cbf9f5f5dba9d6c.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-06/falcons/body-005-86f5588a1c84.webp" alt="image.png" /></p>

@@ -83,7 +83,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <li><strong>Data Channel Protocol Module</strong>: Manages the network protocol (using the Globus XIO system).</li>
 </ul></li>
 </ul>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251010205932219.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-10/gridftp-sc25-test-of-time-award/body-001-22c9c228ad81.webp" alt="image.png" /></p>
 <p>Globus GridFTP 系统采用<strong>模块化、可扩展的架构</strong>，主要包括三个组件：</p>
 <ol>
 <li><strong>协议解释器（PI）</strong>：处理控制通道命令。</li>
@@ -95,7 +95,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <li><strong>数据通道协议模块</strong>：处理网络传输协议（如TCP）。</li>
 </ul></li>
 </ol>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251010205950443.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-10/gridftp-sc25-test-of-time-award/body-002-9d562a3735dd.webp" alt="image.png" /></p>
 <h2>Experiment</h2>
 <p>speeds of 27.3 Gbit/s memory-to-memory and 17 Gbit/s disk-to-disk over a 60 millisecond round trip time, 30Gbit/s network</p>
 <p>In another experiment, we show that the server can support 1800 concurrent clients without excessive load.</p>

@@ -39,7 +39,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <p>在我撰写那篇比较高通新服务器芯片 <strong>Centriq</strong> 与我们现有 <strong>基于 Intel Skylake 架构的 Xeon 处理器</strong> 的文章时，我注意到一个令人不安的现象。</p>
 <p>在对 <strong>OpenSSL 1.1.1dev</strong> 进行基准测试时，我发现 <strong>ChaCha20-Poly1305</strong> 这种加密算法的性能扩展性并不好。单线程性能大约是 2.89 GB/s，而在 24 个核心 48 个线程下，性能只有 35 GB/s 左右。这个数值虽然很高，但我本希望能接近 69 GB/s。35 GB/s 意味着每核 1.46 GB/s，只有单核性能的 50% 左右。相比之下，<strong>AES-GCM</strong> 的扩展性好得多，能保持 80% 的单核性能。这可以理解，因为 CPU 在单核负载时能保持更高的 Turbo 频率，但多核运行时无法如此。  </p>
 </blockquote>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251105210208042.png" alt="image.png|400" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-11/avx-cpu-slow/body-001-ab445a7ffe87.webp" alt="image.png|400" /></p>
 <blockquote>
 <p>那么，为什么 ChaCha20-Poly1305 的扩展性如此糟糕？答案是——<strong>AVX-512</strong>。</p>
 <p>AVX-512 是 Intel 引入的一套新的 512 位宽 SIMD 指令集，它在原有指令基础上扩展为 512 位，并增加了许多新指令。这类宽指令的问题在于——它们<strong>耗电量非常大</strong>。想象一下，一条指令完成了 64 条普通字节指令，或 8 条完整 64 位指令的工作量。</p>
@@ -48,10 +48,10 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <p>OpenSSL 1.1.1dev 中实现了多个 ChaCha20-Poly1305 的变体，包括 AVX2 和 AVX-512 版本。而 BoringSSL 则实现了另一种不同的 AVX2 版本。由此可见，BoringSSL 在单核上仅 1.6 GB/s 的性能，也就不难理解了——相比 OpenSSL 的 2.89 GB/s。</p>
 <p>那么，如果在你的真实工作负载中<strong>混入少量 AVX-512 指令</strong>，会发生什么？  我们使用的是 <strong>Xeon Silver 4116</strong> CPU，基准频率 2.1 GHz，双插槽配置（共 24 核心）。根据 wikichip 的资料，即使仅在一个核心上运行 AVX-512 ，也会将基准频率降到 1.8 GHz；如果所有核心都运行 AVX-512 ，则会降至 1.4 GHz。</p>
 </blockquote>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251105210113453.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-11/avx-cpu-slow/body-002-8114a815b85f.webp" alt="image.png" /></p>
 <h1>正文</h1>
 <p>文章结构</p>
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251106005531940.png" width="300" alt="image" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-11/avx-cpu-slow/body-003-79c7b9f11869.webp" width="300" alt="image" />
 <h2>文章的背景与动机</h2>
 <p>这是关于 <strong>AVX 和 AVX-512 相关频率缩放</strong> 的一篇文章。</p>
 <p>目前，关于这个主题已经有不少内容被写过，包括一些关于性能损失的警示故事以及一些广泛的指导原则——所以，我们真的还需要再添一笔吗？</p>
@@ -71,7 +71,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 在本文的实验中，我们大多数情况下使用的是 <strong>5000 微秒的工作周期</strong> 和 <strong>1 微秒的采样周期</strong>。</p>
 <p>如果用图来表示，大致可以想象成这样：<br />
 每个测试由多个连续的工作周期组成，而上图展示的只是其中的一个周期。每个周期中，CPU 会经历“执行负载—采样—等待下一个周期”的完整过程。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251106005717173.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-11/avx-cpu-slow/body-004-3cd1820b617e.webp" alt="image.png" /></p>
 <blockquote>
 <p>负载时长的说明</p>
 </blockquote>
@@ -140,7 +140,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 └──────────────────────────────────────────────────────────────┘
 采样(每1us一次)，持续31000us</code></pre>
 <p>下图展示了测试结果（见注释 10），横轴为时间（x 轴），纵轴为每次采样测得的 CPU 频率（共展示了三次独立的测试运行结果）。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251106010854076.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-11/avx-cpu-slow/body-005-a1d403ee94b7.webp" alt="image.png" /></p>
 <p>老实说，这一部分有点无聊。整个测试过程中，CPU 一直稳定运行在 <strong>3.2 GHz</strong> —— 也就是它的标称频率（L0 license 频率）。<br />
 如果忽略几个无关紧要的采样异常点，那整个曲线几乎是一条平直的线，没有任何有趣的变化。</p>
 <h3>512 位整数 SIMD（AVX-512）</h3>
@@ -151,7 +151,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
   vzeroupper
   ret</code></pre>
 <p>Here is the result:</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251106011500583.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-11/avx-cpu-slow/body-006-656f9a82aa9e.webp" alt="image.png" /></p>
 <blockquote>
 <p>图：AVX512情况下的CPU频率</p>
 </blockquote>
@@ -163,7 +163,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 每当那条负载指令被执行时（即每隔 5000 μs），CPU 的频率就会从最初的 <strong>3.2 GHz（L0 许可频率）</strong> 降到 <strong>2.8 GHz（L1 许可频率）</strong> （见Hardware测试表格）。<br />
 到目前为止，这一切都完全符合预期。</p>
 <p>接下来，我们把镜头拉近，看一看 <strong>15 000 μs 处</strong> 的其中一个频率转换点，看看降频的瞬态细节。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251106011515112.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-11/avx-cpu-slow/body-007-482db37c5af4.webp" alt="image.png" /></p>
 <blockquote>
 <p>将AVX512情况下的CPU频率变化图进行局部放大</p>
 </blockquote>
@@ -193,7 +193,7 @@ CPU 在较低的 <strong>2.8 GHz</strong> 频率下运行大约 <strong>650 微�
 <blockquote>
 <p>作者在这里说的是低频运行和低频回高频区（下图的3和4）</p>
 </blockquote>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251106012203437.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-11/avx-cpu-slow/body-008-ec43dbb25b7d.webp" alt="image.png" /></p>
 <ol start="4">
 <li><strong>恢复阶段的再次停顿</strong><br />
 在完整图中还能看到第二个向下的频率尖峰：<br />
@@ -223,7 +223,7 @@ ret</code></pre>
 由于这些指令是<strong>串行依赖</strong>的，因此理论上整个函数大约需要 <strong>1000 个周期</strong>，<br />
 换算下来，<strong>IPC ≈ 1.0</strong>。</p>
 <p>下图展示了相同过渡点（15,000 μs 附近）的放大视图，  这次除了频率外，还在副坐标轴上绘制了 <strong>IPC 曲线</strong>。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251106011741569.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-11/avx-cpu-slow/body-009-59d93770393b.webp" alt="image.png" /></p>
 <p>首先请注意，在左侧（15,000 微秒之前）和右侧（15,100 微秒之后）的未着色区域中，IPC 基本上没有意义：没有执行任何负载指令，因此这些位置的 IPC 只是测量代码本身的结果。<strong>我们只关心那些有着色的区域，也就是负载正在执行的部分。</strong></p>
 <p>让我们从右往左分析这些区域，这样的顺序恰好对应从显而易见到较不明显的部分。</p>
 <p>我们有蓝色区域，从大约 15020 微秒延伸到 15100 微秒（也就是额外负载阶段结束的地方）。在这里，IPC 正好是每周期 1 条指令。因此，负载正以预期速率执行，也就是全速运行。细心的人可能会注意到，在蓝色区域的起始处，IPC（以及测得的频率）略显噪声，并且略高于 1。<strong>这不是 CPU 的效应，而是测量问题：在这个阶段，基准测试正在补上前一个停顿阶段遗漏的采样，这改变了负载与开销的比例，从而使 IPC 略有上升（详见注释 22）。</strong></p>
@@ -241,7 +241,7 @@ ret</code></pre>
 <p>在这一阶段，我们可以看到负载的执行速度明显变慢，IPC 约为 <strong>0.25</strong>。  也就是说，在这一时期，指令的执行延迟似乎是平常的 <strong>4 倍</strong>。  我还通过另一种相同的测试  <a href="https://github.com/travisdowns/freq-bench/blob/434c7cf5db73e2d48061e78525c7bbf7eb7757a3/basic-impls.cpp#L64">https://github.com/travisdowns/freq-bench/blob/434c7cf5db73e2d48061e78525c7bbf7eb7757a3/basic-impls.cpp#L64</a> （唯一不同的是指令之间相互独立）观察到了<strong>相同的 4 倍减速</strong>现象。</p>
 <p>或许令人意外的是，这种减速现象同样出现在 <strong>256 位指令</strong> 上。<br />
 这与传统认知相矛盾——过去的经验认为，在支持 AVX-512 的处理器上，执行较轻量的 <strong>256 位指令（YMM 寄存器）</strong> 并不会带来额外的性能惩罚。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251106013608452.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-11/avx-cpu-slow/body-010-e313b330bd6a.webp" alt="image.png" /></p>
 <p>上面的结果来自一个与 512 位版本完全相同的测试，只是负载部分改为使用 <strong>256 位指令</strong>。<br />
 结果显示，在负载开始执行后的大约 <strong>9 微秒</strong> 内，同样出现了性能下降，但<strong>没有随后出现的停顿或频率转换</strong>。  </p>
 <p>也就是说，它只表现出一次<strong>仅电压转换（voltage-only transition）</strong>。  （缺少频率转换是预期中的，因为对于较轻的 256 位指令，我们并不期望出现“睿频许可等级（turbo license）”的变化。）<br />
@@ -249,7 +249,7 @@ ret</code></pre>
 <pre><code>vpor ymm0, ymm0, ymm0</code></pre>
 <p>此时你可能会好奇：那 <strong>128 位寄存器</strong> 呢？  好消息是，它们<strong>完全没有受到任何影响</strong>：</p>
 <pre><code>xmm</code></pre>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251106013833741.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-11/avx-cpu-slow/body-011-85797844eeea.webp" alt="image.png" /></p>
 <p>在这里，IPC 立即跳到了预期值。这表明 CPU 始终运行在一种状态下，在该状态下 <strong>128 位计算单元（lanes）始终处于就绪状态</strong>。</p>
 <p>关于这种“预热（warmup）”阶段的传统解释是：<strong>当不使用时，向量单元的上半部分会被关闭</strong>，并且在重新启用时需要一定时间来上电。在此上电阶段，CPU 无需完全停顿，但会以<strong>降低的吞吐量</strong>执行 SIMD 指令——即将输入拆分为多个 128 位块，并将数据在已激活的 128 位单元中<strong>重复处理两次或更多次</strong>。</p>
 <p>然而，有一些现象似乎与这种假设相矛盾（从说服力<strong>较弱到较强</strong>依次列出）：</p>
@@ -460,11 +460,11 @@ add    eax, 0x0
 这个转换过程是否与<strong>等待电源供给配置变化</strong>有关。</p>
 <p>具体来说，我们可以通过读取 <strong>MSR_PERF_STATUS</strong> 寄存器的 <strong>第 47 到 32 位</strong> 来观察 CPU 内核电压。  Intel《软件开发手册》（Software Development Manual）第 4 卷中透露了一个“秘密”：<br />
 这些位（bits 47:32）实际上暴露了 CPU 核心电压的数值。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251106015242367.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-11/avx-cpu-slow/body-012-71f14a7e568d.webp" alt="image.png" /></p>
 <p>让我们像往常一样放大观察一个转换点。这次我们使用的是一个包含 <strong>1000 条相关依赖指令</strong> 的 <strong>256 位（ymm）负载</strong>。  这种 256 位负载的情况不会触发频率转换，而只会出现一种<strong>与重新执行 256 位指令相关的调度限速阶段（dispatch throttling period）</strong>——也就是在 CPU 很久没有执行 256 位指令之后再次执行时出现的现象。</p>
 <p>我们在图中同时绘制了两条曲线：  一条表示执行一次负载迭代所需的时间，  另一条则表示<strong>测得的核心电压</strong>。  负载指令如下：</p>
 <pre><code>vpor ymm0, ymm0, ymm0</code></pre>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251106015317365.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-11/avx-cpu-slow/body-013-d4d2602d8601.webp" alt="image.png" /></p>
 <p>限速阶段（throttling period）的持续时间大约为 <strong>10 微秒</strong>，与以往一样。  从图中可以看出，在这一阶段中，负载执行一次迭代大约需要 <strong>4000 个周期</strong>，也就是典型的 <strong>4 倍限速</strong>现象。  在限速阶段内，CPU 的电压与转换前保持一致，约为 <strong>0.951 V</strong>。  当限速结束的那一刻，电压跃升至大约 <strong>0.957 V</strong>，即上升约 <strong>6 mV</strong>。</p>
 <p>这组数据是在 <strong>2.6 GHz</strong> 下（即我的 i7-6700HQ 的标称非睿频频率）测得的。  当频率为 <strong>3.5 GHz</strong> 时，电压从 <strong>1.167 V</strong> 上升到 <strong>1.182 V</strong>，  因此无论是电压的绝对值还是电压变化幅度（约 <strong>15 mV</strong>）都更大，  这与基本原理一致：<strong>更高的频率需要更高的电压</strong>。</p>
 <p>因此，其中一种理论是：<br />
@@ -483,7 +483,7 @@ add    eax, 0x0
 CPU 就会选择直接以较低频率运行，  从而避免频繁切换时所需的停顿。</p>
 <p>为了验证是否存在这种“衰减”，<br />
 我们设置了一个<strong>工作周期（duty period）</strong>，略长于 CPU 从 2.8 GHz 恢复到 3.2 GHz 所需的观测恢复时间，  以观察此时是否仍然会发生频率转换。  下面展示的是一个 <strong>760 微秒</strong> 的工作周期，比该测试中观测到的恢复时间多约 10 微秒。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251106015857563.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-11/avx-cpu-slow/body-014-ba5cda1724a0.webp" alt="image.png" /></p>
 <p>我这次不再为各个区域上色了，因为到现在为止，你们大概已经（过度？）熟悉它们了。</p>
 <p>关键点如下：</p>
 <ul>

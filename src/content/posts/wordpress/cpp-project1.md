@@ -18,7 +18,7 @@ viewCount: 4434
 likeCount: 0
 dislikeCount: 0
 showCitation: true
-featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/08/图片1-2.png"
+featuredImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-001-4593b49b27b5.webp"
 importedFromWordPress: true
 cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1.webp"
 ---
@@ -31,7 +31,7 @@ Github: <a href="https://github.com/HaibinLai/CS205-CPP-Programing-Project">http
 <p>在本次 Project 中，我初步用C 实现了一个简单的计算器，可以简单地完成项目需求。 在计算器的输入有效数字小于 8 位时，我阅读了 <strong>IEEE</strong> <strong>754</strong> <strong>标准</strong>，使用 double 的加减法进行 运算。在计算器输入数字大于 8 位时，我<strong>借鉴了</strong> <strong>Postgresql</strong> <strong>数据库</strong>中 numeric 的实现方法， 使用<strong>数组</strong>进行精确计算。我注意到<strong>内存泄露</strong>的问题，并构建了一个内存控制检测系统，可以 减少我的内存泄露。另外，我学习了解了 <strong>OpenMP</strong> <strong>与</strong> <strong>CUDA</strong> 编程上，各自写了一个乘法方 法，可惜由于身体原因没能测试性能。除此之外，我了解了大整数乘法等计算器在现代的应 用，比如在密码学中的加密，科学计算等。我也了解了算法，比如 <strong>Karatsuba</strong> 乘法算法。</p>
 <p><strong>关键词</strong>：<strong>IEEE754</strong> <strong>Standard;</strong> <strong>Postgresql</strong> <strong>Source</strong> <strong>Code;</strong> <strong>Memory</strong> <strong>Leak;</strong> <strong>OpenMP;</strong> <strong>CUDA;</strong></p>
 <h2>Contents</h2>
-<p><img src="https://s2.loli.net/2024/08/27/G7XiEnOUjPkBHIs.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-002-99350603f3ab.webp" alt="image.png" /></p>
 <h2>Part 1: 需求分析</h2>
 <p><strong>基本需求：</strong> 处理输入字符串，加减乘除，大数运算和指数运算。初看会觉得很简单，
 但是其实里边涵盖了 C 中的字符，数据类型的了解，要应用条件与分支语句，初步探索
@@ -264,13 +264,13 @@ sudo ldconfig # 更新cache</code></pre>
 <pre><code class="language-bash">gcc src/haibin_calculator.c -lm -o haibinCalculator -fopenmp -lgmp</code></pre>
 <p>全部使用了我自己写的功能，可以做到普通加减乘除，大整数加减法和乘法，指数运算。lm表示使用数学库，进行开根号等运算。</p>
 <p><strong>更多编译选项：</strong></p>
-<p><img src="https://s2.loli.net/2024/08/26/NudhVReAUPSZKgt.png" alt="db237209f44e1195e25f8c349136ee0.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-003-c8d4bddcbeb2.webp" alt="db237209f44e1195e25f8c349136ee0.png" /></p>
 <h2>Part 3: 功能演示</h2>
 <h3>1. 小数字加减乘除</h3>
 <p>当输入的两个数字有效位数小于8位时，此时计算器会将数字转换为<code>double</code>进行运算。<code>double</code>的精度在 8.85 &times; 10<sup>-15</sup> 时，满足我们的精度需求。同时，在计算除法时，除不尽的结果将保留8位小数。</p>
 <div>           <!--块级封装-->
     <center>    <!--将图片和文字居中-->
-    <img src="https://s2.loli.net/2024/08/26/aCQwWcfHskbySNp.png"
+    <img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-004-90461e51d690.webp"
          alt="无法显示图片时显示的文字"
          style="zoom:这里写图片的缩放百分比"/>
     <br>        <!--换行-->
@@ -284,7 +284,7 @@ sudo ldconfig # 更新cache</code></pre>
 方，没有实现除法。</p>
 <div>           <!--块级封装-->
     <center>    <!--将图片和文字居中-->
-    <img src="https://s2.loli.net/2024/08/26/wnvbjhAuks2TGU4.png"
+    <img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-005-292c060338f8.webp"
          alt="无法显示图片时显示的文字"
          style="zoom:这里写图片的缩放百分比"/>
     <br>        <!--换行-->
@@ -293,7 +293,7 @@ sudo ldconfig # 更新cache</code></pre>
 </div>
 <div>           <!--块级封装-->
     <center>    <!--将图片和文字居中-->
-    <img src="https://s2.loli.net/2024/08/26/QmZpaz25A8KO31B.png"
+    <img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-006-01191ca40676.webp"
          alt="无法显示图片时显示的文字"
          style="zoom:这里写图片的缩放百分比"/>
     <br>        <!--换行-->
@@ -307,40 +307,40 @@ sudo ldconfig # 更新cache</code></pre>
 <p>当两个数字都是指数时，将进行指数运算。对于指数乘法，在 e 前的参数采用<code>double</code>
 运算，在 e 后的参数使用 <code>double</code> 相加减。除法类似，核心基于 <code>double</code> 的除法。对于加减法，
 先将两个数字的指数大小保持一致，e 前的参数采用大整数加减法。</p>
-<p><img src="https://s2.loli.net/2024/08/26/CzaWEr5ovYfBPI4.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-007-9463dab0cf69.webp" alt="image.png" /></p>
 <h3>4. 提高性能：CUDA 和 OpenMP</h3>
 <p>我们的大整数乘法是用大整数加法和移位实现的，计算复杂度为 O(N ∙ M), M,N 为两个数字
 的位数。幸运的是，我们可以使用CUDA与OpenMP，将乘法过程并行化，我们将在后面演示。</p>
-<p><img src="https://s2.loli.net/2024/08/26/e4VGch7mxATKwYR.png" alt="image.png" />
-<img src="https://s2.loli.net/2024/08/26/GjnUEdPLRgH831Y.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-008-7682f397b64a.webp" alt="image.png" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-009-5fc713f6cfa0.webp" alt="image.png" /></p>
 <h3>5. Human Computer Interaction：人机交互</h3>
 <p>支持 Mode2：等待输入模式</p>
 <p>如果我们的计算器在调用时没有输入任何参数，计算器将进入另一种模式，它将等待用户的
 输入并进行计算。计算的效果与直接调用模式相同。</p>
-<p><img src="https://s2.loli.net/2024/08/26/4kgV8QPsj9paKRw.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-010-044cf6ab9ce3.webp" alt="image.png" /></p>
 <p>-v / --version</p>
 <p>打印计算器版本，显示计算器编译时间，并打印世界线常数设定。
-<img src="https://s2.loli.net/2024/08/26/PyHFWrgpV7LX9Bo.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-011-ef776b658aaf.webp" alt="image.png" /></p>
 <p>-h / --help 打印五彩斑斓的帮助
-<img src="https://s2.loli.net/2024/08/26/2kTzKoSfLW7Viw3.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-012-69c74aa8c567.webp" alt="image.png" /></p>
 <p>-l / --mathlib 打印计算器使用的数学库
-<img src="https://s2.loli.net/2024/08/26/gG2AIhuBlYmyTn3.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-013-99f0d1d9db33.webp" alt="image.png" /></p>
 <p>cls / clear 调用 system(“clear”) 清空屏幕
-<img src="https://s2.loli.net/2024/08/26/cNv6I8FogrX5a9B.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-014-c7b6a9bab567.webp" alt="image.png" /></p>
 <p>check 检测计算器内存泄露
-<img src="https://s2.loli.net/2024/08/26/3c26J5BACV17kFb.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-015-7f5bfeff83fd.webp" alt="image.png" /></p>
 <p>cmatrix 调用一个好玩的软件包(sudo apt install cmatrix)，变成黑客帝国，ctrl-c 退出。
-<img src="https://s2.loli.net/2024/08/26/cCZpWRGIJsPYd8V.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-016-a7211914b334.webp" alt="image.png" /></p>
 <h2>Part 4: 需求实现：路上的困难</h2>
 <p>本次 Project 项目结构如下，从 main 函数启动后，根据参数判断模式，判断执行命令。
 如果是计算命令，就会凭借数字类型进行具体计算。</p>
-<p><img src="https://s2.loli.net/2024/08/26/1DyLIfHTPXF6Jxh.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-017-a5060e1869fb.webp" alt="image.png" /></p>
 <h3>4.1 输入 <code>x</code> 还是 <code>*</code> ?</h3>
 <p>我的 Project 开始于对输入的处理。main 函数会根据空格分隔出几个字符串，随后计算
 器将判断输入的字符串数量。</p>
 <div>           <!--块级封装-->
     <center>    <!--将图片和文字居中-->
-    <img src="https://s2.loli.net/2024/08/26/B4TUIJGq1kwYNpj.png"
+    <img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-018-19be13db620c.webp"
          alt="无法显示图片时显示的文字"
          style="zoom:这里写图片的缩放百分比"/>
     <br>        <!--换行-->
@@ -352,7 +352,7 @@ sudo ldconfig # 更新cache</code></pre>
 会被识别为通配符。</p>
 <div>           <!--块级封装-->
     <center>    <!--将图片和文字居中-->
-    <img src="https://s2.loli.net/2024/08/26/VDJtENI2bjHivkh.png"
+    <img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-019-f6f8d5b71cda.webp"
          alt="无法显示图片时显示的文字"
          style="zoom:这里写图片的缩放百分比"/>
     <br>        <!--换行-->
@@ -369,10 +369,10 @@ sudo ldconfig # 更新cache</code></pre>
 <p>因此使用”<code>x</code>”符号作为乘号。</p>
 <h3>4.2 Mode2 的输入</h3>
 <p>在 mode2 下，我们要等待用户输入，然后执行相应的计算指令。
-<img src="https://s2.loli.net/2024/08/26/wQb4jElIFUTcV8P.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-020-81809491bff1.webp" alt="image.png" /></p>
 <p>我一开始用的是 getline 函数，这个函数在 stdio.h 中。但是，当我把这个函数移植到
 Windows 的 minGW 时，它显示 Windows 上编译器没有这个函数。我随后用了 fget 函数。</p>
-<p><img src="https://s2.loli.net/2024/08/26/pvMOXa4SCj7NcPe.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-021-40079a17d637.webp" alt="image.png" /></p>
 <p>采用 fget 函数的代价便是会有长度输入的限制，不过这也让我好奇不同函数他们是怎
 么处理输入的。</p>
 <p>简书一篇博客 <a href="https://www.jianshu.com/p/73e004f22c1c">C中读入一行字符串的方法</a>讲的挺好的，它对比了scanf，gets和fget三种函数的区别。scanf是非常邪恶的，我们给他长度为6的char数组，然后输入8个char，结果它会在数组后继续填写数字。也就是说，会覆盖我们的内存。而gets的 原理
@@ -380,21 +380,21 @@ Windows 的 minGW 时，它显示 Windows 上编译器没有这个函数。我�
 <h3>4.3 IEEE754: 深入了解浮点数</h3>
 <p>刚开始实现计算器时，我发现 matlab 和我的 CASIO 计算器在正常情况下用的都是 <code>double</code>
 进行计算。<code>double</code> 真的够精确吗？抱着这个疑惑，我阅读了 <code>double</code> 的标准：IEEE754 。
-<img src="https://s2.loli.net/2024/08/26/muKs4jrDe93CFUG.png" alt="1724686850835.jpg" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-022-4d80a85f4e27.webp" alt="1724686850835.jpg" /></p>
 <p>在 IEEE754 标准中，正如我们学习的那样，<code>double</code> 是使用 1 位表示正负，另外的位数表示如下图。</p>
-<p><img src="https://s2.loli.net/2024/08/26/yfcZWG2sgxB8o6z.png" alt="1724686896365.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-023-635c4186f867.webp" alt="1724686896365.jpg" /></p>
 <p>在此之外，我还发现了一些关于浮点数里有趣的事情。比如浮点数里的 <code>NaNs</code> 是用
 1111...11 表示的，当我们使用 <code>0/0</code> 时，会出现这个结果。我想跟除法的运算性质有关。不过，
 跟 Infinities 比起来，无限这个数的 N-1 bits of Significand 是 0。另一个有趣的点是浮点数是
 区分正零和负零的，跟我们在数字逻辑里的二进制表示整数的方法并不一致。</p>
-<p><img src="https://s2.loli.net/2024/08/26/7vPuRkH8cC4Epyr.png" alt="1724686918616.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-024-dc26602a8976.webp" alt="1724686918616.jpg" /></p>
 <p>这里还有几个有趣的运算，比如 1 的无穷次方不是 <code>1</code> 而最好是 <code>NaN</code>，但是 0 的 0 次方却
 是 <code>1</code> 而不是 <code>NaN</code>。为了引入这个诡异的 Not a Number，标准对待它就像数据库对待 <code>NULL</code> 一
 样谨慎。
-<img src="https://s2.loli.net/2024/08/26/KDAVR6ulji9HYZP.png" alt="1724686970100.jpg" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-025-0621d174b326.webp" alt="1724686970100.jpg" /></p>
 <p>看过标准后，我们这里主要处理的，就是 0/0。在 8 位有效数字下，最大的两者相乘也
 是 16 位，我们就可以都用 <code>double</code> 表示。</p>
-<p><img src="https://s2.loli.net/2024/08/26/ZYnVzw1O8ToUPve.png" alt="1724687001586.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-026-00867da38f7b.webp" alt="1724687001586.jpg" /></p>
 <p>在此以后，面对小运算，我们就可以“偷个懒”，用计算机自带的 <code>double</code> 计算完成运
 算。但是，怎么打印出来，成为了我下一个问题。</p>
 <h3>4.4 如何精确打印浮点数？</h3>
@@ -404,18 +404,18 @@ Windows 的 minGW 时，它显示 Windows 上编译器没有这个函数。我�
 <code>0.1+0.2=0.30000004</code> 很明显是不对的。并且，如果我们直接使用 <code>printf(“%s”,Number)</code>，我们
 得到的是保留小数点后 6 位的 <code>double</code> 输出。比如 <code>2.8+3.2 = 6</code>，但是我们的浮点数计算器会
 输出 <code>6.000000</code>。</p>
-<p><img src="https://s2.loli.net/2024/08/26/WM7vEinpxSPtbTN.png" alt="1724687097297.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-027-cc24bdb7f21e.webp" alt="1724687097297.jpg" /></p>
 <p>那么这应该怎么做呢？我设计了一个方法 <code>CountDecimalDigits</code>，使用三指针判断一个数
 的有效位数。这个方法将返回 <code>double</code> 的小数里最后一个不是 0 的数的位置。在处理过程中，
 我会将 <code>double</code> 临时转换成 <code>char</code> 数组，然后在数组内进行操作。使用了这个方法后，就可以
 打印浮点数了。</p>
-<p><img src="https://s2.loli.net/2024/08/26/hjgzMRK59ydSamu.png" alt="1724687152499.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-028-4256e57db882.webp" alt="1724687152499.jpg" /></p>
 <p>不过，假如我们算出来的数字与我们的 <code>double</code> 表示方法不一致，<code>printf</code> 是如何快速转换
 和打印浮点数的呢？就比如说 <code>2/3=0.66666667</code>，假如保留不同的位数，输出的结尾都会四舍
 五入一个 7，这是怎么做到的呢？我去看了文章[5]《如何快速打印浮点数》，大概发现了一
 些答案。</p>
-<p><img src="https://s2.loli.net/2024/08/26/F8iSHUaxXWRC5JM.png" alt="1724687193339.jpg" /></p>
-<p><img src="https://s2.loli.net/2024/08/26/zbkQcdof1HPNXmh.png" alt="1724687208567.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-029-b037d8e41a1b.webp" alt="1724687193339.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-030-976fefca5fbe.webp" alt="1724687208567.jpg" /></p>
 <p>在这篇文章里作者提出了一个打印算法，它的操作有点像数学里的牛顿法，每一位都尽
 可能贪心地逐步逼近我们的真实值，直到用完 double 里的所有可表示位。文章还进行了有
 效性的数学证明与伪代码，我就看了最后的数学证明就溜了。</p>
@@ -423,31 +423,31 @@ Windows 的 minGW 时，它显示 Windows 上编译器没有这个函数。我�
 <h3>4.5 Numeric Implementation: 仿 Postgresql 的 numeric.c 实现的大数计算器</h3>
 <p>使用 <code>double</code> 时，无法计算大位数的乘法如<code>987654321 x 987654321</code> 。为了计算大数，必须采用新方法。</p>
 <p>但是新方法如何完成？我在构思是否可以用数组实现。这时，老师提示我在数据库里，刚好有人实现了这样的精确大数计算。于是，我去查找了 Postgresql 的 source code，专门去研究了它 <code>numeric.c</code> 的实现。不看不知道，一看吓一跳，这 <code>numeric.c</code> 的加减乘除，还有类型转换，Postgresql 竟然写有 12000 行！</p>
-<p><img src="https://s2.loli.net/2024/08/27/rDwy1z3Xt2vhWlc.png" alt="1724689761284.jpg" /></p>
-<p><img src="https://s2.loli.net/2024/08/27/EbSO6fKv4eqG5DM.png" alt="1724689780630.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-031-46687fde62f3.webp" alt="1724689761284.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-032-32f4583a28cc.webp" alt="1724689780630.jpg" /></p>
 <p>我将代码复制了下来，顺便把零零散散各种定义，结构体，宏文件也复制下来，看了三
 天三夜......我估计总代码量就已经超过 2 万行了。比起我自己的“计算器”，那是真的简单又幼稚啊，“朝菌不知晦朔，蟪蛄不知春秋”，可能说的就是如此吧。</p>
 <p>但是幸运的是，在这之中，我找到了 <code>numeric</code> 的方法 <code>add_var</code> 的实现。仔细研究后，我大概明白了它的工作原理。</p>
-<p><img src="https://s2.loli.net/2024/08/27/3Utj4GbnkMPQyf8.png" alt="1724689898729.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-033-46a7f5a637d8.webp" alt="1724689898729.jpg" /></p>
 <p>在这里，Postgresql 首先先不管符号，实现了 <code>add_abs</code> 和 <code>sub_abs</code> 方法，在这两个基础方
 法内考虑两个正数相加，以及大数剪小数。之后，add 和 sub 分别会考虑正负性，在输出时
 加上正负号。另外，在 Postgresql 内所有类型的传输都是依靠结构体进行完成。</p>
-<p><img src="https://s2.loli.net/2024/08/27/gNxfYlXAPs3tUiS.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-034-8d63c2fa24db.webp" alt="image.png" /></p>
 <p>因此，我依照 Postgresql 的方式，顺利完成了大整数加法和减法的设计。但是乘法怎么
 做呢？我继续去读了源代码。具体的思想便是，它会将每个数字单独相乘，然后将结果像矩阵一样竖着相加。</p>
-<p><img src="https://s2.loli.net/2024/08/27/XHIadbO7le8Atcs.png" alt="1724689992274.jpg" />
-<img src="https://s2.loli.net/2024/08/27/snyeBXGkUjhcD4K.png" alt="1724690010664.jpg" /></p>
-<p><img src="https://s2.loli.net/2024/08/27/mv2U3JgyOKRPtxq.png" alt="4023ab3f5d520d4420598bf329d29a0.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-035-1a58368848ec.webp" alt="1724689992274.jpg" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-036-944f2ce59f7a.webp" alt="1724690010664.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-037-b8d5c756c416.webp" alt="4023ab3f5d520d4420598bf329d29a0.png" /></p>
 <p>这里边它的计算复杂度是 O(n<sup>2</sup>)，使用了两个 for 循环。在第二个 for 循环里，它将我们的矩阵逐步相加。不过这个 <code>A[i] += B * C[i]</code>的公式我可太熟悉了，这不就是我们的并行计算里最标准的并行化算法吗！看来如果想优化，我们可以从这里入手。当然，我猜测考虑到通信成本的问题，在这个第二层的 for 循环搞并行化一定是得不偿失的。大概看完代码后，我实现乘法决定这么实现：对于数 A x B，我们先用 B 中的一位 <code>var_digit</code>分别去乘上 A，也就是用一个数乘一个数组（multiply array x num），然后我们通过 <code>var_digit</code>所在的位数，将我们的结果进行移位（<code>shift</code>），最后把我们的结果加到我们的 <code>result</code> 数组上。这样的操作是和 Postgresql 里的操作基本一致的。</p>
-<p><img src="https://s2.loli.net/2024/08/27/axXWZO8iJ4CVLNB.png" alt="1724690147420.jpg" /></p>
-<p><img src="https://s2.loli.net/2024/08/27/lVGnmskOaBRXpEr.png" alt="1724690163458.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-038-e36364a91800.webp" alt="1724690147420.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-039-52cf220269c3.webp" alt="1724690163458.jpg" /></p>
 <p>这样，我们就通过 array，实现了大整数的乘法。这里我画了一张实现的图，它阐述了各个
 方法之间的关系。</p>
-<p><img src="https://s2.loli.net/2024/08/27/GTdLCDmKzZNicvf.png" alt="1724690461967.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-040-f7049a7de66a.webp" alt="1724690461967.jpg" /></p>
 <p>除法我没有实现，针对除法的整数部分，我们可以直接列竖式移位相减。不过我暂时没有想明白，小数点应该怎么处理。</p>
 <div>           <!--块级封装-->
     <center>    <!--将图片和文字居中-->
-    <img src="https://s2.loli.net/2024/08/27/tjXMalzy2PS3HVU.png"
+    <img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-041-e5ee5e65d229.webp"
          alt="无法显示图片时显示的文字"
          style="zoom:0.60"/>
     <br>        <!--换行-->
@@ -469,15 +469,15 @@ Windows 的 minGW 时，它显示 Windows 上编译器没有这个函数。我�
 <a href="https://zhuanlan.zhihu.com/p/144813558">Karatsuba大数乘法算法 - 知乎 (zhihu.com)</a>，就介绍了多种乘法运算。我们刚刚
 使用的，仅仅是小学模拟乘法，列竖式相加。而其中使用 FFT 的 Schönhage–Strassen algorithm，
 复杂度可以说是已经很少很少！仅仅 <code>O(n logn loglogn)</code>！</p>
-<p><img src="https://s2.loli.net/2024/08/27/luTojpvBYfHtJUd.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-042-0b93b193e5c1.webp" alt="image.png" /></p>
 <p>至于 Karatsuba 算法，这算是我目前能够理解的算法了。它的核心要义在于，我们以往
 的列竖式相加，我们要分别计算 <code>A x D</code> 和 <code>B x C</code>，随后再相加。而他想到了讲这个数变成
 <code>(A+B)(C+D)-AC-BD</code>，这样就能用上两边已经运算了的数字，减少了运算次数。假如一个 4 位
 数乘 4 位数，我们用小学生办法算要 16 次乘法，而他只要 9 次，这加快了我们的速度。</p>
-<p><img src="https://s2.loli.net/2024/08/27/uGPYH7BjR6QtC4J.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-043-1a3aff042380.webp" alt="image.png" /></p>
 <p>但是，这个算法有个很严重的问题，就是他需要计算对数和指数，这需要新的实现以及
 更多的功夫。</p>
-<p><img src="https://s2.loli.net/2024/08/27/L94QXUCnsMDAP7I.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-044-952e58e527f6.webp" alt="image.png" /></p>
 <h2>Part 5: 内存泄露：Java 最高兴的一集</h2>
 <p>啊！终于来到了最痛苦的部分。我在这里花费了 4 天 4 夜，也依旧没有解决完这个问题。
 这是我有一天看完何泽安学长的 C/C++作业的时候发现的：内存泄露！每当我们在方法里
@@ -486,19 +486,19 @@ malloc 时，如果我们不 free 掉这部分内存，那么这部分内存会�
 的内存！
 有什么办法可以检测这个问题吗？我找到了一个软件 valgrind，它是一个虚拟 CPU，在
 这个虚拟 CPU 上会运行我们的代码，然后检测有没有内存从此消逝了。</p>
-<p><img src="https://s2.loli.net/2024/08/27/qbGTOtC5Via43B1.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-045-e5db80d50213.webp" alt="image.png" /></p>
 <p>我们用 <code>valgrind ./haibinCalcluator 12345 x 123456</code>，去启动我们的计算器。结果发现，我们的计算器光荣地漏掉了 120byte，可能漏掉了 112byte。</p>
 <p>我第一次考虑到这个问题时，前面的方法已经实现完成了，我此时只好去重构。而重构的方法也就借鉴了 Postgresql 里的操作：将代表 result 的字符串也输入进来，在 result 上进行操作，而不是在方法内自己 malloc 一个，不然的话返回的时候是无法 free 掉它的。真是伤脑筋！我瞬间感受到 C/C++的弱点：内存不安全！我又一想到可怕的 Windows 和 Postgresql里有几千万行代码，说不定哪行代码就没有实现内存释放 free。重构花去了我很多的时间去调试和修改，写了一个寒假的 java 后，突然遇到这样的情况，我顿时有一种在屎山里遨游的感觉，我顿时懂得了 Oracle 程序员的心理，太狗屎了！</p>
-<p><img src="https://s2.loli.net/2024/08/27/MglOfrQ3juXFVaA.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-046-f078f79d143d.webp" alt="image.png" /></p>
 <p>此时一位明君启发了我。他在他的博客里写明了一种管理内存分配的方法：我们每次要分配一个内存的时候，我们就往一个链表里塞上我们分配内存的指针。在释放时我们将指针从链表中移除。<a href="https://blog.csdn.net/weixin_43308899/article/details/135122404">https://blog.csdn.net/weixin_43308899/article/details/135122404</a></p>
-<p><img src="https://s2.loli.net/2024/08/27/WPB8O25NvKh9xJb.png" alt="image.png" /></p>
-<p><img src="https://s2.loli.net/2024/08/27/rNH4gD5PFn7Uuyt.png" alt="image.png" /></p>
-<p><img src="https://s2.loli.net/2024/08/27/VKuo5wWPQEAsefh.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-047-de9245a5c252.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-048-611e9ad28b98.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-049-9c13a59d55db.webp" alt="image.png" /></p>
 <p>通过这样的方法，我们就可以动态控制我们之前分配的指针。为了方便，我自己写了一个 <code>memcheck</code> 和 <code>clearMem</code> 的函数，他们可以随时监控内存泄露和清空已经分配的内存。</p>
-<p><img src="https://s2.loli.net/2024/08/27/ekJ7NiXOLxBmMhE.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-050-2050042d968a.webp" alt="image.png" /></p>
 <p>经过我们的一番爆改之后，我们的计算器不会出现内存泄露了。</p>
-<p><img src="https://s2.loli.net/2024/08/27/CpGvkXzJwYaqh2n.png" alt="image.png" /></p>
-<p><img src="https://s2.loli.net/2024/08/27/lLrvdVUMc4EITyB.png" alt="image.png" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-051-9a83ebf4e508.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-052-30f6dd99e1e9.webp" alt="image.png" />
 当然，就算是内存泄露了，也没什么问题，我们用 htop 查看我们的计算器占用内存，发现它的占用非常之少，我们可以不管这个内存的泄露。</p>
 <h2>Part 6: 并行计算</h2>
 <h3>6.1 应用 OpenMP</h3>
@@ -506,16 +506,16 @@ malloc 时，如果我们不 free 掉这部分内存，那么这部分内存会�
 <p><code>omp parallel for</code>: 这段 for 循环可以在多核上并行完成</p>
 <p><code>shared</code>: 在循环时，本质上每个核会自己有一份参数的 copy。那么为了保证 copy 的一致性，我们就要将它们设为 shared。其实按照道理 default 状态下 result 和 carry 就都是共享状态了。如果想要每个 for 循环的参数都是独立的，我们要加 private。</p>
 <p><code>reduction</code>: 规约。我们的计算当中，如果想汇总各个计算核心的结果，我们就要加一个reduction 操作。</p>
-<p><img src="https://s2.loli.net/2024/08/27/KAiuV7OpYWZwrqg.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-053-0caf7019a735.webp" alt="image.png" /></p>
 <h3>6.2 GPU 编程：将浮点计算移植到 CUDA 架构</h3>
 <p>在 CUDA 编程中，我们的计算器主要包含两个部分：CPU 上的函数和 GPU 的核函数。GPU 的核函数用 global 表示入口，然后在内部写下函数。只要满足 A = B + C*D 这种矩阵形式，nvcc 在编译时将自动把算法分配到各个核中去执行。</p>
-<p><img src="https://s2.loli.net/2024/08/27/GrKvOjmXi1HVP4n.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-054-073e42ceb55d.webp" alt="image.png" /></p>
 <p>而此时 CPU 由于计算的任务主要有 CUDA 负责了，CPU 任务主要就是将我们的参数搬运到 GPU 的内存中去。我们用 cudaMalloc 函数就能完成了。之后，我们再用 NVCC 编译器去编译我们的 haibinCalculator.cu 文件，就能获得我们的大整数乘法计算器了。</p>
 <p><code>nvcc -o GPUCalculator src/haibin_calculator_cuda.cu</code></p>
-<p><img src="https://s2.loli.net/2024/08/27/3ZYdUV1jrDgA8kw.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-055-c99d24b4ce49.webp" alt="image.png" /></p>
 <h2>Part 7: Project中的发现</h2>
 <h3>7.1 快速平方根算法背后的秘密</h3>
-<p><img src="https://s2.loli.net/2024/08/27/OQqdMBhZUg6i3mE.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-056-dbf708efa6cb.webp" alt="image.png" /></p>
 <p>这个算法是一种快速计算浮点数倒数平方根的近似方法，通常被称为&quot;快速平方根&quot;算法。它的起源可以追溯到 Quake III Arena 游戏的源代码，由程序员 John Carmack 在 1999年设计。这个算法以其非常高的性能和相对简单的实现而闻名。</p>
 <p>其核心操作为，取出浮点数进行操作，随后使用y=x+b对平方根函数进行近似求解，之后使用牛顿迭代法逼近。</p>
 <h3>7.2 大整数乘法 GMP 数学库</h3>
@@ -523,7 +523,7 @@ malloc 时，如果我们不 free 掉这部分内存，那么这部分内存会�
 <p>GMP 大数库是 GUN 项目的一部分，它诞生于 1991 年，作为一个任意精度的大整数运算库，它包含了任意精度的整数、浮点数的各种基础运算操作。它是一个 C 语言库，主要应用于密码学应用和研究、互联网安全应用、代数系统、计算代数研究等。</p>
 <p>GMP 库运行速度非常快，有网友测试它算 1000!结果不到一秒钟就已经算好，这还包括了输入输出的时间。</p>
 <p>GMP 非常的恐怖，里边的历史日志真的从 1991 年开始记录，一直记录到 2023 年。单单是编译安装我都用了 5 分钟，而里边几百上千个文件，就连 Makefile 都有快千行。我又想到，我的计算器比起 Postgresql 已经是小巫见大巫，而这个 GMP 库的计算器又让 Postgresql显得何其渺小。</p>
-<p><img src="https://s2.loli.net/2024/08/27/zQPW17DoXEjhVem.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1/body-057-bff3c796f3c8.webp" alt="image.png" /></p>
 <h2>结语</h2>
 <p>这个简单的计算器，让我感受到 C 语言的不简单。虽然才刚刚开始上手，但是指针，内存管理，多线程，优化等等东西都让我感受到这门语言独有的魅力。我认为语言的学习不是学个语法和单词就结束的，也不是学到分支、循环就结束了。学一门语言，就要学它的优势之处，学它的核心要义，这才是最重要的。</p>
 <p>而我的这次体验，让我感受到 C 的基础与重要性。我们现在的各种工具，操作系统，最底层里原来也就是这么简单的事务组合而成。想到这里，我又冒出了那个熟悉的词汇：敬畏。这些代码一点一点的累加，才有了今天的高楼大厦。</p>

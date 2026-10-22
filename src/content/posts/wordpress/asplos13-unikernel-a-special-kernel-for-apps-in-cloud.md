@@ -28,7 +28,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <p>This passage introduced a new OS kernel: Unikernel. The kernel can only run one apps, and try to make the app running on it and OS itself to be light, secure and fast.</p>
 <p>What's the difference between it and microkernel: The single running apps.</p>
 <p>Unikernel 镜像都很小，由 MirageOS实现的一个 DNS server 才 184KB，实现的一个 web server 674 KB，小到恐怖的程度。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250718104048347.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-07/asplos13-unikernel-a-special-kernel-for-apps-in-cloud/body-001-ca63e46ef62f.webp" alt="" /></p>
 <p>—— In return they offer significant reduction in image sizes, improved efficiency and security, and should reduce operational costs. Unikernel试图抹去现代操作系统带来的一些复杂性。因为“通用”的操作系统（就像任何Linux和Windows的发行版），通常会伴随着带来一些对你的应用来说并不需要的驱动、依赖包、服务、等等，但这些对每一个操作系统来说某种程度上又是必需的。</p>
 <h2>Docker VS Unikernel</h2>
 <p>Docker</p>
@@ -50,9 +50,9 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <p>是 <strong>「应用和最小化内核打包成单二进制」</strong> 的极端专用系统</p>
 <h2>Only has one address segement</h2>
 <p>A long context with several region.</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250718104457565.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-07/asplos13-unikernel-a-special-kernel-for-apps-in-cloud/body-002-8fb55933537d.webp" alt="" /></p>
 <h2>OS improvement?</h2>
 <p>Here use a word from “The Rise and Fall of the Operating System&quot;:</p>
 <p>As a result of added I/O device processing power, what else is obsolete in the software/hardware stack? One is tempted to argue that everything is obsolete. The whole hardware/soft ware stack is bifurcated at a seemingly arbitrary position which made sense 30 years ago, but no longer. Your average modern I/O device has more computing power than most continents had 30 years ago. Pretending that it is the same dumb device that needs to be programmed by flipping registers with a sharpened toothpick results in sad programmers and, if not broken, at least suboptimal drivers. Does doing 802.11 really require 30k+ lines of driver code (including comments), 80k+ lines of generic 802.11 support, and a 1 MB firmware to be loaded onto the NIC? For comparison, the entire 4.3BSD kernel from 1986 including all device drivers, TCP/IP, the file system, system calls, and so forth is roughly 100k lines of code. How difficult can it be to join a network and send and receive packets? Could we make do with 1k lines of system-side code and 1.01 MB of firmware?</p>
 <p>Therefore, there is no reason to port and cram an operating system into every problem space. Instead, we can split the operating system into the “orchestrating system” (which also has the catchy OS acronym going for it) and the drivers. Both have separate roles. The drivers define what is possible. The orchestrating system defines how the drivers should work and, especially, how they are not allowed to work. The two paths should be investigated relatively independently as opposed to classic systems develop ment where they are deeply intertwined.
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250718105049190.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-07/asplos13-unikernel-a-special-kernel-for-apps-in-cloud/body-003-974457f493e1.webp" alt="" /></p>

@@ -99,7 +99,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <p>The report is a little long, since there are many details in the code.</p>
 <h2>2. Overall Architecture</h2>
 <p>All of the service and database, Kafka and zookeeper run in Docker. For clients, they can use port <code>8080</code> to send RESTful API. The NGINX Server will catch the requests and send them to API Service with load balance scheduling (like Round Robin). The API Service runs in Flask framework will receive and deal with the requests. They will send <code>gRPC</code> communication to DB Service and Logging Service to deal with the requests. The DB Service will communicate with PG database on port <code>5432</code>, while Logging Service will put logging message from port <code>9092</code> to Kafka, which the Administrator and know the logging information.</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251117011447744.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/body-001-76dc28cf36ad.webp" alt="image.png" /></p>
 <ul>
 <li>The API Service include every API described in assignment.</li>
 <li>DB Service provide CRUD for products, users and orders.</li>
@@ -133,7 +133,7 @@ docker exec -it kafka kafka-console-consumer --bootstrap-server localhost:9092 -
 (Some python package may need to install)</p>
 <h3>How do I Implement the system?</h3>
 <p>In this section, I will explain how I set up the environment, generate code and implement the logic.</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251117013422424.png" alt="image.png|400" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/body-002-f5e5da30bbfb.webp" alt="image.png|400" /></p>
 <h3>Environment setup</h3>
 <p>I prepared a working environment with:</p>
 <ul>
@@ -243,10 +243,10 @@ docker-compose -f compose.yaml up --build -d # build up the images</code></pre>
   -i /local/openapi.yaml \
   -g python-flask \
   -o /local/server/python-flask</code></pre>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251103004511182.png" alt="image.png|600" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/body-003-8a98d077be31.webp" alt="image.png|600" /></p>
 <h3>Flask Controller+JWT</h3>
 <p>the FLASK has several controller for api service. Here I finish and test them. (If they need to communicate with db, just write dummy code first and impl them later)</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251117014316566.png" alt="image.png|400" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/body-004-03d46c554b02.webp" alt="image.png|400" /></p>
 <p>For example, the order_get help users know their orders:</p>
 <pre><code class="language-python">def orders_get(page: int = None, page_size: int = None):
     &quot;&quot;&quot;
@@ -657,7 +657,7 @@ On every failure, the handler sends a <strong>structured log</strong> to the Log
 <ol>
 <li>write the code for logs</li>
 </ol>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251117020141258.png" alt="image.png|500" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/body-005-188ff1bcb9f4.webp" alt="image.png|500" /></p>
 <p>Then use gRPC to communicate.</p>
 <pre><code class="language-proto">syntax = &quot;proto3&quot;;
 
@@ -730,8 +730,8 @@ service LoggingService {
     }])
 
     return &#039;Hello SUSTech Goods Store!&#039;</code></pre>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251117024452761.png" alt="image.png|600" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251117022915923.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/body-006-c3afb2558e83.webp" alt="image.png|600" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/body-007-8fe061163618.webp" alt="image.png" /></p>
 <p>you can also observe the load imbalance here (The api1 and api2 are two API Server in docker network)</p>
 <h3>Docker Compose Network</h3>
 <p>Connect everything in the docker</p>
@@ -818,7 +818,7 @@ volumes:
 <li>Orders API: the API to check and order users' orders.</li>
 </ol>
 <p>All of the api are shown here:</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251117012538157.png" alt="image.png|600" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/body-008-35d9da5bfbbe.webp" alt="image.png|600" /></p>
 <p>At the base URL, user can find a greeting API that returns a welcome message. And they can check the products without any password or JWT.</p>
 <table>
 <thead>
@@ -1237,7 +1237,7 @@ total = price * qty                </code></pre>
 <p>To create a JWT, clients first call the <code>POST /users/login</code> API with a username and password. The API Service uses gRPC to query the DB Service for the user record and verifies the password against a stored hash. On success, the API Service issues a JWT signed with a secret key loaded from the environment. The JWT payload contains the user’s <code>sid</code>, <code>user_id</code>, and an expiration timestamp.  </p>
 <p>In our API service, user-specific operations such as fetching the current user profile (<code>GET /users/me</code>), updating/deactivating the current user, and creating / listing / cancelling orders are protected by JWT-based authentication.  </p>
 <p>For subsequent requests, the client includes this token in the <code>Authorization: Bearer &lt;token&gt;</code> HTTP header. The API Service validates the token on each protected endpoint by verifying its signature and expiration. It then extracts the <code>sid</code> from the payload and calls the DB Service (e.g., <code>GetUserBySid</code>) to retrieve the authoritative user record and <code>user_id</code>. All downstream gRPC calls use this <code>user_id</code> instead of trusting any client-supplied identifier, so users can only access their own orders or profile. Additionally, every login and order-related request is logged via a client-side streaming gRPC connection to the Logging Service, which forwards all log messages to a Kafka topic for centralized monitoring.</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251119195704833.png" alt="image.png|400" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/body-009-0be07ade3945.webp" alt="image.png|400" /></p>
 <h4>4.2.1. Security scheme in OpenAPI</h4>
 <p>In the OpenAPI spec I define a JWT bearer scheme:</p>
 <pre><code class="language-python">components:
@@ -1287,13 +1287,13 @@ def _create_jwt_for_user(u: db_pb2.User) -&gt; str:
 <ol start="4">
 <li>The login API returns:</li>
 </ol>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251117025823894.png" alt="image.png|600" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/body-010-2dd1e7ca7ea9.webp" alt="image.png|600" /></p>
 <p>The client then sends this token in the <code>Authorization</code> HTTP header:<br />
 <code>Authorization: Bearer &lt;JWT&gt;</code>.</p>
 <p>And they can get the account info:</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251117025912578.png" alt="image.png|600" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/body-011-157cd13e3548.webp" alt="image.png|600" /></p>
 <p>They can also use this JWT to post orders (password is not needed here due to safety)
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251117030225517.png" alt="image.png|600" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/body-012-371a82c2128b.webp" alt="image.png|600" /></p>
 <hr />
 <h4>4.2.3. Decoding &amp; validating the token on each protected API</h4>
 <p>Connexion calls <code>info_from_bearerAuth(token)</code> for any operation that requires <code>bearerAuth</code>. My implementation roughly looks like:</p>
@@ -1383,7 +1383,7 @@ And I also add a simple <strong>authorization</strong> check: the <code>user_id<
 <li>
 <p>If the Authorization header is missing, malformed, or the token is invalid/expired,<br />
 the API returns <strong>401 Unauthorized</strong> with a JSON error body.
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251117030419976.png" alt="image.png|500" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/body-013-67ac2054bfee.webp" alt="image.png|500" /></p>
 </li>
 <li>
 <p>If the token is valid, but the user tries to access another user’s data / order, the API returns <strong>403 Forbidden</strong>.</p>
@@ -1402,7 +1402,7 @@ the API returns <strong>401 Unauthorized</strong> with a JSON error body.
 <h2>5. Field Data types</h2>
 <p><strong>This section shows how I select data types.</strong> Mostly I decide them base on database data type. And we show our principle and an example of <code>product</code>.</p>
 <p>First, I drew an E-R graph for the DB:
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251117030726060.png" alt="image.png|600" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/body-014-ec614897755f.webp" alt="image.png|600" /></p>
 <p>This is the most important part that I get understand the whole structure. By understanding the relationship, we can choose and select the data type with full consideration.</p>
 <h3>📌 General Selection Principles</h3>
 <h4><strong>1. Use database-native types first</strong></h4>
@@ -1589,7 +1589,7 @@ the API returns <strong>401 Unauthorized</strong> with a JSON error body.
     print(&quot;Hexadecimal representation of the gRPC response:&quot;, flush=True)
     print(hex_str, flush=True)</code></pre>
 <p>Here is the code:
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251120003557272.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/body-015-75a7d773012b.webp" alt="image.png" /></p>
 <p>So this is our message, and our encrypted code:</p>
 <pre><code class="language-bash">id: 1
 name: &quot;SUSTech Hoodie&quot;
@@ -1717,13 +1717,13 @@ if __name__ == &quot;__main__&quot;:
         for v in values:
             print(&quot;   &quot;, v)</code></pre>
 <p>Then we can get the result:
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251120004951788.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/body-016-915f3aec11c6.webp" alt="image.png" /></p>
 <h2>7. client-side streaming gRPC</h2>
 <p>This section we will introduce and explain how the client-side streaming RPC works in our Logging Service.</p>
 <p>In our implementation, the Logging Service defines a <strong>client-side streaming RPC</strong> named <code>StreamLogs</code>. The RESTful API Service acts as the gRPC client and continuously sends log messages through a single streaming RPC call, while the Logging Service receives these messages and forwards them to Kafka.</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251120015725176.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/body-017-0f81920fd339.webp" alt="image.png" /></p>
 <p>During runtime, API Service will send StreamLogs to Logging Service, and it will publish them to Kafka. Then if no more logs, client closes stream. So by doing that we don't need to have every LogMessage with every connections since ,any log messages share a single gRPC connection.</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251120015731917.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/body-018-e1e8ce288b9c.webp" alt="image.png" /></p>
 <h3>1. Client Implementation (API Service)</h3>
 <p>On the client side, we implement a helper function <code>send_logs(logs)</code>:</p>
 <pre><code class="language-python">def send_logs(logs):
@@ -1827,7 +1827,7 @@ if __name__ == &quot;__main__&quot;:
 <p>Configure DB Service ↔ PostgreSQL: port 5432
 Configure API Service ↔ DB Service &amp; Logging Service: port 50051 &amp; 50052
 Configure Logging Service ↔ Kafka: port 9092</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251117011447744.png" alt="image.png|600" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/body-001-76dc28cf36ad.webp" alt="image.png|600" /></p>
 <p>Inside the network, I use service names as hostnames (e.g., postgres:5432, db_service:50051, logging_service:50052, kafka:9092). I pass these endpoints into the containers via environment variables such as DB_HOST=postgres, DB_ADDR=db_service:50051, and KAFKA_BOOTSTRAP_SERVERS=kafka:9092. </p>
 <p>The API Service connects to the DB Service and Logging Service via gRPC over these internal addresses, and the DB/Logging services connect to PostgreSQL and Kafka in the same way. For external access, I only expose the necessary ports (e.g., NGINX at localhost:8080 and Kafka at localhost:9092) to the host. </p>
 <pre><code class="language-cpp">services:
@@ -1983,44 +1983,44 @@ NGINX → api1:8080, api2:8080 inside Docker</p>
 <p>I mainly use Swagger UI to test my API Service.</p>
 <p>First, User can see our website and its products:</p>
 <p>&quot;/&quot;
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251120005143527.png" alt="image.png|600" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/body-019-2979fa5f8f77.webp" alt="image.png|600" /></p>
 <p>&quot;/products&quot;
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251120005220844.png" alt="image.png|600" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/body-020-60a95e47c5a2.webp" alt="image.png|600" /></p>
 <p>&quot;/products/id&quot;
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251120005249156.png" alt="image.png|600" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/body-021-0d912e9cf8aa.webp" alt="image.png|600" /></p>
 <p>Then, user can register:
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251120005434018.png" alt="image.png|700" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/body-022-7bd381e57271.webp" alt="image.png|700" /></p>
 <p>User can login and get a JWT. And we won't get passwd back.
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251120005523311.png" alt="image.png|700" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/body-023-817a85c768a0.webp" alt="image.png|700" /></p>
 <p>We can put the JWT as we login:
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251120005631422.png" alt="image.png|300" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/body-024-9816b442b18e.webp" alt="image.png|300" /></p>
 <p>Get orders:
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251120010627071.png" alt="image.png|600" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/body-025-5b36d9db7b4f.webp" alt="image.png|600" /></p>
 <p>Place Order</p>
 <pre><code>{
   &quot;product_id&quot;: 2,
   &quot;quantity&quot;: 2
 }</code></pre>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251120011834780.png" alt="image.png|600" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/body-026-75cd2c06fec8.webp" alt="image.png|600" /></p>
 <p>The order id is 256.</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251120011403278.png" alt="image.png|600" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/body-027-fd698b74650d.webp" alt="image.png|600" /></p>
 <p>We can delete it:
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251120011916153.png" alt="image.png|600" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/body-028-304ce00bd69b.webp" alt="image.png|600" /></p>
 <p>Then:
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251120011944777.png" alt="image.png|600" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/body-029-f977377d57d8.webp" alt="image.png|600" /></p>
 <p>Check my account status:
 GET /user/me
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251120012104706.png" alt="image.png|500" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/body-030-20b0635a0633.webp" alt="image.png|500" /></p>
 <p>Update my account:
 PATCH /user/me
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251120012137317.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/body-031-4a2e7b52a5ab.webp" alt="image.png" /></p>
 <p>Delete the account:
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251120012219700.png" alt="image.png|500" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/body-032-ac1129f877fc.webp" alt="image.png|500" /></p>
 <h3>Kafka topic</h3>
 <p>run</p>
 <pre><code class="language-bash">docker exec -it kafka kafka-console-consumer     --bootstrap-server localhost:9092     --topic api-logs     --from-beginning</code></pre>
 <p>we can see the log from admin side.</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251117032241730.png" alt="image.png|600" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/body-033-0e59d63ecc20.webp" alt="image.png|600" /></p>
 <h3>QPS Benchmark</h3>
 <p>we use <code>hey</code> to benmark our APIs.</p>
 <pre><code>sudo apt  install hey
@@ -2028,17 +2028,17 @@ PATCH /user/me
 hey -n 2000 -c 50 http://localhost:8080/products</code></pre>
 <p>2000 means we request 2000 times, while 50 means 50 queries at one time.</p>
 <p>There will be several info we can get to see if our API is fast enough, and what's the bottleneck:</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251117032535635.png" alt="image.png|700" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/body-034-3156d8413b06.webp" alt="image.png|700" /></p>
 <p>As we can see, the QPS of our API is 894. According to the chart, most of the response time lies in 0.088s. And 95% in 0.0790s. The bottleneck is the DNS dialup (from docker) and resp wait (database service query). </p>
 <p><strong>So, a good way to improve the latency may be using some of the memory database like <code>redis</code>. Redis can store and return the query result in memory instead of the SSD/HDD.</strong></p>
 <p>This shows the reason why so many companies try to use Redis.</p>
 <p>We also test the api of /orders , with Auth. As we can see, this time <code>resp wait</code> increase, since we have more complex transaction logic.</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251117032839959.png" alt="image.png|700" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/body-035-7bd2854b1f4d.webp" alt="image.png|700" /></p>
 <p>(tips: since we only have 484 products (Originally 500, some of them I ordered before), only 242 requests success. But this maybe a good case for <strong>double-eleven day</strong> “秒杀” or why our school choose class systems fail all the time)</p>
 <h2>Understanding NGINX</h2>
 <p>Here I do a very simple experiment on Request. As we increased the concurrency from 50 to 400, the system was able to handle all 2000 requests successfully, and the throughput (Requests/sec) gradually increased.  </p>
 <p>Beyond a concurrency of around 600, the system started dropping requests: many connections failed at the transport layer and never produced an HTTP status code, eventually falling below 30%, while the apparent Requests/sec curve peaks around 1000 concurrency, drops, and then unexpectedly rises again.
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251120013952691.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/body-036-1099ee0359e1.webp" alt="image.png" /></p>
 <p>As you can see, when concurrency is 400 (that means 400 users request at one time), the success rate is 100% and dealing speed is about 800. This maybe the maximum number that system can take. After that, system can not deal with some request.</p>
 <h4><strong>Why the Success rate go down as concurrency increase</strong></h4>
 <p>When concurrency becomes too high for the system to handle, many requests begin failing <strong>before they even reach the application layer</strong>. This happens due to limits in the web server (NGINX), OS file descriptors, or the backend worker capacity.</p>
@@ -2088,7 +2088,7 @@ When the concurrency exceeds the server’s capacity, NGINX intentionally reject
 <p>In other words, instead of letting the entire system become slow or crash, NGINX performs graceful degradation:<br />
 it sacrifices excess traffic to preserve the performance and stability of the remaining requests.</p>
 <p>Kafka now is very crazy:
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251117033322641.png" alt="image.png|700" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2/body-037-8a5bb045329a.webp" alt="image.png|700" /></p>
 <p><strong>For most of the CRUD scenario, the QPS is above 800, which is ok for a school market backend. But to increase, we can increase the number of thread in DB threadpool, gRPC pool, and API Server.</strong> </p>
 <h2>More over, we should develop a distributed cloud system to support them with more QPS support (This is the purpose why we attend the class :0  ).</h2>
 <p>There are so many other benchmarks we can make, like NGINX scheduling strategy, thread number, etc. You can try it later.</p>

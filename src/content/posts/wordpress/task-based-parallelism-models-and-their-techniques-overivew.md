@@ -29,7 +29,7 @@ Tutorial: <a href="https://charm.readthedocs.io/en/latest/index.html">https://ch
 <p>From UIUC PPL Lab</p>
 <p>A Lib that updated until 2023</p>
 <p>Used in HPC and Scientific Computing area</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260107161055096.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/task-based-parallelism-models-and-their-techniques-overivew/body-001-b09b5791977a.webp" alt="image.png" /></p>
 <h3>Vector Load Balancing</h3>
 <p><a href="https://charm.cs.illinois.edu/newPapers/23-01/Dissertation_Buch_Final.pdf">https://charm.cs.illinois.edu/newPapers/23-01/Dissertation_Buch_Final.pdf</a></p>
 <p>In this doctoral dissertation, <strong>Vector Load Balancing</strong> is an innovative solution proposed by the author to address the increasingly complex load imbalance problems in modern high-performance computing (HPC).</p>
@@ -81,7 +81,7 @@ Github: <a href="https://github.com/uxlfoundation/oneTBB.git">https://github.com
 <p>doc: <a href="https://hpx-docs.stellar-group.org/latest/html/index.html">https://hpx-docs.stellar-group.org/latest/html/index.html</a>
 Git: <a href="https://github.com/STEllAR-GROUP/hpx.git">https://github.com/STEllAR-GROUP/hpx.git</a></p>
 <p>update until 2024</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260107163139000.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/task-based-parallelism-models-and-their-techniques-overivew/body-002-0799d1c83390.webp" alt="image.png" /></p>
 <h2>Clik</h2>
 <p>Git: <a href="https://github.com/OpenCilk/opencilk-project.git">https://github.com/OpenCilk/opencilk-project.git</a>
 Paper: <a href="https://www.cse.wustl.edu/~angelee/home_page/papers/opencilk.pdf">https://www.cse.wustl.edu/~angelee/home_page/papers/opencilk.pdf</a>
@@ -110,6 +110,6 @@ Graham's Bound traditionally states that for a DAG with total work W and critica
 <li>This is equivalent to assuming that task stealing occurs at every potential parallel point (simulating the worst-case scenario).</li>
 <li>The <strong>Burdened Span <code class="mathjax-inline language-mathjax">\hat{T}_\infty</code></strong> refers to the length of the longest path found in this graph, which includes all burden weights.</li>
 </ul>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260107165415834.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/task-based-parallelism-models-and-their-techniques-overivew/body-003-72b4dfab8475.webp" alt="image.png" /></p>
 <p>So the speedup may look like:
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260107165646489.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/task-based-parallelism-models-and-their-techniques-overivew/body-004-9d5bc3f800c0.webp" alt="image.png" /></p>

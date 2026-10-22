@@ -18,7 +18,7 @@ viewCount: 1001
 likeCount: 0
 dislikeCount: 0
 showCitation: true
-featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/12/629CB5C1BC8AB66E94EF878A0DE542AC.jpg"
+featuredImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/how-can-lscpu-get-cache-size/body-001-60aeb20d0fee.webp"
 importedFromWordPress: true
 cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/how-can-lscpu-get-cache-size.webp"
 ---
@@ -26,8 +26,8 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-
 <p><a href="http://www.flounder.com/cpuid_explorer2.htm#CPUID(0x80000002)">The CPUID Explorer: Part 2</a></p>
 <h2>Answer: CPUID Register</h2>
 <p>From CPUID register!</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/202412132244932.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/202412132244608.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/how-can-lscpu-get-cache-size/body-002-cf6788056142.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/how-can-lscpu-get-cache-size/body-003-1c9cb6b2fe0f.webp" alt="" /></p>
 <p><strong>CPUID</strong> is an instruction in x86 and x86-64 processors that provides detailed information about the CPU, such as its manufacturer, model, features, and supported instruction sets. This instruction allows software (e.g., operating systems, utilities, and applications) to query the processor for its capabilities and characteristics, enabling better optimization, compatibility checks, and hardware-specific decisions.</p>
 <h3>Key Features of CPUID:</h3>
 <ol>

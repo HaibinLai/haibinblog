@@ -23,50 +23,50 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 ---
 <p>第一章最后一部分+CFG</p>
 <h2>Convert NFA to DFA</h2>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/Pasted%20image%2020250921141443.png" alt="" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-nfa-dfa-cfg/body-001-71a782c0cec7.webp" alt="" />
 The algorithm here is to explore the state</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/Pasted%20image%2020250921141930.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-nfa-dfa-cfg/body-002-24f98e34edde.webp" alt="" /></p>
 <p>[1,2,3,4,6,7,8] 是在move[A,a]后能达到的所有状态</p>
 <p>![[Pasted image 20250921142734.png]]</p>
 <p>我们用达到闭包的个数，来判定目前的状态
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/Pasted%20image%2020250921141930.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/Pasted%20image%2020250921143634.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/Pasted%20image%2020250921143656.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-nfa-dfa-cfg/body-002-24f98e34edde.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-nfa-dfa-cfg/body-003-4eec29d65ab3.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-nfa-dfa-cfg/body-004-b42c4725adb1.webp" alt="" /></p>
 <p>Start State A (We have 0), Accepting States E (We have 10)</p>
 <p>这样，我们就能找到一个DFA，其每一个输入，都会对应一个状态</p>
 <h2>Regexp -&gt; NFA</h2>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250921144511047.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-nfa-dfa-cfg/body-005-509e9a6170a8.webp" alt="image.png" /></p>
 <p>We can now construct a machine to recognize &quot;s|t&quot;
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250921144925539.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-nfa-dfa-cfg/body-006-993512a6c2b8.webp" alt="image.png" /></p>
 <p>How to represent &quot;st&quot;, use an intermediate state:
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250921145047062.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-nfa-dfa-cfg/body-007-7fb63673349f.webp" alt="image.png" /></p>
 <p>Kleene: 返回即可， s*
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250921150528075.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-nfa-dfa-cfg/body-008-9d11a617000e.webp" alt="image.png" /></p>
 <h3>Example</h3>
 <p>神奇的是，我们应该先构造子表达式，再构造顶层式子</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250921151101574.png" alt="image.png" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250921151411066.png" alt="image.png" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250921151500719.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-nfa-dfa-cfg/body-009-fc8f743b659e.webp" alt="image.png" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-nfa-dfa-cfg/body-010-5a89d9de8ac5.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-nfa-dfa-cfg/body-011-42658d89dc23.webp" alt="image.png" /></p>
 <h2>Finite Automata</h2>
 <h3>Combining NFAs</h3>
 <p>In Lexical Analyzer, we will get many regular expression for different pattern</p>
 <p>And we can do: Regexp -&gt; NFA</p>
 <p>And we combine these NFAs using an union like combination
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250921151822098.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-nfa-dfa-cfg/body-012-6a9bff4e90f2.webp" alt="image.png" /></p>
 <p>Then for each NFA, convert them into DFA</p>
 <h3>Example</h3>
 <p>a {action A1 for pattern p1 }
 abb {action A2 for pattern p2 }
 a*b+ {p3}</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250921152205282.png" alt="image.png" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250921152550565.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-nfa-dfa-cfg/body-013-7714939cd389.webp" alt="image.png" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-nfa-dfa-cfg/body-014-987a6bde6af3.webp" alt="image.png" /></p>
 <h2>Context-Free Grammars &amp;&amp; Syntax Analysis</h2>
 <p>To see if we have syntax error
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250921153106153.png" alt="image.png" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250921153244338.png" alt="image.png" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250921153736648.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-nfa-dfa-cfg/body-015-b0759e80e8d6.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-nfa-dfa-cfg/body-016-f0f251a71ef0.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-nfa-dfa-cfg/body-017-7f0d6aebbc47.webp" alt="image.png" /></p>
 <p>例子：a+b</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250921154144413.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-nfa-dfa-cfg/body-018-aa63d894f2cf.webp" alt="image.png" /></p>
 <p>expression 可以是 expression + term
 expression 可以是 term
 term 可以是factor

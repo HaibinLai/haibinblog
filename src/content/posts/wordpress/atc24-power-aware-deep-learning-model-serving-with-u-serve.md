@@ -68,28 +68,28 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 </ul>
 <p>论文强调功率效率在ML推理中的重要性，适用于同构GPU集群，未来可扩展到异构环境或更多优化（如量化）。整体而言，这是一篇针对实际部署的系统性工作，结合了算法创新和实证验证。</p>
 <p>模型服务，就是前向传播</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250825212304640.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/atc24-power-aware-deep-learning-model-serving-with-u-serve/body-001-1bbf64a54a67.webp" alt="" /></p>
 <p>但是，在GPU+LLM Serving 场景下，更不好调度+节能</p>
 <p>挑战1： GPU频率如何影响服务延迟</p>
 <p>这里GPU频率一旦降下来，对延迟敏感型的服务是致命的</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250825212440930.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/atc24-power-aware-deep-learning-model-serving-with-u-serve/body-002-6e6f70ba7d67.webp" alt="" /></p>
 <p>挑战2 生成词长度大小不一，使得我们难以估计GPU降频的影响</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250825212724688.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/atc24-power-aware-deep-learning-model-serving-with-u-serve/body-003-32d1f3ebe48a.webp" alt="" /></p>
 <ol start="3">
 <li>挑战3 GPU不能细粒度缩放。A模型放在GPU3，一部分放在GPU1，但是如果你的GPU各自频率不太一样，就会出问题
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250825212937925.png" alt="" /></li>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/atc24-power-aware-deep-learning-model-serving-with-u-serve/body-004-e09512a17f23.webp" alt="" /></li>
 </ol>
 <h2>Design</h2>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250825213041522.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250825213236084.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/atc24-power-aware-deep-learning-model-serving-with-u-serve/body-005-a7343bcf4d8b.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/atc24-power-aware-deep-learning-model-serving-with-u-serve/body-006-9dd764420a47.webp" alt="" /></p>
 <h2>Power aware</h2>
 <p>尝试把能耗算力敏感度相似的算子的跑放在一个GPU</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250825213502389.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/atc24-power-aware-deep-learning-model-serving-with-u-serve/body-007-d2b9c8a7913b.webp" alt="" /></p>
 <h2>预处具体的词源有多长</h2>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250825220050465.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/atc24-power-aware-deep-learning-model-serving-with-u-serve/body-008-ec162151ede0.webp" alt="" /></p>
 <h2>GPU freq scaler</h2>
 <p>使用乘法增加-加法减少（MIAD）算法，基于延迟松弛（slack）动态调整频率：保守下调（避免SLO违反）、激进上调（应对负载峰值）。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250825231221385.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/atc24-power-aware-deep-learning-model-serving-with-u-serve/body-009-949f538e4945.webp" alt="" /></p>
 <h2>评价</h2>
 <p>通信粒度，多卡下，感觉还有空间</p>
 <p>有的实验对比值得学习跟思考，然后去想瓶颈</p>

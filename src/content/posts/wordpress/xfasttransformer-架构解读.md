@@ -33,22 +33,22 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 官方文档和微信群
 <a href="https://github.com/intel/xFasterTransformer/wiki">Home · intel/xFasterTransformer Wiki</a></p>
 <p>与Pytorch对比是真的狗，因为Pytorch本身就很烂
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250612101640947.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/xfasttransformer-%E6%9E%B6%E6%9E%84%E8%A7%A3%E8%AF%BB/body-001-ec76523ea363.webp" alt="" /></p>
 <p>xFasterTransformer  是英特尔开源的推理框架，其遵循 Apache2.0 许可，为 LLM 在 CPU 平台上的推理加速提供了一种深度优化的解决方案。xFasterTransformer 支持分布式推理，支持单机跨 socket 的分布式部署，也支持多机跨节点的分布式部署。并提供了 C++和 Python 两种 API 接口，涵盖了从上层到底层的接口调用，易于用户使用并将其集成到自有业务框架中。xFasterTransformer 支持 BF16，FP16，INT8，INT4 等多种数据类型及多种 LLM 主流模型，比如 ChatGLM，ChatGLM2/3， Llama/Llama2，Baichuan，QWEN，OPT 以及 SecLLM(YaRN-Llama)等。其框架设计如图 1 所示。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250612101728504.png" alt="1749741442526.jpg" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/xfasttransformer-%E6%9E%B6%E6%9E%84%E8%A7%A3%E8%AF%BB/body-002-198daff72e5a.webp" alt="1749741442526.jpg" /></p>
 <h2>优化策略</h2>
 <p>根据论文，有这么几个优化</p>
 <ol>
 <li>分布式推理通信优化，减少通信次数
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250612102428638.png" alt="" /></li>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/xfasttransformer-%E6%9E%B6%E6%9E%84%E8%A7%A3%E8%AF%BB/body-003-1f8a1e6cf4f9.webp" alt="" /></li>
 <li>使用MKL/oneDNN加速库</li>
 <li>算子融合，针对不同长度的序列采用不同的kernel，保证访存效率最高，采取不同的优化算法来进行优化</li>
 <li>-低精度量化和稀疏化</li>
 </ol>
 <h2>整体架构</h2>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250612120225283.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/xfasttransformer-%E6%9E%B6%E6%9E%84%E8%A7%A3%E8%AF%BB/body-004-99a39de6caee.webp" alt="" /></p>
 <p>对比LLM推理的走过的整个结构 （Qwen2.5-32B）
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250612130528990.png" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/xfasttransformer-%E6%9E%B6%E6%9E%84%E8%A7%A3%E8%AF%BB/body-005-c0a4c2a78149.webp" alt="" />
 大语言模型所有算子逻辑 - 骑虎南下的文章 - 知乎
 <a href="https://zhuanlan.zhihu.com/p/1909996866432668841">https://zhuanlan.zhihu.com/p/1909996866432668841</a></p>
 <h2>xFt example解读</h2>
@@ -553,7 +553,7 @@ Pipeline parallel and tensor parallel introduction:
 */</code></pre>
 <h2>flash attention</h2>
 <p><a href="https://github.com/intel/xFasterTransformer/blob/main/src/layers/attention.h#L1121">xFasterTransformer/src/layers/attention.h at main · intel/xFasterTransformer</a></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250612133204594.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/xfasttransformer-%E6%9E%B6%E6%9E%84%E8%A7%A3%E8%AF%BB/body-006-38a0c7849cf1.webp" alt="" /></p>
 <pre><code class="language-CPP">    template &lt;typename KVCacheT&gt;
     void flashAttention(DecoderContext *ctx, xft::Matrix&lt;ImT&gt; &amp;query, xft::Matrix&lt;ImT&gt; &amp;key, xft::Matrix&lt;ImT&gt; &amp;value,
             xft::Matrix&lt;ImT&gt; &amp;result, KVCacheTensor&lt;KVCacheT&gt; &amp;presentKey, KVCacheTensor&lt;KVCacheT&gt; &amp;presentValue,

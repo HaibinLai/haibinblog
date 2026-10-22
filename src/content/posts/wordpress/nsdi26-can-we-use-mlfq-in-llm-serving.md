@@ -36,7 +36,7 @@ From &quot;OSTEP&quot;:
 <p>Some experiments in Linux 2.6
 <a href="https://pages.cs.wisc.edu/~ltorrey/papers/torrey_spe06.pdf">https://pages.cs.wisc.edu/~ltorrey/papers/torrey_spe06.pdf</a></p>
 <p>The article titled <strong>&quot;Fast Distributed Inference Serving for Large Language Models&quot;</strong> proposes and implements <strong>FastServe</strong>, a <strong>distributed inference serving system</strong> specifically designed for large-scale language models. It aims to address the issues of <strong>high latency</strong> and <strong>head-of-line blocking</strong> in existing LLM serving systems.</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251021174654602.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-10/nsdi26-can-we-use-mlfq-in-llm-serving/body-001-6436f324e711.webp" alt="image.png" /></p>
 <h2>Motivation</h2>
 <ul>
 <li>LLM inference has an <strong>autoregressive</strong> nature, generating one token at a time with an uncertain output length.</li>
@@ -45,12 +45,12 @@ From &quot;OSTEP&quot;:
 <li><strong>Head-of-line blocking</strong>: Long tasks block short tasks, causing queuing delays to account for over 90% of the total latency.</li>
 </ul></li>
 </ul>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251021174335888.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-10/nsdi26-can-we-use-mlfq-in-llm-serving/body-002-c5e9a72ef6db.webp" alt="image.png" /></p>
 <h2>Core Contributions</h2>
 <h3>Try to use Multi-Level Feedback Queue (MLFQ)</h3>
 <p>Each job in Scheduling is a inference request.</p>
 <p>We can't use MLFQ simply. Since LLM has Decode and Prefill. So they design Skip-join mechanism for scheduling Prefilling (They will upload the priority for MLFQ)</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251021174714768.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-10/nsdi26-can-we-use-mlfq-in-llm-serving/body-003-e3a5e4ea682d.webp" alt="image.png" /></p>
 <ul>
 <li>Leverages the <strong>semi-known information</strong> characteristic of LLM inference:
 <ul>
@@ -64,16 +64,16 @@ From &quot;OSTEP&quot;:
 <li>Avoids frequent preemption due to long initial phases, reducing ineffective scheduling.  </li>
 <li>Introduces a <strong>starvation prevention mechanism</strong> to periodically elevate the priority of tasks that have been waiting for an extended period.</li>
 </ul>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251021180945628.png" alt="image.png" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251021104749369.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-10/nsdi26-can-we-use-mlfq-in-llm-serving/body-004-10f0d8e6254b.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-10/nsdi26-can-we-use-mlfq-in-llm-serving/body-005-68b3094bc2d9.webp" alt="image.png" /></p>
 <h3>2. <strong>Proactive Key-Value Cache Management Mechanism</strong></h3>
 <p>This is caused by using MLFQ. We have to stored KVCache.</p>
 <p>就是如果你用MLFQ，就会导致KVCache经常堆积（因为很多请求来不及处理，KVCache也必须先记录着，所以才有这个设计）</p>
 <p>This time GPU mem is not enough. So we have to store them in CPU.</p>
 <p>One optimization is to overlap the time for transferring J2 data and compute J1.</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251021181856461.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-10/nsdi26-can-we-use-mlfq-in-llm-serving/body-006-5645d3750cec.webp" alt="image.png" /></p>
 <p>To reach this, the time for this is:
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251021181749706.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-10/nsdi26-can-we-use-mlfq-in-llm-serving/body-007-916d2b8148ba.webp" alt="image.png" /></p>
 <ul>
 <li>Preemptive scheduling generates significant intermediate states (KV Cache), occupying GPU memory.  </li>
 <li>When GPU memory is insufficient, FastServe:
@@ -101,7 +101,7 @@ From &quot;OSTEP&quot;:
 </ul></li>
 <li>Compared to FasterTransformer: Achieved even more significant improvements (up to 74.9×).</li>
 </ul>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251021182005180.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-10/nsdi26-can-we-use-mlfq-in-llm-serving/body-008-a47fb6207a69.webp" alt="image.png" /></p>
 <p>请求的数量其实挺少的</p>
 <h3>Summary</h3>
 <p>FastServe delivers optimized performance through:</p>

@@ -76,7 +76,7 @@ int main(void) {
 <p>Compile it using X11 library:</p>
 <pre><code class="language-bash">gcc hello_x11.c -o HelloX11 -lX11</code></pre>
 <p>if it works well, it will output a screen with &quot;hello world&quot;:
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/202501122334946.png" alt="a091ddae8f24749bb2bbd8d4314c342.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-01/experiment/body-001-d51014856cf7.webp" alt="a091ddae8f24749bb2bbd8d4314c342.png" /></p>
 <h3>Extra: X11 Debug</h3>
 <ol>
 <li>vscode</li>
@@ -113,11 +113,11 @@ make install</code></pre>
 make build
 make run</code></pre>
 <p>And we can see the qemu is starting using a GTK Window.
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/202501131556119.png" alt="271b5791bdda282e7ff4332ec2e17d9.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-01/experiment/body-002-f11b35222cc4.webp" alt="271b5791bdda282e7ff4332ec2e17d9.png" /></p>
 <p>Then, it will appear with all screen green:</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/202501131557311.png" alt="9c34773ee6cccfcd92c3279364fe6ea.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-01/experiment/body-003-a5a3095bc915.webp" alt="9c34773ee6cccfcd92c3279364fe6ea.png" /></p>
 <p>This is because
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/202501131558856.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-01/experiment/body-004-aa3834571068.webp" alt="" /></p>
 <h2>Reference</h2>
 <p>GTK
 <a href="https://askubuntu.com/questions/1309029/qemu-display-gtk-and-display-sdl-not-available-ubuntu-20-04-1-lts">QEMU -display gtk and -display sdl not available | Ubuntu 20.04.1 LTS - Ask Ubuntu</a></p>

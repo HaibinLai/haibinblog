@@ -25,7 +25,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 NVIDIA Grace Hopper 与 NVLink Fusion 架构对异构并行计算优化的影响 - William的文章 - 知乎
 <a href="https://zhuanlan.zhihu.com/p/1911971133923754274">https://zhuanlan.zhihu.com/p/1911971133923754274</a></p>
 <p>Grace Hopper Superchip 通过 NVLink Chip-to-Chip (C2C) 互连技术，将专为 AI 和 HPC 优化的 Grace CPU 与强大的 Hopper GPU 紧密集成，实现了高带宽、低延迟的缓存一致性内存共享。这种设计显著缓解了传统 PCIe 总线带来的数据传输限制，简化了编程模型，并提高了整体系统效率。凭借 NVLink-C2C 和一致性统一内存 ，传统意义上关于“CPU 数据”和“GPU 数据”的严格区分变得模糊。对于异构系统而言，“数据局部性”的含义也因此被重新定义。它不再仅仅关乎数据存储在哪块物理内存中，而更多地关乎数据在被任一处理器需要时是否能够被高效访问。高带宽使得 CPU 内存对于许多工作负载而言，成为了 GPU 内存的一个可行扩展。<strong>在这种架构中，CPU 与 GPU 共享一个统一的虚拟内存空间（即系统内存），而地址翻译由硬件加速完成，无需显式数据拷贝。</strong></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250829230456625.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/icpp24-grace-hopper-gpu%E4%B8%AD%E7%9A%84%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/body-001-fa1a0b98e93a.webp" alt="" /></p>
 <h2>Harnessing Integrated CPU-GPU System Memory for HPC: a first look into Grace Hopper</h2>
 <p>这篇文章是对NVIDIA Grace Hopper Superchip（一个集成了ARM CPU和H100 GPU的系统）的首次深入研究，重点探讨其集成CPU-GPU系统内存管理在高性能计算（HPC）中的应用。该系统通过硬件加速的统一内存解决方案（如缓存一致的NVLink-C2C互连和共享系统页表）来解决传统CPU-GPU内存管理的局限性，例如显式数据拷贝、统一虚拟内存（UVM）的页故障开销和迁移瓶颈。</p>
 <h3>主要内容和方法</h3>
@@ -49,7 +49,7 @@ NVIDIA Grace Hopper 与 NVLink Fusion 架构对异构并行计算优化的影响
 <h2>研究背景</h2>
 <p>好的，我来给你简单介绍一下 <strong>统一虚拟内存（UVM）</strong> 和 <strong>数据对象卸载</strong>：</p>
 <h3>统一虚拟内存（UVM, Unified Virtual Memory）</h3>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250829102746813.png" alt="" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/icpp24-grace-hopper-gpu%E4%B8%AD%E7%9A%84%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/body-002-695cf0dfe052.webp" alt="" />
 <a href="https://arxiv.org/pdf/2411.05309v1#:~:text=To%20ease%20programma-bility%2C%20programming%20abstractions%20such%20as%20unified,the%20data%20on%20demand%20as%20it%20is%20accessed.">https://arxiv.org/pdf/2411.05309v1</a></p>
 <ul>
 <li><strong>概念</strong>：由 NVIDIA 等提出的一种软硬件协同机制，把 <strong>CPU 内存和 GPU 内存抽象成一个统一的地址空间</strong>。</li>
@@ -133,7 +133,7 @@ NVIDIA Grace Hopper 与 NVLink Fusion 架构对异构并行计算优化的影响
 <p>目前对 Grace Hopper 上这种 <strong>CPU–GPU 一致性系统内存</strong> 的研究仍然有限，尤其在 <strong>内存分配策略、内存管理机制以及页迁移开销</strong> 等方面的理解不足。而这些因素对开发者和研究人员来说至关重要，因为它们决定了如何充分利用这一首个 <strong>硬件加速的统一内存系统</strong>。</p>
 <p>因此，本文旨在填补这一空白，通过对比 <strong>系统内存</strong> 与现有 <strong>托管内存（managed memory, UVM）</strong> 的表现，评估其在六个代表性 HPC 应用中的性能影响。这些应用包括前沿的 Qiskit 量子计算机模拟器、<strong>图计算应用</strong>和科学计算应用，从而为未来 CPU-GPU 平台上的统一内存优化提供参考。</p>
 <h2>Grace Hopper Superchip 的内存子系统</h2>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250829114739912.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/icpp24-grace-hopper-gpu%E4%B8%AD%E7%9A%84%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/body-003-fce5fdb1742c.webp" alt="" /></p>
 <p>我们介绍 <strong>Grace Hopper Superchip 的内存子系统</strong>，重点关注在单一共享 CPU–GPU 内存域内的硬件与操作系统（OS）层面的内存管理。我们进一步讨论该内存系统如何通过两种统一内存管理方案暴露给程序员：<strong>系统分配内存（system-allocated memory）</strong> 和 <strong>CUDA 托管内存（CUDA managed memory）</strong>。</p>
 <p>Grace Hopper 系统采用 <strong>两层内存架构</strong>，CPU 与 GPU 各自配备独立的物理内存：</p>
 <ul>
@@ -255,7 +255,7 @@ NVIDIA Grace Hopper 与 NVLink Fusion 架构对异构并行计算优化的影响
 <li><strong>支持原子操作</strong>：允许跨处理器原子读写与修改物理内存位置；</li>
 <li><strong>协议</strong>：基于 Arm 的 AMBA CHI 协议实现，硬件级支持，用户无需干预。</li>
 </ul>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250829230436760.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/icpp24-grace-hopper-gpu%E4%B8%AD%E7%9A%84%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86/body-004-6ae04453f5c4.webp" alt="" /></p>
 <p>✅ 总结：
 Grace Hopper 内存系统通过 <strong>NVLink-C2C 互联</strong>、<strong>SMMU 支持的系统级页表</strong> 以及 <strong>硬件加速的虚拟–物理地址转换</strong>，实现了统一的 CPU–GPU 内存域。相比传统的托管内存（UVM），该方案减少了 GPU page fault 处理开销，并支持缓存行粒度的透明远程访问，大幅优化了 CPU–GPU 协同内存管理的效率。</p>
 <h3>System-Allocated Memory</h3>

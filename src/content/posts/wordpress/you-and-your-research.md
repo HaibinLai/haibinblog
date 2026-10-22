@@ -27,7 +27,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 Brains are measured in various ways. In
 mathematics, theoretical physics, astrophysics,
 typically brains correlates to a great extent with  the ability to manipulate symbols.</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251222104732539.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/you-and-your-research/body-001-be0e03e608de.webp" alt="image.png" /></p>
 <p>What most people think are the best
 working conditions, are not.
 • Because people are often most productive
@@ -47,4 +47,4 @@ outstanding, first-class work. When you have a real important problem
 you don‟t let anything else get the center
 of your attention you keep your thoughts
 on the problem.</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251222105205123.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/you-and-your-research/body-002-3d643a37a7a6.webp" alt="image.png" /></p>

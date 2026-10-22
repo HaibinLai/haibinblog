@@ -18,13 +18,13 @@ viewCount: 663
 likeCount: 0
 dislikeCount: 0
 showCitation: true
-featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/10/image-1730816166519.png"
+featuredImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-10/hpl-%E6%B5%AE%E7%82%B9%E6%95%B0%E7%90%86%E8%AE%BA%E6%80%A7%E8%83%BD%E4%B8%8E%E5%AE%9E%E9%99%85%E6%80%A7%E8%83%BD%E7%9B%B8%E5%B7%AE6%E5%80%8D%E9%97%AE%E9%A2%98/body-001-9a3be6ee8046.webp"
 importedFromWordPress: true
 cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-10/hpl-%E6%B5%AE%E7%82%B9%E6%95%B0%E7%90%86%E8%AE%BA%E6%80%A7%E8%83%BD%E4%B8%8E%E5%AE%9E%E9%99%85%E6%80%A7%E8%83%BD%E7%9B%B8%E5%B7%AE6%E5%80%8D%E9%97%AE%E9%A2%98.webp"
 ---
 <p>HPL</p>
 <p>为什么是6</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/10/image-1730816166519.png" alt="file" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-10/hpl-%E6%B5%AE%E7%82%B9%E6%95%B0%E7%90%86%E8%AE%BA%E6%80%A7%E8%83%BD%E4%B8%8E%E5%AE%9E%E9%99%85%E6%80%A7%E8%83%BD%E7%9B%B8%E5%B7%AE6%E5%80%8D%E9%97%AE%E9%A2%98/body-001-9a3be6ee8046.webp" alt="file" /></p>
 <p>dispatch </p>
 <p><a href="https://www.nextplatform.com/2021/03/26/deep-dive-into-amds-milan-epyc-7003-architecture/">https://www.nextplatform.com/2021/03/26/deep-dive-into-amds-milan-epyc-7003-architecture/</a></p>
 <p><a href="https://www.nextplatform.com/wp-content/uploads/2021/03/amd-milan-epyc-zen2-versus-zen3.jpg">https://www.nextplatform.com/wp-content/uploads/2021/03/amd-milan-epyc-zen2-versus-zen3.jpg</a></p>

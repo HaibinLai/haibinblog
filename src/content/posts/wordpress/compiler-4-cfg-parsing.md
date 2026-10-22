@@ -20,10 +20,10 @@ showCitation: true
 importedFromWordPress: true
 cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-4-cfg-parsing.webp"
 ---
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250929140734725.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-4-cfg-parsing/body-001-b5991e85890b.webp" alt="image.png" /></p>
 <h2>CFG</h2>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250921153244338.png" alt="image.png" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250921154144413.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-4-cfg-parsing/body-002-f0f251a71ef0.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-4-cfg-parsing/body-003-aa63d894f2cf.webp" alt="image.png" /></p>
 <p>Terminal: 对应loop，对应if，对应XX</p>
 <p>Productions: 产生式</p>
 <p>Derivation推导
@@ -31,7 +31,7 @@ CFG可以推导很多不同的式子</p>
 <h2>Notations</h2>
 <h2>Terminologies 文法的句型</h2>
 <p>这里我们看到，文法</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250929140801371.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-4-cfg-parsing/body-004-2243a6c9bb27.webp" alt="image.png" /></p>
 <h2>最左推导 &amp; 最右推导</h2>
 <p>在编译原理中，<strong>最左推导</strong>和<strong>最右推导</strong>都是从文法的开始符号（Start Symbol）出发，通过不断用产生式替换非终结符，逐步推导出一个句子的过程。区别在于：<strong>每一步选择替换的非终结符的位置不同</strong>。</p>
 <hr />
@@ -77,13 +77,13 @@ B → b</code></pre>
 <li><strong>最右推导的逆过程对应自底向上的分析（Bottom-Up Parsing）</strong>，尤其是LR分析。</li>
 </ul></li>
 </ul>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250929141747084.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-4-cfg-parsing/body-005-0840b9d223a9.webp" alt="image.png" /></p>
 <p>推导跟分析树是many - one
 但是 leftmost / rightmost 跟分析树是 one to one</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250929142708337.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-4-cfg-parsing/body-006-549b091ac3fa.webp" alt="image.png" /></p>
 <h2>模糊的二义性 Ambiguity</h2>
 <p>如果一个语句，它可以有两个语法分析树，那它就是Ambiguity</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250929142822527.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-4-cfg-parsing/body-007-a1888346e411.webp" alt="image.png" /></p>
 <p>The grammar of a programming language typically needs to be unambiguous</p>
 <h2>CFGs are more powerful than regexp</h2>
 <p>CFG are powerful, while regexp are more efficient</p>
@@ -99,10 +99,10 @@ B → b</code></pre>
 <p>方法：</p>
 <ol>
 <li>根据0，1，2，3，构建：$A_0, A_1, A_2, A_3$
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250929144307504.png" alt="image.png" /></li>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-4-cfg-parsing/body-008-92b9cb9bbf11.webp" alt="image.png" /></li>
 </ol>
 <p>So:</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250929144832881.png" alt="" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-4-cfg-parsing/body-009-0ca89a406c74.webp" alt="" />
 Consider the string 𝒃𝒂𝒂𝒃𝒃: The process of the NFA accepting the sentence corresponds exactly to the derivation of the sentence from the grammar</p>
 <h2>however,  CFG &gt; Regular Expression</h2>
 <p>some Context free languages cannot be described using regulat experssions</p>
@@ -160,7 +160,7 @@ L = { a^n b^n ;\mid; n \geq 1 }<br />
 │   └── b
 └── b
 </code></pre>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250929150401221.png" alt="image.png" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-4-cfg-parsing/body-010-6993f66348c3.webp" alt="image.png" />
 如何证明找不到这个语言？反证法</p>
 <p>假设我找到了：</p>
 <p>我们中间有一个状态，它是一定会被匹配两次的，分别是字符串 a_i 和 a_j （为什么会被匹配两次呢，因为状态数）</p>
@@ -189,32 +189,32 @@ L = { a^n b^n ;\mid; n \geq 1 }<br />
 <li>所以 <code>a^n b^n</code> 不是正则语言。</li>
 </ul>
 </blockquote>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250929151602864.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-4-cfg-parsing/body-011-05c7659b88f7.webp" alt="image.png" /></p>
 <p>那么我们就能匹配上 a_i b_j，但是这不是正则表达式想要的</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250929151443225.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-4-cfg-parsing/body-012-44afed94e0e8.webp" alt="image.png" /></p>
 <h2>Top-Down Parsing</h2>
 <p>Problem definition: Constructing a parse tree for the input string, starting from the root and creating the nodes of the parse tree in <strong>preorder (depth-first)</strong></p>
 <p>要根据输入的string，构建一个语法生成树</p>
 <p>Two basic actions in top-down parsing:
 § Predict: Determine the production to be applied for the leftmost nonterminal* (of the current parse tree’s frontier)
 § Match: Match the leading terminals in the chosen production’s body with the input string</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250929152722418.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-4-cfg-parsing/body-013-65415fd12a25.webp" alt="image.png" /></p>
 <p>Parsing 例子：</p>
 <p>用几个语法Grammar Symbol，我们就能匹配 input string</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250929153606469.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-4-cfg-parsing/body-014-3651756d3ce2.webp" alt="image.png" /></p>
 <p>永远是一个最左的句型（最左推导：每一步替换最左边的非终结符。）
 We can make two observations from the example:
 • Top-down parsing <strong>is equivalent to finding a leftmost derivation</strong>.
 • At each step, the frontier of the tree is a left-sentential form.</p>
 <p>问题：你怎么知道选谁？</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250929154050727.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-4-cfg-parsing/body-015-ee6c3e327546.webp" alt="image.png" /></p>
 <h2>方法：Recursive-descent parsing</h2>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250929154212870.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-4-cfg-parsing/body-016-f4ff47b20add.webp" alt="image.png" /></p>
 <p>搜索方法：</p>
 <ol>
 <li>选择一种 A-production 分解方法，将 A分解为 X_1, X_2, ... X_k</li>
 <li>每个X分别的去处理
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250929154323522.png" alt="image.png" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-4-cfg-parsing/body-017-f2b3b82d8f35.webp" alt="image.png" />
 例子：
 A. 先选S，我们选择 S-&gt;cAd
 for (c,a,b,d):

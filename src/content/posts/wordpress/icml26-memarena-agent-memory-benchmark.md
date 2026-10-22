@@ -27,7 +27,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <p>In these setups, agents are required to memorize provided conversations or text chunks, and are evaluated on whether they can recall specific information through downstream QA tasks.</p>
 <p>现有的记忆评估通常将“记忆能力”与“行动能力”割裂开来。一类基准仅测试对过去对话的静态回溯（如 LoCoMo），另一类则侧重于单次会话中的行动（如 WebArena），无法反映现实中智能体<strong>需要通过互动获取记忆并用其指导未来决策的复杂场景</strong></p>
 <p>However, despite being effective at measuring factual recall, such benchmarks do not involve agentic decisionmaking, environment dynamics, or action-dependent consequences. As a result, although contemporary memory systems achieve near-saturated performance on these benchmarks, it remains unclear whether such gains meaningfully translate to improved performance for LLM agents operating in goal-driven, interactive settings.</p>
-<p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/02/20260226232107805.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-06/icml26-memarena-agent-memory-benchmark/body-001-5725cf6b3017.webp" alt="image.png" /></p>
 <p>To this end, we introduce MEMORYARENA, a unified evaluation gym for benchmarking the usefulness of agent memory using multi-session, interdependent agentic tasks. MEMORYARENA consists of human-crafted tasks with interdependent subtasks, where later actions are underspecified unless agents correctly track task-relevant information from prior sessions. We instantiate MEMORYARENA across four domains, including (1) bundled web shopping, (2) preference constrained group travel planning, (3) progressive information searching, and (4) sequential formal reasoning over math and physical problems. Each task spans long horizons (with an average of 57 action steps) and produces extended reasoning traces with more than 40k tokens. Table 1 compares MEMORYARENA with existing memory and agent benchmarks along key dimensions.</p>
 <p>该基准包含四个具有<strong>严格因果依赖关系</strong>的任务领域，要求智能体必须记住早期会话的信息才能完成后续任务 ：</p>
 <ul>
@@ -36,7 +36,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <li><strong>渐进式网络搜索（Progressive Web Search）：</strong> 用户不断增加新的限制条件，智能体需在多步搜索中不断积累并融合信息，最终答案必须满足所有历史约束 。</li>
 <li><strong>序列化正式推理（Sequential Formal Reasoning）：</strong> 提取自真实的数学和物理研究论文，智能体需要利用之前推导出的引理或定义来解决后续更复杂的理论证明问题 。</li>
 </ul>
-<p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/02/20260226232544740.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-06/icml26-memarena-agent-memory-benchmark/body-002-c917450a925b.webp" alt="image.png" /></p>
 <h2>多会话任务</h2>
 <p>该研究将多会话任务视为<strong>部分可观测马尔可夫决策过程（POMDP）</strong></p>
 <p><strong>特别之处：</strong> 它量化了智能体由于记忆偏差导致的“信念漂移（Belief Drift）”——<strong>随着任务深度增加，微小的记忆错误会不断累积，最终导致下游决策彻底失败</strong> 。
@@ -44,5 +44,5 @@ small errors in the agent’s implicit state estimate accumulate across sessions
 <p>和bw讨论了下，POMDP这个定义概括感觉怪怪的。因为agent会根据错误去修正。但是查了下，这是yaoshunyu提出的，可能当时也是简单的建模。</p>
 <p>一共有三种agent：long context; Agent+Memory; Agent+RAG</p>
 <p>Agents with Long-context buffers (Long-Context Agent) which append verbatim interaction history directly before the prompt before each subtask without explicit abstraction or consolidation, working as an incontext memory. We include GPT-5.1-mini, GPT-4.1-mini, and Gemini-3-flash, Claude-Sonnet-4.5. Agents with External Memory, where the agents maintain an external memory with learned or curated mechanisms for information abstraction, consolidation, and retrieval. We include four mainstream agents with external memory: MemGPT (Packer et al., 2023), Mem0 and its graph version Mem0-g (Chhikara et al., 2025), and ReasoningBank (Ouyang et al., 2025). Agents with Retrieval-augmented generation (RAG) systems, which use an indexed document store to store past information and then access it via retrieval. We consider different retrieval methods, including BM25, an embeddingbased RAG method that retrieves based on semantic similarity (using OpenAI text-embedding-3-small), and two structured RAG approaches, MemoRAG (Qian et al., 2025) and GraphRAG (Edge et al., 2024), in our evaluation.
-<img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/02/20260226233233265.png" alt="image.png" /></p>
-<p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/02/20260226234729155.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-06/icml26-memarena-agent-memory-benchmark/body-003-6a40af82cb1c.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-06/icml26-memarena-agent-memory-benchmark/body-004-db11eeacebf2.webp" alt="image.png" /></p>

@@ -22,7 +22,7 @@ importedFromWordPress: true
 cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-09/google-file-system.webp"
 ---
 <p>Google File System (GFS) 是 Google 为满足大规模数据存储和处理需求而设计的分布式文件系统。GFS 的设计目标是处理大量数据并提供高吞吐量的数据访问，这对于 Google 这样的公司在运行其搜索引擎和其他大规模应用时至关重要。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20240914195457.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-09/google-file-system/body-001-a6b273fea09f.webp" alt="" /></p>
 <p>设立一个master可以极大的简化系统的设计，可以很方便地进行全局信息的管理。然而单一的master很容易成为系统的瓶颈，所以只能让其尽可能少的参与读写。客户端从来不从master中读写文件数据，而是向master询问它需要的文件在哪，然后访问这些chunkserver去进行文件交互。</p>
 <h2>GFS 的主要特点和设计原则</h2>
 <ol>
@@ -43,7 +43,7 @@ GFS 将文件数据分布在多台机器上，这样可以在多个服务器上�
 <ol>
 <li>
 <p>可能会出现更多客户端访问一个chunk从而导致这个chunk成为hot spots。一般来说还好，不过如果某个可执行文件被写入了某个chunk，然后在数百台机器上同时启动，那个chunkserver就很容易超载。一个解决方法是将可执行文件复制更多份，并使批队列系统错开启动时间。还有一个解决方法是允许客户机从其他客户机读取数据。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20240914195424.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-09/google-file-system/body-002-62a67ef944a0.webp" alt="" /></p>
 </li>
 <li>
 <p>客户端询问master哪个chunkserver持有当前chunk的租约，以及其他副本的位置。如果没有服务器有租约，master就选择一个副本服务器分给它租约</p>

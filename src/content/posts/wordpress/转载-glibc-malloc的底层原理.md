@@ -18,7 +18,7 @@ viewCount: 1390
 likeCount: 0
 dislikeCount: 0
 showCitation: true
-featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2025/01/微信图片_20250127055634.png"
+featuredImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-01/%E8%BD%AC%E8%BD%BD-glibc-malloc%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/body-001-d1c503eef867.webp"
 importedFromWordPress: true
 cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-01/%E8%BD%AC%E8%BD%BD-glibc-malloc%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86.webp"
 ---
@@ -29,7 +29,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <p><a href="https://zhuanlan.zhihu.com/p/443235305">https://zhuanlan.zhihu.com/p/443235305</a></p>
 <p>OSTEP: <a href="https://pages.cs.wisc.edu/~remzi/OSTEP/Chinese/17.pdf">https://pages.cs.wisc.edu/~remzi/OSTEP/Chinese/17.pdf</a></p>
 <p>本篇是对 <code>malloc</code> 的具体实现的研究。我们通过观察 user lib 里的实现，查看其与操作系统的交互。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202501270556270.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-01/%E8%BD%AC%E8%BD%BD-glibc-malloc%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/body-002-ca7839901650.webp" alt="" /></p>
 <ul>
 <li>dlmalloc – Normal objective allocator</li>
 <li>ptmalloc2 – glibc</li>
@@ -40,11 +40,11 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <h2>前情提要：内存申请</h2>
 <p>我们使用一套header 及linklist的机制，记录目前的空闲内存，使用了的内存等情况。</p>
 <p>一套普通且完善的系统是伙伴系统。它可以比较好的分配内存及合并内存申请。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202501250115057.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-01/%E8%BD%AC%E8%BD%BD-glibc-malloc%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/body-003-7e09edd162ff.webp" alt="" /></p>
 <p>在内存分配系统中，每次分配，都会有个内存分配头：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202501250123159.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-01/%E8%BD%AC%E8%BD%BD-glibc-malloc%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/body-004-2519d264a341.webp" alt="" /></p>
 <p>内存分配策略有如下几种。和段分配很相似（两者的模型基本是一致的）：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202501251138771.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-01/%E8%BD%AC%E8%BD%BD-glibc-malloc%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/body-005-d5d05fc075ae.webp" alt="" /></p>
 <p>内存分配系统主要希望的是，能记录和管理好使用的内存，同时更高速地提供内存申请服务（比如有高速内存的存在）。一直以来有一种很有趣的方式叫作分离空闲列表（segregated list）。基本想法很简单： 如果某个应用程序经常申请一种（或几种）大小的内存空间，那就用一个独立的列表，只管理这样大小的对象。其他大小的请求都一给更通用的内存分配程序。</p>
 <p>87775</p>
 <h2><strong>申请堆的系统调用</strong></h2>
@@ -92,9 +92,9 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <li>与 thread arena 不同，main arena 的 arena header 不是保存在通过sbrk申请的堆段里，而是作为一个全局变量，可以在 libc.so 的数据段中找到。</li>
 </ul>
 <p>main arena 和 thread arena 的图示如下（单堆段）：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202501270548689.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-01/%E8%BD%AC%E8%BD%BD-glibc-malloc%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/body-006-6039e40b63ee.webp" alt="" /></p>
 <p>thread arena 的图示如下（多堆段）：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202501270549987.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-01/%E8%BD%AC%E8%BD%BD-glibc-malloc%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/body-007-9f473186b15a.webp" alt="" /></p>
 <h2><strong>Chunk</strong></h2>
 <p>堆段中存在的 chunk 类型如下：</p>
 <ul>
@@ -105,7 +105,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 </ul>
 <h3><strong>4.1. Allocated chunk</strong></h3>
 <p>「<strong>Allocated chunck</strong>」就是已经分配给用户的 chunk，其图示如下：</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202501270549622.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-01/%E8%BD%AC%E8%BD%BD-glibc-malloc%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/body-008-b9bb296c3741.webp" alt="" /></p>
 <p>图中左方三个箭头依次表示：</p>
 <ul>
 <li>chunk：该 Allocated chunk 的起始地址；</li>
@@ -129,7 +129,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 </ul>
 <h3><strong>Free chunk</strong></h3>
 <p>「<strong>Free chunck</strong>」就是用户已释放的 chunk，其图示如下：</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202501270549350.png" alt="" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-01/%E8%BD%AC%E8%BD%BD-glibc-malloc%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/body-009-e171dc62cf65.webp" alt="" />
 图中结构体内部各字段的含义依次为：</p>
 <ul>
 <li>prev_size: 两个相邻 free chunk 会被合并成一个，因此该字段总是保存前一个 allocated chunk 的用户数据；</li>
@@ -171,7 +171,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <li>计算 fast bin 索引以索引相应 bin；</li>
 <li>free掉的 chunk 将被添加到上述 bin 的顶端</li>
 </ul>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202501270550757.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-01/%E8%BD%AC%E8%BD%BD-glibc-malloc%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/body-010-95860ce059b2.webp" alt="" /></p>
 <h3><strong>Unsorted Bin</strong></h3>
 <p>当 small chunk 和 large chunk 被free掉时，它们并非被添加到各自的 bin 中，而是被添加在 「<strong>unsorted bin</strong>」 中。这使得分配器可以重新使用最近free掉的 chunk，从而消除了寻找合适 bin 的时间开销，进而加速了内存分配及释放的效率。</p>
 <blockquote>
@@ -182,7 +182,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <li>unsorted bin 包括一个用于保存 free chunk 的双向循环链表（又名 binlist）；</li>
 <li><strong>chunk 大小</strong>：无限制，任何大小的 chunk 均可添加到这里。</li>
 </ul>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202501270551606.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-01/%E8%BD%AC%E8%BD%BD-glibc-malloc%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86/body-011-1f593dd4c625.webp" alt="" /></p>
 <h3> <strong>Small Bin</strong></h3>
 <p>大小小于 512 字节的 chunk 被称为 「<strong>small chunk</strong>」，而保存 small chunks 的 bin 被称为 「<strong>small bin</strong>」。在内存分配回收的速度上，small bin 比 large bin 更快。</p>
 <ul>

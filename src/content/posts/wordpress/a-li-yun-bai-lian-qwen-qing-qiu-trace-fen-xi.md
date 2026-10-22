@@ -145,7 +145,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <details>
 <summary><strong>点开：To-C / To-B 请求类型构成</strong></summary>
 
-![To-C 与 To-B 的请求类型](https://cdn.jsdelivr.net/gh/HaibinLai/img@main/bailian/04-request-types.png)
+![To-C 与 To-B 的请求类型](https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-09/a-li-yun-bai-lian-qwen-qing-qiu-trace-fen-xi/body-001-09f28ef913d7.webp)
 
 To-C：text 73.7%，search 19.0%，image 3.8%，file 3.5%。
 To-B：api 87.3%，text 12.7%。B 端几乎没有「你问我答」的会话形态。
@@ -238,7 +238,7 @@ To-B：api 87.3%，text 12.7%。B 端几乎没有「你问我答」的会话形�
 <hr />
 <h2>到达过程</h2>
 <p>四条都覆盖约 120 分钟。形状完全不像同一种业务。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/HaibinLai/img@main/bailian/01-qps.png" alt="两小时请求到达率" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-09/a-li-yun-bai-lian-qwen-qing-qiu-trace-fen-xi/body-002-070c85687589.webp" alt="两小时请求到达率" /></p>
 <ol>
 <li><strong>To-B 的 172800 恰好等于 24 × 7200。</strong> 像是截了一段平均 24 QPS 的窗口；但 10 秒峰到 37，五分钟均值在 19–30 之间晃，<strong>不是均匀合成到达</strong>。</li>
 <li><strong>Thinking 开头有尖峰</strong>，十分钟后掉到大约 1 QPS。弹性扩缩如果按均值备，会在这段被打穿。</li>
@@ -248,21 +248,21 @@ To-B：api 87.3%，text 12.7%。B 端几乎没有「你问我答」的会话形�
 <details>
 <summary><strong>点开：间隔时间的 CCDF</strong></summary>
 
-![请求间隔 CCDF](https://cdn.jsdelivr.net/gh/HaibinLai/img@main/bailian/08-interarrival.png)
+![请求间隔 CCDF](https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-09/a-li-yun-bai-lian-qwen-qing-qiu-trace-fen-xi/body-003-2e05001aaa8a.webp)
 
 横轴是相邻请求的间隔。越靠右上，越「稀疏」。Thinking 明显更稀，To-B 挤在几十毫秒量级。
 
 </details>
 <p>To-C 的爬升主要来自 text（约 4.4 QPS）。search 大约稳定在 1 QPS；image / file 更稀。To-B 里 api 约 21 QPS、text 约 3 QPS，两条曲线同涨同落，差在量不在节奏。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/HaibinLai/img@main/bailian/11-toc-qps-by-type.png" alt="To-C 各 type 到达率" /></p>
-<p><img src="https://cdn.jsdelivr.net/gh/HaibinLai/img@main/bailian/12-tob-qps-by-type.png" alt="To-B api vs text 到达率" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-09/a-li-yun-bai-lian-qwen-qing-qiu-trace-fen-xi/body-004-246f004ddbc4.webp" alt="To-C 各 type 到达率" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-09/a-li-yun-bai-lian-qwen-qing-qiu-trace-fen-xi/body-005-5326c93e6d2e.webp" alt="To-B api vs text 到达率" /></p>
 <hr />
 <h2>Token 形状</h2>
-<p><img src="https://cdn.jsdelivr.net/gh/HaibinLai/img@main/bailian/02-token-ccdf.png" alt="输入输出 token CCDF" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-09/a-li-yun-bai-lian-qwen-qing-qiu-trace-fen-xi/body-006-f14e452fc5df.webp" alt="输入输出 token CCDF" /></p>
 <p>左图输入、右图输出，都是 log-log CCDF。To-B 的输出掉得最快；Thinking 的输出一直拖到 10⁴–10⁵。Coder 输入在 10⁴ 附近有一块平台，很像「仓库/文件上下文被截到某个长度」。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/HaibinLai/img@main/bailian/03-token-percentiles.png" alt="token 分位数" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-09/a-li-yun-bai-lian-qwen-qing-qiu-trace-fen-xi/body-007-fa483e8abe5c.webp" alt="token 分位数" /></p>
 <p>若你关心 GPU 上到底是 prefill 忙还是 decode 忙，看到达 token/s 比看 QPS 更直接：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/HaibinLai/img@main/bailian/06-token-rate.png" alt="到达 token 速率" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-09/a-li-yun-bai-lian-qwen-qing-qiu-trace-fen-xi/body-008-3fa80b870d1a.webp" alt="到达 token 速率" /></p>
 <ul>
 <li>Coder：<strong>3.4 万 input token/s</strong>，四条里 prefill 最重。  </li>
 <li>Thinking：输出约 5.5k token/s，几乎赶上它自己的输入。  </li>
@@ -271,7 +271,7 @@ To-B：api 87.3%，text 12.7%。B 端几乎没有「你问我答」的会话形�
 <details>
 <summary><strong>点开：输入 vs 输出散点（每条随机 5000 点）</strong></summary>
 
-![输入 vs 输出](https://cdn.jsdelivr.net/gh/HaibinLai/img@main/bailian/07-in-out-scatter.png)
+![输入 vs 输出](https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-09/a-li-yun-bai-lian-qwen-qing-qiu-trace-fen-xi/body-009-b26c2b8bfc90.webp)
 
 To-B 贴在底部一条「短输出」带上。Thinking 往右上飞。两者几乎没有重叠，硬平均没有意义。
 
@@ -283,11 +283,11 @@ To-B 贴在底部一条「短输出」带上。Thinking 往右上飞。两者几
 <li><strong>file</strong>：比 search 还长（中位 5.7k，P99 2.2 万），条数最少。</li>
 <li><strong>image</strong>：最短。输入中位 369，输出中位 69。更像「看图短答」。</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/HaibinLai/img@main/bailian/13-toc-token-by-type.png" alt="To-C 各 type token 分位数" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-09/a-li-yun-bai-lian-qwen-qing-qiu-trace-fen-xi/body-010-0c63e0cf0293.webp" alt="To-C 各 type token 分位数" /></p>
 <details>
 <summary><strong>点开：To-C 各 type 的 token CCDF</strong></summary>
 
-![To-C token CCDF](https://cdn.jsdelivr.net/gh/HaibinLai/img@main/bailian/14-toc-token-ccdf.png)
+![To-C token CCDF](https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-09/a-li-yun-bai-lian-qwen-qing-qiu-trace-fen-xi/body-011-9d237bfc64ae.webp)
 
 search / file 的输入长尾明显右移。image 输出掉得最快。
 
@@ -296,12 +296,12 @@ search / file 的输入长尾明显右移。image 输出掉得最快。
 <details>
 <summary><strong>点开：To-B api vs text 的 token CCDF</strong></summary>
 
-![To-B token CCDF](https://cdn.jsdelivr.net/gh/HaibinLai/img@main/bailian/15-tob-token-ccdf.png)
+![To-B token CCDF](https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-09/a-li-yun-bai-lian-qwen-qing-qiu-trace-fen-xi/body-012-ce7eb8f5cdbf.webp)
 
 两条几乎叠在一起。不要指望用 <code>type=text</code> 把 B 端变成 C 端聊天。
 
 </details>
-<p><img src="https://cdn.jsdelivr.net/gh/HaibinLai/img@main/bailian/17-token-rate-by-type.png" alt="各 type 到达 token/s" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-09/a-li-yun-bai-lian-qwen-qing-qiu-trace-fen-xi/body-013-efb987c9c9e6.webp" alt="各 type 到达 token/s" /></p>
 <p>只 replay To-C 的 text，会低估 prefill：search + file 条数不到 23%，输入 token 却占 To-C 的大半。</p>
 <hr />
 <h2>会话与 KV 缓存</h2>
@@ -310,7 +310,7 @@ search / file 的输入长尾明显右移。image 输出掉得最快。
   r[&quot;根请求 parent = -1&quot;] --&gt; t2[&quot;第 2 轮 parent = 根的 chat_id&quot;]
   t2 --&gt; t3[&quot;第 3 轮&quot;]</code></pre>
 <p>To-B 这棵树退化成 17.3 万个互不连接的点。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/HaibinLai/img@main/bailian/05-kv-reuse.png" alt="KV 块复用" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-09/a-li-yun-bai-lian-qwen-qing-qiu-trace-fen-xi/body-014-807e4bd1809e.webp" alt="KV 块复用" /></p>
 <ul>
 <li><strong>右图，多轮前缀：</strong> 子请求相对父请求，约 67–69% 的 16-token 块能对上。支持「同一会话粘到同一实例」。</li>
 <li><strong>左图，全局复用：</strong> To-B 没有多轮，全局块却仍有 <strong>62%</strong> 见过。命中来自跨请求的系统提示 / 模板，不是聊天历史。</li>
@@ -330,7 +330,7 @@ search / file 的输入长尾明显右移。image 输出掉得最快。
 
 </details>
 <p>按 type 看，search / file 相对父请求的前缀命中 <strong>86–90%</strong>（检索页和文件上下文会在后续轮原样带着）；但 search 在 type 内部的全局块复用只有 51%——每次检索内容更「新」。image 相反：多轮只有 8%，全局块复用却高达 85%，像是共享视觉模板。To-B 的 api / text 都是 0% 多轮、约 60% 全局复用，缓存来自模板而不是会话。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/HaibinLai/img@main/bailian/16-multiturn-kv-by-type.png" alt="各 type 多轮与 KV 复用" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-09/a-li-yun-bai-lian-qwen-qing-qiu-trace-fen-xi/body-015-efbd3717866b.webp" alt="各 type 多轮与 KV 复用" /></p>
 <p>前缀缓存：search / file 要靠会话粘性；image / To-B 更靠跨请求模板。Thinking、Coder 没有更细标签，拆不开。</p>
 <table>
 <thead>

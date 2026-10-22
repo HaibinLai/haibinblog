@@ -82,7 +82,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-
 <p>Reduce阶段:对Map阶段的结果进行聚合,得出最终结果。MapReduce实现了可扩展的并行计算模型,适用于大数据处理。</p>
 </li>
 </ul>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20240915023732.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-09/hadoop-%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/body-001-e5b8082f9203.webp" alt="" /></p>
 <p>当然可以！下面是一个简单的 <strong>MapReduce</strong> 例子：单词计数（Word Count）。</p>
 <h2>Case Study</h2>
 <h3>任务描述</h3>
@@ -116,7 +116,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-
 <li><strong>Shuffle</strong>：对中间数据进行分组和排序。</li>
 <li><strong>Reduce</strong>：对分组后的数据进行汇总，产生最终结果。</li>
 </ol>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20240915025150.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-09/hadoop-%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/body-002-210bb9551afa.webp" alt="" /></p>
 <h1>Hadoop</h1>
 <p>在2005年，Doug将MapReduce加入到了Nutch项目。次年也就是2006年，Doug创建了一个新项目包含HDFS(把Nutch的N改为Hadoop的H)、MapReduce和Hadoop Common，也就是后来的Apache Hadoop项目。</p>
 <p>hadoop这个名字是Doug的黄色小象玩具的名字。</p>
@@ -126,12 +126,12 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-
 <li>JobTracker进程。这类进程根据要处理的输入数据量，命令下面提到的TaskTracker进程启动相应数量的Map和Reduce进程任务，并管理整个作业生命周期的<a href="https://zhida.zhihu.com/search?q=%E4%BB%BB%E5%8A%A1%E8%B0%83%E5%BA%A6&amp;zhida_source=entity&amp;is_preview=1">任务调度</a>和监控。这是<a href="https://zhida.zhihu.com/search?q=Hadoop%E9%9B%86%E7%BE%A4&amp;zhida_source=entity&amp;is_preview=1">Hadoop集群</a>的常驻进程，需要注意的是，JobTracker进程在整个Hadoop集群全局唯一。</li>
 <li>TaskTracker进程。这个进程负责启动和管理Map进程以及Reduce进程。因为需要每个数据块都有对应的map函数，TaskTracker进程通常和HDFS的DataNode进程启动在同一个服务器。也就是说，Hadoop集群中绝大多数服务器同时运行DataNode进程和TaskTacker进程。</li>
 </ol>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20240915025342.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-09/hadoop-%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/body-003-ca98e4fcd606.webp" alt="" /></p>
 <p>看到没有，是不是很像 GFS+MapReduce？</p>
 <p><strong>MapReduce计算真正产生奇迹的地方是数据的合并与连接</strong>。</p>
 <p>还是回到WordCount例子中，我们想要统计相同单词在所有输入数据中出现的次数，而一个Map只能处理一部分数据，一个热门单词几乎会出现在所有的Map中，这意味着同一个单词必须要合并到一起进行统计才能得到正确的结果。</p>
 <p>在map输出与reduce输入之间，MapReduce计算框架<a href="https://zhida.zhihu.com/search?q=%E5%A4%84%E7%90%86%E6%95%B0%E6%8D%AE&amp;zhida_source=entity&amp;is_preview=1">处理数据</a>合并与连接操作，这个操作有个专门的词汇叫 <strong><a href="https://zhida.zhihu.com/search?q=shuffle&amp;zhida_source=entity&amp;is_preview=1">shuffle</a></strong>。那到底什么是shuffle？shuffle的具体过程又是怎样的呢？请看下图。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20240915025553.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-09/hadoop-%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/body-004-d8b8d9b5a668.webp" alt="" /></p>
 <p>每个Map任务的计算结果都会写入到本地文件系统，等Map任务快要计算完成的时候，MapReduce计算框架会启动shuffle过程，在Map任务进程调用一个Partitioner接口，对Map产生的每个&lt;Key, Value&gt;进行Reduce分区选择，<strong>然后通过HTTP通信发送给对应的Reduce进程</strong>。这样不管Map位于哪个服务器节点，<strong>相同的Key一定会被发送给相同的Reduce进程</strong>。Reduce任务进程对收到的&lt;Key, Value&gt;进行排序和合并，相同的Key放在一起，组成一个&lt;Key, Value集合&gt;传递给Reduce执行。</p>
 <p>map输出的&lt;Key, Value&gt;shuffle到哪个Reduce进程是这里的关键，它是由Partitioner来实现，MapReduce框架默认的Partitioner用Key的<a href="https://zhida.zhihu.com/search?q=%E5%93%88%E5%B8%8C%E5%80%BC&amp;zhida_source=entity&amp;is_preview=1">哈希值</a>对Reduce任务数量取模，相同的Key一定会落在相同的Reduce任务ID上。</p>
 <p>讲了这么多，对shuffle的理解，你只需要记住这一点：<strong>分布式计算需要将不同服务器上的相关数据合并到一起进行下一步计算，这就是shuffle</strong>。</p>
@@ -143,7 +143,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-
 </ol>
 <p><a href="https://zhuanlan.zhihu.com/p/55015439">全面了解大数据“三驾马车”的开源实现 - 知乎 (zhihu.com)</a>
 李智慧，同程艺龙交通<a href="https://zhida.zhihu.com/search?q=%E9%A6%96%E5%B8%AD%E6%9E%B6%E6%9E%84%E5%B8%88&amp;zhida_source=entity&amp;is_preview=1">首席架构师</a>、Apache Spark源代码贡献者，长期从事大数据、大型网站架构的研发工作，曾担任<a href="https://zhida.zhihu.com/search?q=%E9%98%BF%E9%87%8C%E5%B7%B4%E5%B7%B4&amp;zhida_source=entity&amp;is_preview=1">阿里巴巴</a>技术专家、Intel亚太研发中心架构师、宅米和WiFi万能钥匙CTO，有超过6年的线下咨询、培训经验，著有畅销书《大型网站技术架构：核心原理与<a href="https://zhida.zhihu.com/search?q=%E6%A1%88%E4%BE%8B%E5%88%86%E6%9E%90&amp;zhida_source=entity&amp;is_preview=1">案例分析</a>》。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20240915025917.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-09/hadoop-%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/body-005-e5b5adec3455.webp" alt="" /></p>
 <h2>Hadoop 三驾马车</h2>
 <p><a href="https://zhuanlan.zhihu.com/p/335805395">【征服大象】1. hadoop的前世今生 - 知乎 (zhihu.com)</a>
 《Mastring Hadoop3》</p>
@@ -164,5 +164,5 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-
 来源：知乎<br />
 著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。  </p>
 <h1>Hadoop今天的架构/生态</h1>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20240915025954.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20240915025857.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-09/hadoop-%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/body-006-2d5c66b37bc4.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-09/hadoop-%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/body-007-723b5d81ff71.webp" alt="" /></p>

@@ -18,7 +18,7 @@ viewCount: 1275
 likeCount: 0
 dislikeCount: 0
 showCitation: true
-featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/08/95350.jpg"
+featuredImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-11/csr%E4%B8%8E%E9%82%BB%E6%8E%A5%E8%A1%A8%E7%9A%84%E5%86%85%E5%AD%98%E5%BC%80%E9%94%80%E5%AF%B9%E6%AF%94/body-001-675647a9464e.webp"
 importedFromWordPress: true
 cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-11/csr%E4%B8%8E%E9%82%BB%E6%8E%A5%E8%A1%A8%E7%9A%84%E5%86%85%E5%AD%98%E5%BC%80%E9%94%80%E5%AF%B9%E6%AF%94.webp"
 ---

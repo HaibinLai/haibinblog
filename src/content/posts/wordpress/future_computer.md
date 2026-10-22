@@ -32,14 +32,14 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 </ol>
 <h2>计算机CPU性能增长缓慢</h2>
 <p>下文来自David Pattersen的《计算机体系结构：量化研究方法》：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202505051152777.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/future_computer/body-001-8a9d670d59d0.webp" alt="" /></p>
 <p>提高能效-性能-成本的唯一途径是专业化。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202505051156771.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/future_computer/body-002-7dd8458271df.webp" alt="" /></p>
 <p><strong>时钟增长缓慢</strong>
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202505051157176.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/future_computer/body-003-51b8b3219963.webp" alt="" /></p>
 <h2>性能趋势：带宽的提升大于延迟</h2>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202505051200266.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202505090715733.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/future_computer/body-004-279b85ab14ea.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/future_computer/body-005-82894f5426b2.webp" alt="" /></p>
 <p>微处理器、内存、网络和磁盘在25-40年内的性能里程碑。 微处理器的里程碑是几代IA-32处理器，从16位总线、微编码80286到64位总线、多核、乱序执行、超流水线（superpipelined）的Core i7。内存模块的里程碑，从16位宽的普通DRAM到64位宽的双数据率第三版同步DRAM。以太网从10 Mbits/s推进到400 Gbits/s。磁盘的里程碑是基于旋转速度，从3600转/分提高到15000转/分。每种情况都是最佳的带宽，而延迟是假设没有竞争的简单操作的时间。更新自Patterson, D., 2004. 延迟落后于带宽。</p>
 <p>性能是微处理器和网络的主要区别因素，因此它们的收益最大。带宽提高了32,000-40,000倍，延迟提高了50-90倍。对于内存和磁盘来说，容量通常比性能更重要，所以容量的提高更多，但400-2400倍的带宽进步仍然比8-9倍的延迟进步大得多。</p>
 <p>显然，在这些技术中，带宽已经超过了延迟，而且可能会继续这样做。一个简单的经验法则是，带宽的增长至少是延时改进的平方。计算机设计者应该据此制定计划。</p>
@@ -73,8 +73,8 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <h2>更多的专用处理器、更多的算子</h2>
 <p>时域架构（temporal architecture）主要出现在CPU或GPU中，可以采用各种技术来改善其并行性，比如向量（SIMD）或并行线程（SIMT）。这种时域架构对大量算术逻辑单元（arithmetic logic unit，ALU）进行集中控制。这些ALU只从分层内存结构中获取数据，并且相互之间不直接通信。</p>
 <p>相反，空域架构（spatial architecture）使用数据流处理，意思是，ALU形成直接将数据从一个传递到另一个的处理链。有时每个ALU都有自己的控制逻辑和本地内存，称为暂存器（scratchpad）或寄存器文件，而具有本地内存的ALU称为处理引擎（processing element，PE）。空域架构通常用于基于ASIC和FPGA设计的神经网络。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202505090700777.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202505090658055.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/future_computer/body-006-9496e041052c.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/future_computer/body-007-f007b8e98cbb.webp" alt="" /></p>
 <h2>存算分离，OLAP与OLTP计算分离</h2>
 <p>分布式存储”、“共享存储集群”、 “计算下推”同时具备这三个要素的架构，是理想的数据库架构。</p>
 <p>分布式（集群）数据库有两种架构模式：1、每个数据库节点各自管理自己的持久化存储， 节点之间不共享数据，如TiDB、OceanBase、ClickHouse等，就是这一类；2、数据库节点 与底层存储设备是分离的，底层存储在所有数据库节点之间共享，例如Oracle RAC、 PolarDB等，都是这一类数据库。第1类是存算一体的Share nothing架构，第2类是存算 分离的架构。第1类的优点是，不需要专门的存储系统，数据库自己管理存储系统，数据 库自己负责把数据复制为几份，自己管理冗余数据副本。</p>
@@ -89,10 +89,10 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <p>数据库领域有许多“细分领域”：时序数据库，地理空间数据库，文档数据库，搜索数据库，图数据库，向量数据库，消息队列，对象数据库。而 PostgreSQL 在任何一个领域都不会缺席。</p>
 <p>一个 PostGIS 插件，成为了地理空间事实标准；一个 TimescaleDB 扩展，让一堆“通用”时序数据库尴尬的说不出话来；一个向量扩展 <strong><a href="https://link.zhihu.com/?target=http%3A//mp.weixin.qq.com/s%3F__biz%3DMzU5ODAyNTM5Ng%3D%3D%26mid%3D2247485589%26idx%3D1%26sn%3D931f2d794e9b8486f623f746db9f00cd%26chksm%3Dfe4b3d4ec93cb4584c9bb44b1f347189868b6c8367d8c3f8dd8703d1a906786a55c900c23761%26scene%3D21%23wechat_redirect">PGVector</a></strong> 插件，更是让整个<strong><a href="https://link.zhihu.com/?target=http%3A//mp.weixin.qq.com/s%3F__biz%3DMzU5ODAyNTM5Ng%3D%3D%26mid%3D2247486505%26idx%3D1%26sn%3Da585c9ff22a81a8efe6b87ce9bd66cb1%26chksm%3Dfe4b39f2c93cb0e4c5d46f54e7ba9309dc0d66b5ac73bfe6722cc39f3959e47ae78210aeea1f%26scene%3D21%23wechat_redirect">专用向量数据库细分领域</a></strong> 变成笑话。</p>
 <p>同样的事情已经发生过很多次，而现在，我们将在拆分最早，地盘最大的一个子领域 OLAP 分析中再次见证这一点。但 PostgreSQL 要替代的可不仅仅是 OLAP 数仓，它的野望是整个数据库世界！</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202505090717323.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/future_computer/body-008-19cad1f64f43.webp" alt="" /></p>
 <p>同时，未来的体系结构会更强调软硬件深度集成，比如通过开放标准（如RISC-V）定制化芯片，或通过AI驱动的编译器优化硬件利用率。</p>
 <h2>算子专业化，硬件模块化</h2>
 <p>某些计算有高度需求</p>
 <p>GPU将成为并行计算的通用处理器</p>
 <p>能耗有需求</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202505090727159.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/future_computer/body-009-d32d56527cf3.webp" alt="" /></p>

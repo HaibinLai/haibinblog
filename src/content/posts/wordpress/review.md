@@ -36,11 +36,11 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <li>我是如何复盘上一段科研的，并从中学到了什么。</li>
 <li>对科研的反思，对读博和人生想法。</li>
 </ol>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250719234417505.jpg" alt="6B2429E21DA61B2B646B66E55700B42F.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-07/review/body-001-c13acb62b13e.webp" alt="6B2429E21DA61B2B646B66E55700B42F.jpg" /></p>
 <h2>什么样的复盘是好复盘</h2>
 <p><strong>“好的复盘的目标是让我们在之后给定的已有信息和资源约束下，能否做出更合理的判断，并据此做出当前最优决策。“</strong></p>
 <p>我的复盘技术最早启发于纪录片里的军队复盘。在二战中，德军就开始了有效的复盘：中层参谋与军官总结汇报 Gefechtsbericht（战斗报告），高层指挥部如OKW会在大型战役后进行复盘备忘录。而从70年代开始，美军发展了 After Action Review（AAR）复盘方法与经验学习中心(Center for Army Lessons Learned，CALL)。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250721102623832.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-07/review/body-002-b0f21b7e4c4c.webp" alt="" /></p>
 <p>军事复盘能让军队从过往战斗中吸收更多战斗经验。而将军队复盘带入到科研，我首先将复盘分为两种：</p>
 <p><strong>执行层（战术行动复盘）</strong>：如自己的工程coding能力过低；写代码时没写测试，导致回滚很困难；一直只盯着同一个bug。
 <strong>战略层（决策指挥复盘）</strong>：当时A框架 vs B框架，为什么选A？完全跑不出结果的那几天，是继续硬撑，还是该先读文献或休息？</p>
@@ -92,7 +92,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <p>这两个互相矛盾的情况/事实，进而导致了我读论文慢的问题。</p>
 <p><strong>那么如何快速进入一个新的领域？</strong></p>
 <p>我使用的是<strong>图模型+BFS-DFS理论</strong>。每一篇文章都会解一个问题。每一篇文章都有方法。我们将”问题、方法、文章/书籍“三者建模成一个图模型：</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250720164357423.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-07/review/body-003-a4bf05426c3b.webp" alt="" /></p>
 <p>当然如果你喜欢，你可以建立/拆解更多维度，比如”挑战“、”场景“ 等等。</p>
 <h3>BFS先建图: 略读+比较着读</h3>
 <p>因此我们的第一步工作是，明确我们的这个搜索空间图。随后针对每篇论文，思考他们在领域内的位置。具体的操作，章老师的循序渐进阅读法的介绍已经非常详细了： 清华计算机入学教育之“关于如何做科研的一些个人经验” - ZHANG Mingxing的文章 - 知乎
@@ -135,7 +135,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <p>因此你可以看到，<strong>BFS读文章不需要读完文章全部</strong>。比如实验、preliminary。甚至用AI会更快。重点是达到我们的这步目的。</p>
 <h3>DFS了解好文：精读+实验</h3>
 <p>好的文章影响深远，或者含有大量的思考及信息量。我修改了刚刚的图，颜色深代表这个技术/问题的意义及影响。因此想精读哪篇文章，自然不用多说了。我的画图技术有限，但是如果你把深度想象成3D的甚至是高维的，那么DFS就是在高维空间里搜索最有信息增益的节点。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250720165449913.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-07/review/body-004-81f7ab89affc.webp" alt="" /></p>
 <p>因此 DFS操作下我们需要重点看Main Design，看实验，看代码，甚至自己跑一遍。如果我们刚刚接触一个领域，先从开源项目开始跑，多读读源码，发发笔记。自己手搓很有可能做不出来，或者会花很长时间（比如N个人月，一定要估算好成本）。</p>
 <h2>先做起来</h2>
 <p>拿到框架后其实就可以开始上手改动了，并且别怕失败。学会骑自行车不需要你先列出牛三和转动公式，跌20个跟头就会了。</p>
@@ -218,13 +218,13 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 回头看这段经历让我明白：<strong>失败本身就是科研的一部分，而逆商体现在能不能从质疑中看见问题本质，并继续往前走</strong>。</p>
 <p>另外有篇文章我很喜欢，来自斯迈尔斯的《勇气来源于“不合时宜”的偏执》。</p>
 <p>[勇气来源于“不合时宜”的偏执 - 道客巴巴](<a href="https://www.doc88.com/p-7704456775605.html">https://www.doc88.com/p-7704456775605.html</a></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250721133241746.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-07/review/body-005-0a5aa7fe131e.webp" alt="" /></p>
 <h2>How to build your own system？</h2>
 <p>其实就像计算机系统一样，系统人最后也要有your own system。做好你的体系结构，去滚雪球，去做长线规划，这样才能越做越深。</p>
 <p>非常简单，如果我是一个Linux 系统，这就是我的图。这个系统我相信还会继续丰富下去。但是我会跟着它去补充。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250721105526248.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-07/review/body-006-1548f194400c.webp" alt="" /></p>
 <p>另外我认为有两个项目我做的非常好的：</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250721112516344.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-07/review/body-007-edb2bd454962.webp" alt="" /></p>
 <p>第一个是学校的高级计算机系统课程的repo（我上那年还是cpp），做的矩阵乘法，cuda类等project。这是我做研究的coding基础。</p>
 <p>另一个是我在完成这篇工作后，我在想我接下来做什么，博士做什么。这是一个很重要的问题，如果我去做研究，结果等做完了才发现这个工作已经是夕阳了，还是有点痛苦的对吧。所以我就把HPC的顶会，24年的SC全部读了一遍。数值计算的文章也读。这部分的读法跟BFS差不多，就是了解HPC有什么方向。然后我的研究的方向在这个big figure里的什么地方。</p>
 <p><a href="https://github.com/HaibinLai/SC24-paper-reading.git">https://github.com/HaibinLai/SC24-paper-reading.git</a></p>
@@ -233,7 +233,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <h2>Do something fXXking hard</h2>
 <p>每次我跟别人介绍我的工作，他们都说我做的东西挺hardcore的。
 仔细想想确实还有点hardcore吧，上一段工作的代码量可能在8000-10000行这样，并且逻辑性算法性的代码占比还挺多。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250721131159396.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-07/review/body-008-c44b8492f12c.webp" alt="" /></p>
 <p>但是我就喜欢做难的，老板也喜欢。人生很长，长到我们能做出一艘大船。人生也很短，青春就这几年。<strong>为什么不能出发，像芝加哥那群不长眼睛的司机一样，猛踩油门呢？</strong></p>
 <p>We choose to go to the moon, not because it's easy, but because it's hard.</p>
 <h2>If you want to be a phd, be a phd first</h2>
@@ -265,10 +265,10 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <h2>多talk，多表达</h2>
 <p>这部分跟social的区别在于，我经常学习是靠表达学习的。
 就像费曼学习法那样，每次我想系统学个东西，我就会做个talk，然后教大家。比如我的B站号 <a href="https://space.bilibili.com/358070321/upload/video">笑到猝死的家伙投稿视频</a></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250721142422569.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-07/review/body-009-a0eef86852f8.webp" alt="" /></p>
 <p>另一个点在于如何跟老板talk。老板很多时候是起指导作用，然后他的大脑装不下你的那么多技术原理。所以要勤画图，或者做总结。哪怕就一张表格。比如我之前一个机器学习project做的一个表格，展示我们项目跟别人项目的不同。</p>
 <p>这样的表格我做了好几个，老板都超级喜欢的~，估计放基金本子里大伙也喜闻乐见。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250721142601113.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-07/review/body-010-1f7f6d2568f8.webp" alt="" /></p>
 <p><a href="https://github.com/HaibinLai/CrashSimGen">HaibinLai/CrashSimGen</a></p>
 <p>在知乎等社交媒体里show的另一个好处是给自己贴广告一样。如果你经常看的一个技术博主突然想干XXX，多多少少你也觉得应该能成</p>
 <h2>如果我读博，我会怎么评价自己？</h2>
@@ -285,7 +285,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <p><strong>我的梦想就是成为像我导师这样的人。培养学生，栽种热情，做点对社会有意义的科研工作。</strong></p>
 <p>我做科研起初纯粹只是觉得好玩，做着做着好奇心变成了热爱。在组里做研究的日子也很开心，有一种特别的快乐。做系统看代码很难，但是我发现我有这方面的恒心吧。</p>
 <p>我希望我也能成为这样的老师，就像《OSTEP》点燃我那样，去点燃别人。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250721134120007.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-07/review/body-011-5aa3d8fa0f89.webp" alt="" /></p>
 <p>至于为什么科研。我就是喜欢探索。我很喜欢朱光潜在《谈美》里的两段话，我想以此来表达我的想法：</p>
 <p>“
 哲学和科学穷到极境，都是要满足求知的欲望。每个哲学家和科学家对于他自己见到的一点真理（无论他究竟是不是真理）都觉得有趣味，都用一股子热忱去欣赏它。真理在离开实用而成为情趣中心时就已经是美感的对象了，科学家去寻求这一类的事实，穷到究竟，也正是因为它们可以摄魂震魄，所以科学的活动也还是一种艺术的活动，不但善与美是一体的，真与美也没有隔阂。</p>

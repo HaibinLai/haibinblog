@@ -23,6 +23,8 @@ likeCount: 5
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+imageMirrorIncludeHosts: ["blog-1327458544.cos.ap-guangzhou.myqcloud.com"]
+imageMirrorOpaqueWebpQuality: 84
 cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan.webp"
 ---
 <p>可能是一篇比较流水账的游记，提前磕个头说个抱歉（</p>
@@ -33,7 +35,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <p>飞机降落在关西国际机场，摆渡车玻璃厚实，却显出深圳未曾有的清凉，混合着机场里特有的淡淡的、干燥的清洁剂味。阳光在金属扶手上跳跃，窗外运行李的小车有条不紊地卸货，更远处是静默的塔台与深蓝的大海。</p>
 <p>九年一瞬，这些情景仿佛昨日。很多坐标没有变，但坐标系里的人与故事天翻地覆。我去了老景点，也有新景点。我见到了老朋友，也结识了新朋友。我拿到了未来最重要的offer，以及下一次合作的机会。可以说，这周是我大四以来最重要的一周。</p>
 <p>这是一场新旧交替之旅，不知下一次再回来，会是什么体验呢？</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260204002751366.png" alt="f0ceb3a9c3395576f6c46acebc84c8e3.jpg" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-001-c77f55ddd1f0.webp" alt="f0ceb3a9c3395576f6c46acebc84c8e3.jpg" />
 <em>摄于一乘寺河原田町</em></p>
 <h2>为什么来日本</h2>
 <p>记得在大三有一天，做完实验的傍晚，我开始清理手机里的老照片。无意中，看到QQ空间里之前去日本的照片。那是一个炎热的夏季，一个没有烦恼，每天寿司，各种游逛的夏日。想来想去，我突然说，一定要再去一次日本玩。</p>
@@ -48,7 +50,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <p>我印象中的关西是什么样的？我只记得，当年的便利店里购买的热气腾腾的杯面、酒店里加入泡泡浴的舒服的泡澡、神社门前蝉鸣不断人群涌动，京都的博物馆里泛黄的字画展，古老的城堡上新长的青苔，奈良的鹿站在树荫下眼馋着看着你手里的饼干，大阪天马行空的立交桥与闪亮的霓虹灯。这似乎是一种夏日里凉爽的坐在空调前，听着外边下雨的感觉。</p>
 <p>QQ空间里的照片似乎有点过于明亮，但是这样恰好增添了些回忆感。很多故事我早已忘却，但他们似乎在招呼我，我应该再回来拜访他们。</p>
 <p>记忆从来不是高清的，它总是被光线覆盖，被情绪修饰。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260204231744707.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-005-89369a5d708f.webp" alt="image.png" /></p>
 <p>对于我而言，我不太喜欢“打卡”式的旅游，到一个地方，简单拍拍照，观看一下，然后就回家。许多城市在镜头里其实很相似。</p>
 <p>我更喜欢沉浸式体验。比如我好奇，此时如果作为一个京都的居民，我的生活会是什么样的？我时常感觉到有点小遗憾，比如，我选择在深圳上学，那我就不能体验在北京上学，在上海上学是什么感受。我也不能作为京都的长期居民，大阪的长期居民。从这样来看，作为一个观光客来访这里，其实我还是我。只是看了网上都能搜索到的照片，我感觉没什么好玩的。我想，如果我是这个地方的居民，我的生活会怎么样？</p>
 <p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/02/20260220222729193.png" alt="image.png" /></p>
@@ -60,13 +62,13 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <p>看着 SCA26 的网站，我点开了九年前的 QQ 相册。那一年，我和父母一起来日本待了十天，辗转于京都、大阪、奈良之间，走遍了许多经典的景点：大阪城、清水寺、伏见稻荷、奈良的鹿……一张张照片里，都是当年理所当然的快乐。</p>
 <p>如果这次再按同样的路线走一遍呢？听起来似乎也不错，但好像也很死板。</p>
 <p>九年，从初一的暑假，到大四的寒假，我究竟改变了什么？从数理化学的课本里我变得更有知识，从各个哲人的书籍中我似乎变得更有智慧，我的旅游玩法发生了非常大的改变，从一个个失眠的晚上我逐渐明白了自己未来的方向......以及我看了很多很多的番剧。这9年几乎是我此刻人生的一半。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260204024835237.png" alt="image.png" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-007-03f66bbf4c5e.webp" alt="image.png" />
 <em>SCA26图</em></p>
 <p>我决定按照我的喜好去参观。京都大学、京都动画公司是必去地点。这么多年来，大学依旧是我认为旅游必去的地点。前往大学，那就尤其要前往当地的图书馆看看。9年前我还不是二次元，后来我看了很多京都动画的番，于是，一定要看看那个陪伴了大半个高中的公司。</p>
 <p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/02/20260220222756299.png" alt="image.png" /></p>
 <p><em>出发前敲定的攻略。事实是我高估了自己的走路能力</em></p>
 <p>做旅游攻略其实也是旅游的一部分。因为其实平时根本没有机会去关注一个千里之外的地方。在地图上搜索好吃的餐馆，阅读各个地方的人们的评论，在博物馆官网上学习各个文物的知识。旅游本质是一个拓宽视野的过程，从定义来看，做攻略本身也是一次冒险，里边也有挖掘的快乐。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260204025022005.png" alt="image.png" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-009-520544fffcfd.webp" alt="image.png" />
 <em>google map</em></p>
 <p>我想起来一个朋友，他一直是日本铁道迷。于是我便专门联系他，问问他有什么好主意。没想到一问不知道，他开始全盘给我介绍关西这几个地方地铁的情况。</p>
 <p>首先，他让我了解到，与中国统一的铁路不同，日本的铁道是由很多不同的公司运营。其中，JR 集团负责全国性的干线与新干线运输，在关西地区主要由 西日本旅客铁道公司（JR西日本） 运营；而在城市与城际通勤领域，则活跃着大量私营铁路公司，如连接大阪与京都的 阪急电铁，以及贯通大阪、奈良、名古屋一线的 近畿日本铁道。同一目的地，往往可以通过不同公司的线路抵达，选择也因此更加多样。</p>
@@ -84,14 +86,14 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <p>这种“多公司并存”的模式源于日本铁路长期市场化发展的历史。今天，虽然一张IC西瓜卡（日本地铁卡）能走天下，但是对于游客来说，有更优惠的选择。在朋友指点下，我买了一张近铁的2日通票。方便我跨市出行，同时平时做市内电车，使用西瓜卡。</p>
 <p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/02/142c0c0019b75fd6a2b87ea5c1105e14.png" alt="142c0c0019b75fd6a2b87ea5c1105e14.png" /></p>
 <p><em>这份2日卷折合人民币约170人民币，我那两天分别坐了大阪-京都，京都-大阪，大阪-吉野，吉野-奈良，这4趟车辆。总体而言还算实惠。</em></p>
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260204025535548.png"alt="image"style="width:20vw;height:auto;">
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-013-2c4cd9a47be3.webp"alt="image"style="width:20vw;height:auto;">
 <p><em>西瓜卡，注册费500日元，之后即可作为地铁卡使用。平均短途花费为300日元，中长途（前往机场、京都）费用约为1000日元。</em></p>
 <p>随后，我们订下了两辆非常漂亮的观光列车。这部分特急观光列车是特殊的，并且只运营在特定的路段。总体而言还是非常漂亮的！</p>
 <p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/02/20260220223433453.png" alt="546fa12dc31224b899d404ffd7fce085.png" /></p>
 <p>我订下的列车一个叫 蓝色交响曲，另一个叫火鸟号。听朋友介绍的天花乱坠，但是整体车票没有很贵，蓝色交响曲1小时从大阪阿部野桥Abenobashi到Yoshino吉野，约合人民币35元。另一张火鸟号是早上8电行驶半小时从奈良到大阪难波Namba。
 <img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/02/20260220223503307.png" alt="image.png" /></p>
 <p>同时，我也因此完全订下我的行程。第一天在大阪，第二天去京都，第三天在大阪，第四天在京都，第五天在吉野和奈良，第六天在大阪。听起来有些特种兵，没想到还真是。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260204030200141.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-016-879a606cb3c2.webp" alt="image.png" /></p>
 <h2>出发前</h2>
 <p>出发前两天，我联系了来日本的朋友。我们约定在会议上相见。此时别说多高兴，基本上全日本坐HPC的所有朋友都会过来。</p>
 <p>此时我很不安。到目前为止，我经历了好几个挫折。实习刚刚被拒，paper实验做不出来，phd offer还没有着落，之前的面试后来都没有联系。说实在很沮丧。此时我也差不多预感到，我也到一个需要休息的时期了。一边这样劝慰着自己，一边焦虑着实验。</p>
@@ -120,7 +122,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/02/20260221005248451.png" alt="image.png" /></p>
 <p>在购买西瓜卡的途中，奇妙的事情发生了。在排队时，我开始查看邮件。看到了OSU发来的ECE PhD offer。</p>
 <p>并且这个offer算是无面直接录，这下终于有书读了。精神振作了百倍。坐在前往南海难波的车上，望着湛蓝的天空和洋面，再远处是和歌山的森林。感觉一切都好了起来。</p>
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208031548551.png" style="width:20vw; height:auto;">
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-020-7e9cb04350fa.webp" style="width:20vw; height:auto;">
 <p>电车从机场出发经过跨海大桥。旁边是hmgg。</p>
 <details>
 <summary>提醒：📸 关于日本拍照与隐私保护（点击展开）</summary>
@@ -136,19 +138,19 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 </details>
 <h2>第一天 大阪 难波</h2>
 <p>从南海难波下车，转乘千日前线前往阿波座，就到达了我们的酒店了。此时已经是下午5点，太阳正在落山，远处夕阳的金光照的云朵发亮。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208031925025.png" alt="1587130f5fedd05251fd8f11315d2525.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-021-130b8fbbca94.webp" alt="1587130f5fedd05251fd8f11315d2525.jpg" /></p>
 <p>酒店房间不大，但是好在床足够大，一个人住刚刚好很舒服。窗外可以看到车流涌动。酒店还有免费的温泉和酒吧，对于旅行来说简直太放松了。</p>
 <p>休息了一小时，1月的大阪就已经天黑了。我决定开始对周围探索探索。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208035807067.png" alt="5a6f5946a91d749fd21712674072fb15.jpg|400" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208035815715.png" alt="399874bd5e5361b462ea4cb72dff48d2.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-022-46764bfab2d5.webp" alt="5a6f5946a91d749fd21712674072fb15.jpg|400" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-023-af7b1bbecfff.webp" alt="399874bd5e5361b462ea4cb72dff48d2.jpg" /></p>
 <p>路上有各种商店、饭馆和居酒屋，并且很多在google map上找不到。感叹看来出来一趟是对的。另外就是很多便利店，主要是Lawson，全家以及711。去全家后，在陌生的人群里战战兢兢的买了一杯饮料和一个饭团，店员面无表情的帮我扫完，我看到墙边贴纸上写着支持微信支付，诧异地用微信收款码付了钱（店员：奇怪的人）。</p>
 <p>在这边的一个小公园门口看到一个告示牌。自行车偷盗、地域活动、老年人的慢性病，以及医院的广告。仔细一想，在街上看到的确实有相当多的老人和中年人。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208040523135.png" alt="8b7c19938a5c88e71c60af6899a238ce.jpg" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-024-8c6cfcd32284.webp" alt="8b7c19938a5c88e71c60af6899a238ce.jpg" /></p>
 <p>由于没有寻觅到什么好吃的，我决定去更大的地方吃东西。我开始准备坐地铁。一个拐角，看到了一家卖鲷鱼烧的店（那个字居然读diao）。这还说什么，直接购买！</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208042219874.png" alt="7e1bf942599493393ccedf6550f8e226.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-025-868ac57f5b9e.webp" alt="7e1bf942599493393ccedf6550f8e226.jpg" /></p>
 <p>这家店位于大街拐角口，没有座位，顾客买完就匆匆忙忙地进入了地铁站，而后面等待的顾客有条不紊的向前移动。前来购买的基本是穿西装蓝领的打工人，大概此时是刚刚下班准备回家的时刻，此时前来购买，应该也是准备应付晚饭或者加班吧。街道口的风格外的大，店员小姐在前边热情的招待。看向招牌，此时我才惊恐的发现上边基本没有汉字。我只能根据前面的顾客拿了什么，来判断哪个是什么种类。</p>
 <p>大部分打工人都只点了1-2份鲷鱼烧，我观察着店内另一个师傅的操作，终于明白了售卖的全部三种口味。排在我前面的是一个中年女性，她与其他人不同，一下点了4份鲷鱼烧。我有点吃惊，难道这可以吃这么多吗？看着她点完高兴的表情，我猜可能是买给家里孩子吧。这么晚回家，先吃一个零食也是很棒的。当然，就在我随机加戏时，就排到我了。</p>
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208042246693.png"  alt="image" style="width:15vw;height:auto;">
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-026-e8d20ab485ee.webp"  alt="image" style="width:15vw;height:auto;">
 <p>我买了一个甜土豆味道。只见这鲷鱼烧形状和小暗吃的一模一样。在店内，看到它是在一个圆圆的模具里烤出来的，摸起来也很温热。一口咬下去，开始是它表面的一层脆皮，有一种麦当劳甜筒蛋卷的香味。随后是香气扑鼻的土豆与玉米般的甜味，土豆被打成了糊状融在脆皮内，让我想起了菠萝派。寒风吹过，热气却让手和脸颊更温暖了。可惜第二口后，味道跟第一口一模一样，没有任何的起伏。嚼了几口，终于明白为什么美柑说小暗吃的太糟糕了，一顿午饭如果全吃这个，简直味同嚼蜡。这个东西不能多吃，但是简单尝两口补充能量还是可以的。</p>
 <p>吃完有能量了，便坐上地铁出发继续觅食。我决定回到难波的商业街去找吃的。地铁坐的是大阪中央线的400系：</p>
 <video width="95%" controls preload="metadata">
@@ -158,77 +160,77 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <p>大阪地铁中央线的 400 系列车，以其极具未来感的外观设计而广受关注。列车前脸采用多边形结构与大面积玻璃组合，配合独特的灯组造型，呈现出类似“科幻飞行器”的视觉效果。前脸采用八角形的大型窗面与四角灯组布局，给人一种仿佛未来宇宙飞船的既视感。越来越多的铁道迷甚至戏称它是“大阪地铁的 TIE 战机”。</p>
 <p>400 系的诞生背景，与大阪城市更新及公共交通升级密切相关。400系列车是 大阪市高速电气轨道（Osaka Metro） 在2023年推出的全新车型，用以替代老旧的20系、24系车组，并作为迎接 <strong>2025年大阪・关西世界博览会</strong> 的重要城市基础设施一部分。它被定位为新一代主力车型，用于替代老旧列车，并服务于不断增长的通勤与旅游需求。在设计过程中，运营方希望通过兼具现代感与功能性的车辆形象，展现大阪面向未来发展的城市理念。</p>
 </blockquote>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208050145780.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-027-02c7164844c9.webp" alt="image.png" /></p>
 <blockquote>
 <p>在内部空间设计上，400 系同样注重实用性与舒适性。车厢整体风格简洁明亮，座椅配色柔和，并配备多语言电子信息屏，方便本地居民与国际游客使用。同时，车内合理规划了无障碍区域和行李放置空间，使不同乘客群体都能获得良好的乘坐体验。</p>
 <p>凭借出色的设计水平与稳定的运营表现，400 系在投入使用后获得了较高的人气评价，这一系列列车在推出后引发乘客和铁路迷们的喜爱，在 <strong>2024年荣获日本铁路友之会颁发的“ローレル賞”（Laurel Prize）</strong>——这是日本铁道界对新车型极高的人气与认可奖项之一。它不仅是一种交通工具，也逐渐成为大阪城市形象的一部分，体现了现代都市交通在美学、效率与人性化设计方面的融合发展方向。</p>
 </blockquote>
 <p>到了难波后，找了一家连锁拉面店坐了下来。这里可以直接自主点餐，跟广州客村那家寿司郎一样，并且价格相对比较亲民。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208050630209.png" alt="f7f00a7926a29d15c3590b9f2d48c4ce.jpg" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-028-b6bc7489b0fd.webp" alt="f7f00a7926a29d15c3590b9f2d48c4ce.jpg" />
 <em>这顿可乐+煎饺+拉面+炒饭碳水大餐，1960日元，微信支付约89人民币</em></p>
 <p>然而我此时实在是有点困顿了。昨晚没睡，今早又飞机，眼睛都快睁不开了。但是还是强忍着精神，准备回酒店。结果不知道怎么着，发现这里走回酒店只要步行1小时，又神人般的开始逛回家了。</p>
 <p>很快便来到道顿堀步行街，这里游客就猛的增多了很多。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208051119922.png" alt="f833af9e3c1222f08a91baf77565dc3c.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-029-e2b0adfd780f.webp" alt="f833af9e3c1222f08a91baf77565dc3c.jpg" /></p>
 <p>走在街上，此时各种商店的嘈杂，以及韩文和中文都能听到了。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208051206732.png" alt="97a1c691761420fdaa45ff1486f6f0e4.jpg" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-030-cea508e34a50.webp" alt="97a1c691761420fdaa45ff1486f6f0e4.jpg" /></p>
 <p>这家螃蟹店，我在9年前来大阪时就已经在了。没想到现在它还在：</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217155346839.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-031-abe0fe80ab23.webp" alt="image.png" /></p>
 <p>人真的好多。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208051507407.png" alt="0ec778bcacbf3c36377655bf8d333a3b.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-032-d5338057a7a7.webp" alt="0ec778bcacbf3c36377655bf8d333a3b.jpg" /></p>
 <p>心斋桥。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208051524424.png" alt="e3a90254074459150a664e46fa7b4101.jpg" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-033-7b29f880649c.webp" alt="e3a90254074459150a664e46fa7b4101.jpg" /></p>
 <p>著名的格力高广告牌。它已经在这里几十年了。如今，依旧有无数游客观看着它奔跑，似乎那个繁华无尽、朝朝日上的明天还会到来。几十年，从一个东京买下美国，到广场协定，再到失去的三十年，今天的跑男，还有自信继续跑下去吗？路过的游客吵闹着，桥边几个网红在此卖艺弹唱，一台手机加上几个聚光灯组成一个小剧场，几个年轻人在此炫耀自己的纹身和马甲。我心里总感觉对这些有一种莫名的失落感。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208051532513.png" alt="90fd3729d30800ea9af37e89b9753c40.jpg" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208052118133.png" alt="096a8f6c498bdc3f20ff2a8fb796931b.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-034-91cdd1289ee4.webp" alt="90fd3729d30800ea9af37e89b9753c40.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-035-94bcfe119a14.webp" alt="096a8f6c498bdc3f20ff2a8fb796931b.jpg" /></p>
 <p>时隔多年，我似乎已对购物和商店街免疫。令我感到无趣的，不仅是特意针对外国人的更高的价格，还有就是这里售卖的根本不是本地人购物的商品。</p>
 <p>我一直认为真正的旅游应该是感受作为一个当地人，融入到当地的生活中体验一段时间。比如去买菜购物，去社交，参与日常活动，了解当地的历史。这也是为什么落地后我没有第一时间直接来旅游景点（虽然说心斋桥是景点，但是我的首要目标是填饱肚子，这个只能说是附带的）</p>
 <p>从这个角度讲，刚刚吃的拉面确实基本都是下班了的社畜在吃（可恶，今天cos的是社畜吗，岂可修）</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217155418263.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-036-d471948eada6.webp" alt="image.png" /></p>
 <p>商店街很快就走完了，可怜的社畜顶着寒风，看着街上灯红酒绿，心里的钱包空荡荡，只能继续行走。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208052830570.png" alt="e9b4a63e4d4a36dab53f3181c208a249.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-037-4b9a6091ad62.webp" alt="e9b4a63e4d4a36dab53f3181c208a249.jpg" /></p>
 <p>路过苹果店，好贵，社畜咬咬牙，说继续努力工作吧。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208052939867.png" alt="e9c28d31ca152ca87bbb077c0b15cf70.jpg" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-038-5438b83a26e8.webp" alt="e9c28d31ca152ca87bbb077c0b15cf70.jpg" /></p>
 <p>祝一晚就要消耗一个月工资的酒店。社畜看完直接睡在街边。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217155441045.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-039-7f46dd7dd7ee.webp" alt="image.png" /></p>
 <p>大阪CBD的街头。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208053047334.png" alt="d4d64a5af8a8f29e9a694315cf436adc.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-040-433ce66a3a8a.webp" alt="d4d64a5af8a8f29e9a694315cf436adc.jpg" /></p>
 <p>大桥底下的停车场和涂鸦。大阪的停车真的很贵，可能简单的20分钟，就要收取200日元的费用。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217155504114.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-041-b8186c800e56.webp" alt="image.png" /></p>
 <p>从这里就进到回家的小路了。大阪的小路街道设计很漂亮，房屋在路旁边设计的很紧凑但是不拥挤。如果用一个词总结的话，那就是有审美。房屋之间会考虑如何去融入环境，如同人本身一样。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217164255421.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-042-d9a354552bd2.webp" alt="image.png" /></p>
 <p>路过的教堂。整个教堂是西式的小建筑，外观很好看。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208053327561.png" alt="c78fee04edbb637474b3f79df9b92262.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-043-4f9ed61a87f5.webp" alt="c78fee04edbb637474b3f79df9b92262.jpg" /></p>
 <p>邮箱。9年前来日本时，我们会买当地的明信片，然后在邮箱里把他们寄出去。不知道如今他们使用率是不是下降了很多。虽然信息化没有深圳和广州那么强，9年过来，人们用书信和纸张的次数肯定少了很多。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217164332917.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-044-2bed66984a3b.webp" alt="image.png" /></p>
 <p>一个街道旁小小的神社。这里只拍到它的入口，其实内部也就延伸个30米。之前看《命运石之门》时，对IBM5100存放的神社很不理解，我说为什么在这么大个都市里还有这样的建筑呢？看到这就理解了。并且，在大城市里的神社，也颇有一种让人记住自己的初心的感觉。如果全部是深圳一样的高楼、地铁、交通灯，全部都是实用主义的建筑，有一种冷冰冰的感觉。</p>
 <p>9年前来大阪时，我当时吐槽这个城市很像深圳：高楼、发达的立交桥、有序的交通。今天看到这几个建筑让我对大阪有不一样的印象。深圳的温度在于一种高效和发达，在市民中心、莲花山公园里也有宜人的风景和宽大气派的风度。大阪的温度更像是在这种小街道中，一些精巧设计令人回味。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208053755055.png" alt="7c08ffbb5dda728ae59cfaaba3a29327.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-045-9af96abfeee3.webp" alt="7c08ffbb5dda728ae59cfaaba3a29327.jpg" /></p>
 <p>快回家了，此时晕的跟刚刚应酬完的社畜一样。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208054557714.png" alt="1fda7ed0ae19c47325a8935ba3320d21.jpg" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208054642151.png" alt="347147658616b46c08fe3cd7de93859b.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-046-6579c9a47c37.webp" alt="1fda7ed0ae19c47325a8935ba3320d21.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-047-048ba57a983d.webp" alt="347147658616b46c08fe3cd7de93859b.jpg" /></p>
 <p>走到这个公园的路口，一个宣传告示牌让我停下脚步。
 一位大阪市长候选人的竞选宣传海报，左边贴的是横山英幸的竞选海报，右边是投票说明。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217164451299.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-048-eea2d3d68093.webp" alt="image.png" /></p>
 <blockquote>
 <p>可以看到这里写着 “副首都 大阪都 构想”；</p>
 <p>日本的市长选举属于<strong>地方自治选举</strong>的一部分。选举期间，政府会在社区设置统一的竞选公告栏，每位候选人只能在指定编号的位置张贴一张标准海报，不能随意投放商业广告。</p>
 <p>在选举开始前，符合条件的人可以向选举管理委员会报名参选，获得一个候选人编号。竞选期间（通常1～2周），候选人可以进行街头演讲、发传单、拜访选民等活动，但方式和时间都受到严格限制。日本的竞选风格整体比较“克制”，更强调个人履历、政见和公众形象，。</p>
 </blockquote>
 <p><a href="https://www.city.osaka.lg.jp/">https://www.city.osaka.lg.jp/</a></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208055322835.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-049-e1bd5d677296.webp" alt="image.png" /></p>
 <blockquote>
 <p>投票当天，选民到指定投票点，用纸质选票<strong>手写候选人姓名</strong>并投入票箱。当晚集中开票，采用“简单多数制”，也就是谁的票最多，谁就当选市长，不要求必须过半。</p>
 </blockquote>
 <p>具体的选举情况，可以查看当地政府的网站进行了解：
 <a href="https://www.city.osaka.lg.jp/contents/wdu240/shugiin/index.html">https://www.city.osaka.lg.jp/contents/wdu240/shugiin/index.html</a></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208055729352.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-050-5cd068a7487f.webp" alt="image.png" /></p>
 <p>GPT给了我一个简单的时间表介绍：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208055638117.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-051-c8317baf0044.webp" alt="image.png" /></p>
 <p>点开选举后补者，就能看到，我们的第一个人就是横山了。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208055757093.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-052-0caf8611d42d.webp" alt="image.png" /></p>
 <p>可以看到，横山属于 日本維新の会 党派，这是一个日本的在野保守派，主打改革、效率、削减官僚体系的地方出身政党，这个党最早是从<strong>大阪地方政治改革运动</strong>发展起来。其最初目标为改革大阪财政和行政体系。推动过著名的「大阪都构想」（把大阪市改成类似东京的行政结构），后来发展成全国性政党（2015年正式成立）。大阪就是这个党派的老巢。</p>
 <p>我们可以前往他们的网站，了解他们的主张：<a href="https://o-ishin.jp/policy/">https://o-ishin.jp/policy/</a></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208060337317.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-053-3e1cb29765ca.webp" alt="image.png" /></p>
 <p>第一条：降社保，让普通人每年少交6万日元左右</p>
 <p>第二条：大阪带动经济，把大阪打造为“第二政治经济中心”，对抗东京独大。
 还包括：</p>
@@ -261,72 +263,72 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <h2>第二天 SCA26</h2>
 <iframe src="//player.bilibili.com/player.html?isOutside=true&amp;aid=3389065&amp;bvid=BV17s411o7ys&amp;cid=5368331&amp;p=1&amp;autoplay=0" width="600" height="300" frameborder="0" allowfullscreen></iframe>
 <p>一早起床，先喝了昨天便利店买的咖啡和饭团。如果没记错，当时买的应该是梅子味饭团。之前看番里的男主他们都说很好吃，但是我觉得味道不好吃。说明我不是番剧里的男主。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208080135521.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-054-c9868333a066.webp" alt="image.png" /></p>
 <p>会议在大阪国际会议中心开办，这里在大阪中之岛，是绝对的CBD。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208080323292.png" alt="463413175bad3421501e5470e381f8c7.jpg" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208080430363.png" alt="96d64244d9fc56ae26f19a129481e4e1.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-055-5f228be4b248.webp" alt="463413175bad3421501e5470e381f8c7.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-056-a45b8f379196.webp" alt="96d64244d9fc56ae26f19a129481e4e1.jpg" /></p>
 <p>进入会场注册后，给了一个袋子，里面有各种会议的小宣传和指引。不得不说这次的各种指引和资料很全面，看得出这次会场主办方的精心准备。</p>
 <p>国际会议中心是一个立体的设计，简单来说它不像广州会展中心那样庞大，它的水平面积很小，只能容纳几百平米，因此需要多层楼才能开办起来（在这开漫展不知道是什么感觉）。</p>
 <h3>SCA26 会议海报</h3>
 <p>来到10F，就能看到要展出的海报。可惜他们是在下午举办，此时场馆里很少人。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208080446373.png" alt="92796f2135861a4b6228e75131755446.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-057-c7773eab294f.webp" alt="92796f2135861a4b6228e75131755446.jpg" /></p>
 <p>拍了些有趣的海报：</p>
 <p>PFS
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208081044234.png" alt="7e82c2d42a6a7da564211eb4de9b6a35.jpg" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-058-0f04ef578386.webp" alt="7e82c2d42a6a7da564211eb4de9b6a35.jpg" /></p>
 <p>烟花计算</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208081110417.png" alt="f540f39ca8412cd2edc5661b4f7914e6.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-059-ef259611f9bd.webp" alt="f540f39ca8412cd2edc5661b4f7914e6.jpg" /></p>
 <p>Agent+HPC
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208081154854.png" alt="760a5339b756176dfef8c00cc1340753.jpg" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-060-7b8c1da4ed6c.webp" alt="760a5339b756176dfef8c00cc1340753.jpg" /></p>
 <p>Intel GPU
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208081218113.png" alt="1422f9a4acfe748910d42d4460bd3bb3.jpg" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-061-34c23aad1f27.webp" alt="1422f9a4acfe748910d42d4460bd3bb3.jpg" /></p>
 <p>AI Compiler
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208081243618.png" alt="9cff3f078f66fb11a580298862d43da8.jpg" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-062-335039d03db4.webp" alt="9cff3f078f66fb11a580298862d43da8.jpg" /></p>
 <p>在会场遇到的朋友的作品（北海道大学）
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208081318428.png" alt="fb07d5c16672f27bfb2e0215f5da0417.jpg" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-063-c1d73f772552.webp" alt="fb07d5c16672f27bfb2e0215f5da0417.jpg" /></p>
 <p>医学影像+AI+GPU
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208081359102.png" alt="ab971dc5b93b88ad80e98c374375c75e.jpg" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-064-69431dde5bf9.webp" alt="ab971dc5b93b88ad80e98c374375c75e.jpg" /></p>
 <p>AI 4 Science
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208081434479.png" alt="a57ef1255563ec56a0b09a5d3d708fc6.jpg" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-065-59bb8325afcc.webp" alt="a57ef1255563ec56a0b09a5d3d708fc6.jpg" /></p>
 <p>总体来看，今天的海报主要跟AI4Science，AI Kernels有关。这也是很正常的事情，目前AI正成为最主流的大计算量workload。</p>
 <h3>SCA26 主展馆</h3>
 <p>今年的exhibition 看起来很丰富，非常的热闹</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208081750992.png" alt="e697ce5a52bb5be6f84568325f263aaa.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-066-2f7b751d1773.webp" alt="e697ce5a52bb5be6f84568325f263aaa.jpg" /></p>
 <p>开头就是一个GMO+NVIDIA的组合，前来参观他们的B300服务器。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208081827421.png" alt="fc291034fa0420948659608df6c8443c.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-067-58b53db46944.webp" alt="fc291034fa0420948659608df6c8443c.jpg" /></p>
 <p>前来讲解的是一个很热情的老哥，他给我科普了下这台机的峰值算力，然后填了个问卷，领取了充电宝和贴纸（</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208081850748.png" alt="56d11b7b15a9f9bb7448d0480067fbfe.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-068-431503a6ac09.webp" alt="56d11b7b15a9f9bb7448d0480067fbfe.jpg" /></p>
 <p>继续走进去，会场里还有高校，University of Hyogo 计划开设一个AI/HPC phd program。问了下老师，这个专业是英授的。信息链接： <a href="https://www.u-hyogo.ac.jp/english/index.html">https://www.u-hyogo.ac.jp/english/index.html</a>
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208082130446.png" alt="36fdfc71970c46be509ff744071634ab.jpg" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-069-f086cb2d8a04.webp" alt="36fdfc71970c46be509ff744071634ab.jpg" /></p>
 <p>大名鼎鼎的cerebras
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208082325179.png" alt="763faafb2766892f9de22845c1c9aafb.jpg" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-070-1c9cb0649c93.webp" alt="763faafb2766892f9de22845c1c9aafb.jpg" /></p>
 <p>造超算制冷的维蒂
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208082353311.png" alt="2e959713c75dbdad4341c4891c5924cf.jpg" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-071-c8d38b6659e2.webp" alt="2e959713c75dbdad4341c4891c5924cf.jpg" /></p>
 <p>搞量子计算的IBM
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208082425738.png" alt="f7ade0590d2371e16d34261ba7a7f3fa.jpg" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-072-13aa5e994208.webp" alt="f7ade0590d2371e16d34261ba7a7f3fa.jpg" /></p>
 <p>谷歌的AI+DevOps
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208082447383.png" alt="e973166656ef74c45e166c8301b26c3c.jpg" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-073-c1b002f70226.webp" alt="e973166656ef74c45e166c8301b26c3c.jpg" /></p>
 <p>我个人用gemini用下来感觉用来做test+trouble shooting是做的最好的，也是最需要的。目前的cursor主要可以解决development的需求，但是如果说能够在ide方面针对别的需求，做好别的AI辅助，那就太好了。</p>
 <p>我个人认为在这两年内AI的定位应该还是要落在copilot上。程序员应该担任像以往的产品经理、设计师的角色。AI做主导不是大部分用户想需要的。</p>
 <p>联想。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208082804411.png" alt="1030bed1de9c340829ee5b5d34ab4bd6.jpg" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-074-2576538ef937.webp" alt="1030bed1de9c340829ee5b5d34ab4bd6.jpg" /></p>
 <p>AMD的服务器。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208082827648.png" alt="d5d219fe0442e592164cecd2ed6a9644.jpg" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-075-9e52f4840ae4.webp" alt="d5d219fe0442e592164cecd2ed6a9644.jpg" /></p>
 <p>最后还见到了slurm的开发者，约好了今年SC Chicago见哈哈哈。</p>
 <p>最后的战果：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208082854330.png" alt="f8eb3e6a5b5fac23105a80c4c2bf4aa9.jpg" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-076-a5b84bd9f56c.webp" alt="f8eb3e6a5b5fac23105a80c4c2bf4aa9.jpg" /></p>
 <p>Riken
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208082940631.png" alt="fefb0b229364943578389b5a4a811c03.jpg" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-077-351e04a29f68.webp" alt="fefb0b229364943578389b5a4a811c03.jpg" /></p>
 <p>拿了几个小吃，就从会场离开，前往京都玩了。由于我太心急，错过了半小时后的午饭。谁曾想这边饭菜这么好吃！</p>
 <p>借用朋友的照片🥺</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208084159472.png" alt="0e0a80f2a6514bc4aa8f20ebacf18607.jpg" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208084206012.png" alt="4d0f145aa6eca7e582994cd30704f076.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-078-a89373c08b77.webp" alt="0e0a80f2a6514bc4aa8f20ebacf18607.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-079-d4cd1ba986e5.webp" alt="4d0f145aa6eca7e582994cd30704f076.jpg" /></p>
 <h2>第二天 京都大学</h2>
 <iframe src="//player.bilibili.com/player.html?isOutside=true&amp;aid=9162462&amp;bvid=BV1Sx411C7NA&amp;cid=15138613&amp;p=1&amp;autoplay=0" width="600" height="300" frameborder="0" allowfullscreen></iframe>
 <p>逛完会场，进入中之岛地铁站，就可以乘坐京阪电车出发去京都了。由于明天不去京都，因此我没有购买通票。一趟列车费用约800日元。</p>
 <p>联通中之岛的桥梁。<strong>中之岛（Nakanoshima）</strong> 位于日本大阪市中心，是夹在堂岛川与土佐堀川之间的一座狭长“河中岛”，全长约 3 公里。这里自江户时代起便是商贸与金融重地，如今仍是大阪重要的商务、文化与休闲核心区。中之岛保留了不少近代西洋风格建筑，最具代表性的是 大阪市中央公会堂，红砖外墙与穹顶极具辨识度，常被视为“大阪的城市名片”。周边还分布着多家报社旧址、银行旧楼，体现了大阪“商都”的传统底蕴。</p>
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208084342136.png" style="width:30%;">
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-080-3ff6150cb90b.webp" style="width:30%;">
 <p>这里的地铁站相对较旧且狭长。轨道上此时停着普通列车，也就是站站乐，来坐的朋友在这里可以坐京阪电车的特急，这个是不用收特急费的！</p>
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208084437938.png" style="width:30%;">
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-081-452dc787953d.webp" style="width:30%;">
 <p>我们可以乘坐这样的特急：</p>
 <video width="75%" controls preload="metadata">
   <source src="https://cdn.jsdelivr.net/gh/HaibinLai/japan-trip-assets@main/2aa87f6a05894df1841fc46f413a9ce8.mp4" type="video/mp4">
@@ -336,21 +338,21 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <p>车轮压过一段段铁轨，我忽然想起大学时坐过的一次绿皮车。窗外是连绵起伏的丘陵与森林，带着一点原始而朴素的气息；车厢里却是一种奇妙的“安静的喧闹”——有人低声交谈，有人靠窗小憩。</p>
 <p>相比中国常见的高楼林立，或是城乡分明的风貌，日本给我的印象更像是一片片低矮而密集的住宅区。它们延伸到视线尽头，没有太多突兀的起伏，却自成秩序，也显得格外克制而安稳。正是在这样的风景里，我一边敲着键盘，一边在流动的时光中，慢慢靠近京都。</p>
 <p>大概下午2点，来到京阪电车的终点站：出町柳，下车后向着白北川方向走路，就能靠近京都大学。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208225850781.png" alt="9e0abe602bfac85b39652e0a932bb72f.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-082-3ac99516d293.webp" alt="9e0abe602bfac85b39652e0a932bb72f.jpg" /></p>
 <p>简单买了个饭团，沿着小路往前走。道路不宽，却很干净整齐，地面标着「止まれ」（停车让行）。没有商业区的热闹，也不像景点那样拥挤。</p>
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208225910664.png" style="width:40%;">
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-083-8ab4987285a4.webp" style="width:40%;">
 <p>转角来到一个麦当劳，想起来日本还没有吃麦当劳，便过来点餐。点了一份这里的特色：「チーズダブルてりやき」“双层芝士照烧”，和辣味鸡块，还给了份Garlic Source。照烧鸡很好吃，不过这个鸡块和酱料吃起来一般般。</p>
 <p>麦当劳里很多来自习的学生，他们大部分会简单点一份餐，然后学习。似乎很少人用电脑，大部分人是在自己的笔记本上记录着什么，以及对着书本记录。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208230510201.png" alt="7041c8623ea3627270e67b36d418b042.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-084-951f4b1b271f.webp" alt="7041c8623ea3627270e67b36d418b042.jpg" /></p>
 <p>随后，再走5分钟，就可以从大学的西门进入了。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208231118767.png" alt="6476bd3b9d236408aa4a61f557cba3e3.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-085-353675bfad59.webp" alt="6476bd3b9d236408aa4a61f557cba3e3.jpg" /></p>
 <p>这里还有京都大学博物馆，可惜今天刚好闭馆。随后来到图书馆旁边，可惜这里要刷卡，刚好又没有学生进去，所以只能在外面参观罢。不过，这里和9年前来参观时基本是一样的。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208231529766.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-086-07ec3ba8c7dc.webp" alt="image.png" /></p>
 <p>随后，便看到京都大学标志性的钟楼。
 门口的京都大学展示也是一个风景，进行一个拍摄。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208231238522.png" alt="fe74796bb22b2067e7098a9eb24bfc73.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-087-af8f8129f2d7.webp" alt="fe74796bb22b2067e7098a9eb24bfc73.jpg" /></p>
 <p>9年前我们来时，这里的景象几乎是一致的，这么多年了，基本没怎么变。不过，当年这里校门口还有一个抗议活动：</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208231709142.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-088-156339474a84.webp" alt="image.png" /></p>
 <p>大概内容：
 <strong>京都大学は独裁状態！？</strong><br />
 京都大学处于“独裁状态”！？</p>
@@ -368,7 +370,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <li>川添信介（副学长 / 副校长）</li>
 <li>山極壽一（前校长）</li>
 </ul>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208231856049.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-089-7b7b95db5814.webp" alt="image.png" /></p>
 <p>海报把矛头直接指向校方领导层，认为他们：</p>
 <blockquote>
 <p>擅自修改规则<br />
@@ -395,14 +397,14 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <h3>京都大学的创立</h3>
 <p>19 世纪末，日本在明治维新之后积极推进近代化建设，国家迫切需要培养掌握现代科学技术与法律制度的人才。在这样的背景下，政府决定在关西地区设立一所新的帝国大学，以分担东京的教育与研究功能。1897 年（明治 30 年），京都帝国大学正式成立，成为日本第二所帝国大学。</p>
 <p>下方展柜中陈列的，是创校时期的官方文件、公文和校务资料原件。这些文献见证了京都大学从筹备、设立到逐步完善的过程，也体现出这所大学并非自然形成，而是在国家政策与制度安排下，有计划地建立起来的近代高等学府。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208232124646.png" alt="3ed50f0d6c7fc176193e417747e01c71.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-090-133e0924c2ce.webp" alt="3ed50f0d6c7fc176193e417747e01c71.jpg" /></p>
 <p>大学创立之初，在政府主导和相关人士的推动下，逐步建立起办学体制，并确立了初期的发展方向。首任总长负责组织师资力量、制定教学制度和管理体系，为学校的长期发展奠定了基础。展板中展示的肖像和资料，正是这一时期核心人物的记录。</p>
 <p>在学部设置方面，京都帝国大学最初设立了理工、法学、文学、医学等学科领域，并配合新式校舍的建设，逐步形成完整的教学与研究环境。这些早期校舍和学部照片，反映了当时以培养国家所需专业人才为目标的办学理念。</p>
 <p>同时，大学的设立也与京都城市发展的规划密切相关。校址的选择顺应了当时城市向外扩展的趋势，大学建设推动了周边地区的发展。展板中的地图资料，记录了京都城市规划与校园选址之间的关系。</p>
 <h3>校园日常生活</h3>
 <p>刚刚创立时学校的日常生活：</p>
 <p>这块展板以“日常生活（Daily Life）”为主题，展示了近代时期京都大学学生在校园中的真实生活状态，大致可以从学习、社交、体育、社团和文化活动几个方面来看。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208232157703.png" alt="2b53719dbaba92732cb911dfb2bae2eb.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-091-21e4803b2532.webp" alt="2b53719dbaba92732cb911dfb2bae2eb.jpg" /></p>
 <p><strong>一、学习与自习：以“集体用功”为常态</strong>
 从右下角“新闻部编辑室（约1929年）”和多张室内照片可以看出，当时学生的学习方式以<strong>集体讨论、自习和抄写资料</strong>为主。</p>
 <ul>
@@ -450,14 +452,14 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <p>可以看到，这些学生的生活还是非常丰富的，甚至比今天很多学校都要强。</p>
 <h3>二战时期京都大学</h3>
 <p>战争时的京都大学作为国家核心大学，系统性参与了军工、通信、材料、医学等战争相关研究，属于“体制内学术动员”的一部分。其科研研究帮助了日本军国主义的扩张，成为了战争机器的一环。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208232236135.png" alt="e63ff7fa940c1b9145e4e9a4b3230f8e.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-092-49c278bf792b.webp" alt="e63ff7fa940c1b9145e4e9a4b3230f8e.jpg" /></p>
 <blockquote>
 <p>“<strong>学徒出阵（がくとしゅつじん）</strong>”</p>
 <p>在二战后期，日本因战局恶化而陷入严重兵源短缺。1943 年起，政府取消了大学生的缓征制度，开始强制征召在校学生入伍，这一政策被称为“学徒出阵”。原本肩负学术理想与社会期待的青年学生，被迫中断学业，走向战场，成为战争动员体系的一部分。</p>
 <p>在 京都大学，大批尚未毕业的学生被征入陆军、海军或技术兵种，有的人甚至还未来得及完成论文或取得学位，便踏上征途。当时，各大学普遍举行“出阵壮行会”，以集会、演讲和军歌为学生送行。</p>
 <p><strong>学徒出阵是一段个人命运的悲剧，更是军国主义思潮下狂热的牺牲品。但是，校史馆仅对留下的文献进行了简单描述，并没有对这些学生和该政策做出任何评价。</strong></p>
 </blockquote>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208232445388.png" alt="70b8d523e194d1fb86b44e65147223e4.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-093-00f2413d5d0e.webp" alt="70b8d523e194d1fb86b44e65147223e4.jpg" /></p>
 <p>文段翻译by GPT：</p>
 <blockquote>
 <p><strong>学徒出阵</strong></p>
@@ -469,7 +471,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <p><strong>1943年9月の文科卒業生</strong></p>
 <p>随着战时体制不断加深，第三高等学校的修业年限从原来的三年缩短为两年。这一届学生提前于 9 月毕业，随后集体参加学徒出阵。</p>
 </blockquote>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208234151914.png" alt="c4af68e1171967b05692bac6bff407e9.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-094-2aae89c425f5.webp" alt="c4af68e1171967b05692bac6bff407e9.jpg" /></p>
 <p>这块展板的主题是 <strong>“战时下的学生（戦時下の学生 / Students during wartime）”</strong>，继续从多个具体场景，展示 京都大学 学生在学徒出阵前后，被全面卷入战争体制的过程。</p>
 <p>在战争体制逐渐加强的过程中，大学也被纳入国家总动员体系。原本保障学生学习自由与学术活动的制度不断被削弱，取而代之的是服从战争需要的管理方式。课程内容、作息安排和学生生活，都开始围绕“国家动员”展开。</p>
 <p>到 1941～1943 年前后，原本享有缓征资格的学生逐步失去保护，被要求随时准备应征入伍。</p>
@@ -492,7 +494,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 内容是：日本对美英宣战后，学校在钟楼前集合全体师生，宣读诏书，举行纪念仪式。
 👉 含义：  国家重大军事决定，直接在校园内传播和动员。</p>
 <h3>战后恢复</h3>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208234616973.png" alt="518a8eb2c24bec12d8fa6de181f4fdb3.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-095-d366d862e8e1.webp" alt="518a8eb2c24bec12d8fa6de181f4fdb3.jpg" /></p>
 <p>左下可以看到几本小册子，比如：</p>
 <ul>
 <li>《京大生活のしおり》（京大学生生活指南）</li>
@@ -504,7 +506,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <p>在《冰菓》的开头，千反田的舅舅有这么一个故事。在1967年6月，神山高中的学生反对校方压缩学园祭，学生方却因为担心惩罚，没有人愿意站出来领头。关谷纯被迫当上了名义上的领导者，为学生们所犯的所有错误背锅。最后导致关谷纯作为领导者被退学。具体的故事可以看看这篇回答：从《冰菓》谈起：60年代日本真实的高中生运动 - 北极星飞过什切青的文章 - 知乎
 <a href="https://zhuanlan.zhihu.com/p/1256940962">https://zhuanlan.zhihu.com/p/1256940962</a></p>
 <p>以上是日本高中发生的运动，而此时，在大学内，更激烈的学生运动正在运行中。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208235416290.png" alt="42031ae31287452db10b1bdc200c885b.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-096-6ad614f91019.webp" alt="42031ae31287452db10b1bdc200c885b.jpg" /></p>
 <p>20世纪60年代，日本爆发了大规模学生运动，其背景与冷战格局、美日同盟关系以及国内社会结构变化密切相关。战后日本在安全与外交上高度依赖美国，尤其是1960年《美日安保条约》的修订，引发了学生和市民对“国家主权受限”的强烈不满。同时，左翼思想在高校中广泛传播，许多青年学生希望通过社会运动推动政治与制度改革。</p>
 <details>
 <summary>图片内容翻译</summary>
@@ -531,51 +533,51 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <p><a href="https://drycola.com/posts/%E5%8E%86%E5%8F%B2%E7%A0%94%E7%A9%B6/20250818_%E6%97%A5%E6%9C%AC%E5%85%A8%E5%85%B1%E6%96%97%E8%BF%90%E5%8A%A8%E5%85%B4%E8%A1%B0%E5%8F%B2/#:~:text=%E6%97%A5%E6%9C%AC%E5%85%A8%E5%AD%A6%E5%85%B1%E6%96%97%E4%BC%9A%E8%AE%AE%EF%BC%88%E5%85%A8%E5%85%B1%E6%96%97%EF%BC%89%E8%BF%90%E5%8A%A8%E6%98%AF1968-1970%E5%B9%B4%E9%97%B4%E9%9C%87%E6%92%BC%E6%97%A5%E6%9C%AC%E7%A4%BE%E4%BC%9A%E7%9A%84%E5%A4%A7%E8%A7%84%E6%A8%A1%E5%AD%A6%E7%94%9F%E6%8A%97%E8%AE%AE%E8%BF%90%E5%8A%A8%EF%BC%8C%E4%BB%8E%E4%B8%9C%E4%BA%AC%E5%A4%A7%E5%AD%A6%E5%8C%BB%E5%AD%A6%E9%83%A8%E7%9A%84%E5%B0%8F%E8%A7%84%E6%A8%A1%E7%BD%A2%E5%B7%A5%E5%8F%91%E5%B1%95%E4%B8%BA%E6%B6%89%E5%8F%8A%E5%85%A8%E5%9B%BD153%E6%89%80%E5%A4%A7%E5%AD%A6%E7%9A%84%E5%85%A8%E5%9B%BD%E6%80%A7%E8%BF%90%E5%8A%A8%EF%BC%8C%E6%9C%80%E7%BB%88%E5%9B%A0%E5%86%85%E9%83%A8%E5%88%86%E8%A3%82%E5%92%8C%E6%94%BF%E5%BA%9C%E9%95%87%E5%8E%8B%E8%80%8C%E7%93%A6%E8%A7%A3%E3%80%82%20%E8%BF%99%E5%9C%BA%E8%BF%90%E5%8A%A8%E4%B8%8D%E4%BB%85%E6%94%B9%E5%8F%98%E4%BA%86%E6%97%A5%E6%9C%AC%E7%9A%84%E5%A4%A7%E5%AD%A6%E5%88%B6%E5%BA%A6%EF%BC%8C%E6%9B%B4%E6%B7%B1%E5%88%BB%E5%BD%B1%E5%93%8D%E4%BA%86%E6%88%98%E5%90%8E%E6%97%A5%E6%9C%AC%E7%9A%84%E6%94%BF%E6%B2%BB%E6%A0%BC%E5%B1%80%E5%92%8C%E7%A4%BE%E4%BC%9A%E6%96%87%E5%8C%96%EF%BC%8C%E6%88%90%E4%B8%BA%E4%BB%8E%22%E5%AE%89%E4%BF%9D%E6%96%97%E4%BA%89%E4%B8%96%E4%BB%A3%22%E5%90%91%22%E5%85%A8%E5%85%B1%E6%96%97%E4%B8%96%E4%BB%A3%22%E8%BD%AC%E5%8F%98%E7%9A%84%E5%8E%86%E5%8F%B2%E8%8A%82%E7%82%B9%E3%80%82,%E8%BF%90%E5%8A%A8%E7%9A%84%E6%A0%B8%E5%BF%83%E5%9C%A8%E4%BA%8E%E5%AF%B9%E9%AB%98%E9%80%9F%E7%BB%8F%E6%B5%8E%E5%8F%91%E5%B1%95%E6%9C%9F%E9%97%B4%E7%A4%BE%E4%BC%9A%E5%BC%82%E5%8C%96%E7%9A%84%E5%8F%8D%E6%80%9D%EF%BC%8C%E4%BB%A5%E5%8F%8A%E5%AF%B9%E4%BC%A0%E7%BB%9F%E6%9D%83%E5%A8%81%E7%BB%93%E6%9E%84%E7%9A%84%E6%A0%B9%E6%9C%AC%E8%B4%A8%E7%96%91%EF%BC%8C%E6%9C%80%E7%BB%88%E6%BC%94%E5%8F%98%E4%B8%BA%E6%97%A5%E6%9C%AC%E6%96%B0%E5%B7%A6%E7%BF%BC%E8%BF%90%E5%8A%A8%E7%9A%84%E5%B7%85%E5%B3%B0%E4%B8%8E%E7%BB%88%E7%BB%93%E3%80%82%201960%E5%B9%B4%E4%BB%A3%E5%90%8E%E6%9C%9F%E7%9A%84%E6%97%A5%E6%9C%AC%E6%AD%A3%E5%A4%84%E4%BA%8E%E7%BB%8F%E6%B5%8E%E5%A5%87%E8%BF%B9%E7%9A%84%E9%BB%84%E9%87%91%E6%97%B6%E6%9C%9F%EF%BC%8C%E5%B9%B4%E5%A2%9E%E9%95%BF%E7%8E%87%E4%BF%9D%E6%8C%81%E5%9C%A810%25%E4%BB%A5%E4%B8%8A%EF%BC%8C%E7%A4%BE%E4%BC%9A%E4%BB%8E%E8%BF%BD%E6%B1%82%22%E4%B8%89%E7%A5%9E%E5%99%A8%22%EF%BC%88%E6%B4%97%E8%A1%A3%E6%9C%BA%E3%80%81%E5%86%B0%E7%AE%B1%E3%80%81%E9%BB%91%E7%99%BD%E7%94%B5%E8%A7%86%EF%BC%89%E8%BD%AC%E5%90%91%E6%96%B0%22%E4%B8%89%E7%A5%9E%E5%99%A8%22%EF%BC%88%E6%B1%BD%E8%BD%A6%E3%80%81%E5%BD%A9%E7%94%B5%E3%80%81%E7%A9%BA%E8%B0%83%EF%BC%89%E3%80%82"># 日本全共斗运动兴衰史</a>
 全共斗运动:一场昭和式的红色幻梦 - 龙城海东的文章 - 知乎
 <a href="https://zhuanlan.zhihu.com/p/261386141">https://zhuanlan.zhihu.com/p/261386141</a></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260209001005579.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-097-4161966a6028.webp" alt="image.png" /></p>
 <p>1969年1月，京都大学的学生纷争正式进入激化阶段，由此引发的混乱局面持续扩大。虽然到当年9月局势一度趋于平稳，但校内围绕制度与权力结构展开的激烈对立，在此后仍长期持续着。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260209001130199.png" alt="2fa7dd49f2f166a6c2a5f3197f651a1c.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-098-edd6ed96580c.webp" alt="2fa7dd49f2f166a6c2a5f3197f651a1c.jpg" /></p>
 <p>这里展出了学生纷争时期流传的传单与文书资料。1969年前后，各类学生组织、自治团体乃至个人，都会通过印刷传单的方式，表达各自的主张与立场，并向校内外传播运动的信息。</p>
 <p>其中包括号召拒绝“帝国大学体制”、反对既有教育制度、要求改革大学管理方式的公开声明，也有呼吁学生集结行动、参加集会与罢课的动员文件。这些文字材料反映了当时学生对国家体制、大学权威以及社会结构的强烈质疑。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260209001223110.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-099-f242a4255d5f.webp" alt="image.png" /></p>
 <p>展柜中还陈列着1950年发布的“红色清洗”和《学生第9号通告》等文件。这些通告由校方发布，用于限制或禁止学生罢课与示威活动，体现出大学管理层与学生之间日益加深的对立关系。</p>
 <p>此外，1964年有关学生宿舍费用分担问题的文件，也记录了围绕生活成本、学费负担和福利制度展开的争论。校方试图削减补助、转嫁费用的做法，引发了学生的强烈反对，并成为后来纷争不断扩大的导火索之一。</p>
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260209000037157.png" style="width:40%;">
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-100-842652ae9307.webp" style="width:40%;">
 <p>然而，随着社会支持度下降、学生组织内部严重分裂，以及日本经济高速增长带来的现实压力，学生运动在1970年前后迅速衰落。部分激进派系走向暴力化，也进一步削弱了公众认同。政府随后加强对大学和社会秩序的管理，使大规模学生抗议难以再度出现。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260209001714667.png" alt="image.png" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260209002042949.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-101-fa1b9dc5aeff.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-102-a1a82df7f019.webp" alt="image.png" /></p>
 <p>冰菓是我高一疫情在家看的动画。当时春季刚刚入夏，午后的窗外刮起大雨，打开房间的空调，喝着自己调试的奶茶，听着番剧里巴赫的背景音并看着剧情。那种无忧无虑的感受可能很难再寻回。</p>
 <h3>其他</h3>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260209001334347.png" alt="05bd797753c15664d4574467a75aa551.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-103-8d0b538d1e01.webp" alt="05bd797753c15664d4574467a75aa551.jpg" /></p>
 <p>校本部其实挺小的，今天理学部似乎也搬到更北一点的地方。这里可以看到，校门口、图书馆、和文学院。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260209002120516.png" alt="a1b6314d8bdb61b4ebd5c1407bf612f8.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-104-c196c2bf786b.webp" alt="a1b6314d8bdb61b4ebd5c1407bf612f8.jpg" /></p>
 <p>校友捐赠榜</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260209002317115.png" alt="b901fd0b30e8e769aa731f97dec97645.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-105-a262d47e261e.webp" alt="b901fd0b30e8e769aa731f97dec97645.jpg" /></p>
 <p>再回望礼堂的正门，似乎又多了几分思考。初代校长曾在这里宣誓举办第一届运动会，被意识形态裹挟的士兵曾在这里号召学生参军，为争取权利的学生也曾在这里筑起街垒、与权威对峙，反对军事研究的学生拉起横幅海报。不同的时代，不同的立场，却都在同一处空间里留下了痕迹。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260208231205037.png" alt="b4c72111d3ab798dee12103cea19c91b.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-106-5e25f8d80175.webp" alt="b4c72111d3ab798dee12103cea19c91b.jpg" /></p>
 <p>今天的校门显得格外平静。学生抱着书本匆匆走过，谈论的是作业、考试与未来的去向。喧嚣与冲突早已退去，只剩下安静的日常。<strong>历史被折叠进了建筑与树影之中不再张扬，却仍在无声地存在着</strong>。</p>
 <hr />
 <p>剩下的时间，去了他们的饭堂赶论文。这里大部分都是和我差不多的学生。估计也都是暑假留校自习吧。</p>
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260209003215403.png" style="width:40%;">
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260209003426550.png" style="width:40%;">
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-107-a0eefd0e090f.webp" style="width:40%;">
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-108-b6e2b0a9182b.webp" style="width:40%;">
 <p>学校里的其他景色：</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260209003351700.png" alt="7573803895bd514727c4b286e3708119.jpg" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260209003453967.png" alt="2f9fd6e55bb8b309672f7e4d8ce0b7aa.jpg" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260209003405628.png" alt="8878a67353c7b2a19936c976b1e62c53.jpg" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260209003507199.png" alt="50b5dffcfc1bcc28de4abb39d2d5c808.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-109-4346bd7a2f59.webp" alt="7573803895bd514727c4b286e3708119.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-110-300517a647a2.webp" alt="2f9fd6e55bb8b309672f7e4d8ce0b7aa.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-111-43a6429dd251.webp" alt="8878a67353c7b2a19936c976b1e62c53.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-112-8ec5728c6d4f.webp" alt="50b5dffcfc1bcc28de4abb39d2d5c808.jpg" /></p>
 <h3>校园外</h3>
 <p>大概6点多离开学校，此时刚好看到一场街头演讲，继续观察他们的政治生活。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260209003527776.png" alt="8c108de5685bedaeb01d5825440a63c2.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-113-0158aeca682c.webp" alt="8c108de5685bedaeb01d5825440a63c2.jpg" /></p>
 <p>左边是日本共产党的宣传车，右边马路是一群听众。演讲者讲着党派的口号，右边的人时时爆发出一阵支持声。</p>
 <video width="95%" controls preload="metadata">
 
 <source src="https://cdn.jsdelivr.net/gh/HaibinLai/japan-trip-assets@main/com.mp4" type="video/mp4">
 
 </source></video>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260209003850339.png" alt="a285952b3ed4e29ad0f893cada7a5e4e.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-114-b1334ce411eb.webp" alt="a285952b3ed4e29ad0f893cada7a5e4e.jpg" /></p>
 <p>旁边的社员见我又兴趣，给了我一份他们的传单：</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260209004016756.png" alt="852b2ccd36c4b204e0ba4b365f1dfae7.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-115-cb23a9e9be76.webp" alt="852b2ccd36c4b204e0ba4b365f1dfae7.jpg" /></p>
 <p>宣传单的背面是他们的政治主张。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260209004028933.png" alt="f5c049b2273f95be6e8d8aa881b78366.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-116-768223070c5c.webp" alt="f5c049b2273f95be6e8d8aa881b78366.jpg" /></p>
 <p>第一部分主张“学费为零，支持生活”。呼吁彻底反对消费税增税和学费上涨，认为过高的学费应由国家承担责任，推动学费免费化。具体提出：将大学等高等教育学费减半，入学金降为零，免除一半奖学金返还义务；增加工资、缩短劳动时间、扩大正式就业；废除消费税、取消发票制度；提高养老金水平，加强护理服务，减轻医疗费用负担。</p>
 <p>第二部分提出“停止大规模军事扩张，守护宪法”。反对破坏国际秩序的军事行动，批评美国对委内瑞拉的干预行为，反对军事扩张，要求撤回相关发言。明确表示反对美国对委内瑞拉的干涉，以及以色列在加沙的种族灭绝行为；反对部署“战斧”导弹、扩建弹药库和军事基地；推动批准《禁止核武器条约》，追求无核世界。</p>
 <p>第三部分强调“实现性别平等与气候正义”。主张不容许歧视和排外主义，彻底推进性别平等；实现选择性夫妻别姓制度，废除“离婚后共同监护权”限制；纠正男女工资差距；推动去核能、节能与可再生能源发展，在2030年前将二氧化碳排放量最多削减60%。</p>
@@ -588,27 +590,27 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <iframe src="//player.bilibili.com/player.html?isOutside=true&amp;aid=115143895949014&amp;bvid=BV17va2zdEuU&amp;cid=32146588062&amp;p=1&amp;autoplay=0" width="600" height="300" frameborder="0" allowfullscreen></iframe>
 <p>走的时候，路边还看到一家很小的动漫 Bar。店面不大，从玻璃窗外几乎可以一眼望到里面的全部。昏黄的灯光安静地铺在书架和桌面上，狭小的空间里塞满了漫画和周边。几个年轻的女生坐在里面，手里拿着啤酒和饮料，一边翻书，一边低声交流着剧情和角色，偶尔笑起来。街道的喧闹仿佛被隔在了门外，只剩下一种属于爱好者的小小世界。</p>
 <p>继续往前到出町柳地铁站前，就是我们的第一个打卡点：玉子市场</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260209004658721.png" alt="4f52dd1b19759e8904bb299aef289c7b.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-117-74f3a3f62e41.webp" alt="4f52dd1b19759e8904bb299aef289c7b.jpg" /></p>
 <p>轻音也在这里有一张图
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/1f56fd57a07ac51724e8b98da9995657.png" alt="1f56fd57a07ac51724e8b98da9995657.png" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260209155921422.png" alt="3c04d744cc8e3b2454c00e8dbd8785bc.jpg" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260209160744945.png" alt="image.png" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-118-ae57b9751a74.webp" alt="1f56fd57a07ac51724e8b98da9995657.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-119-5d6e89d0b646.webp" alt="3c04d744cc8e3b2454c00e8dbd8785bc.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-120-4b8716052a9b.webp" alt="image.png" />
 玉子爱情故事 29分53秒</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260209161059125.png" alt="0f91126d0ef32da3351f81f7c5aba48c.jpg" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260209160848655.png" alt="image.png" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260209161143802.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-121-c1a3e10b5614.webp" alt="0f91126d0ef32da3351f81f7c5aba48c.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-122-ab8f8502cceb.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-123-6a839833ccb5.webp" alt="image.png" /></p>
 <p>玉子市场是我高二上学期看的，当时中午和晚上，大概能挤出30分钟的睡眠时间，然后就能看1-2集。记得那时宿舍没电没网，一台ipad加上一个2万毫安的充电宝，要度过一周的时间。在那个原始时代，在平板上的每个操作都要珍惜，不能轻易浪费电量。同时学校里也没有学生用的wifi，必须周末回家提前下载好番剧，然后带回到学校看。有时剧情看完了，心里就有一种失落和期待的冲动，带着这股心情，只好再看一遍回味。</p>
 <p>幸运的是，那时学校为了给老师提供上网，wifi需要输入老师自己的帐号密码。而当时我们的同学刚好是老师的儿子。借助这个我们成功破译了老师的wifi，开始用起来。后来老师发现了很生气，说怎么看自己的网络连接的ip和设备都是什么苹果小米三星华为，各种特种兵都来了。幸运的是老师很仁慈没有改密码，我们得以一直用下去，在苦闷的高中生活里多了些许快活。</p>
 <p>受不了了，又重新看了一次剧场版结尾。同样的故事读起来今天还是有很多感动。玉子市场本身是一个日常系的番，剧场版的题目是玉子爱情故事，这是故事的明线。故事的暗线是两人的成长：关于未来，东京上大学与留在家乡，如何理解和对待身边珍视的人。可以看到，故事从玉子和饼藏的逃避，两人的沟通，再到两个人勇敢的站在一起，共同面对未来。</p>
 <p>这也是我认为京都动画的魅力所在。它不止是一部部简单的日常搞笑，内部更有很多更深的思考，有关友谊，有关人生。《中二病》、《轻音》、《Clannad》、《紫罗兰》、《京吹》，都是如此。好的作品如何打动人心，一定是融入了作者的情感，对角色的喜爱，对人生的感悟。又想起24年的《败犬女主》，作者对青春中青涩的理解与文笔的把控让整个故事展开的很漂亮。（似乎跑题了）</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260211062743689.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-124-5aa2152b490b.webp" alt="image.png" /></p>
 <hr />
 <p>走过这座桥，这应该就是黄老板跑过的桥。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260209162846497.png" alt="b1cdb235c648ae4c1c757139f5a23596.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-125-4bcfbb63bcac.webp" alt="b1cdb235c648ae4c1c757139f5a23596.jpg" /></p>
 <p>京吹应该是我看完玉子市场后看的番，并且我只看了第一季。没有继续追下去，并不是因为它不好，而是因为它太过热血了，热血到让我难以真正投入。对我而言乐器一直和“辛苦”绑定在一起。在社团内合奏的经历，上一次应该只有初中时去小提琴演出才有了。那种反复练习、紧张上台、害怕出错的体验，让我在观看京吹时始终带着一层沉重的滤镜。这就好像假如有个番剧讲的是一家公司程序员上班，大家一起commit、开会、吃饭的故事，那我肯定也觉得编剧估计是被产品经理踢了。</p>
 <p>给我印象比较深的是黄老板很可爱，然后和男主竹马cp一直没怎么发糖。其他的乐器吹奏画的挺好的，但是看的时候有点ptsd。</p>
 <p>如何面对挫折？如何面对失败？这是我在第一季里最大的感受。黄前的不甘心，没有上台的老队员，在舞台前的胆怯。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260211062145331.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-126-a630031f9a58.webp" alt="image.png" /></p>
 <p>有时你拼尽全力，依然会输。</p>
 <p>我记得我的高中很多时候对成绩是痛苦的，这座大山直到高三成绩平稳后才有所开解。但是在此之前，这一直是一种恐惧。其中头号甲级战犯就是数学，稍微不注意就很容易死。我印象中很清楚，高一下的期末考，明明准备了很多，但是分数差了非常远。当时那种不甘心给了我很大的打击。</p>
 <p>但是后来也给了我很多的动力。我决定投入更多的时间主动的学习。尝试去规划自己，做计划并行动。我在那时学完了化学选修，归纳了很多数学方法，回归了一些错题。课外我做了很多以前不敢做的事情。我决定自己做一个研究。这份研究是去调查番剧里的一些数据和评论情况。我对番剧对人们的作用和影响感兴趣。而我能拿到的数据便是最后番剧里的评分、评论数量等等数据。于是我先读了费孝通的《社会学调查自白》，随后我采集了226部番剧里的评论评分和各个参数指标。这是整个项目里最累人的时刻，因为我当时完全不会爬虫。我差不多每天采集6小时，持续14天。之后我读了各方面的文献，用各种可视化图表来尝试解读这些数据，并且建立了一个简单的数学模型。最后我在高二上的一次课堂分享里把它讲了出来。当时我为此，自己学了很多统计学知识和excel函数，也是在这时候，我学习了python。很可惜那时爬虫对我来说还是有点过于高深。</p>
@@ -617,23 +619,23 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <p>也估计是从那时开始，我开始尝试理解问题、拆解问题、主动寻找答案。那并没有立刻让我变得优秀，但它让我第一次觉得，也许人不是被排名所定义和限制的。我第一次不再是被动的学习，而是尝试主动的接收知识，学习知识，并且享受学习和探索带来的乐趣。</p>
 <p>那一年我高二。很难说如果没有二次元，我是不是能走的更远。在那个每天学习快乐的时间里，每天晚上看一集《轻音》、《京吹》以及《凉宫》，确实是人生的黄金时刻。</p>
 <p>当时语文老师还让我们记录读书笔记。由于这个作业没有任何分数，我写起来很快乐。虽然有时感觉这算是一种对成绩和数学的逃避。我的高一记录里一本笔记，大概6万字。高二半年记录了第二本，大概10万字，高三一年多记录了半本，大概5万字。这些成为高中为数不多的回忆。我经常喜欢回顾读自己的文字，回顾自己的思考。有时遇到和朋友聊天等开心的事情，我也会记录在本子上。我经常用文言文记录，不是练习或者装b，因为高中时间短暂，5分钟的记录都嫌长。所以我后来明白为什么太守会写醉翁亭记，为什么苏轼会写那些诗词和文章。人生的快乐感受稍纵即逝，有时如果记录慢了，都没有感觉了。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260209162758176.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-127-b18326f7ed2d.webp" alt="image.png" /></p>
 <p>再往前，就到了玉子市场的商店街：出町商店街。</p>
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260209164040393.png" style="width:40%;">
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-128-08704b135a71.webp" style="width:40%;">
 <p>这条商店街其实不长，如果没有番剧，感觉甚至就是很普通的一条街。但是在这里走的幸福感要比那些奈良和大阪的商业街多多了。</p>
 <p>【【圣地巡礼/玉子市场】玉子家年糕天天排长队味道如何？亲自品尝鉴定！】 <a href="https://www.bilibili.com/video/BV1yf421Z7mk/?share_source=copy_web&amp;vd_source=72eac555730ba7e7a64f9fa1d7f2b2d4">https://www.bilibili.com/video/BV1yf421Z7mk/?share_source=copy_web&vd_source=72eac555730ba7e7a64f9fa1d7f2b2d4</a></p>
 <p>在网上看，好像这里会挂玉子市场的招牌，好可惜没看到！不知道是撤了还是真没有了，哭了。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260209164213658.png" alt="2410ae3fbd560a34c5475302c93f5650.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-129-041c46174d31.webp" alt="2410ae3fbd560a34c5475302c93f5650.jpg" /></p>
 <p>中二病take on me也在这里。中二病差不多是我最喜欢的番之一，高一的暑假看的，非常搞笑，现实与幻想的交互和思考，很适合当时中二的我。虽然现在有时也中二。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260209165412010.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-130-3693211f82a7.webp" alt="image.png" /></p>
 <p>（又看了次剧场版，又没绷住哭了哈哈哈哈哈哈</p>
 <p>逛了一遍商店街，发现了一个电影院。</p>
 <p>按照网上说，这里应该放的是犬王。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260211065215535.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-131-c7f585d881c7.webp" alt="image.png" /></p>
 <p>但是没想到放的罗小黑战记的招牌。突然有一种，“新角色旧土壤”的感觉。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260211065111799.png" alt="4c8c485645aa696523019ff85b096288.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-132-ff36fa0403ec.webp" alt="4c8c485645aa696523019ff85b096288.jpg" /></p>
 <p>我按照地图上的位置考察了玉子家。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260211065343911.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-133-4d7b1e6ef653.webp" alt="image.png" /></p>
 <p>可是似乎不对。可能地图标错了，或者目前没有了。我认为应该是我找错街道了。</p>
 <video width="95%" controls preload="metadata">
 
@@ -660,7 +662,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 
 </details>
 <p>如果你想乘坐更高级的 Premium 车厢（高级座位），则需要再多加一些费用，大约400～500 日元左右。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217153304897.png" alt="a6844ce2ad26f30a964f99950acdf28d.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-134-a203000c3002.webp" alt="a6844ce2ad26f30a964f99950acdf28d.jpg" /></p>
 <blockquote>
 <p>接下来再给大家看看阪急是怎么通过车辆等级来吸引客流的。和刚才介绍的近铁类似，阪急列车里也设置了一种 <strong>额外收费的高级车厢</strong>，叫做 <strong>P 车厢（Premium Car）</strong>。这种车厢需要在普通车票基础上再额外付费才能乘坐。</p>
 <p>从图片里可以看到，P 车厢的内部环境明显更加高级，座椅更宽敞、舒适度更高，而且一个很明显的特点是：<strong>每排只有 3 个座位</strong>（通常是 2+1 布局），空间感比普通通勤列车好很多，整体更接近特急列车或者商务座的体验。</p>
@@ -669,21 +671,21 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <p>本质上就是通过 <strong>服务分层 + 差异化体验</strong> 来提升整体吸引力。</p>
 </blockquote>
 <p>回去吃的泡面。不得不说，自从国内吃了汤达人、合味道，感觉其实泡面就没有差太多了。另外还买了个焦糖布丁，感觉挺好吃的。但是总少了些小时候的味道，那种在夏天太阳炙烤后喝上第一口汽水的畅快感。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260211070727118.png" alt="f09ebc5204096acf0bbc29d523b669c3.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-135-d1daa47aae2a.webp" alt="f09ebc5204096acf0bbc29d523b669c3.jpg" /></p>
 <p>晚上的组会，本来我已经准备好认真讲讲我的paper内容了。结果此时，kyle见我上线，说，你应该读读我发给你的内容。我当时有点迷糊，还不知道是什么。然后一读。原来是chicago准备给我发offer。</p>
 <p>很难再一次形容那种感觉。那种平静的狂喜。然后kyle说此时ian在日本。一聊才发现原来我们都来sca26。这简直是世界上最幸福的事情了。我说大三大四里这么多美好的事情，似乎突然在几天之内降临了。</p>
 <p>我还是抱着自信讲完了那周的工作。关了会议后，自然是无法入眠的。我平静的刷刷手机，整理下记录。我还不太想官宣，毕竟还有很多同学还没有结果。并且做了大事，我一般喜欢过些天再说。</p>
 <p>早上6点，终于在床上睡去。</p>
 <pre><code class="language-txt">Big congrats! but you did all the work and deserve it.</code></pre>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260211071100037.png" alt="1d08f13acf9c5fc94f80ec1506dad2f0.jpg" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217202822972.png" alt="0a2e80fd6fbe37a4ee59a1e614ad7f21.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-136-97bfc68cb9d2.webp" alt="1d08f13acf9c5fc94f80ec1506dad2f0.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-137-aa8872864640.webp" alt="0a2e80fd6fbe37a4ee59a1e614ad7f21.jpg" /></p>
 <h2>第三天 大阪 梅田</h2>
 <iframe src="//player.bilibili.com/player.html?isOutside=true&amp;aid=1500876746&amp;bvid=BV1wS421N7JJ&amp;cid=1448831677&amp;p=1&amp;autoplay=0" width="600" height="300" frameborder="0" allowfullscreen></iframe>
 <p>早上起来就已经快11点了。一想到今天下午的演讲PPT还没有做，我就想笑。</p>
 <p>早上还要帮同学拍车，并且我自己也好奇车里有什么。</p>
 <p>首先依旧是中央线400系：</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217151902945.png" alt="37bafa264d8a0382bbf48a736dede462.jpg" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217152156257.png" alt="549732d92cd82fb03ad1373cf7fd5e6d.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-138-74f9def544c6.webp" alt="37bafa264d8a0382bbf48a736dede462.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-139-204e629c3a18.webp" alt="549732d92cd82fb03ad1373cf7fd5e6d.jpg" /></p>
 <video width="95%" controls preload="metadata">
   <source src="https://cdn.jsdelivr.net/gh/HaibinLai/japan-trip-assets@main/c0cd1595693475518d4cbefd8a0a3fa5.mp4" type="video/mp4">
 </source></video>
@@ -697,11 +699,11 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 
 某种程度上，这也是城市交通系统配合大型国际活动的一种运营和宣传策略——通过细节体验（比如声音、视觉设计等）来提升整体氛围感和辨识度。
 </details>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217152228840.png" alt="5d1195d35091005637171a737b8e71e5.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-140-68abe5c4ec31.webp" alt="5d1195d35091005637171a737b8e71e5.jpg" /></p>
 <hr />
 <p>随后是古町线22系。
 本来是要拍一辆老车的，但是没有找到，不过本身也比较稀有，找不到也罢。22系就古丁线的22系列车的图，未更新车现在是在濒临灭绝的边缘，更新车没意思，未更新车那个牵引电机的声音才够魔性，够好听。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217152247416.png" alt="9be014c9b1e899c8036e177c0131b50f.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-141-86d82c5238fb.webp" alt="9be014c9b1e899c8036e177c0131b50f.jpg" /></p>
 <video width="95%" controls preload="metadata">
   <source src="https://cdn.jsdelivr.net/gh/HaibinLai/japan-trip-assets@main/79930bf7c6e99a06d895460ddb8a0ebe.mp4" type="video/mp4">
 </source></video>
@@ -725,76 +727,76 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 对于很多轨道交通爱好者来说，日立 GTO 的声音真的是一种非常经典的存在。</p>
 <hr />
 <p>在梅田站的 定期券発売所 ，可以买到大阪地铁的纪念品：</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217152326033.png" alt="a41798343a1f183fdf9293dba55fde21.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-142-fb393428f0af.webp" alt="a41798343a1f183fdf9293dba55fde21.jpg" /></p>
 <p>我在最后一天去了天王寺和难波的售卖所，但是似乎只有梅田站有这个纪念品卖。大家可以根据自己的喜好购买。下图是他们的营业时间：</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217153442513.png" alt="3521ed2e19fbaa8b23d9c5c4e9963886.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-143-86a8f8eb29df.webp" alt="3521ed2e19fbaa8b23d9c5c4e9963886.png" /></p>
 <p>购买后工作人员会给你商品和一个购入书，可以凭此退款或者留作纪念收藏。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217153627736.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-144-0c543a01237f.webp" alt="image.png" /></p>
 <p>一下到了中午，赶不回去吃午宴了。不过正好在梅田地下铁里找到了一家蛋包饭店。店铺看起来很漂亮，是西餐厅橡木棕色装饰，点上发黄的电灯，显得典雅而高级。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217203059174.png" alt="bc1c782b9c8b9abda2fe8e67eaedadc3.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-145-3d8547351d25.webp" alt="bc1c782b9c8b9abda2fe8e67eaedadc3.jpg" /></p>
 <p>蛋里边是炒饭，让蛋包饭尝起来挺好吃。但是整份饭没什么肉，饭旁边的是肉酱汁，也没什么肉，菜还是酸酸的，薯条也有点小。不过整体还是挺不错的。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217203248371.png" alt="ebb04252c342ce067de184111e64020e.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-146-4c11a8348ba1.webp" alt="ebb04252c342ce067de184111e64020e.jpg" /></p>
 <p>吃完饭，就回去SCA26现场开会了。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217203612790.png" alt="0a459f2ed4fbb4c0304673b45081cf3b.jpg" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-147-5ec56b8e4f9f.webp" alt="0a459f2ed4fbb4c0304673b45081cf3b.jpg" />
 转场图片</p>
 <h2>第三天 APAC HPC AI 颁奖典礼</h2>
 <p>下午开会，趁现在赶紧做做PPT。</p>
 <p>今天来开场的是DK Panda, 他来讲他的MVAPICH 通信库。与之前很大不同，现在MPI服务对象都开始往AI转了：</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217205019332.png" alt="a6b5678b33faa882dda7ce668740ecec.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-148-b333d5fda702.webp" alt="a6b5678b33faa882dda7ce668740ecec.jpg" /></p>
 <p>对应的，MPI+GPU的适配也在不断进展。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217205118759.png" alt="58cbb3db83ecb1deabaa981d5e3d9414.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-149-5fd863fdb74e.webp" alt="58cbb3db83ecb1deabaa981d5e3d9414.jpg" /></p>
 <p>经过几下赶工，终于做好了（其实就是11月答辩时简单乱改自我介绍再删减点东西就结束了）</p>
 <hr />
 <p>很快MPI讲完了。和几个比赛的老朋友见了面，真是惊喜又快乐。很快，正式的颁奖开始了。</p>
 <p>如这张图片所示，我们的比赛25年6月交了proposal，7月有培训视频，8月开始测试赛题。9月10月拿到服务器进行测试。其实最重要的工作在答辩前两周开始，当时测了一堆CPU GPU的数据。由于时间太赶，教练都差点绷不住了（</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217205231679.png" alt="09dd3b98f32feb586caf15ecebdf95f8.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-150-aeca447d9a69.webp" alt="09dd3b98f32feb586caf15ecebdf95f8.jpg" /></p>
 <p>感谢Riken理化研究所的大力支持。他们今年也有HPC/AI 培训，还能直接使用Fugaku超算。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217214949634.png" alt="11609d5ce3ece77887bde4758236fccb.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-151-a0adb64e360d.webp" alt="11609d5ce3ece77887bde4758236fccb.jpg" /></p>
 <p>另：才明白原来Fugaku是富士山的别名。<strong>富岳</strong>：ふがく（Fugaku）→ 文学 / 诗意 / 汉语风格表达，这个词在日本历史文化里出现很多，比如：葛饰北斋的名画  <strong>《富岳三十六景》（Thirty-six Views of Mount Fuji）</strong>，该系列以富士山为核心，通过关东各地视角展现山景与民众生活的交织。著名的神奈川冲浪里就是这系列的一幅画：</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217215419976.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-152-01d8e3916aba.webp" alt="image.png" /></p>
 <blockquote>
 <p>Fugaku（富岳）是日本理化学研究所（RIKEN）和富士通联合开发的一台超级计算机，名字取自富士山的别名，象征性能达到世界顶峰。它采用基于 ARM 架构的 A64FX 处理器，曾在 2020 年登上全球超算性能排行榜第一名，被广泛用于气候模拟、药物研发、人工智能等科研领域，是当前世界最具代表性的高性能计算系统之一。</p>
 </blockquote>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217215001460.png" alt="62012303a6d2f851a62fdae9e8834cc0.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-153-3a7493ba531f.webp" alt="62012303a6d2f851a62fdae9e8834cc0.jpg" /></p>
 <p>我们拿了两个奖，AI Performance和亚军。从奖杯来说，还是看着挺好看的，至少可以摆在计算中心里光宗耀祖了哈哈哈。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217214856603.png" alt="465173668be364d1f45145d8ceb2afcf.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-154-d37da5470f77.webp" alt="465173668be364d1f45145d8ceb2afcf.jpg" /></p>
 <p>会后在外场的合照hhhh，此时大阪大概0度，衣服撑的有点太大</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217215608456.png" alt="e77918b9ff128a40680d0f005a19a402.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-155-da29cfb9a60a.webp" alt="e77918b9ff128a40680d0f005a19a402.jpg" /></p>
 <p>接着是泰国的Thammasat University 的老师来讲他们学校的HPC故事。每次都很inspiring，希望他们继续加油！</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217215554624.png" alt="449347419edd904e31171b9ecb60e7d4.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-156-4138c8f24339.webp" alt="449347419edd904e31171b9ecb60e7d4.jpg" /></p>
 <p>他们的HPC学习之旅里的AI经验分享：</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217215837362.png" alt="8d7a1ade4a2127433f75a5f298fc9390.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-157-4e78023d4723.webp" alt="8d7a1ade4a2127433f75a5f298fc9390.jpg" /></p>
 <h3>比赛的故事</h3>
 <p>随后就轮到我来讲了！</p>
 <p>上场前战战兢兢，但是没想到上去开讲后有如神助，全程可能是我英文水平最好的一次pre。自信到我似乎就像老爷爷在给孙子翻照片讲回忆录故事（当然现场在座的都是专家，不是孙子，我也没有变成老爷爷）。</p>
 <p>点击进行详细查看
 <a href="https://docs.google.com/presentation/d/1ukZp6-r1sp8sYO3IRKt2b0i8wdAYYlxbcPZjqxf8yvc/edit?usp=sharing" target="_blank"></p>
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217204023986.png" style="width:60%; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.15);">
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-158-165325f62206.webp" style="width:60%; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.15);">
 <p></a></p>
 <p><a href="https://docs.google.com/presentation/d/1ukZp6-r1sp8sYO3IRKt2b0i8wdAYYlxbcPZjqxf8yvc/edit?usp=sharing">https://docs.google.com/presentation/d/1ukZp6-r1sp8sYO3IRKt2b0i8wdAYYlxbcPZjqxf8yvc/edit?usp=sharing</a></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260218080117069.png" alt="15db4ab885d89b5a1006ed94698ff355.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-159-39a46a3b50ad.webp" alt="15db4ab885d89b5a1006ed94698ff355.png" /></p>
 <p>BLAS性能提升
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217222332115.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-160-9cdb432599b7.webp" alt="image.png" /></p>
 <p>使用不同MPI带来的性能提升：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217221606355.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-161-f30087a52771.webp" alt="image.png" /></p>
 <p>MPI-PR策略带来的通信延迟降低</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217221621598.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-162-81a4438d788a.webp" alt="image.png" /></p>
 <p>将贝叶斯优化带入到参数性能优化中：（应该是using而非use hhh）
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217222305262.png" alt="image.png" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217222054777.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-163-79d08e2a89f7.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-164-6efbeae95516.webp" alt="image.png" /></p>
 <p>各个算子的时间降低</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217222012200.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-165-eee79e878529.webp" alt="image.png" /></p>
 <p>使用Nsys 查看SGLang推理情况</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217221940114.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-166-2792745acfaa.webp" alt="image.png" /></p>
 <p>GPU并行通信策略带来的性能变化（z轴是性能峰值，这张图出来时全场赞叹哈哈哈）</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217221830472.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-167-579f789a7e10.webp" alt="image.png" /></p>
 <p>当时应该是 flashmla 没有跑成功，我们给sglang社区提了issue，后来在上面帮助他们进行测试，完成了贡献。我们应该没有做PP，当时PPT做急了。不过没关系，现在也加入sglang社区了，希望后边继续做点贡献。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217222430243.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-168-e7e7e7700bcc.webp" alt="image.png" /></p>
 <p>“谢谢大家，在演讲的最后，我也想感谢在座的所有人和APAC组委会。APAC是我的第一场HPC比赛，我在这经历了三年，感谢大家一直以来的付出。如今我也即将毕业，并继续攻读HPC PhD。谢谢大家。”</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217222618365.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-169-63a69a7836ec.webp" alt="image.png" /></p>
 <p>随后，是这三年来我收获的最热烈的掌声。狭小的教室里大家真的好热情。</p>
 <p>演讲的反馈很好，朋友跟我说旁边的老师刚开始还是在拍照，后面就直接录视频了哈哈哈。旁边公司的工程师还开玩笑说，请一定过来实习，讲的真好（笑）。也交到了几个好朋友，总之不虚此行吧！</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217215912842.png" alt="e448822798ea930cf612436a582936a0.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-170-1f95174a9d6a.webp" alt="e448822798ea930cf612436a582936a0.jpg" /></p>
 <h3>充满梦想与热血的故事从来不会过时</h3>
 <p>一个没什么意思的回忆录。</p>
 <blockquote>
@@ -814,17 +816,17 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 当时问队名是什么，没什么想法，就想起最近看的巨人，于是便起名 SUSTech Scout Regiment，南科大调查兵团。</p>
 <p>晚上庆功宴，在难波附近玩玩。hmgg去赶ICML了，剩下我们四个跟学姐去吃晚饭。</p>
 <p>首先去了一家快餐，可恶的学弟，不懂得找好地方。店里主要是几个南亚人看着店。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260218080149151.png" alt="b8205d4df739af15a3ff26b6c0d8c514.jpg" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-171-fa27d402bb1d.webp" alt="b8205d4df739af15a3ff26b6c0d8c514.jpg" /></p>
 <p>我说我去找好的，结果找了一个有点小贵的店。至少是吃饱了笑死。</p>
 <p>老实说难波的东西还是太贵了。不应该来这里的。</p>
 <p>找到的EVE神药。这东西在芝加哥救了我一命
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260218080332939.png" alt="7a03f963e4a97dac97484367e452cbb7.jpg" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-172-bee9058d5c3e.webp" alt="7a03f963e4a97dac97484367e452cbb7.jpg" /></p>
 <p>那我不得不向你推荐 三文鱼与父母和孩子一起放在陶罐里，盖在米饭上这道菜了</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260218080436294.png" alt="8433e6a56ff954f697f80a09dab9d80e.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-173-3917e4a86727.webp" alt="8433e6a56ff954f697f80a09dab9d80e.jpg" /></p>
 <p>晚上喝了些然后讨论了很多，关于神人，图班，各种各样的破事情。祝新的一年大家都是好事发生吧。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260218080549528.png" alt="c3f85e0769d999194be8f8f65448a2a8.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-174-68b98bd91fa6.webp" alt="c3f85e0769d999194be8f8f65448a2a8.jpg" /></p>
 <p>在街头随便逛逛。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260218080600838.png" alt="65c287cf6949d499e637b071a06116d5.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-175-312333b8b8d2.webp" alt="65c287cf6949d499e637b071a06116d5.jpg" /></p>
 <p>做车离开，从千日前线出发。路上迷迷糊糊的，一直不怎么会喝酒，哪怕喝啤酒都容易晕。走在回酒店的路上跟着队友转转悠悠回去了。</p>
 <p>返程的地铁上，迷迷糊糊的。学校的很多故事只能是回忆了。想起以前坐在工学院551会议室里听各个学长汇报工作，在4楼的自习室里跟学长一句一句的聊天，在学姐毕业那次的聚餐上认识实验室的大家，几个师兄还喝了好多啤酒......</p>
 <p>过去好多故事就这样在青涩的青春里消逝了。他们没什么光辉的光环，最多就像手机里的一张照片。从前照片很少，人们会把它挂在家里，但今天照片多了，人们却不怎么理他们了。那些在自习室里的讨论，最后也被时代淘汰。有些松弛感和独属于大一大二的好奇也停在过去。</p>
@@ -833,39 +835,39 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <p>迷迷糊糊起床，已经是12点。</p>
 <p>想了下，今天再去一次京都吧，不过具体哪里还没有想好。先出发了再说。</p>
 <p>再次坐车到难波，然后就可以换乘上近铁了。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260218082208806.png" alt="88c2519eac5c48e1adc938c2bc71c767.jpg" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-176-b0c2cfb15a25.webp" alt="88c2519eac5c48e1adc938c2bc71c767.jpg" />
 想搭乘近铁前往京都，需要先从大阪坐车到大和西大寺，也就是奈良附近，随后从此前往近铁京都
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260218082542138.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-177-bb54bf98d406.webp" alt="image.png" /></p>
 <p>如果不购买特急，就可以搭乘我坐的快速急行或者急行即可。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217154228395.png" alt="189e8dd82e4d970ec5bd878a40081f7a.jpg" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-178-f5c0dda7815e.webp" alt="189e8dd82e4d970ec5bd878a40081f7a.jpg" />
 近铁的9000/9020系</p>
 <p>正午1点多，准备来吃饭，在站内尝尝日式烧烤。（几乎快烤完才发现旁边的铁架子笑死）</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260218082818400.png" alt="3b985cdb461e30d3cf5638630ec3ba64.jpg" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-179-fe14189ded63.webp" alt="3b985cdb461e30d3cf5638630ec3ba64.jpg" />
 这份大概1440日元，印象里米饭配肉挺不错的</p>
 <p>在大和西大寺站，有一个观景台，可以供爱好者在二楼这里拍摄火车，看起来还是挺不错的
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217154308082.png" alt="124c723fd55a8afee78f526532f6683a.jpg" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-180-0d39df27eb50.webp" alt="124c723fd55a8afee78f526532f6683a.jpg" /></p>
 <video width="95%" controls preload="metadata">
   <source src="https://cdn.jsdelivr.net/gh/HaibinLai/japan-trip-assets@main/7a16131c46d40e262d0e9d80a420bfff.mp4" type="video/mp4">
 </source></video>
 <p>考虑了下，决定先去京都动画公司。它在宇治市，对此可以直接搭乘奈良线，沿途看看风景。也可以先搭乘近铁到新田，然后再搭乘奈良线。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260218214753149.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-181-d3ea97df8dcd.webp" alt="image.png" /></p>
 <p>全程奈良线。这里就无法使用近铁的通票薅羊毛。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260218083423845.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-182-1de542e3ee49.webp" alt="image.png" /></p>
 <p>列车晃晃悠悠，坐了1个多小时。路上大部分时候没有人，可以安静的敲着笔记本，余光欣赏外边的城市/房屋群。大部分时候外边都是木头尖顶房，偶尔的空地一般是中小学的操场。不过这一点很有意思，因为好像中国大部分学校已经换装普通的跑道或者塑胶跑道，但是日本看到的学校基本上还都是沙地，没有跑道。</p>
 <p>下午3点，列车还在行驶，但是日本的初高中已经放学了，车里进来一堆JK DK，整辆车里都是校服的深蓝色，车门关上，一股青春洋溢在车厢里。今天是周四，还没有周末，大家似乎在谈论学校里的趣事和喜欢的明星。我想起google map地图车拍到的三个摆pose的高中生，似乎明白了为什么很多人会怀念这种时光。</p>
 <p>记忆是一部带着淡粉色滤镜的老电影。每次跟与它无关的人说起，跟老朋友出去玩，坐车经过匆匆向右侧看去，都会向人推荐它。可是等真的走到它面前，又有点无趣和惘然。以前回初中，发现回来后满满的只有对学校的恐惧，看着继续读书的新学生，只感觉这个可怕的循环轮到了下一波人，只想逃跑离开这里。</p>
 <p>在人生前面18年，似乎大部分时间我都在做逃离。逃离家庭，逃离课堂，逃离这个小地方。我经常希望自己到一个谁也不认识自己，自己也一个人都不认识的地方，然后默默静静的存在着。高考出分后，各种争论。三个晚上未眠，我最终决定，遵循我的想法，选择离开，走一条可能更少人选择的道路。告别人生前面所有的朋友，将自己封闭起来。随后，是大一的抑郁，走出舒适轨道的迷茫，无人理解的困境...... 如果历史走向另一个结局，我会原谅当时的自己吗？</p>
 <p>看着眼前快乐的国中生，从回忆中醒来。不知为何笑了笑，他们应该会经历另一个完全不同的故事吧。</p>
 <p>在新田站下车</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260218211901122.png" alt="4100e930413c87937ae073269b9be1be.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-183-709f8f42e6db.webp" alt="4100e930413c87937ae073269b9be1be.jpg" /></p>
 <p>随后要从近铁下车，进行换乘。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260219091603114.png" alt="34566a8de0c222460d51dca6f79d8bbe.jpg" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260219091658432.png" alt="a073306744a5da2368c6c006a0dba453.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-184-d6e665e40d31.webp" alt="34566a8de0c222460d51dca6f79d8bbe.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-185-961fff1edefd.webp" alt="a073306744a5da2368c6c006a0dba453.jpg" /></p>
 <p>宇治市 广野町</p>
 <p>整个站非常小，只有简单的站台和一个天桥</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260219091816521.png" alt="9128914664d7dd64af7a5500620c0657.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-186-7e69d0fcc81d.webp" alt="9128914664d7dd64af7a5500620c0657.jpg" /></p>
 <p>周围的景色
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260219092008807.png" alt="3ddd70c1600faee43370ac014b1e58a5.jpg" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-187-183f80115e2f.webp" alt="3ddd70c1600faee43370ac014b1e58a5.jpg" /></p>
 <p>进站</p>
 <video width="95%" controls preload="metadata">
   <source src="https://cdn.jsdelivr.net/gh/HaibinLai/japan-trip-assets@main/408e5da5598c4180a51f5c305a40bc7b.mp4" type="video/mp4">
@@ -875,16 +877,16 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
   <source src="https://cdn.jsdelivr.net/gh/HaibinLai/japan-trip-assets@main/5c421a2407af053fc3e7a26f37640f80_raw.mp4" type="video/mp4">
 </source></video>
 <p>到达木幡駅 Kohata Station</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260219092047389.png" alt="aa61a225d8b1a0980b4acd06cb85a0a2.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-188-b19463dcf11c.webp" alt="aa61a225d8b1a0980b4acd06cb85a0a2.jpg" /></p>
 <p>从车站一下车，往左看一点点，就能直接看到我们的目的地了。今天这班车人很少，并且似乎没有人和我同一个终点：京都动画公司。</p>
 <p>到达世界动画最高城，Kyoto Animation!
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260219093157884.png" alt="b8d21e7e261823271955381f0978353a.jpg" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-189-83c0b9fb6239.webp" alt="b8d21e7e261823271955381f0978353a.jpg" /></p>
 <p>很难想象，就是眼前这栋小楼，创造了凉宫、Clannad、五彩限、甘城光辉游乐园。一切的哭笑，酸甜苦辣，都是在这座小楼里发生的。</p>
 <p>周围很宁静，没什么车流和鸟叫，让我想起在芝加哥郊区考托福的那个下午，也没什么行人。时间仿佛在这一刻静止了。只剩下我和这栋曾在新闻里看到的蛋黄色建筑对话。</p>
 <p>如果还有什么感想，那就是 “庐山烟雨浙江潮，未至千般恨不消。到得还来别无事，庐山烟雨浙江潮。” 一种混杂着快乐和“也就这样” 的感受。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260219094910384.png" alt="7d87e2bca572c6be66f339d8d29d9ea4.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-190-93d274cbb94d.webp" alt="7d87e2bca572c6be66f339d8d29d9ea4.jpg" /></p>
 <p>楼前的展示框里是京电和京吹（两个框一样的）
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260219093521223.png" alt="b24002ddfc2f03e04d43dc869f30db06.jpg" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-191-d3831e3470ed.webp" alt="b24002ddfc2f03e04d43dc869f30db06.jpg" /></p>
 <p>火灾后，京都动画目前关闭了线下店，内部也无法参观，只好在外边观看。突然想到，是不是山田尚子等人今天就在里边工作呢，这种从未见面但是分外熟悉的感觉，非常的奇妙。</p>
 <p>京都动画的2号楼
 <img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/02/a68efe4c569fdd80c58417c90197d24a_720.png" alt="a68efe4c569fdd80c58417c90197d24a_720.png" /></p>
@@ -893,7 +895,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/02/20260219233811614.png" alt="image.png" /></p>
 <p>他们的官网 <a href="https://www.kyotoanimation.co.jp/en/">https://www.kyotoanimation.co.jp/en/</a></p>
 <p>1月20日，他们的线上商城开放了！然而他们似乎不支持中国大陆地区购买。如果在日旅居长的朋友可能可以试试看，或者在美国再进行购买了。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260219094229686.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-194-9331f0f2c63a.webp" alt="image.png" /></p>
 <p>Online shop. 打开的就是我刚刚的链接</p>
 <p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/02/20260219233856206.png" alt="image.png" /></p>
 <p>看完这里，基本上就可以继续出发了。路上又遇到好多好多刚刚放学的初中生，身高似乎1米6左右，三五结对的往山坡上走。此时是下午3点25。</p>
@@ -954,9 +956,9 @@ https://www.jcp.or.jp/web_senkyo/2542/
 <p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/02/1ed494502ae254bd7f2a04f96fcc4443_720.png" alt="1ed494502ae254bd7f2a04f96fcc4443_720.png" /></p>
 <p>下午4点半，换乘到叡山电铁。虽然是终点站，可是这只是一个小站。
 但这里的车辆非常好看，让我想起了香港迪士尼地铁和登山缆车。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217154407626.png" alt="2a046d3f48d4ce051ab51e51d9eea2c9.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-208-c7211e551d42.webp" alt="2a046d3f48d4ce051ab51e51d9eea2c9.jpg" /></p>
 <p>进入车内，人并不多，座位都有空余。车内是可以直接看到驾驶舱的：</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217154440516.png" alt="2de008f0da7bc1e5f9d2f370d22a91a5.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-209-0af2ef7c6a52.webp" alt="2de008f0da7bc1e5f9d2f370d22a91a5.jpg" /></p>
 <p>行进时影像：
 <img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/02/20260220015940272.png" alt="image.png" /></p>
 <p>行驶画面</p>
@@ -1027,7 +1029,7 @@ https://www.jcp.or.jp/web_senkyo/2542/
 <p>搭车出来，考虑到晚上有饭局，决定快速回家。
 <img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/02/0b96014eb9b3e689d42875dea6f4056d.png" alt="0b96014eb9b3e689d42875dea6f4056d.png" /></p>
 <p>中二病take on me里在京都塔战斗的场景。（笑死就几秒）
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260209165142697.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-232-156ee0b203d5.webp" alt="image.png" /></p>
 <p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/02/912ef2c772d89a6fc8830bd2c2b8ce77.png" alt="912ef2c772d89a6fc8830bd2c2b8ce77.png" /></p>
 <p>站前的平安京城门</p>
 <p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/02/e94a4a9d9937e86c48dfc408a4476d7d.png" alt="e94a4a9d9937e86c48dfc408a4476d7d.png" /></p>
@@ -1038,7 +1040,7 @@ https://www.jcp.or.jp/web_senkyo/2542/
 <p>虽然当时的营建规模宏大，但由于西侧（右京）地势低洼多沼泽，后来城市的发展逐渐集中到了东侧。尽管如此，平安京作为日本政治与文化中心的地位从此奠定。为了纪念这段历史，京都每年的10月22日（即当年的迁都之日）都会举行盛大的“时代祭”，展示从平安时代到明治维新的各种服饰和文化。</p>
 <p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/02/0848cc3b21639e3e0b9a7260a390f453.png" alt="0848cc3b21639e3e0b9a7260a390f453.png" /></p>
 <p>中二病里一闪而过的JR京都
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260209165321414.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-236-cf05e8326762.webp" alt="image.png" /></p>
 <p>回家路上看到的指定P特急</p>
 <video width="55%" controls preload="metadata">
   <source src="https://cdn.jsdelivr.net/gh/HaibinLai/japan-trip-assets@main/2c3d69a06948ab8897dab0455d15d149_raw.mp4" type="video/mp4">
@@ -1055,7 +1057,7 @@ https://www.jcp.or.jp/web_senkyo/2542/
 <p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/02/20260219233346126.png" alt="image.png" /></p>
 <p>喝酒喝醉了。点了不知道什么，但是肯定是表面喝着舒服实际会大醉的，搞得返程晕乎乎。</p>
 <p>返程搭乘预堂筋线。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217154607970.png" alt="700449ce597e0287666b51b8f6b42768.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-242-ba6dcfc4bc3d.webp" alt="700449ce597e0287666b51b8f6b42768.jpg" /></p>
 <p>这个气动门特别有气势而且特别暴力</p>
 <details>
 <summary>列车站台门</summary>
@@ -1591,17 +1593,17 @@ https://www.jcp.or.jp/web_senkyo/2542/
 <p>感谢这次出发，让我重新找回了动力。最后，想用这段话作为这段旅程的注脚：</p>
 <p><strong>&quot;无论你手上用的是哪一台相机，我都由衷的建议你走出去，去看看这个美丽的世界，欣赏久未凝视过的日出和日落，还有城市里难能一见的满天星辰，灿烂星河，按下快门，去拍下你眼中看到的曼妙风景，去记录你所在乎的人和事。只有这样，相机的参数才被赋予了真正的意义。&quot;----Links</strong></p>
 <p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/02/b0a2a43d6cf55a969d66da7aa9c1f210_720.png" alt="b0a2a43d6cf55a969d66da7aa9c1f210_720.png" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260217164435360.png" alt="image.png" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-341-8f2139eb5fe8.webp" alt="image.png" />
 大阪 第一天回家路上</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260218080353259.png" alt="c21f5a4923365b33fb35986a1a1bbb3f.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-342-a6d495e7462e.webp" alt="c21f5a4923365b33fb35986a1a1bbb3f.jpg" /></p>
 <p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/02/07f296ca3cde04f9d446f9f2e56f5819_720.png" alt="07f296ca3cde04f9d446f9f2e56f5819_720.png" /></p>
 <p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/02/863f052b4653d1163d20423785186e18_720.png" alt="863f052b4653d1163d20423785186e18_720.png" /></p>
 <p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/02/6d8aa7d451ea26cd55f2d6cd2df8b199_720.png" alt="6d8aa7d451ea26cd55f2d6cd2df8b199_720.png" /></p>
 <p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/02/6c77e7b16ec11153e915cf135a61e990_720.png" alt="6c77e7b16ec11153e915cf135a61e990_720.png" /></p>
 <p>宇治市 广野町
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260219091715335.png" alt="b838d888f5a34abdb020010a6dbeddee.jpg" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260219091829350.png" alt="26ba70bb71369616594e145cd78a5a50.jpg" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260219092025163.png" alt="5edbd84874e9afd6f2f644a4983d5aad.jpg" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-347-59236149286a.webp" alt="b838d888f5a34abdb020010a6dbeddee.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-348-d75b619f0424.webp" alt="26ba70bb71369616594e145cd78a5a50.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-349-a23e6ea25ba6.webp" alt="5edbd84874e9afd6f2f644a4983d5aad.jpg" /></p>
 <p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/02/80e102d480dce558291c4294b00e4c60_720.png" alt="80e102d480dce558291c4294b00e4c60_720.png" /></p>
 <p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/02/b9d147058e05a0ea4c2df1e9fc48bfba_720.png" alt="b9d147058e05a0ea4c2df1e9fc48bfba_720.png" /></p>
 <p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/02/85a78b2bffc782dd6de8454f1c302404.png" alt="85a78b2bffc782dd6de8454f1c302404.png" /></p>

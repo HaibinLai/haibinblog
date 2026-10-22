@@ -18,13 +18,13 @@ viewCount: 815
 likeCount: 0
 dislikeCount: 0
 showCitation: true
-featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/12/image-1733644227727.png"
+featuredImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/deadlock-immunity/body-001-9d1a1edca8c1.webp"
 importedFromWordPress: true
 cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/deadlock-immunity.webp"
 ---
 <p>OSDI08: Dimmunix
 Deadlock immunity</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/12/image-1733644227727.png" alt="file" /></p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/12/image-1733644305254.png" alt="file" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/deadlock-immunity/body-001-9d1a1edca8c1.webp" alt="file" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/deadlock-immunity/body-002-1cef11fe90e9.webp" alt="file" /></p>
 <h1>My PPT</h1>
 <p><a href="https://www.haibinlaiblog.top/wp-content/uploads/2024/12/deadlock.pptx" title="deadlock">OSDI08: Deadlock immunity</a></p>

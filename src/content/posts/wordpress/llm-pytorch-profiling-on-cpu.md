@@ -23,7 +23,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <p><strong>This passage is for my own profile for LLM meta-llama/Llama-3.2-1B</strong></p>
 <p>We do an indepth analysis for LLM using pytorch profiler and Intel Vtune</p>
 <h2>life is short, but it’s long enough to be foolish</h2>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504041512199.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-pytorch-profiling-on-cpu/body-001-b4e96b3ea107.webp" alt="" /></p>
 <pre><code class="language-python">import torch
 from transformers import pipeline
 from torch.profiler import profile, record_function, ProfilerActivity
@@ -81,7 +81,7 @@ print(prof.key_averages().table(sort_by=&quot;cpu_time_total&quot;, row_limit=10
                                              aten::to         0.34%      69.092ms         2.23%     455.568ms       9.413us     226.32 Mb           0 b         48399
 -----------------------------------------------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------  ------------
 Self CPU time total: 20.442s</code></pre>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504041511686.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-pytorch-profiling-on-cpu/body-002-1b68bf80f6ea.webp" alt="" /></p>
 <p><a href="https://github.com/pytorch/pytorch/blob/main/aten/src/ATen/native/Linear.cpp">pytorch/aten/src/ATen/native/Linear.cpp at main · pytorch/pytorch</a></p>
 <pre><code class="language-CPP">Tensor linear(const Tensor&amp; input, const Tensor&amp; weight, const std::optional&lt;Tensor&gt;&amp; bias_opt) {
   // _matmul_impl checks this again later, but _flatten_nd_linear does not work on scalars inputs,
@@ -137,13 +137,13 @@ Self CPU time total: 20.442s</code></pre>
   return output;
 }</code></pre>
 <h2>Mem</h2>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504041515122.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-pytorch-profiling-on-cpu/body-003-b00c31c2e4b3.webp" alt="" /></p>
 <p>aten::reshape 和 aten::cat 占用大量内存，尝试减少中间张量的创建或复用内存。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504041513120.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-pytorch-profiling-on-cpu/body-004-571ef84cd37b.webp" alt="" /></p>
 <h3>Module</h3>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504041514401.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504041516957.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504041514676.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-pytorch-profiling-on-cpu/body-005-5e71c2de3818.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-pytorch-profiling-on-cpu/body-006-841c6e2b2242.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-pytorch-profiling-on-cpu/body-007-18939ae72754.webp" alt="" /></p>
 <p><a href="https://pytorch.ac.cn/tutorials/intermediate/torchserve_with_ipex.html">https://pytorch.ac.cn/tutorials/intermediate/torchserve_with_ipex.html</a>
 <a href="https://pytorch.org/tutorials/intermediate/torchserve_with_ipex.html">https://pytorch.org/tutorials/intermediate/torchserve_with_ipex.html</a></p>
 <h2>ATen</h2>
@@ -202,15 +202,15 @@ inline void invoke_parallel(
 } // namespace at::internal
 #endif // _OPENMP</code></pre>
 <h2>VTune Profiler</h2>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504041520037.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504041518129.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-pytorch-profiling-on-cpu/body-008-ee422ba70165.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-pytorch-profiling-on-cpu/body-009-0330e6e85c17.webp" alt="" /></p>
 <h3>Lock</h3>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504041518264.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504041518639.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-pytorch-profiling-on-cpu/body-010-6e3abfe8541e.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-pytorch-profiling-on-cpu/body-011-85729b339a66.webp" alt="" /></p>
 <p>This is the most imp function:
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504041519756.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-pytorch-profiling-on-cpu/body-012-0be291a7aa03.webp" alt="" /></p>
 <p>From intel x86-64 instruction book:
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504041519052.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-pytorch-profiling-on-cpu/body-013-77919e4ca7de.webp" alt="" /></p>
 <p>Instruction Content:  </p>
 <ul>
 <li><code>f0</code>: This is the machine code for the <code>lock</code> prefix, indicating that the instruction is an atomic operation. It locks the bus or cache to ensure thread safety in a multi-core environment.  </li>
@@ -219,22 +219,22 @@ inline void invoke_parallel(
 <li><code>%edx</code>: The target register, indicating that the value to be compared with the memory value and potentially swapped is stored in the <code>edx</code> register.</li>
 </ul>
 <h2>Token Generation</h2>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504041520480.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504041521551.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504041521680.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-pytorch-profiling-on-cpu/body-014-3df60bce46b5.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-pytorch-profiling-on-cpu/body-015-670884df3bd6.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-pytorch-profiling-on-cpu/body-016-63a5760c43c6.webp" alt="" /></p>
 <h3>NUMA</h3>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504041521262.png" alt="" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-pytorch-profiling-on-cpu/body-017-174dc0db9a8a.webp" alt="" />
 Good for 2 core</p>
 <h3>BLAS</h3>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504041529092.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504041529405.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-pytorch-profiling-on-cpu/body-018-acaee5b5b512.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-pytorch-profiling-on-cpu/body-019-d66fe216419b.webp" alt="" /></p>
 <p>bound: for loading data from mem to CPU reg
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504041529172.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504041529400.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504041751764.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504041751848.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-pytorch-profiling-on-cpu/body-020-9e5156d9e36e.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-pytorch-profiling-on-cpu/body-021-80a0c59885d6.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-pytorch-profiling-on-cpu/body-022-e61fdf7d4d1f.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-pytorch-profiling-on-cpu/body-023-dc076035af73.webp" alt="" /></p>
 <h2>Intel</h2>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504041752894.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504041751831.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-pytorch-profiling-on-cpu/body-024-f5ea637b2f2b.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-pytorch-profiling-on-cpu/body-025-fae5bb88f564.webp" alt="" /></p>
 <p>Intel Use DNN as an Example. But what about LLM? Don’t know yet
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504041752426.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-pytorch-profiling-on-cpu/body-026-01b1470c69b2.webp" alt="" /></p>

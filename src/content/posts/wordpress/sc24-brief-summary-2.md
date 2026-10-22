@@ -18,11 +18,11 @@ viewCount: 3701
 likeCount: 1
 dislikeCount: 0
 showCitation: true
-featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/11/微信截图_20241118023433.jpg"
+featuredImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-001-a78c53aae843.webp"
 importedFromWordPress: true
 cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2.webp"
 ---
-<p><a href="https://www.haibinlaiblog.top/index.php/418/%e5%be%ae%e4%bf%a1%e6%88%aa%e5%9b%be_20241118023327/"><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080422377.jpeg" alt="" /></a></p>
+<p><a href="https://www.haibinlaiblog.top/index.php/418/%e5%be%ae%e4%bf%a1%e6%88%aa%e5%9b%be_20241118023327/"><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-002-e2110010efe7.webp" alt="" /></a></p>
 <p>总链接：
 <a href="https://www.haibinlaiblog.top/index.php/sc-2024-passage/">https://www.haibinlaiblog.top/index.php/sc-2024-passage/</a></p>
 <hr />
@@ -39,21 +39,21 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-
 This section outlines themethodology employed in the designandexecutionof thesurvey.Thesurveymethodology involved a combination of open-ended andmultiple-choice questions, aiming to delve into researchers’ computational environments, theirprogrammingpreferences,andtheimpact of computational capabilities on their work. It details the structuredapproach taken toselect participants, categorizing themintotwodistinctgroups tocaptureabroadspectrumof computationalpractices.</p>
 <p>那，我们来看看他们的结论吧：</p>
 <p>研究对象：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202502162217733.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-003-d54dbf69a7a1.webp" alt="" /></p>
 <p>调查问卷结论：</p>
 <p><strong>计算在各学科中的使用率都很高。</strong> 总体而言，75% 的研究人员在研究中使用计算。在自然科学和工程学领域，几乎所有研究人员都使用计算方法（分别为 98% 和 96%）。在社会研究和人文科学领域，42% 的研究人员在研究中经常使用计算方法。</p>
 <p><strong>在台式机上运行代码的研究人员越来越少，而是转向在服务器或集群上运行代码。</strong>  GPU 正在成为一个新兴的计算平台。在我们采访的所有研究人员中，有三分之一正在使用 GPU 来加快计算速度。一些研究人员还将 FPGA 作为一种替代方法。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202502162218340.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-004-c67c163bb097.webp" alt="" /></p>
 <p><strong>应用多元化</strong> Researchers employ a diverse array of applications, soft ware, and libraries to support their work across various fields.</p>
 <p>大家喜欢使用的计算密集型软件
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202502162218532.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-005-ee1bc589dccc.webp" alt="" /></p>
 <p><strong>喜好Python，但是学的第一门是C++，很少人用Fortran</strong></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202502162218130.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-006-288346a3911b.webp" alt="" /></p>
 <p><strong>编程和测试的时间变多了。</strong>
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202502162222515.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-007-dbc7016b78b9.webp" alt="" /></p>
 <p><strong>等待时间仍然是科学家面临的一个问题</strong>
 虽然约 40% 的受访者表示他们的研究时间只有不到 5% 用于等待运行，但超过 25% 的科学家表示他们的研究时间有 20% 以上用于等待。 由于问题的表述方式不同，我们无法与之前的调查数据进行直接比较，但我们仍然可以得出结论，等待时间仍然是科学家面临的一个问题。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202502162222938.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-008-fd19b6ecc6ff.webp" alt="" /></p>
 <p><strong>Debug方法主要是print()</strong>
 调试是软件开发中的一个重要过程，包括识别和修复代码中的错误。在 46 位介绍调试方法的受访者中，最常用的技术是使用打印语句（50%），开发人员在此过程中显示变量值并跟踪程序状态。断点（35%）排在第二位，允许开发人员在特定点暂停代码执行以进行检查。代码检查（26%）是第三大最受欢迎的方法，它包括手动审查代码以找出错误。调试器工具（15%）排名第四，用于逐步检查代码、检查变量和监控执行。</p>
 <p>最后，其他技术（11%）包括单元测试或向他人寻求帮助。与上次调查相比，调试器工具的使用明显减少，而打印和代码检查却大受欢迎。这种变化可能是由于 Python 这种动态类型语言的使用率高于其他静态编译的编程语言。</p>
@@ -62,20 +62,20 @@ This section outlines themethodology employed in the designandexecutionof thesur
 <p>我们的研究显示，37% 的受访者表示花费了大量时间来优化他们的计划，这一比例低于之前的研究（52%）。26 位受访者分享了他们用于优化程序的方法。在 26 位受访者中，有 4 人（15%）采用了算法变更，5 人（19%）采用了数据结构优化。  另有 4 位受访者（15%）喜欢使用专用库，而循环优化则有 7 位受访者（27%）。有 2 人（8%）使用了编译器标志。最后，有 7 人（27%）依靠配置运行来优化性能，例如在运行一个实验时使用的节点数量。这一分布情况与之前的研究类似。  </p>
 <p><strong>F. 并行性 被广泛使用</strong>
 在我们的研究中，48% 的随机抽样受访者表示在研究中使用了某种形式的并行性，92% 的顶级计算受访者使用并行性。这两类受访者与以往访谈的详细对比见表 V。随机抽样受访者与顶级计算用户在并行化使用方面的鲜明对比，凸显了并行计算在处理计算密集型研究方面的重要性。  高端用户对并行技术的广泛应用凸显了并行技术在提高研究效率和应对复杂计算挑战方面的重要意义。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202502162234548.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-009-08319baf7879.webp" alt="" /></p>
 <p>通过访谈，我们发现 73% 的研究人员对其项目的计算性能表示满意，与过去调查中 29% 的数字相比有了大幅提高。  对于计算性能总体满意度的上升，有很多可能的解释。这可能是由于研究人员现在可以使用性能显著提高的计算硬件和软件包，也可能是由于研究和工程人员帮助简化了编码和实验运行流程。此外，也可能是研究人员现在开始期待长时间运行的实验，并围绕这一点来计划他们的日程和研究，不过这可能并不适用于每一位研究人员，因为我们在图 3 中已经表明，对于许多研究人员来说，等待运行的时间仍然是不可忽略的。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202502162236784.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-010-52f10350d8b3.webp" alt="" /></p>
 <p><strong>我们需要更多的计算速度、更多的内存！</strong>
 53 interviewees discussed their understanding of why their computation is blocked. 36 interviewees (68%) attribute the cause to computation speed; 21 (40%) to memory, either memory IO or space; 3 (6%) to storage, either lack of storage space or IO; 4 (8%) to the lack of resources on the cluster; and 1 (2%) to other issues, in this case, lack of license.</p>
 <p>但是，这个问题是不是跟科研人员的素质有关，他们如果发现不一定是IO呢？</p>
 <p><strong>我们很满意！</strong>
 73% of researchers were satisfied with the computational performance of their projects, a great increase from the number of 29% in the past survey.
 在面临计算挑战的研究人员中，39% 的研究人员采用了优化方法来适应计算限制，36% 的研究人员利用了资源扩充，22% 的研究人员寻求外部支持和合作资源，31% 的研究人员修改了研究范围或方法。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202502191050567.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-011-c02bad307c33.webp" alt="" /></p>
 <p>调查结果显示，现在有 26% 的研究人员认为，由于计算能力不足，他们无法实现更大的研究计划，而在过去的调查中，这一比例约为 70%。为了更深入地了解这一问题，我们追问了一个假设性问题--2 倍、10 倍或 100 倍的速度提升会如何改变他们的研究。表 VI 列出了四类回答的详细情况。</p>
 <p>本研究的最终目标是了解计算社区应该开展哪些工作，以及如何更好地支持搜索者利用计算。建议的分析框架工作可以进行深入分析，确定重要趋势和挑战 与前几节介绍的侧重于对单个问题的回答的结果不同，这些分析跨越了多个问题，而且经常涉及重新查看记录誊本，以更深入地了解受访者。</p>
 <p>建模过程：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202502191053611.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-012-305c03df9c54.webp" alt="" /></p>
 <p>建模过程还是非常的神奇！第一次见到有人这样用LLM对研究做filter，和以往看到的人文的paper挺不一样的。Instead, we used LLMs to filter and highlight responses that required further investigation, effectively
 streamlining the process of identifying critical feedback.</p>
 <p>我们要求 LLM 根据用户在记录誊本中提到的使用 GPU 等高性能硬件或进行性能优化的情况来判断用户是否具有 “性能意识”。 调查问卷中没有这样的直接问题，因此 LLM 搜索上下文提示的能力就显得尤为有用。然后，将 LLM 的分类与 “等待运行的研究时间百分比 ”进行比较，后者直接从现有的结构化调查回复中提取。人类研究人员将深入研究用户花费大量时间等待运行但却没有 “性能意识 ”的情况，并了解全部背景。</p>
@@ -129,22 +129,22 @@ streamlining the process of identifying critical feedback.</p>
 <p>我们关于数据移动趋势分析的第一个轴心围绕以下问题展开：(1) 当今的高性能计算用户是否使用 Globus 等专用传输工具，遵循仪器-广域网-DTN-计算的事实数据移动范式？ (2) 单个传输的数量概况如何？为了回答这个问题，我们从以下方面确定了高层次的流量趋势： (1) 随着时间的推移，指向 DTN 和来自 DTN 的流量，(2) 归因于 Globus 的流量，(3) Globus 和非 Globus（交互式）流量的大小分布，以及 (4) 每个用户会话的传输次数。</p>
 <p>We use three years of network data collected from two sources: the National Energy Research Scientific Computing Center (NERSC) DTNs as well as its network border using Energy Science Network’s High-Touch platform</p>
 <p>We have found that the percentage of data users transfer using automated software tools like Globus is reduced yearly, suggesting that users opt to move data through manual ad-hoc transfers or other tools.
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241207233030.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-013-c0b0d5a8e933.webp" alt="" /></p>
 <p>hey他们也用 Globus！虽然传输的数据在减少</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241207232752.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241207232821.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-014-0a05cab3a3ae.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-015-20958f7cf3a3.webp" alt="" /></p>
 <p>In this paper, we provide a detailed analysis of data movement trends and performance in HPC environments using traffic data collected at NERSC. Our findings indicate that users adopt dynamic movement patterns transferring data in small/medium chunks and shift from the traditional instrument-WAN-DTN-compute paradigm. Our results show that today’s data movement in HPC is not optimally designed for serving the new user patterns emerging from network requirements of science workflows with <strong>hard data</strong> availability temporal constraints. Our analysis demonstrates that the existing setup does not account for conditions  <strong>where multiple competing transfers compete for resources, resulting up to 30% throughput degradation compared to non-competing circumstances.</strong> </p>
 <p>Our recommendations include adopting intelligent traffic management that utilizes programmability and real-time event detection to reduce data transfer times for current and emerging science workflows.</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241207233107.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-016-903e5afc1efc.webp" alt="" /></p>
 <h4>学习：什么是DTN?</h4>
 <p>在高性能计算（HPC）数据中心的上下文中，<strong>数据传输节点（DTNs）</strong> 是用于在不同计算节点之间转移数据的关键设施。尤其是在像高性能计算中心这样的环境中，数据量通常非常庞大，而计算和存储资源分布广泛。因此，DTNs的作用是确保数据能够高效、可靠地在数据中心内部或外部进行传输，特别是在需要处理大量并行传输和延迟容忍的情况下。</p>
 <p>在实验设施的边缘计算环境中，<strong>中型计算节点（mid-range compute）</strong> 可能位于离核心计算设施较远的地方，例如在实验现场或者其他边缘位置。此类计算节点通常需要将数据从实验设备传回主计算中心，或者从主数据存储系统获取数据。DTNs在这种环境中尤为重要，因为它们能够通过延迟容忍的方式处理边缘计算节点与主数据中心之间的数据传输问题，尤其是在网络不稳定或传输延迟较高的情况下。</p>
 <p>总结来说，DTNs在HPC数据中心和实验设施边缘计算的作用是确保大规模数据传输的稳定性和高效性，即使在面临较大延迟或网络中断的情况下，依然能够保持数据的可靠传输。</p>
 <h4>CDF</h4>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202502250719989.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-017-9e9fdf744fd5.webp" alt="" /></p>
 <p>我们对流量性能进行分析，以确定在过量使用期间的瓶颈和中断情况，在过量使用期间，传输会争夺有限的资源。我们的超额订购分析表明，流量竞争是 NERSC 一直存在的问题，这突出表明，无论 IRI 的科学模式如何，都亟需了解流量竞争对性能的影响，以确保科学应用中的数据可用性。 分析高流量窗口期间的吞吐量。我们首先分析了流量竞争的影响，即一个大流量（如第 II-B 节所述，在数据集成敏感性和长期活动工作流中很典型）与多个明显较小的流量（至少 100 数量级）（在时间敏感性工作流中很典型）竞争的情况。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202502250719793.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202502250720164.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-018-9bc4ef3db917.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-019-26c54648a7c2.webp" alt="" /></p>
 <hr />
 <p>Paper   </p>
 <h2>Sparsity and Quantization in ML</h2>
@@ -157,7 +157,7 @@ Algorithms Artificial Intelligence/Machine LearningHeterogeneous ComputingPerfor
 <p>动态离群值是高效混合精度量化的主要障碍
 <strong>Dynamic outlier is the main obstacle to efficient mixed precision quantization</strong>. The sparsity and irregularity of outliers have introduced a large overhead in both detection and the process of outliers. MixQ tames the dynamic outliers by precisely predicting the outlier positions with a locality-based algorithm.</p>
 <p>MixQ同时量化权重和激活，使用低精度张量核心（<a href="https://so.csdn.net/so/search?q=INT8&amp;spm=1001.2101.3001.7020">INT8</a>/INT4 Tensor Core）实现推理加速；同时，MixQ提取激活中少量的离群值，使用高精度张量核心（FP16 Tensor Core）保持推理准确性，通过系统优化掩盖高精度访存开销。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202502132235526.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-020-f15316494ae1.webp" alt="" /></p>
 <p>Mixed-precision quantization has shown to be a promising method for enhancing the efficiency of LLMs. This technique boosts computational efficiency by processing most values with low-precision, high-throughput compute units and maintains accuracy by processing outliers in high-precision. However, due to the dynamic, irregular, and sparse nature of outliers, this approach is far from using hardware efficiently. In this work, we propose MixQ, an efficient mixed-precision quantization system. Through our in-depth analysis of outlier distribution, we introduce a locality-based outlier prediction algorithm that can predict all outliers of 95.8% of tokens. Based on this accurate prediction, we propose a quantization ahead of detection (QAD) technique that can verify the correctness of prediction. A new data structure is proposed for efficient outlier processing. Evaluation shows that MixQ achieves 1.52× and 1.78× speedup over FP16 and Bitsandbytes on 8-bit quantization; <strong>plus 1.48×, 1.93× and 6× speedup over QUIK, FP16, and AWQ on 4-bit quantization</strong>. </p>
 <p>Index Terms—Mixed-Precision, Dynamic Outlier, Enhancing Throughput</p>
 <p>AuthorsYidong ChenChen ZhangRongchao DongHaoyuan ZhangYonghua Zhang Zhonghua Lu       <strong>Jidong Zhai</strong>
@@ -168,43 +168,43 @@ AlgorithmsArtificial Intelligence/Machine LearningHeterogeneous ComputingPerform
 <p>LoRA学习参考：<a href="https://blog.csdn.net/qq_41475067/article/details/138155486">LORA详解（史上最全）_lora模型-CSDN博客</a></p>
 <p>【HPHEX组会[SC'24] Long Exposure:当PEFT中大部分参数都被冻结，大模型的微调是否可以重新理解为是一种特殊的推理】 <a href="https://www.bilibili.com/video/BV1yCqLYJEh9/?share_source=copy_web&amp;vd_source=72eac555730ba7e7a64f9fa1d7f2b2d4">https://www.bilibili.com/video/BV1yCqLYJEh9/?share_source=copy_web&vd_source=72eac555730ba7e7a64f9fa1d7f2b2d4</a></p>
 <p>我们关注到模型训练中特殊的稀疏性</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241207224040.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-021-3ec1aca17aa9.webp" alt="" /></p>
 <p>没有经过微调，模型在特定任务上Acc较低，微调后准确率才提升</p>
 <p>背景2：目前的模型size不断提升，而微调
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241207224159.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-022-1751b86dd2ee.webp" alt="" /></p>
 <p>Fine Tuning 可以看做这样的修改：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241207224652.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-023-2f77b9e111a9.webp" alt="" /></p>
 <p>但是，他们并没有带来时间节省
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241207224933.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-024-a21dd5b99099.webp" alt="" /></p>
 <p>我们将整个训练任务分成3个阶段
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241207224959.png" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-025-05059900dd54.webp" alt="" />
 PEFT后，在反向传播阶段，我们需要多计算一次偏导，这样的计算使得Backward的计算量反而会多了！
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241207225318.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-026-28d6f3917a59.webp" alt="" /></p>
 <p>所以我们发现，PEFT的优化虽然确实让Optim 过程变快了，但是它让Forward和Backward变慢了。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241207225400.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-027-a3afca025742.webp" alt="" /></p>
 <p>确定优化核心问题：我们想优化PEFT的前向和反向过程。这时我们发现，模型的PEFT和推理呈现高相似度，此时模型的全部参数基本保持不变。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241207225505.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-028-88f3a68e153c.webp" alt="" /></p>
 <p>而此时，我们知道“稀疏”是个很好的概念，比如在稀疏矩阵内我们可以忽略0。比如我们的Multi-head attention, MLP里的ReLU，会使得我们的矩阵里有很多0.</p>
 <p>LLM可以进行剪枝从LLM A变成B，减少参数。但是会：</p>
 <ol>
 <li>剪枝需要重训练，会加重负担</li>
 <li>损失泛化能力</li>
 </ol>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241207230353.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-029-762c69434975.webp" alt="" /></p>
 <p>之前的方法：deja vu
 我们不剪参数，在推理时动态激活参数，这样我们不会剪参数，但是能加速。
 此时他们的稀疏性可以到85%，并且可以被预测出来
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241207230241.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-030-c008e8e40873.webp" alt="" /></p>
 <p>所以：<strong>idea：既然我们可以用稀疏性来加速大模型推理，而PEFT优化跟大模型inference很像，我们为什么不能用稀疏性来加速！！</strong></p>
 <p>前向计算时为0，反向计算仍为0，那就可以剪枝减少计算</p>
 <p>挑战1：
 inference 和 Fine tune 的模型输入的尺寸不同
 infer: token
 fine tune: a sequence of tokens
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241207230633.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-031-a4cee68f0a5d.webp" alt="" /></p>
 <p><strong>此时，当我们用 a sequnence of tokens 时，我们发现，此时 我们的矩阵不再稀疏！</strong></p>
 <p>我们称之为：Shadowy Sparsity!
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241207230849.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-032-e3f87a746c0c.webp" alt="" /></p>
 <p>挑战2：如何实时预测稀疏Pattern？</p>
 <p>以往方法：神经网络base方法
 但是我们在Fine tune中，用不了</p>
@@ -218,15 +218,15 @@ fine tune: a sequence of tokens
 <li>dynamic, varified</li>
 </ol>
 <p>以前的工作都有一定问题（PPT内）
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241207231245.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-033-5bbb663eb9c9.webp" alt="" /></p>
 <p><strong>我们的解决方案：</strong></p>
 <p>融合：finetune parameter + Computation efficient
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241207231345.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-034-23a5ec1abb51.webp" alt="" /></p>
 <p>Exposer</p>
 <ol>
 <li>细粒度，使用header</li>
 <li>MLP：考虑到每一个token激活，threshold base
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241207231425.png" alt="" /></li>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-035-5a2fc3e264af.webp" alt="" /></li>
 </ol>
 <p>Predictor</p>
 <ol>
@@ -234,25 +234,25 @@ fine tune: a sequence of tokens
 <li>recall，允许预测器多预测一些神经元，不想影响准确率</li>
 <li>针对过拟合对数据进行</li>
 </ol>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241207231840.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-036-963eea675529.webp" alt="" /></p>
 <p>Operator
 我们不需要太general，能预测稀疏pattern即可
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241207231909.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-037-dc23f19514ca.webp" alt="" /></p>
 <p>引入稀疏性，其中一个块为0，那一行一列的都是稀疏的（0）
 我们会把内存连在一起，访问速度++
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241207231956.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-038-91d5679bc632.webp" alt="" /></p>
 <p>实验
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241207232121.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-039-c4451d2fb440.webp" alt="" /></p>
 <p>Forward和Backward都加快
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241207232209.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-040-c8f407ab72c3.webp" alt="" /></p>
 <p>Acc损耗不大
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241207232230.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-041-e2be8088e4b4.webp" alt="" /></p>
 <p>稀疏：mem使用减少</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241207232249.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-042-56d8e2310666.webp" alt="" /></p>
 <p>Sensitivity and Scalability
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241207232325.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-043-9d61cf9ef7a1.webp" alt="" /></p>
 <p>Summary
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241207232406.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-044-945098b7a0e6.webp" alt="" /></p>
 <p>Author：
 <a href="https://pairshoe.github.io">https://pairshoe.github.io</a></p>
 <p>Very Nice!!!</p>
@@ -271,7 +271,7 @@ Presentations
 <p>这种方法的核心思想是减少输入数据的维度，从而让模型能够更高效地处理高分辨率的图像。例如，在处理如显微病理图像等高分辨率图像时，整个图像的处理可能会消耗过多的计算和内存资源。通过将图像切分为小块，模型可以逐个处理这些小块，而不是直接处理整个大图，从而避免了资源瓶颈。</p>
 <p>作者提到使用<strong>自适应图像分块</strong>作为一种方法，根据图像的细节信息动态选择哪些区域需要被划分为图像块。这样可以显著减少传递给模型的图像块数量，从而在不丢失重要信息的情况下提高计算效率。通过这种方式，图像处理变得更加高效，同时提高了模型的性能（比如图像分割质量），并减少了计算开销。</p>
 <p>We demonstrate superior segmentation quality over SoTA segmentation models for real world pathology datasets while gaining a geomean speedup of 6.9× for resolutions up to 64K2, on up to 2,048 GPUs.</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202502250744947.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-045-18163ee622dd.webp" alt="" /></p>
 <h4>Vision Transformers</h4>
 <p><strong>Vision Transformers (ViTs)</strong> 是一种将Transformer模型应用于计算机视觉任务（如图像分类、目标检测、图像分割等）的模型架构。与传统的卷积神经网络（CNN）不同，ViTs使用自注意力机制（self-attention）来处理图像数据，而不是通过卷积层来提取特征。以下是ViTs的工作原理和关键特点：</p>
 <p>1. <strong>图像分块（Patching）</strong></p>
@@ -330,28 +330,28 @@ The challenge of handling long sequences in ViTs arises from the quadratic compu
 <p>本文提出了一种名为TORCHGT的高效、可扩展且精确的图Transformer训练系统，主要针对大规模图（如包含数百万节点的真实世界图）中现有方法面临的计算量大、扩展性差和模
 型质量不高的问题。通过在算法层面引入双交错注意力机制，在运行时层面采用通信轻量级的集群感知图并行策略，并在内核层面优化内存访问延迟，TORCHGT显著提升了训练效
 率和扩展能力。实验表明，该系统将训练速度提高了62.7倍，并支持处理长度达1百万节点的图序列。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202502250755679.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202502250756179.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202502250756195.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-046-4b1701558919.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-047-319b656238cb.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-048-cba2ef5da8d2.webp" alt="" /></p>
 <h3>Exploring Efficient Partial Differential Equation Solution using Speed Galerkin Transformer</h3>
 <p>这篇论文讨论的是Fourier神经算子（FNO）在偏微分方程求解问题中的应用，特别是针对达西流方程的解决方案。
 FNO已经被证明是一种通用且有效的深度学习框架，在PDE求解方面表现出了令人瞩目的准确性。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202502250801197.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-049-4ec18612966a.webp" alt="" /></p>
 <p>然而，作者指出，现有的基于FNO的模型中存在一些关键组件无法充分发挥硬件潜力的问题，这使得它们难以在高分辨率和需要实时处理的场景下应用。为了克服这些限制，本文
 提出了一种名为Speed Galerkin Transformer的高度优化模型，并详细介绍了一系列优化策略。</p>
 <p>首先，文中提到了多级并行SliceK-SplitK-ReduceK策略用于批量瘦矩阵乘法（batched skinny matrix multiplication）。这听起来像是针对特定类型的矩阵运算进行优化，可
 能涉及到将大规模的矩阵分解为更小的部分，并利用并行计算来加速这些操作。这种策略可能能够显著提高矩阵乘法的速度，尤其是在处理大量数据时。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202502250802938.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-050-56eb9bd7819d.webp" alt="" /></p>
 <p>其次，论文中提到对QKV矩阵和位置编码进行了内存布局优化。在Transformer模型中，Q、K、V（查询、键、值）矩阵的处理是核心部分之一，而合理安排这些矩阵在内存中的存
 储方式可以减少访问延迟，提高计算效率。此外，结合多头层归一化融合也是一个关键点，可能通过将多个归一化操作合并来减少计算开销。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202502250802846.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-051-2a5a7e10653c.webp" alt="" /></p>
 <p>另外，文中还提到了二维FNO中的批量转置优化，特别是使用了带步进的散射和聚集（strided scattering and gathering）。这表明他们在处理矩阵的转置操作时采用了更高效
 的方法，可能减少了数据移动的次数，从而提升了整体性能。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202502250802933.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-052-64b7fed98242.webp" alt="" /></p>
 <p>实验结果方面，这些策略在特定配置下分别实现了10.29倍、4.41倍和2.38倍的速度提升。这意味着每一项优化措施都对模型的整体性能有着显著的影响。当应用到512x512分辨率
 的达西流方程求解时，Speed Galerkin Transformer模型实现了约1.72倍的速度提升，并在使用8块GPU的情况下达到了超过90%的并行效率。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202502250802241.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202502250803398.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-053-32aa2180a62e.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-054-e0d506b56835.webp" alt="" /></p>
 <p>这些结果表明，作者提出的优化策略不仅显著提高了计算速度，还很好地利用了多GPU环境下的并行计算能力。这对于需要处理高分辨率和大规模数据的问题来说是非常重要的，尤其是在实时性和计算资源有限的场景中。</p>
 <hr />
 <h2>Quantum and Approximate Computing</h2>
@@ -388,7 +388,7 @@ In this work, we present LEXIQL, a technique for the NLP task of text classifica
 <li>
 <p>Atlas: Hierarchical Partitioning for Quantum Circuit Simulation on GPUs
 用GPU做量子电路模拟，有趣。不知道Mindspore会不会跟上。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241122040900.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-055-5babc3de73f5.webp" alt="" /></p>
 </li>
 </ol>
 <hr />
@@ -401,7 +401,7 @@ Presentations
 10:30am - 11am EST</p>
 <h3>Unlocking High-Performance with Low-Bit NPUs and CPUs for Highly Optimized HPL-MxP on Cloud Brain II</h3>
 <p>在low bit NPU上更好的实现HPL-MXP</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080321374.png" alt="" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-056-187923979549.webp" alt="" />
 <a href="https://www.benchcouncil.org/cn/benchmarks.html">测试基准与标准 | BenchCouncil</a></p>
 <p>AuthorsWeicheng XueKai YangYongxiang LiuDengdong FanPengxiang XuYonghong Tian
 11am - 11:30am EST
@@ -411,10 +411,10 @@ Presentations
 • Wepropose a co-acceleration method for triangular solve with matrix (TRSM) using both the CPU and NPU to effectively tackle the ”mixed-precision optimization”challenge. This involves offloading low-cost small matrix inversion calculations in TRSM to the CPU using FP32, while assigning matrix multiplication in TRSM to the NPU using FP16.
 • We propose a novel multi-stage, multi-level heteroge neous pipeline for LU factorization on the CPU and NPU, addressing the ”heterogeneous pipeline optimiza tion” challenge. By performing only GEMM on the NPU and the rest on the CPU, this optimization significantly enhances the performance. Overall, this method integrates the multi-iteration fusion method and the co-acceleration method for TRSM.</p>
 <p>鹏城云脑：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080325685.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-057-2a0b5ad84f0c.webp" alt="" /></p>
 <p>Pipeline
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080325708.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080326744.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-058-d71022b31d4c.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-059-507b37797bcd.webp" alt="" /></p>
 <h3>Fire-Flyer AI-HPC: A Cost-Effective Software-Hardware Co-Design for Deep Learning</h3>
 <p>原来这就是幻方！！！</p>
 <p><a href="https://zhuanlan.zhihu.com/p/25811352779">【论文解读】DeepSeek「多快好省」的 AI 训练集群—— Fire-Flyer AI-HPC - 知乎</a></p>
@@ -485,13 +485,13 @@ Presentations
 </li>
 <li>
 <p><strong>存储节点</strong>：每个节点配备 16<em>15.36TB PCIe 4.0x4 NVMe SSD 和 2</em>Mellanox CX6 200Gbps NIC。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080329009.png" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-060-e624a2097d1e.webp" alt="" />
 Fat-Tree 是一种<strong>树状网络拓扑</strong>，具有高带宽和可扩展性。它由多层交换机组成，越靠近根部的交换机带宽越高，类似于树干越来越粗。</p>
 </li>
 </ul>
 <p>选择 Two-Layer Fat-Tree 的原因仍然是<strong>成本</strong>。Three-Layer Fat-Tree 的扩展性更好，但需要更多的交换机和更复杂的配置。Two-Layer Fat-Tree 在满足 DeepSeek-AI 需求的前提下，可以降低网络成本。</p>
 <h4>HFReduce</h4>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080330232.png" alt="" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-061-9d702e6a92b1.webp" alt="" />
 HFReduce 的核心思想是<strong>利用 CPU 进行辅助计算，减少 GPU 之间的直接通信</strong>。</p>
 <ul>
 <li>
@@ -554,7 +554,7 @@ HFReduce 的核心思想是<strong>利用 CPU 进行辅助计算，减少 GPU �
 <p>在存储服务和客户端实现 request-to-send 控制机制，缓解拥塞。</p>
 </li>
 </ul>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080332825.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-062-1ce1643723bf.webp" alt="" /></p>
 <h4>HAI 平台的作用是什么？它如何提高集群的利用率？</h4>
 <p>HAI 平台是一个<strong>任务调度和资源管理平台</strong>，旨在提高集群的利用率和稳定性。它通过以下方式实现：</p>
 <ul>
@@ -590,7 +590,7 @@ HFReduce 的核心思想是<strong>利用 CPU 进行辅助计算，减少 GPU �
 </li>
 <li>
 <p><strong>PCIe A100</strong>：采用 PCIe 接口，GPU 之间的通信需要经过 CPU，带宽较低。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080336823.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-063-2a87114f078c.webp" alt="" /></p>
 </li>
 </ul>
 <p>论文中提到未来会采用 Multi-Plane 网络，这是什么意思？有什么优势？
@@ -598,7 +598,7 @@ HFReduce 的核心思想是<strong>利用 CPU 进行辅助计算，减少 GPU �
 <p>提高带宽：多个平面可以并行传输数据，提高整体的网络带宽。
 降低成本：相比于构建一个超大型的单平面网络，Multi-Plane 网络可以使用更小的交换机，降低成本。
 提高可靠性：如果一个平面发生故障，其他平面仍然可以正常工作，提高网络的可靠性。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080336497.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-064-1de4f5a51cfa.webp" alt="" /></p>
 <h4>文章提到，在 Computation-storage Integrated Network 中，为了避免 HFReduce Traffic 和 3FS Storage Traffic 的相互影响，选择关闭了 DCQCN，这实际上是一种 trade-off，可能会对某些特定 Workload 下的性能产生影响。那么，有没有更好的 Congestion Control 的策略呢？</h4>
 <p>文章中提到，他们关闭 DCQCN 的原因是无法找到同时支持 HFReduce 和 3FS 流量的参数。这确实是一种权衡，意味着在某些 workload 下，可能会因为没有有效的拥塞控制而导致性能下降。以下是一些可能的改进策略，可以作为未来研究的方向：</p>
 <ul>
@@ -639,9 +639,9 @@ HFReduce 的核心思想是<strong>利用 CPU 进行辅助计算，减少 GPU �
 <h3>A Probabilistic Approach to Selecting Build Configurations in Package Managers</h3>
 <p>现代科学软件在高性能计算中的应用通常非常复杂，许多并行应用程序和库依赖于其他多个软件或库。开发者和用户在构建这些复杂软件时，通常使用包管理器。包管理器依赖于人为编码包的约束（用于依赖关系和版本选择），而一个软件包的依赖关系图往往会变得庞大（包含数百个节点）。此外，随着时间的推移，包约束常常变得过时和不一致，因为它们由不同的人为不同的包维护，这是一项繁琐的任务。这可能导致在某些包配置下构建失败。本文提出了一种方法，利用历史构建结果来帮助包管理器选择最佳的包依赖版本，旨在提高构建成功的可能性。我们采用了机器学习（ML）模型，预测Spack包管理器中不同配置的包构建结果的成功概率。在对常见科学软件栈进行评估时，基于机器学习模型的方法比Spack的默认版本选择机制实现了13%的更高构建成功率。</p>
 <p><strong>关键词</strong>—包管理器，构建配置，版本选择，机器学习</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080338073.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-065-8dd611bff728.webp" alt="" /></p>
 <p>方法概述：将预测的构建概率纳入Spack的版本选择机制。首先，使用图神经网络（Graph Neural Network, GNN）预测所有包对的构建概率。对于新的包版本，我们通过从现有的包对中外推构建概率来估算其构建概率。然后，这些构建概率被编码到Spack的逻辑程序中，与现有的元数据和安装约束一同使用。修改后的逻辑程序随后选择最有可能成功构建的包版本。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080339504.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-066-d2c88e834e93.webp" alt="" /></p>
 <hr />
 <p>Paper   </p>
 <h2>Scientific Data Processing and Visualization</h2>
@@ -663,17 +663,17 @@ Presentations
 <li><strong>灵活性</strong>：它能够根据问题的需求动态调整网格精度，在细节要求较高的地方自动增加网格密度。</li>
 <li><strong>提高精度</strong>：在复杂问题中（如流体动力学中的激波、湍流等），AMR能够在关键区域提供更高的精度。</li>
 </ol>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080348228.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-067-a21bf28dbb98.webp" alt="" /></p>
 <p>这是一个热对流的例子，你可以把这个当成地球的一部分，里面是地核，外面则是地壳。由于地核比地壳热得多，所以有热的材料会往上升（就像一个沸腾的锅，会有水蒸气往上升一样）；同样的，地壳的温度比较低，会有一些材料从表面落下，然后中间有一些介质。</p>
 <p>当我们需要画网格时，我们只需要针对图上有材料上升或者下降附近的区域进行细化即可（因为在这些区域中，解的二阶导数很大）。图片的右侧就是画好的网格的示意图，</p>
 <blockquote>
 <p>只在&quot;有事情发生&quot;的地方（即在局部，解的二阶导数很大）进行细化。</p>
 </blockquote>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080351217.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080351360.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080351273.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080352170.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080353631.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-068-d61978000300.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-069-200a0e0db76a.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-070-c1c7c0875ae4.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-071-1b8003c4af83.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-072-e43c553ab699.webp" alt="" /></p>
 <h3>Error-controlled Progressive Retrieval of Scientific Data under Derivable Quantities of Interest</h3>
 <p>AuthorsXuan WuQian GongJieyang ChenQing LiuNorbert PodhorszkiXin LiangScott Klasky</p>
 <p>New Jersey Institute of Technology
@@ -682,14 +682,14 @@ Presentations
 <p>关键词——高性能计算，数据压缩，渐进式检索，科学数据，误差控制</p>
 <p>'quantity of interest'一般可以简写为QoI，翻译为“感兴趣的量”、“感兴趣的参量”。在科技论文中，人们对某个问题感兴趣，而这个问题题中某个参数、或者函数等对问题的求解至关重要，那么就可以用'QoI'来表示。举个例子，' u(x) is the solution of the PDEs and is determined by the parameter γ(x), which is our quantity of interest (QoI) for the inverse design problem. '
 <a href="https://www.zhihu.com/question/547730365/answer/2950431590">https://www.zhihu.com/question/547730365/answer/2950431590</a></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080357666.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080358120.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-073-af083359e34b.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-074-189ec7716ad1.webp" alt="" /></p>
 <h3>CARP: Range Query-Optimized Indexing for Streaming Data</h3>
 <p>摘要——<strong>高性能科学应用生成的数据的摄取继续给现有的存储资源带来压力</strong> 。通过对感兴趣的属性重新排序，可以启用对这些数据的高效基于范围的分析，但需要进行昂贵的后处理排序才能实现重新排序的查询效益。尽管就写入效率而言，原位索引技术具有优势，但其在范围查询中的性能比排序索引慢几个数量级。范围查询对于分析连续的物理属性和跟踪现象（如能带和波前）是必需的。</p>
 <p>我们提出了CARP，<strong>一种用于范围查询的可扩展数据分区器，它在数据流式存储时根据应用I/O将数据原位重新排序</strong> 。基于我们的发现，实际应用的分布往往高度偏斜且动态变化，CARP能够动态发现并适应这些数据分区的变化。因此，CARP能够在没有摄取开销的情况下近似排序的查询性能，使其比之前的工作快5倍。</p>
 <p>关键词——数据分析，排序，叠加网络，原位索引</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080401703.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080401008.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-075-b8c4365477f7.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-076-f15987934f1d.webp" alt="" /></p>
 <p>Intro background Challenge Design IMPLEMENTATION EVALUATION DISCUSSION CONCLUSION</p>
 <hr />
 <p>Paper   </p>
@@ -710,17 +710,17 @@ Artificial Intelligence/Machine LearningDistributed ComputingHeterogeneous Compu
 <p>我们通过创建三个原型融合操作符（嵌入 + All-to-All、GEMV + AllReduce 和 GEMM + All-to-All）来解决在深度学习推荐模型（DLRM）、Transformer 和专家混合（MoE）模型架构中观察到的广泛通信开销。为了展示我们的方法能够集成到机器学习框架中，并在生产环境中广泛应用，我们将我们的融合操作符作为新的PyTorch操作符进行公开，并扩展Triton框架以支持这些操作符。</p>
 <p>我们的评估表明，我们的方法能够有效地将通信与计算重叠，从而比现有的基于集体库的方法减少执行时间。我们的GEMV + AllReduce和GEMM + All-to-All规模化实现分别将执行时间降低了13%（最高22%）和12%（最高20%），而融合的嵌入 + All-to-All则在节点内和节点间配置下分别减少了20%和31%的执行时间。大规模扩展的仿真表明，我们的方法可以在128节点系统上将DLRM的执行时间减少21%。</p>
 <p>关键词——GPU，分布式机器学习，集体通信，DLRM，Transformer，MoE</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080406967.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080406847.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080406662.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-077-1712e223acfc.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-078-964db39ea146.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-079-ec82d95fcff9.webp" alt="" /></p>
 <p><strong>Fused Embedding + All-to-All Operator</strong>
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080407613.png" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-080-644798a0bdc8.webp" alt="" />
 gpt翻译：</p>
 <p>我们开发了融合的嵌入 + All-to-All 操作符，并将其实现为一个持久化的GPU HIP [10]内核，该内核同时执行嵌入池化（类似归约的）计算和All-to-All通信。我们使用了ROC SHMEM [25]库来执行内核内的通信，图6展示了其执行过程。该图展示了一个两节点系统，其中嵌入表以模型并行的方式分布，每个节点有四个表。All-to-All的输出和发送缓冲区都分配在每个GPU的对称堆（使用roc shmem malloc() API）中。分配在对称堆中的内存会注册到网络接口卡（NIC），因此允许NIC直接在这些GPU缓冲区之间移动数据。</p>
 <p>我们将融合的嵌入 + All-to-All操作符实现为一个持久化线程内核[35][45]，该内核将多个逻辑嵌入池化操作复用到GPU中执行的长期工作组（WG）中。这样，我们可以将计算相同切片（输出片段）的逻辑WG一起调度（类似于[45]中使用的方法），进一步减少内核调用的次数。内核以固定的、与输入无关的网格大小启动（小于或等于根据HIP占用API [20]确定的最大占用率）。每个长期运行（即持久化）工作组执行一个任务循环，其中每次迭代对应原始嵌入内核的一个逻辑工作组的计算（EmbeddingBag updateOutputKernel sum mean）。</p>
 <p>图6a显示了逻辑工作组，并通过颜色编码指示每个工作组处理的表。我们的融合内核将分类输入和嵌入表作为内核参数。所示的示例假设全局批处理大小为4，切片大小为两个嵌入输出向量，并且每个输出嵌入向量由一个工作组计算。来自每个表的池化输出嵌入向量在两个节点之间均匀地进行洗牌，全球批次的前一半存储在节点0中，后一半存储在节点1中。根据它们的嵌入切片，工作组可能需要将结果存储在本地或将其传输到远程节点。工作组计算的切片的索引可以通过输出嵌入条目和切片的大小来确定。然后，可以使用切片索引、全局批次大小和节点数来确定是否需要将切片远程通信。逻辑工作组WG 00-WG 13计算与全局批次前半部分对应的输出，而WG 20-WG 33计算后半部分的输出。对于节点0，WG 00-WG 13计算输出条目。</p>
 <p><strong>GEMV + AllReduce</strong>
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080407534.png" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-081-80eda97b635e.webp" alt="" />
 图7展示了我们提出的融合GEMV + AllReduce操作符。该操作符假设两个GPU通过Infinity Fabric™连接在同一个节点中，并且每个GPU使用临时缓冲区进行归约操作。我们将融合操作符实现为一个持久化内核，其中每个物理工作组（WG）迭代执行多个逻辑工作组（WG），负责计算各自的输出块。每个物理WG负责跨GPU计算相同的输出块，从而简化归约过程中的依赖关系。在我们的方法中，我们使用了一种两阶段直接算法来实现AllReduce，因为它具有最少的步骤，并且在完全连接的GPU上能够实现较低的延迟。每个GPU负责归约1/#GPU数量的输出块（归约分散阶段），并将结果广播给其他GPU（全收集阶段），如图7a所示。在这个例子中，每个GPU将计算整个GEMV输出向量，但一半的输出块会在本地进行归约，而另一半则会被传输到对等GPU进行归约。例如，GPU 0将归约前两个输出块，而GPU 1将归约最后两个输出块。</p>
 <p><strong>GEMM + All-to-All</strong>
 Our fused GEMM + All-to-All operator also has a similar implementation as explained above except it is implemented in Triton with communication extensions. GPUs perform GEMM operations and the output tiles are communicated to peer GPUs. In this case, no reduction is performed as GEMM operation is fused with All-to-All collective</p>
@@ -733,8 +733,8 @@ Artificial Intelligence/Machine LearningDistributed ComputingHeterogeneous Compu
 2:30pm - 3pm EST</p>
 <p>摘要——DLRM 是一种先进的推荐系统模型，已经在多个行业应用中得到广泛采用。然而，DLRM 模型的庞大规模要求使用多个设备/GPU 来进行高效训练。在这一过程中，一个显著的瓶颈是需要耗时的 All-to-All 通信来从所有设备收集嵌入数据。</p>
 <p>为了缓解这一问题，我们提出了一种方法，<strong>采用误差有界的有损压缩来减少通信数据的大小并加速 DLRM 的训练</strong> 。我们开发了一种新型的误差有界有损压缩算法，基于对嵌入数据特征的深入分析，以实现高压缩比。此外，我们引入了一种双层自适应策略来调整误差边界，涵盖了表级和迭代级的调整，以平衡压缩带来的好处与对准确性的潜在影响。我们进一步优化了针对 GPU 上 PyTorch 张量的压缩器，最小化了压缩开销。评估结果显示，<strong>我们的方法实现了 1.38 倍的训练加速</strong>，同时对准确性的影响最小。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080413113.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080414336.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-082-554c35566a51.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-083-e8f801b98082.webp" alt="" /></p>
 <h3>APTMoE: Affinity-aware Pipeline Tuning for MoE Models on Bandwidth-constrained GPU Nodes</h3>
 <p><a href="https://github.com/yuanxinnn/APTMoE">yuanxinnn/APTMoE</a></p>
 <p>AuthorsYuanxin WeiJiangsu DuJiazhi JiangXiao ShiXianwei ZhangDan HuangNong XiaoYutong Lu
@@ -745,10 +745,10 @@ Distributed Computing Heterogeneous Computing Performance Optimization</p>
 <p>MoE介绍:
 <a href="https://zhuanlan.zhihu.com/p/542465517">Mixture-of-Experts (MoE) 经典论文一览 - 知乎</a>
 一个系统中包含多个分开的网络，每个网络去处理全部训练样本的一个子集。这种方式可以看做是把多层网络进行了模块化的转换。让不同的 expert 单独计算 loss，然后在加权求和得到总体的 loss。这样的话，每个专家，都有独立判断的能力，而不用依靠其他的 expert 来一起得到预测结果。下面是一个示意图：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080417443.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080418852.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080418410.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080419898.png" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-084-a54626d667c9.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-085-50a98339dcc7.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-086-96b53fb9f9f6.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-087-feaa35ea9680.webp" alt="" />
 概括地讲，当下Sparsely-Gated Mixture of Experts的运行模式大致可以做如下解释：
 <a href="https://zhuanlan.zhihu.com/p/654172432">形而上地看Sparsely-Gated Mixture of Experts - 知乎</a></p>
 <ol>
@@ -760,28 +760,28 @@ Distributed Computing Heterogeneous Computing Performance Optimization</p>
 <li>将每一个token，dispatch到对应的专家的存贮GPU上运算，注意这里的token是temporal-independent的（类似于对于某一段输入所以提取的特征向量，后述），随后再度combine成原始的sequence；</li>
 <li>其他一切照旧，该norm的norm，该attention的attention，该residual的residual，该假装看论文摸鱼的假装看论文摸鱼。</li>
 </ol>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080419371.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-088-0222c15d781c.webp" alt="" /></p>
 <p>APTMoE是一种针对带宽受限GPU节点的MoE模型的亲和性感知管道调优系统。该系统旨在提高在带宽受限的GPU节点上微调MoE模型的计算效率和模型规模。APTMoE通过亲和性感知卸载技术来增强管道并行性，其核心思想是将部分亲和性计算卸载到CPU，以便更好地管理异构内存中的数据<a href="https://github.com/yuanxinnn/APTMoE">1</a>。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080420094.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-089-97ea16581387.webp" alt="" /></p>
 <p>主要贡献
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080420047.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-090-01bb1e232f7d.webp" alt="" /></p>
 <p>APTMoE的主要贡献包括：</p>
 <ol>
 <li>
 <p><strong>分层加载策略</strong>：利用专家受欢迎度和计算亲和性的先验知识，采用三个加载阶段来贪婪地分配具有最高亲和性的计算，并最小化数据移动量。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080420192.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-091-5cd127b74585.webp" alt="" /></p>
 </li>
 <li>
 <p><strong>需求优先调度策略</strong>：用于缓解加载阶段之间的相互干扰，并通过动态协调加载顺序来最大化带宽利用率。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080420663.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-092-8b0f0e949dbc.webp" alt="" /></p>
 </li>
 <li>
 <p><strong>专家受欢迎度模拟器</strong>：用于评估APTMoE在微调MoE模型时的表现<a href="https://github.com/yuanxinnn/APTMoE">1</a>。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080420797.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-093-2af35aa9be20.webp" alt="" /></p>
 </li>
 </ol>
 <p>系统概述
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080420530.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/sc24-brief-summary-2/body-094-a019c612fdc9.webp" alt="" /></p>
 <p>APTMoE系统分为静态部分和运行时部分。其工作流程如下：</p>
 <ul>
 <li>

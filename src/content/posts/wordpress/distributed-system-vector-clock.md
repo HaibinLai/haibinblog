@@ -26,16 +26,16 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 But we can't find a sync time for everyone.</p>
 <h2>Vector Clock</h2>
 <p>Lamport didn't solve:
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251011081500807.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-10/distributed-system-vector-clock/body-001-da7371a45666.webp" alt="image.png" /></p>
 <p>Solution:
 use a vector clock</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251011081531201.png" alt="image.png" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251011081631284.png" alt="image.png" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-10/distributed-system-vector-clock/body-002-3b29d58c1293.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-10/distributed-system-vector-clock/body-003-153fa3cac4ff.webp" alt="image.png" />
 两个向量一样：同一个事件
 一个向量小于另一个向量：所有元素都小于等于，但是不能全部等于</p>
 <p>并发事件：中间有的元素小，有的元素大，如a和e</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251011081942766.png" alt="image.png" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251011082115749.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-10/distributed-system-vector-clock/body-004-99175a183930.webp" alt="image.png" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-10/distributed-system-vector-clock/body-005-1cdd4e3653e2.webp" alt="image.png" /></p>
 <p>Lamport 和 vector 区别：有多个数可以处理因果关系</p>
 <p>The reading paper is Lamport's paper about Lamport time. He introduced the main idea in last class and gave a formal mathematical proof on the theorem.
 <a href="https://lamport.azurewebsites.net/pubs/pubs.html#time-clocks">https://lamport.azurewebsites.net/pubs/pubs.html#time-clocks</a></p>

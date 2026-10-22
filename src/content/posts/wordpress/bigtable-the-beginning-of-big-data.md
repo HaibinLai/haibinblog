@@ -18,7 +18,7 @@ viewCount: 2909
 likeCount: 0
 dislikeCount: 0
 showCitation: true
-featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/12/AMUR8970.png"
+featuredImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/bigtable-the-beginning-of-big-data/body-001-fdb2f8891dea.webp"
 importedFromWordPress: true
 cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/bigtable-the-beginning-of-big-data.webp"
 ---
@@ -39,7 +39,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-
 <li>复杂提供在线服务的Tablet Server</li>
 <li>复杂调度Tablet和调整负载的Master</li>
 </ol>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20240918022701.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/bigtable-the-beginning-of-big-data/body-002-407313d4ecfe.webp" alt="" /></p>
 <p>GFS回答的问题：
 如何存储海量的数据？
 如何高效地对海量数据进行读写？</p>
@@ -56,9 +56,9 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-
 <p>这是传统的关系型数据库不行的地方，变成NoSQL</p>
 <h2>Cell</h2>
 <p>bigtable采用一种基于行键（row key）、列族（column family）和时间戳（timestamp）的多维数据模型，允许用户以高效、灵活的方式组织和访问数据。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20240918014607.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/bigtable-the-beginning-of-big-data/body-003-25391764d585.webp" alt="" /></p>
 <p>行是固定的，列是动态的，还可以有时间上的区别</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20240918015132.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/bigtable-the-beginning-of-big-data/body-004-1e6c593dc9ac.webp" alt="" /></p>
 <p>com.cnn.www 网站，唯一
 contents: 不同时间内这个网站的内容
 anchor:cnnsi.com: cnnsi.com链接这个网站
@@ -68,11 +68,11 @@ anchor:my.look.ca: my.look.ca链接这个网站</p>
 <p>建表、删表</p>
 <p>单行数据的增删查，以及用删除和增加组合出来的修改效果，只对单行数据的增删具有ACID特性。</p>
 <p>范围查询</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20240918015620.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/bigtable-the-beginning-of-big-data/body-005-5ba5484fc952.webp" alt="" /></p>
 <p><strong>BigTable 是一个稀疏的、分布式的、可持久化的多维有序 map。</strong></p>
 <p><strong>map 通过 rowKey，columnKey 和时间戳进行索引，map 中的每个值都是一个连续的字节数组。</strong></p>
 <p>注：rowKey 是记录的主键，唯一标识一行记录</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20240918022408.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/bigtable-the-beginning-of-big-data/body-006-9cc1d31f8006.webp" alt="" /></p>
 <p>如果我的主页简介改变了，就只需要新加新的简介的那一个KV对，那对新的KV对生成新的时间序列即可。</p>
 <h2>使用chubby：高可用、持久的分布式锁服务</h2>
 <p>一个 Chubby 服务由 <strong>5 个活跃副本</strong>（active replicas）组成，其中一个会被选举为 master，并负责处理请求。只有大多数副本都活着，并且互相之间可以通信时，这个服务才 算活着（live）。</p>
@@ -87,37 +87,37 @@ anchor:my.look.ca: my.look.ca链接这个网站</p>
 <li>存储 Bigtable schema 信息（每个 table 的 column family 信息）</li>
 <li>存储访问控制列表</li>
 </ol>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20240918030055.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/bigtable-the-beginning-of-big-data/body-007-ceea4a5d6bf6.webp" alt="" /></p>
 <h2>存储</h2>
 <p>一张大表肯定是不能存在一个服务器上的，而是被分成多份存在多个服务器上，一份就是一个逻辑单位——tablet。bigtable架构中最核心的概念是tablet。存放tablet的节点在bigtable体系中叫做tablet server，一个tablet server中存放多个tablet。bigtable在最底层把数据按照key进行排列后，进行分区，一个分区就是一个tablet，而一个tablet就是GFS中的一个文件。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20240918023522.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/bigtable-the-beginning-of-big-data/body-008-08cfd18272e0.webp" alt="" /></p>
 <p>tablet只是一个逻辑概念，指代特定范围内的数据行。真正干活儿的是memtable和sstable以及下面的GFS。memtable和sstable可以理解为索引，一个tablet对应着一套memtable和sstable。由于大数据中数据是海量的，所以将索引结构存在磁盘，每次对数据的更新（写入、删除）都要去更新磁盘，肯定是扛不住的。所以将索引放在内存中才是明智的，memtable是缓存，可以理解为就是内存中的索引，一个tablet对应着一个memtable，其中记录着当前节点的tablet中的所有数据（key值+数据指针）。为了容错和可靠，memtable每隔一段时间或者到了一定的阈值后会落磁盘进行持久化，持久化为SSTable，一个tablet存在多个SSTable，这样设计的目的是省去了新老sstable合并带来的额外磁盘IO拉低吞吐量，也可以起到数据版本记录的目的。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20240918023539.png" alt="" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/bigtable-the-beginning-of-big-data/body-009-758a26134f2c.webp" alt="" />
 memtable和sstable中存放的什么内容：数据的key+数据存在 GFS 的哪个 DataNode 上</p>
 <p>各个tablet server各自管理着一部分tablet信息，所以还需要一个全局的协调者（master节点）来负责记录下全局的：</p>
 <p>哪些key在哪个tablet中，以及哪些tablet在哪些节点上。</p>
 <p>所以综上所述整个bigtable的架构图如下：</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20240918023203.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/bigtable-the-beginning-of-big-data/body-010-89c8c7490f75.webp" alt="" /></p>
 <hr />
 <p>Bigtable relies on a highly-available and persistent distributed lock service called Chubby [8]. A Chubby service consists of five active replicas, one of which is elected to be the master and actively serve requests. The service is live when a majority of the replicas are running and can communicate with each other. Chubby uses the Paxos algorithm [9, 23] to keep its replicas consistent in the face of failure. Chubby provides a namespace that consists of directories and small files. Each directory or f ile can be used as a lock, and reads and writes to a file are atomic. The Chubby client library provides consis tent caching of Chubby files. Each Chubby client main tains a session with a Chubby service. A client’s session expires if it is unable to renew its session lease within the lease expiration time. When a client’s session expires, it loses any locks and open handles. Chubby clients can also register callbacks on Chubby files and directories for notification of changes or session expiration. Bigtable uses Chubby for a variety of tasks: to ensure that there is at most one active master at any time; to store the bootstrap location of Bigtable data (see Sec tion 5.1); to discover tablet servers and finalize tablet server deaths (see Section 5.2); to store Bigtable schema information (the column family information for each ta ble); and to store access control lists. If Chubby becomes unavailable for an extended period of time, Bigtable be comes unavailable. We recently measured this effect in 14 Bigtable clusters spanning 11 Chubby instances. The average percentage of Bigtable server hours during which somedata stored in Bigtable was not available due to Chubby unavailability (caused by either Chubby out ages or network issues) was 0.0047%. The percentage for the single cluster that was most affected by Chubby unavailability was 0.0326%</p>
 <hr />
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20240918015942.png" alt="" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/bigtable-the-beginning-of-big-data/body-011-68dd5dcd232b.webp" alt="" />
 为什么要设计出tablet的概念喃？</p>
 <p>这是因为在关系型数据库中数据量是没那么大的，在管理粒度上细到单个数据上是没什么问题的。因为当我们想用树形结构来进行查找上的性能优化的时候（索引）倒是没什么问题（B+树完全扛得住），但是在大数据系统中动辄上TB和PB的数据量级，仍然细到单个数据上这棵树形结构该有多深？多大？所以是扛不住的，最佳的方式当然是先用tablet来“分块”一下，树形结构直接管理到tablet层面即可，tablet内部再来进行自我的数据组织（内部再维护一种树形结构），这样就扛得住了，树也不会太深。
 ————————————————</p>
 <p>原文链接：<a href="https://blog.csdn.net/Joker_ZJN/article/details/137988452">https://blog.csdn.net/Joker_ZJN/article/details/137988452</a></p>
 <p>We use a three-level hierarchy analogous to that of a B+-tree [Comer 1979] to store tablet location information (Figure 5).
 使用Chubby 来维持一个table的索引，就向B树一样
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20240918022534.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20240918020246.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/bigtable-the-beginning-of-big-data/body-012-99aa97df8fa2.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/bigtable-the-beginning-of-big-data/body-013-8c411e53fed9.webp" alt="" /></p>
 <ul>
 <li>第一级：<strong>Chubby 中的一个文件</strong></li>
 <li>第二级：<strong>METADATA tables</strong>（第一个 <code>METADATA</code> table 比较特殊，所以在图中单独画 出，但它其实和其他 <code>METADATA</code> table 都属于第二级）</li>
 <li>第三级：<strong>user tablets</strong></li>
 </ul>
 <p><code>METADATA</code> 是一个特殊的 tablet，其中的第一个 tablet 称为 <strong>root tablet</strong>。root tablet 和 <code>METADATA</code> 内其他 tablet 不同之处在于：它<strong>永远不会分裂</strong>（split），这 样就可以<strong>保证 tablet location 层级不会超过三层</strong>。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20240918022546.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20240918030037.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/bigtable-the-beginning-of-big-data/body-014-8032bdaa01d5.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/bigtable-the-beginning-of-big-data/body-015-f6502b3970d5.webp" alt="" /></p>
 <p>tablet只是一个逻辑概念，指代特定范围内的数据行。真正干活儿的是memtable和sstable以及下面的GFS。memtable和sstable可以理解为索引，一个tablet对应着一套memtable和sstable。由于大数据中数据是海量的，所以将索引结构存在磁盘，每次对数据的更新（写入、删除）都要去更新磁盘，肯定是扛不住的。所以将索引放在内存中才是明智的，memtable是缓存，可以理解为就是内存中的索引，一个tablet对应着一个memtable，其中记录着当前节点的tablet中的所有数据（key值+数据指针）。为了容错和可靠，memtable每隔一段时间或者到了一定的阈值后会落磁盘进行持久化，持久化为SSTable，一个tablet存在多个SSTable，这样设计的目的是省去了新老sstable合并带来的额外磁盘IO拉低吞吐量，也可以起到数据版本记录的目的
 ————————————————</p>
 <p>原文链接：<a href="https://blog.csdn.net/Joker_ZJN/article/details/137988452">https://blog.csdn.net/Joker_ZJN/article/details/137988452</a></p>
@@ -147,12 +147,12 @@ memtable和sstable中存放的什么内容：数据的key+数据存在 GFS 的�
 <li><strong>动态调整</strong>：随着数据量的增加或减少，tablet 会被动态地分裂或合并。例如，如果一个 tablet 的数据量增长到一定程度，它会被分裂成两个较小的 tablets，以保持负载均衡。</li>
 <li><strong>负载均衡</strong>：tablet 会在多个 tablet servers 之间进行平衡，以确保负载均匀分布。这有助于提高系统的可伸缩性和性能。</li>
 </ul>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20240918030123.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/bigtable-the-beginning-of-big-data/body-016-cbb694545ad5.webp" alt="" /></p>
 <p>Bigtable采用动态区间分区，通过自动去split的方式动态分区。 好比是往箱子里放书，按照书名的字母顺序，一旦箱子装满，就中间一分为二，将下面一半放到一个新的空箱子里去。 如果两个相邻的箱子都很空，就可以将其合并。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20240918022602.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20240918025023.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20240918025115.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20240918025149.png" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/bigtable-the-beginning-of-big-data/body-017-55844b8a3e71.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/bigtable-the-beginning-of-big-data/body-018-404a353885a6.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/bigtable-the-beginning-of-big-data/body-019-42fe28ca2e4d.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/bigtable-the-beginning-of-big-data/body-020-b2745df8fb6a.webp" alt="" />
 华中科技大学计算机学院；武汉光电国家实验室
 采用GPU来boost LSM KV compactions</p>
 <h3>4. <strong>数据检索与写入</strong></h3>
@@ -168,8 +168,8 @@ memtable和sstable中存放的什么内容：数据的key+数据存在 GFS 的�
 <li>写入的数据快要超过阈值时，会将内存的MemTable冻结，创建一个新的MemTable，被冻结的MemTable会被转换为SSTable写入到GFS，然后从内存中释放掉。</li>
 </ol>
 <p>Major Compaction机制，对SSTable进行合并，把数据压实在一起，比如只留下时间戳最近的三个版本的数据。 读取数据的时候，读取的是MemTable和SSTable的合并在一起的视图。 也就是说并没有直接的修改和删除操作，一旦写入就是不可变的，写入的是数据的一个新版本，后台会定时gc，通过合并SSTable来清楚过期和被删除的数据。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20240918022637.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20240918024300.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/bigtable-the-beginning-of-big-data/body-021-dcac47a6d510.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/bigtable-the-beginning-of-big-data/body-022-21beaa0382e0.webp" alt="" /></p>
 <h3>5. <strong>Tablet 的迁移</strong></h3>
 <ul>
 <li><strong>跨节点迁移</strong>：为了负载均衡或处理故障，tablet 可以在不同的 tablet servers 之间迁移。这种迁移是透明的，对用户的查询和更新操作不会产生影响。</li>
@@ -205,7 +205,7 @@ memtable和sstable中存放的什么内容：数据的key+数据存在 GFS 的�
 <p>Chubby 是 Bigtable 中关键的协调和一致性服务，它在分布式系统中扮演着重要的角色，特别是在管理配置、分布式锁、选举机制和故障恢复方面。虽然 GFS 提供了分布式文件存储和部分锁管理功能，但 Chubby 提供了更为全面和可靠的协调机制，满足了 Bigtable 对强一致性和高可用性的需求。</p>
 <hr />
 <p><strong>SSTable</strong>（Sorted String Table）是一种高效的磁盘数据存储格式，广泛用于 NoSQL 数据库和分布式存储系统中，如 Bigtable 和 LevelDB。以下是 SSTable 的主要特点和结构：</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20240918030147.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/bigtable-the-beginning-of-big-data/body-023-34966d4c4355.webp" alt="" /></p>
 <h3>1. <strong>数据结构</strong></h3>
 <ul>
 <li><strong>不可变文件</strong>：SSTable 文件一旦创建便不可更改。这种不可变性有助于提高读操作的效率，并简化了并发访问的管理。</li>
@@ -243,7 +243,7 @@ memtable和sstable中存放的什么内容：数据的key+数据存在 GFS 的�
 </ul>
 <h3>总结</h3>
 <p>SSTable 是一种高效的磁盘存储格式，通过将数据有序存储和使用索引结构，提供了快速的读取性能和可靠的写入操作。它在分布式数据库和存储系统中扮演着关键角色，支持高效的数据检索和存储管理。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20240918020933.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/bigtable-the-beginning-of-big-data/body-024-d44a6b1d8f8e.webp" alt="" /></p>
 <h3>写操作</h3>
 <p>当一个写操作到达 tablet server 时，它会检查写操作是否格式正确（well-formed），以 及发送者是否有权限执行这次操作。</p>
 <p>鉴权的实现方式是：<strong>从 Chubby 文件读取允许的写者列表</strong>（writer list）（在绝大多 数情况下，这次读都会命中 Chubby <a href="https://zhida.zhihu.com/search?q=%E5%AE%A2%E6%88%B7%E7%AB%AF&amp;zhida_source=entity&amp;is_preview=1">客户端</a>的缓存）。</p>
@@ -301,7 +301,7 @@ memtable和sstable中存放的什么内容：数据的key+数据存在 GFS 的�
 <h3>布隆过滤器</h3>
 <p>布隆过滤器是一种概率型数据结构，用于高效判断元素是否可能在一个集合中。它通过多个哈希函数将元素映射到一个位数组的不同位置，并将这些位置置为1。查询时，如果所有映射位置都是1，则元素可能存在；若任一位置为0，则肯定不存在。它空间效率高，但有误判率，即可能会错误地认为元素存在（假阳性），而不存在元素被判断存在的概率可以通过设计调整。不适合需要精确查找的场景，常用于大规模数据去重、缓存穿透预防等。</p>
 <h2>Exp</h2>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20240918021609.png" alt="" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/bigtable-the-beginning-of-big-data/body-025-761e8d70a759.webp" alt="" />
 100台时 1M， 500台时4M，维持自己的分布式</p>
 <p>Table I and Figure 7 provide two views on the performance of our bench marks when reading and writing 1000-byte values to Bigtable. The table shows the number of operations per second per tablet server; the graph shows the aggregate number of operations per second</p>
 <p>We set up a Bigtable cluster with N tablet servers to measure the performance and scalability of Bigtable as N is varied. The tablet servers were configuredto use 1GBofmemoryandtowritetoaGFScellconsistingof1786machineswith two 400 GB IDE hard drives each. N client machines generated the Bigtable load used for these tests. (We used the same numberof clients as tablet servers to ensure that clients were never a bottleneck.) Each machine had two dual core Opteron 2 GHz chips, enough physical memory to hold the working set of all running processes, and a single gigabit Ethernet link. The machines were arrangedin a two-leveltree-shapedswitched networkwith approximately100 200 Gb/s of aggregate bandwidth available at the root. All of the machines were in the same hosting facility and therefore the round-trip time between any pair of machines was less than a millisecond.</p>
@@ -312,8 +312,8 @@ memtable和sstable中存放的什么内容：数据的key+数据存在 GFS 的�
 <p>HRegionServer是物理服务器，每个HRegionServer上可以启动多个HRegion实例。当一个 HRegion中写入的数据太多，达到配置的阈值时，一个HRegion会分裂成两个HRegion，并将HRegion在整个集群中进行迁移，以使HRegionServer的<a href="https://zhida.zhihu.com/search?q=%E8%B4%9F%E8%BD%BD%E5%9D%87%E8%A1%A1&amp;zhida_source=entity&amp;is_preview=1">负载均衡</a>。</p>
 <p>每个HRegion中存储一段Key值区间 $[key1, key2)$ 的数据，所有HRegion的信息，包括存储的Key值区间、所在HRegionServer地址、访问端口号等，都记录在HMaster服务器上。为了保证HMaster的高可用，HBase会启动多个HMaster，并通过ZooKeeper选举出一个主服务器。</p>
 <p>下面是一张调用<a href="https://zhida.zhihu.com/search?q=%E6%97%B6%E5%BA%8F%E5%9B%BE&amp;zhida_source=entity&amp;is_preview=1">时序图</a>，应用程序通过ZooKeeper获得主HMaster的地址，输入Key值获得这个Key所在的HRegionServer地址，然后请求HRegionServer上的HRegion，获得所需要的数据。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20240915031235.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20240915031420.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/bigtable-the-beginning-of-big-data/body-026-b006c9787f92.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/bigtable-the-beginning-of-big-data/body-027-05ae96928bf3.webp" alt="" /></p>
 <h2>合并</h2>
 <p>在 LSM Tree 中，<strong>合并操作</strong>（Merge）是一个关键的过程，用于优化存储结构和提高查询效率。合并的主要目标是减少磁盘上的数据碎片，并整理和压缩 SSTable 文件。下面是合并操作的详细步骤：</p>
 <h3>1. <strong>触发合并</strong></h3>
@@ -390,7 +390,7 @@ memtable和sstable中存放的什么内容：数据的key+数据存在 GFS 的�
 <hr />
 <p><a href="https://arxiv.org/pdf/1707.05354">1707.05354 (arxiv.org)</a>
 IPDPS 2018</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20240918024529.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/bigtable-the-beginning-of-big-data/body-028-b2b56a4a87ea.webp" alt="" /></p>
 <p>lWe develop a dynamic dictionary data structure for the GPU, supporting fast insertions and deletions, based on the <strong>Log Structured Merge tree</strong> (LSM). Our implementation on an NVIDIA K40c GPU has an average update (insertion or deletion) rate of 225 M elements/s, 13.5x faster than merging items into a sorted array.</p>
 <p><strong>We proposed and implemented the GPU LSM, a dynamic dictionary data structure suitable for GPUs, with fast batch update operations (insertions and deletions) as well as a variety of parallel queries (lookup, count, and range). We f ind that we can update the GPU LSM much more efficiently than we can a sorted array, especially for small batch sizes, at the cost of a small constant factor in query time</strong></p>
 <p>传统关系型数据采用的底层数据结构是B+树，那么同样是面向磁盘存储的数据结构LSM-Tree相比B+树有什么异同之处呢？</p>

@@ -21,7 +21,7 @@ showCitation: true
 importedFromWordPress: true
 cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/dncc3-introduction-to-spark.webp"
 ---
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2025/12/image-1767090779092.png" alt="file" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/dncc3-introduction-to-spark/body-001-4716df1b1a16.webp" alt="file" /></p>
 <p>In this assignment, we need to use Spark to analyze the Parking dataset.</p>
 <h2>Preparing</h2>
 <p>Install <code>pysark</code> and <code>java</code></p>
@@ -251,31 +251,31 @@ to sort the output.</li>
 </ul>
 <h2>Parking Analysis</h2>
 <p>We select the top 3 most frequent sections to do analysis:</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251204034506153.png" alt="image.png|750" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/dncc3-introduction-to-spark/body-002-022c748e2f4c.webp" alt="image.png|750" /></p>
 <h2>Here we can see 3 trend:</h2>
 <h3><strong>Daily (Diurnal) Parking Patterns</strong></h3>
 <p>The plots show a clear <strong>daily cycle</strong> in parking usage. Some sections experience higher occupancy during daytime and lower usage at night, indicating areas dominated by commercial or office activity. Other sections exhibit the opposite trend, with high nighttime usage and lower daytime demand, reflecting residential zones where cars return in the evening.</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251204040438852.png" alt="image.png|750" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/dncc3-introduction-to-spark/body-003-e1483f418ce9.webp" alt="image.png|750" /></p>
 <p>The December plots reveal that different sections exhibit distinct daily parking behaviors. </p>
 <p>Let's take 2 roads as examples.</p>
 <p>Chuangye Road <strong>创业路（南油段）</strong>(the first chart) shows a pronounced midday dip: usage drops significantly around noon each day before rising again in the evening. This pattern is characteristic of areas where vehicles leave during daytime—likely due to commuters driving away for work or business—resulting in relatively low occupancy around noon.</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251204041101082.png" alt="image.png|400" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/dncc3-introduction-to-spark/body-004-e6885563073f.webp" alt="image.png|400" /></p>
 <p>In contrast, Haide Street <strong>海德二道</strong> (the No.5 chart) displays the opposite trend. Its usage peaks around midday and remains relatively high throughout the daytime hours. Such behavior suggests that this area functions as a commercial or office zone where vehicles arrive in the morning and stay parked during working hours, leading to higher occupancy around noon. Usage then decreases noticeably in the evening as vehicles leave the area.</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251204041447139.png" alt="image.png|400" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/dncc3-introduction-to-spark/body-005-68677aace9e5.webp" alt="image.png|400" /></p>
 <p>These contrasting patterns highlight how parking data reflects the functional differences between neighborhoods: <strong>创业路 behaves more like a residential zone</strong>, while <strong>海德二道 aligns with daytime commercial activity</strong>.</p>
 <p>创业路 Chuangye Road Landscape
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251204041136959.png" alt="image.png|400" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/dncc3-introduction-to-spark/body-006-53bc9eaa3346.webp" alt="image.png|400" /></p>
 <p>It looks like some place to live.</p>
 <p>海德二道 Haide Street Landscape
 We got Shenzhen bookstore 深圳书城 and several big stores here.
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251204041747879.png" alt="image.png|400" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/dncc3-introduction-to-spark/body-007-b5eae8831120.webp" alt="image.png|400" /></p>
 <p>That's why it has high parking utilization during daytime.</p>
 <h3><strong>Weekly Variation: Weekdays vs. Weekends</strong></h3>
 <p>A consistent weekly pattern is also visible: parking usage tends to increase on weekends and decrease on weekdays. This suggests different behavioral patterns between workdays—when many vehicles leave for commuting—and weekends, when residents stay nearby and overall parking occupancy rises.</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251204042259107.png" alt="image.png|700" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/dncc3-introduction-to-spark/body-008-ea0133fe7b75.webp" alt="image.png|700" /></p>
 <h3><strong>Holiday Effect: Chinese New Year (February 2018)</strong></h3>
 <p>Around February 5th, 2018—the period of the Chinese New Year—the usage across all sections drops sharply and remains low for several days. This corresponds to the nationwide travel season when many people return to their hometowns, resulting in significantly reduced parking demand throughout the city.</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251204034119960.png" alt="image.png|600" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/dncc3-introduction-to-spark/body-009-883f7e8222ea.webp" alt="image.png|600" /></p>
 <p>The drawing code (not completed):</p>
 <pre><code class="language-python"># 1. Read data
 df = pd.read_csv(&quot;r5.csv&quot;)

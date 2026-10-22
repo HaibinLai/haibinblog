@@ -33,8 +33,8 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <p>没什么用。多记录些概念！</p>
 <p>如果有更多时间，我建议写2份CP。第一份是复习时过思路用，第二份是复习后整理精华。</p>
 <p>我的CP：</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230184904434.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230184904434.png" alt="14d6ab5cfe3306b8499e2e02f25b301b.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/learn-compilers-in-6-hours/body-001-5a4e4349cb98.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/learn-compilers-in-6-hours/body-001-5a4e4349cb98.webp" alt="14d6ab5cfe3306b8499e2e02f25b301b.jpg" /></p>
 <h2>细节</h2>
 <p>91</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230011054755.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/learn-compilers-in-6-hours/body-002-2a303463b8d6.webp" alt="image.png" /></p>

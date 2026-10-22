@@ -29,7 +29,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <p>TL;DR： 大概idea就是，先分块，后并行。并行的模块我们上节课已经学习过了</p>
 <h2>例子与入口API</h2>
 <p>整体结构：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250602024836186.png" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/gcc%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0openmp-parallel-for%E7%9A%84/body-001-57a6b51a9367.webp" alt="" />
 <strong>for这里主要分为两个层。API层和Execute func层。GCC在看到你的代码后，会在API层里选择适合你的代码的API层。随后他们将统一调动execute func层</strong>，其内部又有多层的逻辑（后面会分析）。</p>
 <p>我们先从cpp的matmul讲起</p>
 <pre><code class="language-CPP">#include &lt;omp.h&gt;
@@ -221,7 +221,7 @@ gomp_new_team (unsigned nthreads)
 <li>初始化锁（后续同步会使用）</li>
 <li>初始化 work shares</li>
 <li>创建task queues
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250602032605066.png" alt="" /></li>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/gcc%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0openmp-parallel-for%E7%9A%84/body-002-1c3bb0fb3116.webp" alt="" /></li>
 </ol>
 <table>
 <thead>
@@ -251,7 +251,7 @@ gomp_new_team (unsigned nthreads)
 </table>
 <h3>work_share</h3>
 <p><a href="https://www.cs.rice.edu/~la5/doc/ligbomp-doc/d9/dc6/structgomp__work__share.html">Libgomp: gomp_work_share Struct Reference</a></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250602054437888.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/gcc%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0openmp-parallel-for%E7%9A%84/body-003-b9360a5c8e24.webp" alt="" /></p>
 <p>在 <code>libgomp</code> 中，<code>work_share</code> 是一个用于<strong>协调线程间工作划分</strong>的数据结构。<br />
 当你使用 <code>#pragma omp for</code> 等语句时，OpenMP 会创建一个 <code>work_share</code> 结构体，它<strong>记录循环的区间、步长、调度策略</strong>等内容，<strong>供所有线程共享</strong>，实现<strong>合理分工与同步</strong>。</p>
 <p>在并行循环中，我们要把一个大的迭代区间分给多个线程执行。<br />
@@ -536,7 +536,7 @@ unsigned inline_ordered_team_ids[0];</code></pre>
 </ul>
 <hr />
 <h2>loop init</h2>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250602054405083.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/gcc%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0openmp-parallel-for%E7%9A%84/body-004-2fb387f7d49a.webp" alt="" /></p>
 <p>在我们初始化work_share的配置后，接下来我们就要对loop 初始化了。具体大家看源码及注释。
 我们这里的重点是，初始化了chunk_size</p>
 <p>详细解析见 dynamic 调度方式分析 一节：
@@ -1243,8 +1243,8 @@ e0 = s0 + c;</code></pre>
     }
   icv-&gt;run_sched_var = kind;
 }</code></pre>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250602055620295.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250602060617111.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/gcc%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0openmp-parallel-for%E7%9A%84/body-005-0a7e4354423d.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/gcc%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0openmp-parallel-for%E7%9A%84/body-006-2b9655c7083e.webp" alt="" /></p>
 <hr />
 <h2>启动线程</h2>
 <p><a href="https://zhuanlan.zhihu.com/p/1911416379376108381">gcc是怎么实现OpenMP的？ - 知乎</a></p>

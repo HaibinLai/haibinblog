@@ -34,7 +34,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <p><strong>权重二值化</strong>：使用符号函数（Sign function）将权重转换为+1或-1，并通过中心化和缩放因子（β）减少量化误差。</p>
 <ul>
 <li>公式：<br />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250521160206255.png" alt="" /></li>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/1-bit%E9%87%8F%E5%8C%96/body-001-b49065437499.webp" alt="" /></li>
 </ul>
 <p>$$
 \widetilde{W} = \operatorname{Sign}(W - \alpha), \quad \alpha = \frac{1}{nm} \sum<em>{ij} W</em>{ij}
@@ -135,7 +135,7 @@ $$
 <ul>
 <li>使用<strong>absmax量化</strong>，将激活值缩放到([-Q_b, Q_b])（(Q_b = 2^{b-1})，如8-bit时(Q_b = 128)）。</li>
 <li>公式：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250521160245192.png" alt="" /></li>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/1-bit%E9%87%8F%E5%8C%96/body-002-ba2e67e26bb3.webp" alt="" /></li>
 </ul></li>
 </ul>
 <p>$$<br />
@@ -150,7 +150,7 @@ $$</p>
 <li>在激活量化前应用层归一化（LayerNorm），确保量化后输出的方差与全精度模型一致，提升训练稳定性。</li>
 <li>
 <p>公式：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250521160302429.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/1-bit%E9%87%8F%E5%8C%96/body-003-b412d76f90e1.webp" alt="" /></p>
 <p>$$
 \operatorname{LN}(x) = \frac{x - E(x)}{\sqrt{\operatorname{Var}(x) + \epsilon}}
 $$</p>

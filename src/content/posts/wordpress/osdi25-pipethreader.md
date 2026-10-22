@@ -74,8 +74,8 @@ AlpaServe 让多模型推理更快、更稳定，特别适合内存有限、请�
 <p><a href="https://zhuanlan.zhihu.com/p/1926740033395749827">OSDI 2025 论文评述 Day 3 Session 9: AI + Systems III - 知乎</a>
 <a href="https://hamerlate.github.io/publications/old/PipeThreader/">PipeThreader: Software-Defined Pipelining for Efficient DNN Execution - About</a></p>
 <p><a href="https://www.usenix.org/system/files/osdi25-cheng.pdf">osdi25-cheng.pdf</a></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250718112225779.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/osdi25-pipethreader/body-001-81c3e5b1c51d.webp" alt="" /></p>
 <p><a href="https://cs-sop.notion.site/CS-PhD-Statements-of-Purpose-df39955313834889b7ac5411c37b958d?p=2b8470ffc59c48bcbe09ee2a3fae01df&amp;pm=s">CS PhD Statements of Purpose</a></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250718112238460.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250718112301312.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250718112318697.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/osdi25-pipethreader/body-002-e9d172963070.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/osdi25-pipethreader/body-003-bb395b3b6a68.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/osdi25-pipethreader/body-004-180495ad9c20.webp" alt="" /></p>

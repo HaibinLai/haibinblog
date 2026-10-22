@@ -26,31 +26,31 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-
 <li>pip本地镜像问题</li>
 <li>apt-get本地镜像问题</li>
 </ol>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/image-1724586343426.png" alt="file" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/docker-run-geochem-pi/body-001-0ff236b2e243.webp" alt="file" /></p>
 <h2>部署</h2>
 <ol>
 <li>
 <p>部署后端可以选择自动部署
-<img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/image-1724586350601.png" alt="file" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/docker-run-geochem-pi/body-002-4621217ebb97.webp" alt="file" /></p>
 </li>
 <li>
 <p>yarn没有安装：<code>yarn install</code></p>
 </li>
 </ol>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/image-1724586358437.png" alt="file" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/docker-run-geochem-pi/body-003-c8ff6938f0d9.webp" alt="file" /></p>
 <ol start="3">
 <li>
 <p>5173而非3001
-<img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/image-1724586368159.png" alt="file" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/docker-run-geochem-pi/body-004-9bbb63b6e6b3.webp" alt="file" /></p>
 </li>
 <li>
 <p>启动时为 --host暴露端口
-<img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/image-1724586378599.png" alt="file" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/docker-run-geochem-pi/body-005-6a456c156249.webp" alt="file" /></p>
 </li>
 </ol>
 <h2>使用版本：</h2>
 <p>华为云
 端口暴露
-<img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/image-1724586392218.png" alt="file" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/docker-run-geochem-pi/body-006-d13994054285.webp" alt="file" /></p>
 <p>宝塔Linux
 ssl证书、Docker管理</p>

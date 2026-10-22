@@ -163,7 +163,7 @@ writer.add_embedding(features,
                     metadata=class_labels,
                     label_img=images.unsqueeze(1))
 writer.close()</code></pre>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250610153605156.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/pytorch-intro-everything-you-want-to-know/body-001-e9c1ae895e72.webp" alt="" /></p>
 <h3>tracking</h3>
 <pre><code class="language-python"># helper functions
 
@@ -231,7 +231,7 @@ for epoch in range(1):  # loop over the dataset multiple times
                             global_step=epoch * len(trainloader) + i)
             running_loss = 0.0
 print(&#039;Finished Training&#039;)</code></pre>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250610153622198.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/pytorch-intro-everything-you-want-to-know/body-002-603f5556ed79.webp" alt="" /></p>
 <h3>学习张量</h3>
 <p>Hello, Tensor!</p>
 <pre><code class="language-python">import torch
@@ -557,7 +557,7 @@ class Net(nn.Module):
 
 net = Net()
 print(net)</code></pre>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250610152512019.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/pytorch-intro-everything-you-want-to-know/body-003-701be1bebb83.webp" alt="" /></p>
 <h3>Transformer</h3>
 <pre><code class="language-python">import torch
 import torch.nn as nn
@@ -693,7 +693,7 @@ class ResNet(nn.Module):
         out = out.view(out.size(0), -1)
         out = self.fc(out)
         return out</code></pre>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250610143704831.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/pytorch-intro-everything-you-want-to-know/body-004-9bfc7340cb4a.webp" alt="" /></p>
 <h3>UNet</h3>
 <pre><code class="language-python">import ddpm
 from PIL import Image
@@ -1272,7 +1272,7 @@ In a forward pass, autograd does two things simultaneously:</p>
 <li>using the chain rule, propagates all the way to the leaf tensors.</li>
 </ul>
 <p>Below is a visual representation of the DAG in our example. In the graph, the arrows are in the direction of the forward pass. The nodes represent the backward functions of each operation in the forward pass. The leaf nodes in blue represent our leaf tensors <code>a</code> and <code>b</code>.</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250610151537762.png" alt="" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/pytorch-intro-everything-you-want-to-know/body-005-3daf4c188e80.webp" alt="" />
 By default, all tensors with <code>requires_grad=True</code> are tracking their computational history and support gradient computation. However, there are some cases when we do not need to do that, for example, when we have trained the model and just want to apply it to some input data, i.e. we only want to do <em>forward</em> computations through the network. We can stop tracking computations by surrounding our computation code with <code>torch.no_grad()</code> block:</p>
 <pre><code class="language-python">z = torch.matmul(x, w)+b
 print(z.requires_grad) # True
@@ -1379,7 +1379,7 @@ def test_loop(dataloader, model, loss_fn):
     correct /= size
     print(f&quot;Test Error: \n Accuracy: {(100*correct):&gt;0.1f}%, Avg loss: {test_loss:&gt;8f} \n&quot;)</code></pre>
 <p>不同的fig
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250610153816952.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/pytorch-intro-everything-you-want-to-know/body-006-1231b1c2df14.webp" alt="" /></p>
 <h2>保存模型 &amp; 加载模型</h2>
 <p><a href="https://docs.pytorch.org/tutorials/beginner/basics/saveloadrun_tutorial.html">Save and Load the Model — PyTorch Tutorials 2.7.0+cu126 documentation</a></p>
 <pre><code class="language-python">torch.save(model.state_dict(), &quot;model.pth&quot;)
@@ -1417,10 +1417,10 @@ with torch.no_grad():
 <li>Generally, <code>tensor.to(device, non_blocking=True)</code> is an effective choice for enhancing transfer speed.</li>
 <li>While <code>cpu_tensor.to(&quot;cuda&quot;, non_blocking=True).mean()</code> executes correctly, attempting <code>cuda_tensor.to(&quot;cpu&quot;, non_blocking=True).mean()</code> will result in erroneous outputs.</li>
 </ul>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250610153941999.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/pytorch-intro-everything-you-want-to-know/body-007-9ed71d631a90.webp" alt="" /></p>
 <h2>Holistic Trace Analysis</h2>
 <p><a href="https://docs.pytorch.org/tutorials/beginner/hta_intro_tutorial.html">Introduction to Holistic Trace Analysis — PyTorch Tutorials 2.7.0+cu126 documentation</a>
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250610160532663.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/pytorch-intro-everything-you-want-to-know/body-008-d4fb6c027896.webp" alt="" /></p>
 <p>Kernel Duration Distribution<a href="https://docs.pytorch.org/tutorials/beginner/hta_intro_tutorial.html#kernel-duration-distribution">KDD</a></p>
 <p>The second dataframe returned by <a href="https://hta.readthedocs.io/en/latest/source/api/trace_analysis_api.html#hta.trace_analysis.TraceAnalysis.get_gpu_kernel_breakdown">get_gpu_kernel_breakdown</a> contains duration summary statistics for each kernel. In particular, this includes the count, min, max, average, standard deviation, sum, and kernel type for each kernel on each rank.</p>
 <h2>分布式机器学习</h2>

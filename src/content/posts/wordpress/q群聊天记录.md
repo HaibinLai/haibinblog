@@ -27,4 +27,4 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <p>我觉得门槛都是相对的。在ai infra岗位大规模出现前，大家都说难，等真来了八股文卷的跟之前分布式系统那些八股一样多，万人涌入，如果抱着竞争的想法，周围人总是无穷无尽的。真正的门槛还是taste和卡，在里边马太效应，ai又在里边做催化剂</p>
 <p>写cpu是一个有趣的workload，它的改动牵一发动全身，对agent精准把握细节挺重要的。如果定义一个agent写的速度跟代码和turn的发展对比，写cpu的速度会低于写其他的速度</p>
 <p><a href="https://deepmind.google/research/publications/231971/">https://deepmind.google/research/publications/231971/</a>  The Abstraction Fallacy: Why AI Can Simulate But Not Instantiate Consciousness</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2026/06/image-1782039503013.png" alt="file" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-06/q%E7%BE%A4%E8%81%8A%E5%A4%A9%E8%AE%B0%E5%BD%95/body-001-e11450395c87.webp" alt="file" /></p>

@@ -18,7 +18,7 @@ viewCount: 1296
 likeCount: 0
 dislikeCount: 0
 showCitation: true
-featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/11/微信截图_20241122151501.jpg"
+featuredImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-11/cache-bypassing/body-001-4b7035af1408.webp"
 importedFromWordPress: true
 cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-11/cache-bypassing.webp"
 ---

@@ -18,7 +18,7 @@ viewCount: 2843
 likeCount: 0
 dislikeCount: 0
 showCitation: true
-featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2025/04/8ED59E29A10078B5E11BF51F0F76309F.jpg"
+featuredImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-001-d126b907c535.webp"
 importedFromWordPress: true
 cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu.webp"
 ---
@@ -54,8 +54,8 @@ res = pipe(prompt)
 # 输出结果和耗时
 print(&quot;Generated text:&quot;, res[0][&quot;generated_text&quot;])</code></pre>
 <p>LLM推理首先输入一个预设的<strong>prompt</strong>，将其传入模型，生成首个预测的token（首字）。随后进入<strong>自回归</strong>阶段，模型依次利用前一步生成的token，预测下一个token，直至完成整个序列的生成。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504171956136.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504172221947.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-002-3c5b86819025.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-003-d7b3bde0dc1f.webp" alt="" /></p>
 <h2>Function stack</h2>
 <p>使用pytorch profiler进行观察，得到运行图</p>
 <p>从prompt和结果那里插入</p>
@@ -79,12 +79,12 @@ with profile(
 # 输出生成结果
 print(&quot;Generated text:&quot;, res[0][&quot;generated_text&quot;])
 </code></pre>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504171944342.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-004-28d3ce24cc63.webp" alt="" /></p>
 <p><strong>调用栈</strong>：从 pipeline.<strong>call</strong> 开始，依次调用分词器（tokenizer.encode）、生成逻辑（generate）、模型前向传播（model.forward），最后解码输出（tokenizer.decode）。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504171952497.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-005-08f3f9bbe15b.webp" alt="" /></p>
 <p>Output 层与Sample 层
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504180248242.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504180248243.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-006-1e4675750748.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-007-8d2c051ceaf2.webp" alt="" /></p>
 <p><a href="https://zhuanlan.zhihu.com/p/1892968719476577436">图文详解LLM inference：LLM模型架构详解 - 知乎</a></p>
 <ol>
 <li>
@@ -110,8 +110,8 @@ print(&quot;Generated text:&quot;, res[0][&quot;generated_text&quot;])
 <h2>各个block</h2>
 <p>这里边的transformer block：
 <code>TransformerBlock</code> 的核心组件包括两个 <code>RMSNorm</code> 层、一个 <code>Attention</code> 模块和一个 <code>FFN</code>（前馈神经网络）模块，其计算流程如下：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504171954011.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504172221797.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-008-2954226d5c06.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-009-d2f50c532d42.webp" alt="" /></p>
 <p>time: 4ms
 Norm 200us
 Attention 1.28 ms
@@ -180,9 +180,9 @@ MLP 2.3 ms</p>
         return out</code></pre>
 <p>可以看到用两行代码就干碎了。</p>
 <h2>Attention block</h2>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504180221550.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-010-7b3fa40bc691.webp" alt="" /></p>
 <p>Attention 模块的核心组件主要包含Query、Key、Value 的线性变换以及输出线性投影。计算流程如下:
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504171953625.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-011-dfce2b9a2920.webp" alt="" /></p>
 <pre><code class="language-python">class Attention(nn.Module):
     &quot;&quot;&quot;Multi-head attention module.&quot;&quot;&quot;
     def __init__(self, args: ModelArgs):
@@ -341,19 +341,19 @@ MLP 2.3 ms</p>
 
         # 8. **输出投影** - 通过线性层`wo`将多头输出映射回模型维度。
         return self.wo(output) # 线性层聚合多头信息</code></pre>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504180221550.png" alt="" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-010-7b3fa40bc691.webp" alt="" />
 <code>Attention</code> 的计算过程如下：</p>
 <ol>
 <li><strong>输入变换</strong>：将输入的特征向量 X 通过三组独立的线性层，分别生成 <code>Query</code> ( Q )、<code>Key</code> ( K ) 和 <code>Value</code> ( V )，公式为： xq, xk, xv = self.wq(x), self.wk(x), self.wv(x) ​，其中， WQ ​、 WK ​、 WV ​ 是可学习的权重矩阵。
 <pre><code class="language-python"># 1. **输入变换** - 通过三个独立的线性层将输入映射到查询（Query）、键（Key）、值（Value）空间。
     xq, xk, xv = self.wq(x), self.wk(x), self.wv(x) </code></pre></li>
 </ol>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504180221341.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504180223617.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-012-723648a75257.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-013-864a296f796d.webp" alt="" /></p>
 <p>Matmul 1: 200us
 Matmul 2: 71us
 Matmul 3: 70us</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504180222159.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-014-b7ad58a30323.webp" alt="" /></p>
 <ol start="2">
 <li>
 <p><strong><code>layout</code>转换：</strong> 将 Query ( Q )、Key ( K ) 和 Value ( V )的的张量布局由[batch_size,seq_len,head_num,d_model]转为 [batch_size,head_num,seq_len,d_model]，这种布局转换是为了适应多头注意力机制的计算需求，将每个头的查询、键和值的维度重新排列，使得计算能够并行处理不同头部的注意力权重，同时提高计算效率。</p>
@@ -364,7 +364,7 @@ Matmul 3: 70us</p>
 <li>
 <p><strong>计算注意力得分</strong>：<br />
 通过点积操作计算 <code>Query</code> 和 <code>Key</code> 之间的相似度，获得注意力得分矩阵：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504172044277.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-015-ace8cb95388d.webp" alt="" /></p>
 <p>这里， dk ​ 是 <code>Key</code> 的特征维度，用于缩放防止数值过大。</p>
 </li>
 <li>
@@ -484,7 +484,7 @@ Matmul 3: 70us</p>
         attn_output = attn_output.reshape(*input_shape, -1).contiguous()
         attn_output = self.o_proj(attn_output)
         return attn_output, attn_weights</code></pre>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504180221550.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-010-7b3fa40bc691.webp" alt="" /></p>
 <p>其实跟llama自己的实现大差不差。</p>
 <p>这段代码定义了一个基于 Llama 模型的多头注意力机制（Multi-Head Attention）的 PyTorch 实现，参考了《Attention Is All You Need》论文。以下是对其推理过程（即 <code>forward</code> 方法）的详细解读，结合代码逐步分析其工作原理和关键点：</p>
 <hr />
@@ -533,7 +533,7 @@ hidden_shape = (*input_shape, -1, self.head_dim)  # (batch_size, seq_len, num_he
 query_states = self.q_proj(hidden_states).view(hidden_shape).transpose(1, 2)
 key_states = self.k_proj(hidden_states).view(hidden_shape).transpose(1, 2)
 value_states = self.v_proj(hidden_states).view(hidden_shape).transpose(1, 2)</code></pre>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504180211557.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-016-65366ff1334e.webp" alt="" /></p>
 <ul>
 <li><strong>投影</strong>：通过线性层 <code>q_proj</code>、<code>k_proj</code> 和 <code>v_proj</code>，将输入的 <code>hidden_states</code> 分别映射到查询（Query）、键（Key）和值（Value）张量。
 <ul>
@@ -542,13 +542,13 @@ value_states = self.v_proj(hidden_states).view(hidden_shape).transpose(1, 2)</co
 </ul></li>
 <li><strong>重塑</strong>：使用 <code>view(hidden_shape)</code> 将张量重塑为 <code>(batch_size, seq_len, num_heads, head_dim)</code>，其中 <code>num_heads</code> 对应于注意力头数。</li>
 <li><strong>转置</strong>：通过 <code>transpose(1, 2)</code> 将张量变为 <code>(batch_size, num_heads, seq_len, head_dim)</code>，方便后续按头并行计算注意力。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504180211004.png" alt="" /></li>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-017-3abc81437beb.webp" alt="" /></li>
 </ul>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504180223617.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-013-864a296f796d.webp" alt="" /></p>
 <p>Matmul 1: 200us
 Matmul 2: 71us
 Matmul 3: 70us</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504180222159.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-014-b7ad58a30323.webp" alt="" /></p>
 <h4><strong>应用旋转位置编码（RoPE）</strong></h4>
 <pre><code class="language-python">cos, sin = position_embeddings
 query_states, key_states = apply_rotary_pos_emb(query_states, key_states, cos, sin)</code></pre>
@@ -556,16 +556,16 @@ query_states, key_states = apply_rotary_pos_emb(query_states, key_states, cos, s
 <li><code>position_embeddings</code> 是一个包含余弦和正弦值的元组，用于 RoPE。</li>
 <li><code>apply_rotary_pos_emb</code> 函数将位置信息融入 <code>query_states</code> 和 <code>key_states</code>，通过旋转操作（基于正弦和余弦）为每个 token 添加位置依赖性。</li>
 <li>注意：<code>value_states</code> 不应用 RoPE，因为值张量不直接依赖位置信息。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504180209276.png" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-018-58d6b2d8a453.webp" alt="" />
 200us</li>
 </ul>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504180226016.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504180227442.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-019-68f44c62a0d1.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-020-c29b5c01aafb.webp" alt="" /></p>
 <h4><strong>键值缓存（Key-Value Cache）</strong></h4>
 <pre><code class="language-python">if past_key_value is not None:
     cache_kwargs = {&quot;sin&quot;: sin, &quot;cos&quot;: cos, &quot;cache_position&quot;: cache_position}
     key_states, value_states = past_key_value.update(key_states, value_states, self.layer_idx, cache_kwargs)</code></pre>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504180212498.png" alt="" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-021-7beda30499f6.webp" alt="" />
 Time: 50us</p>
 <ul>
 <li><strong>作用</strong>：在自回归推理（如语言生成）中，键值缓存存储之前时间步的 <code>key_states</code> 和 <code>value_states</code>，避免重复计算。</li>
@@ -585,8 +585,8 @@ if self.config._attn_implementation != &quot;eager&quot;:
         logger.warning_once(...)
     else:
         attention_interface = ALL_ATTENTION_FUNCTIONS[self.config._attn_implementation]</code></pre>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504180212063.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504180216351.png" alt="" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-022-52d680473655.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-023-e8720b0ef695.webp" alt="" />
 20 us</p>
 <ul>
 <li>根据 <code>config._attn_implementation</code>，选择注意力计算方式：
@@ -608,7 +608,7 @@ if self.config._attn_implementation != &quot;eager&quot;:
     scaling=self.scaling,
     **kwargs,
 )</code></pre>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504180212063.png" alt="" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-022-52d680473655.webp" alt="" />
 Scaled Dot-product Attention：276 us</p>
 <ul>
 <li><strong>核心计算</strong>：调用选定的 <code>attention_interface</code> 执行注意力机制：
@@ -632,7 +632,7 @@ Scaled Dot-product Attention：276 us</p>
 
 attn_output = attn_output.reshape(*input_shape, -1).contiguous()
 attn_output = self.o_proj(attn_output)</code></pre>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504180234039.png" alt="" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-024-815dd0e2db4a.webp" alt="" />
 time: 263us</p>
 <ul>
 <li><strong>重塑</strong>：将 <code>attn_output</code> 从 <code>(batch_size, num_heads, seq_len, head_dim)</code> 变回 <code>(batch_size, seq_len, num_attention_heads * head_dim)</code>。</li>
@@ -641,7 +641,7 @@ time: 263us</p>
 </ul>
 <h4><strong>返回结果</strong></h4>
 <pre><code class="language-python">return attn_output, attn_weights</code></pre>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504180214796.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-025-930d48ad7f7e.webp" alt="" /></p>
 <ul>
 <li>返回 <code>attn_output</code>（注意力层输出）和 <code>attn_weights</code>（注意力权重，若计算则返回，否则可能为 <code>None</code>）。</li>
 </ul>
@@ -708,16 +708,16 @@ time: 263us</p>
 <hr />
 <p><code>LlamaAttention</code> 的推理过程高效地实现了多头注意力，结合 GQA、RoPE 和键值缓存优化了自回归生成任务的性能。其核心步骤包括投影、位置编码、注意力计算和输出投影，支持多种高效实现（如 FlashAttention）。在推理中，缓存和 GQA 是关键优化点，显著降低计算和内存开销，适合大规模语言模型的部署。</p>
 <h2>FFN</h2>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504180145560.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-026-52173e48ada7.webp" alt="" /></p>
 <p>Silu
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504180201372.png" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-027-7c1ef905c483.webp" alt="" />
 matmul
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504180207299.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-028-83e293921813.webp" alt="" /></p>
 <p><a href="https://github.com/meta-llama/llama/blob/main/llama/model.py#L307">llama/llama/model.py at main · meta-llama/llama</a></p>
 <p>首先，输入通过两个全连接层——<code>gate</code>和<code>up</code>进行初步变换，其中<code>gate</code>的输出经过激活函数（silu）进行非线性变换，与<code>up</code>的输出做点乘，最后再通过<code>down</code>全连接层进行进一步处理。FFN模块的作用是增强模型的表达能力，从而在Transformer架构中捕捉更复杂的特征。</p>
 <p>silu 公式：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504172046251.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504171955659.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-029-701f85f81f39.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-030-1c8e38ba4dfa.webp" alt="" /></p>
 <pre><code class="language-python">class FeedForward(nn.Module):
     def __init__(
         self,
@@ -805,8 +805,8 @@ self.w2 = RowParallelLinear(
 self.w3 = ColumnParallelLinear(
     dim, hidden_dim, bias=False, gather_output=False, init_method=lambda x: x
 )</code></pre>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504180205344.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504180204041.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-031-6efecce046d1.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-032-be98648fd89f.webp" alt="" /></p>
 <ul>
 <li><strong>线性层</strong>：
 <ul>
@@ -840,24 +840,24 @@ w3_out = x @ w3_weight^T</code></pre>
 <li>每个设备计算部分矩阵乘法，结果按 dim 维度聚合，生成完整的 (batch_size * seq_len, dim)。</li>
 </ul>
 <h2>RMSNorm</h2>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504180236374.png" alt="" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-033-836196ce933a.webp" alt="" />
 159us
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504180236237.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-034-6bbd341f99fc.webp" alt="" /></p>
 <ol>
 <li>
 <p>计算均值
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504180238319.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-035-5cebf5dd3519.webp" alt="" /></p>
 </li>
 <li>
 <p>平方根倒数
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504180239955.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-036-484cbe04951b.webp" alt="" /></p>
 </li>
 <li>
 <p>归一化</p>
 </li>
 <li>
 <p>权重
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504180240131.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-037-6f501007ba27.webp" alt="" /></p>
 </li>
 </ol>
 <pre><code class="language-python">class RMSNorm(torch.nn.Module):
@@ -881,11 +881,11 @@ w3_out = x @ w3_weight^T</code></pre>
 <li><strong>Hidden Size (H)</strong>：表示隐藏层的维度，通常与模型的复杂度相关。</li>
 <li><strong>Vocabulary Size (V)</strong>：表示模型词汇表的大小，通常决定了词嵌入的维度。</li>
 <li><strong>Number of Attention Heads (A)</strong>：表示每层自注意力机制的头数，影响模型的计算量。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504171953681.png" alt="" /></li>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-038-010d9c04edb1.webp" alt="" /></li>
 </ul>
 <p>Output 层与Sample 层
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504180248242.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504180248243.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-006-1e4675750748.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu/body-007-8d2c051ceaf2.webp" alt="" /></p>
 <p>掌握一个模型的架构及优化方法，可以通过类比快速理解并迁移到其他模型上。</p>
 <p>要深入了解大型语言模型（LLM）在 CPU 端的推理加速，以及整个系统的调用栈，分析 <code>transformers</code> 库的源码是一个很好的起点，以下是逐步解析调用栈和建议从哪里开始看源码的指南：</p>
 <hr />

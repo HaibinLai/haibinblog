@@ -18,7 +18,7 @@ viewCount: 868
 likeCount: 0
 dislikeCount: 0
 showCitation: true
-featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/09/微信截图_20240910231522.jpg"
+featuredImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-09/the-hpl-exercise/body-001-7b46d4291af3.webp"
 importedFromWordPress: true
 cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-09/the-hpl-exercise.webp"
 ---

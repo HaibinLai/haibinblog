@@ -65,8 +65,8 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <p>These notes arose from a conversation with Rebecca Isaacs about how to review papers. She asked me to write some notes that the 2007 SOSP Shadow Program Committee might find helpful. </p>
 <p>It is a bit presumptuous to claim to know how to write a good review for a systems con ference. In particular, I'm inherently unqualified to say whether I write good reviews or not, other than that I continue to be asked to be on the occasional PC. I think I write better reviews now than I did when I was younger and less experienced, and some of the mistakes I've tried to avoid in recent years are tackled here. </p>
 <p>Consequently, these notes should be read as, firstly, a description of how I aspire to write reviews, and secondly, as a discussion of the kind of review I would like to receive from a PC. Although they're written in an imperative style, they're not intended to be prescriptive.</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250805163249011.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250805163257700.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/sigcomm07-how-to-read-a-paper/body-001-abfb09ff6f55.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/sigcomm07-how-to-read-a-paper/body-002-227aff7ef641.webp" alt="" /></p>
 <ol start="6">
 <li>Add a new layer: 高效调度引擎，这样不回python</li>
 <li>一次性跑2个token：问题多多，mem开销</li>

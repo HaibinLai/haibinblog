@@ -37,7 +37,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 </ol>
 <h2>误差有多大？</h2>
 <p>作者用VTune、Perf、HPCToolkit和Ground Truth 这4种Profiler去测量 <code>PowerGraph PageRank</code>程序的两个workload的执行时间和Sample情况。发现对这两个函数，他们的占总时间的比例并不相同并且相差极大（比如VTune测出来<code>gather</code>占50.1%时间，但是<code>Ground Truth</code>却说只占比33.8%）
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251111165217930.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-11/can-we-trust-profiling-results/body-001-0251f9df80e8.webp" alt="image.png" /></p>
 <p><strong>这种测量误差就源于处理PMU样本时的硬件限制</strong>。至于这句话具体在说什么，我们需要先了解Perf等性能分析器是怎么采集出这个hotspots和执行数据的。</p>
 <h2>Profilers with PMU based Sampling 介绍</h2>
 <h3>What is PMU</h3>
@@ -50,7 +50,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <hr />
 <h3>Perf采样技术与PMU的原理</h3>
 <p>Linux Perf_events 是如何收集的：Linux提供了API来配置、启用和禁用线程粒度下的PMU（例如perf_event_open，ioctl）。当PMU事件计数器溢出时，Linux内核会向对应线程发送包含事件详情（如指令指针）的信号。用户空间的信号处理程序随后检查事件信息并归因正确的测量结果。某些PMU功能（如Intel的精确基于事件采样）会分配内核缓冲区来记录多个样本，并允许工具通过poll()读取该缓冲区。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251111164130800.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-11/can-we-trust-profiling-results/body-002-88eedd11cca5.webp" alt="image.png" /></p>
 <p>Perf_events的分析机制：许多工具采用调用路径分析，这种分析技术将运行时事件（如缓存未命中）归因于事件发生时看到的完整调用路径。对于具有深层调用链的复杂应用程序，调用路径分析能提供有深度的详细信息。事件的调用上下文是事件发生时处于活动状态的过程帧集合。调用上下文从进程或线程入口函数（如main）开始，到触发事件的指令的指令指针（IP）结束。借助调用上下文，工具能够将样本与调用链中的所有函数关联。从所有被调用函数累计的指标称为包含性指标，而不从被调用函数累计的指标称为独占性指标。</p>
 <p>我们用采用中断的Perf方法进行讲解（GPT讲的）</p>
 <ol>
@@ -80,7 +80,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 </ol>
 <h3>测量不准确的来源</h3>
 <p>在乱序处理器中，由监控事件触发的PMU计数器溢出中断可能会显著延迟。这种延迟称为&quot;偏移&quot;，通常具有不确定性和非固定性。为简化说明，图1展示了偏移如何导致测量不准确。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251111164326095.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-11/can-we-trust-profiling-results/body-003-b14c4640b0c0.webp" alt="image.png" /></p>
 <p>图1 的指令分析结果中的滑移效应（Skid Effect）影响：一个循环包含5条指令I1、I2……I5，这些指令分别具有不同的周期持续时间c1、c2……c5。由于滑移效应，CPU需要固定时长S来定位当前活跃指令。例如：<strong>当已退休指令I1触发指令计数器溢出后，CPU需短暂时间S才能发现I4正处于活跃状态，并将其视为采样点。</strong> 每条指令触发计数器溢出的概率相同，但被视作采样点的概率并不均等。指令I4因其周期持续时间显著长于其他指令，更可能被选为采样点。这最终会导致上下文层面的指令采样点归属偏差。</p>
 <h3>PMU profile 不准确的程度</h3>
 <p>现代CPU处理器提供了多种精确采样机制以减轻或消除滑移现象，例如英特尔的基于事件的精确采样（<strong>PEBS</strong>）和AMD的基于指令的采样（<strong>IBS</strong>）。这些机制通过专用性能监控单元（PMU）寄存器记录触发PMU计数器溢出的精确指令指针（IP）。然而，并非所有CPU供应商（如ARM）都支持这类精确机制。</p>
@@ -106,7 +106,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 </li>
 </ul>
 <p>为验证PEBS输出结果的不可靠性，我们对比了PEBS与传统PMU生成的性能分析数据。实验采用第3节介绍的微基准测试程序，每个程序包含g()和f()两个函数，其指令数分别为N_g和N_f。通过测量数据量化分析函数g()和f()中存在的精度损失（分别对应N_g+E和N_f-E条指令，其中E为误差值）。图2展示了在不同规模的g()和f()函数下，PEBS与传统PMU对所有微基准测试的误差E。实验表明：传统PMU因滑移效应产生的误差具有一致性和可预测性，而PEBS则会出现难以与真实情况关联的不可预测结果。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251111164442432.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-11/can-we-trust-profiling-results/body-004-e065ae4a6208.webp" alt="image.png" /></p>
 <p>基于通用性考量，本研究将聚焦于应用广泛的传统PMU机制，而非特殊设计的精确PMU方案。</p>
 <h3>模拟/基准剖析器</h3>
 <p>我们无法依赖性能监控单元(PMU)来收集基准数据。作为替代方案，研究者可采用模拟器来测量硬件相关事件（如时钟周期、缓存未命中）。但由于难以精确模拟处理器的所有特性，模拟器可能无法为这些事件提供真实的基准值。我们注意到，与软件相关的事件（如已执行指令数和浮点运算次数）并不依赖于硬件特性。因此我们采用纯软件方法收集这类软件相关事件的基准剖析数据，该方法具有跨硬件平台的普适性。</p>
@@ -125,7 +125,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <p>据此我们得出两个重要结论。</p>
 <p>首先，滑移效应在CPU周期剖析中有一个关键特性：<strong>它不会改变最终的统计结果</strong>。这看似有悖直觉——滑移确实会导致采样点被错误地归属到不同的指令上。但作者通过一个动态平衡模型阐明，由于采样基于严格按时间推进的CPU周期，某条指令因滑移而“损失”的采样点，会恰好被其他指令“补偿”回来。</p>
 <p>例如，指令A末尾因滑移而“逃掉”的采样点，会由指令B开头“多出来”的采样点弥补给A。这种机制确保了每条指令被记录到的采样点总数，严格正比于其真实消耗的CPU周期数。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251111173142526.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-11/can-we-trust-profiling-results/body-005-378c75b8d293.webp" alt="image.png" /></p>
 <blockquote>
 <p>该图示具体揭示了CPU周期剖析中滑移效应的作用机制：在一个顺序执行指令的流水线中，当性能计数器在某个CPU周期结束时溢出时（即“计数器溢出点”），由于存在短于2个周期的滑移，该事件最终被记录并归因于下一条或下下条指令的时刻（即“样本点”）。例如，本由指令2触发的溢出点Co，其样本点Cs因滑移而落在了指令3上，导致了采样归属的错位。然而，这种错位是双向的——指令2在“丢失”一个样本的同时，也会从指令1那里“获得”一个因滑移而提前归属的样本。这种得失平衡机制，确保了从宏观统计上看，每条指令被记录到的总样本数与其消耗的CPU周期数始终保持正比，从而维系了周期剖析结果的最终准确性。</p>
 </blockquote>
@@ -133,7 +133,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <h3>划移模型情况复刻：CPI不一样</h3>
 <p>我们通过一个包含五条指令（I1至I5）的简单循环来演示滑移效应模型。<strong>各指令具有不同的CPI值（c1至c5）</strong>。如图4所示，我们针对不同滑移周期S进行了仿真实验：当采用固定采样率进行指令采样时，每条指令触发性能计数器溢出的概率均等。当某条指令引起计数器溢出后，需经过S个CPU周期（滑移时长）才能完成采样点记录，此时被记录的指令可能已非原始触发指令。通过建立从触发指令到实际记录指令的映射关系，结合已知的CPI信息，即可推导出特定滑移周期下的指令分布D(S, [c1,c2,c3,c4,c5])。图4中三种滑移值的仿真结果产生了不同的分布形态，其中滑移仿真(2)得到的分布[0,2,0,2,1]与实际剖析结果D完全吻合。</p>
 <p>基于上述特性，我们构建了通过CPI向量c与实测分布D反推滑移时长S的测量算法（详见下节）。完整的数学模型已在我们补充文档[1]的第1节中给出。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251111173604833.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-11/can-we-trust-profiling-results/body-006-a25b81f92d5e.webp" alt="image.png" /></p>
 <blockquote>
 <p>在由五条指令构成的简单循环上，使用三种不同滑移值进行滑移效应仿真的结果。每次仿真会生成一个指令分布D(S, [c1,c2,c3,c4,c5])，该分布是以各指令采样数为分量构成的向量，其中D表示实际的指令剖析结果。</p>
 </blockquote>
@@ -157,23 +157,23 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <code>Error(c, S) = || D(S, c) - D ||₂</code></p>
 <h3>求解过程与实际测量</h3>
 <p>测量过程转化为一个优化问题：在大量结构各异的简单循环程序上，寻找那个能使总模拟误差最小的 <em>S</em> 值。通过求解公式 <code>argminₛ Σ Error(cₘ, S)</code>，即可确定该CPU平台固有的skid周期。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251111174723464.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-11/can-we-trust-profiling-results/body-007-f42489c09c44.webp" alt="image.png" /></p>
 <p>算法1描述了我们在特定平台上测量滑移时长的方法。我们以穷举方式将S值从0遍历至300（第3行）。针对每个S值，程序会在所有测试程序上模拟滑id效应，并按照公式1累计误差总和（第4-8行）。当某S值对应的误差总和达到当前观测最小值时，该值将被记录为候选结果（第9-12行）。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251111174829990.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-11/can-we-trust-profiling-results/body-008-d3480f9bc36d.webp" alt="image.png" /></p>
 <p>图5展示了五种硬件平台（AMD-Opteron、Intel-SandyBridge、Intel-Broadwell、Intel-Skylake和Intel-Xeon Phi）在S值从0变化至300时的误差总和曲线。每个平台均可观测到一个误差全局最小点，其对应的S值即为能使误差最小化的滑移时长。该测量过程针对特定CPU平台仅需执行一次，约花费10分钟完成所有微型基准测试并搜索最优值。如我们此前讨论，最小点对应的S值即为该平台的滑移时长。所有英特尔CPU的滑移时长均小于20个周期，而AMD-Opteron平台的滑移时长显著更长，达到34个周期。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251111174800648.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-11/can-we-trust-profiling-results/body-009-ecbd85c81b6a.webp" alt="image.png" /></p>
 <p>实验成功测得了多种架构的skid值，例如Intel CPU通常小于20周期，而AMD Opteron则长达34周期。这一结果为后续纯软件方案修正性能分析结果提供了至关重要的硬件常数输入。</p>
 <h2>复杂软件修正方案</h2>
 <p>刚刚我们仅仅用简单的例子模拟了我们的程序情况。现在，我们需要将我们的修复技术推广到更加复杂的程序。这怎么做呢？文章分了3步：</p>
 <p><strong>第一段：分解程序，建立模型基础</strong><br />
 我们将复杂程序的控制流图通过静态分析分解为多个“简单循环”的集合。每个简单循环是一个内部无分支的指令序列，其执行行为可以利用第三节建立的Skid模型进行精确模拟。这一步将无法直接处理的复杂程序，转化成了多个可被数学建模的基本单元。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251111175143122.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-11/can-we-trust-profiling-results/body-010-b04704ae28c3.webp" alt="image.png" /></p>
 <p><strong>第二段：构建优化问题，反推真实频率</strong><br />
 构建一个优化问题。算法以PMU采集到的不准确指令分布为目标，通过不断调整各简单循环的假设执行频率，并代入已知的Skid值来模拟生成指令分布。随后，我们将模拟结果与真实PMU数据进行比对，并利用优化算法（如Gibbs采样）反复迭代，寻找那一组能使两者差异最小的执行频率。这个过程实质上是反向求解，从而揭露出被Skid噪声掩盖的程序真实执行脉络。</p>
 <p><strong>第三段：重构档案，输出准确结果</strong><br />
 在通过优化求解出各简单循环最可能的执行频率后，我们便跳出了Skid影响的怪圈。我们可以依据这些恢复的真实频率，结合程序的静态控制流图，直接像编译器一样逻辑推导出每条指令、每个函数被执行的实际次数，最终生成一份消除了Skid偏差的、准确的指令性能分析档案。</p>
 <h2>实验修复情况</h2>
 <p>PowerGraph Pagerank
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251111175250176.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-11/can-we-trust-profiling-results/body-011-f4ba62da8ed8.webp" alt="image.png" /></p>
 <p>SPEC CPU2006 astar</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251111175237858.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-11/can-we-trust-profiling-results/body-012-3f06d0c8093e.webp" alt="image.png" /></p>

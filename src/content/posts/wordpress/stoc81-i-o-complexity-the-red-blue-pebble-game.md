@@ -31,7 +31,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <p>这篇文章引入了一个 “I/O复杂度“ 的概念，证明在一个有两层结构memory的计算系统中（比如GPU的DRAM与L2 Cache），如果我们的高速缓存大小是S，不考虑低速内存大小的影响，那么我们在计算大小为 NxN的矩阵乘法时，我们需要搬运 $O(N^3 / S^{0.5})$ 的数据搬运量。</p>
 <blockquote>
 <p>This paper proposes a pebble game, called the red-blue pebble game, to model the problem, and presents a number of lower bound results for the I/O requirement.
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260109185225200.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/stoc81-i-o-complexity-the-red-blue-pebble-game/body-001-6f8950523ac9.webp" alt="image.png" /></p>
 </blockquote>
 <h2>The Pebble Game Idea</h2>
 <blockquote>
@@ -51,7 +51,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <p>The set of inputs (or outputs) of the graph is some designated set of vertices containing at least those vertices that have no predecessors (or successors, respectively). We assume that the set of inputs is disjoint from that of outputs. For all the examples discussed in the paper, only vertices that have no predecessors (or successors) are assumed to be inputs (or outputs, respectively), except in Section 7 where products of graphs are considered. The initial (or terminal) configuration is one in which only inputs (or outputs, respectively) have pebbles, and they are all blue pebbles.</p>
 </blockquote>
 <p>比如这个是FFT的计算图
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260109184035526.png" alt="image.png" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/stoc81-i-o-complexity-the-red-blue-pebble-game/body-002-4b5e892b883d.webp" alt="image.png" />
 在我们的游戏里，有4个规则：</p>
 <ul>
 <li><strong>R1：Load（蓝 → 红）</strong><br />
@@ -146,7 +146,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <li>块与块之间的依赖关系必须是 DAG（不能循环）</li>
 </ol>
 <p>具体可看原文：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260109184809504.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/stoc81-i-o-complexity-the-red-blue-pebble-game/body-003-7e15daca9b4a.webp" alt="image.png" /></p>
 <p>随后Hong证明，任何用 S 大小 cache 的真实执行过程，一定对应着某个 2S-Partition块。在这个块里，最多只能涉及2S个数据：</p>
 <p>因为在真实执行中，一个阶段里：</p>
 <ul>
@@ -154,40 +154,40 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <li>S 个 <strong>新 load 进来的数据</strong>（通过 R1）</li>
 </ul>
 <p>所以最多会涉及 2S 个数据。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260109192042579.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/stoc81-i-o-complexity-the-red-blue-pebble-game/body-004-ce9347fca74b.webp" alt="image.png" /></p>
 <p>任何使用 ≤ S 个红 pebble 的完整计算过程  都能构造出一个 2S-Partition。并且他们的IO计算次数满足下面的关系：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260109191342959.png" alt="image.png" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260109191342959.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/stoc81-i-o-complexity-the-red-blue-pebble-game/body-005-19eb869d5fc1.webp" alt="image.png" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/stoc81-i-o-complexity-the-red-blue-pebble-game/body-005-19eb869d5fc1.webp" alt="" /></p>
 <p>进而作者给出了 IO bound Q的下界计算方法：</p>
 <p>Q≥S⋅(P(2S)−1)
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260109192136688.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/stoc81-i-o-complexity-the-red-blue-pebble-game/body-006-3b7562617270.webp" alt="image.png" /></p>
 <p>至此，文章把一个IO bound计算问题，转换成计算DAG中有多少2S子图的问题。</p>
 <p><strong>后面文章内容其实都是根据具体例子计算出一个算法里的2S块有多少，然后给出Q下限了</strong>。</p>
 <h2>I/O Complexity 例子</h2>
 <h3>FFT</h3>
 <p>原文的显示太糟糕了。我让GPT做了分析。感兴趣的朋友可以读下原文，并且看看GPT说的是否是正确的。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260109192518765.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/stoc81-i-o-complexity-the-red-blue-pebble-game/body-007-eadb6c2e1a03.webp" alt="image.png" /></p>
 <p>GPT的分析：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260109192342170.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/stoc81-i-o-complexity-the-red-blue-pebble-game/body-008-02dd44351faa.webp" alt="image.png" /></p>
 <h3>I/O 难被 cache 改善的情况</h3>
 <p>有些计算图天生就几乎没有数据复用，因此 I/O 难以被 cache 改善。这个mxn snake-like directed mesh（蛇形网格）。IO下限为 Q=mn （m是这个矩形长度，n是宽度）（在S&lt;m情况下）
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260109192624558.png" alt="image.png" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260109193422989.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/stoc81-i-o-complexity-the-red-blue-pebble-game/body-009-63d6789e8651.webp" alt="image.png" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/stoc81-i-o-complexity-the-red-blue-pebble-game/body-010-3664987e7efb.webp" alt="image.png" /></p>
 <h3>Matmul</h3>
 <p>文章证明矩阵乘法IObound如下：</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260109195329412.png" alt="image.png" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/stoc81-i-o-complexity-the-red-blue-pebble-game/body-011-22bf6ae14155.webp" alt="image.png" />
 我们目前的矩阵乘法对内存利用是最优的吗？似乎不是？</p>
 <h2>文章结论</h2>
 <p>给出了不同算法的IO bound:
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260109193647707.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/stoc81-i-o-complexity-the-red-blue-pebble-game/body-012-89fe9e0f9a53.webp" alt="image.png" /></p>
 <h2>I/O后续的讨论</h2>
 <p>给IO访问建立了一个理论模型的第一篇文章。</p>
 <p>IO访问一直都是一个瓶颈，比如从能量角度来说，根据HiPEAC 2025一篇文章，一次CPU上内存访问消耗的能量是一次加法的～100至1000倍，ISCA2016的一篇文章显示数据移动的能量更是远远大于计算所需的能量。ASPLOS2018的一篇文章指出在Google消费级设备中，62.7%的整体系统性能花在了数据移动上。而在大型AI模型中，PACT2021的一篇文章发现高于90%的能量都用于内存当中。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251215000754705.png" alt="992f6d0a72ed9bd97b5dce9074313a6b.png" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/stoc81-i-o-complexity-the-red-blue-pebble-game/body-013-572ef4c14abd.webp" alt="992f6d0a72ed9bd97b5dce9074313a6b.png" />
 来自Prof. Onur Mutlu 的课程PPT，<a href="https://people.inf.ethz.ch/omutlu/">https://people.inf.ethz.ch/omutlu/</a></p>
 <p>Hong-Kung下限是最终目前确定的下限吗？</p>
 <p>Sadayappan 教授曾总结过这个问题。目前最新的下限如他文章所说。目前的最低下限由这篇文章得出：Smith T M, Lowery B, Langou J, et al. A Tight I/O Lower Bound for Matrix Multiplication[J]. 2017
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260109194005821.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/stoc81-i-o-complexity-the-red-blue-pebble-game/body-014-b696cb8a27bb.webp" alt="image.png" /></p>
 <p>这篇文章为 后摩尔时代高性能软件开发的挑战 ，在中国计算机学会通讯 第 15 卷  第 10 期  2019 年 10 月 有翻译。</p>
 <p>一篇MIT与NV的ISCA24 的文章也探讨过这个问题：Mind the Gap: Attainable Data Movement and Operational Intensity Bounds for Tensor Algorithms （好像还是best paper）</p>
 <p>PPT:
@@ -195,10 +195,10 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <p>Paper:
 <a href="https://people.csail.mit.edu/emer/media/papers/2024.06.isca.orojenesis.pdf">https://people.csail.mit.edu/emer/media/papers/2024.06.isca.orojenesis.pdf</a></p>
 <p>文章在讨论，在芯片设计时，buffer/Cache的可以减少慢内存访问。但是Cache设计多大，不知道。同时，kernel融合后，能不能更好的依赖cache，值得研究。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260109194954023.png" alt="image.png" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260109194741033.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/stoc81-i-o-complexity-the-red-blue-pebble-game/body-015-f3a1e395f8ee.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/stoc81-i-o-complexity-the-red-blue-pebble-game/body-016-2085539ee056.webp" alt="image.png" /></p>
 <p>不过，我觉得最值得注意的是这张图：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260109195216503.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/stoc81-i-o-complexity-the-red-blue-pebble-game/body-017-79d86945b052.webp" alt="image.png" /></p>
 <p>它告诉我们，其实<strong>我们的IO读取量，离最低IO访问还差很远</strong>。还有很多可以优化的。<strong>软件上的优化路还很长</strong>。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260109195620641.png" alt="image.png" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260109195722614.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/stoc81-i-o-complexity-the-red-blue-pebble-game/body-018-8fe23ee3c8f5.webp" alt="image.png" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/stoc81-i-o-complexity-the-red-blue-pebble-game/body-019-b9726c80313e.webp" alt="image.png" /></p>

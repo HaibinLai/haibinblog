@@ -42,7 +42,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <li><strong>极大规模执行器（EXEX）</strong>：可在8000多个节点上扩展至250000个工作者。</li>
 </ul></li>
 <li>这些执行器适应不同的计算需求，从笔记本电脑到超级计算机。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250611154736249.png" alt="" /></li>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/hpdc19-parsl-pervasive-parallel-programming-in-python/body-001-41448b99b330.webp" alt="" /></li>
 </ul>
 </li>
 <li>

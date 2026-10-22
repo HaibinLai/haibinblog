@@ -23,7 +23,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 ---
 <p>PS：这玩意已经不更新了，intel 放弃了哈哈哈哈哈哈哈。</p>
 <p><a href="https://zhuanlan.zhihu.com/p/20510564015">https://zhuanlan.zhihu.com/p/20510564015</a></p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2025/06/image-1750142537486.png" alt="file" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/%E5%B7%B2%E5%BC%83%E5%9D%91-onednn%E6%9E%B6%E6%9E%84%E8%A7%A3%E8%AF%BB/body-001-f0732ab4e39f.webp" alt="file" /></p>
 <p>oneDNN是Intel开源的深度学习加速库，其前身为MKLDNN，对于Intel自家硬件（CPU以及GPU），oneDNN对神经网络算子的计算过程进行了针对性的优化处理，从而显著提升了神经网络算子在Intel硬件下的计算速度。在训练侧，oneDNN已作为第三方工具被目前几乎所有的主流训练框架（TensorFlow、PyTorch、MXNet等）集成；在推理侧，其是OpenVINO的后端，并也经常作为第三方推理加速库被其它工程调用。</p>
 <h2>学习链接</h2>
 <p>github
@@ -1444,7 +1444,7 @@ dnnl_status_t cblas_gemm_s8x8s32_ppc64(int ATflag, int BTflag,
 <p><a href="https://arxiv.org/pdf/2301.01333">Microsoft Word - oneDNNGraphCompiler-CGO-Final-For-Publish - V2 - Copy</a>
 <a href="https://zhuanlan.zhihu.com/p/20510564015">再见Graph Compiler：AI编译器4年开发经历总结与思考 - 知乎</a></p>
 <p>它结合了传统编译器优化技术和专家调优的微内核（microkernel），用于生成高性能的深度神经网络（DNN）计算图代码</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250617004433069.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/%E5%B7%B2%E5%BC%83%E5%9D%91-onednn%E6%9E%B6%E6%9E%84%E8%A7%A3%E8%AF%BB/body-002-3698a92999ec.webp" alt="" /></p>
 <ul>
 <li><strong>oneDNN Graph Compiler 设计</strong>：
 <ul>
@@ -1474,8 +1474,8 @@ dnnl_status_t cblas_gemm_s8x8s32_ppc64(int ATflag, int BTflag,
 <li><strong>分块与并行化</strong>：将矩阵划分为适配缓存和寄存器的小块（如 gemm_kernel_8bit 中的 MB, NB, KB），并使用多核并行循环。</li>
 </ul></li>
 </ul>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250617004450272.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250617004513333.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250617004832584.png" alt="" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/%E5%B7%B2%E5%BC%83%E5%9D%91-onednn%E6%9E%B6%E6%9E%84%E8%A7%A3%E8%AF%BB/body-003-83e85de73a28.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/%E5%B7%B2%E5%BC%83%E5%9D%91-onednn%E6%9E%B6%E6%9E%84%E8%A7%A3%E8%AF%BB/body-004-fcadb9d52af6.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/%E5%B7%B2%E5%BC%83%E5%9D%91-onednn%E6%9E%B6%E6%9E%84%E8%A7%A3%E8%AF%BB/body-005-cbb6bb726857.webp" alt="" />
 <a href="https://zhuanlan.zhihu.com/p/550602254">深入了解 oneDNN 神经网络计算图编译模块 – oneDNN Graph Compiler 第13篇 编译运行Tensor IR - 知乎</a></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250617011641325.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/%E5%B7%B2%E5%BC%83%E5%9D%91-onednn%E6%9E%B6%E6%9E%84%E8%A7%A3%E8%AF%BB/body-006-6774d420dc52.webp" alt="" /></p>

@@ -3,6 +3,8 @@ import { defineConfig } from 'astro/config';
 import { unified } from '@astrojs/markdown-remark';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
+import rehypeRaw from 'rehype-raw';
+import rehypeImageLoading from './src/plugins/rehype-image-loading.mjs';
 
 // https://astro.build/config
 export default defineConfig({
@@ -11,7 +13,8 @@ export default defineConfig({
   markdown: {
     processor: unified({
       remarkPlugins: [remarkMath],
-      rehypePlugins: [rehypeKatex],
+      // Parse imported WordPress HTML before applying defaults to its <img> nodes.
+      rehypePlugins: [rehypeKatex, rehypeRaw, rehypeImageLoading],
     }),
   },
 });

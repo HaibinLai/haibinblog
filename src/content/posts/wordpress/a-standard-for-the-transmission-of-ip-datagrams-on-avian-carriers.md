@@ -18,7 +18,7 @@ viewCount: 1260
 likeCount: 1
 dislikeCount: 9
 showCitation: true
-featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/10/Screenshot-2023-08-10-171501.png"
+featuredImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-10/a-standard-for-the-transmission-of-ip-datagrams-on-avian-carriers/body-001-0e9b3182e426.webp"
 importedFromWordPress: true
 cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-10/a-standard-for-the-transmission-of-ip-datagrams-on-avian-carriers.webp"
 ---

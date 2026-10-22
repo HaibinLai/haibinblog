@@ -24,7 +24,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <p>MoE Survey</p>
 <p><a href="https://github.com/withinmiaov/A-Survey-on-Mixture-of-Experts-in-LLMs/tree/main">withinmiaov/A-Survey-on-Mixture-of-Experts-in-LLMs: The official GitHub page for the survey paper &quot;A Survey on Mixture of Experts in Large Language Models&quot;.</a>
 <a href="https://developer.volcengine.com/articles/7390576064247889958">一文弄懂Mixture of Experts (MoE)的前世今生 - 文章 - 开发者社区 - 火山引擎</a></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250520044104248.png" alt="1747734039508.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/moesys/body-001-69dcfcd845cf.webp" alt="1747734039508.jpg" /></p>
 <p>Deepseek V3
 <a href="https://zhuanlan.zhihu.com/p/21723654459">DeepSeek原理介绍之——DeepSeek-V3 - 知乎</a></p>
 <h2>MoE Survey</h2>

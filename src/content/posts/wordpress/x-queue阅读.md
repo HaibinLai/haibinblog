@@ -32,7 +32,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <h2>X-Queue</h2>
 <p>XQueue [4] is a lock-less MPMC, out-of-order queuing mechanism that can scale to hundreds of threads with little contention for hardware resources. <strong>XQueue uses B-queue, a concurrent Single-Producer-Single-Consumer (SPSC) lock free queue designed for efficient core-to-core communication. The latency of B-queue operations can be as low as 20 cycles</strong>. Fig. 2 illustrates how XQueue is used on a 4-core system. Each core has one worker thread with a single SPSC Master queue and one Auxiliary SPSC queue for each other worker. Each item in a queue is a task pointer. Upon task creation, the worker enqueues the task to either its own master queue or to an auxiliary queue of another worker. It applies a round-robin approach across these queues starting with the master queue. If the chosen queue is full, the worker instead executes that task immediately. When dequeuing, the worker first dequeues from the master queue, if no task is found, it then dequeues a task from its auxiliary queues. The dequeued task is also executed immediately.</p>
 <p>B Queue: <a href="http://staff.ustc.edu.cn/~bhua/network_algorithmics_2020/B-Queue.pdf">3_2.eps</a></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250602095119918.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/x-queue%E9%98%85%E8%AF%BB/body-001-ce33406b38dd.webp" alt="" /></p>
 <h4>✅ 1. <strong>提出 XQueue 作为任务队列结构</strong></h4>
 <ul>
 <li><strong>背景问题</strong>：GNU OpenMP（GOMP）在细粒度任务场景中依赖一个<strong>全局任务锁 + 全局优先队列</strong>，会造成严重的同步开销与扩展性瓶颈。</li>

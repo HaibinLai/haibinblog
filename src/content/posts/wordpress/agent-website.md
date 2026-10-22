@@ -67,7 +67,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 以减少冗余浏览和历史干扰。</li>
 </ul>
 <p>方法流程例子：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260210092216713.png" alt="image.png" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/agent-website/body-001-5ac026c4d228.webp" alt="image.png" />
 <strong>无效搜索？？</strong>
 <strong>数据的大量涌入？？</strong>
 <strong>这个搜索树，tall &amp; skinny?</strong></p>
@@ -77,12 +77,12 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 ✔️ 决策机制 提升选择质量和探索效率<br />
 ✔️ 任务可检查性与约束形式化 提高可控性<br />
 ✔️ 通用性强 适用于不同类型任务（登录、筛查、提取等）</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260210092156398.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/agent-website/body-002-d9805387d931.webp" alt="image.png" /></p>
 <p><strong>Agent 本体很薄</strong>，主要做两件事：</p>
 <ol>
 <li>把“历史轨迹 + 当前观测 + 指令”交给一个 <strong>PromptConstructor</strong> 生成 prompt</li>
 <li>调 LLM 拿到文本输出后，把它<strong>解析成可执行 Action</strong>（playwright 或 id-based）
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260210093141504.png" alt="image.png" /></li>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/agent-website/body-003-d57c0993a9b1.webp" alt="image.png" /></li>
 </ol>
 <p><strong>Partially Done</strong></p>
 <ul>
@@ -141,7 +141,7 @@ LLM的实验模型都好小</p>
 🔹 “长程稳定性” 指 agent 在执行多步骤任务（例如购买流程、问答检索等）时不掉链子，而且对不同网站结构有更好适应性。<br />
 🔹 加入<strong>人类反馈循环（Human-in-the-Loop）</strong> 提升处理异构站点的能力。</p>
 <p>Collaborative Autonomy（协作式自治）</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260210094438661.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/agent-website/body-004-7e3b85a8fb30.webp" alt="image.png" /></p>
 <p>1️⃣ 长任务不稳定（Long-Horizon Instability）</p>
 <ul>
 <li>真实网页任务往往要几十步
@@ -153,7 +153,7 @@ LLM的实验模型都好小</p>
 <li>LLM 没“常识”
 → 不微调基本搞不定</li>
 </ul>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260210094458489.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/agent-website/body-005-226be71adf65.webp" alt="image.png" /></p>
 <p>每一步都调用一个 LLM：
 <code>总结：现在做到哪了？</code></p>
 <h2>WebArena</h2>

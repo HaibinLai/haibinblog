@@ -24,7 +24,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <p>本文学习自 Can Tensor Cores Benefit Memory-Bound Kernels? (NO!) <a href="https://dl.acm.org/doi/pdf/10.1145/3725798.3725803">https://dl.acm.org/doi/pdf/10.1145/3725798.3725803</a></p>
 <p>这篇文章提出了一个有点惊人的观点：Tensorcore在面对 memory bound 的kernel/算子时效果并不是很好！文章用优秀的理论公式分析+实验验证了这点。读懂这篇文章，就能懂Roofline model的大用处。</p>
 <h2>GPU Arch</h2>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251031224723544.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-11/can-tensor-cores-benefit-memory-bound-kernels-no/body-001-5465f9736919.webp" alt="image.png" /></p>
 <h2>Basic knowledge</h2>
 <ol>
 <li>
@@ -44,7 +44,7 @@ I = W / Q</p>
 <p>A kernel is compute bound if I &gt; B
 A kernel is memory bound if I &lt; B</p>
 <p>下图的图2句描述了不同硬件的roofline情况，以及不同的workload比如spmv，gemv，stencil在上面的计算情况
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251031225735319.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-11/can-tensor-cores-benefit-memory-bound-kernels-no/body-002-7be2bcda85f6.webp" alt="image.png" /></p>
 <h2>Workload</h2>
 <ol>
 <li>Scale ，将矩阵/vector 乘以一个数</li>
@@ -63,7 +63,7 @@ W(GEMV) = m x n x 2
 Q(GEMV) = (m x n + m + n) x D
 I(GEMV) = W / Q, 约等于 2 / D = 1/ 4</p>
 <p>对于稀疏矩阵乘法SpMV，可以使用CSR方法将矩阵A进行压缩</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251031235342511.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-11/can-tensor-cores-benefit-memory-bound-kernels-no/body-003-a009c0e353f5.webp" alt="image.png" /></p>
 <p>可以看到，在CSR作用下，计算强度 I 降到了 2/(D+I) = 1/6</p>
 <ol start="3">
 <li>Stencil 网格计算
@@ -81,7 +81,7 @@ v(i, j) = sum w_p,q x u (i+p, j+q)</li>
 <p>T_mem / T_cmp = (Q/B) / (W/P) = B/I</p>
 <p>For memory bound:
 T_mem &gt; T_compute
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251102035134413.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-11/can-tensor-cores-benefit-memory-bound-kernels-no/body-004-aab8f6f43031.webp" alt="image.png" /></p>
 <p>So we can compare overlap VS un-overlap</p>
 <h3>Fully overlap</h3>
 <p>对于完全overlap的情况：</p>
@@ -92,7 +92,7 @@ T_mem &gt; T_compute
 <h3>un-overlap</h3>
 <p>对于完全没有overlap情况，tensorcore加速也很小。</p>
 <p>the calculate speed up</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251102035252410.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-11/can-tensor-cores-benefit-memory-bound-kernels-no/body-005-adba0c3388c3.webp" alt="image.png" /></p>
 <p>我个人感觉这里有点问题。你换了TensorCore后，你的machine Balance其实会发生改变的，此时你用了 T_mem / T_cmp = (Q/B) / (W/P) = B/I 这条公式来代换 T_mem，那这里的B（beta）应该是CUDA Core的Balance。</p>
 <p>似乎不只是Tensor Core，其实所有的memory bound 的情况都能用这个公式？！</p>
 <p><strong>Very possible that speed up less than 2.</strong></p>
@@ -100,11 +100,11 @@ T_mem &gt; T_compute
 <h2>Experiments</h2>
 <p>So is tensor core not very good in memory bound kernels?</p>
 <p>Unfortunately, yes.</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251102035839110.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-11/can-tensor-cores-benefit-memory-bound-kernels-no/body-006-c87ce2aa6c90.webp" alt="image.png" /></p>
 <p>SCALE: Figure 6 reveals consistent, though modest, performance degradation when using tensor cores compared to CUDA cores. Given that the computational time difference is negligible, this performance gap likely arises from suboptimal memory access patterns associated with tensor core usage on current GPU architectures.</p>
 <p>SpMV: Figure 7 demonstrates that for datasets exceeding the L2 cache size, cuSPARSE (CUDA core) outperforms DASP (tensor core) on average. </p>
 <p>Stencils: Figure 8 shows that equivalently optimized tensor core implementations generally underperform their CUDA core counterparts. </p>
 <p><strong>Summary: While our goal was to verify the theoretical bounds, empirical evaluation reveals that tensor core implementations usually underperform their CUDA core counterparts.</strong></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251102035949828.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-11/can-tensor-cores-benefit-memory-bound-kernels-no/body-007-3cd8e279118c.webp" alt="image.png" /></p>
 <h2>Conclusion</h2>
 <p>Through systematic theoretical and empirical analysis, we demonstrate that leveraging the tensor cores for computation in memorybound kernels fails to deliver sound performance benefits. Our theoretical analysis establishes an upper bound of 1.33× speedup for double-precision memory-bound kernels, while empirical results across SCALE, SpMV, and stencil show that tensor core implementations usually underperform their CUDA core counterparts. While these findings may temper expectations for using tensor cores in memory-bound kernels, efforts leveraging tensor cores still provide valuable insights for the design and utilization of matrix processing units in broader contexts.</p>

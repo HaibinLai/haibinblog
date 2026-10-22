@@ -61,6 +61,47 @@ result to a 640 x 400 WebP, updates `cardImage`, and records its source and
 hash in `image-backend/manifest.json`. Normal runs reuse unchanged output; add
 `--force` when the image at an existing remote URL has changed.
 
+## Post body images
+
+Historical article images can also be mirrored into the image backend. They
+use `YYYY-MM/<slug>/body-NNN-<sha12>.<ext>` so the original article layout can
+keep referring to a stable URL. Keep the blog and image repositories next to
+each other, then run:
+
+```bash
+python3 scripts/mirror_post_images.py --image-repo ../image-backend
+```
+
+The script validates and fully decodes each image before storing it. Static
+images whose longer edge exceeds 2560 pixels are resized proportionally. It
+uses lossless WebP for PNG images and images with transparency by default, and
+uses WebP quality 84 for ordinary opaque photographs. Animated images are kept
+byte-for-byte in their original format so their frames, timing, and loop
+metadata remain intact. It rewrites only successfully mirrored references,
+records every result in `image-backend/body-images-manifest.json`, and leaves
+missing sources unchanged with their error in the manifest. When the former
+WordPress media host is unavailable, it can recover a captured copy from the
+Internet Archive. Normal runs reuse verified files and retry only failed
+sources.
+
+To mirror images only from selected hosts for one article, add a host allowlist
+to its frontmatter. Sources from other hosts remain unchanged:
+
+```yaml
+imageMirrorIncludeHosts:
+  - blog-1327458544.cos.ap-guangzhou.myqcloud.com
+```
+
+For an image-heavy article whose opaque PNG or WebP files are photographs, an
+article-specific quality setting from 1 through 100 can reduce their storage
+size. Images with an alpha channel remain lossless:
+
+```yaml
+imageMirrorOpaqueWebpQuality: 84
+```
+
+The WordPress importer preserves both editorial fields across repeated imports.
+
 Math uses ordinary Markdown math syntax:
 
 ```markdown
@@ -88,6 +129,8 @@ Export **All content** from WordPress under **Tools → Export**, then run:
 
 ```bash
 python3 scripts/import_wordpress.py /path/to/wordpress-export.xml
+python3 scripts/mirror_post_images.py --image-repo ../image-backend
+python3 scripts/sync_thumbnails.py --image-repo ../image-backend
 npm run build
 ```
 
@@ -97,7 +140,8 @@ likes, featured images, old slugs, and the citation setting. It also generates
 compatibility pages for current and older `/index.php/<slug>/` links. Re-running
 it replaces only that generated directory. Draft, pending, private, and
 password-protected posts are skipped by default so they cannot be accidentally
-committed to this public repository.
+committed to this public repository. Re-run the image mirror and thumbnail
+commands after every import because the generated article directory is replaced.
 
 To set up a bilingual pair in WordPress before exporting, use the **多语言文章**
 panel in the post editor. Choose the article language and enter the same bilingual

@@ -33,17 +33,17 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 – virtual terminal protocols (telnet)
 – Distributed system (distributed database)
 – Client-server
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230152954045.png" alt="image.png" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230153136030.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-001-1a940269c8c1.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-002-9d28bd075f62.webp" alt="image.png" /></p>
 <h2>Lesson 2</h2>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230153102273.png" alt="image.png" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230153152483.png" alt="image.png" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230153211280.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-003-4593fab198d4.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-004-6c6964002464.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-005-84cfcfaf826d.webp" alt="image.png" /></p>
 <p>什么是中间件！
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230153229504.png" alt="image.png" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230153247431.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-006-f9e32cf2f04e.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-007-14ce4620fc50.webp" alt="image.png" /></p>
 <p>C/S
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230153315062.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-008-1cebb4a6221c.webp" alt="image.png" /></p>
 <p>proxy server</p>
 <p><strong>“可移动代理（mobile proxy / downloadable proxy）”</strong>，本质是 <strong>RMI + mobile code</strong></p>
 <blockquote>
@@ -61,15 +61,15 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 </ul>
 <p>3️⃣ Client 本地 <strong>加载并执行 proxy</strong></p>
 <p>4️⃣ Client 调用 proxy 的方法
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230153327339.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-009-b46583d14250.webp" alt="image.png" /></p>
 <p><strong>“Example mobile code: Applets” 指的就是运行在 client 端的代码</strong>，更准确地说，是<strong>从服务器下载到客户端、并在客户端 JVM 中执行的移动代码（mobile code）</strong>。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230153433382.png" alt="image.png" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230153446838.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-010-249c79bcbe52.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-011-8e77fdc2e17b.webp" alt="image.png" /></p>
 <ul>
 <li><strong>Best-effort</strong>：大家一起抢资源，谁快谁用</li>
 <li><strong>QoS</strong>：<strong>我保证你至少 / 至多 / 大概用到多少资源</strong></li>
 </ul>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230153501861.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-012-a4816ba8ae3c.webp" alt="image.png" /></p>
 <table>
 <thead>
 <tr>
@@ -155,7 +155,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 </tr>
 </tbody>
 </table>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230153809068.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-013-0ea9a047af7b.webp" alt="image.png" /></p>
 <h4>System models</h4>
 <blockquote>
 <p><strong>What are the main entities in the system?</strong><br />
@@ -188,7 +188,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <li>是否存在恶意行为？</li>
 </ul>
 <h3>Interaction, Failure, Security 是“三大基础模型”</h3>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230154108492.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-014-d18275e2f10a.webp" alt="image.png" /></p>
 <h3>1️⃣ Interaction Model（交互模型）</h3>
 <p>回答问题：</p>
 <blockquote>
@@ -241,18 +241,18 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <li>是否需要拜占庭容错</li>
 </ul>
 <hr />
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230153858779.png" alt="image.png" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230153911356.png" alt="image.png" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230153922133.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-015-2e69b0ec4b68.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-016-449c98f65850.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-017-779d55ed8096.webp" alt="image.png" /></p>
 <h2>Lesson 3</h2>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230154314743.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-018-93e436260d53.webp" alt="image.png" /></p>
 <p>The functionality encapsulated within each layer is called Protocol.</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230154331253.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-019-c237bf5544e7.webp" alt="image.png" /></p>
 <p>OSI
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230154409310.png" alt="image.png" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230154440966.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-020-39a90ea27e84.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-021-71c51c0166c6.webp" alt="image.png" /></p>
 <p>一种最基本、最通用的分布式交互协议模式（interaction pattern）
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230154501751.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-022-895484f31ebb.webp" alt="image.png" /></p>
 <p>👉 <strong>Client（请求方） 和 Server（应答方）</strong></p>
 <p>哪些模型/协议？</p>
 <table>
@@ -285,15 +285,15 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 </tr>
 </tbody>
 </table>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230154543587.png" alt="image.png" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230154553778.png" alt="image.png" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230154848601.png" alt="image.png" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230154604933.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-023-8425b031f1d5.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-024-146b38f27826.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-025-513208ceaf35.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-026-5c20ea557eec.webp" alt="image.png" /></p>
 <p><strong>IP multicast</strong> 是一种 <strong>网络层的一对多（one-to-many）通信机制</strong>：</p>
 <blockquote>
 <p><strong>发送方只发送一份数据，网络负责把它复制并分发给所有加入该组的接收方。</strong></p>
 </blockquote>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230154735972.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-027-55d43a2f276d.webp" alt="image.png" /></p>
 <ul>
 <li><strong>Unicast</strong>：一对一（发 N 份给 N 个接收者）</li>
 <li><strong>Broadcast</strong>：一对所有（全网都收到）</li>
@@ -308,20 +308,20 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 </ul>
 <h2>Lesson 4</h2>
 <h3>Distributed Objects and Remote Invocation</h3>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230155003788.png" alt="image.png" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230155012843.png" alt="image.png" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230155028229.png" alt="image.png" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230155039597.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-028-32520fe07e47.webp" alt="image.png" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-029-9bc0d6beed91.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-030-ad1523c9b451.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-031-27067e0f7c92.webp" alt="image.png" /></p>
 <p><strong>RMI（Remote Method Invocation，远程方法调用）</strong> 是一种分布式系统机制，它允许一个进程像调用本地对象的方法一样，调用运行在另一台机器上的对象方法。RMI 在底层通过 <strong>request–reply</strong> 的通信模式，将方法名和参数序列化后发送到远端，由远端对象执行并把返回结果或异常再传回调用方，从而对程序员隐藏网络通信、数据传输和位置差异等细节。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230155100342.png" alt="image.png" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230155134236.png" alt="image.png" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230155143887.png" alt="image.png" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230155157948.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-032-05e6a87b9e3a.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-033-2edb8216ab2c.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-034-da1b5213ed90.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-035-b4f13605711f.webp" alt="image.png" /></p>
 <h3>“调用语义（invocation semantics）”与“容错机制（fault tolerance）</h3>
 <blockquote>
 <p>在存在网络与节点故障的情况下，一个远程方法“到底被执行了几次”？</p>
 </blockquote>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230155222831.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-036-84a076338a56.webp" alt="image.png" /></p>
 <h3>1️⃣ Maybe（可能执行，也可能没执行）</h3>
 <ul>
 <li><strong>不重传请求</strong></li>
@@ -399,7 +399,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 </tbody>
 </table>
 <p>how different fault-tolerance mechanisms in RMI (request retransmission, duplicate filtering, and reply retransmission) lead to different invocation semantics: maybe, at-least-once, and at-most-once.</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230155449197.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-037-591d229bede8.webp" alt="image.png" /></p>
 <h3>Proxy</h3>
 <p>proxy 不是缓存（cache），而是“远程对象的本地代理（stub / proxy object）”。</p>
 <pre><code class="language-java">result = remoteObj.foo(x);</code></pre>
@@ -453,7 +453,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 </tbody>
 </table>
 <p>一次“看起来像本地方法调用”的 RMI，在系统内部到底是怎么被拆解和执行的。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230155901234.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-038-93b7535398bc.webp" alt="image.png" /></p>
 <blockquote>
 <p><strong>RMI 通过 proxy（stub）、remote reference module、communication module 和 server 端的 skeleton/servant，把本地方法调用转化为网络请求并在远端对象上执行。</strong></p>
 </blockquote>
@@ -504,9 +504,9 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <li>garbage collection（分布式）</li>
 </ul>
 <hr />
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230155852212.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-039-06675b8238fc.webp" alt="image.png" /></p>
 <p>RMI 是建立在 RPC 之上的、更高层的抽象；RPC 是机制，RMI 是面向对象语义的封装。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230160037545.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-040-32be13b466d7.webp" alt="image.png" /></p>
 <ul>
 <li>没有对象、没有状态</li>
 <li>调用的是“某台机器上的某个过程”</li>
@@ -590,15 +590,15 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 </tr>
 </tbody>
 </table>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230160049761.png" alt="image.png" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230160110529.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-041-676ef95865fb.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-042-9c5ff9569f7b.webp" alt="image.png" /></p>
 <h3>RMI code</h3>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230160314883.png" alt="image.png" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230160327810.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-043-c2f23e5a0454.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-044-2844b4b2e4f6.webp" alt="image.png" /></p>
 <h2>Lesson 5</h2>
 <p>indirect communication</p>
 <p>在讲 <strong>分布式系统中的“空间耦合（space coupling）”和“时间耦合（time coupling）”</strong>，用一个 <strong>2×2 的分类表</strong> 来系统地理解<strong>通信方式之间的本质差异</strong>。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230160358250.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-045-7bcb51ab6613.webp" alt="image.png" /></p>
 <h3>1️⃣ 空间耦合（Space coupling）</h3>
 <p>关注的是：</p>
 <blockquote>
@@ -666,8 +666,8 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <p>“我只管发，谁来、什么时候收都无所谓”</p>
 </blockquote>
 <hr />
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230160459882.png" alt="image.png" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230160517425.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-046-b4bb9b8115c3.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-047-189f9ffd0a7f.webp" alt="image.png" /></p>
 <p><strong>JGroups</strong> 是一个 <strong>用于构建可靠组通信（group communication）的 Java 中间件库</strong>，常用于 <strong>集群、分布式系统的一致性与成员管理</strong>。
 一个让多台节点像“一个组”一样可靠通信的 Java 库，提供 <strong>成员发现、可靠消息广播、顺序保证、故障检测</strong> 等能力。</p>
 <p>在分布式系统里，你经常需要：</p>
@@ -679,7 +679,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 </ul>
 <p>👉 JGroups 把这些<strong>通用而复杂的机制</strong>都封装好了。</p>
 <hr />
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230160529330.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-048-a8bdca18f500.webp" alt="image.png" /></p>
 <h3>实际中谁在用 jgroup？</h3>
 <ul>
 <li>
@@ -698,9 +698,9 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <p><strong>JGroups</strong>：在 multicast 之上 <strong>补齐可靠性、顺序、成员管理</strong></p>
 </li>
 </ul>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230160642301.png" alt="image.png" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230160651028.png" alt="image.png" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230160857886.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-049-a6c7b9ab08f6.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-050-819ed51b1d17.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-051-87a4b504fb21.webp" alt="image.png" /></p>
 <p><strong>服务发现（Service Discovery）</strong> 是分布式系统中的一种<strong>基础机制</strong>，用来解决：</p>
 <blockquote>
 <p><strong>在一个节点数量、地址、状态都不断变化的系统里，客户端如何找到“当前可用”的服务实例？</strong></p>
@@ -799,4 +799,4 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 👉 更进一步，连“找服务”都不需要</p>
 </li>
 </ul>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251230160708950.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1/body-052-70cc980f2bc9.webp" alt="image.png" /></p>

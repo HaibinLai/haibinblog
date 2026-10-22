@@ -24,7 +24,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <p>内存映射（mmap）文件 I/O 是操作系统提供的一种功能，可将二级存储上的文件内容映射到程序的地址空间中。然后，程序通过指针访问页面，就像文件完全位于内存中一样。只有当程序引用页面时，操作系统才会以透明的方式加载页面，并在内存填满时自动删除页面。</p>
 <p>数十年来，mmap 的易用性一直吸引着数据库管理系统（DBMS）开发人员，被视为实施缓冲池的可行替代方案。然而，mmap 存在严重的正确性和性能问题，这些问题并不是一眼就能看出来的。这些问题使得在现代 DBMS 中正确、高效地使用 mmap 即使不是不可能，也是很困难的。事实上，一些流行的 DBMS 最初使用 mmap 来支持比内存更大的数据库，但很快就遇到了这些隐藏的危险，迫使它们在付出巨大的工程代价后转而自己管理文件 I/O。这样看来，mmap 和 DBMS 就像咖啡和辛辣食物：一种事后才会显现的不幸组合。  </p>
 <p>由于开发人员不断尝试在新的 DBMS 中使用 mmap，因此我们撰写了这篇文章，以警示其他人 mmap 并不适合替代传统的缓冲池。我们详细讨论了 mmap 的主要缺点，实验分析表明了其明显的性能限制。基于这些发现，我们最后为 DBMS 开发人员开出了一剂药方，即在使用 mmap 时，应将其与传统的缓冲池结合起来。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250803013503937.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/cidr22-mmap-%F0%9F%92%A9/body-001-28acbb311ee6.webp" alt="" /></p>
 <h2><strong>知乎刘逸群总结</strong>：</h2>
 <p><strong>在高并发、高磁盘读写量场景下，OS现有的page cache设计是有不足的。OS page cache的通用API也不能提供对磁盘IO的精细控制</strong>。这种使用场景的应用，应当自己实现文件缓存。
 这篇文章旗帜鲜明地反对在数据库中使用page cache做文件缓存（也就是mmap共享模式<code>MAP_SHARED</code>），其实十分切合这个题目。文章提了这么几点理由：</p>

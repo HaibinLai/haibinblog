@@ -18,30 +18,30 @@ viewCount: 840
 likeCount: 0
 dislikeCount: 0
 showCitation: true
-featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/09/IMG_6808.jpg"
+featuredImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-09/%E4%B8%BA%E4%BB%80%E4%B9%88rust-cargo%E5%9C%A8release%E6%A8%A1%E5%BC%8F%E4%BC%9A%E6%AF%94debug%E6%A8%A1%E5%BC%8F%E5%BF%AB%E5%BE%88%E5%A4%9A/body-001-836c0336f0dc.webp"
 importedFromWordPress: true
 cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-09/%E4%B8%BA%E4%BB%80%E4%B9%88rust-cargo%E5%9C%A8release%E6%A8%A1%E5%BC%8F%E4%BC%9A%E6%AF%94debug%E6%A8%A1%E5%BC%8F%E5%BF%AB%E5%BE%88%E5%A4%9A.webp"
 ---
 <p>为什么Rust cargo在release模式会比debug模式快很多？</p>
 <p>gpt给了一个笼统的答案，我们用矩阵乘法的例子来看看这里边的差异：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/d81120987166e1c7c6a82568bbf01365.jpg" alt="d81120987166e1c7c6a82568bbf01365.jpg" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-09/%E4%B8%BA%E4%BB%80%E4%B9%88rust-cargo%E5%9C%A8release%E6%A8%A1%E5%BC%8F%E4%BC%9A%E6%AF%94debug%E6%A8%A1%E5%BC%8F%E5%BF%AB%E5%BE%88%E5%A4%9A/body-002-298987fa8cce.webp" alt="d81120987166e1c7c6a82568bbf01365.jpg" /></p>
 <ol>
 <li>
 <p>debug模式中会有precondition check（图2）对程序可能的错误进行检测，这占据了其大部分运行时间，而图3 release模式下没有检查，方法栈也更少。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/9833001801fef0e96db9026634d06702.jpg" alt="9833001801fef0e96db9026634d06702.jpg" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/1d50cedd20ae270b039d8888f9956136.jpg" alt="1d50cedd20ae270b039d8888f9956136.jpg" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-09/%E4%B8%BA%E4%BB%80%E4%B9%88rust-cargo%E5%9C%A8release%E6%A8%A1%E5%BC%8F%E4%BC%9A%E6%AF%94debug%E6%A8%A1%E5%BC%8F%E5%BF%AB%E5%BE%88%E5%A4%9A/body-003-d70f852b4a1b.webp" alt="9833001801fef0e96db9026634d06702.jpg" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-09/%E4%B8%BA%E4%BB%80%E4%B9%88rust-cargo%E5%9C%A8release%E6%A8%A1%E5%BC%8F%E4%BC%9A%E6%AF%94debug%E6%A8%A1%E5%BC%8F%E5%BF%AB%E5%BE%88%E5%A4%9A/body-004-3e7d755ed52a.webp" alt="1d50cedd20ae270b039d8888f9956136.jpg" /></p>
 </li>
 <li>
 <p>release模式会使用SIMD，相比图4 debug模式，图5 release模式用了intel SSE指令集中的mmx寄存器。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/148fcf536a6c36f725e00b83099df487.jpg" alt="148fcf536a6c36f725e00b83099df487.jpg" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/79cf43362331591d829763ed1c6a1e91.jpg" alt="79cf43362331591d829763ed1c6a1e91.jpg" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-09/%E4%B8%BA%E4%BB%80%E4%B9%88rust-cargo%E5%9C%A8release%E6%A8%A1%E5%BC%8F%E4%BC%9A%E6%AF%94debug%E6%A8%A1%E5%BC%8F%E5%BF%AB%E5%BE%88%E5%A4%9A/body-005-32287d14676c.webp" alt="148fcf536a6c36f725e00b83099df487.jpg" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-09/%E4%B8%BA%E4%BB%80%E4%B9%88rust-cargo%E5%9C%A8release%E6%A8%A1%E5%BC%8F%E4%BC%9A%E6%AF%94debug%E6%A8%A1%E5%BC%8F%E5%BF%AB%E5%BE%88%E5%A4%9A/body-006-e6a5bc45a4d5.webp" alt="79cf43362331591d829763ed1c6a1e91.jpg" /></p>
 </li>
 <li>
 <p>实际执行指令更少，图5 release模式循环内指令数比图4 release更少。同时debug模式运行9.6s，CPI 0.289，3GHz速度（图6），指令数为 9.6<em>3g/0.289，图7 release模式指令数0.3</em>2.2g/0.331，指令数更少，这里有condition check和循环优化的多重功劳。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/531a7d4a5291c1c185ff0d9a6a2a3d3f.jpg" alt="531a7d4a5291c1c185ff0d9a6a2a3d3f.jpg" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/38337aea3b3ccce940bbeb282d2fb49c.jpg" alt="38337aea3b3ccce940bbeb282d2fb49c.jpg" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-09/%E4%B8%BA%E4%BB%80%E4%B9%88rust-cargo%E5%9C%A8release%E6%A8%A1%E5%BC%8F%E4%BC%9A%E6%AF%94debug%E6%A8%A1%E5%BC%8F%E5%BF%AB%E5%BE%88%E5%A4%9A/body-007-d3ac1ac3c5c0.webp" alt="531a7d4a5291c1c185ff0d9a6a2a3d3f.jpg" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-09/%E4%B8%BA%E4%BB%80%E4%B9%88rust-cargo%E5%9C%A8release%E6%A8%A1%E5%BC%8F%E4%BC%9A%E6%AF%94debug%E6%A8%A1%E5%BC%8F%E5%BF%AB%E5%BE%88%E5%A4%9A/body-008-9f6246d0e9ac.webp" alt="38337aea3b3ccce940bbeb282d2fb49c.jpg" /></p>
 </li>
 </ol>
 <p>不过，release模式的rust在运行时间上仍与O3优化后的C程序有差距。Rust的一个劣势在于，在运行过程中调用了一些syscall（图8黄条部分），而C程序除了在linux程序初始化下有与系统交互的libc_start_main函数，其他情况下均在用户态上执行（图9）。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/9f51cdd34ede5076dc72978593cd64c7.jpg" alt="9f51cdd34ede5076dc72978593cd64c7.jpg" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/c1b7cedfb2b44cb28e488745f716b5b5.jpg" alt="c1b7cedfb2b44cb28e488745f716b5b5.jpg" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-09/%E4%B8%BA%E4%BB%80%E4%B9%88rust-cargo%E5%9C%A8release%E6%A8%A1%E5%BC%8F%E4%BC%9A%E6%AF%94debug%E6%A8%A1%E5%BC%8F%E5%BF%AB%E5%BE%88%E5%A4%9A/body-009-186743845c41.webp" alt="9f51cdd34ede5076dc72978593cd64c7.jpg" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-09/%E4%B8%BA%E4%BB%80%E4%B9%88rust-cargo%E5%9C%A8release%E6%A8%A1%E5%BC%8F%E4%BC%9A%E6%AF%94debug%E6%A8%A1%E5%BC%8F%E5%BF%AB%E5%BE%88%E5%A4%9A/body-010-827abb84247c.webp" alt="c1b7cedfb2b44cb28e488745f716b5b5.jpg" /></p>

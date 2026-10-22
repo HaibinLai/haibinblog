@@ -29,12 +29,12 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 赢第二手枪局的队伍，也显著更容易赢整场比赛；
 赢第一手枪局后，最终赢比赛的 odds 是输第一手枪局队伍的 2.95 倍；
 赢第二手枪局后，最终赢比赛的 odds 是 2.49 倍</p>
-<p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/%7Byear%7D/%7Bmonth%7D/%7BfullName%7D/20260624170635114.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-06/cs-pistol-round/body-001-4a13a5120f90.webp" alt="image.png" /></p>
 <p>比赛胜者的平均首杀比例是 57.92%；
 败者的平均首杀比例是 42.07%；
 差异显著，p &lt; .001。</p>
 <hr />
 <p>缺点：</p>
 <p>然而，文章没有控制“队伍能力差异”，毕竟强队更可能拿到手枪局和首杀。</p>
-<p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/%7Byear%7D/%7Bmonth%7D/%7BfullName%7D/20260624170432687.png" alt="image.png|500" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-06/cs-pistol-round/body-002-7fae376f42c3.webp" alt="image.png|500" />
 <strong>图文无关</strong></p>

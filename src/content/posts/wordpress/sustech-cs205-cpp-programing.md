@@ -18,7 +18,7 @@ viewCount: 1865
 likeCount: 3
 dislikeCount: 0
 showCitation: true
-featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/09/微信截图_20240910225737.jpg"
+featuredImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-09/sustech-cs205-cpp-programing/body-001-f16793226a51.webp"
 importedFromWordPress: true
 cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-09/sustech-cs205-cpp-programing.webp"
 ---

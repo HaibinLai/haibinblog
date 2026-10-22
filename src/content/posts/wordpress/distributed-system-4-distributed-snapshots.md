@@ -46,25 +46,25 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <li>如果中间有消息在传递，这两个快照组合起来可能<strong>不是系统的真实状态</strong>。</li>
 </ul>
 <p><strong>Target: markdown every 圈 in the process:</strong>
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251011083901674.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-10/distributed-system-4-distributed-snapshots/body-001-ab5a2fc81de5.webp" alt="image.png" /></p>
 <h3>Design1: 只取两个进程</h3>
 <p>Problem：那你在通信信道里的数据就丢失了
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251011084025987.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-10/distributed-system-4-distributed-snapshots/body-002-d65a52f65b75.webp" alt="image.png" /></p>
 <h3>Design2: P先存，然后发给Q存</h3>
 <p>问题：可能G还在通信中，你只复制成功了Y，会丢数据或者多数据
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251011084120649.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-10/distributed-system-4-distributed-snapshots/body-003-d343fd935617.webp" alt="image.png" /></p>
 <h3>Idea：设置一个marker消息做同步</h3>
 <p>这就是Chandy-Lamport Algorithm</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251011084242746.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-10/distributed-system-4-distributed-snapshots/body-004-e956af474913.webp" alt="image.png" /></p>
 <h2>Chandy-Lamport Algorithm</h2>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251011084547709.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-10/distributed-system-4-distributed-snapshots/body-005-07c0c8d914a8.webp" alt="image.png" /></p>
 <p>事件：Q收到 marker，此时又发送O到P</p>
 <p>他要做：
 <strong>把PQ channel 记录为空</strong> （防止记Y造成duplicate）
 <strong>Snapshot {R, P, B}</strong></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251011084646235.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-10/distributed-system-4-distributed-snapshots/body-006-555696734933.webp" alt="image.png" /></p>
 <p>再发送一次marker，到P后，根据之前的状态，可以同步，确定 channel(Q,P) = {O}
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251011084858829.png" alt="image.png" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-10/distributed-system-4-distributed-snapshots/body-007-d4d87e5771c9.webp" alt="image.png" />
 我们是不用记录同一个准确真实时间的快照，而是记录逻辑意义上的时间</p>
 <h4>importance: 两个人，只会有一个channel是空的</h4>
 <p>自己推理下</p>
@@ -76,9 +76,9 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <li>此时Q应该记录{Y,R,P}，因为之前没记录成功过</li>
 </ol>
 <p>1.如果先marker，那么Y一定会在P={Y,G}
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251011090805059.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-10/distributed-system-4-distributed-snapshots/body-008-d1fed86c287b.webp" alt="image.png" /></p>
 <h2>3个人</h2>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251011091519126.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-10/distributed-system-4-distributed-snapshots/body-009-3dc4eb167fcb.webp" alt="image.png" /></p>
 <ol>
 <li>marker先从T开始 T={}</li>
 <li>T发送marker给P，Q。</li>
@@ -88,7 +88,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <li>marker记录，就会得出 chan(P,Q)=R chan(Q,P)=P</li>
 </ol>
 <p>如果加两个channel，就可以记录出这个情况
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251011091705303.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-10/distributed-system-4-distributed-snapshots/body-010-3954f8b3fefd.webp" alt="image.png" /></p>
 <p>Chandy-Lamport (1985) 的算法通过一种<strong>异步标记协议（marker protocol）</strong>解决了上面的两个问题：</p>
 <ol>
 <li><strong>快照启动者发送一个 marker（标记消息）；</strong></li>
@@ -177,6 +177,6 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 </table>
 <h2>快照存储所有事情/过多事情</h2>
 <p>事情会被Lamport存
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251011093101301.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-10/distributed-system-4-distributed-snapshots/body-011-cc853abd10dd.webp" alt="image.png" /></p>
 <p>这个PPT是整个事情的形象版本
 <a href="https://www.cs.princeton.edu/courses/archive/fall22/cos418/docs/precept_04_distributedsnapshots.pdf">https://www.cs.princeton.edu/courses/archive/fall22/cos418/docs/precept_04_distributedsnapshots.pdf</a></p>

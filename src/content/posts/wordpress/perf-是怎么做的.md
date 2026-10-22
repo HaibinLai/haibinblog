@@ -25,4 +25,4 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 gdb用的ptrace
 <a href="https://blog.csdn.net/j8267643/article/details/136244096">【一文看懂 | GDB 底层实现原理】【转载】_gdb底层原理-CSDN博客</a>
 <a href="https://cloud.tencent.com/developer/article/1823078">用图文带你彻底弄懂GDB调试原理-腾讯云开发者社区-腾讯云</a></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241207172552.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-01/perf-%E6%98%AF%E6%80%8E%E4%B9%88%E5%81%9A%E7%9A%84/body-001-b624dfbf976d.webp" alt="" /></p>

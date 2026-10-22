@@ -31,16 +31,16 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 </ol>
 <p>videos links (personal only):
 <a href="https://www.bilibili.com/video/BV13KAkzcECz/?vd_source=4871cfa497362c1a843af2ecff18ab7f">https://www.bilibili.com/video/BV13KAkzcECz/?vd_source=4871cfa497362c1a843af2ecff18ab7f</a></p>
-<p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/02/20260226230942349.png" alt="9747bb2da9074fe7bfa348cb3e55cf84.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/maxime-gonthier-gpu-data-locality-and-out-of-core-task-scheduling/body-001-dab27cae36fa.webp" alt="9747bb2da9074fe7bfa348cb3e55cf84.jpg" /></p>
 <p>basic question
-<img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/02/20260225151222820.png" alt="image.png" /></p>
-<p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/02/20260225151247624.png" alt="image.png" /></p>
-<p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/02/20260225151346602.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/maxime-gonthier-gpu-data-locality-and-out-of-core-task-scheduling/body-002-8a35d525cc76.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/maxime-gonthier-gpu-data-locality-and-out-of-core-task-scheduling/body-003-4e083200b73c.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/maxime-gonthier-gpu-data-locality-and-out-of-core-task-scheduling/body-004-fff9d605555c.webp" alt="image.png" /></p>
 <p>\</p>
-<p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/02/20260225151539470.png" alt="image.png" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/maxime-gonthier-gpu-data-locality-and-out-of-core-task-scheduling/body-005-3f36af0b31cd.webp" alt="image.png" />
 先测一个简单版本，如2min，然后知道计算时间，接着进行5h的跑</p>
-<p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/02/20260225152216051.png" alt="image.png" /></p>
-<p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/02/20260225152639845.png" alt="image.png" /></p>
-<p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/02/20260225153055714.png" alt="image.png" /></p>
-<p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/02/20260225153548043.png" alt="image.png" /></p>
-<p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/02/20260225154012024.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/maxime-gonthier-gpu-data-locality-and-out-of-core-task-scheduling/body-006-b330fd5c6a72.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/maxime-gonthier-gpu-data-locality-and-out-of-core-task-scheduling/body-007-0b96c1255d29.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/maxime-gonthier-gpu-data-locality-and-out-of-core-task-scheduling/body-008-67a0d293b34e.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/maxime-gonthier-gpu-data-locality-and-out-of-core-task-scheduling/body-009-108eac05cea2.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/maxime-gonthier-gpu-data-locality-and-out-of-core-task-scheduling/body-010-409a0021a5f5.webp" alt="image.png" /></p>

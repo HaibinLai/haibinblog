@@ -18,7 +18,7 @@ viewCount: 2234
 likeCount: 0
 dislikeCount: 0
 showCitation: true
-featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/12/微信截图_20241201195421.jpg"
+featuredImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/os-project-part-i-virtio-a-biref-summary/body-001-d7c670e56915.webp"
 importedFromWordPress: true
 cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/os-project-part-i-virtio-a-biref-summary.webp"
 ---
@@ -37,7 +37,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-
 </ul>
 <p>设备的全虚拟化，Guest OS 发出 I/O 请求后，hypervisor 会截获 I/O 请求指令，然后 hypervisor 模拟这些指令的行为。在这种方式下，guest OS 的每个 I/O 请求指令都会造成一次 VMEXIT，这会带来极大的性能开销。</p>
 <p>Guest OS 或其中的应用程序通过 virtio 驱动发送 I/O 请求给 virtio 设备，其中 transport 主要用于驱动与设备的通信，基于共享内存实现。这种方式下，多个 I/O 请求才会造成一次 VMEXIT，实现批量 I/O，并且简化了驱动与设备的交互流程，因此性能会有很大提升。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241119094319.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/os-project-part-i-virtio-a-biref-summary/body-002-fce47e5722d6.webp" alt="" /></p>
 <p>半虚拟化需要将传统的基于物理硬件的 I/O 方式按照 virtio 协议进行改造，这样才能让虚拟机的驱动程序和宿主机的模拟设备进行交互。因此，我们需要了解 I/O 数据在 Linux 存储 I/O 栈中的流动路径，这样才能更好地理解 guest 中的 virtio 驱动如何组织 I/O 请求数据并传递给 virtio 模拟设备，以及模拟设备如何处理数据并通知驱动。</p>
 <p>详细例子看 <a href="https://zhuanlan.zhihu.com/p/639301753">Virtio 原理与实现 - 知乎</a> 文件系统</p>
 <hr />
@@ -46,7 +46,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-
 <p>介绍：<a href="https://blogs.oracle.com/linux/post/introduction-to-virtio">Introduction to VirtIO</a></p>
 <p>Formally, VirtIO, or virtual input &amp; output, is an abstraction layer over a host’s devices for virtual machines.</p>
 <p>For example, let’s say we have a VM (virtual machine) running on a host and the VM wants to access the internet. The VM doesn’t have its own NIC to access the internet, but the host does. For the VM to access the host’s NIC, and therefore access the internet, a VirtIO device called <em>virtio-net</em> can be created. In a nutshell, it’s main purpose is to send and receive network data to and from the host. In other words, let virtio-net be a liaison for network data between the host and the guest.
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241119091954.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/os-project-part-i-virtio-a-biref-summary/body-003-4c4e52608da2.webp" alt="" /></p>
 <p>Figure 1 above represents, at a high level, the process of a VM requesting and receiving network data from the host. The high level interaction would be something like the following:</p>
 <ol>
 <li><strong>VM:</strong> I want to go to google.com. Hey virtio-net, can you tell the host to retrieve this webpage for me?</li>
@@ -57,7 +57,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-
 </ol>
 <h2>VirtIO Architecture</h2>
 <p>The architecture of VirtIO has three key parts: front-end drivers, back-end devices, and its VirtQueues &amp; VRings.</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241119093154.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/os-project-part-i-virtio-a-biref-summary/body-004-7ef7853e0143.webp" alt="" /></p>
 <p>Guest Kernel virtio driver -&gt; virtio device (Guest OS以为的硬件) -&gt; Kernel driver -&gt; Hardware Device</p>
 <p><strong>SCSI</strong>（Small Computer System Interface）是一种计算机总线标准，广泛用于连接和传输数据至各种外部设备（如硬盘、磁带驱动器、光盘驱动器等）。SCSI 不仅支持硬盘，还能够连接打印机、扫描仪、光盘驱动器等设备，因此它是一个多功能的接口标准。</p>
 <h3>VirtIO Micro Architecture:</h3>
@@ -82,12 +82,12 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-
 <h4>VirtQueues:</h4>
 <p>Virtqueue 是 virtio 的核心核心数据结构，是 guest 中驱动与 VMM 中的 virtio 设备传输数据的载体，Virtqueue 包含三部分：描述符表（Descriptor Table）、可用环（Available Ring）、已用环（Used Ring）。其关系如下：
 <a href="https://zhuanlan.zhihu.com/p/639301753">Virtio 原理与实现 - 知乎</a>
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241119094417.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/os-project-part-i-virtio-a-biref-summary/body-005-0d6b543c03b3.webp" alt="" /></p>
 <p>The key part to the VirtIO architecture is VirtQueues, which are data structures that essentially <strong>assist devices and drivers in performing various VRing operations</strong>. VirtQueues are shared in guest physical memory, meaning that each VirtIO driver &amp; device pair access the same page in RAM. In other words, a driver and device’s VirtQueues are <strong>not</strong> two different regions that are synchronized.</p>
 <p>There is a lot of inconsistency online when it comes to the description of a VirtQueue. Some use it synonymously with VRings (or virtio-rings) whereas others describe them separately. This is due to the fact that VRings are the main feature of VirtQueues, as VRings are the actual data structures that facilitate the transfer of data between a VirtIO device and driver. We’ll describe them separately here since there’s a bit more to a VirtQueue than just its VRings alone.</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241119092410.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/os-project-part-i-virtio-a-biref-summary/body-006-8a8cf8e4c17f.webp" alt="" /></p>
 <h4>VRings:</h4>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241119092809.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/os-project-part-i-virtio-a-biref-summary/body-007-6cbe94b94c12.webp" alt="" /></p>
 <p>As we just mentioned, VRings are the main feature of VirtQueues and are the <strong>core data structures that hold the actual data being transferred</strong>. The reason they’re referred to <strong>as “rings” is because it’s essentially an array that wraps back around to the beginning of itself once the last entry was written to</strong>. These VRings are now starting to be referred to as “areas”, but since Qemu still uses the VRing term in its source code we’ll stick with that name here.</p>
 <p>Each VirtQueue can have up to, and usually does, three types of VRings (or areas):</p>
 <ul>
@@ -95,7 +95,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-
 <li>Available ring (driver area)</li>
 <li>Used ring (device area)</li>
 </ul>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241119093840.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/os-project-part-i-virtio-a-biref-summary/body-008-5ee91b620ab2.webp" alt="" /></p>
 <h4>Descriptor Ring (Descriptor Area):</h4>
 <p>The descriptor ring (or descriptor table, descriptor area) is essentially a circular array of <strong>descriptors</strong>, <strong>where a descriptor is a data structure that describes a data buffer</strong>. A descriptor holds the following info about its data buffer:</p>
 <ul>
@@ -104,7 +104,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-
 <li><code>flags</code>: flags (<code>NEXT</code>, <code>WRITE</code>, <code>INDIRECT</code>)</li>
 <li><code>next</code>: index (in desc. ring) of next chained descriptor</li>
 </ul>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241119092558.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/os-project-part-i-virtio-a-biref-summary/body-009-eecac5efa4b5.webp" alt="" /></p>
 <p>GPT:
 <strong>Virtio ring</strong> 是一种用于虚拟化环境中的通信机制，特别是在虚拟机（VM）和虚拟化主机之间传输数据时，广泛用于高效的 I/O（输入/输出）操作。它是 <strong>Virtio</strong> 技术的一部分，Virtio 本身是一种在虚拟化环境中提供高效虚拟设备驱动程序的标准。Virtio 最初由 <strong>QEMU/KVM</strong> 等开源虚拟化技术开发，旨在提供一种高效且低开销的虚拟设备接口。</p>
 <h4>Virtio Ring 的基本概念</h4>
@@ -205,7 +205,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-
 <li>设备处理 I/O 请求 (Host device feed back -&gt; VirtIO)</li>
 <li>驱动回收 I/O 请求 (VirtIO -&gt; Guest Kernel，将中断注入 guest)</li>
 </ol>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241119094514.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/os-project-part-i-virtio-a-biref-summary/body-010-d00c884ab1ff.webp" alt="" /></p>
 <h3>具体的参数配置</h3>
 <p><a href="https://docs.oasis-open.org/virtio/virtio/v1.3/csd01/virtio-v1.3-csd01.html">Virtual I/O Device (VIRTIO) Version 1.3</a>
 我们可以参照 socket 的配置，然后找到白皮书里对应的设置，然后学习经验</p>
@@ -240,7 +240,7 @@ Linux中集成
 <p><strong>Interfaces:</strong> QEMU further categorizes virtio-gpu device variants based on the interface exposed to the guest. The interfaces can be classified into VGA and non-VGA variants. The VGA ones are prefixed with virtio-vga or vhost-user-vga while the non-VGA ones are prefixed with virtio-gpu or vhost-user-gpu.</p>
 <p>The VGA ones always use the PCI interface, but for the non-VGA ones, the user can further pick between MMIO or PCI. For MMIO, the user can suffix the device name with -device, though vhost-user-gpu does not support MMIO. For PCI, the user can suffix it with -pci. Without these suffixes, the platform default will be chosen.</p>
 <p>Descriptor：可以被拆开然后拼接到下一层</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241119100412.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/os-project-part-i-virtio-a-biref-summary/body-011-d0b58f79f3eb.webp" alt="" /></p>
 <p><a href="https://github.com/Project-HAMi/HAMi-core">Project-HAMi/HAMi-core: HAMi-core compiles libvgpu.so, which ensures hard limit on GPU in container</a></p>
 <h2>VirtIO - crypto</h2>
 <p><a href="https://wiki.qemu.org/Features/VirtioCrypto">Features/VirtioCrypto - QEMU</a></p>
@@ -274,6 +274,6 @@ Test passed</code></pre>
 <a href="https://github.com/asterinas/asterinas/tree/885950c2a4a65486524ac53e40f6b6515d7ebd3a/kernel/comps/virtio/src/device/socket">asterinas/kernel/comps/virtio/src/device/socket at 885950c2a4a65486524ac53e40f6b6515d7ebd3a · asterinas/asterinas</a>
 <a href="https://asterinas.github.io/book/kernel/linux-compatibility.html">Linux Compatibility - The Asterinas Book</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/541259229">网络虚拟化——virtio - 知乎</a>
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241119114110.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/os-project-part-i-virtio-a-biref-summary/body-012-0543369625c8.webp" alt="" /></p>
 <p><a href="https://www.jiqizhixin.com/articles/2024-10-22-10">“星绽”操作系统内核开源：采用Rust语言，兼顾性能与安全 | 机器之心</a></p>
 <h1>EOF</h1>

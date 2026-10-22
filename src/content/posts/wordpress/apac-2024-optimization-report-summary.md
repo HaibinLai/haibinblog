@@ -18,7 +18,7 @@ viewCount: 1995
 likeCount: 0
 dislikeCount: 0
 showCitation: true
-featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/11/微信截图_20241110022340.jpg"
+featuredImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-11/apac-2024-optimization-report-summary/body-001-aaa26fe2f650.webp"
 importedFromWordPress: true
 cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-11/apac-2024-optimization-report-summary.webp"
 ---

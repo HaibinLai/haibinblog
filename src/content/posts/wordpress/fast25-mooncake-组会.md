@@ -25,9 +25,9 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <h1>学习笔记</h1>
 <p>【【RG 25 Spring】[FAST'25] Mooncake】 <a href="https://www.bilibili.com/video/BV1KmJ8zaEkj/?share_source=copy_web&amp;vd_source=72eac555730ba7e7a64f9fa1d7f2b2d4">https://www.bilibili.com/video/BV1KmJ8zaEkj/?share_source=copy_web&vd_source=72eac555730ba7e7a64f9fa1d7f2b2d4</a></p>
 <p>FAST25 best paper</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250619172707233.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/fast25-mooncake-%E7%BB%84%E4%BC%9A/body-001-b92248af9c3c.webp" alt="" /></p>
 <p>在最理想情况下，（cache capacity是10的9次方）此时这才能到50% KV的reuse
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250619172739528.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250619172920250.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/fast25-mooncake-%E7%BB%84%E4%BC%9A/body-002-291272a61aea.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/fast25-mooncake-%E7%BB%84%E4%BC%9A/body-003-fe847b10d1bf.webp" alt="" /></p>
 <h2>执行流程</h2>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250619211343284.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/fast25-mooncake-%E7%BB%84%E4%BC%9A/body-004-04481a5341a8.webp" alt="" /></p>

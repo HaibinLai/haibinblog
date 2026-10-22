@@ -26,4 +26,4 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <p>我记得去年申请时，我需要搜集每个学校的信息，都要自己一个个点。</p>
 <p>现在有agent了，我认为能发挥更多的作用。比如叫agent给每个csranking里的老师开一个agent，读完他的论文，总结是否匹配，工作介绍，相关链接，推荐信写作方向。完全可以工业化的做出来</p>
 <p>还可以做很多自然语言的实验，比如前几年大家申请的datapoint，看趋势和细节分析。以前都是人工脏活，现在都可以工业化</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2026/06/image-1782039727087.png" alt="file" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-06/%E5%81%9A%E7%A0%94%E7%A9%B6%E7%9C%9F%E6%AD%A3%E7%9A%84%E6%94%BE%E5%81%87%E6%97%B6%E5%88%BB%E6%98%AFmeeting%E5%AE%8C%E7%9A%84%E5%90%8E%E4%B8%80%E7%A7%92/body-001-01bc8b221743.webp" alt="file" /></p>

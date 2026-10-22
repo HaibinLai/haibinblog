@@ -18,7 +18,7 @@ viewCount: 1230
 likeCount: 1
 dislikeCount: 0
 showCitation: true
-featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/12/图片12.png"
+featuredImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/os-assignment-5/body-001-933ee0f53a00.webp"
 importedFromWordPress: true
 cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/os-assignment-5.webp"
 ---
@@ -61,7 +61,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-
 <p>Given a virtual address access sequence of <code>1333H</code> , <code>0555H</code> , <code>2555H</code></p>
 <p>(1）Assuming there are enough free pages available in OS. What is the time required to access each of the three virtual addresses mentioned above? Give the calculation process. The answer should include the time cost of the final access to the physical address. </p>
 <h3>Answer for Q1.1:</h3>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241208014634.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/os-assignment-5/body-002-e2a730ac0459.webp" alt="" /></p>
 <p>Since we have a 4 KB page, that means for the lower 12 bits represent the offset within the page.</p>
 <p>(a) <code>1333H</code>
 For <code>1333H</code>, we have virtual page number 1, and 333 for offset</p>
@@ -112,7 +112,7 @@ After we fetech <code>1333H</code> , we fetch <code>0555H</code> . A page fault 
 <p>Then, the PFN <code>233H</code> will be connected to <code>555H</code>, become the final physical address <code>233555H</code> .</p>
 <h2>Question 2 [50pts]</h2>
 <p>Here is a computer with a <strong>riscv64</strong> architecture, employing the <strong>Sv39</strong> multi-level paging mechanism. The formats for physical and virtual addresses are as follows.</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241208021451.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/os-assignment-5/body-003-bcfe4c507f90.webp" alt="" /></p>
 <p>Assuming there are only <strong>three free physical pages</strong> in memory, with <strong>physical page</strong> numbers being <code>0x000_0008_6000</code> , <code>0x000_0008_6001</code> , and <code>0x000_0008_6002</code> . When a process requests a physical page, the operating system adopts an allocation strategy of assigning physical page numbers <strong>from largest to smallest</strong>. At a certain point, the value in the <code>satp</code> register is <code>0x8000_0000_0008_4000</code> , with all PTEs in the root page table being zero. The current process attempts to access the valid virtual address <code>0x0000_0021_2345_6789</code></p>
 <p>Please simulate the computer's <strong>handling of the page fault interrupt</strong>, allocate the corresponding physical page, correctly fill in the corresponding page table entry, and find the corresponding physical address. Complete the following blanks (in hexadecimal, ignoring the actual setting of flag bits in each level of page table entries, all flags set to 0 is OK).</p>
 <ol>
@@ -123,8 +123,8 @@ After we fetech <code>1333H</code> , we fetch <code>0555H</code> . A page fault 
 </ol>
 <h3>Answer</h3>
 <p>An example help me analysis from <a href="https://openosorg.github.io/openos/textbook/mm/page-tables.html">14.3. Page Tables — Introduction to Operating Systems</a>
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241208150328.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241208152401.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/os-assignment-5/body-004-9651e632d37b.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/os-assignment-5/body-005-4c6722cd491f.webp" alt="" /></p>
 <p>For Sv39:
 From lower bit to higher bit:
 the address <code>0x0000_0021_2345_6789</code> have:
@@ -135,7 +135,7 @@ VPN[0] = b'010_0001_00 = 0x084</p>
 <p>All PTEs in the root page table are zero.</p>
 <h2>Root page table</h2>
 <p>For <code>satp</code> value <code>0x8000_0000_0008_4000</code>,</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241208024307.png" alt="" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/os-assignment-5/body-006-3612ff16b3e7.webp" alt="" />
 Figure reference: <a href="https://rcore-os.cn/rCore-Tutorial-Book-v3/chapter4/3sv39-implementation-1.html">SV39 多级页表的硬件机制 - rCore-Tutorial-Book-v3 3.6.0-alpha.1 文档</a></p>
 <pre><code>当 <code>MODE</code> 设置为 0 的时候，代表所有访存都被视为物理地址；而设置为 8 的时候，SV39 分页机制被启用，所有 S/U 特权级的访存被视为一个 39 位的虚拟地址，它们需要先经过 MMU 的地址转换流程，如果顺利的话，则会变成一个 56 位的物理地址来访问物理内存；否则则会触发异常，这体现了分页机制的内存保护能力。</code></pre>
 <table>
@@ -177,7 +177,7 @@ Figure reference: <a href="https://rcore-os.cn/rCore-Tutorial-Book-v3/chapter4/3
 | reserved |  PPN[2]  |  PPN[1]  |  PPN[0]  | RSW |D|A|G|U|X|W|R|V|
 +----------+----------+----------+----------+-----+-+-+-+-+-+-+-+-+
      10         26          9          9       2   1 1 1 1 1 1 1 1</code></pre>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241208022032.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/os-assignment-5/body-007-0b98dab12aa7.webp" alt="" /></p>
 <p>The <strong>value of the root PTE at index 0x084</strong> is:</p>
 <p><code>PTE = 0x0000_0000_2180_0800</code></p>
 <p>Here, <code>0x2180_0800</code> represents the physical address of the second-level page table (<code>0x000_0008_6002</code>).</p>

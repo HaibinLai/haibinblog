@@ -97,8 +97,8 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 </tbody>
 </table>
 <p>高 Δ = 对专用硬件最致命</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260201210729133.png" alt="image.png" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260201210846690.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/isca25-neoscope-how-resilient-is-my-soc-to-workload-churn/body-001-d5ed193e4a44.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/isca25-neoscope-how-resilient-is-my-soc-to-workload-churn/body-002-3652d02f1682.webp" alt="image.png" /></p>
 <hr />
 <h2>三、Neoscope 是什么？作者的核心方法</h2>
 <h3>Neoscope：一个“<strong>面向 churn 的 SoC 设计工具</strong>”</h3>
@@ -110,7 +110,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 </ul>
 <p>Neoscope 反过来给定 workload → 直接解出最优 SoC 结构</p>
 <p>完整pipeline：</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260201210830160.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/isca25-neoscope-how-resilient-is-my-soc-to-workload-churn/body-003-45926826e372.webp" alt="image.png" /></p>
 <hr />
 <h3>技术核心</h3>
 <ul>
@@ -138,12 +138,12 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <li>能效</li>
 <li>成本</li>
 <li>碳效率（结合 FOCAL）
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260201210950782.png" alt="image.png" /></li>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/isca25-neoscope-how-resilient-is-my-soc-to-workload-churn/body-004-cf721cd74746.webp" alt="image.png" /></li>
 </ul>
 </li>
 </ul>
 <p>具体建模见论文：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260201211012629.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/isca25-neoscope-how-resilient-is-my-soc-to-workload-churn/body-005-089c9f2d1c20.webp" alt="image.png" /></p>
 <hr />
 <h2>四、实验发现</h2>
 <h3>结论 1：<strong>小而专的 SoC 最脆弱</strong></h3>
@@ -168,7 +168,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <blockquote>
 <p>If Magnitude is high, it is good to over-provision.</p>
 </blockquote>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260201211612589.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/isca25-neoscope-how-resilient-is-my-soc-to-workload-churn/body-006-6bd1c67cfe18.webp" alt="image.png" /></p>
 <hr />
 <h3>结论 3：中等规模 SoC 最省能</h3>
 <p>论文发现（Section 5）：</p>
@@ -180,7 +180,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <blockquote>
 <p>Medium SoCs balance power density with compute utilization</p>
 </blockquote>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260201211950108.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/isca25-neoscope-how-resilient-is-my-soc-to-workload-churn/body-007-23ffeadc90f1.webp" alt="image.png" /></p>
 <hr />
 <h3>结论4：Dark silicon</h3>
 <blockquote>
@@ -188,4 +188,4 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <strong>“大量 dark silicon 的 SoC 反而可能是碳最优的”</strong>  </p>
 <p>When DSAs are strong relative to the GPU and Disruption (Δ) is low, dark silicon is always carbon optimal.</p>
 </blockquote>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260201212209387.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/isca25-neoscope-how-resilient-is-my-soc-to-workload-churn/body-008-428c5d186ac1.webp" alt="image.png" /></p>

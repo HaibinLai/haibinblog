@@ -36,15 +36,15 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <h2>从llama.bench开始</h2>
 <p>当我们从build开始后，我们应该会看到有llama.bench的可执行文件。用-m导入我们自己的模型后，就能开始测试了。</p>
 <p>我们就从它开始吧。我们的解读流程如下图profile：</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250616110013363.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E4%BA%86%E8%A7%A3llama-cpp-ggml/body-001-2099cecad6dd.webp" alt="" /></p>
 <p><a href="https://github.com/HaibinLai/llama.cpp/blob/fb85a288d72abbd5e5daa8de96e6f8bfa7b5ab46/tools/llama-bench/llama-bench.cpp#L1815">llama.cpp/tools/llama-bench/llama-bench.cpp at fb85a288d72abbd5e5daa8de96e6f8bfa7b5ab46 · HaibinLai/llama.cpp</a></p>
 <p>这段代码的结构图如图所示。在启动并导入输入参数后，它将首先初始化推理的后端引擎，随后加载模型，初始化线程池，然后开始工作。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250615183638872.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E4%BA%86%E8%A7%A3llama-cpp-ggml/body-002-94be88ac6497.webp" alt="" /></p>
 <p>load model:
 ggml主要使用gguf格式的model进行导入。
 下面的文档记录了gguf的格式
 <a href="https://github.com/ggml-org/ggml/blob/master/docs/gguf.md">ggml/docs/gguf.md at master · ggml-org/ggml</a>
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250616133640599.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E4%BA%86%E8%A7%A3llama-cpp-ggml/body-003-5aa84cd49d55.webp" alt="" /></p>
 <p>详细解读很多人已经做了，我就不做了：
 <a href="https://github.com/lovemefan/ggml-learning-notes/blob/main/notes/ggml%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%89%EF%BC%89gguf%E6%96%87%E4%BB%B6%E6%A0%BC%E5%BC%8F.md">ggml-learning-notes/notes/ggml学习笔记（三）gguf文件格式.md at main · lovemefan/ggml-learning-notes</a></p>
 <p>启动CPU backend</p>
@@ -164,11 +164,11 @@ ggml主要使用gguf格式的model进行导入。
 <p>ggml底层都是在和这几个对象打交道：buffer, context。（本段引用了这篇文章：<a href="https://zhuanlan.zhihu.com/p/19968327329"> llama.cpp源码解读--ggml框架学习 - 知乎</a>）</p>
 <h3>buffer</h3>
 <p>在ggml框架中，一切数据（context、dataset、tensor、weight...）都应该被存放在buffer中。而之所以要用buffer进行集成，承载不同数据，是为了便于实现多种后端（CPU、GPU）设备内存的统一管理。也就是说，buffer是实现不同类型数据在多种类型后端上进行<strong>统一的接口对象</strong>。如下图所示。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250616133112879.png" alt="1750098668541.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E4%BA%86%E8%A7%A3llama-cpp-ggml/body-004-bfcbd0733d71.webp" alt="1750098668541.jpg" /></p>
 <h3>context</h3>
 <p>这里借用 <a href="https://zhuanlan.zhihu.com/p/25774381094">llama.cpp源码解读--推理流程总览 - 知乎</a> 的图。即当我们加载完权重参数后得到的tensor、通过构建graph得到的cgraph，都只是用来描述数据信息与数据之间关系的结构体。而实际数据的存储位置是由sched调度器与backend buffer后端缓冲所管理存放的。</p>
 <p>而这些tensor、graph作为描述信息的列表，本身也需要空间进行存储。所以ctx （context）设计应运而生：即存储这些列表信息的容器。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250616133011568.png" alt="1750098450494.jpg" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E4%BA%86%E8%A7%A3llama-cpp-ggml/body-005-8a8d42f3f43e.webp" alt="1750098450494.jpg" /></p>
 <p><code>ggml_context</code>是一个容器，其可以容纳ggml中不同类型的各种结构，如：tensor、graph等。
 context应该翻译为：“环境信息”。可以类比操作系统的“环境变量”：针对不同的程序，你可能需要不同的环境变量来启动运行程序。  </p>
 <p>对于ggml框架来说，无论你要做什么（建立modle模型、建立计算图、还是创建承载计算结果的result）都需要先创建一个context作为容器，而你所创建的任何信息结构体（tensor、graph..）实际都存储在context容器包含的地址空间内。（不过他们都是以结构体+指针的形式存在）</p>
@@ -217,7 +217,7 @@ GGML的后端backend有如下几个比较重要的概念：<br />
 <p><a href="https://blog.csdn.net/weixin_43135178/article/details/122236217">logits是什么？</a>
 <a href="https://zhuanlan.zhihu.com/p/164502624">Embedding的概念</a></p>
 <p>整个流程如图所示：</p>
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250616092518406.png" alt="我的图片" width="50%">
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E4%BA%86%E8%A7%A3llama-cpp-ggml/body-006-0f403587299e.webp" alt="我的图片" width="50%">
 <p>核心代码</p>
 <pre><code class="language-CPP">const auto res = process_ubatch(ubatch, LLM_GRAPH_TYPE_DECODER, mstate.get(), status);
 
@@ -302,7 +302,7 @@ ggml_backend_sched_reset(sched.get());</code></pre>
 [1]<a href="https://zhuanlan.zhihu.com/p/1893801096918585567"> llama.cpp源码解读--cgraph计算图与sched后端调度机制详解 - 知乎</a></p>
 <p>引用一下文章的话和图片：
 在llama.cpp中，构建计算图graph有两个步骤： 1. 使用算子函数连接weight参数、创建中间计算节点 2. 使用ggml_build_forward_expand()函数构建计算图
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250616142821738.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E4%BA%86%E8%A7%A3llama-cpp-ggml/body-007-bb2c94e034d0.webp" alt="" /></p>
 <h3>搭建模型的每个node，并连成图</h3>
 <p>我们刚刚从别人那边学习了，我们会把模型的参数导入，并且用几个结构体和指针来控制他们。
 接着，llama.cpp将会根据 <a href="https://github.com/ggml-org/llama.cpp/blob/master/src/llama-model.cpp">llama.cpp/src/llama-model.cpp at master · ggml-org/llama.cpp</a> 里支持的模型，选择这个模型合适的构造体。</p>
@@ -505,7 +505,7 @@ ggml_build_forward_expand:  (permuted) (cont)</code></pre>
 </table>
 <p>这个操作等价于 <strong>构建了一棵以该 tensor 为根的 DAG 依赖子图</strong>。</p>
 <p>这段函数对应了文章[1]的这张图片：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250616144239174.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E4%BA%86%E8%A7%A3llama-cpp-ggml/body-008-eea61a887c9a.webp" alt="" /></p>
 <hr />
 <h3>给node配置backend和memory</h3>
 <p>这里不止简单的直接配置，ggml使用了一个scheduler结构来分配计算节点实际计算的地方：
@@ -561,7 +561,7 @@ ggml_build_forward_expand:  (permuted) (cont)</code></pre>
 
     int debug;
 };</code></pre>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250616145923276.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E4%BA%86%E8%A7%A3llama-cpp-ggml/body-009-904c87fa57e1.webp" alt="" /></p>
 <p>那么我们先继续回到 <code>process_ubatch</code> 函数下的 <code>graph_build</code>，开始连接各个图</p>
 <pre><code class="language-CPP">llm_graph_result_ptr llama_context::graph_build(
                     ggml_context * ctx,
@@ -601,7 +601,7 @@ ggml_build_forward_expand:  (permuted) (cont)</code></pre>
     const auto &amp; hparams = model.hparams;
     ...</code></pre>
 <p>这里 <code>build_graph</code> 函数来自很多地方，不同的模型会使用不同的搭建参数。为了确保稳定性，我的方法是用profiler查看方法调用栈来寻找对应的调用后端。如果没有profiler，你可能要自己手动插桩试试。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250616113309809.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E4%BA%86%E8%A7%A3llama-cpp-ggml/body-010-a022e77463cd.webp" alt="" /></p>
 <p>我们可以看到，函数调用了 <code>ggml_backend_sched_alloc_graph</code>，其内部又调用了 <code>ggml_backend_sched_split_graph</code> 函数和 <code>ggml_backend_sched_alloc_splits(sched)</code> 函数。</p>
 <pre><code class="language-CPP">bool ggml_backend_sched_alloc_graph(ggml_backend_sched_t sched, struct ggml_cgraph * graph) {
     GGML_ASSERT((int)sched-&gt;hash_set.size &gt;= graph-&gt;n_nodes + graph-&gt;n_leafs);
@@ -782,7 +782,7 @@ static void ggml_backend_sched_split_graph(ggml_backend_sched_t sched, struct gg
 </table>
 <p>我们举个简单例子：
 这是一个经典的计算图
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250616114112265.png" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E4%BA%86%E8%A7%A3llama-cpp-ggml/body-011-b2ec199d34d2.webp" alt="" />
 它就会变成：</p>
 <pre><code class="language-CPP">Input1  -&gt; node0  (leaf)
 Input2  -&gt; node1  (leaf)
@@ -792,7 +792,7 @@ Mul     -&gt; node4  = Mul(node1, const)
 Concat  -&gt; node5  = Concat(node3, node4)
 Norm    -&gt; node6  = Norm(node5)</code></pre>
 <p>对应文章[1]的这张图片：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250616145619049.png" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E4%BA%86%E8%A7%A3llama-cpp-ggml/body-012-ab660dde0aaa.webp" alt="" />
 <img src="undefined" alt="" /></p>
 <h4>Pass 1：预分配 backend（没有用户指定）</h4>
 <p>在加载完毕.gguf文件之后，我们只有一个weight tensor的列表（用<code>struct ggml_tensor * src[GGML_MAX_SRC];</code>结构体链接）但是我们还没有构建好，哪部分结构体是模型的哪个层，以及计算图的哪个层。因此我们需要将他们分配。</p>
@@ -856,7 +856,7 @@ ReLU + Mul → Concat</code></pre>
 [CPU Subgraph]
          |
        [Norm]</code></pre>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250616120247246.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E4%BA%86%E8%A7%A3llama-cpp-ggml/body-014-15c6df6e2e6f.webp" alt="" /></p>
 <p>那么在这一段，我们就成功构建了计算图的基本部分，一些CPU的计算图，和GPU的计算图。但是，我们这里还没有构建CPU-GPU的数据传输。换句话说，我们还没有“<strong>把图连起来</strong>”。而这就是接下来第4步和第5步的主要工作：</p>
 <table>
 <thead>
@@ -882,9 +882,9 @@ ReLU + Mul → Concat</code></pre>
 </tr>
 </tbody>
 </table>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250616120345067.png" alt="" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E4%BA%86%E8%A7%A3llama-cpp-ggml/body-015-d99fe01c3378.webp" alt="" />
 这张图是错误的但我懒得搞，因为它大概解释了这阶段在干什么。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250616145613534.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E4%BA%86%E8%A7%A3llama-cpp-ggml/body-016-62813c30bddc.webp" alt="" /></p>
 <h4>pass 4: 继承 view / source 的 backend</h4>
 <p>这一阶段的目标是<strong>补全仍未设置 backend 的 tensor</strong>，利用其 <code>view_src</code> 或与之连接的其他 tensor：</p>
 <table>
@@ -946,7 +946,7 @@ ReLU + Mul → Concat</code></pre>
 </tr>
 </tbody>
 </table>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250616145532574.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E4%BA%86%E8%A7%A3llama-cpp-ggml/body-017-4d601edf94a2.webp" alt="" /></p>
 <p>这两个 pass（<strong>pass 4 和 pass 5</strong>）是 GGML 的后端调度器 <code>ggml_backend_sched_assign()</code> 中的关键阶段，目的是 <strong>补全 backend 分配、构造执行分割（split）并处理跨 backend 的 tensor 拷贝</strong>。</p>
 <h3>ggml_backend_sched_alloc_splits</h3>
 <pre><code class="language-CPP">static bool ggml_backend_sched_alloc_splits(ggml_backend_sched_t sched) {
@@ -1020,7 +1020,7 @@ ReLU + Mul → Concat</code></pre>
 <h2>计算图的计算计划 graph_compute &amp; cplan</h2>
 <p>在计算的backend以及计算顺序都确定好后，我们就可以开始计算了！
 在计算阶段的方法调用栈如下：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250616150453862.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E4%BA%86%E8%A7%A3llama-cpp-ggml/body-018-9eb20a3d2768.webp" alt="" /></p>
 <h3>确定通信和计算</h3>
 <pre><code class="language-CPP">ggml_status llama_context::graph_compute(
             ggml_cgraph * gf,
@@ -1126,7 +1126,7 @@ ReLU + Mul → Concat</code></pre>
     return ggml_graph_compute(cgraph, &amp;cplan);
 }</code></pre>
 <p>看码说话：先建立 <code>ggml_graph_plan</code> ，确定worksize，随后计算</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250616154303742.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E4%BA%86%E8%A7%A3llama-cpp-ggml/body-019-d2d01acbbc9b.webp" alt="" /></p>
 <h3>Graph Plan</h3>
 <p><a href="https://github.com/ggml-org/llama.cpp/blob/e434e69183fd9e1031f4445002083178c331a28b/ggml/src/ggml-cpu/ggml-cpu.c#L2674">llama.cpp/ggml/src/ggml-cpu/ggml-cpu.c at e434e69183fd9e1031f4445002083178c331a28b · ggml-org/llama.cpp</a></p>
 <p><code>ggml_graph_plan()</code> 函数作用是：</p>
@@ -1390,10 +1390,10 @@ ReLU + Mul → Concat</code></pre>
 </tbody>
 </table>
 <p>不同的后端会有相似的逻辑。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250616155237491.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E4%BA%86%E8%A7%A3llama-cpp-ggml/body-020-c8e4d025a95c.webp" alt="" /></p>
 <h2>Compute 真正开始计算的地方</h2>
 <p>逻辑图如下图所示。这里它会展开一个大fork-join
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250616155952461.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E4%BA%86%E8%A7%A3llama-cpp-ggml/body-021-6f142be1a963.webp" alt="" /></p>
 <p><a href="https://github.com/ggml-org/llama.cpp/blob/e434e69183fd9e1031f4445002083178c331a28b/ggml/src/ggml-cpu/ggml-cpu.c#L3118">llama.cpp/ggml/src/ggml-cpu/ggml-cpu.c at e434e69183fd9e1031f4445002083178c331a28b · ggml-org/llama.cpp</a></p>
 <p>第3118行， CPU Compute</p>
 <pre><code class="language-CPP">enum ggml_status ggml_graph_compute(struct ggml_cgraph * cgraph, struct ggml_cplan * cplan) {
@@ -1496,9 +1496,9 @@ ReLU + Mul → Concat</code></pre>
 </tbody>
 </table>
 <p>关键部位：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250616155821898.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E4%BA%86%E8%A7%A3llama-cpp-ggml/body-022-e0bc546c788c.webp" alt="" /></p>
 <p>因此这里的结构就是，我们每过一个计算节点，就会有一个barrier保证同步，然后move on to 下一个节点：</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250616160030033.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E4%BA%86%E8%A7%A3llama-cpp-ggml/body-023-e0e17165bd63.webp" alt="" /></p>
 <p>至于这里OpenMP怎么用 <code>#pragma omp parallel</code> 的，请参见我上一篇文章：
 <a href="https://www.haibinlaiblog.top/index.php/gcc%e6%98%af%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0openmp-parallel-for%e7%9a%84/">gcc是如何实现OpenMP parallel for的－编译原理－Haibin's blog</a></p>
 <h3>ggml_barrier</h3>
@@ -1699,4 +1699,4 @@ struct ggml_threadpool {
 };</code></pre>
 <h2>总结：</h2>
 <p>我用一张图总结我们的所学：</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250616160827487.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E4%BA%86%E8%A7%A3llama-cpp-ggml/body-024-c214c9c205f2.webp" alt="" /></p>

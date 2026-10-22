@@ -38,21 +38,21 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 </ul>
 </li>
 </ul>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080120323.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080121528.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080121483.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080122097.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080121599.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/pram-bsp-logp-model/body-001-274f130c127e.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/pram-bsp-logp-model/body-002-49950e984c1a.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/pram-bsp-logp-model/body-003-b3e1bf33494a.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/pram-bsp-logp-model/body-004-5295c4bfd4c8.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/pram-bsp-logp-model/body-005-39f2c42eb099.webp" alt="" /></p>
 <ul>
 <li><strong>总结</strong>：PRAM模型是用来分析并行算法的一种理论工具，假设所有处理器可以同时读写内存。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080120226.png" alt="" /></li>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/pram-bsp-logp-model/body-006-e93c23d73ea7.webp" alt="" /></li>
 </ul>
 <h2>2. <strong>BSP（Bulk Synchronous Parallel）模型</strong></h2>
 <p><strong>BSP</strong> 是一种更接近现实的并行计算模型，它用于描述实际并行计算机上的工作方式。BSP模型假设计算是在多个<strong>处理器</strong>上并行进行的，并且这些处理器之间通过<strong>通信网络</strong>交换数据。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080122726.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080122133.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080122354.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080122461.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/pram-bsp-logp-model/body-007-39d349a2f9b3.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/pram-bsp-logp-model/body-008-3f4ea211acae.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/pram-bsp-logp-model/body-009-915cfadf0d34.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/pram-bsp-logp-model/body-010-fa43375f1252.webp" alt="" /></p>
 <ul>
 <li>
 <p><strong>特点</strong>：</p>
@@ -60,16 +60,16 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <li>BSP模型中，计算过程被划分为多个<strong>超时（superstep）</strong>。每个超时包含三部分：计算阶段、通信阶段和同步阶段。</li>
 <li>在每个超时中，处理器进行计算，然后进行必要的数据交换（通信），并且所有的处理器在同步阶段等待彼此完成操作。</li>
 <li>这种方式通过限制每一阶段的最大通信延迟，避免了网络瓶颈，提高了计算的可预测性。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080122691.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080123943.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080123465.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080125891.png" alt="" /></li>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/pram-bsp-logp-model/body-011-fe98fd82f535.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/pram-bsp-logp-model/body-012-fc163d3f94bc.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/pram-bsp-logp-model/body-013-92d2182b65fb.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/pram-bsp-logp-model/body-014-f4e98b8353af.webp" alt="" /></li>
 </ul>
 </li>
 <li>
 <p><strong>总结</strong>：BSP模型试图将并行计算与通信相结合，通过超时机制实现计算与通信的协调，适合实际的并行计算环境。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080126556.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080126871.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/pram-bsp-logp-model/body-015-2db34707a53f.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/pram-bsp-logp-model/body-016-22556ff216d9.webp" alt="" /></p>
 </li>
 </ul>
 <h2>3. <strong>logP模型</strong></h2>
@@ -82,15 +82,15 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <li><strong>O</strong>（Overhead）：每次进行通信时的额外开销，比如发送和接收数据时的管理操作。</li>
 <li><strong>g</strong>（Gap）：发送两个连续消息之间的最小时间间隔。</li>
 <li><strong>P</strong>（Processors）：系统中处理器的数量。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080126891.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080126035.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080126627.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080126348.png" alt="" /></li>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/pram-bsp-logp-model/body-017-7735a11717f1.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/pram-bsp-logp-model/body-018-d0a1e0c4cc10.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/pram-bsp-logp-model/body-019-9a89de285ad3.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/pram-bsp-logp-model/body-020-30bda284b469.webp" alt="" /></li>
 </ul>
 </li>
 <li>
 <p><strong>总结</strong>：logP模型不仅考虑了并行计算的计算过程，还关注通信过程中的延迟、带宽和额外开销，强调了实际硬件中的通信限制。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080126116.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/pram-bsp-logp-model/body-021-e652efe3c365.webp" alt="" /></p>
 </li>
 </ul>
 <hr />
@@ -99,10 +99,10 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <li><strong>PRAM</strong>：是一个理想化的并行计算模型，假设没有通信延迟和冲突，所有处理器可以同时访问共享内存。</li>
 <li><strong>BSP</strong>：是一个更加接近现实的并行计算模型，通过超时机制协调计算和通信，避免了通信延迟对性能的影响。</li>
 <li><strong>logP</strong>：是一种专注于实际硬件性能的并行计算模型，它关注通信延迟、带宽限制以及处理器之间的通信开销。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080127263.png" alt="" /></li>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/pram-bsp-logp-model/body-022-92069ce583c9.webp" alt="" /></li>
 </ul>
 <p>这些模型的目的都是帮助我们分析和理解并行计算的性能，尤其是在设计并行算法时，如何平衡计算和通信的开销。</p>
 <h2>例子：快排</h2>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080128110.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080128574.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503080128835.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/pram-bsp-logp-model/body-023-e74e844d6576.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/pram-bsp-logp-model/body-024-6e78dc983576.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/pram-bsp-logp-model/body-025-7de25666ac65.webp" alt="" /></p>

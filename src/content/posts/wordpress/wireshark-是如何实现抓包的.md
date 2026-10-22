@@ -18,7 +18,7 @@ viewCount: 1534
 likeCount: 0
 dislikeCount: 0
 showCitation: true
-featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/10/图片1.png"
+featuredImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-10/wireshark-%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E6%8A%93%E5%8C%85%E7%9A%84/body-001-f6d1843f0bf3.webp"
 importedFromWordPress: true
 cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-10/wireshark-%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E6%8A%93%E5%8C%85%E7%9A%84.webp"
 ---
@@ -26,7 +26,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-
 <p>My summary web page: <a href="https://www.haibinlaiblog.top/wp-content/uploads/2024/12/BPF与npcap库.drawio.html">BPF与npcap库.drawio</a></p>
 <h1>Wireshark 是如何实现的</h1>
 <p>wireshark的总体结构如下图所示。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20240925011458.png" alt="" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-10/wireshark-%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E6%8A%93%E5%8C%85%E7%9A%84/body-002-b3a3e2f746f9.webp" alt="" />
 <a href="https://www.cnblogs.com/zzqcn/p/4788777.html">【wireshark】Wireshark原理分析与二次开发系列 - 赵子清 - 博客园 (cnblogs.com)</a></p>
 <h2>抓包</h2>
 <p>捕获从网络适配器提取包,并将其保存到硬盘上.</p>
@@ -36,8 +36,8 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-
 <p><a href="https://wiki.wireshark.org/libpcap">libpcap - Wireshark Wiki</a></p>
 <h2>Npcap 是如何抓包的</h2>
 <p>Npcap 实现了 Win10 NPF库，叫做 NPF（Netgroup Packet Filter），该驱动从 Win10 miniport 驱动获取网卡数据实现监控网络数据包的功能（Win10 使用 miniport 驱动控制网卡）。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241013131701.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20240925011700.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-10/wireshark-%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E6%8A%93%E5%8C%85%E7%9A%84/body-003-f283cde328ca.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-10/wireshark-%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E6%8A%93%E5%8C%85%E7%9A%84/body-004-9a55f10965a8.webp" alt="" /></p>
 <p><a href="NIC">NIC</a></p>
 <p>Document：<a href="https://link.zhihu.com/?target=https%3A//npcap.com/guide/npcap-internals.html%23npcap-internals-driver">https://npcap.com/guide/npcap-i</a>
 这篇document非常值得阅读！！！！！！！！</p>
@@ -84,5 +84,5 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-
 <p><a href="https://blog.csdn.net/cheriselin/article/details/5562736">深度剖析WinPcap之(一)—— WinPcap简介-CSDN博客</a></p>
 <h2>3 HTTP Analysis</h2>
 <p>HTTP</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241008134708.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-10/wireshark-%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E6%8A%93%E5%8C%85%E7%9A%84/body-005-6e456b0bec6e.webp" alt="" /></p>
 <h1>EOF</h1>

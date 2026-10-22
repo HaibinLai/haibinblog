@@ -188,7 +188,7 @@ GOMP_parallel (void (*fn) (void *), void *data, unsigned num_threads,
     ret</code></pre>
 <p>子函数几乎没有动，就是parallel region 里的地方。
 到这里我们基本上可以对OpenMP有概念了：主线程首先会准备好子函数的data，subfunction子函数，num_thread，并将他们传入 <code>GOMP_parallel</code> ，它将并行执行subFunction。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250528150421162.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/gcc%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0openmp%E7%9A%84/body-001-97bc5f35bf23.webp" alt="" /></p>
 <p>注：不同的openmp函数可能会调用不同的kernel，比如<code>reduce</code> 会调用 <code>GOMP_parallel_reductions</code> ，在用的时候要注意看看。</p>
 <h2>GNU gcc OpenMP底层机制</h2>
 <p>在本节，我们将通过 <code>GOMP_parallel</code> 了解GNU OpenMP 的底层实现。</p>
@@ -230,7 +230,7 @@ GOMP_parallel (void (*fn) (void *), void *data, unsigned num_threads,
 </tbody>
 </table>
 <p>我们可以看到OpenMP的大概结构：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250528162910570.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/gcc%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0openmp%E7%9A%84/body-002-a3b422e87376.webp" alt="" /></p>
 <p>注意到主线程也会 <code>fn(data)</code>，这是 OpenMP 的经典设计模式：<strong>主线程（即调用 <code>GOMP_parallel</code> 的线程）在创建工作线程后，不闲着，而是直接参与执行工作负载</strong>。</p>
 <h3>确定线程数量</h3>
 <pre><code class="language-CPP">num_threads = gomp_resolve_num_threads (num_threads, 0);</code></pre>
@@ -295,7 +295,7 @@ is not present, SPECIFIED is 0.</p>
 <p>gomp_thread_start 的函数体也相对比较长，在这里我们选中其中的比较重要的几行代码，其余的代码进行省略。对比上面线程启动的 pthread_create 语句我们可以知道，gomp_thread_start真正的调用了 subfunction，并且给这个函数传递了对应的参数。</p>
 </blockquote>
 <p>我画了一个草图来演示这个函数的基础流程：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250528162954938.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/gcc%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0openmp%E7%9A%84/body-003-65e9b5743471.webp" alt="" /></p>
 <p>在看完600行代码后，我们可以总结<code>gomp_team_start</code> 的核心工程：</p>
 <ul>
 <li>从线程池里拉出要跑的线程</li>
@@ -305,16 +305,16 @@ is not present, SPECIFIED is 0.</p>
 <li><strong>启动新线程，设置线程亲和和任务状态。</strong></li>
 <li>等待线程全部启动完成后释放。</li>
 </ul>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250528221003826.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/gcc%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0openmp%E7%9A%84/body-004-abef3503086c.webp" alt="" /></p>
 <p>我们换一个方向，从结构的角度进行解读。
 首先我们看看整个OpenMP工程结构（整理自 <a href="https://www.cs.rice.edu/~la5/doc/ligbomp-doc/db/d9a/work_8c.html">Libgomp: work.c File Reference</a>）</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250528184146882.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/gcc%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0openmp%E7%9A%84/body-005-72f2b3fff6af.webp" alt="" /></p>
 <p>可以看到，我们在写入各种openmp的函数后（ <code>#pragma omp parallel XXX</code>）他们会被call到不同的具体的实现，如task，team。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250528213655317.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/gcc%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0openmp%E7%9A%84/body-006-a48193d90968.webp" alt="" /></p>
 <p>从<a href="https://www.cs.rice.edu/~la5/doc/ligbomp-doc/d0/dc9/structgomp__team.html">Libgomp: gomp_team Struct Reference</a> 我们可以看看team的结构：</p>
 <h3>gomp_team</h3>
 <p><code>gomp_team</code> 是 libgomp 中定义的一个 C 结构体，用于表示一个 OpenMP 并行区域的线程团队。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250528161806877.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/gcc%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0openmp%E7%9A%84/body-007-53c1927a2d41.webp" alt="" /></p>
 <p>team的结构可以在 libgomp.h 找到 <a href="https://www.cs.rice.edu/~la5/doc/ligbomp-doc/dd/d46/libgomp_8h-source.html">Libgomp: libgomp.h Source File</a></p>
 <table>
 <thead>
@@ -415,7 +415,7 @@ task 类：</li>
 </ul>
 <h3>初始化team data</h3>
 <p>提前分配好本函数要用的各种数据结构。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250528201408562.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/gcc%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0openmp%E7%9A%84/body-008-89d8e6938963.webp" alt="" /></p>
 <h3>初始化线程亲和配置</h3>
 <p>从343行开始
 <a href="https://github.com/gcc-mirror/gcc/blob/master/libgomp/team.c#L343">gcc/libgomp/team.c at master · gcc-mirror/gcc</a></p>
@@ -446,10 +446,10 @@ task 类：</li>
 </tr>
 </tbody>
 </table>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250528201157251.png" alt="1748480922304.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/gcc%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0openmp%E7%9A%84/body-009-d2768d14005c.webp" alt="1748480922304.png" /></p>
 <h3>初始化team</h3>
 <p>这部分将保存 team之前的状态，然后负责<strong>主线程（master thread）在创建或加入一个新 team（线程团队）时初始化其线程状态 (<code>thread_state</code>)、任务 (<code>task</code>)、调度器信息以及线程控制变量 (<code>ICV</code>) 的继承与设置</strong>。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250528201240583.png" alt="1748481157545.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/gcc%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0openmp%E7%9A%84/body-010-5413b9e6486a.webp" alt="1748481157545.png" /></p>
 <h4>为什么会有prev_ts: 之前的team state</h4>
 <p>在 OpenMP 的实现中，<code>prev_ts</code>（即 <code>prev_ts: previous team state</code>）是一个非常关键的数据结构，主要用于<strong>支持嵌套并行（nested parallelism）</strong> 和<strong>线程状态回溯</strong>。我们来深入解释这个设计的动机和作用。</p>
 <p>场景：嵌套 <code>#pragma omp parallel</code></p>
@@ -529,7 +529,7 @@ task 类：</li>
 <li><strong><code>P</code></strong>：place partition 中的 slot 数量（<code>place_partition_len</code>），即 <strong>Places</strong></li>
 </ul>
 <p>我把执行的逻辑画在了下边：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250528201538264.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/gcc%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0openmp%E7%9A%84/body-011-c348addebba1.webp" alt="" /></p>
 <h3>线程复用并绑定调度</h3>
 <p>第460行 - 730行</p>
 <p>openmp在这里会用上我们的线程池 <code>pool</code> 里的空闲线程，并尝试将其重新绑核到cpu cores上。
@@ -669,10 +669,10 @@ task 类：</li>
 #define gomp_alloca(x)  __builtin_alloca(x)</code></pre>
 <h3>最后：创建实际运行的线程并启动</h3>
 <p>从730行开始，到最后的函数结束，函数将创建实际运行的线程，他们将调用subfunction</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250528213946967.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/gcc%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0openmp%E7%9A%84/body-012-8cc6cf822e8c.webp" alt="" /></p>
 <p><a href="https://zhuanlan.zhihu.com/p/600897883">OpenMP Parallel Construct 实现原理与源码分析 - 知乎</a>
 进行了叙述</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250528210728007.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/gcc%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0openmp%E7%9A%84/body-013-903d57bff60c.webp" alt="" /></p>
 <table>
 <thead>
 <tr>
@@ -817,7 +817,7 @@ task 类：</li>
 <p>详细分析：
 <a href="https://www.haibinlaiblog.top/index.php/openmp%e7%9a%84barrier%e5%90%8c%e6%ad%a5/">https://www.haibinlaiblog.top/index.php/openmp%e7%9a%84barrier%e5%90%8c%e6%ad%a5/</a></p>
 <p>下面是它的流程图
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250528213009309.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/gcc%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0openmp%E7%9A%84/body-014-485df0f7cbec.webp" alt="" /></p>
 <p>其中，<code>gomp_display_affinity_var</code> 是展示的变量，用来调试。最核心的代码还是barrier</p>
 <p>这一部分的<strong>核心目的是主线程阻塞等待所有线程就绪、同步 barrier，然后根据需要动态调整线程和 barrier 状态，并完成资源清理与调试输出。</strong></p>
 <p>我们展示其中一段barrier是怎么完成wait的</p>
@@ -845,7 +845,7 @@ gomp_barrier_wait (gomp_barrier_t *bar)
 {
   gomp_barrier_wait_end (bar, gomp_barrier_wait_start (bar));
 }</code></pre>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250528214347457.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/gcc%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0openmp%E7%9A%84/body-015-032fdbbc06d1.webp" alt="" /></p>
 <p>核心机制也是非常的简单：</p>
 <ul>
 <li>每个线程调用 <code>gomp_barrier_wait</code>。</li>
@@ -854,10 +854,10 @@ gomp_barrier_wait (gomp_barrier_t *bar)
 <li>其他线程阻塞等待 <code>generation</code> 发生变化。</li>
 <li>这样实现线程同步，保证所有线程都到达屏障后才继续执行。</li>
 </ul>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250528213912369.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/gcc%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0openmp%E7%9A%84/body-016-527de109608d.webp" alt="" /></p>
 <h2>pthread_create发生了什么？</h2>
 <p>刚刚我们经过了下面图中的流程。但是，我们仍然不知道pthread_create创建了什么
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250528214009340.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/gcc%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0openmp%E7%9A%84/body-017-2cfc2d5a0cc3.webp" alt="" /></p>
 <pre><code class="language-CPP">    attr = gomp_adjust_thread_attr (attr, &amp;thread_attr);
     err = pthread_create (&amp;start_data-&gt;handle, attr, gomp_thread_start,
                 start_data);
@@ -992,8 +992,8 @@ struct gomp_thread_start_data
 </tr>
 </tbody>
 </table>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250528215042094.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250528215048093.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/gcc%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0openmp%E7%9A%84/body-018-83266cae3cdc.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/gcc%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0openmp%E7%9A%84/body-019-4a41b6be73d2.webp" alt="" /></p>
 <pre><code class="language-CPP">static void *
 gomp_thread_start (void *xdata)
 {
@@ -1116,7 +1116,7 @@ gomp_thread_start (void *xdata)
 </li>
 <li>清理信号量，线程detach，资源释放，线程结束</li>
 </ul>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250528214743504.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/gcc%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0openmp%E7%9A%84/body-020-2260602939da.webp" alt="" /></p>
 <p>核心并行+执行函数区域：</p>
 <pre><code class="language-CPP">if (data-&gt;nested)
     {
@@ -1202,7 +1202,7 @@ do {
 <li><strong><code>gomp_team_start()</code>负责线程的创建、身份设置和传递入口函数及参数，但不具体划分工作细节，这由线程函数<code>fn</code>来完成。</strong></li>
 </ul>
 <h2>总结：pthread+线程内的这部分函数</h2>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250528220002158.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/gcc%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0openmp%E7%9A%84/body-021-b47d8f528718.webp" alt="" /></p>
 <h2>等等，那每个线程怎么知道自己要干什么工作？</h2>
 <p>这部分逻辑在哪儿？</p>
 <ul>
@@ -1242,9 +1242,9 @@ do {
 <p>原来是我们之前的函数太简单，没有传入参数，因此编译器就没有这段的操作。</p>
 <h3>例子：任务调度</h3>
 <p>比如任务调度，他们的写法就不一样，同时运行的情况也完全不一样
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250528221923315.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/gcc%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0openmp%E7%9A%84/body-022-10aa399bc290.webp" alt="" /></p>
 <p>任务调度的源码可以从 <a href="https://zhuanlan.zhihu.com/p/611558324">OpenMP task construct 实现原理以及源码分析 - 知乎</a> 看到
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250528222146596.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/gcc%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0openmp%E7%9A%84/body-023-b63c7da2cc4d.webp" alt="" /></p>
 <pre><code class="language-CPP">/* Called when encountering an explicit task directive.  If IF_CLAUSE is
    false, then we must not delay in executing the task.  If UNTIED is true,
    then the task may be executed by any member of the team.  */
@@ -1397,7 +1397,7 @@ GOMP_task (void (*fn) (void *), void *data, void (*cpyfn) (void *, void *),
 <p><code>struct gomp_work_share</code> 是 GNU OpenMP (<code>libgomp</code>) 中用于实现 <em>工作共享（work-sharing）构造</em> 的关键数据结构。它是 OpenMP 并行循环（如 <code>for</code>, <code>sections</code>, <code>single</code> ）背后的运行时基础，负责协调多个线程对迭代任务的分配、同步与调度。</p>
 <p>它的作用是：<strong>管理并协调线程之间对某个工作负载（work unit）的分配与同步</strong>。</p>
 <p>work_share 其实是一种调度范式，对应的调度范式还有work-stealing（大家可以在taskflow，以及各种图算法里看到这样的结构，感兴趣的朋友可以看看一些理论paper - ARORA, N. S., BLUMOFE, R. D., AND PLAXTON, C. G. 1998.<strong>Thread scheduling for multiprogrammed multiprocessors</strong>. In Proceedings of the 10th Annual ACM Symposium on Parallel Algorithms and Architectures (SPAA’98) (Puerto Vallarta, Mexico, June 28–July 2). ACM, New York, pp. 119–129.<a href="https://www.eecis.udel.edu/~cavazos/cisc879-spring2008/papers/arora98thread.pdf">arora98thread.pdf</a> 和一些文献<a href="https://www.kancloud.cn/cfun_good/golang/2033516">6.2 工作窃取式调度 · golan基础 · 看云</a>）</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250528195813314.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/gcc%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0openmp%E7%9A%84/body-024-65ef32fa7e0b.webp" alt="" /></p>
 <table>
 <thead>
 <tr>
@@ -1468,9 +1468,9 @@ enum gomp_schedule_type
 </ul>
 <p>比如对应<code>sched(dynamic)</code>， 就是在work_share这里实现的。具体的代码原理可以参照：
 <a href="https://www.cnblogs.com/Chang-LeHung/p/17089310.html?utm_source=chatgpt.com">OpenMP For Construct dynamic 调度方式实现原理和源码分析 - 一无是处的研究僧 - 博客园</a></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250528213512730.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/gcc%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0openmp%E7%9A%84/body-025-5e1a4899de79.webp" alt="" /></p>
 <h2>thread</h2>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250528195521179.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/gcc%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0openmp%E7%9A%84/body-026-ec59b114a390.webp" alt="" /></p>
 <pre><code class="language-cpp">struct gomp_thread
 {
   /* This is the function that the thread should run upon launch.  */
@@ -1545,7 +1545,7 @@ int main() {
 <pre><code class="language-bash">g++ openmp_hello.cpp -fopenmp -o openmp_sum -O2
 objdump -d openmp_sum | grep -A 5 &quot;&lt;GOMP_parallel@plt&gt;&quot; # 如果是sum 例子，调用可能会不一样
 ldd openmp_sum</code></pre>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250528143747922.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/gcc%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0openmp%E7%9A%84/body-027-cfd1901080aa.webp" alt="" /></p>
 <h3>ICV是什么玩意？？？</h3>
 <p>在 OpenMP 中，ICV（Implementation-Defined Control Variables，内部控制变量）是一组由 OpenMP 运行时环境维护的变量，用于控制并行执行的行为。这些变量定义了 OpenMP 程序的运行时配置，例如线程数、调度策略等。gomp_icv 是 GNU OpenMP（GOMP，GCC 的 OpenMP 实现）中用于管理这些 ICV 的内部函数或结构。</p>
 <p><strong>说白了，就是你平常跑openmp的时候，export的那些东西。</strong></p>
@@ -1688,7 +1688,7 @@ ldd openmp_sum</code></pre>
 <h2>OpenMP的性能比较</h2>
 <p>这里我们使用 LAMMPS 这一经典的计算软件，来看看 OpenMP的线程数与 LAMMPS的性能表现：</p>
 <p><a href="https://www.lammps.org/#gsc.tab=0">LAMMPS Molecular Dynamics Simulator</a>
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250528174828674.png" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/gcc%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0openmp%E7%9A%84/body-028-55ce8b692fa1.webp" alt="" />
 由于我们在一台2NUMA 24Core(没有超线程)的机器上运行，我们在这里能看到NUMA效应。</p>
 <p>更多的并行加速分析，欢迎看阿姆达尔定律和logP定律的解析。
 我把我的logP定律解析放在了这里：

@@ -21,7 +21,7 @@ importedFromWordPress: true
 cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-intro.webp"
 ---
 <p>Operations on Languages
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250917151402729.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-intro/body-001-7ab034741265.webp" alt="" /></p>
 <p>Languages: accountable for strings</p>
 <h2>Lexer</h2>
 <p>Lexical Analyzer（词法分析器，也叫 Scanner）在编译器中扮演着 <strong>前端第一步的角色</strong>。它的主要任务是把源代码（程序员写的字符序列）转化为 <strong>Token 序列</strong>，供后续的语法分析器（Parser）使用。下面我分点介绍它的作用：</p>
@@ -59,7 +59,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <li><strong>ANTLR</strong>：现代语言工具，支持词法和语法规则</li>
 </ul>
 <p>✅ <strong>一句话总结</strong>：Lexical Analyzer 的作用就是把源代码转化为 Token 流，充当编译器“读懂单词”的第一步。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250914232317195.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-intro/body-002-2fdafc6eadd0.webp" alt="" /></p>
 <h2>Token Pattern Lexeme</h2>
 <p>编译原理老师经常会一起讲：<strong>Token、Pattern、Lexeme</strong>。我分开解释，并说明它们的联系。</p>
 <h3>1. Token（记号）</h3>
@@ -216,16 +216,16 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <li>Lexeme：<strong>程序里的具体单词</strong></li>
 </ul>
 <h2>Lexical Example</h2>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250917151757202.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-intro/body-003-cbbc404bfd7f.webp" alt="" /></p>
 <h2>Syntax Analysis 语法分析，建立分析树</h2>
 <p>build a syntax tree</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250917151925852.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-intro/body-004-6d49474ba7ec.webp" alt="" /></p>
 <h2>语义分析</h2>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250917152009057.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250917152023383.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250917152036708.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-intro/body-005-319b5eace1a5.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-intro/body-006-d28fca24d32c.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-intro/body-007-347508dda840.webp" alt="" /></p>
 <h3>例子：分析 type</h3>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250917152106057.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-intro/body-008-3bd69d843bd3.webp" alt="" /></p>
 <p>三地址码是编译器常见的一种 <strong>中间表示 (IR, Intermediate Representation)</strong>。<br />
 它把源程序翻译成一种 <strong>类似汇编语言的伪代码</strong>，每条语句最多包含 <strong>三个地址/操作数</strong>：</p>
 <ul>
@@ -244,8 +244,8 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <li><strong>独立于机器</strong>：不依赖具体 CPU 指令集，可以在生成目标代码前做多层优化。</li>
 <li><strong>便于映射到汇编</strong>：三地址码的形式和汇编指令很接近（load、store、add 等）。</li>
 </ul>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250917152209217.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-intro/body-009-4e7a7c10d541.webp" alt="" /></p>
 <h2>机器无关的优化</h2>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250917152332167.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-intro/body-010-e9afdfc4b917.webp" alt="" /></p>
 <h2>最终机器 代码生成</h2>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250917152345870.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-intro/body-011-b6aed5372b73.webp" alt="" /></p>

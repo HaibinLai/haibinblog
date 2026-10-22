@@ -79,7 +79,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <a href="https://github.com/HaibinLai/Learning-Modern-HPC-Software.git">https://github.com/HaibinLai/Learning-Modern-HPC-Software.git</a></p>
 </blockquote>
 <p>意识到这点后，我其实也把我的学习路径放到我网上的简历里。我把我的大学四年做成一个“CPU”。CPU是一个精妙的系统，每一步都是前一步时序逻辑和组合逻辑推演过来的。我也用这张图展示我的知识结构。很多老师都喜欢我这张图。
-<img src="https://haibinblog.s3.us-east-1.amazonaws.com/%7Byear%7D/%7Bmonth%7D/%7BfullName%7D/20260727015034714.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-08/4-year-thinking-2025-12/body-001-196ebfc1b100.webp" alt="image.png" /></p>
 <p>另一条是研究上的线， 研究上面经常有些论文里的问题你也搞不懂，然后就把论文里面的技术写在笔记里面， 再发出来。我后面做了一个工作，就是我大三的时候，我做完第一篇文章之后，当时我想去看整个 HPC 到底发生了什么事情，当时我们有一个会议叫做 SC，就是高性能计算的顶会，我就把那一年发的 90 篇文章我就全部都看了一遍，做了一个总结，说这些文章他们到底分哪几个类别在研究， 就是研究哪些方向， 然后研究趋势是什么， 以及说大家是用什么技术手段去研究的， 就都看了一遍。所以基本上前两年我主要是靠课本，或者靠看书和上课，后面这两年我基本都在自学。</p>
 <blockquote>
 <p>（一口气读完SC24 90篇文章  - 知乎

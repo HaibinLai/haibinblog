@@ -48,36 +48,36 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <p>我们将逐一计算每个部分的 <strong>参数量</strong>。</p>
 <hr />
 <h2>3. 参数量推导</h2>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2025/05/image-1746995705621.png" alt="file" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/llm-parameter-estimation/body-001-7bd02c35b230.webp" alt="file" /></p>
 <p><strong>注意</strong>：部分模型（如 RoPE）不引入可学习的位置编码参数。</p>
 <h3>3.2 单层 Transformer 参数量</h3>
 <p>一个 Transformer 层包含以下部分：</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2025/05/image-1746995889843.png" alt="file" />
-<img src="https://www.haibinlaiblog.top/wp-content/uploads/2025/05/image-1746995912183.png" alt="file" />
-<img src="https://www.haibinlaiblog.top/wp-content/uploads/2025/05/image-1746995968415.png" alt="file" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/llm-parameter-estimation/body-002-2c72cd56b91e.webp" alt="file" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/llm-parameter-estimation/body-003-0c1592b85663.webp" alt="file" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/llm-parameter-estimation/body-004-24d6583a8030.webp" alt="file" /></p>
 <h3>3.3 所有 Transformer 层参数量</h3>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2025/05/image-1746995994805.png" alt="file" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/llm-parameter-estimation/body-005-66461c76bf4c.webp" alt="file" /></p>
 <hr />
 <h2>4. 简化公式（近似估计）</h2>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2025/05/image-1746996010373.png" alt="file" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/llm-parameter-estimation/body-006-0a00a32c8e2d.webp" alt="file" /></p>
 <hr />
 <h2>5. 示例：BERT-base 参数量估计</h2>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2025/05/image-1746996027987.png" alt="file" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/llm-parameter-estimation/body-007-04ed6c339547.webp" alt="file" /></p>
 <h3>5.1 嵌入层</h3>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2025/05/image-1746996041227.png" alt="file" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/llm-parameter-estimation/body-008-4426364a4aff.webp" alt="file" /></p>
 <h3>5.2 单层 Transformer</h3>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2025/05/image-1746996056404.png" alt="file" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/llm-parameter-estimation/body-009-37a825eb84fa.webp" alt="file" /></p>
 <h3>5.3 所有层</h3>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2025/05/image-1746996068601.png" alt="file" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/llm-parameter-estimation/body-010-15ce2fe0b91e.webp" alt="file" /></p>
 <h3>5.4 输出层</h3>
 <p>BERT 共享嵌入层和输出层权重，仅偏置：</p>
 <pre><code>![file](https://www.haibinlaiblog.top/wp-content/uploads/2025/05/image-1746996080492.png)</code></pre>
 <h3>5.5 总参数量</h3>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2025/05/image-1746996090659.png" alt="file" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/llm-parameter-estimation/body-011-56016ee5debe.webp" alt="file" /></p>
 <p><strong>结果</strong>：BERT-base 参数量约为 <strong>1.1 亿</strong>，与官方一致。</p>
 <hr />
 <h2>6. 扩展：其他模型估计</h2>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2025/05/image-1746996103738.png" alt="file" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/llm-parameter-estimation/body-012-ed7570f7873c.webp" alt="file" /></p>
 <hr />
 <h2>7. 注意事项</h2>
 <ul>
@@ -88,4 +88,4 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 </ul>
 <hr />
 <h2>8. 总结</h2>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2025/05/image-1746996120925.png" alt="file" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/llm-parameter-estimation/body-013-1d4843efb7df.webp" alt="file" /></p>

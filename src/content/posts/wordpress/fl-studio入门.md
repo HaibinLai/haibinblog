@@ -24,4 +24,4 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <p>FL-studio的兴趣学习</p>
 <p>写的新歌曲</p>
 <p>[audio mp3="https://www.haibinlaiblog.top/wp-content/uploads/2025/02/First_proj.mp3"][/audio]</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2025/02/image-1739619559002.png" alt="file" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-02/fl-studio%E5%85%A5%E9%97%A8/body-001-521effcd7f73.webp" alt="file" /></p>

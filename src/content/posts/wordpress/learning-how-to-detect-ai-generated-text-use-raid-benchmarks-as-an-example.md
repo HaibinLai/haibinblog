@@ -488,7 +488,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 </tr>
 </tbody>
 </table>
-<p><img src="https://cdn.jsdelivr.net/gh/HaibinLai/HC3@main/figures/raid_comparison.png" alt="RAID comparison" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-08/learning-how-to-detect-ai-generated-text-use-raid-benchmarks-as-an-example/body-001-057b5d580fbc.webp" alt="RAID comparison" /></p>
 <hr />
 <h2>4. 对抗攻击鲁棒性分析</h2>
 <h3>4.1 XGBoost 在 11 种攻击下的表现</h3>
@@ -584,8 +584,8 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <h3>4.3 特征偏移分析</h3></li>
 </ul>
 <p>释义攻击使 AI 文本的特征分布向人类文本方向偏移：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/HaibinLai/HC3@main/figures/raid_attack_feature_shift.png" alt="Attack feature shift" /></p>
-<p><img src="https://cdn.jsdelivr.net/gh/HaibinLai/HC3@main/figures/raid_adversarial.png" alt="RAID adversarial" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-08/learning-how-to-detect-ai-generated-text-use-raid-benchmarks-as-an-example/body-002-41c59da2e33a.webp" alt="Attack feature shift" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-08/learning-how-to-detect-ai-generated-text-use-raid-benchmarks-as-an-example/body-003-af3e4237636f.webp" alt="RAID adversarial" /></p>
 <hr />
 <h2>5. 特征消融实验</h2>
 <h3>5.1 各特征组独立判别能力</h3>
@@ -675,15 +675,15 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <li>GPT-2 作为&quot;观察者&quot;，对不同生成器的评估标准不一致</li>
 </ol>
 <p><strong>启示</strong>：在实际部署中，如果面对的 AI 模型未知或多样化，<strong>不应依赖困惑度作为核心特征</strong>，而应以文本长度、句法结构等模型无关的统计量为主。</p>
-<p><img src="https://cdn.jsdelivr.net/gh/HaibinLai/HC3@main/figures/raid_feature_ablation.png" alt="RAID feature ablation" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-08/learning-how-to-detect-ai-generated-text-use-raid-benchmarks-as-an-example/body-004-e8bcb46eb4b1.webp" alt="RAID feature ablation" /></p>
 <hr />
 <h2>6. SHAP 可解释性分析</h2>
 <h3>6.1 SHAP Summary（Top 25 特征）</h3>
 <p>SHAP beeswarm 图展示了 XGBoost 在 RAID 上最依赖的特征：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/HaibinLai/HC3@main/figures/raid_shap_summary.png" alt="RAID SHAP summary" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-08/learning-how-to-detect-ai-generated-text-use-raid-benchmarks-as-an-example/body-005-190a342ad647.webp" alt="RAID SHAP summary" /></p>
 <h3>6.2 SHAP 依赖图（Top 6 特征）</h3>
 <p>展示各特征值与 SHAP 值的关系，颜色为最强交互特征：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/HaibinLai/HC3@main/figures/raid_shap_dependence.png" alt="RAID SHAP dependence" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-08/learning-how-to-detect-ai-generated-text-use-raid-benchmarks-as-an-example/body-006-7a9842d62804.webp" alt="RAID SHAP dependence" /></p>
 <h3>6.3 SHAP Waterfall（4 个典型案例）</h3>
 <p>对最自信的正确分类和最典型的错误分类，展示 SHAP 归因：</p>
 <ul>
@@ -692,28 +692,28 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <li><strong>False Positive</strong>：人类文本为什么被误判为 AI</li>
 <li><strong>False Negative</strong>：AI 文本为什么被误判为人类</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/HaibinLai/HC3@main/figures/raid_shap_waterfall.png" alt="RAID SHAP waterfall" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-08/learning-how-to-detect-ai-generated-text-use-raid-benchmarks-as-an-example/body-007-bcfec5703fbb.webp" alt="RAID SHAP waterfall" /></p>
 <h3>6.4 LR 系数分析</h3>
 <p>Logistic Regression 的标准化系数提供了线性可解释性：</p>
 <ul>
 <li>正系数 → 指向 AI</li>
 <li>负系数 → 指向 Human</li>
 </ul>
-<p><img src="https://cdn.jsdelivr.net/gh/HaibinLai/HC3@main/figures/raid_lr_coefficients.png" alt="RAID LR coefficients" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-08/learning-how-to-detect-ai-generated-text-use-raid-benchmarks-as-an-example/body-008-8cf6f933b7da.webp" alt="RAID LR coefficients" /></p>
 <hr />
 <h2>7. 领域与特征分布分析</h2>
 <h3>7.1 领域特征对比</h3>
 <p>8 个领域中，关键特征在 Human/AI 间的分布差异：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/HaibinLai/HC3@main/figures/raid_domain_feature_comparison.png" alt="RAID domain comparison" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-08/learning-how-to-detect-ai-generated-text-use-raid-benchmarks-as-an-example/body-009-483d56800504.webp" alt="RAID domain comparison" /></p>
 <h3>7.2 特征相关性</h3>
 <p>90 维特征的 Pearson 相关矩阵：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/HaibinLai/HC3@main/figures/raid_correlation_heatmap.png" alt="RAID correlation" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-08/learning-how-to-detect-ai-generated-text-use-raid-benchmarks-as-an-example/body-010-17dddfe8c1a2.webp" alt="RAID correlation" /></p>
 <h3>7.3 PCA 降维可视化</h3>
 <p>90 维特征 → 2D PCA：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/HaibinLai/HC3@main/figures/raid_pca.png" alt="RAID PCA" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-08/learning-how-to-detect-ai-generated-text-use-raid-benchmarks-as-an-example/body-011-465634bba1b2.webp" alt="RAID PCA" /></p>
 <h3>7.4 t-SNE 降维可视化</h3>
 <p>90 维特征 → 2D t-SNE（5000 样本，perplexity=30）：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/HaibinLai/HC3@main/figures/raid_tsne.png" alt="RAID t-SNE" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-08/learning-how-to-detect-ai-generated-text-use-raid-benchmarks-as-an-example/body-012-7a337c0f3c7b.webp" alt="RAID t-SNE" /></p>
 <hr />
 <h2>8. Token 概率特征分析</h2>
 <h3>8.1 方法</h3>
@@ -737,32 +737,32 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 </tbody>
 </table>
 <h3>8.2 Token SHAP 归因</h3>
-<p><img src="https://cdn.jsdelivr.net/gh/HaibinLai/HC3@main/figures/raid_token_shap.png" alt="RAID token SHAP" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-08/learning-how-to-detect-ai-generated-text-use-raid-benchmarks-as-an-example/body-013-501736e3aa10.webp" alt="RAID token SHAP" /></p>
 <h3>8.3 Token 特征分布（Human vs AI）</h3>
-<p><img src="https://cdn.jsdelivr.net/gh/HaibinLai/HC3@main/figures/raid_token_distributions.png" alt="RAID token distributions" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-08/learning-how-to-detect-ai-generated-text-use-raid-benchmarks-as-an-example/body-014-a670f8e5225e.webp" alt="RAID token distributions" /></p>
 <h3>8.4 Per-Model Token 特征</h3>
 <p>11 个生成器 + Human 的 token 特征分布对比。可以看到 Human（蓝色）与各 AI 模型（红色）在 <code>rank_top100_frac</code>、<code>lp_mean</code> 等特征上的差异程度各不相同：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/HaibinLai/HC3@main/figures/raid_per_model_features.png" alt="RAID per-model features" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-08/learning-how-to-detect-ai-generated-text-use-raid-benchmarks-as-an-example/body-015-b877f5bd6029.webp" alt="RAID per-model features" /></p>
 <h3>8.5 Token 概率热力图</h3>
 <p>每个词按 Mistral-7B 的预测概率着色（绿=可预测，红=出人意料）。直观展示 AI 文本的&quot;流畅度均匀性&quot; vs 人类文本的&quot;意外用词&quot;：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/HaibinLai/HC3@main/figures/raid_token_heatmap.png" alt="RAID token heatmap" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-08/learning-how-to-detect-ai-generated-text-use-raid-benchmarks-as-an-example/body-016-3c3e14b1f482.webp" alt="RAID token heatmap" /></p>
 <h3>8.6 Token t-SNE</h3>
 <p>30 维 token 特征降到 2D。Human 和 AI 有清晰的分离趋势：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/HaibinLai/HC3@main/figures/raid_token_tsne.png" alt="RAID token t-SNE" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-08/learning-how-to-detect-ai-generated-text-use-raid-benchmarks-as-an-example/body-017-13d3241b09b1.webp" alt="RAID token t-SNE" /></p>
 <h3>8.7 误分类分析</h3>
 <p>预测置信度分布、正确/错误分类的特征均值对比、TP/TN/FP/FN 饼图：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/HaibinLai/HC3@main/figures/raid_misclassification.png" alt="RAID misclassification" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-08/learning-how-to-detect-ai-generated-text-use-raid-benchmarks-as-an-example/body-018-9bce086717ae.webp" alt="RAID misclassification" /></p>
 <hr />
 <h2>9. RAID 独有分析</h2>
 <h3>9.1 Model × Domain 检测准确率热力图</h3>
 <p>11 个模型 × 8 个领域的检测准确率矩阵。可以精确定位哪些 (模型, 领域) 组合最难检测：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/HaibinLai/HC3@main/figures/raid_model_domain_heatmap.png" alt="RAID model domain heatmap" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-08/learning-how-to-detect-ai-generated-text-use-raid-benchmarks-as-an-example/body-019-ddfc6b9c0386.webp" alt="RAID model domain heatmap" /></p>
 <h3>9.2 解码策略对比</h3>
 <p>不同解码策略（Greedy, Sampling, +Repetition Penalty）对 AI 文本统计特征的影响：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/HaibinLai/HC3@main/figures/raid_decoding_comparison.png" alt="RAID decoding comparison" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-08/learning-how-to-detect-ai-generated-text-use-raid-benchmarks-as-an-example/body-020-4404d1abf091.webp" alt="RAID decoding comparison" /></p>
 <h3>9.3 对抗攻击特征偏移（Paraphrase）</h3>
 <p>对比 Human / AI (original) / AI (paraphrased) 的特征分布，展示释义攻击如何使 AI 文本&quot;伪装&quot;为人类文本：</p>
-<p><img src="https://cdn.jsdelivr.net/gh/HaibinLai/HC3@main/figures/raid_attack_feature_shift.png" alt="RAID attack feature shift" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-08/learning-how-to-detect-ai-generated-text-use-raid-benchmarks-as-an-example/body-002-41c59da2e33a.webp" alt="RAID attack feature shift" /></p>
 <hr />
 <h2>10. 与其他数据集的对比分析</h2>
 <h3>10.1 跨数据集方法对比</h3>

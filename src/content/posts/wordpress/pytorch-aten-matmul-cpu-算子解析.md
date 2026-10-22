@@ -22,10 +22,10 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 ---
 <p>在上一期 <a href="https://www.haibinlaiblog.top/index.php/llm-on-cpu/">https://www.haibinlaiblog.top/index.php/llm-on-cpu/</a> ， 我们探讨了各个LLM的具体结构，今天我们就来探寻这些结构/算子的底层实现。</p>
 <p>上一期我们探讨的架构：LLM各阶段的代码在pytorch的实现
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250611165121785.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/pytorch-aten-matmul-cpu-%E7%AE%97%E5%AD%90%E8%A7%A3%E6%9E%90/body-001-3b82409daf98.webp" alt="" /></p>
 <h2>Pytorch调用栈解析</h2>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250611165028351.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250611170718675.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/pytorch-aten-matmul-cpu-%E7%AE%97%E5%AD%90%E8%A7%A3%E6%9E%90/body-002-918bfb1b2e7c.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/pytorch-aten-matmul-cpu-%E7%AE%97%E5%AD%90%E8%A7%A3%E6%9E%90/body-003-7b650b0c71a9.webp" alt="" /></p>
 <p>所以你这边就能看到Pytorch的调用核心逻辑了。它会先决定做什么算子，什么数据。然后回call_impl，此时它会根据之前的config（比如用GPU还是CPU，有多少线程/SM）,然后调用具体的一个底层实现。</p>
 <p>引用一句话：
 要学习ATen其实非常简单，在<code>aten</code>目录里面乱扒乱翻一通，挨个文件夹都点开瞅两眼，把所有的<code>README.md</code>都读一遍，就会发现，实际上ATen的算符是怎么定义的，实际上，已经在<code>aten/src/ATen/README.md</code>文件中，进行了非常详细的说明。</p>
@@ -335,7 +335,7 @@ dot_with_fp32_arith_main_loop_no_bfdot(
 }</code></pre>
 <p>那么这里就是ATen 矩阵乘法最低层的实现了。可以看到这里它会导入数据，然后调用一个核心kernel
 你可能好奇，那我缺的这个数据谁给我补啊？是这样的，他们会在计算前提前分好数据，然后进行计算</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250611170513080.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/pytorch-aten-matmul-cpu-%E7%AE%97%E5%AD%90%E8%A7%A3%E6%9E%90/body-004-0198d1d92c0c.webp" alt="" /></p>
 <h2>开始并行的代码：Parallel_for</h2>
 <p>是的，这里就像是OpenMP分配的情况</p>
 <p>parallel_for

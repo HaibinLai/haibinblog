@@ -39,9 +39,9 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <p>说美国是一个富得流油的国家，也可以说美国是一个穷人满街的国家。说美国是一个典型的西方民主国家，也可以说美国是一个不那么民主的国家。说美国是一个教育发达的国家，也可以说美国的教育问题成堆。说美国是一个稳定发展的社会，也可以说美国是一个危机重重的社会。</p>
 <hr />
 <p>人在美国，刚下飞机：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260104174538466.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-001-bf3c95fb0e46.webp" alt="image.png" /></p>
 <p>接下来，他开始讲述他的思考与所见所闻。</p>
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260104203614984.png" width="200px">
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-002-ccbef8f3bd24.webp" width="200px">
 <h2>美国的传统是“创新”</h2>
 <p>美国人虽然在价值观上保守，但是技术面处处标新立异。</p>
 <blockquote>
@@ -56,7 +56,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <p>“商品化可以减轻政治和行政系统的负担，但有二个重要的前提，这就是政治和行政系统必须管制商品化。商品化的真正本质不在于每样东西都成为商品，而在于商品处在合理的运转机制之中。”
 “比起管理成千上方的具体活动来说，管理几十个大的自组织系统，政治和行政系统将更富实力，更有效力。”</p>
 </blockquote>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260104174626209.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-003-d229f12386c8.webp" alt="image.png" /></p>
 <blockquote>
 <p>“要实现这个结构，先决条件是使社会生活的各个领域能够形成一个自组织系统，使这下些具体而繁杂的活动范畴与政治活动脱钩。商品化是这个转化过程的催化剂。住房、食品、交通、就业、教育这些问题是困扰每一个社会的基本难题。不少政府为这些问题所困扰，不能脱身。欲退不得，欲进不能。高度的商品化使美国社会在这學领域中形成了较为特别的结构。”</p>
 </blockquote>
@@ -66,39 +66,39 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 接待我们的官员的回答，令我们感到十分耳熟：共同生活制度的一个基本缺点是个人没有主动性，不能尽职尽责地工作；当时有许多懒汉。”</p>
 </blockquote>
 <p>Wang 举此例子进行了奇妙的思考。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260104174945483.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-004-050914d56492.webp" alt="image.png" /></p>
 <h2>美国的乡村</h2>
 <blockquote>
 <p>“对美国社会，百分之九十以上的人口在城市，乡村难以构成紧张态势。尽管没有找到良策来解决这一问题，这一问题还会长期存在，并且有恶化的倾向。不过乡村问题暂时或在一定条件下掀不起大波大澜。但对中国社会来说，百分之八十多的人口在乡村，其政治意义和社会意义就迥然不同。”</p>
 </blockquote>
 <p>中国农村与美国农村的起源不同，面对与解决城乡不平衡和发展的方案也会有所差异。wang指出了其中的关键：</p>
 <p>“乡村发展了多少，而在于矛盾化解了多少，化解矛盾的方法是否产生新的矛盾。”</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260104175036469.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-005-a9cf3477a698.webp" alt="image.png" /></p>
 <h2>什么是美国精神</h2>
 <blockquote>
 <p>“美国在创造新制度时并没有遇到强大的旧制度的反抗，与英国资产阶级革命和法国资产阶级革命不同，这使它更易于宣布实行反映资产阶级要求的思想原则。”</p>
 </blockquote>
 <p>这里的idea其实和托克维尔的思考非常像。托也提到，欧洲的老贵族阶级的利益使得任何改革难以推进，而美国的新兴环境让改革更加容易。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260104175301668.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-006-fbed79266f67.webp" alt="image.png" /></p>
 <p>美国是一个年轻的社会，没有强大到人化的协调机制。</p>
 <p>在历史悠久的国家中，权威与非权威已经人格化，法规难起到规范作用。</p>
 <p>这是美国成为法规社会的基础。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260104175350633.png" alt="image.png" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260104175405508.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-007-b7705acd47a6.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-008-c1dc94b1750c.webp" alt="image.png" /></p>
 <p>印第安人太落后，不能提供产品，只能提供土地，因而无法奴役。印度人文明足够可以奴役，因而可以被殖民。</p>
 <h2>美国的信条</h2>
 <blockquote>
 <p>“什么是美国的信条？亨廷顿认为可以归纳为：（1）自由；（2）平等；（3）个人主义；（4）民主；（5）法治。看上去很简单明瞭。人类的难题就在这里，哪怕是一个简单的观念，要其成为社会的主导观念，也是难乎其难的，没有几代人的努力不能奏效，自然，美国信条和美国实践并不完全吻合。”</p>
 <p>“（1）个人有神圣的权力；（2）权力之源在民；（3）一切政府受法律和人民的限制；（4）地方政府优先于联邦政府；（5）大多数人比少数人明智；（6）最小的政府是最好的政府”</p>
 </blockquote>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251216054255322.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-009-627bebb56fb4.webp" alt="image.png" /></p>
 <p>美国人是最不喜欢管的，但是最喜欢钱。于是用钱管理人最舒服。</p>
 <h2>平等or自由</h2>
 <blockquote>
 <p>“因为西方体制保证的平等，只是形式上的政治平等，而非社会平等、经济平等。这一点已为西方学者所公认。形式上的政治平等确定之后，再进一步要求平等，就会涉及许多人的利益。历史决定了规定形式上的政治平等易，实现经济平等难。
 ”</p>
 </blockquote>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260104175503933.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-010-e095b35f5ca0.webp" alt="image.png" /></p>
 <blockquote>
 <p>“从历史的角度看，美国人看自由重于平等，有时候追求自由的活动以追求平等的形式表现出来。在目的达到之后，保存下来的往往是自由。不能说有的人不向往平等，但他们只向往政治平等，如果再往前走，就难以接受了。”</p>
 </blockquote>
@@ -114,19 +114,19 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <p>“贝尔蒙镇并不是独立的。它在镇内事务上有一整套独特的机制，但它必须服从州和联邦法律，美国的政治体制有一个特点，就是它的地方政府并不千篇一律，尤其是县以下的政府。大部分地方政府都保存了传统的色彩。而美国人从未想到要使这些地方政府统一起来，而是任其发展。这种看问题的方法在世界上也是少见的。从组织体制来说，全国是一体化的，但具体运作方式却各有千秋。实际上，每个地方政府都适应了当地的传统、当地的观念和当地的需要。任何政治体制，只有做到这一点才能良好运转。在很大程度上，美国政治制度与历史——社会——文化条件的适应，并不体现在联邦和州级政府上，而是体现在县级以下的政府上。这是不少国家没有的机制。”</p>
 </blockquote>
 <p>Wang发现体制上的优势，既能融入每个县级，又能统一发声。这个体制的优点不言而喻。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251217043002668.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-011-6cc832992caf.webp" alt="image.png" /></p>
 <h2>”第三共和国“</h2>
 <blockquote>
 <p>“所谓的第一共和国，是1787年至1930年代的美国，特征是联邦结抅，中央政府权力有限，州政府权力较大。第二共和国起于1930年代，这时中央政府的权力大大扩展，其中主要的权力是管制和再分配的权力。管制和再分配的权力使高工资、髙福利、高消费、髙赤字成为可能，最后导致社会怨声载道。如今反自由主义的情绪颇为强烈。第三共和国，意味着如何摆脱六十年代达到顶峰的困境，选择新的道路。利益集团多元主义败坏了传统的民主观念，使政府变得无能为力，没有微信，使政府无法再民主地运转。罗威所谓的第三共和国叫“司法民主制&quot;（JudicialDemocracy），强调在各个领域健全司法程序。”</p>
 </blockquote>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260104175727410.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-012-2e0d6a25f6b6.webp" alt="image.png" /></p>
 <hr />
 <p align="center">
-  <img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260104203723212.png" width="200px">
+  <img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-013-7814829ec5c5.webp" width="200px">
 </p>
 <h2>美国人的世界意识</h2>
 <p>美国普通人不知道国际，但是精英层、学术层、政府极度了解和渴望了解国际。因为了解国际是控制国际的第一步。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260104175826854.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-014-3f7a62780aa7.webp" alt="image.png" /></p>
 <blockquote>
 <p>“对任何社会、民族和国家都一样，在当今这个人类共同体休戚与共的世界上，要获得本民族、本社会或本国的发展，前提是熟知和了解其他民族和其他社会的实力和战略。当今世界是一个合作加竞争的世界，在某种意义上更是一个竞争的世界。世界各国在政治、经济、文化、军事、生活方式等方面展开全面竞争。在这场竞争中先败或落伍，就将意味着落后和贫困。近代史已经证明了这一点。目前的变化只是，这场竞争更加激烈，更加不平等。要在这场竞争中取胜，关键的因素是人。推动人的国际化，将是提高和强化人的素质的重要方面。试想赶着牛车，过着悠闲的乡居生活的人，乘着喷气客机、过着紧张的城市生活的人，共同来到送个世界舞台上，面对着错综复杂的各种体制，谁将更有竞争力？
 “这里的关键不在于地理界限，在于心灵界限。生活于现代都市中的人，依然可能具有乡居的意识，居住与乡间的人，也可能具备浓烈的国际意识。教育是打破心灵界限的大力量。只有真正和全面突破了这道界限，一个民族和社会才能真正加入国际社会，真正有效地开展国际竞争。
@@ -144,7 +144,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 其六，传统价值中的民主成分，促成人们选择创新，接受创新。</p>
 </blockquote>
 <p>如今的美国，标新立异似乎开始减少，经费的不足，国力的减少，都有原因。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251226023028562.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-015-2e91d39af5da.webp" alt="image.png" /></p>
 <p>另一个是未来主义。但是目前也有所收缩。</p>
 <blockquote>
 <p>“在科技发展方面，美国人更加讲究未来主义在基础理论、天体物理、生物科学、化学等基本領域，未来主义的观念极其兴盛。”</p>
@@ -178,20 +178,20 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <p>“这套机制具有强制性，它们把所有的人都纳入资本主义的运营方式之中，并且强迫进入这个机制的每一个人服从它们的规则，”</p>
 </blockquote>
 <h2>性解放</h2>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260104180534809.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-016-a42b57056ee5.webp" alt="image.png" /></p>
 <h2>美国人过的更孤独</h2>
 <blockquote>
 <p>“美国的经济制度造成了人的孤独，社会对钱的突出和看重，便人与人之间的关系金钱化，而人情味在金钱关系中被强制压抑下去。”</p>
 </blockquote>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251226024056352.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-017-e10dd3f169e6.webp" alt="image.png" /></p>
 <h2>“初交不难，深交不易”</h2>
 <blockquote>
 <p>“其实细细观察美国社会，人际关系并非不重要，而是至关重要。人总是人，没有人际关系，社会何以持续？在许多方面，与东方文化下的人际关系十分相象。位教授告诉我：在美国，没有人际关系人们可以生活的很好，但如果有人际关系人可以生活得更好。这恐怕是一个比较客观的评价。柏杨说“丑陋的中国人”，其实这种非一个民族特有的现象，只是在不同文化条件和经济发展的条件下程度不同罢了。”</p>
 </blockquote>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251226025524384.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-018-81c2cdad22a1.webp" alt="image.png" /></p>
 <p>朋友可以是熟人，但是深交非常困难。
 这点太有体会，之前一直在这方面犯难，但是这样思考就通顺了。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251226025514517.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-019-85dc0309ccde.webp" alt="image.png" /></p>
 <p>礼物：朋友/交换</p>
 <p>美国的朋友机制：朋友能解决一些问题，但是不能解决全部问题。</p>
 <p>现代化在多大程度上改变了人性，需要好好研究。</p>
@@ -210,37 +210,37 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <blockquote>
 <p>“美国最大的法规就是宪法。在这个社会里，宪法是文化的核心部分，不仅仅是政治和法律的核心部分。我记得有一次一位教授来复旦大学讲课，有一位中国学生问了一个问题:“美国没有固定的意识形态，人们根据什么来“统一”思想？”这是一个非常典型的中国式问题，教授大惑不解。经过解释之后，他明白了这个学生想问什么问题。他思考了一阵后说，“宪法。”答案似乎是风马牛不相及，宪法是法律，并非意识形态。意识形态没有法律效力。但这个答案的确反映了美国人的习惯反应：宪法是文化，不仅仅是法律。宪法深刻体现了西方占主导地位的意识形态。并特其变为法律。宪法两百多年来深印人心，成为社会争端的最后仲裁。并非人人时时刻刻都想到宪法，但在争执发生时，唯一可以依靠的人人觉得可以相信的就是宪法。（参见第二章第5节“二百年的宪法”）。”</p>
 </blockquote>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260104180939384.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-020-c18d3a9ef961.webp" alt="image.png" /></p>
 <h2>税收</h2>
 <p>“税收制度有一种功能，这就是将整小组织起来。”</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260104203455801.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-021-5fbd415da0ee.webp" alt="image.png" /></p>
 <h2>科技治人</h2>
 <p>科技链条越来越长，人需要越来越精，导致人必须服从科技规律而组织。</p>
 <p>比如CPU产业，从微电子芯片设计、验证、生产流片，到BIOS、OS、上层软件支持。是科技让人组织起来。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260104170817340.png" alt="07843a3bbc8fe70071bd4ddc41f0a626.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-022-45288774da5d.webp" alt="07843a3bbc8fe70071bd4ddc41f0a626.png" /></p>
 <p>“科技的发展和运用必然导致社会更有组织”
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260104181008430.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-023-c8b0b21cd6ef.webp" alt="image.png" /></p>
 <p>汽车、计算机的规则，人必须遵循，否则机器就不工作。养成了遵守规则的习惯。</p>
 <p>遵守规则有好坏，关键在规则的源头。</p>
 <h2>驴象治国与利益集团</h2>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260104181057548.png" alt="image.png" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260104171100656.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-024-2dc71627c96d.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-025-9ab4b243257c.webp" alt="image.png" /></p>
 <blockquote>
 <p>“在美国社会中，权力是分享的，有许多相互竞争的利益争取权力，其中没有一个单独的利益可以独揽大权，也没有哪一部分人完全被排除在权力之外。权力通过这样的机制在不同的社会团体中分享，可见，多元主义要以利益集团理论为基础。”</p>
 </blockquote>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260104171650213.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-026-f84ee2f571d4.webp" alt="image.png" /></p>
 <blockquote>
 <p>“从形式上看，人们享有更多的民主权利，可以参与生产过程和公共事务的管理活动；但从实质分析，他们的所有民主活动，只能是“自觉”地按着资本进一步集中的要求而进行，他们的行动统一于一个意志之下。法兰克福学派的马尔库塞分析了美国社会的经济政治结构，得出了一个颇值得深思的观点:&quot;私人的空间已经被技术世界的现实所侵犯和削减。大规模生产和大规模分配要求財个人的全部占有”。这个过程必然会波及政治过程，引起政治上的高度统一，这种统治是任何能工巧匠和乐队指挥都无法想象的。”</p>
 <p>“实际上，政治权力却是日益集中的，现代化的技术手段也为这种集中提供了良好的物质条件。许多美国思想家看到了这一点，连托夫勒自己在分析第三次浪潮时，也敏感地意识到了这个方向，说第三次浪潮政府的第一个异端的原则是少数派权力，第二次浪潮时代的极其重要合法的原则，即多数派统治，已经日益过时了，现在不是多数派说了算，政治制度必须更多地反映这一事实。从美国政治制度看。在“参与民主制”的表象的背后，集权的过程正在急剧加速。几乎每六个工作的美国人中就有一个受雇于联邦政府或它的&quot;附属机构”。”</p>
 </blockquote>
 <hr />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260104203832581.png" width="200px">
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-027-c1e0cb6bb193.webp" width="200px">
 <h2>选举观察</h2>
 <blockquote>
 <p>“从以上对比可以看出，两党候选人关心的、讨论的都是社会大众关心的问题。围绕这些问题谈，恰恰是为了争取选民。以上九个方面的问题都是学术界、新闻界、政界和公众日常讨论的问题。预算、健康、环境、就业、毒品、教育等均为令人头痛的何题。哪个党的总统候选人要当选，就必须想法解决这些问题。其实，每个候选人也不知道能否解决，为了当选，就必须提供方案。其实这些方案社会早就有之，而且有多种方案。两党的工作只是选择可能最受人支持或同情的方案，列为自己的方案。也可以说，“选择”不是一个很准确的字眼，从政党来讲，这是，把商品——候选人，投入市扬；从选民来讲，这是在市扬上现有的商品中选购。”</p>
 </blockquote>
 <p>这里还有电视辩论、民主聚餐会。很多和日常介绍一样，可以快速浏览看看。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260104200607034.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-028-68cd1e0230d8.webp" alt="image.png" /></p>
 <blockquote>
 <p>“拿莱德弗来说，本人是一位律师，有丰富的经验，仪表堂堂，口才极隹，富于幽默感，善于与人打交道。内格尔大概也具有同样的素质。选举制度加上政党制度，使候选人具有较高的素质。这两者，少了哪一方面，都可能产生令人啼笑皆非的结果。
 莱德弗的竞选活动由他自己负责，并无多少人为他做事。他谈的均是老百姓关心的具体问题，这倒并非候选人愿意谈，而是选举机制的力量。自然，还有一种力量更为重要，这就是政党。平民百姓，没有政党背景，很难在选举中获胜。”</p>
@@ -258,17 +258,17 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 </blockquote>
 <p>经济的发展接替了政府政治系统的努力。</p>
 <h2>州以下：县级政治与都市政治</h2>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260104215744038.png" alt="image.png" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260104215841943.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-029-67d3ba88851b.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-030-0e3aec45bb6f.webp" alt="image.png" /></p>
 <blockquote>
 <p>“与世界上不少国家相比，美国的城市管理是第一流的，现代化程度也是第一流的。美国市政有一项有利的条件，它只需要管制经济，而不需要管理经济，经济领域是私人管理的，市政只制定法规。地方政府的首要功能是管理城市发展促进城市生活水平的提髙，改善城市设施。与中国相比，市府的职责小得多。可以集中力量管市政建设。
 ”</p>
 </blockquote>
 <p>透明议事
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260104215935827.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-031-d1edb8fdf0bb.webp" alt="image.png" /></p>
 <p>有很多具体的介绍，但是很多都比较老了，就可以跳过了。</p>
 <hr />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260104203907022.png" width="200px">
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-032-3eb5447bd6ef.webp" width="200px">
 <h2>可口可乐</h2>
 <p>比较有趣的是wang也参观了亚特兰大的可口可乐总部。当年我只在门口拍了照，内部是什么无法查看。</p>
 <blockquote>
@@ -284,7 +284,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <p>“宗教之所以能产生这样强大的影响，很重要的一条，就在于宗教的世俗化。宗教活动没有那样多的神秘色彩，与中世纪的宗教活动和宗教组织已大为不同。不少大型的现代化教堂均十分摩登，完全没有旧时教堂尖顶塔搂的风格，而呈现出一种现代化的情调。不少现代化风格的教堂成为争论的对象。教堂里富丽堂皇，青松翠叶装饰。上帝和基督大概连想都不敢想。”</p>
 </blockquote>
 <p>宗教维持秩序，维持自由，促进社会正义。不过wang的分析也很有意思：社会组织系统、道德系统、辐射系统。并且，宗教不能干涉政治，不能迷信，否则就会阻碍科学，或造成专制愚昧。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260104220807429.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-033-93892cd857a6.webp" alt="image.png" /></p>
 <h2>教育：MIT与Harvard</h2>
 <blockquote>
 <p>“高等教育最重要的功能不在于培养出英才，而在于使每一代人（注意，一代人）都具备现代化意识。”</p>
@@ -332,28 +332,28 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 </tbody>
 </table>
 <p>Gemini这样回答：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260104221755215.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-034-ba8e01fd89dd.webp" alt="image.png" /></p>
 <p>我唯一不理解的是，为什么是大学承担了这个工作？</p>
 <p>大学的初始使命可能并非如此，但是，仔细一想，它是最接近的了。大学能刚好接待18-22岁的人，半脱离社会，蕴含理性。除此之外，可能很难有第二个场所供年轻人尝试。</p>
 <blockquote>
 <p>“之所以说麻省理工学院是一所典型的大学，是因为它发映了美国大学的特点。麻省理工学院的教授称自己的学院为“研究大学”（ResearchUniversity）。何谓“研究大学“？他们解释说，欧洲的大学的传统注重传递知识，而美国的大学注重发现知识，这就是“研究大学”的基本涵义。麻省理工学院主要围绕着这个目标活动。整个学院以实验室为基轴组织起来，有一千多名教授，既教书又做研究，还有一千多人做辅助工作。”</p>
 </blockquote>
 <p>研究大学目标在于发现知识，这一点很有意思。并且，能够在35年前意识到美国大学这一情况，不容易。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260104221145567.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-035-353e45f8a089.webp" alt="image.png" /></p>
 <blockquote>
 <p>“麻省理工学院的教育应该说是成功的：波士顿地区有百分之七十的公司是这个学院的学生开创的，大多数是高技术公司。有四千多人在全球各国的大学中任教。世界各国的人们也慕名而来。在校园中散步时，可以看见绿色的草坪旁矗立着雄伟的建筑，从这些建筑中走出各种肤色的人。亚裔的学生异常之多。这就是知识的力量。麻省理工学院还制定了专门的非种族歧视政策：“麻萨诸塞理工学院接受任何种族、肤色、性别或民族的学生，他们享有学院学生普遍享有的权利、特权和计划。”这也是知识的力量。”</p>
 </blockquote>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260104222313674.png" alt="image.png" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260104222404106.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-036-354a1dc50caf.webp" alt="image.png" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-037-20b2c1817bd6.webp" alt="image.png" /></p>
 <h2>教育：行政院校与海军学院</h2>
 <blockquote>
 <p>“从对公共行政人员的训练来看，麦克斯韦尔的课程均较职业化，集中在公共行政操作的一面。公共行政讲究对社会事务的具体管理。在现代杜会中，政府要承担五花八门的职责，从经济、文化、教育、交通、科技发展、外贸到生老病死、环境保护等，这要求公共行政人员拥有一个领域的专门知识和技能。过于理论化和学术性的训练无助于职业行政人员。职业行政人员需要可用、可行和可操作的知识和技能。公共行政教育不走这个方向，也难以真正对社会发展起作用。”</p>
 </blockquote>
 <p>海军荣誉
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260104222737387.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-038-3b272bcf4a0a.webp" alt="image.png" /></p>
 <h2>芝加哥</h2>
 <p>哈哈哈，wang去的地方我除了海洋馆，都去了。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260104222842326.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-039-eeceb2688458.webp" alt="image.png" /></p>
 <blockquote>
 <p>“在科学和技术教育方面，他们深深懂得怎样花钱才能获得最大的收益。科学和工业博物馆就是一个实例。不少博物馆都是收费的，但科学和工业博物馆是免费的，每天开放，而且博物馆前面巨大的停车场也是免费的。”</p>
 </blockquote>
@@ -368,12 +368,12 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <blockquote>
 <p>“大学图书馆系统，在今天的社会上起着主导的传播知识和观念的作用。我参观哈佛大学、MIT、斯坦福大学、加利福尼亚大学、伯克莱分校、密苏里大学克伦布斯分校、爱荷华大学、俄亥俄州迈阿密大学、耶鲁大学、普林斯顿大学、锡拉求斯夫学、西雅图华盛顿大学、加利福尼亚大学圣地亚哥分校、爱摩里大学、密歇根大学等学校的图书馆，深感这些图书馆在一个社会中所起的作用非同小可。几千所大学的图书馆加起来，构成这个杜会管理和运转体制中的一个重要组成部分，同时也是传播知识和智慧的无所不在的网络。”</p>
 </blockquote>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260104223025930.png" alt="image.png" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260104223036805.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-040-72ce0455459f.webp" alt="image.png" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-041-0cc1c80b41be.webp" alt="image.png" /></p>
 <blockquote>
 <p>“图书馆系统在一个社会的管理中有何作用？这是一个耐人寻味的问题。任何社会的管理，在很大程度上是一种知识管理。政治管理也罢、行政管理也罢、经济管理也罢、技术管理也蓽，最终均是对人的管理。人不是抽象的、机械的对象，而是能思维、有主见的对象。主导人的行为首先是人的思想，是人所接受的一整套既成文化和既成观念，以及人们在这个基础上所进行的创造。一切社会的进步和冲突其实都源自对知识的管理。”</p>
 </blockquote>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260104223145976.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-042-937be2c5b288.webp" alt="image.png" /></p>
 <hr />
 <h2>美国的10个可能的危机</h2>
 <blockquote>
@@ -420,7 +420,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 </ol>
 </blockquote>
 <p>“黑社会组织或犯罪集团在美国社会中有强大的实力，严密的组织。”</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260104223556939.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/aaa/body-043-4e2d20eeef33.webp" alt="image.png" /></p>
 <p>难题</p>
 <p>这个问题跟不同利益集团有关，在多方利益下，难解决。</p>
 <blockquote>

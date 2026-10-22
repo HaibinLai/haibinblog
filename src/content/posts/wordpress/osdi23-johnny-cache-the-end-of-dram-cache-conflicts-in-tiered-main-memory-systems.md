@@ -112,16 +112,16 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 </ol>
 <h2>为什么有生日攻击</h2>
 <p>复习完计组，看这个就看懂了：</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250722122040608.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-07/osdi23-johnny-cache-the-end-of-dram-cache-conflicts-in-tiered-main-memory-systems/body-001-07c6dbb304df.webp" alt="" /></p>
 <p>计算机程序在使用CXL、SSD、PMEM时，虽然虚拟地址是连续的，但是物理上其实是使用的Random access。但是如果把DRAM当Cache，此时OS Page的设计是直接copy Page到上面，而硬件的设计直接映射/1路组相联。因此如果随机访问，这里就很容易造成在 Tag mod CacheSize行数一样的情况时，会发生冲突，而这就是生日悖论。</p>
 <p>当你分配很多页时，每个页的物理地址通过：PFN mod slots 映射到一个 slot。虽然 DRAM cache 很大（有很多 slot），但一旦有很多页要分配，就很容易让多个页落在同一个 slot（产生 cache conflict）。比如cache 有 2M 个 slot，看似很多，但一旦有几百万个页，就会出现冲突。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250722123308899.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-07/osdi23-johnny-cache-the-end-of-dram-cache-conflicts-in-tiered-main-memory-systems/body-002-e68bf9c1fbf2.webp" alt="" /></p>
 <h2>设计</h2>
 <p>Design其实就比较简单了。具体可以去看原文。</p>
 <p>We propose the following simple static page allocation policy to reduce conflicts: we allocate a new page such that its physical address maps to a cache slot with the fewest pages currently mapped to it. For example, if we have a cache with 2 million slots and 4 million pages to be allocated, we allocate 2 pages to each slot. The static policy has no noticeable overhead, but it vastly reduces conflicts.</p>
 <p>静态策略：分配页时统计哪个 slot（bin）当前冲突少，就往那分。
 这里还是会可能有冲突，但是线性的冲突在这个2百万/4百万，能够把随机的冲突（可能非常高）给压下来。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250722123101405.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-07/osdi23-johnny-cache-the-end-of-dram-cache-conflicts-in-tiered-main-memory-systems/body-003-3f31b1468e4b.webp" alt="" /></p>
 <p>We also investigate a dynamic policy that takes into ac count the access frequency of pages, distinguishing between hot and cold pages. The dynamic policy allocates a new page to the cache slot with the lowest access frequency and reacts to workload changes by dynamically remapping pages when it detects conflicts.</p>
 <p>动态策略：监控热点页，发现冲突就迁移。
 另一个是冷热page的想法。</p>
@@ -136,4 +136,4 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <li>但根据生日悖论，冲突概率远高于 2.5%，会有不少页落到相同 slot；</li>
 <li>cache miss 增加，性能下降。如果多个热页映射到同一 slot，它们会互相踢出 → ping-pong。</li>
 </ul>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250722123208949.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-07/osdi23-johnny-cache-the-end-of-dram-cache-conflicts-in-tiered-main-memory-systems/body-004-ef58f08cbaf9.webp" alt="" /></p>

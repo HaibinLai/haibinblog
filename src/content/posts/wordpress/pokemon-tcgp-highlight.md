@@ -22,4 +22,4 @@ importedFromWordPress: true
 cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/pokemon-tcgp-highlight.webp"
 ---
 <p>Pokemon!!!!</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503281217972.png" alt="38ada5fbdc71eaa163492f3289b80afc.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/pokemon-tcgp-highlight/body-001-67c9cc4acb59.webp" alt="38ada5fbdc71eaa163492f3289b80afc.png" /></p>

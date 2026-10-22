@@ -105,6 +105,8 @@ def preserved_frontmatter_metadata(output: Path) -> dict[str, dict[str, object]]
             "featuredLabel",
             "cardImage",
             "featuredBannerImage",
+            "imageMirrorIncludeHosts",
+            "imageMirrorOpaqueWebpQuality",
             "wordpressId",
         ):
             match = re.search(rf"(?m)^{key}:\s*(.+?)\s*$", header)
@@ -119,6 +121,10 @@ def preserved_frontmatter_metadata(output: Path) -> dict[str, dict[str, object]]
                 values[key] = parsed.strip()
             elif isinstance(parsed, int):
                 values[key] = parsed
+            elif isinstance(parsed, list) and all(
+                isinstance(item, str) for item in parsed
+            ):
+                values[key] = [item.strip() for item in parsed if item.strip()]
 
         wordpress_id = values.pop("wordpressId", None)
         if values:
@@ -280,6 +286,26 @@ def main() -> int:
         featured_label = str(preserved.get("featuredLabel", ""))
         card_image = str(preserved.get("cardImage", ""))
         featured_banner_image = str(preserved.get("featuredBannerImage", ""))
+        preserved_include_hosts = preserved.get("imageMirrorIncludeHosts", [])
+        image_mirror_include_hosts = (
+            [
+                value.strip()
+                for value in preserved_include_hosts
+                if isinstance(value, str) and value.strip()
+            ]
+            if isinstance(preserved_include_hosts, list)
+            else []
+        )
+        preserved_opaque_webp_quality = preserved.get(
+            "imageMirrorOpaqueWebpQuality"
+        )
+        image_mirror_opaque_webp_quality = (
+            preserved_opaque_webp_quality
+            if isinstance(preserved_opaque_webp_quality, int)
+            and not isinstance(preserved_opaque_webp_quality, bool)
+            and 1 <= preserved_opaque_webp_quality <= 100
+            else None
+        )
         imported_language = latest_meta(metadata, "nicen_language").strip()
         imported_translation_key = latest_meta(
             metadata, "nicen_translation_group"
@@ -411,6 +437,16 @@ def main() -> int:
         if featured_banner_image:
             featured_fields.append(
                 f"featuredBannerImage: {yaml_value(featured_banner_image)}"
+            )
+        if image_mirror_include_hosts:
+            featured_fields.append(
+                "imageMirrorIncludeHosts: "
+                f"{yaml_value(image_mirror_include_hosts)}"
+            )
+        if image_mirror_opaque_webp_quality is not None:
+            featured_fields.append(
+                "imageMirrorOpaqueWebpQuality: "
+                f"{image_mirror_opaque_webp_quality}"
             )
         if featured_fields:
             source_index = next(

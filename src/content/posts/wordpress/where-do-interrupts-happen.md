@@ -65,7 +65,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 </blockquote>
 <p>借用“乱序执行Out-of-Order Execution - Wil的文章 - 知乎” 的图：
 <a href="https://zhuanlan.zhihu.com/p/26184755002">https://zhuanlan.zhihu.com/p/26184755002</a>
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251022180035908.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-10/where-do-interrupts-happen/body-001-9fe43854e463.webp" alt="image.png" /></p>
 <blockquote>
 <p><strong>体系结构状态</strong></p>
 <p>在 x86 架构中，当我们谈到“<strong>architectural state（体系结构状态）</strong>”时，指的是<strong>在架构层面对软件可见、受体系结构规范约束的所有状态信息</strong>。也就是说，这是 CPU 在某一时刻对外“承诺”的机器状态，它定义了“机器此刻长什么样”，而不是微架构层面的暂存值、乱序执行状态、寄存器重命名表、ROB（Reorder Buffer）等内部实现细节。</p>
@@ -525,7 +525,7 @@ CPU的4指令/周期的退休带宽，恰好使得 <code>add</code> 总是被�
      270 :   40015e:       dec    rcx
        0 :   400161:       jne    4000c8 &lt;_start.loop&gt;</code></pre>
 <p>为了方便查看，我截取了原图，它对高频的指令涂了红色：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251023001503513.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-10/where-do-interrupts-happen/body-002-262dc8df9a5f.webp" alt="image.png" /></p>
 <p><strong>尽管<code>lock add</code>指令对总执行时间没有影响，但它们被中断选中的概率却接近90%。</strong> 根据我们的模型，这些指令本应能在<code>vpmulld</code>循环之前提前执行，从而在成为ROB头部时立即退休。我们观察到的这种现象源于带lock前缀的指令采用<strong>退休时执行</strong>机制——这是一种特殊类型的指令，它会一直等待直到自己成为ROB头部才开始执行。</p>
 <p>因此这类指令作为最老未退休指令时，总会占据固定的最小时长：无论周围指令如何，它都永远不会立即退休。在本案例中，这意味着退休阶段大部分时间在等待加锁指令，而执行阶段大部分时间在等待<code>vpmulld</code>指令。值得注意的是，加锁指令带来的退休时间延迟并未与<code>vpmulld</code>的延迟简单叠加：其在退休阶段的等待时间，恰好抵消了原本需要等待乘法指令退休的时间。这就导致了采样比例呈现非对称分布，而非均等的50/50分割。</p>
 <blockquote>
@@ -569,7 +569,7 @@ CPU的4指令/周期的退休带宽，恰好使得 <code>add</code> 总是被�
      154 :   400140:       lock add QWORD PTR [rbx],0x1
 
 pattern continues...</code></pre>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251023002112266.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-10/where-do-interrupts-happen/body-003-1e3cff8d4b2a.webp" alt="image.png" /></p>
 <p><code>lock add</code> 指令的采样数量保持相似，<strong>但 <code>vmulld</code> 指令的总采样数现已增长到与之相当的水平</strong>。实际上，我们可以利用 <code>lock add</code> 被选中的比率与已知的代码块吞吐量（40周期）来计算出该指令的退休耗时。通过几次运行，我测得约38%-40%的选中率，对应15-16周期的退休时间，仅略低于该指令在连续执行时的延迟周期。</p>
 <p>（作者注：<code>vpmulld</code>指令之间出现的不均匀分布模式，如有的是59次，有的是166次，有的是267次，是由于<code>lock add</code>指令吞噬了其后首批<code>vpmulld</code>指令的退休周期（这些指令因早已执行完毕而能够快速退休），因此只有排列在更后位置的<code>vpmulld</code>指令才能获得完整的退休时隙分配。）</p>
 <blockquote>

@@ -21,7 +21,7 @@ showCitation: true
 importedFromWordPress: true
 cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-2024-passage.webp"
 ---
-<p><a href="https://www.haibinlaiblog.top/index.php/418/%e5%be%ae%e4%bf%a1%e6%88%aa%e5%9b%be_20241118023327/"><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503230117727.jpeg" alt="" /></a></p>
+<p><a href="https://www.haibinlaiblog.top/index.php/418/%e5%be%ae%e4%bf%a1%e6%88%aa%e5%9b%be_20241118023327/"><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-2024-passage/body-001-e2110010efe7.webp" alt="" /></a></p>
 <p>为了寻找下一阶段的工作,同时思考我未来要做什么,我就将 SC 24大概90 篇文章都读了一遍.
 这个栏目是我为了学习HPC而创建，我的解读目的在于了解以下问题：</p>
 <p><strong>研究的问题</strong></p>

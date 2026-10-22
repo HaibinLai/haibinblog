@@ -37,7 +37,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 </ul></li>
 <li>如果任务本身不复杂（像PageRank或连通分量），这些额外步骤（分区、通信、同步）的开销可能比计算本身还大，导致总时间比单线程长。</li>
 </ul>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504210022835.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/scalability-but-at-what-cost-%E6%96%87%E7%AB%A0%E4%BB%8B%E7%BB%8D/body-001-4593a0ed0896.webp" alt="" /></p>
 <p>这篇论文中提到的多线程或分布式系统在某些情况下无法超越单线程实现的原因，主要可以归结为以下几个方面，这些原因在论文中被详细分析并与实际测量结果相关联：</p>
 <ol>
 <li>

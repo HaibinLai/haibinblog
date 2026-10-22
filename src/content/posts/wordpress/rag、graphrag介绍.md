@@ -23,7 +23,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 ---
 <p>本文是对这两个概念的转载与学习</p>
 <p>部署效果：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202502250050366.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-02/rag%E3%80%81graphrag%E4%BB%8B%E7%BB%8D/body-001-a5da1b8119fb.webp" alt="" /></p>
 <h2>RAG介绍</h2>
 <p><a href="https://blog.csdn.net/baidu_33256174/article/details/139574571">1</a><a href="https://blog.csdn.net/Python_0011/article/details/139752344">2</a><a href="https://blog.csdn.net/FrenzyTechAI/article/details/135143045">3</a></p>
 <p><strong>检索增强生成（RAG）</strong> 是一种结合信息检索和生成模型的技术，用于提高大语言模型（LLM）的回答准确性和深度<a href="https://blog.csdn.net/baidu_33256174/article/details/139574571">1</a><a href="https://blog.csdn.net/Python_0011/article/details/139752344">2</a>。</p>
@@ -53,7 +53,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 对检索到的信息进行处理和增强，以便生成模型可以更好地理解和使用。</p>
 <p><strong>生成阶段</strong>
 将增强后的信息输入到生成模型中，生成模型根据这些信息生成答案。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202502221829170.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-02/rag%E3%80%81graphrag%E4%BB%8B%E7%BB%8D/body-002-f5b99e0ffeda.webp" alt="" /></p>
 <p>原文链接：<a href="https://blog.csdn.net/baidu_33256174/article/details/139574571">https://blog.csdn.net/baidu_33256174/article/details/139574571</a></p>
 <h2>相应简易API代码</h2>
 <p><strong>数据处理</strong></p>
@@ -156,7 +156,7 @@ if __name__ == &quot;__main__&quot;:
 <li><strong>向量化方案则更适合于基于相似性匹配和快速检索自然语言知识的应用。</strong></li>
 </ul>
 <p>GraphRAG在整体架构与传统RAG并无更大区别，区别在于检索的知识采用图结构的方式进行构建、存储并检索：</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202502221830364.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-02/rag%E3%80%81graphrag%E4%BB%8B%E7%BB%8D/body-003-7cf4d772b456.webp" alt="" /></p>
 <h3>图基础：数学概念、图数据库</h3>
 <p><strong>图（Graph）是一种用来表示对象以及它们之间关系的数学结构。</strong> 任何两个对象之间都可以直接发生联系，所以适合表达更复杂的关系信息。一个图结构的主要的组成是节点和边。</p>
 <ul>
@@ -164,7 +164,7 @@ if __name__ == &quot;__main__&quot;:
 <li><strong>边</strong> ：用来表示对象之间的关系。比如用户之间的关系，如相互关注。</li>
 </ul>
 <p>下面是一个关于明星、电影、公司这几种实体的一个Graph例子：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202502221853768.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-02/rag%E3%80%81graphrag%E4%BB%8B%E7%BB%8D/body-004-f0e19c789914.webp" alt="" /></p>
 <p><strong>图数据库（GraphDB）</strong></p>
 <p>图数据库是一种专门用于存储和操作图结构数据的数据库管理系统。与关系型数据库不同，图数据库使用节点、边和属性来表示和存储数据。这使得 <strong>它们非常适合处理高度连接的数据，提供高性能的复杂查询能力，用来遍历与发现有洞察力的数据关系</strong> 。其最大特点是：</p>
 <ul>
@@ -180,7 +180,7 @@ if __name__ == &quot;__main__&quot;:
 <p>基于图数据库进行知识图谱检索的时候，又可以有两种常见方式（取决于图数据库的支持能力）：</p>
 <p><strong>借助Text-to-GraphQL</strong> ：把自然语言的输入借助LLM与Text-to-GraphQL技术转换为图数据库的查询语言（比如Neo4j的 <strong>Cypher</strong> 语言），再使用图数据库的查询语言从知识图谱中检索出需要的知识。</p>
 <p><strong>借助Vector索引</strong> ：在构建的Graph基础上进一步对其中的节点与关系创建向量索引，并通过向量相似性来检索出相关的节点和关系信息；还可以结合传统的关键词做混合检索（注意区分直接对原始知识做向量检索）。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202502221832856.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-02/rag%E3%80%81graphrag%E4%BB%8B%E7%BB%8D/body-005-df2a3199bd6d.webp" alt="" /></p>
 <p>图数据库的强大之处在于你可以同时把结构化与非结构化的数据通过转化映射，以知识图谱的方式存储到单一的库中。通常来说，Text-to-GraphQL更适合对结构化数据生成的Graph进行查询，而Vector索引更适合对非结构化数据生成的Graph进行查询。</p>
 <h3>构建方法</h3>
 <p>GraphRAG通过以下4步实现。</p>
@@ -204,7 +204,7 @@ if __name__ == &quot;__main__&quot;:
 <li>并行生成每个相关社区的部分回答</li>
 <li>综合所有部分回答，生成最终的全局回答</li>
 </ul>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202502221903222.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-02/rag%E3%80%81graphrag%E4%BB%8B%E7%BB%8D/body-006-bf84d7a29d83.webp" alt="" /></p>
 <p><a href="https://arxiv.org/pdf/2404.16130">2404.16130</a></p>
 <p><a href="https://blog.csdn.net/m0_59163425/article/details/141143564">https://blog.csdn.net/m0_59163425/article/details/141143564</a></p>
 <h3>简易代码</h3>
@@ -289,6 +289,6 @@ if __name__ == &#039;__main__&#039;:
 <p>通过本文的介绍，相信你已经对<strong>GraphRAG</strong>有了初步的了解，并能够动手构建一个简单的知识图谱驱动应用。<strong>GraphRAG</strong>结合了知识图谱的结构化信息和自然语言处理的强大能力，为生成高质量的文本提供了有力的支持。</p>
 <hr />
 <p>这样，你可以更好地理解如何通过结合知识图谱和自然语言处理来创建一个智能的应用程序。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202502221844960.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-02/rag%E3%80%81graphrag%E4%BB%8B%E7%BB%8D/body-007-b10cfbae63ad.webp" alt="" /></p>
 <p><a href="https://zhuanlan.zhihu.com/p/708779473">深入浅出GraphRag[1]知识图谱生成 - 知乎</a></p>
 <p><a href="https://zhuanlan.zhihu.com/p/12023998398">从0到1部署微软GraphRAG项目 - 知乎</a></p>

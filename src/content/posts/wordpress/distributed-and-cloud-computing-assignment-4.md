@@ -249,7 +249,7 @@ Hello from pod=flask-dep-75d4749db4-ll2ts, ip=10.244.2.2, node=a4-worker2!
 Hello from pod=flask-dep-75d4749db4-ll2ts, ip=10.244.2.2, node=a4-worker2!</code></pre>
 <p>The worker is changing. In this setup, the client only talks to the Kubernetes Service <code>flask-svc</code> instead of individual pods. The Service is implemented as a virtual IP (ClusterIP) and a set of backend endpoints, each corresponding to one running pod in the <code>flask-dep</code> deployment.</p>
 <p>When the <code>curl-pod</code> sends HTTP requests to <code>flask-svc:5000</code>, kube-proxy on the node intercepts the traffic and performs load balancing at L4 (TCP). For each incoming connection, kube-proxy selects one of the healthy pod IPs (e.g., <code>10.244.1.2</code>, <code>10.244.2.2</code>, <code>10.244.3.2</code>, <code>10.244.3.3</code>) and forwards the request to that pod.</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251207010545777.png" alt="image.png" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/distributed-and-cloud-computing-assignment-4/body-001-154e64d555a5.webp" alt="image.png" />
 <a href="https://kubernetes.io/docs/reference/networking/virtual-ips/">https://kubernetes.io/docs/reference/networking/virtual-ips/</a></p>
 <p>As a result, even though the client always uses the same Service address, different requests are handled by different pod instances across multiple worker nodes. The sequence of responses we observed shows that the Service distributes traffic across all four pods in a roughly round-robin / random fashion, without any session stickiness. Some pods may handle multiple consecutive requests simply due to the probabilistic nature of the load-balancing decision.</p>
 <h3>Manually kill one server pod</h3>
@@ -273,7 +273,7 @@ flask-dep-75d4749db4-ll2ts   1/1     Running     0          3h16m
 flask-dep-75d4749db4-vjqc8   1/1     Running     0          3h16m</code></pre>
 <p>Immediately after deletion, kubectl get pods -w showed that the pod transitioned to the Terminating state and, almost at the same time, a new pod with a different name was created and scheduled to one of the worker nodes. From kubectl describe rs, we can see that the ReplicaSet associated with the deployment continuously enforces the desired replica count (spec.replicas = 4). Once it detects that one replica is missing, it automatically creates a replacement pod.</p>
 <p>In other words, the client-facing Service and Deployment remain unaffected: the Service still has four backend endpoints, and new requests can be transparently routed to the newly created pod. This demonstrates Kubernetes’ built-in self-healing capability, where the control plane automatically recovers from individual pod failures without any manual intervention on the application side.</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251207031016940.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/distributed-and-cloud-computing-assignment-4/body-002-796e64971ffe.webp" alt="image.png" /></p>
 <h3>Add new API</h3>
 <pre><code class="language-python"># greet-with-info API
 @app.route(&quot;/chat/&lt;username&gt;&quot;)
@@ -355,7 +355,7 @@ If you don&#039;t see a command prompt, try pressing enter.
 Hello haibin! This response is served by pod=flask-dep-5f84f494bf-h4wrm on node=a4-worker.</code></pre>
 <p>we can see that we have <code>This response is served by pod=flask-dep-5f84f494bf-h4wrm on node=a4-worker.</code>, this is changed in our version 1.0.1</p>
 <p>So API now changed.</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251207030951512.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/distributed-and-cloud-computing-assignment-4/body-004-cee202034da4.webp" alt="image.png" /></p>
 <hr />
 <p>To delete the cluster a4:</p>
 <pre><code class="language-bash">kind delete cluster --name a4</code></pre>
@@ -407,7 +407,7 @@ nodes:
   - role: worker
   - role: worker
   - role: worker</code></pre>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251207170735087.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/distributed-and-cloud-computing-assignment-4/body-005-3322b05f6936.webp" alt="image.png" /></p>
 <p>And define kind-config.yaml:</p>
 <p>We can see <code>Pod Anti-Affinity：every replica should in diff nodes</code> and <code>② Node Affinity</code>.</p>
 <pre><code class="language-txt"># 1 deployment - 1~5 pod replicas - 1 flask server per pod
@@ -516,7 +516,7 @@ kubectl label node a4t1-worker2       usage=normal capability=powerful
 kubectl label node a4t1-worker3       usage=normal capability=powerful
 kubectl label node a4t1-worker4       usage=backup
 kubectl label node a4t1-worker5       usage=backup</code></pre>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251207170848135.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/distributed-and-cloud-computing-assignment-4/body-006-31757be2660c.webp" alt="image.png" /></p>
 <p>Add no schedule config to the nodes.</p>
 <pre><code class="language-bash">kubectl taint nodes a4t1-worker3 class=vip:NoSchedule</code></pre>
 <p>This command attaches a taint with key <code>class</code>, value <code>vip</code>, and effect <code>NoSchedule</code> to the node. Semantically, it tells the Kubernetes scheduler:<br />
@@ -574,14 +574,14 @@ kubectl get pods -o wide</code></pre>
 <pre><code class="language-bash">flask-dep-t1-6c56d5dbb8-4gzrn   1/1     Running   0          21s   10.244.1.2   a4t1-worker2
 flask-dep-t1-6c56d5dbb8-d8m69   1/1     Running   0          4s    10.244.4.2   a4t1-worker3  </code></pre>
 <p>This behavior matches the preferred node affinity configuration: the scheduler first tries to place pods on nodes labeled capability=powerful (i.e., a4t1-worker2 and a4t1-worker3). Although a4t1-worker3 has the taint class=vip:NoSchedule, the pods in this deployment define a matching toleration for class=vip, so they are allowed to run on that node.</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251207171309038.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/distributed-and-cloud-computing-assignment-4/body-007-5a590140c518.webp" alt="image.png" /></p>
 <p>As I further increased the replica count to 3, 4, and finally 5, the new pods were scheduled onto the remaining worker nodes:</p>
 <ul>
 <li>The third pod was placed on <code>a4t1-worker</code> (labeled <code>usage=normal</code>),</li>
 <li>The fourth and fifth pods were placed on <code>a4t1-worker4</code> and <code>a4t1-worker5</code> (both labeled <code>usage=backup</code>).<br />
 Throughout this process, the <strong>pod anti-affinity</strong> rule ensured that each replica was placed on a different node, so no two <code>flask-dep-t1</code> pods share the same worker. Once all five replicas became <code>Running</code>, the final placement used <strong>all five worker nodes exactly once</strong>, respecting both the anti-affinity constraint and the node affinity preferences (powerful nodes first, then normal, and finally backup nodes), while the toleration allowed one pod to be scheduled on the tainted VIP node <code>a4t1-worker3</code>.</li>
 </ul>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20251207171558840.png" alt="image.png" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/distributed-and-cloud-computing-assignment-4/body-008-98000bed0fd4.webp" alt="image.png" />
 (as you can see, here we first have node3, then node1, node4 and lastly node5)</p>
 <p>And just as we mentioned, if we don't add Tolerations rules, we can't add replica to node3.</p>
 <h2>Advice on Future Cloud Computing Lab</h2>

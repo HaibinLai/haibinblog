@@ -28,19 +28,19 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-
 <h2>小车结构</h2>
 <h3>设计思路</h3>
 <p>小车整体为类龟壳结构，采用拱形构造，目标为承受更大压力，并将上部压力点化为面，分担至全车身。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af35de66a.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-001-a3cd01eb1362.webp" alt="" /></p>
 <p>在设计上，下方放置小车控制主板，巡线传感器，电机及驱动轮。中间层放置结构电池，使用复合材料封装。上层设计为类龟壳结构，主要负责承压及分担压力。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af367e4be.png" alt="" /></p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af373a188.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-002-39b2ca7abbc2.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-003-1bbe4f7c9a28.webp" alt="" /></p>
 <h3>小车整体参数</h3>
 <p>长：280mm。宽：200mm。高：116mm。质量：900g。</p>
 <h3>小车主要结构</h3>
 <p>主要结构包括车壳，底板，车架以及六块软包电池。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af37ce3be.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-004-e913392e9952.webp" alt="" /></p>
 <p>车壳：龟壳造型，与底板用螺丝连接。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af3885ff6.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-005-376ffa25509b.webp" alt="" /></p>
 <p>底板（碳纤板）：六块软包电池（三并两串），底板与车架之间用螺丝连接。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af391ef50.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-006-240a81407442.webp" alt="" /></p>
 <p>车架（3D打印）：电机（车架的四个角），传感器（车架前方），电路板（车架中间）。</p>
 <h3>小车需求分析</h3>
 <p><strong>功能需求</strong>：小车可进行简单的循线；小车可承受三点弯的测试，有一定的抗压能力。</p>
@@ -63,31 +63,31 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-
 <p>第六步，铺设脱模布和填充物。在碳纤维上再覆盖一层脱模布，放入大量柔软的填充物，确保下一步抽真空时模具内部的碳纤维受压均匀。</p>
 <p>第七步，抽真空。将模具放入真空袋内密封，用气泵抽真空，确认真空袋未漏气，压力维持在某个定值，静置。</p>
 <p>第八步，脱模。等待4-6小时树脂大致固化后，将车身从模具中脱出。若树脂未固化，则放入烤箱内保持80℃，直至树脂完全固化。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af39867ab.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-007-61e2a25f87ab.webp" alt="" /></p>
 <p>车身制作流程图</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af39e29c0.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-008-af32655d050f.webp" alt="" /></p>
 <p>工艺示意图</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af3ac7bad." alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-009-77d65d215e19.webp" alt="" /></p>
 <p>抽真空</p>
 <h3>具体实践</h3>
 <p>在实际制作中，我们按照流程对车身进行制作。</p>
 <h4>模具难点</h4>
 <p>因为只使用一个模具，车身的表面并未能做到光滑，而且表面的树脂因为承受的压力分布不均匀和脱模布的褶皱而厚度不均，最严重的区域碳纤直接裸露在外，未被树脂保护。同时在车身的侧壁，碳纤维因填充物在抽真空过程中的压缩形变而产生褶皱。褶皱不仅让车身的美观性受到破坏，同时也让车身在承受水平载荷时应力分布不沿竖直中轴面对称。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af3b96597." alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-010-d100590b5f23.webp" alt="" /></p>
 <p>正面效果图，红色圈中碳纤维裸露</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af3c6801b." alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-011-723ef6a29265.webp" alt="" /></p>
 <p>车身侧壁褶皱</p>
 <h4>电池板方案</h4>
 <p>电池板我们则采用了成品碳纤维板+玻璃纤维布的方案，使用雕刻机切割了一块长280mm，宽200mm，厚1mm的碳纤维板，在碳纤维板表面覆盖一层用以绝缘的玻璃纤维，然后放置电池组，再铺设玻璃纤维布，制成一块含有电池的平板。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af3d333fc." alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-012-92d1cc037bb1.webp" alt="" /></p>
 <p>两块电池板</p>
 <h4>三点弯测试准备</h4>
 <p>使用solidworks的simulation插件对小车车身进行模拟，查看其承压和变形情况。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af3de71cb.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-013-4a162a1dead9.webp" alt="" /></p>
 <p>我们发现。在小车直接受压的情况下，小车上方中心的形变相比其他地方变化较大，且形变的范围小。说明我们的压力并没有较好地分担到小车的全身各结构上，在三点弯实验中，这有很大概率发生局部穿刺。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af3e82dd3.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-014-75cdea53d293.webp" alt="" /></p>
 <p>为了防止车身在三点弯实验中发生局部穿刺，我们在车身的顶部平面区域加装了一块PLA的加强片，使用AB胶将加强片与车身连接。该加强片可以较好地分担承受压力，将压力分担到更广的车身上，使得车身的受力面积增加，车身所受的压强减少，进而降低车身的形变程度。在仿真中我们可以看到，小车在加强片的作用下得以承受更大的压力与形变。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af3f7b526." alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-015-99349928f989.webp" alt="" /></p>
 <p>安装加强片</p>
 <p>在最终的测试中，我们对小车进行了三点弯测试。在测试中，小车的失效压力约为1700N，形变幅度为7.2mm，小车的材料制作优良，结构设计良好，使得最后的抗压能力表现较好。</p>
 <h2>电池测试</h2>
@@ -95,14 +95,14 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-
 <p><a href="https://github.com/HaibinLai/Zn_Battery_SOC_Analysis">HaibinLai/Zn_Battery_SOC_Analysis (github.com)</a></p>
 <h3>电池充放电测试</h3>
 <p>我们对电池进行了充放电测试，将数据采集后，尝试对电池进行数学建模。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af3fde330.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-016-ab6870a696f1.webp" alt="" /></p>
 <p>电池的充放电测试包含恒流-恒压充电、恒流放电模式，我们在测试中记录该过程的测试时间、电压和电流等数据，通过分析该过程中数据的变化，查看电池的的容量、充放电平台以及电池内部参数变化等电化学性能参数。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af4074d04.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-017-455fc61d17c1.webp" alt="" /></p>
 <p>将提供的电池接入电池充放电测试系统。测试系统采用新威neware CT/CTE-4000电芯测试设备，上位机控制软件采用BTS 8.0。接入系统后，打开上位机软件，设置对应的测试格。充放电恒定电流值设置为50mA/cm-2 ，随后从充电开始，进行测试，得到下图所示的电池电压-比容量曲线。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af4210ec9." alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-018-b9130dc2820f.webp" alt="" /></p>
 <h3>测试数据导入</h3>
 <p>在进行了3-4次测试后，将数据导入至计算机进行处理，具体流程如下。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af456ac1a.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-019-939028cb1484.webp" alt="" /></p>
 <p>1.使用Python等程序将ndax数据转化为csv格式。</p>
 <pre><code class="language-python">import NewareNDA
 
@@ -142,14 +142,14 @@ A = A&#039;;
 R_up = linspace(0.01,2,n);
 R_up = R_up&#039;</code></pre>
 <p>3.使用MATLAB Data Cleaner软件包检查导入的数据是否有残缺或断片。随后输出电池数据，即可为测试数据进行分析。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af4643859.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-020-ad524cf3b88c.webp" alt="" /></p>
 <h3>单块电池放电数学建模与SOC估计</h3>
 <p>给定一个输入电压，我们能知道目前电池所在的具体状态吗？</p>
 <p>在得到一块电池放电数据后，我们随后试图对电池的放电情况进行建模。由于我们在测试过程中电流保持恒定，我们主要针对电池输出电压（即开路电压OCV）对电池的健康状态（SOH）、电池荷电状态（SOP）进行建模与估计。对单块电池的建模有助于我们后续对电池放电情况有更好的理解，在小车行驶及用电控制上有更好的系统设计及优化。</p>
 <h4>基于最小二乘法的多项式拟合建模</h4>
 <p>我们首先尝试检验电池的放电曲线是否具有一定的规律，从而可以针对电压来做电池电压预测。</p>
 <p>使用MATLAB Curve Fitter 工具箱，将电池电压数据导入，使用多项式拟合选项进行拟合，并在Robust选项上选择off（即采用传统的最小二乘方法进行拟合）。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af474cc14.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-021-e5821d69372d.webp" alt="" /></p>
 <p>上图为拟合曲线与原始曲线，下方为残差曲线</p>
 <p>对应的拟合曲线的评估参数如下表所示。可以看到，多项式拟合的效果表现较好，虽然对数据整体没有很强的解释性，但是可以根据该曲线在小范围内对电池的充放电进行分析。</p>
 <table>
@@ -182,20 +182,20 @@ R_up = R_up&#039;</code></pre>
 <h4><strong>使用组合优化方法拟合基于理论模型的电池放电曲线</strong></h4>
 <p>如果我们通过物理公式，能够知道电池曲线的物理建模，那么，我们不就能对着求出的曲线，预测我们电池的状态了吗？</p>
 <p>针对放电曲线的规律，查阅相关文献，发现电池的放电模型可以使用基尔霍夫定律描绘。在文献[1]中，经定律求解后的电路状态方程见下图。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af47ed629.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-022-e3b4c3d197d2.webp" alt="" /></p>
 <p>我们可以发现，模型的SOC变化率为：</p>
 <blockquote>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af47ed629.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-022-e3b4c3d197d2.webp" alt="" /></p>
 </blockquote>
 <p>模型的极化电压（即在放电时电池两端的电压）变化率为：</p>
 <blockquote>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af47ed629.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-022-e3b4c3d197d2.webp" alt="" /></p>
 </blockquote>
 <p>在电池管理系统控制电池输出电流不变的情况下，电流i保持不变，则极化电压Vp的变化率将与自身有关。在文献[2]中，其认为极化电压应该以常微分方程（ODE）的形式呈现。但是，极化电压仍与极化电阻、极化电容有关，那么，他们在电池反应过程中的改变量是否会影响到整个方程？我们在这里进行进一步探究。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af4873ec5.png" alt="" /></p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af48eb7e5.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-023-b6d310eb0102.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-024-bd1d5871f9ed.webp" alt="" /></p>
 <p>我们尝试构造一个类似的一阶常微分方程来拟合我们的电池数据曲线。由于在构造方法中没有直接可以拟合常微分方程的方法，我们使用组合优化的思路对方程进行拟合，下图为拟合流程。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af4995705.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-025-aa315fee5aa2.webp" alt="" /></p>
 <p>针对特定的方程dv/dt = C - kv，我们给定初始值C、k，随后使用计算机描绘出该初始模拟曲线。随后进行特征点采样，将对应的模拟数据点与电池实验所得的数据点做差，并求和，得到拟合的残差函数。如果该残差函数数值越小，所拟合的微分方程便与原数据点越接近，拟合的效果就越好。因此，我们在这之中使用非线性优化器进行优化，直到输出一个拟合的比较完善的方程。</p>
 <p>在实践中，我们参考文献[3]进行程序设计。不断优化得到最接近的ode微分方程曲线。</p>
 <pre><code class="language-python">voltage_data = voltage
@@ -249,32 +249,32 @@ title(&#039;原始数据与优化模型预测&#039;);
 legend(&#039;原始数据&#039;, &#039;ode预测&#039;);
 grid on;</code></pre>
 <p>然而我们发现，在不断的拟合下，预测的方程仍与原始数据有较大差距。这可能说明在电池的放电变化过程中，极化电容及内阻发生了一定的改变，使得其放电电压不再符合常微分方程的形式。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af4a69cdf.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-026-75b185cb03bd.webp" alt="" /></p>
 <h4><strong>基于机器学习决策树回归算法进行电池数据学习与预测</strong></h4>
 <p>在使用模型预测时，在给定一个输入电压情况下，我们对电池所在的具体状态能了解多少，这和机器学习的方法很近似。因此，在这里，我们尝试使用机器学习的方法进行学习和预测是否会比直接用模型的方法预测效果更优。结合文献[4]，我们使用MATLAB回归分析库进行电池数据的学习与预测，具体流程如下。</p>
 <ol>
 <li>将1段电池的放电曲线的数据导入到库中，准备好数据。其中，这段函数的输入为电池电压，输出为我们的Record number，即记录时的index数。</li>
 </ol>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af4b339d6.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-027-3dc097000893.webp" alt="" /></p>
 <ol>
 <li>使用Fine Tree 模型进行训练。在训练开始前，使用PCA主成分分析选项，对我们的数据进行降维。</li>
 <li>开始训练，并得到最后的训练效果图。下图中黄色部分即为训练的模型对电池电压曲线变化进行的预测。可以看到模型预测的效果较好，RMSE仅为0.0012241。</li>
 </ol>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af4be9102.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-028-4dc0ce2e74d4.webp" alt="" /></p>
 <p>查看其残差图，可以发现其样点分布没有明显的曲线趋势，所有的预测样本点残差都落在正负40的区间内。在实际测试中，单周期我们测试了8000秒，也就是说，凭借机器学习的方法，我们可以将电池的SOC预测控制在两分钟左右的误差范围内。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af4cecdc6.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-029-59cb09008f6c.webp" alt="" /></p>
 <p>不过，在预测的过程中，我们只是希望查看大致的电池数据范围，因此这样的误差相对而言也还算不错。但是，如果是在实际的小车放电情况下，电流的数值会比目前的50mA大，有可能此时的情况会和预测的不一致。如果是前面理论模型的方法，其可以很好的解决，但是基于数据的机器学习难以应对。这是我们这一方法的缺点</p>
 <h5>本文方法与文献[4]的不同</h5>
 <p>文献[4]针对一系列NASA公开电池数据集，根据电池的电压、温度等数据，来估测电池的SOC状态。在机器学习方法上，由于数据量较多，他们使用了高斯过程回归GPR，支持向量回归SVR，神经网络NN及决策树算法。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af4d78129.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-030-d203f0cc820d.webp" alt="" /></p>
 <p>从实验数据上，作者发现高斯过程回归的效果是最好的，RMSE取到了最小值。不过我们也进行了对应的尝试，发现GPR效果确实比决策树做的好，但是训练的时间远长于决策树回归。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af4e4c189.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-031-d6157acb8386.webp" alt="" /></p>
 <p>文献[4]中使用高斯回归、神经网络、线性回归、支持向量回归、决策树算法对电池数据进行学习</p>
 <p>上图中的三份图表分别对应电池放电曲线，拟合曲线，及残差图</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af4f6541a.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-032-5ddbaf7382cd.webp" alt="" /></p>
 <p>基于决策树、支持向量机、高斯回归的数据训练测试</p>
 <p>我们发现，在实验室中测试得到的电池数据使用高斯过程回归进行拟合，在残差图上的效果表现和文中的不一致。文中的效果基本呈现随机分布，但是我们的训练效果显示，数据在7000左右残差增大。我们推测这可能是由于电池电压开始出现拐点，开始迅速下降导致的。而使用决策树算法，虽然其误差更大，但是其残差分布更均匀。推测造成这一现象的主要原因是我们的数据量较小，没有更多的数据，这使得决策树在小规模数据上表现更好，而高斯回归出现了类似过拟合的现象。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af50400c0.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-033-797b1c6ca7c1.webp" alt="" /></p>
 <h5>决策树简介</h5>
 <p>决策树（Decision Tree），它是一种以树形数据结构来展示决策规则和分类结果的模型，作为一种归纳学习算法，其重点是将看似无序、杂乱的已知数据，通过某种技术手段将它们转化成可以预测未知数据的树状模型，每一条从根结点（对最终分类结果贡献最大的属性）到叶子结点（最终分类结果）的路径都代表一条决策的规则</p>
 <h4>三种电池放电曲线的建模方法总结</h4>
@@ -319,10 +319,10 @@ grid on;</code></pre>
 <h3><strong>基于电池放电曲线的电池组建模</strong></h3>
 <p>我们针对单块电池建模完成后，针对我们的小车电池，我们进行电池组的建模与仿真。</p>
 <p>我们将电池数据在MATLAB中建模完后，使用simscape搭建电池组，随后在MATLAB simlink中进行电池系统测试。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af51049c5.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-034-e236cec839a0.webp" alt="" /></p>
 <h4>电池测试仿真系统简介</h4>
 <p>将单组电池导入后，我们按照在车身上装配6块电池的目标，如下图制作了电池组的仿真模型。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af51a812f.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-035-e6ed89bca851.webp" alt="" /></p>
 <p>图中，6块电池按照3并2串的拓扑结构结合，右侧连接电压表与SOC观测表，用于电池的实验观测。整体电路接入一个电路元器件（图左侧），其“-3”表示其恒定消耗3A电流。因此，整个电池组输出为3A，我们可以观测其输出的持续时间，电压大小等性能。</p>
 <h4><strong>电池系统建模与测试：电流-持续时间测试</strong></h4>
 <p>给测试元器件输入不同的电流值，我们可以查看我们电池的具体持续时间。可以看到，在恒定电流3A及以下时，电池组可持续输出10分钟以上。在实际的测试中，我们发现电机的输出电流基本在1-2A之间，在10分钟限定的测试时间内，6块基本充满的电池可以满足巡线需要。</p>
@@ -361,13 +361,13 @@ grid on;</code></pre>
 </tbody>
 </table>
 <p>我们也可以观察仿真得出的电压下降曲线，如下图电流为3A时，电压在前400秒内基本保持稳定，在之后进入下降状态，直到612秒时电池电荷量降为0。这一特性可以帮助我们对电机的输出有更好的把握。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af523d7bb.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-036-6dce6ab6ffb1.webp" alt="" /></p>
 <h4><strong>电池组网络结构拓扑探究</strong></h4>
 <p>在选定6块电池作为我们最终小车上搭载的电池数后，我们发现电池组有两种接线方式：先串后并（A型），先并后串（B型）。那么，这两种接线方式对我们的电量会有什么影响吗？我们对此进行测试。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af52e8ea6.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-037-300fd5f6442c.webp" alt="" /></p>
 <p>在第一组实验中，我们将所有电池设置电荷量为170mAh满电状态，随后查看他们的持续时间。结果显示，所有的电池持续时间是一样的。</p>
 <p>但是我们设计了第二个实验，在这之中，我们将6块电池中的一块的电荷量改为120mAh，即不满电状态，随后比较两者的持续时间。此时，先并后串的电池连接方式相比先串后并持续了更长的时间。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af538f78f.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-038-00314239c02f.webp" alt="" /></p>
 <p>从原理上分析，这一现象应该是在先并后串中，较少电量的电池在没电后，剩下的电池仍然可以持续放电，对没电的电池进行补偿，从而延续了电池的放电时间。</p>
 <p>从实验中，我们最后得出结论，与先串后并相比，先并后串的电池接线方法具有一定的补偿效应与鲁棒性。</p>
 <p>同时在后面的实际接线中，我们也发现，先并后串的方法复杂度更简单，电池充放电更方便。因此，电池组应采用先并后串更佳。</p>
@@ -376,18 +376,18 @@ grid on;</code></pre>
 <p>小车控制的源代码可以在github上找到：</p>
 <p><a href="https://github.com/HaibinLai/PID-for-Arduino-Car">HaibinLai/PID-for-Arduino-Car: PID Line Following Algorithm for Arduino-based Car (github.com)</a></p>
 <h3>整体设计思路</h3>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af54986a3.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-039-83ca91aced6a.webp" alt="" /></p>
 <p>在设计时，考虑到电池在高电压时，给电机输出的功率更大，小车的速度更高，我们尽可能地尝试将芯片的耗能降低。同时，我们根据之前的电池测试所得出的电压变化特点，将电机的速度改为随电压变化。最后，针对巡线控制，我们对针对传感器，使用PID控制算法，并进行相应优化。</p>
 <h3>高性能程序设计</h3>
 <p>查阅arduino官方提供的arduino nano Data sheet <a href="https://docs.arduino.cc/resources/datasheets/A000005-datasheet.pdf">A000005-datasheet.pdf (arduino.cc)</a>，可以发现芯片最高耗电可达800mA，为4.7C，节能的重要性不言而喻。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af57bcfed.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-040-7d409dd70a01.webp" alt="" /></p>
 <p>在CPU内，我们设计了这么几条节能指令：</p>
 <ol>
 <li>CPU降频</li>
 </ol>
 <p>原有的arduino芯片时钟频率为16MHz，其速度过高，超过我们的需求标准，因此我们选择降频至8MHz。一份测试表明，单卡内降频为原速的一半可节约大约三分之一的电流。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af5831890.png" alt="" /></p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af58a4ee6.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-041-d3ceb92e7e83.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-042-58d1b8194fc9.webp" alt="" /></p>
 <p>单卡内降频测试（仅独立芯片）</p>
 <ol>
 <li>
@@ -398,7 +398,7 @@ grid on;</code></pre>
 </li>
 </ol>
 <p>MCU使用的芯片为ATMEGA328P，作为一个8位微控制器，其操作均围绕8位进行。因此，我们将部分的存储变量从int类型改为short类型，使得芯片在运算时不用花费更长的指令判断或使用auipc指令进行移位计算。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af59133d3.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-043-f7e7efcf5dde.webp" alt="" /></p>
 <ol>
 <li>SRAM -&gt; EEPROM</li>
 </ol>
@@ -406,53 +406,53 @@ grid on;</code></pre>
 <p>EEPROM允许按字节进行读写操作，可以灵活地修改和读取单个字节的数据，而不需要对整个块进行擦除和重写。虽然其写入成本较高，但是在写入完毕后，其访问的能耗基本较低，在维持数据上所用功耗也低。</p>
 <p>与静态ROM存储芯片相比，SRAM存储芯片中的每一位均存储在四个晶体管当中，这四个晶体管组成了两个交叉耦合反向器。这个存储单元具有两个稳定状态，通常表示为0和1。另外还需要两个访问晶体管用于控制读或写操作过程中存储单元的访问。因此，一个存储位通常需要六个MOSFET。这使得SRAM芯片在访问上的功耗比EEPROM高很多。</p>
 <p>因此，我们将一些写入后就不变的常量改为const static，其编译器将会将其写入至ROM中。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af5983e8f.png" alt="" /></p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af59ef02d.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-044-5be9281b51cd.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-045-5a5ea7d58c09.webp" alt="" /></p>
 <p>经编译后，动态变量仅使用54字节，大部分程序及常量存储至程序存储空间。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af5a92afc.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-046-6455a138c0bf.webp" alt="" /></p>
 <ol>
 <li>减少不必要的耗能指令，如乘除法</li>
 </ol>
 <p>查阅ATMEGA328P芯片设计手册中的指令集部分，发现芯片没有提供乘法以及除法，其仅有算数加减及逻辑运算。说明在计算乘法时，编译器是使用程序解决乘除法问题，同时该计算需要频繁访问SRAM内存，这对于功耗消耗是非常大的。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af5b478d6.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-047-c5db9f018c96.webp" alt="" /></p>
 <p>因此在程序中，我们在传感器读入、电机速度处理部分尽可能地减少了该类高耗能程序。</p>
 <p>在主板方面，我们主要关闭了未使用的引脚，主板电压检测等耗能设备：</p>
 <ol>
 <li>关闭数模转换、I2C等高耗能不必要引脚</li>
 </ol>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af5bbd382.png" alt="" /></p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af5c408e5.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-048-985a80d93538.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-049-d7a962272bbe.webp" alt="" /></p>
 <ol>
 <li>关闭电量不足检测（该检测仅判断输入电压是否高于2.2V，在本次测试中没有必要）</li>
 </ol>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af5ca5395.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-050-16b4e07f9a37.webp" alt="" /></p>
 <h3>基于电池电压变化特点的小车速度控制</h3>
 <p>在电池组仿真时，我们注意到随着时间推移，电池组电压会有一段迅速下降期。为了确保此时电机仍有足够动力，同时电机速度仍可驱动小车转弯，我们使用一个计时器函数控制小车速度，使得小车在电压下降的情况下依旧可以向前保持速度行驶。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af5d19319.png" alt="" /></p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af5d94ad4.png" alt="" /></p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af5e0ebfd.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-051-0e14d98a5178.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-052-98ed68f38f11.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-053-11b0a9a47168.webp" alt="" /></p>
 <p>我们在原本提供的小车模型上进行了对应测试。小车在加入该段程序后可以继续稳定运行。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af5ece1b3.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-054-138626b7c75f.webp" alt="" /></p>
 <h3>基于PID与卡尔曼滤波的巡线程序设计</h3>
 <p>小车的控制系统使用PID控制算法，针对小车的速度进行控制（速度环）。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af5f67dda.png" alt="" /></p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af5fd4779.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-055-7266f3901841.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-056-c79857136405.webp" alt="" /></p>
 <p>小车速度控制逻辑</p>
 <p>小车首先接受传感器参数，并就情况赋予其状态值。如果小车在中间，其状态值为0。小车在轨迹偏左处，状态值为负数，在右侧，状态值为正数。偏离程度越大，状态值的绝对值越大。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af6070bc4.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-057-37c348d1277f.webp" alt="" /></p>
 <p>随后，根据PID算法计算出要调控的数值。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af6108873.png" alt="" /></p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af61802c8.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-058-f2e2fae3b053.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-059-8ea2586b8844.webp" alt="" /></p>
 <p>最后，更新小车的速度。其中，使用PID计算速度偏移量。巡线速度为设置常数，跟小车动力相关。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af6223671.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-060-64538b47b3d7.webp" alt="" /></p>
 <p>在对模型小车进行测试时，我们发现，模型小车质量较轻，在转弯时非常容易出现PID调节值过大，使得小车在短时间回正时，小车向反方向回正幅度过大，小车很容易因此出轨。</p>
 <p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af62a60cf." alt="" /></p>
 <p>我们认为这是PID调节中比例参数使得调节曲线波动较大导致的。为了改进，我们增加了卡尔曼滤波，使得我们的调节曲线更加平滑。下图为PID调节演示图。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af6334190.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-062-b64afa526120.webp" alt="" /></p>
 <p>下图为PID与卡尔曼滤波结合后的调节演示图。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af63b075f.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-063-daaa3ef91229.webp" alt="" /></p>
 <p>我们在计算PID_value时加入滤波</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af64304b0.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-064-481f5c488e23.webp" alt="" /></p>
 <p>随后我们发现，模型小车在走直线上更加的平滑了。</p>
 <p>然而，当我们接下来测试结构车身小车时，我们发现，在结构车身的加持下，小车的质量大幅增加，这使得小车的惯性增加。此时，我们需要更强的控制，而在多次测试中我们发现，速度环PID及卡尔曼滤波在低配重，高灵敏度的系统下表现较好。但是在增加配重后，PID控制的电机速度变化不再非常明显。主要原因可能在于，由于小车的质量增加，惯性变大，导致小车在转弯时改变方向较为困难。</p>
 <p>因此我们得出结论，卡尔曼滤波在对我们实际的车身控制效果反而不如单纯的PID算法。我们在最终方案里选择不再使用卡尔曼滤波。不过，基于新车身，我们的PID控制参数仍需要优化，我们要快速找到新的参数。</p>
@@ -460,14 +460,14 @@ grid on;</code></pre>
 <p>在PID设计好后，我们发现，PID算法对比例、积分、微分的调节强度有较高的需求，如果参数调节偏差较大，最终的算法将很难指引小车实现巡线。对此，我们尝试使用机器学习中针对超参数调优的贝叶斯优化方法对P、I、D三者的比例系数进行调优。</p>
 <h4>贝叶斯优化简介</h4>
 <p>贝叶斯优化 (Bayesian Optimization)由 J Snoek et.在 NIPS 2012 <a href="https://arxiv.org/abs/1206.2944">[1206.2944] Practical Bayesian Optimization of Machine Learning Algorithms (arxiv.org)</a> 中提出，并随后多次进行改进 。它要求已经存在几个样本点，并且通过<strong>高斯过程回归（假设超参数间符合联合高斯分布）计算前面 n 个点的后验概率分布，得到每一个超参数在每一个取值点的期望均值和方差</strong>，其中均值代表这个点最终的期望效果，均值越大表示模型最终指标越大，方差表示这个点的效果不确定性，方差越大表示这个点不确定是否可能取得最大值非常值得去探索。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af64e0770.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-065-8e552c5ed651.webp" alt="" /></p>
 <p>如果随机过程的有限维分布均为正态分布，则称此随机过程为高斯过程或正态过程。在贝叶斯优化算法中，我们通常假设 假设我们需要估计的模型f(x)服从高斯过程。贝叶斯优化在不知道目标函数（黑箱函数）长什么样子的情况下，通过猜测黑箱函数长什么样，来求一个可接受的最大值。</p>
 <p>在高斯过程下，优化器会根据已知的几个测试点，使用高斯过程（GP）尝试估计最大值（EI）出现的地方。随后，优化器将选择该位置作为下一个测试点，看看数值是否较大。接着，以该点和之前的测试点结合，使用贝叶斯公式，计算出下一个最大值出现位置的后验概率。在逐步迭代后，优化器便可以逐渐找到这一函数的变化趋势或最大值。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af6598be6.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-066-eb8a7049d174.webp" alt="" /></p>
 <h4>贝叶斯优化PID程序设计</h4>
 <p>贝叶斯优化适用于低维度（小于20维）的参数优化，正好符合我们PID调参的需求。我们参考文献[5]，进而设计出我们的调参程序路径图（下图左侧流程图）：</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af6611ac1.png" alt="" /></p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af669af35.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-067-60b07b1d75d3.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-068-d15c03d1d18d.webp" alt="" /></p>
 <p>在实际程序设计中，我们使用了两张WiFi芯片将电脑与arduino芯片连接。在小车每跑完一圈后，小车记录外侧传感器检测到轨道的计数，代表小车偏移的程度。如果计数越小，说明小车的轨道偏移程度越小，小车的控制效果越好。小车将其发送到电脑端，电脑端程序运行贝叶斯优化，将新的PID参数发送回小车。小车在更新后，继续运行新的一轮更新，再跑一圈，记录参数，更新。</p>
 <p>下方为电脑端贝叶斯优化程序代码：</p>
 <pre><code class="language-python">import asyncio
@@ -731,9 +731,9 @@ if __name__ == &quot;__main__&quot;:
 </tbody>
 </table>
 <p>可以看到，优化系统不断迭代寻找最佳参数。我们在现场也进行肉眼观察，检测小车的效果。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af671382a.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-069-38fffa2f8282.webp" alt="" /></p>
 <p>在现场观察小车时，我们发现，贝叶斯优化在几轮优化内可以迅速找到能巡线的p,i,d参数。但是，对于精细化的参数，贝叶斯优化仍旧不够灵敏。相比之下，贝叶斯优化更适合在面对全新的车身时，快速找到可以巡线的参数，之后再由人手动调节参数进行测试，或在小范围内使用grid search。因此，在参数调优方面，手动搜寻与经验仍不可缺少。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af6793bb9." alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-070-4dc24b837532.webp" alt="" /></p>
 <p>在最终实践中，我们的PID参数选择如下：</p>
 <table>
 <thead>
@@ -770,11 +770,11 @@ if __name__ == &quot;__main__&quot;:
 </table>
 <h4>本方法与文献5的不同</h4>
 <p>文献5仅使用高斯过程对PID进行了调参。我们在这以基础上使用贝叶斯优化，提高调参的准确性与连续性。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af67e7e91.png" alt="" /></p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af687308d.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-071-ee9c675bae7e.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-072-085ed1b150a4.webp" alt="" /></p>
 <h2>巡线测试</h2>
 <p>在实际巡线中，我们使用了基于贝叶斯优化后的PID参数。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af69606cb.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-073-08987bdf890a.webp" alt="" /></p>
 <p>小车整体行驶稳定，运行总圈数为27圈。在运行中，没有出现脱轨、打滑、动力不足等现象。</p>
 <p>在运行过程中，小车的整体输出功率可以看到在缓慢减少，而基于此设计的调速函数使得小车全程保持稳定。</p>
 <p>同时在转弯过程中，我们也看到由于小车整体的功率限制，小车出现了在一侧轮子全速后，另一侧轮子由于输出功率不足而动力不足的情况，但是我们的降速函数很好地起到了调节作用，使得小车最中得以平稳地通过曲线。</p>
@@ -782,12 +782,12 @@ if __name__ == &quot;__main__&quot;:
 <p>不过，小车由于整体质量在900g左右，这使得小车的驱动力需求大，小车的整体运行速度较低。另外，由于小车的速度上限受转向上的影响，小车在直线上的行驶速度没有达到最大值，在后续，该程序可以进一步的提高。</p>
 <h2>三点弯曲测试</h2>
 <p>我们对小车进行三点弯测试。将小车底座两端车轴固定在测试机器下方两点处，上方液压机对准PLA的加强片。设定仪器压深为10mm，随后开始测试。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af6a89dbc." alt="" /></p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af6b0dd6d.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-074-2ba741e54d85.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-075-f5bf3ed8393d.webp" alt="" /></p>
 <p>在传感器传回的数据图上，我们可以看到我们车身的载荷-位移曲线，其在开始接触并产生形变的阶段基本为一条直线，此时小车车身正发生弹性形变。随着压缩深度增加，小车结构内发生不可逆转的形变，小车无法进一步承受载荷，其曲线斜率迅速下降。（由于我们增加了塑料板，小车没有发生明显的刺穿情况）</p>
 <p>读取曲线发生拐点的数值，其为我们结构材料所能承受的最大的弹性载荷。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af759ee22." alt="" /></p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af762339a.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-076-35511fd4f840.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-077-3636431909e5.webp" alt="" /></p>
 <p>可以从上图中看到，在测试中，小车的失效压力约为1700N，挠度约为7.2mm，承压为0.1684 MPa。小车的平均刚度为236.11N/mm。</p>
 <p>我们使用MATLAB对实验所得的形变图像进行求导，使用数值微分的方法来求出数据图像的导数，即切线模量（在弹性极限内，应力与应变的比值）：</p>
 <pre><code class="language-python">% 示例数据
@@ -819,7 +819,7 @@ xlabel(&#039;x&#039;);
 ylabel(&#039;dy/dx&#039;);
 grid on;</code></pre>
 <p>得到我们形变曲线的瞬时变化率随形变深度的图像，即小车的形变弹性模量随形变深度的变化曲线（下图红色线）。</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-28-66c8af77d19a5.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report/body-078-c2156228abd9.webp" alt="" /></p>
 <p>可以看的，在测试机器压入约x=0.9mm后，液压机开始接触小车结构，弹性模量快速上升，在x=1.37mm左右达到峰值359N/mm，随后弹性模量逐步稳定下降，在x=7.8mm处下降到107N/mm，对应承压约为1620N，随后弹性模量出现断裂式下滑，而承压曲线来到拐点，随后曲线以另一个速度向上增长至1681N，深度来到x=8.98mm，随后开始下滑。因此我们认为，小车在x=7.8mm处达到了其结构的弹性限度。</p>
 <p>不过，在测试完毕后，小车上方开始回弹。说明小车对压力的抵抗有一定的回复性。</p>
 <p>综上，小车的失效压力约为1620N，最大挠度约为6.9mm。小车的材料制作优良，结构设计良好，使得最后的抗压能力表现较好。</p>

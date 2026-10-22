@@ -30,29 +30,29 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <h2>XPU</h2>
 <p>XPU: FPGA, NPU, GPU</p>
 <p>目前在XPU上做了很多的任务
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250811211223039.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/osdi25-xsched/body-001-2aae6ca9fee8.webp" alt="" /></p>
 <p>但是好像没有什么调度</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250811210800121.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/osdi25-xsched/body-002-6dfda2126a1a.webp" alt="" /></p>
 <h2>Opps: 抽象成任务</h2>
 <p>他们在交任务时有硬件queue
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250811211548028.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/osdi25-xsched/body-003-d6e615cd4f5d.webp" alt="" /></p>
 <h2>Design: XQueue</h2>
 <p>所以我们可以用一层抽象来表示我们的任务。XQueue就是一个任务Queue</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250811211859813.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250811212701456.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/osdi25-xsched/body-004-207a396c3a62.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/osdi25-xsched/body-005-f18e312d71d6.webp" alt="" /></p>
 <p>我们在任务层和硬件层中间加一层调度层，来实现我们的抢占式调度方案
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250811215547228.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/osdi25-xsched/body-006-079cda3c4446.webp" alt="" /></p>
 <h2>Design：多层级的阻断方法</h2>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250811213023451.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/osdi25-xsched/body-007-6e4c9b2e94d2.webp" alt="" /></p>
 <p>Level 1 阻断CPU-XPU的任务提交
 用纯软件cpp实现</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250811213206124.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/osdi25-xsched/body-008-25046949932a.webp" alt="" /></p>
 <p>Level 2 把Hardware Queue 跟硬件阻断
 用instruct实现
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250811213511967.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/osdi25-xsched/body-009-ffe57efc5901.webp" alt="" /></p>
 <p>Level 3 阻断运行时的程序
 用GPU trap handler/用时间片轮询的GPU，时间片=0
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250811214121186.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/osdi25-xsched/body-010-1b21640d79cd.webp" alt="" /></p>
 <h2>实验</h2>
 <p>用两个进程，来向队列里发，来看时延</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250811215419417.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/osdi25-xsched/body-011-c0dfaff9e872.webp" alt="" /></p>

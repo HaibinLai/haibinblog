@@ -1129,7 +1129,7 @@ va_end(ap); // 清理可变参数
 </ul>
 <hr />
 <h3>七、执行流程图解</h3>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202502240237196.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-02/openmp%E5%9C%A8llvm%E9%87%8C%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%9A%84-wip/body-001-18133a938d03.webp" alt="" /></p>
 <p>%% </p>
 <pre><code>sequenceDiagram
     participant MainThread as 主线程 (gtid=0)

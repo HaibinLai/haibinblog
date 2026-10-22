@@ -48,19 +48,19 @@ Existing deployment strategies are not feasible on the client side, as most user
 <p>它先分析不同 Transformer 层输出之间的相似度。文章用 cosine similarity heatmap 来找哪些连续层“信息变化比较小”。如果某几层输入输出很相似，说明这些层引入的新信息较少，更适合被跳过。</p>
 <p>（所以是一个固定的跳过。但是问题是，能跳多少？大模型还能这样跳吗？是不是不同prompt就不能跳了？）</p>
 <p>在他们这个设置下，<strong>跳 12 层似乎还是可以接受的边界附近，跳 13、14 层就开始危险了</strong>。
-<img src="https://haibinblog.s3.us-east-1.amazonaws.com/%7Byear%7D/%7Bmonth%7D/%7BfullName%7D/20260623152909821.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-06/lego-supporting-llm-enhanced-games-with-one-gaming-gpu/body-001-a131a3969f26.webp" alt="image.png" /></p>
 <p>GPT回答：文章的假设是：<strong>游戏里的 prompt 分布比较固定</strong>。比如 combat scenario 中，输入大概由场景描述、NPC/player 状态、历史动作组成，长度设为 512，输出长度设为 16。也就是说，它不是开放域 ChatGPT，而是一个比较窄的游戏控制任务。</p>
 <p>（准确率好低。不过，如果假定模型会变强，那可能还好）</p>
 <p><strong>跳层上限不是理论保证，而是经验结果。</strong><br />
 它要靠 profiling 和 evaluation 确定最多能跳多少。（这个那岂不是要自己调和train）
-<img src="https://haibinblog.s3.us-east-1.amazonaws.com/%7Byear%7D/%7Bmonth%7D/%7BfullName%7D/20260623152539901.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-06/lego-supporting-llm-enhanced-games-with-one-gaming-gpu/body-002-7591335d2aec.webp" alt="image.png" /></p>
 <p>大模型能这样做，甚至可能更有压缩空间；  但必须针对具体模型、具体任务、具体跳层数重新 profile + train；  不能直接迁移 Llama3-8B 的跳层策略。另外就是，大模型在消费GPU跑不起来。</p>
 <p>然后，对于每种跳层方案，LEGO 不只是直接删除这些层，而是训练一个小的 <strong>FFN adaptor</strong> 来替代被跳过的层。这个 adaptor 用知识蒸馏方式训练，目标是让 adaptor 的输出尽量接近原本完整模型经过这些被跳过层之后的输出。</p>
 <p>这个技术跟Powerinfer和LoRA当年很像啊。但是，这样相当于是缩小workload？故事好复杂，跟那篇eurosys一样。。。。。。。</p>
 <pre><code>layer k -&gt; adaptor -&gt; layer k+N</code></pre>
 <p>这个设计的关键是：<strong>跳哪些层不是根据 token confidence，而是根据当前 GPU 资源预算决定。</strong><br />
 因此它叫 resource-oriented layer skipping。</p>
-<p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/%7Byear%7D/%7Bmonth%7D/%7BfullName%7D/20260623152831617.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-06/lego-supporting-llm-enhanced-games-with-one-gaming-gpu/body-003-da11c3d490d5.webp" alt="image.png" /></p>
 <h3>B. 系统侧：Headroom-maximizing LLM scheduler</h3>
 <p>接下来选好模型后，就要“见缝插针”，提交任务</p>
 <p>第二个核心是调度器。它负责决定：</p>
@@ -70,10 +70,10 @@ Existing deployment strategies are not feasible on the client side, as most user
 <p>很多系统只利用帧和帧之间的空隙，但 LEGO 还利用一帧内部的 GPU idle gap。这个很重要，因为游戏引擎内部渲染本身也分成多个 subtask，有些阶段不使用 GPU，于是中间会产生小空隙。</p>
 <p>调度器的做法是：</p>
 <p>它用一个简单的 <strong>linear regression model</strong> 预测下一个 LLM execution window 的总 headroom。输入是过去三个 execution windows 的总 headroom，而不是逐帧预测每一帧的 headroom。文章说这样预测误差更低，最大约 1.3%，平均约 0.6%。</p>
-<p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/%7Byear%7D/%7Bmonth%7D/%7BfullName%7D/20260623153201569.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-06/lego-supporting-llm-enhanced-games-with-one-gaming-gpu/body-004-3966fe2f5e11.webp" alt="image.png" /></p>
 <p>然后根据预测结果选择 layer-skipping 策略。</p>
 <p>最后，它把 LLM 推理拆成细粒度任务：</p>
 <pre><code>decode 阶段：以 Transformer layer 为粒度，大约 0.4 msprefill 阶段：以 attention / FFN 子层为粒度，大约 0.5–1.0 ms</code></pre>
 <p>对于一帧内部的小空隙，用细粒度 LLM subtask 填进去；对于帧和帧之间较大的空隙，用更粗粒度的 LLM subtask。</p>
 <h2>Exp</h2>
-<p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/%7Byear%7D/%7Bmonth%7D/%7BfullName%7D/20260623153236501.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-06/lego-supporting-llm-enhanced-games-with-one-gaming-gpu/body-005-0effd6301854.webp" alt="image.png" /></p>

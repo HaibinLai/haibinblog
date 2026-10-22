@@ -18,11 +18,11 @@ viewCount: 2260
 likeCount: 0
 dislikeCount: 0
 showCitation: true
-featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/12/0C24B0FB10ACCFB08BB5237BF2014E22.jpg"
+featuredImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/induced-graph-%E8%AF%B1%E5%AF%BC%E5%AD%90%E5%9B%BE/body-001-58966abe6a6d.webp"
 importedFromWordPress: true
 cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/induced-graph-%E8%AF%B1%E5%AF%BC%E5%AD%90%E5%9B%BE.webp"
 ---
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/12/0C24B0FB10ACCFB08BB5237BF2014E22-300x130.jpg" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/induced-graph-%E8%AF%B1%E5%AF%BC%E5%AD%90%E5%9B%BE/body-002-a325f2071139.webp" alt="" /></p>
 <p>在图论中，<strong>诱导子图</strong>（Induced Subgraph）是从一个图 ( G ) 中通过 (1) 选取一个顶点子集 ( S ) 并 (2) 保留与这些顶点相连接的边来构造的子图。具体地说，诱导子图包含了选定顶点的所有邻接边。</p>
 <h3>定义</h3>
 <p>给定一个图 $G = (V, E)$ ，如果从 ( G ) 中选择一个顶点子集 ( S \subseteq V )，那么<strong>诱导子图</strong> ( $G[S]$ ) 是由顶点集  $S$  和边集  $E'$  组成的图，其中 ( $E'$ ) 包含了所有连接 ( $S$ ) 中任意两个顶点的边，即：<br />

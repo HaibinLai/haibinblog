@@ -23,7 +23,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 ---
 <p><a href="https://github.com/HaibinLai/Distributed-and-Cloud-Computing.git">https://github.com/HaibinLai/Distributed-and-Cloud-Computing.git</a></p>
 <p>【分布与云计算 - DnCC 复习】 <a href="https://www.bilibili.com/video/BV1eovaBTEW9/?share_source=copy_web&amp;vd_source=72eac555730ba7e7a64f9fa1d7f2b2d4">https://www.bilibili.com/video/BV1eovaBTEW9/?share_source=copy_web&vd_source=72eac555730ba7e7a64f9fa1d7f2b2d4</a></p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2025/12/image-1767090453255.png" alt="file" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/dncc-assignment-1-parallel-matrix-multiplication/body-001-b5a77e1685a8.webp" alt="file" /></p>
 <h2>Setup</h2>
 <p><strong>Compile</strong></p>
 <p>We can use <code>OpenMPI</code> or <code>Intel MPI</code> to compile and run the code.</p>
@@ -37,7 +37,7 @@ mpicc mpi_matrix_base.c -o mpi_matmul</code></pre>
 <p><strong>Run the code</strong></p>
 <pre><code class="language-bash">mpirun -np 4 ./mpi_matmul</code></pre>
 <div align="center">
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250922222519238.png" width="80%">
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/dncc-assignment-1-parallel-matrix-multiplication/body-002-c3c336baf778.webp" width="80%">
 </div>
 <h2>Program Design</h2>
 <p>The process of the program is shown as following:</p>
@@ -46,15 +46,15 @@ mpicc mpi_matrix_base.c -o mpi_matmul</code></pre>
 <li>Do data distribution to every workers using <code>MPI_Scatterv</code> and <code>MPI_Bcast</code>.</li>
 <li>For each workers and root, receive and compute the data</li>
 <li>Use <code>MPI_Gatherv</code> to collect the result
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250922201843034.png" alt="image.png" /></li>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/dncc-assignment-1-parallel-matrix-multiplication/body-003-e8a9d04dd24a.webp" alt="image.png" /></li>
 </ol>
 <p>We spilt matrix A and do computation with B:</p>
 <div align="center">
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250922231902156.png" width="60%">
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/dncc-assignment-1-parallel-matrix-multiplication/body-004-365523770972.webp" width="60%">
 </div>
 <p>And it provides the correct result since we can do it mathematically:
 $$AB= \begin{bmatrix} A^{(1)}\ A^{(2)}\ \vdots\ A^{(P)} \end{bmatrix} B = \begin{bmatrix} A^{(1)}B\ A^{(2)}B\ \vdots\ A^{(P)}B \end{bmatrix}=\;\begin{bmatrix} C^{(1)}\ C^{(2)}\ \vdots\ C^{(P)} \end{bmatrix}=C\;$$</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250922232414942.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/dncc-assignment-1-parallel-matrix-multiplication/body-005-2b6337ef0573.webp" alt="image.png" /></p>
 <h3>Init</h3>
 <p>Warning: if the size is greater than 512, it will cause fault. To solve this, a optimal solution is to assign them on heap by using <code>malloc</code>.</p>
 <pre><code class="language-CPP">int rank, mpiSize;
@@ -70,7 +70,7 @@ MPI_Comm_size(MPI_COMM_WORLD, &amp;mpiSize);</code></pre>
 <h3>Communication</h3>
 <p>We use <code>MPI_Scatterv</code> to separate matrix A, and use <code>MPI_Bcast</code> to send matrix B to each process.</p>
 <div align="center">
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250922230538579.png" width="45%">
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/dncc-assignment-1-parallel-matrix-multiplication/body-006-7a15eb27d0ca.webp" width="45%">
 </div>
 <p>The Broadcast code is shown as following.</p>
 <ol>
@@ -129,12 +129,12 @@ for (int i = 0; i &lt; myrows; i++) {
 <p>Here we do the experiments to see the relationships between the number of processes in MPI and the running time.</p>
 <p>We run it locally with 1, 2, 4, 8, 16 and 32 processes with $N=500$ matrix size.</p>
 <div align="center">
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250922233559711.png" width="50%">
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/dncc-assignment-1-parallel-matrix-multiplication/body-007-3388af11d835.webp" width="50%">
 </div>
 <p>We can see that as the number of processes rises, the speedup ratio gets lower than the ideal linear speedup.</p>
 <p>We use Amdahl's Law to analysis. </p>
 <div align="center">
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250922233150230.png" width="45%">
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/dncc-assignment-1-parallel-matrix-multiplication/body-008-49b82d5664b1.webp" width="45%">
 </div>
 <p>The speedup of a parallel program is limited by the fraction of the code that remains sequential. Even if most of the computation can be parallelized, the serial portion and communication overhead prevent achieving ideal linear scaling. In our case, using 32 processes cannot give 32× acceleration because synchronization, data distribution, and non-parallelizable parts dominate at higher process counts. Thus, the law predicts diminishing returns as the number of processes increases.</p>
 <h3>Using intel ipm profiler to profile MPI time</h3>
@@ -145,13 +145,13 @@ mpirun -np 4 ./matmul # run the mpi program
 aps --report /path/to/report</code></pre>
 <p>We can see that the whole program use 1.29s (from <code>main</code> function, matrix init to <code>return 0</code>), among <code>MPI_Bcast</code>, <code>MPI_Scatterv</code>, <code>MPI_Gatherv</code>, we can see that <code>MPI_Bcast</code> rank 1st for this 3 functions (This is obvious, since we use <code>MPI_Bcast</code> to separate matrix B).</p>
 <div align="center">
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250922225609156.png" width="60%">
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/dncc-assignment-1-parallel-matrix-multiplication/body-009-0f35f4754444.webp" width="60%">
 </div>
 <h3>Time Comparison for different Matrix Size</h3>
 <p>Here we do the experiments to test the time of brute-force algorithm and MPI implementation as the matrix size N changes.</p>
 <p>We test $N = {10, 50, 100, 250, 500}$ with process from 1,2,4,8,16,32. </p>
 <div align="center">
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250923012530882.png" width="55%">
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/dncc-assignment-1-parallel-matrix-multiplication/body-010-59112e9bd91e.webp" width="55%">
 </div>
 <p>baseline</p>
 <pre><code class="language-txt">baseline = {
@@ -162,7 +162,7 @@ aps --report /path/to/report</code></pre>
     500: 0.455162,
 }</code></pre>
 <div align="center">
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250923014025925.png" width="95%">
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/dncc-assignment-1-parallel-matrix-multiplication/body-011-62d3939bc64d.webp" width="95%">
 </div>
 <p>We can see that for single thread, the MPI program needs more time than baseline brute force matmul. While as the processes number goes up, for large matrix size like N=250, N=500, we gain some performance. <strong>But since the synchronization overhead rises up as the number of process rise up, we see performance slow down. (like N=250, p=32, we get less speedup)</strong></p>
 <p>As for single thread MPI program, they still have some overhead on MPI and data movement. We can see this from assembly:</p>
@@ -308,7 +308,7 @@ chmod 600 &quot;$home/.ssh&quot;/*
 # 4) mpi user
 exec su - $user -c &quot;cd /workspace &amp;&amp; tail -f /dev/null&quot;</code></pre>
 <div align="center">
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250923032909478.png%0A" width="70%">
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/dncc-assignment-1-parallel-matrix-multiplication/body-012-faafcfd111d2.webp" width="70%">
 </div>
 <p>We enter node1 as user <code>mpi</code></p>
 <pre><code class="language-bash">sudo docker exec -it -u mpi node1 /bin/bash</code></pre>
@@ -318,7 +318,7 @@ mpirun --oversubscribe -np 8   --hostfile /workspace/hosts   --mca plm_rsh_agen
 t &quot;ssh -l mpi&quot;   -mca btl_tcp_if_include eth0   ./matmul 500</code></pre>
 <p>Then we can see <code>Result is correct.</code>:</p>
 <div align="center">
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250923034757293.png%0A" width="90%">
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/dncc-assignment-1-parallel-matrix-multiplication/body-013-8d67404ad260.webp" width="90%">
 </div>
 <p>Cheers!</p>
 <hr />
@@ -332,7 +332,7 @@ t &quot;ssh -l mpi&quot;   -mca btl_tcp_if_include eth0   ./matmul 500</code></p
 <li>MPI+OpenMP hybrid running </li>
 </ol>
 <div align="center">
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250923021308354.png" width="40%">
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/dncc-assignment-1-parallel-matrix-multiplication/body-014-329e83ac8777.webp" width="40%">
 </div>
 <p>I implemented 1,2,3 and OpenMP for a matmul program in my CPP Programming Project, feel free to see my report (unfortunately it's still in Chinese, I plan to translate them in English in the future):
 <a href="https://github.com/HaibinLai/CS205-CPP-Programing-Project/tree/main/Project3">https://github.com/HaibinLai/CS205-CPP-Programing-Project/tree/main/Project3</a></p>
@@ -343,7 +343,7 @@ t &quot;ssh -l mpi&quot;   -mca btl_tcp_if_include eth0   ./matmul 500</code></p
 <p>In the previous program, we first distribute all the data to each of the processes, then we do the computation. But here a performance issue rises: when the memory is busy transferring data (if the processes do transfer process using DMA or NIC), the CPU Computing part is idle.</p>
 <p>So one of the idea is to do overlapping. After getting all the data, we may use async MPI api like <code>MPI_Isend</code> with a technique call <strong>double buffer</strong> as the following figure shows:</p>
 <div align="center">
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250922220431022.png" width="40%">
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/dncc-assignment-1-parallel-matrix-multiplication/body-015-114cab2564ed.webp" width="40%">
 </div>
 <p>So when the CPU workers are calculating the part, we can <strong>let MPI to prefetch the next data blocks</strong>  from root process.</p>
 <pre><code class="language-CPP">int cur = 0, next = 1;
@@ -374,22 +374,22 @@ for (int t = 1; t &lt; T; ++t) {
 }</code></pre>
 <p>Runtime graph:</p>
 <div align="center">
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250922221444754.png" width="70%">
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/dncc-assignment-1-parallel-matrix-multiplication/body-016-a85df0aeacf8.webp" width="70%">
 </div>
 <p>I have done this on GPU Matmul before, if you are interested, feel free to see my Optimization for SGEMM in GPU
 <a href="https://github.com/HaibinLai/SUSTech-HGEMM">https://github.com/HaibinLai/SUSTech-HGEMM</a></p>
 <h2>MPI</h2>
 <p>I learn MPI programming on my second year of undergraduate, when I was participating in Supercomputing Challenge Competition. Last year on a competition called APAC HPC-AI, my job is to optimize an HPC software call Hoomd-blue. Hoomd-blue simulates chemical molecular on distributed systems using MPI primitives like <code>MPI_Allreduce</code>.</p>
 <div align="center">
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250923015148718.png" width="70%">
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/dncc-assignment-1-parallel-matrix-multiplication/body-017-ba2312f62c92.webp" width="70%">
 </div>
 <p><code>OpenMPI</code> uses different algorithm to do <code>MPI_AllReduce</code>, like butterfly algorithm, reduce+broadcast algorithm, Ring algorithm etc.</p>
 <div align="center">
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250923015401400.png" width="70%">
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/dncc-assignment-1-parallel-matrix-multiplication/body-018-324d2eb72122.webp" width="70%">
 </div>
 <p>I optimize MPI with different parameters and how the program utilizes MPI.</p>
 <div align="center">
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250923015714707.png" width="70%">
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/dncc-assignment-1-parallel-matrix-multiplication/body-019-f60a53e20499.webp" width="70%">
 </div>
 <hr />
 <p>Before the 1990s, parallel computers used many different message-passing libraries (such as PVM, NX, and Express), each with its own interface and limitations. To address the lack of a unified standard, the MPI Forum was established in 1992, bringing together researchers from academia and industry. In 1994, the first MPI standard was released, which quickly became the de-facto communication standard for high-performance computing.</p>
@@ -397,5 +397,5 @@ for (int t = 1; t &lt; T; ++t) {
 <p>Professor Jack Dongarra played a key role in this history. He emphasized that MPI must serve as a solid communication layer for scientific computing libraries, and he actively helped bridge the gap between academic research and industrial implementations, ensuring MPI’s rapid adoption.</p>
 <p>I was fortunate to meet Professor Dongarra in person and take a photo with him. For me, this moment felt like connecting directly with the history of parallel computing. </p>
 <div align="center">
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250923014604979.png" width="50%">
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/dncc-assignment-1-parallel-matrix-multiplication/body-020-97ea2c0dee1c.webp" width="50%">
 </div>

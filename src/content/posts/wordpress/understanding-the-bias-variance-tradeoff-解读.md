@@ -18,7 +18,7 @@ viewCount: 1149
 likeCount: 1
 dislikeCount: 0
 showCitation: true
-featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/10/F433B7FA8CEB2AD22AA1552548544FD1.png"
+featuredImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-10/understanding-the-bias-variance-tradeoff-%E8%A7%A3%E8%AF%BB/body-001-5be21ea6cd3a.webp"
 importedFromWordPress: true
 cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-10/understanding-the-bias-variance-tradeoff-%E8%A7%A3%E8%AF%BB.webp"
 ---
@@ -39,7 +39,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-
 <p> The error due to variance is taken as the variability of a model prediction for a given data point.</p>
 <div>           <!--块级封装-->
     <center>    <!--将图片和文字居中-->
-    <img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241009150716.png"
+    <img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-10/understanding-the-bias-variance-tradeoff-%E8%A7%A3%E8%AF%BB/body-002-876e8cc24a24.webp"
          alt="无法显示图片时显示的文字"
          style="zoom:0.5"/>
     <br>        <!--换行-->
@@ -64,7 +64,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-
 选民们后面真的这么投了吗？ bias</p>
 <h2>An Applied Example: Voter Party Registration</h2>
 <p>选民的投票、财富、地区的分布图</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241009152841.png" alt="" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-10/understanding-the-bias-variance-tradeoff-%E8%A7%A3%E8%AF%BB/body-003-53d84546f3f5.webp" alt="" />
 Hypothetical party registration. Plotted on religiousness (y-axis) versus wealth (x-axis).</p>
 <p>我们使用KNN算法来确定新的选民的选票：</p>
 <p>k 越大，每次预测的平均投票人数就越多。这使得预测曲线更加平滑。当 k 值为 1 时，民主党和共和党之间的分界非常模糊。此外，在通常情况下，共和党人的领地中会出现民主党人的 “孤岛”，反之亦然。当 k 值增加到 20 时，过渡变得更加平滑，“孤岛 ”消失，民主党和共和党之间的分界也能很好地遵循边界线。随着 k 值的增大，比如 80，两个类别之间的区别变得更加模糊，边界预测线也完全不匹配。</p>
@@ -86,8 +86,8 @@ Hypothetical party registration. Plotted on religiousness (y-axis) versus wealth
 <p>这两个特性都是我们希望模型算法具备的。然而，我们并不生活在一个样本量无限大的世界里，因此渐进特性通常没有什么实际用途。当你有一百万个数据点时，算法可能几乎没有偏差，但当你只有几百个数据点时，算法可能会有非常明显的偏差。更重要的是，一个渐进一致且高效的算法在小样本量数据集上的实际表现可能比一个既不渐进一致也不高效的算法更差。在处理真实数据时，最好抛开算法的理论属性，而关注其在特定情况下的实际准确性。</p>
 <h4>了解过度拟合和欠拟合</h4>
 <p>从根本上说，<strong>处理偏差和方差实际上就是处理过拟合和欠拟合</strong>。偏差的减少和方差的增加与模型的复杂性有关。随着模型中的参数越来越多，模型的复杂度就会上升，方差就会成为我们最关心的问题，而偏差则会稳步下降。例如，线性回归中加入的多项式项越多，模型的复杂度就越高。换句话说，偏差对模型复杂度的一阶导数为负4 ，而方差的斜率为正。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241009154203.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-10/understanding-the-bias-variance-tradeoff-%E8%A7%A3%E8%AF%BB/body-004-fe8a996b73af.webp" alt="" /></p>
 <p>所以我们可以看出这么一个公式：</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241009154254.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-10/understanding-the-bias-variance-tradeoff-%E8%A7%A3%E8%AF%BB/body-005-4d8f53f5da93.webp" alt="" /></p>
 <p>我们需要达到一个甜点 sweet spot， 达到两者的均衡</p>
 <h1>EOF</h1>

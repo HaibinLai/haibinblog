@@ -38,7 +38,7 @@ Attention with KV Cache</p>
 </ol>
 <p>existing kv cache compression methods fail to match exact top-k attention</p>
 <p>This document is a research paper titled &quot;RocketKV: Accelerating Long-Context LLM Inference via Two-Stage KV Cache Compression,&quot; presented at the 42nd International Conference on Machine Learning (ICML) in 2025. The authors, affiliated with NVIDIA and Georgia Institute of Technology, address the challenges of efficiently handling the Key-Value (KV) cache in Transformer-based Large Language Models (LLMs) during long-context inference, particularly in the decode phase.</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250916112511853.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/icml25-rocket-kv-kv-cache-compression/body-001-b41bf65b08e2.webp" alt="" /></p>
 <h3>Main Content Summary:</h3>
 <ol>
 <li>
@@ -56,9 +56,9 @@ Attention with KV Cache</p>
 <p><strong>Two-Stage Approach</strong>: </p>
 <ul>
 <li><strong>First Stage</strong>: Coarse-grain permanent KV cache eviction using SnapKV to remove low-importance tokens, reducing storage and bandwidth.
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250916112604950.png" alt="" /></li>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/icml25-rocket-kv-kv-cache-compression/body-002-12d6f7ca6ff2.webp" alt="" /></li>
 <li><strong>Second Stage</strong>: Fine-grain dynamic KV token selection with Hybrid Sparse Attention (HSA), approximating top-k attention scores via two-dimensional (head and sequence) reductions.
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250916112612963.png" alt="" /></li>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/icml25-rocket-kv-kv-cache-compression/body-003-f2d0f1df3a38.webp" alt="" /></li>
 </ul>
 </li>
 <li>
@@ -75,7 +75,7 @@ Attention with KV Cache</p>
 <li><strong>SnapKV in First Stage</strong>: Uses an observation window and pooling (kernel size 63) to select critical KV token clusters, optimized for Grouped-Query Attention (GQA).</li>
 <li><strong>HSA in Second Stage</strong>: Combines sequence paging (max/min values) and head dimension sparsity to predict top-k indices, enhancing accuracy over one-dimensional methods.</li>
 <li><strong>Evaluation</strong>: Tested on models like Mistral-7B and Llama3.1-8B across LongBench, RULER, SCBench, and Needle-in-a-Haystack tasks, showing negligible accuracy loss.
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250916113214590.png" alt="" /></li>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/icml25-rocket-kv-kv-cache-compression/body-004-fda518768754.webp" alt="" /></li>
 </ul>
 </li>
 <li>
@@ -83,7 +83,7 @@ Attention with KV Cache</p>
 <ul>
 <li>Achieves high compression with minimal accuracy drop, outperforming methods like Quest and SparQ.</li>
 <li>Open-source code is available on GitHub, making it accessible for practical deployment.
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250916112743653.png" alt="" /></li>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/icml25-rocket-kv-kv-cache-compression/body-005-c6178a424646.webp" alt="" /></li>
 </ul>
 </li>
 <li>

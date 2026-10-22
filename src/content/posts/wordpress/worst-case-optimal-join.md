@@ -18,7 +18,7 @@ viewCount: 964
 likeCount: 0
 dislikeCount: 0
 showCitation: true
-featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2025/04/1B736C5EEC950EBE12A57DDAD2EE40CD.jpg"
+featuredImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/worst-case-optimal-join/body-001-e5bb388ef1af.webp"
 importedFromWordPress: true
 cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/worst-case-optimal-join.webp"
 ---
@@ -70,7 +70,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <ul>
 <li>先算出最坏情况下能有多少个三角形（比如最多 ( n^{3/2} ) 个）。</li>
 <li>然后用高效方法（像索引或逐步过滤），确保时间接近 ( O(n^{3/2}) )，即使数据很复杂也不会慢太多。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202504171907228.png" alt="" /></li>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/worst-case-optimal-join/body-002-008dd5093296.webp" alt="" /></li>
 </ul>
 </li>
 </ul>

@@ -28,21 +28,21 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <p>在数据中心内，我们面临三个主要内存挑战：</p>
 <ol>
 <li><strong>内存层级中的延迟差距</strong>：直接附加的 DRAM 和固态硬盘（SSD）存储之间存在三个数量级的延迟差距。当处理器耗尽直接附加内存的容量时，必须依赖 SSD，导致处理器等待时间（延迟）增加，显著影响计算性能。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202505131236377.png" alt="" /></li>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/cxl-tech/body-001-bc9a66aa73bf.webp" alt="" /></li>
 </ol>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202505131254364.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/cxl-tech/body-002-e0b9ac6a3a36.webp" alt="" /></p>
 <ol start="2">
 <li>
 <p><strong>多核处理器核心数增长与内存带宽不匹配</strong>：多核处理器的核心数增长速度远超主内存通道的扩展速度。超过一定数量的核心会因内存带宽不足而无法充分利用，导致添加更多核心的收益递减。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202505131627450.webp" alt="acd63ba9541b4e7b960c681d5d1ddca5.webp" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/cxl-tech/body-003-8c72b342d3bf.webp" alt="acd63ba9541b4e7b960c681d5d1ddca5.webp" /></p>
 </li>
 <li>
 <p><strong>加速计算中的内存资源浪费</strong>：随着加速计算的普及，加速器（如GPU、FPGA）通常配备自己的直接附加内存，导致内存资源未被充分利用或闲置（孤立内存），造成资源浪费。</p>
 </li>
 </ol>
 <p><strong>所以，我们需要一个协议，把所有的内存统一起来，这样，他们的速度虽然比直接访问DRAM内存慢，但是比传统的固态SDD快。</strong></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202505131256325.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202505131628062.webp" alt="7cc9c629b3154c0ba336ca7d3f645898.webp" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/cxl-tech/body-004-ccb9b6bc59d8.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/cxl-tech/body-005-455afee3e6f4.webp" alt="7cc9c629b3154c0ba336ca7d3f645898.webp" /></p>
 <p>CXL technology offers a novel approach to addressing the memory challenges in data centers. By utilizing CXL memory, a new layer of memory is created between DRAM and SSD, bridging the significant gap in bandwidth and latency. This effectively unleashes the potential of multi core processors by providing them with more efficient access to memory resources.</p>
 <p>Compute Express Link (CXL) 就是一种开放行业标准互连技术，旨在提供主机处理器与加速器、内存缓冲器和智能 I/O 设备之间的高带宽、低延迟连接。</p>
 <p>CXL technology offers a novel approach to addressing the memory challenges in data centers. By utilizing CXL memory, a new layer of memory is created between DRAM and SSD, bridging the significant gap in bandwidth and latency. This effectively unleashes the potential of multi core processors by providing them with more efficient access to memory resources.</p>
@@ -50,7 +50,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <ul>
 <li><strong>发展历程</strong>：CXL 自 2019 年推出以来，经历了 1.0、2.0 和 3.0 三个主要版本迭代。2022 年，英特尔发布支持 CXL 的第四代 Xeon CPU，三星和 SK 海力士推出 CXL 内存原型产品，推动了其应用发展。</li>
 </ul>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202505131629985.webp" alt="36eb172a1efa4d86aca662274fb6e0bc.webp" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/cxl-tech/body-006-5db4c5b1e748.webp" alt="36eb172a1efa4d86aca662274fb6e0bc.webp" /></p>
 <p>CXL1.0/1.1 可归纳为“直连”，也就是让主机CPU可以直接访问PCIe设备的内存，具体分为三个子协议：CXL.io用于设备注册发现、CXL.cache用于设备访问CPU内存、CXL.mem 用于CPU访问设备内存。这可达到主机内存扩充的目的。</p>
 <p>CXL2.0 可归纳为“池化”，就是让多个主机CPU和多个设备可通过一个CXL Switch硬件连接在一起，可以相互访问，在较小延迟影响的前提下提供高容量大带宽。这可达到内存池化的目的。</p>
 <p>CXL3.0 可归纳为Fabric，可以让多个Switch形成级联结构，支持更复杂的结构。这可以达到“软件定义内存”的目的，此处借用了“软件定义网络”的概念</p>
@@ -67,7 +67,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <ul>
 <li>
 <p><strong>内存扩展（Memory Expansion）</strong>：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202505131633441.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/cxl-tech/body-007-93a2054eb609.webp" alt="" /></p>
 <ul>
 <li><strong>架构</strong>：通过 CXL.io 协议进行设备发现和初始化，通过 CXL.mem 协议处理内存读写请求。支持 E3.S 和 EDSFF 规范的内存扩展模块。</li>
 <li><strong>应用</strong>：在单一计算节点内扩展内存容量，满足大规模数据处理和复杂计算任务需求（如大型 AI 模型和高性能计算）。</li>
@@ -76,7 +76,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 </li>
 <li>
 <p><strong>内存池化（Memory Pooling）</strong>：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202505131632901.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/cxl-tech/body-008-b52dfe8c466a.webp" alt="" /></p>
 <ul>
 <li><strong>架构</strong>：通过 CXL 交换机连接多个主机（Root Ports），支持多逻辑设备（MLD）或单逻辑设备的内存池化。</li>
 <li><strong>优势</strong>：集中管理多个节点的内存资源，实现动态分配和优化利用，降低延迟，提升系统可扩展性和灵活性。</li>
@@ -84,7 +84,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 </ul>
 </li>
 </ul>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202505131635113.jpg" alt="v2-27d93ed14b6b7f122b0f2efe80c56484_r.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/cxl-tech/body-009-eb2622afcd05.webp" alt="v2-27d93ed14b6b7f122b0f2efe80c56484_r.jpg" /></p>
 <p>在图示的例子中，D1的所有内存都被分配给了H1；D2一部分内存被分给了H1，一部分给了H3。假设过了一段时间，H3可以通过HOT Remove释放一些内存，释放的内存可以通过HOT Add给到H1。MLD的分配颗粒度更小，更加灵活。需要注意的是，MLD的LD设备2.0定义，最多只能16个。</p>
 <p>MLD的精细颗粒度调度给云服务器典型应用提供了极大的灵活性，VMM可以根据调度VM的使用情况，灵活调度资源，达到按需分配的目标。MLD虽好，但并不是所有CXL设备都可以做成MLD。因为显而易见的原因，只有Type 3这种纯内存扩展才能是MLD，而GPGPU和DPU等等加速器只能SLD。</p>
 <h2><strong>CXL 的应用</strong></h2>
@@ -97,11 +97,11 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <li>内存安全防护；</li>
 </ol>
 <p>CXL 内存在带宽和延迟上优于 RDMA，但与本地内存仍有差距，需通过智能调度和优化弥补。不同比例的DDR+CXL效果不一样:
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202505131644689.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202505131644112.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/cxl-tech/body-010-aaf1bf25c471.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/cxl-tech/body-011-0f14ca18e9c0.webp" alt="" /></p>
 <p>不同的拓扑也有调度的优化空间.</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202505131641210.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202505131642322.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/cxl-tech/body-012-879c00c02227.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/cxl-tech/body-013-9bce69a92c49.webp" alt="" /></p>
 <p><strong>应用层内存即服务</strong>
 池化内存容量大、粒度细、分配灵活，直接衍生出“内存即服务”模式，这个是利好云厂商的。</p>
 <p>云厂商卖内存通常有以下痛点：</p>
@@ -113,8 +113,8 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 </ol>
 <p>在内存池化场景下，云厂商可以提供内存PaaS API服务，只卖内存给应用；也可以细粒度按需分配，收费更灵活，同时可以超卖内存，并将平常闲置的内存进行更高效的利用。</p>
 <p>也可以用来加速LLM</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202505131647026.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202505131647947.png" alt="" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/cxl-tech/body-014-dc4c3ba24d32.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/cxl-tech/body-015-10393a678601.webp" alt="" />
 <a href="https://dl.acm.org/doi/10.1109/SC41406.2024.00100">Efficient Tensor Offloading for Large Deep-Learning Model Training based on Compute Express Link | Proceedings of the International Conference for High Performance Computing, Networking, Storage, and Analysis</a></p>
 <p>调查发现，在微软Azure，有高达25%的内存都是闲置的，有50%的虚拟机使用的内存占比仅为50%。谷歌也类似，谷歌服务器集群中DRAM内存平均利用率约为40%，这将是巨大的机会</p>
 <ul>

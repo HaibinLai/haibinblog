@@ -65,9 +65,9 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 </tbody>
 </table>
 <p>状态转换：</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250521175828179.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/%E5%BE%AE%E4%B8%93%E9%A2%98-mesi/body-001-fd6aeee474d9.webp" alt="" /></p>
 <p>示例场景：读取
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250521175851648.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/%E5%BE%AE%E4%B8%93%E9%A2%98-mesi/body-002-d6adc588608f.webp" alt="" /></p>
 <h2>MESI导致的最大问题：同步 时延</h2>
 <p>缓存的一致性消息传递是要时间的，这就使其切换时会产生延迟。当一个缓存被切换状态时其他缓存收到消息完成各自的切换并且发出回应消息这么一长串的时间中CPU都会等待所有缓存响应完成。可能出现的阻塞都会导致各种各样的性能问题和稳定性问题。</p>
 <h3><strong>CPU切换状态阻塞解决-存储缓存（<a href="https://zhida.zhihu.com/search?content_id=195538802&amp;content_type=Article&amp;match_order=1&amp;q=Store+Bufferes&amp;zhida_source=entity">Store Bufferes</a>）</strong></h3>

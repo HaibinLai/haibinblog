@@ -17,7 +17,7 @@ viewCount: 1273
 likeCount: 0
 dislikeCount: 0
 showCitation: true
-featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/12/B51AFAE83CC03555D07BA8CE87DAC493.jpg"
+featuredImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/operating-system-assignment-4/body-001-1abcedf6e810.webp"
 importedFromWordPress: true
 cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/operating-system-assignment-4.webp"
 ---
@@ -140,7 +140,7 @@ Page table entry size of 4 Bytes
 Every page table is required to fit into a single page </p>
 <p>How many levels of page tables would be required to map the entire virtual address space? </p>
 <p>Please document the format of a virtual address under this translation scheme. Briefly explain your rationale.</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241201223751.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/operating-system-assignment-4/body-002-bd755aaecbc8.webp" alt="" /></p>
 <h3>Answer</h3>
 <p>Virtual address space is 46 bit with $2^{13}$ Bytes Page size, so
 $$
@@ -155,13 +155,13 @@ $$
 Number \ of \ Level = 2^{33} / 2^{11} = 3
 $$
 So, the format of a virtual address is:
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241201225349.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/operating-system-assignment-4/body-003-bc32b605c027.webp" alt="" /></p>
 <h2>Q4</h2>
 <p>Consider a system with following specifications: </p>
 <p>Both virtual address space and physical address are 32bits.
 Page table entry size of 4Bytes </p>
 <p>(a) Suppose it uses 1-level page table, the format of the translation scheme is
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241201225436.png" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/operating-system-assignment-4/body-004-82adb28a8096.webp" alt="" />
 What is the page size? What is the maximum page table size?
 $$
 Page \ size = 2^{12} \ bytes = 4096 \ bytes
@@ -171,7 +171,7 @@ $$
 Maximum \ page \ table \ size = 2^{20} \times 4 \ bytes = 4 MB
 $$</p>
 <p>(b) Suppose it uses 2-level page table, the format of the translation scheme is</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241201225450.png" alt="" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/operating-system-assignment-4/body-005-269ff039ece5.webp" alt="" />
 Please write down the 1-st level page number and its offset in decimal (base 10) of virtual address 0xC302C302 (base 16).
 Please write down the 2-nd level page number and its offset in decimal (base 10) of virtual address 0xEC6666AB (base16)</p>
 <p>0xC302C302 = b'<strong>1100 0011 00</strong>00 0010 1100 0011 0000 0010</p>
@@ -214,18 +214,18 @@ block is returned to the user.</p>
 [Step 2 allocation] start: 4, end: 8.
 [Step 4 allocation] start: 8, end: 16.
 [Step 5 allocation] start: 4, end: 6.</code></pre>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241201232139.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/operating-system-assignment-4/body-006-634be33755a4.webp" alt="" /></p>
 <p>allocation 1:
 <code>[Step 1 allocation] start: 0, end: 4. </code>
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241201232639.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/operating-system-assignment-4/body-007-978596bcae8b.webp" alt="" /></p>
 <p>Allocation 2:
 <code>[Step 2 allocation] start: 4, end: 8. </code>
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241201232629.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/operating-system-assignment-4/body-008-cceec7b6e97f.webp" alt="" /></p>
 <p>Allocation 3:
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241201232639.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/operating-system-assignment-4/body-007-978596bcae8b.webp" alt="" /></p>
 <p>Step 4 allocate 8 frames
 <code>[Step 4 allocation] start: 8, end: 16. </code>
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241201232757.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/operating-system-assignment-4/body-009-fc90934f7a52.webp" alt="" /></p>
 <p>Step 5 allocate 2 <strong>frames</strong>
 <code>[Step 5 allocation] start: 4, end: 6.</code>
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241201232915.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/operating-system-assignment-4/body-010-287a43d3431e.webp" alt="" /></p>

@@ -23,7 +23,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 ---
 <p>来MSRA后，与很多人进行了观点交流和碰撞，真是开拓眼界了。信息密度大，可是任务紧凑，没能每一个idea都细细分析，在这里只能把他们大杂烩。如果有冲突或者重合，纯属个人臆想。</p>
 <p>我目前最想去寻找的答案，就是未来5年的phd要做什么。时代的变动非常激烈，在AI的冲击下，传统的system以及HPC的研究方法、方向乃至思路都有可能发生翻天覆地的变革。</p>
-<p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/03/20260320202849466.png" alt="3e05d86bccc6be9188de08910c0ad6d4.jpg" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-03/pre-phd-thinking/body-001-6ad52e87c877.webp" alt="3e05d86bccc6be9188de08910c0ad6d4.jpg" /></p>
 <h2>System 研究要追上Agent 步伐</h2>
 <p>古法编程一直是我们System&amp;HPC人“引以为傲”的“核心竞争力”，我们高贵地认为修改编译器、内核、驱动、存储以及算子的代码需要大量“工程经验”以及“稳定”等模糊的长期经验。</p>
 <p>跟Qianxi和Qi的讨论中我们意识到，无论这件事情是真是假，这都是一件糟糕的事情：</p>

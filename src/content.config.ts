@@ -26,6 +26,8 @@ const posts = defineCollection({
     featuredTitle: z.string().trim().min(1).optional(),
     featuredLabel: z.string().trim().min(1).optional(),
     featuredBannerImage: z.string().trim().min(1).optional(),
+    imageMirrorIncludeHosts: z.array(z.string().trim().min(1)).default([]),
+    imageMirrorOpaqueWebpQuality: z.number().int().min(1).max(100).optional(),
     commentCount: z.number().int().nonnegative().default(0),
     viewCount: z.number().int().nonnegative().default(0),
     likeCount: z.number().int().nonnegative().default(0),

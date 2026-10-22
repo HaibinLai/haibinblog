@@ -18,11 +18,11 @@ viewCount: 3086
 likeCount: 2
 dislikeCount: 0
 showCitation: true
-featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/11/微信截图_20241118023433.jpg"
+featuredImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-001-a78c53aae843.webp"
 importedFromWordPress: true
 cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4.webp"
 ---
-<p><a href="https://www.haibinlaiblog.top/index.php/418/%e5%be%ae%e4%bf%a1%e6%88%aa%e5%9b%be_20241118023327/"><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503152156693.jpeg" alt="" /></a></p>
+<p><a href="https://www.haibinlaiblog.top/index.php/418/%e5%be%ae%e4%bf%a1%e6%88%aa%e5%9b%be_20241118023327/"><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-002-e2110010efe7.webp" alt="" /></a></p>
 <p>总链接：
 <a href="https://www.haibinlaiblog.top/index.php/sc-2024-passage/">https://www.haibinlaiblog.top/index.php/sc-2024-passage/</a></p>
 <h2>Parallel Program Analysis and Code Optimization</h2>
@@ -31,7 +31,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <p>摘要——<strong>算子融合</strong>是一项关键技术，用于提高数据局部性并减轻GPU内存带宽压力，但由于计算吞吐量的饱和，通常无法扩展到多个计算密集型操作符的融合。然而，张量维度大小的动态性可能导致这些操作符变成内存瓶颈，从而需要生成融合内核——这一任务受限于有限的融合策略搜索空间、冗余的内存访问以及长时间的调优过程，导致性能次优和低效的部署。</p>
 <p>我们提出了MCFuser，这是一个开创性的框架，旨在通过为我们定义的内存瓶颈计算密集型（MBCI）操作符链生成高性能的融合内核，克服这些障碍。MCFuser利用高层次的平铺表达式来划定一个全面的搜索空间，并<strong>结合有向无环图（DAG）分析以消除冗余内存访问</strong>，从而简化了内核优化过程。通过实施裁剪搜索空间的指南，并结合带有启发式搜索的分析性能模型，MCFuser不仅显著加速了调优过程，还展示了优越的性能。在与像Ansor这样的领先编译器进行基准测试时，MCFuser在NVIDIA A100和RTX3080 GPU上实现了最多5.9倍的内核性能加速，并超越了其他基准，同时将调优时间缩短了70倍以上，展现了其灵活性。</p>
 <p>关键词——算子融合、计算密集型、自动化探索、性能模型、GPU</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503152133096.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-003-3dfe954288c3.webp" alt="" /></p>
 <p><strong>memory-bound compute-intensive (MBCI) operator</strong></p>
 <p><strong>Memory-bound compute-intensive (MBCI) operator 是一种在计算密集型的操作符中，受限于内存带宽或内存访问速度，而不是计算能力的性能瓶颈的情况。</strong> MBCI操作符通常涉及大量的内存访问操作，例如读取和写入数据，但其计算过程可能相对较简单或不占用过多计算资源。这种操作符的性能主要受到内存访问延迟和带宽的限制，而不是处理器的计算能力。</p>
 <p><strong>计算密集性</strong>：操作符执行的计算量非常大，需要大量的计算资源。
@@ -47,16 +47,16 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-
 <strong>数据平铺</strong>（Tiling）：将数据分块，使得每个计算块的数据尽可能留在高速缓存中，减少内存访问延迟。
 <strong>操作符融合</strong>（Operator Fusion）：将多个操作符合并成一个，以减少内存访问的次数和开销。</p>
 <p>这些优化可以帮助减轻内存瓶颈，提高MBCI操作符的执行效率。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503152132679.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503152134250.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-004-c5fb1d870d1d.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-005-e34e1cceb440.webp" alt="" /></p>
 <p>针对这些已识别的挑战，MCFuser 通过基于平铺表达式构建了一个全面的搜索空间。通过利用有向无环图（DAG）流分析，我们有效地最小化了冗余的内存访问，并筛选出了无效的搜索候选项，从而显著简化了探索过程，提高了效率。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503152135412.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-006-5df645b39e6d.webp" alt="" /></p>
 <p>规则 1，去重：我们优先将空间循环与 blockIdx 绑定，用于每个平铺表达式，并移除绑定到 blockIdx 的循环以推导子平铺表达式。因此，每个线程块共享相同子平铺表达式的候选项被视为等效。例如，mhnk 和 mnkh 都为每个线程块生成相同的子平铺表达式 nk。</p>
 <p>规则 2，防止中间张量的共享内存过载：当缩减循环位于空间循环之外时，多个部分结果的平铺会被缓存到共享内存中（如图 6 所示），这可能导致共享内存过载。</p>
 <p>规则 3，避免额外的填充：当平铺大小不能整除维度大小时，填充变得必要。为了避免过度填充，如果维度大小是 2 的幂，则丢弃需要填充的候选项。对于其他情况，填充比例保持在 0.05 以下。</p>
 <p>规则 4，共享内存限制：平铺大小超过共享内存限制的候选项被认为是非法的。我们根据公式 (1) 估算占用的共享内存，其中 Shmmax 是每个特定硬件上每个块支持的最大共享内存。我们修剪满足 Shmestm &gt; 1.2Shmmax 的候选项，其中 1.2 用于容纳估算误差。通过实验验证（第 VI-E1 节），我们的估算精度超过 90%，从而将候选项数量减少约 40%。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503152135052.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503152136878.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-007-2d9bd105278a.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-008-1308d4277084.webp" alt="" /></p>
 <p><strong>算子融合（Operator Fusion）</strong> 是一种优化技术，广泛应用于深度学习和高性能计算中，旨在减少计算图中的操作步骤，提升性能，特别是在计算和内存效率方面。算子融合的核心思想是将多个算子（操作符）合并为一个单一的操作，从而减少中间数据的传输和存储，减轻内存带宽瓶颈，提高计算效率。</p>
 <p>算子融合的目标</p>
 <ol>
@@ -138,8 +138,8 @@ D = A + E</code></pre>
 <p>Iowa State University</p>
 <p><strong>摘要</strong>——高性能计算（HPC）架构的异构性增加和编译器的进展，使得OpenMP在异构设备上的计算中得到了广泛应用。然而，<strong>在异构计算平台上高效的数据传输对于实现高利用率至关重要。程序员必须显式地在主机和连接的加速器设备之间映射数据，以实现高效的数据传输。确保数据传输高效需要程序员理清复杂的数据流动。</strong> 这是一个繁琐且容易出错的过程，因为程序员必须保持对多个数据环境中的数据有效性和生命周期的心理模型。<strong>我们提出了一种静态分析工具——OMPDart（OpenMP数据优化工具），用于OpenMP程序，能够建模主机和设备区域之间的数据依赖关系，并应用源代码转换来实现高效的数据传输。</strong> 在九个HPC基准测试中的评估表明，OMPDart能够生成有效的数据映射结构，显著减少主机和设备之间的数据传输。</p>
 <p><strong>关键词——高性能计算， 并行编程， 数据传输， 静态分析， GPU， 性能优化， 异构计算， OpenMP</strong></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503152151764.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503160024847.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-009-5f88d1bf823a.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-010-12d06dac187b.webp" alt="" /></p>
 <p><strong>CFG</strong></p>
 <p>Control Flow Graphs (CFGs) 是一种用于表示程序控制流的图形结构，广泛应用于程序分析和优化中。CFG 将程序中的各个基本块（基本块是没有跳转或分支的指令序列）视为节点，节点之间的边表示控制流的转移。</p>
 <p>基本组成：</p>
@@ -232,18 +232,18 @@ University of Utah</p>
 <p><a href="https://github.com/csl-iisc/iGUARD-SOSP21/tree/934ae0030f625ecf2862290b4d7412b396f64673">csl-iisc/iGUARD-SOSP21 at 934ae0030f625ecf2862290b4d7412b396f64673</a></p>
 <p><strong>摘要</strong>——数据竞争是严重的并发错误，尤其在以性能为导向的 GPU 代码中尤为棘手，因为大规模的线程数和多个共享内存区域往往会加剧此类问题。在本研究中，<strong>我们提出了一种新的动态数据竞争检测工具——HiRace，其关键创新在于设计了一种创新的状态机，旨在充分利用大规模同步的分层 GPU 编程模型</strong>。该状态机将任意长度的访问历史压缩为常数大小的状态。我们在一个大型、校准过的数据竞争基准测试套件上评估了 HiRace。在超过 3500 次研究的 580 个 CUDA 内核执行中，其中 346 个内核包含数据竞争，我们发现 HiRace 能够检测出其他工具未能发现的数据竞争，且不会引发虚假警报，并且在性能上平均比现有技术快 10 倍以上，同时内存开销只有其一半。</p>
 <p><strong>关键词</strong>——GPU 编程；并行性；调试；数据竞争检测</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503160009595.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-011-2cefac69db11.webp" alt="" /></p>
 <p>HiRace的设计基于对给定内存地址的访问模式的枚举。在细粒度的释放-获取线程通信的普遍情况下，这个空间是没有界限的，但我们观察到，在限制为大规模同步GPU编程模型时，它是有界的。通过选择一个层次感知的表示方法，机会性地将线程等同于最大的可能层次线程组，实际上相关的访问模式数量是非常小的。我们将所有这些访问模式表示为25个不同的状态，这涵盖了所有对单个内存位置的读、写和原子读-修改-写指令的交织情况，当这些线程同步仅通过范围限定的线程屏障（例如CUDA的syncthreads）时。</p>
 <p>这个模型并没有改善当前通过释放-获取通信或基于锁的同步监控的现有技术。HiRace的方法回退到现有的同步追踪方法（例如，通过维护锁表来分析基于锁的程序）。实际上，这些传统的CPU并行编程模式在高性能GPU程序中并不常见，因为它们不是大规模同步编程模型的核心组件。GPU编程语言（如CUDA）没有提供显式的锁API，而是依赖于屏障，这也证明了这一点。</p>
 <p>HiRace基于一个有限状态机（FSM），它编码了前面介绍的发生先后逻辑。尽管FSM是为当前的CUDA编程模型量身定制的，但它可以很容易地扩展到其他模型和更深的层次结构。HiRace的FSM有25个状态，并且在这些状态之间有1200个转换。它们足以描述所有对单个内存位置的原子和非原子读写操作，以及从warp作用域和block作用域屏障原语中获得的所有必要的同步历史。</p>
 <p>为了避免详尽列出FSM的每个状态（其完整规格可以在 <a href="https://github.com/JohnJacobsonIII/HiRace-Artifact-SC24">https://github.com/JohnJacobsonIII/HiRace-Artifact-SC24</a> 找到），本节将逐步构建更简单的并发模型的类似状态机。为此，我们展示了两个场景，介绍了我们方法背后的关键思想：FSM如何执行原子更新，以及我们如何简洁地表达FSM的转换。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503160016674.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-012-65542776144a.webp" alt="" /></p>
 <p>我们声称，图2中的有限状态机（FSM）以及一个先前的访问者ID，足以跟踪沿单个控制流路径可能发生的所有数据竞争。为了监控数据数组中的竞争，我们为每个数组元素data[k]创建一个shadow[k]条目，如图3所示。每个shadow[k]条目维护以下信息：块标量时钟（BC）、warp标量时钟（WC）、执行最近访问的线程ID（TID），以及图2中的FSM状态（State）。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503160016913.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-013-9eff0b9c2e24.webp" alt="" /></p>
 <p>最初，所有的State值都设置为INIT，表示尚未发生任何内存访问。假设我们采用图1所示的线程组织。我们将八个线程标记为T000到T111，以指示它们的块、warp和TID。例如，“红色”线程是T100。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503160016254.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-014-848733216af4.webp" alt="" /></p>
 <p>在我们描述的场景中，所有访问data[k]的CUDA线程都会通过我们的源代码插桩原子地复制shadow[k]到oShadow，其中oShadow是元组⟨oBC, oWC, oTID, oState⟩。然后，它们确定要写回到shadow[k]的新元组⟨nBC, nWC, nTID, nState⟩，并通过使用ATOMICCAS指令以无锁方式完成该操作。只有一个线程会成功；“失败者”会重新获取shadow[k]的副本并重试。为了说明这个过程，让我们通过几个具体的场景来演示。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503160017687.png" alt="" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-015-c5383c67a893.webp" alt="" />
 场景2：在这个场景中，我们考虑包含块作用域 <code>syncthreads</code> 屏障的程序，如列表3所示。为了说明在屏障存在时状态机的活动，我们扩展了读取和写入的下标表示法。下标的形式是{S, T}，其中S是同步状态，可以是Us（“未同步”）或Bs（“块同步”），T是线程关系，现在除了原来的S（“自身”）和G（“全局”）外，还有B（“块”）选项。新的线程关系B表示一个屏障已“块同步”了访问（通过不同的块标量时钟BC值来指示）。通配符“∗”表示任何适用的字母。</p>
 <p>考虑T011（图1中的“红色”线程）执行列表3中的第4行，其中它读取数据数组的位置0。此访问将shadow[0]的状态更新为READ，如图4中通配符下标的R{∗,∗}转换所示。假设T000，同一块中的另一个线程，现在执行第4行。此访问将shadow[0]更新为BREAD（块读取）——这是一个新状态——表示同一块范围内的两个线程已异步读取此位置，如标签R{Us,B}所示。只要同一块中的其他线程继续执行第4行，shadow[0]就会保持在BREAD状态。当来自不同块的线程，例如T110，执行第4行时，我们将shadow[0]提升为GREAD（全局读取），因为在“全局范围”内执行了读取操作（R{∗,G}）。</p>
 <p>一旦进入GREAD状态，任何线程的任何类型的写入（W{∗,∗}）都会导致数据竞争，因为这个内存位置已经被至少两个块读取过。这个非常重要，因为<code>syncthreads</code>屏障不会同步跨块的线程，因此任何写入线程必须至少异步执行与之前的某个读取线程。</p>
@@ -256,19 +256,19 @@ University of Utah</p>
 <p><strong>关键词——多后端、远程内存、多路径、交换</strong></p>
 <p><a href="https://zhuanlan.zhihu.com/p/541262524">https://zhuanlan.zhihu.com/p/541262524</a></p>
 <p>近年来，分散式内存（DM）架构脱颖而出，成为提升数据中心能力的一种方式，它通过提供高度灵活的内存扩展来实现这一目标[20]-[25]。在这种情况下，对内存需求极大的单体服务器能够以较低的数据访问延迟访问基于 PCI Express（PCIe）的二级内存设备（即远内存）。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503160108236.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-016-70a80be1d08f.webp" alt="" /></p>
 <p>集成多个FM设备并超配PCIe子系统，可以推动服务器数据吞吐量的极限，如图2-(a)所示。这种方法我们称之为多后端分散内存，但遗憾的是，仅基于当前的数据传输协议和设备驱动程序无法实现这一目标。主要原因在于，虚拟机（VM）仍然使用与主机操作系统（OS）相关的分层数据交换机制，这种机制不允许将页面交换到多个交换后端（每个后端关联着不同的后备存储）。</p>
 <p>换句话说，<strong>现有的FM管理方案忽略了可能存在的多个物理FM通道：它们在逻辑上仅支持一个数据交换路径到FM设备</strong>。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503160109765.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-017-9e3a8d96920a.webp" alt="" /></p>
 <p>我们提出了xDM，一个新型的FM管理系统，旨在支持在新型多后端分散内存架构上运行的高性能数据分析工作负载。为了实现这一目标，需要从单路径到多路径内存管理进行非平凡的过渡。使用多个同时的FM访问路径使服务器能够并行访问FM设备，从而显著提高整体数据吞吐量。我们精心调整了VM操作系统，以支持多路径FM管理。xDM具有低开销的可切换数据交换模块，使得内存需求高的机器能够定制其FM访问路径。因此，不同的用户可以根据他们特定的工作负载特性和资源压力动态选择适当的FM后端，避免在等待机器带宽可用时阻塞任务。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503160116503.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-018-e662b01b7ad2.webp" alt="" /></p>
 <p>尽管增加远程内存（FM）可以缓解服务器的内存压力，但遗憾的是，它无法满足当今数据中心中对高数据/任务吞吐量的需求。如图1-(a)所示，先前的工作大多将设计限制在单一的FM设备上，该设备通常插入服务器的PCIe附加卡（AIC）接口，作为一个快速的后备存储[26]–[31]。图1-(b)比较了多种商业FM技术。单一FM设备所能支持的数据传输带宽（从7.9 GB/s到46 GB/s）[25]，[32]–[35]与现代PCIe协议所能提供的最大可用带宽（PCIe 4.0×16提供64 GB/s）[36]之间存在很大的差距。这意味着，单一的远程内存设备可能成为扩展应用程序的关键瓶颈。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503160101121.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503160057463.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-019-889de4290bb0.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-020-d5085d6ece6e.webp" alt="" /></p>
 <p>• 动态性和隐式性。一种可能的解决方案是使系统静态且隐式。这意味着用户在 FM 启用的机器上启动计算实例时必须指定一种类型。实际上，这将实例绑定到特定的物理 FM 通道（例如，RDMA 或 SSD）。将不同用户的实例共置允许服务器节点同时访问不同的 FM 后端，从而提高带宽利用率。由于工作负载行为在运行时经常发生变化，这种设计只能产生次优性能。
 在本工作中，我们的目标是使系统具有动态性：每个实例都能在运行时评估任务偏好，并隐式选择最优的远内存路径，而无需用户干预。据我们所知，以往的工作从未实现过静态的多路径远内存系统，更不用说动态的了。我们的工作与相关研究之间的差异如表 I 所示。</p>
 <p>• 使其通用且智能。xDM 不仅仅是简单地在本地 DRAM 和远内存设备之间分配数据，而是旨在成为一个真正通用的系统。为了提高远内存带宽使用效率并提升数据中心性能，需要考虑更多的可配置参数。重要的是要利用丰富的应用程序页面数据，并根据包括数据分布、数据粒度以及 I/O 特性在内的多维系统信息来调整系统设置。这使我们能够做出明智的决策，并使 xDM 能够智能地配置每条远内存路径。据我们所知，以往的工作都采用了简单直接的数据管理策略。我们的工作与相关研究之间的差异总结在表 II 中。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503160118006.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-021-63200df69bdb.webp" alt="" /></p>
 <p>不是很理解,就用了Deepseek翻译一下:</p>
 <blockquote>
 <p>💭
@@ -308,7 +308,7 @@ University of Utah</p>
 <li><strong>场景适应</strong>：通过参数配置快速适配云计算、边缘计算等不同应用场景</li>
 </ul>
 <p>该设计解决了传统分层内存架构在超深层次下的效率瓶颈，为分布式内存系统提供了高灵活性的资源管理方案。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503160119156.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-022-889413b6b77e.webp" alt="" /></p>
 <h3>SMIless: Serving DAG-based Inference with Dynamic Invocations under Serverless Computing</h3>
 <p>Shenzhen Institute of Advanced Technology, CAS
 State Key Lab of Internet of Things for Smart City, University of Macau
@@ -316,30 +316,30 @@ State Key Lab of Internet of Things for Smart City, University of Macau
 <p><strong>摘要</strong>——基于无服务器平台部署机器学习（ML）服务应用程序，具有多个推理功能，已获得显著的普及，导致了许多新系统的发展。然而，这些系统通常将资源配置优化和冷启动管理分开处理，最终导致更高的金钱成本。</p>
 <p>本文介绍了SMIless，一个<strong>为异构环境中的基于DAG的ML推理服务量身定制的高效无服务器系统</strong>。SMIless在动态调用的背景下，能够有效地共同优化资源配置和冷启动管理。这是通过无缝集成自适应预热窗口来实现的，从而在性能和成本之间达到有效的平衡。<strong>我们在OpenFaaS上实现了SMIless</strong>，并使用真实世界的ML服务应用程序进行了广泛评估。实验结果表明，SMIless能够在满足所有用户请求的服务水平协议（SLA）要求的同时，将总体成本减少最多5.73倍，超越了现有最先进解决方案的性能。</p>
 <p><strong>关键词——无服务器、基于DAG的推理、动态调用</strong></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503160331155.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-023-0a37d9edc02f.webp" alt="" /></p>
 <p><strong>什么是  Serverless computing ?</strong>
 <a href="https://zhuanlan.zhihu.com/p/50694361">https://zhuanlan.zhihu.com/p/50694361</a>
 最近，serverless一词在越来越多的对话中出现。让我们先弄明白这个概念以及与之相关的一些东西，例如无服务器计算和无服务器平台。</p>
 <p>Serverless 经常被当做FAAS(函数既服务)。serverless不是说没有服务器。事实上，服务器有很多，甚至性能还很强劲，这是为公共云提供商提供了部署、运行和管理应用程序的服务器。</p>
 <p>Serverless平台提供api，允许用户运行代码函数(也称为操作)并返回每个函数的结果。无服务器平台还提供HTTPS终端，允许开发人员检索函数结果。这些终端可以用作其他函数的输入，从而提供相关函数的触发事件(或链接)。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503160342117.png" alt="74017940d37cacf04cde6d5127008d82.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-024-dd86214cd78e.webp" alt="74017940d37cacf04cde6d5127008d82.png" /></p>
 <p>在大多数serverless平台上，用户在执行函数之前部署(或创建)函数。serverless平台拥有所有必要的代码，以便在需要的时候执行这些函数。serverless函数的执行可以由用户通过命令手动调用，也可以由事件源触发，该事件源配置为在响应cron作业告警、文件上传或其他事件时<a href="https://zhida.zhihu.com/search?content_id=10326472&amp;content_type=Article&amp;match_order=1&amp;q=%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0&amp;zd_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJ6aGlkYV9zZXJ2ZXIiLCJleHAiOjE3NDIyNDAzOTgsInEiOiLmv4DmtLvlh73mlbAiLCJ6aGlkYV9zb3VyY2UiOiJlbnRpdHkiLCJjb250ZW50X2lkIjoxMDMyNjQ3MiwiY29udGVudF90eXBlIjoiQXJ0aWNsZSIsIm1hdGNoX29yZGVyIjoxLCJ6ZF90b2tlbiI6bnVsbH0.5VfyGf0Ad1zIBAwE_qJr7OfSg6BraSLS2DcMSxboL-A&amp;zhida_source=entity">激活函数</a></p>
 <p>Serverless是云计算的进一步延伸，所以，它继承了云计算的最大特点——按需弹性伸缩、按需付费。</p>
 <p><a href="https://cloud.tencent.com/developer/article/2203381">https://cloud.tencent.com/developer/article/2203381</a></p>
 <p>现在的互联网服务，基本上都是采用<strong>微服务架构</strong>。也就是把一整套服务，拆分为多个细分服务，由不同的服务器完成运算。</p>
 <p>Serverless的特点是，这个服务足够“细小”，变成了“函数级”的颗粒度。</p>
 <p>Serverless的背后，依然是虚拟机和容器。只不过，服务器部署、runtime安装、编译等工作，都由Serverless计算平台负责完成了。对开发人员来说，只需要维护源代码和Serverless执行环境的相关配置即可。这就叫“无服务器计算”。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503160343429.png" alt="93f77c60effbdef496ef8721310ff791.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-025-2f38edab7f93.webp" alt="93f77c60effbdef496ef8721310ff791.png" /></p>
 <p>Serverless架构的最大优势，显然就是帮助用户彻底摆脱了基础设施管理这样的“杂事”，更加专注于业务开发，从而提升了效率，降低了开发和运营成本。</p>
 <p>根据业界的统计，在商业和企业数据中心里的典型服务器，日常仅仅只提供了5%～15%的平均最大处理能力的输出。这是一种算力资源的巨大浪费。</p>
 <p>Serverless的出现，可以让用户按照实际算力使用量进行付费，属于真正的“精确计费”。</p>
 <p>换言之，用户的每一分钱，都花在了刀刃上。
 <a href="https://developer.aliyun.com/article/857454">https://developer.aliyun.com/article/857454</a></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503160332282.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503160344586.webp" alt="1642402129190-f4968127-d0b0-4436-8e13-5d399ec9f170.webp" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503160344259.webp" alt="1642402130099-3af64cdd-7192-48dc-bdb8-fd00a8766048.webp" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503160344916.webp" alt="1642402130117-a3983d08-5a7b-4f97-826d-49f9e83758fa.webp" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503160344689.webp" alt="1642402130623-f7a70ec0-ca51-42d8-8754-3775762e9395.webp" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-026-80d3d4c64fea.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-027-cc1da601487d.webp" alt="1642402129190-f4968127-d0b0-4436-8e13-5d399ec9f170.webp" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-028-2b3ab9ed73c7.webp" alt="1642402130099-3af64cdd-7192-48dc-bdb8-fd00a8766048.webp" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-029-3795a13cbeae.webp" alt="1642402130117-a3983d08-5a7b-4f97-826d-49f9e83758fa.webp" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-030-d7e6bf4a2190.webp" alt="1642402130623-f7a70ec0-ca51-42d8-8754-3775762e9395.webp" /></p>
 <p><strong>本文:</strong>
 在机器学习服务中，通过在一个应用中整合多个机器学习推理模型来提供全面服务至关重要[8]。例如，一个对话式人工智能流水线由三个模块构成：自动语音识别模块将输入的音频波形转换为文本，大语言模型（LLM）模块理解输入并生成相关回应，以及负责将大语言模型输出转化为语音的文本转语音模块[9]。这些模型通常以并行、串行或混合方式组织，并可通过有向无环图（DAG）进行表示</p>
 <p>传统文献中关于在异构环境中为基于DAG的应用分配资源的研究忽视了冷启动问题，导致资源浪费，并未能满足端到端（E2E）延迟的服务水平协议（SLA）要求。在使用无服务器计算进行ML服务应用的研究中，主要强调了孤立的优化，或者完全忽视了DAG结构。</p>
@@ -349,7 +349,7 @@ State Key Lab of Internet of Things for Smart City, University of Macau
 <h4><strong>级联效应</strong></h4>
 <p>A cascading effect refers to an <strong>unforeseen chain of events</strong> that occurs when a negative impact on one system leads to negative impacts on other related systems.</p>
 <p><a href="https://snap-stanford.github.io/cs224w-notes/network-methods/network-effects-and-cascading-behavior">https://snap-stanford.github.io/cs224w-notes/network-methods/network-effects-and-cascading-behavior</a></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503160353109.gif" alt="decision_based_network_spreading_example.gif" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-031-fee08f447d93.gif" alt="decision_based_network_spreading_example.gif" /></p>
 <h4>SLA（服务等级协议）</h4>
 <p>学习链接:
 <a href="https://blog.csdn.net/Listron/article/details/117653075">https://blog.csdn.net/Listron/article/details/117653075</a>
@@ -416,10 +416,10 @@ State Key Lab of Internet of Things for Smart City, University of Macau
 <p><strong>A. 关键设计思想</strong></p>
 <p>I1：利用自适应预热管理动态调用。SMIless引入了一种创新的自适应冷启动策略，用于DAG应用程序中的函数。该策略基于给定的资源配置和调用到达率，计算所有无服务器函数的预热大小。这一能力使得SMIless能够有效地制定复杂DAG应用程序的端到端延迟和整体成本。</p>
 <p>I2：通过路径搜索公式解决级联效应。<strong>SMIless通过将问题重新定义为多路径树中的路径搜索，启动其优化方法</strong>。DAG中所有函数的自适应冷启动策略和资源分配策略的每一种不同组合都被视为一个独特的节点，这些组合的变化则表示为边。SMIless系统地导航这个树，优先选择那些能够最小化成本的组合。这种战略性探索使得SMIless能够有效地解决级联效应，接近最优解，而无需进行穷举式的探索。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503160416807.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503160417714.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503160417727.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503160417105.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-032-2751a7c6550a.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-033-f7d35a6db6b4.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-034-34e2f2e22fac.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-035-b578f935d212.webp" alt="" /></p>
 <h3>Stellaris: Staleness-aware Distributed Reinforcement Learning with Serverless Computing</h3>
 <p><strong>SC 2024 <a href="https://sc24.conference-program.com/presentation/?id=pap594&amp;sess=sess392">(Best Student Paper Finalist)</a></strong>
 <a href="https://github.com/IntelliSys-Lab/Stellaris-SC24">https://github.com/IntelliSys-Lab/Stellaris-SC24</a></p>
@@ -427,7 +427,7 @@ State Key Lab of Internet of Things for Smart City, University of Macau
 <a href="https://hanfeiyu.github.io/publications/">https://hanfeiyu.github.io/publications/</a></p>
 <p><strong>摘要</strong>——深度强化学习（DRL）在多个领域取得了显著成功，包括游戏AI、科学仿真和大规模（HPC）系统调度。DRL训练涉及试错过程，需求大量的时间和计算资源。为了克服这一挑战，已经开发了分布式DRL算法和框架，通过利用大规模资源加速训练。然而，<strong>现有的分布式DRL解决方案依赖于服务器式基础设施的同步学习，导致训练效率低下和训练成本过高。</strong></p>
 <p>本文提出了Stellaris，这是<strong>首个引入无服务器计算的分布式DRL训练的通用异步学习范式</strong>。我们设计了一种重要性抽样截断技术来稳定DRL训练，并开发了一种基于陈旧感知的梯度聚合方法，专门针对异步无服务器DRL训练中的动态陈旧性。通过在AWS EC2常规测试平台和HPC集群上的实验，结果表明，Stellaris在训练质量（奖励）上比现有的最先进DRL基准高出2.2倍，并且将训练成本降低了41%。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503160429764.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-036-7e3c7266cebe.webp" alt="" /></p>
 <p>Fig. 5(a) shows an example of cross-learner policy drift. When Learner 2 computes its local importance sampling ratio π2 π1 , it ignores the other learner (Learner 2) that also contributes to the policy update. As a result, π3 π1 may still explode and hinder the training if no cross-learner truncation is applied.</p>
 <hr />
 <h2>GPU Optimizations for ML</h2>
@@ -438,20 +438,20 @@ Iowa State University</p>
 <p><strong>摘要</strong>—在计算机集群上推断大型语言模型（LLMs）已成为近期研究的重点，许多加速技术从CPU的猜测执行中获得灵感。这些技术减少了与内存带宽相关的瓶颈，但也增加了每次推断运行的端到端延迟，需要较高的猜测接受率来提高性能。结合任务间接受率的变化，猜测推断技术可能导致性能下降。此外，管道并行设计需要大量用户请求才能保持最大利用率。为此，<strong>我们提出了PipeInfer，一种流水线式猜测加速技术，用于减少令牌间的延迟，并提高单请求场景下的系统利用率，同时改善对低猜测接受率和低带宽互连的容忍度</strong>。与标准猜测推断相比，PipeInfer在生成速度上提高了最多2.15倍。PipeInfer通过持续异步猜测和早期推断取消实现了性能提升，前者通过与多个猜测运行同时进行单令牌推断来改善延迟和生成速度，后者通过跳过无效运行的计算，即使在推断中途，也能提高速度和延迟。</p>
 <p><strong>关键词</strong>—大型语言模型，推断，猜测，加速，分布式， 并行</p>
 <p>没理解,需要深究.
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503162156689.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-037-9268506a77da.webp" alt="" /></p>
 <h3>RecFlex: Enabling Feature Heterogeneity-Aware Optimization for Deep Recommendation Models with Flexible Schedules</h3>
 <p><strong>摘要</strong>—工业推荐模型通常涉及多个特征字段。这些字段的嵌入计算工作负载是异构的，因此需要不同的最优代码调度。尽管现有的解决方案对嵌入操作应用了基本的融合优化，但它们低效地对所有特征字段采用相同的调度，导致性能次优。</p>
 <p>本文介绍了RecFlex，<strong>它为不同特征字段生成具有不同调度的融合内核</strong>。RecFlex采用干扰感知调度调优器来调优调度，并通过异构调度融合编译器<strong>生成融合内核</strong>，从而解决了两个主要挑战。为了确定融合内核中不同特征字段的最优调度，RecFlex提出了一种两阶段的干扰仿真调优策略。为了应对挑战调优和融合的动态工作负载，RecFlex结合了编译时调度调优和运行时内核线程映射。RecFlex超越了最先进的库和编译器，分别在TorchRec、HugeCTR和RECom上实现了2.64倍、20.77倍和11.31倍的平均加速。RecFlex已公开发布，地址为https://github.com/PanZaifeng/RecFlex 。</p>
 <p>关键词—推荐系统，机器学习编译器</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503162158755.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-038-bd504a4b4b08.webp" alt="" /></p>
 <h3>ParvaGPU: Efficient Spatial GPU Sharing for Large-Scale DNN Inference in Cloud Environments</h3>
 <p>Chung-Ang University, Seou</p>
 <p><a href="https://github.com/MunQ-Lee/ParvaGPU_SC24">https://github.com/MunQ-Lee/ParvaGPU_SC24</a></p>
 <p><strong>摘要</strong>—在云环境中，基于GPU的深度神经网络（DNN）推断服务器需要在指定的请求率下满足每个工作负载的服务水平目标（SLO）延迟，同时最小化GPU资源消耗。然而，先前的研究未能完全实现这一目标。本文提出了ParvaGPU，一种促进大规模DNN推断在云计算中进行空间GPU共享的技术。<strong>ParvaGPU结合了NVIDIA的多实例GPU（MIG）和多进程服务（MPS）技术，以提高GPU利用率，旨在满足每个工作负载的不同SLO，并减少总体GPU使用</strong>。具体而言，ParvaGPU解决了在分配的GPU空间分区内最小化利用率不足和在结合MIG和MPS环境中外部碎片化的问题。我们在多台A100 GPU上进行了评估，评估了11种具有不同SLO的DNN工作负载。我们的评估结果显示，与最先进的框架相比，ParvaGPU没有违反任何SLO，并显著减少了GPU的使用。</p>
 <p>关键词—空间GPU共享，DNN推断，云计算</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503162219264.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503162220405.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503162220118.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-039-09302744299f.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-040-8852ec87ac57.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-041-912addb84180.webp" alt="" /></p>
 <hr />
 <h2>Parallel Programming Frameworks, Libraries and Runtimes</h2>
 <h3>CUDASTF: Bridging the Gap Between CUDA and Task Parallelism</h3>
@@ -459,12 +459,12 @@ Iowa State University</p>
 <p>NVIDIA</p>
 <p><strong>摘要</strong>—将计算组织为具有数据驱动依赖关系的异步任务是一种简单高效的单GPU和多GPU程序模型。顺序任务流（STF）就是这样一种模型，它通过数据依赖关系推导任务图。我们提出了CUDASTF，这是一个实现STF的C++库，基于CUDA API，旨在促进可扩展和可组合算法的轻松创建。用户可以轻松选择使用CUDA图而不是流，这样可以提高小型内核的性能。结构化内核会自动在多个设备上分布，并且可以进行精细的亲和性控制。在实现方面，CUDASTF为异步并行库提供了一种基于事件的方法，具有很强的说服力。</p>
 <p>我们在Cholesky分解上取得了比cuSolverMg库高达1.8倍的性能提升。在一个小型天气模拟任务上，我们展示了多GPU内核的接近最优可扩展性；此外，在单个GPU上，CUDA图提升了最多30%的性能。最后，我们成功实现了第一个在多个设备上执行的CKKS完全同态加密方案。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503162230782.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-042-af5e686e358a.webp" alt="" /></p>
 <p>我们通过算法1中的简单示例讨论顺序任务流（STF）编程模型，该示例描述了三个变量上的一组四个操作，这些变量可以是向量、张量，甚至是加密的密文（见§VII-E）。无论底层数据表示如何，操作O2和O3都需要访问X，而X是操作O1的结果，操作O4则需要操作O2和O3的结果。因此，这样一系列操作可以仅根据数据访问来解释为图形，如图1中绿色节点所示。（附加的虚线节点说明了如何在配备加速器的机器上实例化这样的任务图需要各种附加的分配和传输操作。）这些操作由计算和数据的位置确定性地推断出来，因此理想情况下它们不应由程序员负责。生成的图形既不依赖于底层数据表示，也不依赖于异步操作的实际实现。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503162231414.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-043-4de060c17fe9.webp" alt="" /></p>
 <p>STF模型[1]将程序描述为一系列读写数据的操作，并将它们转化为相互依赖的任务图。这是一种数据流形式，它推断依赖关系，而不是像大多数数据流模型实现那样显式地指定依赖关系，从而简化了代码。</p>
 <p>我们在CUDASTF中实现了这一模型，这是一个C++17库，旨在与CUDA环境[2]（例如CUBLAS、CUB、Thrust）以及更大的并行计算生态系统（如OpenACC[3]）进行互操作。一个重要的目标是促进现有代码的逐步迁移和增强。利用C++语言的建模能力，可以在不需要自定义语言或编译器扩展的情况下创建富有表现力和高效的抽象。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503162232134.png" alt="" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-044-e6ec5d7e317c.webp" alt="" />
 <strong>顺序任务流（STF）编程模型</strong>是一种旨在高效管理并行任务和数据流的框架。在<strong>CUDASTF编程模型</strong>中，任务操作的是逻辑数据（如变量或数组），并且自动推断任务之间的依赖关系。这些依赖关系决定了任务是可以并行执行，还是需要顺序执行，以最大限度地提高效率并确保正确的数据访问和计算。</p>
 <h4>主要概念：</h4>
 <ol>
@@ -500,7 +500,7 @@ Iowa State University</p>
 <li><strong>T3</strong> 读取X并修改Z。</li>
 <li><strong>T4</strong> 读取Y和Z。</li>
 </ul>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503162235238.png" alt="graph_01.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-045-78722256700d.webp" alt="graph_01.png" /></p>
 <p>任务之间的依赖关系由它们访问的数据决定。例如，T2和T3都读取X，而X由T1修改，因此T2和T3必须等到T1完成后才能执行。T4依赖于T2和T3的完成，因为它读取Y和Z，而这些数据分别被T2和T3修改。</p>
 <p>CUDASTF模型根据这些依赖关系生成执行计划，最大化并行性并确保数据流的正确性。</p>
 <p><strong>CUDASTF通过自动管理任务依赖和数据流动，简化了并行编程过程，使程序员可以专注于设计高效的任务驱动算法，而不必担心低层次的并行化和数据管理问题。</strong></p>
@@ -581,7 +581,7 @@ ctx.task(lY.rw())-&gt;*[](cudaStream_t stream, auto sY) {
 ctx.host_launch(lX.read(), lY.read())-&gt;*[](auto sX, auto sY) {
     callback(sX, sY);
 };</code></pre>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503162238222.png" alt="task-sequence-user.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-046-fd1a9b1516e9.webp" alt="task-sequence-user.png" /></p>
 <h3>KaMPIng: Flexible and (Near) Zero-Overhead C++ Bindings for MPI</h3>
 <p>Karlsruhe Institute of Technology</p>
 <p><strong>摘要</strong>—消息传递接口（MPI）和C++构成了高性能计算的核心，但MPI仅提供C和Fortran绑定。虽然这提供了良好的语言互操作性，但像C++这样的高级编程语言使软件开发更快速且更少出错。</p>
@@ -598,14 +598,14 @@ distributed applications.
 • Compile-time error checking with human-readable error messages.
 • Demonstration of real-world applicability using a large variety of application benchmarks.
 • First steps towards integrated and extensible general algo-rithmic building blocks for distributed computing such asspecialized collectives for sparse and low-latency irregular personalized communication.</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503162242066.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503162243736.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-047-69b5fc435188.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-048-6d3d143ea46e.webp" alt="" /></p>
 <h3>NetCL: A Unified Programming Framework for In-Network Computing</h3>
 <p>Vrije Universiteit Amsterdam</p>
 <p>这篇文章介绍了一个名为 <strong>NetCL</strong> 的统一编程框架，旨在简化<strong>网络内计算（In-Network Computing, INC）</strong> 的开发过程。以下是对其工作的简单概述：</p>
 <h4>背景与动机</h4>
 <p>随着可编程数据平面（Programmable Data Plane, PDP）设备的兴起，例如支持 P4 语言的网络设备，网络内计算成为一种新兴范式，允许网络设备在数据传输过程中执行计算任务。然而，当前 PDP 编程主要依赖如 P4 这样的领域特定语言（DSL），这些语言专注于包处理，编程复杂且需要深厚的网络知识，导致 INC 的开发门槛较高，难以被广泛采用。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503222326673.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-049-e728639848ee.webp" alt="" /></p>
 <p><a href="https://cloud.tencent.com/developer/article/1556110">一文读懂P4可编程交换芯片-腾讯云开发者社区-腾讯云</a>
 NFV.p4替代甚至优化传统网元的实现，例如负载均衡，DDoS防火墙，云网关，流发生器，TAP分流器等；Cluster.p4通过可编程交换机加速特定的分布式集群，例如NetCache加速分布式键值对存储，NetChain加速分布式协调，SwitchML加速机器学习等；Fabric.p4则是通过CLOS结构组建的数据中心大交换机，目标是利用切片以及内网负载均衡实现云原生的Fabric集群；Telemetry.p4主要面向数据平面的在线诊断以及可视化需求，使得超高速的数据平面依旧可观可测。</p>
 <h4>NetCL 的核心贡献</h4>
@@ -613,30 +613,30 @@ NFV.p4替代甚至优化传统网元的实现，例如负载均衡，DDoS防火�
 <ol>
 <li>
 <p><strong>统一的编程接口</strong>：NetCL 基于 C/C++ 扩展，提供了一种计算导向的编程模型。开发者可以将 INC 任务表达为处理网络中流动消息的“内核函数”（kernel functions），无需直接处理低层次的网络细节。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503222329118.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-050-9cec9601318d.webp" alt="" /></p>
 </li>
 <li>
 <p><strong>编译器与运行时支持</strong>：NetCL 包括一个编译器，将 C/C++ 编写的内核代码翻译成 P4 代码，同时提供轻量运行时，负责网络通信和设备管理的“管道工作”，屏蔽了底层复杂性。</p>
 </li>
 <li>
 <p><strong>目标与设计理念</strong>：NetCL 旨在让开发者像编程计算单元一样编写 INC 代码，同时保留对消息转发的基本控制，充分利用 PDP 的性能优势，并尽量保持目标无关性（target-independent）。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503222328785.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-051-63f81ed8bdfc.webp" alt="" /></p>
 </li>
 </ol>
 <h4>系统设计与功能</h4>
 <ul>
 <li><strong>编程模型</strong>：通过简单的 API（如 <code>send()</code> 和 <code>reflect()</code>），开发者可以定义计算任务并控制消息流向。例如，一个网络缓存的实现只需几行代码即可完成。</li>
 <li><strong>工作流程</strong>：用户编写包含主机和设备代码的 C/C++ 程序，NetCL 编译器将其翻译为 P4 代码，最终由网络运营商部署到真实网络中。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503222331620.png" alt="" /></li>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-052-e003349ada67.webp" alt="" /></li>
 <li><strong>执行模型</strong>：NetCL 支持“发送-计算”语义，计算任务由消息触发，可在多个设备上协同执行。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503222329435.png" alt="" /></li>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-053-de0e3c781d1d.webp" alt="" /></li>
 </ul>
 <h4>实现与评估</h4>
 <ul>
 <li><strong>实现</strong>：NetCL 编译器基于 LLVM，支持 Intel Tofino 开关等硬件目标。运行时则处理通信和设备内存访问。</li>
 <li><strong>评估</strong>：作者在常见的 INC 应用（如缓存、聚合等）上测试了 NetCL，证明其相比手写 P4 代码大幅减少了代码量，同时生成的 P4 代码在资源占用和性能上与手写代码相当。</li>
 </ul>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503222329998.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-054-4f0d5cf2a297.webp" alt="" /></p>
 <p>NetCL 的出现类似于 GPU 编程中的 CUDA，通过提供高级抽象降低了 INC 编程的复杂性，使其更易于被非网络专家使用，推动了 PDP 设备作为计算加速器的潜力。</p>
 <p>总的来说，这篇文章提出了一种创新的编程框架，试图弥合分布式计算与网络编程之间的鸿沟，为网络内计算的普及和应用提供了重要支持。</p>
 <hr />
@@ -649,23 +649,23 @@ NFV.p4替代甚至优化传统网元的实现，例如负载均衡，DDoS防火�
 <ol>
 <li>
 <p><strong>算法设计</strong>：基于 Gustavson 算法，采用 1D 行分区，同时为方阵 $\mathbf{A}$ 额外维护一个列分区副本（$\mathbf{A}^c$），结合瓦片计算减少内存需求。算法支持本地和远程计算模式，根据瓦片稀疏性动态选择以优化通信。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503222335649.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503222336179.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-055-88c4abe0c1b6.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-056-7a5f2da6b645.webp" alt="" /></p>
 </li>
 <li>
 <p><strong>性能优化</strong>：通过瓦片分割和混合计算模式（本地+远程），平均比 2D 和 3D SUMMA 快 5 倍，且在 NERSC Perlmutter 超算上可扩展至 512 节点（65,536 核）。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503222336505.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-057-1cdf79f1b835.webp" alt="" /></p>
 </li>
 <li>
 <p><strong>应用实现</strong>：实现了多源 BFS 和稀疏图嵌入算法，展示了算法在实际场景中的高效性和可扩展性。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503222336663.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-058-4051fcb73347.webp" alt="" /></p>
 </li>
 </ol>
 <h4>实现与评估</h4>
 <ul>
 <li><strong>实现</strong>：算法使用 MPI+OpenMP 混合并行，在多种数据集上测试（如 SNAP 和 SuiteSparse）。</li>
 <li><strong>结果</strong>：TS-SpGEMM 在 $\mathbf{B}$ 稀疏度大于 50% 时优于稀疏矩阵-稠密矩阵乘法（SpMM），且在高瘦矩阵场景下显著优于 CombBLAS 和 PETSc 的现有实现。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503222337002.png" alt="" /></li>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-059-b1a903df4319.webp" alt="" /></li>
 </ul>
 <h4>意义与局限</h4>
 <p>该算法通过高效的瓦片和通信优化填补了 TS-SpGEMM 的研究空白，推动了其在图分析和科学计算中的应用。但其需要存储 $\mathbf{A}$ 的双份副本，增加了内存需求，且 1D 分区可能在某些规模-free 图上导致负载不均衡。</p>
@@ -674,7 +674,7 @@ NFV.p4替代甚至优化传统网元的实现，例如负载均衡，DDoS防火�
 <p>这篇文章提出了一种名为<strong>稀疏性感知的分布式内存一维SpGEMM算法（Sparsity-aware 1D SpGEMM）</strong>，用于高效计算两个稀疏矩阵的乘法（Sparse-Sparse Matrix Multiplication, SpGEMM）。以下是对其工作的简要介绍：</p>
 <h4>背景与动机</h4>
 <p>SpGEMM 是一种在图算法、生物信息学、代数多重网格求解器等领域广泛使用的计算原语。传统的分布式内存 SpGEMM 算法多采用稀疏性无关（sparsity-oblivious）的二维（2D）和三维（3D）分区策略，这些方法通常需要随机置换以实现负载均衡，但可能增加通信开销。相比之下，稀疏性感知的一维（1D）算法通过只获取参与计算的非零元素，理论上可以减少通信量。然而，以往的 1D 实现因打包/解包子矩阵的开销或细粒度消息的增加而性能受限。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503222347724.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-060-b503ff0ca228.webp" alt="" /></p>
 <h4>核心贡献</h4>
 <p>作者提出了一种新的分布式内存 1D SpGEMM 算法，主要特点包括：</p>
 <ol>
@@ -686,11 +686,11 @@ NFV.p4替代甚至优化传统网元的实现，例如负载均衡，DDoS防火�
 </li>
 <li>
 <p><strong>块获取策略</strong>：将矩阵分块获取，限制 RDMA 消息数量，避免细粒度通信的性能瓶颈。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503222348256.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-061-e01e5317570b.webp" alt="" /></p>
 </li>
 <li>
 <p><strong>简单与高效</strong>：相比 2D 和 3D 算法，该方法概念上更简单，同时在多种配置和输入上性能优于 CombBLAS 中的现有实现。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503222348538.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-062-93f9cb9fc7d3.webp" alt="" /></p>
 </li>
 </ol>
 <h4>实现与评估</h4>
@@ -701,12 +701,12 @@ NFV.p4替代甚至优化传统网元的实现，例如负载均衡，DDoS防火�
 <p>该算法通过保留矩阵的原始稀疏模式（或结合图分区）替代随机置换，结合 RDMA 和块获取策略，提供了一种高效、易集成的 SpGEMM 解决方案。它特别适用于具有特定稀疏结构的科学计算任务，并能与其他软件（如 PETSc、Trilinos）无缝衔接，为分布式稀疏矩阵乘法提供了一个高性能替代方案。</p>
 <h3>A Conflict-aware Divide-and-Conquer Algorithm for Symmetric Sparse Matrix-Vector Multiplication</h3>
 <p><a href="https://github.com/qleonardo/DCS-SpMV">qleonardo/DCS-SpMV: A Conflict-aware Divide-and-Conquer Algorithm for Symmetric Sparse Matrix-Vector Multiplication</a></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503230047034.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-063-1dfbcd8952c5.webp" alt="" /></p>
 <h4>故事背景介绍及Motivation</h4>
 <p>对称稀疏矩阵-向量乘法（Symmetric Sparse Matrix-Vector Multiplication, SpMV）在科学计算和工程应用中的重要性。由于对称矩阵可以利用其对称性减少一半内存占用，这为加速内存受限的计算提供了机会。然而，在并行计算中，对称SpMV会因同时写入输出向量而产生数据冲突，现有方法（如基于约简或着色的方法）未能高效解决这一问题，特别是在高冲突矩阵上性能较差。这激发了作者开发一种新的共享内存方法，以提升对称SpMV的性能和可扩展性。</p>
 <h4>系统设计</h4>
 <p>作者提出了DCS-SpMV，一种基于分治（Divide-and-Conquer, DC）范式的算法。核心思想是通过特殊子图（分隔符）将矩阵分解为多个子图，避免竞争条件，并对子图重新排序以优化输入/输出向量的数据局部性。系统采用共享内存并行，通过在同一递归层并发执行子图上的对称SpMV来提高效率。此外，设计了一个冲突感知的混合DC方案，将矩阵分为低冲突和高冲突部分，分别用DCS-SpMV和传统SpMV处理，并引入机器学习模型预测最佳递归次数。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503230056101.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-064-c5048b70f6ab.webp" alt="" /></p>
 <h4>Challenge及方法</h4>
 <p>主要挑战在于如何高效处理对称SpMV中的数据冲突，尤其是在高冲突矩阵上传统方法性能下降的问题。作者通过分治策略将矩阵分解，利用分隔符避免竞争，同时优化数据局部性和负载均衡。对于高冲突矩阵，混合方法结合传统SpMV处理剩余部分，减少同步开销。机器学习模型则通过分析矩阵特征预测最佳递归深度，进一步提升适应性和性能。</p>
 <h4>实验</h4>
@@ -723,30 +723,30 @@ NFV.p4替代甚至优化传统网元的实现，例如负载均衡，DDoS防火�
 </ol>
 <p>EcoRec基于PyTorch和CUDA开发，并在32个GPU集群上进行了评估。结果显示，相比现有最先进的EL-Rec系统，EcoRec实现了3.1倍的训练加速和38.5%的内存使用减少，展现了其在分布式DLRM训练中的优越性能和可扩展性。这项工作为大规模推荐系统的训练提供了高效的解决方案。</p>
 <p>DLRM在推荐系统等多个领域中扮演着重要角色，但其训练过程面临两大难题：嵌入表的高内存需求以及分布式训练中巨大的通信开销。传统的Tensor-Train（TT）分解技术虽然能够有效压缩嵌入表以减少内存占用，却带来了显著的计算负担。此外，现有的分布式训练框架由于数据交换需求过高，难以满足高效训练的要求。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503230101798.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-065-b4fab497dc58.webp" alt="" /></p>
 <p>为了应对上述挑战，EcoRec引入了一系列创新技术。首先，它设计了一种优化的TT分解计算模式，称为C-M/M-C模式，通过消除TT操作中的冗余计算，大幅减少了计算时间。其次，EcoRec提出了排序索引的微批处理技术，这一方法在不增加额外计算成本的前提下有效降低了内存需求。最后，它开发了一种表级流水线并行系统，通过特征重排序和斜坡特征计数策略优化数据分布和通信效率，从而提升整体训练性能。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503230101773.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503230101996.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-066-4349f5f33f50.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-067-acceb2c3f9f9.webp" alt="" /></p>
 <h3>Scaling New Heights: Transformative Cross-GPU Sampling for Training Billion-Edge Graphs</h3>
 <p>这篇文章提出了 <strong>HyDRA</strong>，一个针对亿级边规模图的图神经网络（GNN）训练框架，旨在解决大规模图数据训练中的内存限制和数据传输瓶颈问题。以下是其工作的简要介绍：</p>
 <h4>背景与动机</h4>
 <p>GNN 在处理大规模图（如亿级边图）时，因内存需求和数据传输开销而面临挑战。传统方法要么受限于 CPU-GPU 数据传输瓶颈，要么在多 GPU 环境下因数据混洗和同步开销而效率低下。HyDRA 通过创新的多 GPU 采样和多节点特征检索技术，优化了基于采样的 GNN 训练。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503230106116.png" alt="" />
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503230107349.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-068-5735a0a5ec8d.webp" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-069-892e9feda28f.webp" alt="" /></p>
 <h4>核心贡献</h4>
 <ol>
 <li>
 <p><strong>跨 GPU 采样优化</strong>：HyDRA 将采样和数据传输整合为单一内核操作，采用混合指针驱动的数据放置策略，提升邻居检索效率，并通过共享 GPU 内存消除数据混洗和同步开销。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503230106456.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-070-f0623f96e7ef.webp" alt="" /></p>
 </li>
 <li>
 <p><strong>高阶顶点复制策略</strong>：针对高阶顶点（度数大的顶点）导致的通信开销，HyDRA 复制这些顶点的邻居列表到每个 GPU 分区，将远程访问转为本地读取，大幅减少通信量。</p>
 </li>
 </ol>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503230107270.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-071-b7596b766ab5.webp" alt="" /></p>
 <ol start="3">
 <li><strong>动态跨批次数据编排</strong>：利用连续批次间的特征数据重叠，设计层次化的数据重用和流水线机制，减少冗余传输，提升多节点多 GPU 环境下的效率。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503230108642.png" alt="" /></li>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-072-2f11254d55d7.webp" alt="" /></li>
 </ol>
 <h4>实现与评估</h4>
 <ul>
@@ -765,7 +765,7 @@ NFV.p4替代甚至优化传统网元的实现，例如负载均衡，DDoS防火�
 <ol>
 <li>
 <p><strong>复杂度优化</strong>：通过引入块对角近似、随机化迹估计和快速矩阵-向量乘法，Approx-FIRAL 将存储需求降低至 (\mathcal{O}(n(d+c) + c d^2))，计算复杂度降至 (\mathcal{O}(b n c d^2))，显著提高了可扩展性。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202503230115739.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/sc-24-brief-summary-4/body-073-b0a74b4ba5a7.webp" alt="" /></p>
 </li>
 <li>
 <p><strong>高效 RELAX 步骤</strong>：使用预条件共轭梯度法（CG）和 Rademacher 随机向量加速梯度估计，优化了连续凸松弛问题的求解。</p>

@@ -21,10 +21,10 @@ importedFromWordPress: true
 cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-2-regrex-finite-automata.webp"
 ---
 <h2>语言运算</h2>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250914233642169.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250914234002944.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-2-regrex-finite-automata/body-001-22840fa40a7e.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-2-regrex-finite-automata/body-002-787c82217423.webp" alt="" /></p>
 <h2>Regular Expression 形式语言</h2>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250914233024645.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-2-regrex-finite-automata/body-003-5e09b3754b09.webp" alt="" /></p>
 <p>For describing Languages / Patterns
 if, else, ...</p>
 <p>形式化定义正则表达式（regular expression, regexp），给出了一系列归纳规则（induction rules）</p>
@@ -59,7 +59,7 @@ $(a|b)^</em>$ </p>
 <p><strong>A regular language is a language that can be defined by a regexp</strong>
 • If two regexps r and s denote the same language, they are equivalent,
 written as r = s</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250914232830350.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-2-regrex-finite-automata/body-004-35b6592a169b.webp" alt="" /></p>
 <h2><strong>Regular Definitions（正规定义/正则定义）</strong></h2>
 <p>这是编译原理里 <strong>词法规则书写的一种方式</strong>，通常结合正则表达式（Regular Expressions, RE）来描述。</p>
 <hr />
@@ -127,10 +127,10 @@ Regular Definitions 就是 <strong>把正则表达式起名字</strong>，像数
 <p>从 letter/digit → id/number → token</p>
 <h3>C identifiers</h3>
 <p>标识符是用户定义的名称，用于方便引用内存。它还用于定义程序中的各种元素，例如函数、用户定义类型、标签等。因此，标识符是帮助程序员更便捷地使用编程元素的名称。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250914233358778.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-2-regrex-finite-automata/body-005-3f0e401e00af.webp" alt="" /></p>
 <h2>Finite Automata</h2>
 <p>有穷自动机</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250914234241118.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-2-regrex-finite-automata/body-006-6060aa84bd8c.webp" alt="" /></p>
 <h3>NFA</h3>
 <p>NFA（Nondeterministic Finite Automaton，非确定有限自动机）是<strong>编译原理</strong>里用于形式化描述正则语言的重要数学模型。它和 DFA（确定有限自动机）类似，但在状态转移时允许<strong>非确定性选择</strong>（同一个输入符号可能对应多个后继状态，也允许 ε-转移）。</p>
 <p>一个 NFA 定义为一个五元组：</p>
@@ -142,48 +142,48 @@ Regular Definitions 就是 <strong>把正则表达式起名字</strong>，像数
 <li>start state</li>
 <li>accepting state</li>
 </ol>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250914234400677.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-2-regrex-finite-automata/body-007-dc4b2113015b.webp" alt="" /></p>
 <p>图中的 nondeterminism: 在状态转移时允许<strong>非确定性选择</strong>（同一个输入符号可能对应多个后继状态，也允许 ε-转移）</p>
 <p>(0,a): 我们看到我们在状态0，下一个字母是a，我们可以走0或者1</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250914234801031.png" alt="" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-2-regrex-finite-automata/body-008-834e54991755.webp" alt="" />
 状态转换图</p>
 <p>note: it's possible to have $\epsilon$ moves (not using a,b,c, etc)</p>
 <p>状态转换表：
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250915000219034.png" alt="" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-2-regrex-finite-automata/body-009-072c2222eb42.webp" alt="" />
 $\phi$ means error/can't go there</p>
 <p>For string x, NFA starts from a state, then ends at one ending state, then we say NFA accept this x
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250915000648650.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-2-regrex-finite-automata/body-010-a5879ff0a311.webp" alt="" /></p>
 <p>a a b b = $L((a|b)^* abb)$</p>
 <p>what would happen if you go another path</p>
 <p>how to translate the graph:</p>
 <p>$a^<em> | b^</em>$
 $\epsilon a a<em> | \epsilon b b</em>$ = a+|b+</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250915001310036.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-2-regrex-finite-automata/body-011-4e63b20ddf3a.webp" alt="" /></p>
 <h2>DFA</h2>
 <p>DFA is a special NFA.
 For every new symbol, we can only have one target state. 一个symbol只能走到一个特定状态</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250915001442158.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-2-regrex-finite-automata/body-012-01914370aa28.webp" alt="" /></p>
 <p>A good algorithm for simulating a DFA</p>
 <p>time complexity: $O(n)$ , n denotes for length of string
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250915001605233.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-2-regrex-finite-automata/body-013-84c612e2f3c4.webp" alt="" /></p>
 <p>DFA的问题problem: too complex for regular expression
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250915002345562.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-2-regrex-finite-automata/body-014-784c443bbc21.webp" alt="" /></p>
 <h3>build lexical analyser NFA-&gt;DFA</h3>
 <p>path explosion</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250915002641091.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-2-regrex-finite-automata/body-015-8d13fe9ec17f.webp" alt="" /></p>
 <p>why reg-&gt;NFA-&gt;DFA? why not Reg-&gt;DFA?
 Too complex</p>
 <p>So we have 2 algorithms: Thompson's construction+subset construction</p>
 <p>Subset construction: expand solutions.
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250915003055287.png" alt="" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-2-regrex-finite-automata/body-016-ed2702b12118.webp" alt="" /></p>
 <p>you can go to 3,6,1,2,7,4,8, by reading a. </p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250915003655617.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-2-regrex-finite-automata/body-017-159fdb7bf367.webp" alt="" /></p>
 <p>move: from a state to another state</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250915003751091.png" alt="" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-2-regrex-finite-automata/body-018-607c759e02af.webp" alt="" />
 注意这里的 $if(u is not in \epsilon-closure(T))$ 如果存在一个自身连着并且是epsilon的边，就可以省略</p>
 <p>So $\epsilon-closure(0) = {0,1,7,2,4}$</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250915004323802.png" alt="" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-2-regrex-finite-automata/body-019-91d65608cd19.webp" alt="" />
 我们在找等价状态</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250915004441042.png" alt="" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250915005015998.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-2-regrex-finite-automata/body-020-fb5b97834ebb.webp" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-2-regrex-finite-automata/body-021-d8bbca7f2ca5.webp" alt="" /></p>
 <p><strong>NFA → DFA 的子集构造法之所以是一个不动点计算，是因为我们在有限状态集合上迭代一个单调扩展算子 FFF，直到达到“稳定状态” F(C)=CF(C) = CF(C)=C。这个稳定状态就是所有可达的 DFA 状态集合，也就是子集构造的最终结果。</strong></p>

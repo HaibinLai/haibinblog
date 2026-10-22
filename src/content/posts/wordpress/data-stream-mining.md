@@ -21,20 +21,20 @@ importedFromWordPress: true
 cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/data-stream-mining.webp"
 ---
 <p>Stream Data is becoming more and more important</p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-129-66cb269c14a40.png" alt="2528d2efb3a4fbadd4a99c850872949" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/data-stream-mining/body-001-79938cd137de.webp" alt="2528d2efb3a4fbadd4a99c850872949" /></p>
 <p>SGD as an example
-<img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-129-66cb26a04f234.png" alt="Pasted image 20240825073357" /></p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-129-66cb26a463070.png" alt="Pasted image 20240825073543" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/data-stream-mining/body-002-e717fd88218c.webp" alt="Pasted image 20240825073357" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/data-stream-mining/body-003-42078bdd2420.webp" alt="Pasted image 20240825073543" /></p>
 <p>Problems:</p>
 <ol>
 <li>Sampling data from a stream</li>
 <li>Queries over sliding windows</li>
 </ol>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-129-66cb26a7c4832.png" alt="Pasted image 20240825073757" /></p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-129-66cb26ab802c3.png" alt="Pasted image 20240825074650" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/data-stream-mining/body-004-8040689d6098.webp" alt="Pasted image 20240825073757" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/data-stream-mining/body-005-30f275938ed8.webp" alt="Pasted image 20240825074650" /></p>
 <p>APP
-<img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-129-66cb26af12f13.png" alt="Pasted image 20240825074724" />
-<img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-129-66cb26b29ea44.png" alt="Pasted image 20240825074811" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/data-stream-mining/body-006-ff4afe7dfc08.webp" alt="Pasted image 20240825074724" />
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/data-stream-mining/body-007-a91316478031.webp" alt="Pasted image 20240825074811" /></p>
 <p>Question1：Sampling
-<img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-129-66cb26b5dda2e.png" alt="Pasted image 20240825074917" /></p>
-<p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-129-66cb26b9a7390.png" alt="Pasted image 20240825074955" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/data-stream-mining/body-008-962102cbd65a.webp" alt="Pasted image 20240825074917" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/data-stream-mining/body-009-fda8dee48657.webp" alt="Pasted image 20240825074955" /></p>

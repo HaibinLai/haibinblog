@@ -27,7 +27,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <p>在长上下文情况中，KVCache经常超出显存，那么我们只能把多余的KVCache存进CPU内存里。而这样就很慢（CPU-GPU传输慢且数据量大）。一种方法是利用LLM的“稀疏”，我们发现在上下文对话中，只有少数几个token是重要的（这似乎是softmax算出来导致的，指数级别放大/缩小），如果我们只load这些token，就可以很好缓解load KVCache速度。</p>
 <p>这里就会诞生两个问题，也是文章做的两个system design设计：1. 如何识别且快速识别哪些token最重要；2. 识别后如何快速完成CPU-GPU传输。 （第二个点更工程）</p>
 <p>文章由此提出了wave index和wave buffer。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260105152032996.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/in-depth-analysis-retroinfer-a-vector-storage-approach-for-scalable-long-context-llm-inference/body-001-dbe60f3f6bb2.webp" alt="image.png" /></p>
 <h2>知识回顾：KVCache 计算公式</h2>
 <p>128个token，在7B模型里可能就要64MB。</p>
 <p>一个nb的可视化网站：
@@ -42,11 +42,11 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <p>计算</p>
 <blockquote>
 <p>KV Cache Size = 2 <em> context_length </em> hidden_size <em> (key_value_heads / attention_heads) </em> number_of_layers
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260105150826042.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/in-depth-analysis-retroinfer-a-vector-storage-approach-for-scalable-long-context-llm-inference/body-002-8db6b1deacec.webp" alt="image.png" /></p>
 </blockquote>
 <h2>重要token是怎么分布的？</h2>
 <p>首先为什么LLM token分数会分布不均，重点在softmax上，这个指数放大（exponential nature of the softmax function）会很明显。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260105153629290.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/in-depth-analysis-retroinfer-a-vector-storage-approach-for-scalable-long-context-llm-inference/body-003-dbd9e65d1d68.webp" alt="image.png" /></p>
 <p>文章提到LLM重要的token的稀疏分布有3个分布特点/难点（这个观察很有趣）：</p>
 <ol>
 <li>空间上分布不均。这很好理解，给你一段话，可能重要的词在段首，他们注意力分数高</li>
@@ -54,10 +54,10 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <li>不同的注意力头，不同的层数里token的分数不同。这个也可以理解。我记得哪篇文章也说过，神经网络就和人脑一样，不同的头会注意句子里的词不同的feature。</li>
 </ol>
 <p>下图实验证明了这几点。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260105153200080.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/in-depth-analysis-retroinfer-a-vector-storage-approach-for-scalable-long-context-llm-inference/body-004-2de068071abb.webp" alt="image.png" /></p>
 <h2>The RAG Solution: ANNS</h2>
 <p>Intro: <a href="https://wzbxpy.github.io/LLM-System-and-Engineering/Project-ANNS-and-LLM/ANNS_Introduction.pdf">https://wzbxpy.github.io/LLM-System-and-Engineering/Project-ANNS-and-LLM/ANNS_Introduction.pdf</a></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260108211554838.png" alt="image.png" />
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/in-depth-analysis-retroinfer-a-vector-storage-approach-for-scalable-long-context-llm-inference/body-005-36134f54d85f.webp" alt="image.png" />
 传统ANNS workload：</p>
 <pre><code class="language-txt">coarse cluster
   ↓
@@ -68,7 +68,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 一个一个算 q·v
   ↓
 top-k select</code></pre>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260108211605467.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/in-depth-analysis-retroinfer-a-vector-storage-approach-for-scalable-long-context-llm-inference/body-006-d36de18469c6.webp" alt="image.png" /></p>
 <blockquote>
 <p>The central research question we address is how to achieve both high accuracy and efficiency in long-context inference. We believe that approximate nearest neighbor search (ANNS) techniques offer a promising path.</p>
 </blockquote>
@@ -82,7 +82,7 @@ top-k select</code></pre>
 <p>ANNS aims to identify a desired number (i.e., top-k) of vectors most similar to a given query in high-dimensional space, using a similarity metric such as inner product. By carefully organizing vectors using a vector index [42, 61], they greatly reduce the number of vectors to access during search while maintaining near-optimal results.</p>
 </blockquote>
 <p>把“attention 的 key 检索”重构成一个“基于聚类的向量索引（wave index）”+ 分区近似计算的系统。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260108211624099.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/in-depth-analysis-retroinfer-a-vector-storage-approach-for-scalable-long-context-llm-inference/body-007-864089cb0f72.webp" alt="image.png" /></p>
 <p>问题：Beyond the accuracy challenges described earlier (§2.3), efficiency challenges arise because incorporating ANNS introduces index traversal and selective data access into an inference system that is otherwise optimized for dense GPU execution</p>
 <p>ANNS 不太适合GPU计算：</p>
 <blockquote>
@@ -104,7 +104,7 @@ Wave Index：<strong>直接把整个 cluster 的向量都拿来算 attention</st
 <p>Wave index partitions the KV vectors in the context into clusters using spherical k-means [26], based on the similarity between key vectors. A centroid is computed as the representative of each cluster–the average of key vectors of one cluster. We observe that the classic cluster-based vector index approach is synergistic with the attention mechanism, because critical key vectors for a given query tend to be grouped within a few clusters, while the critical clusters tend to be irregularly distributed across the context. As illustrated in Figure 5, although several tokens (i.e., 2nd, 4th, and 8th) are irregularly distributed, wave index groups them into the same cluster (i.e., yellow).</p>
 </blockquote>
 <p>token -&gt; groups</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260108212916243.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/in-depth-analysis-retroinfer-a-vector-storage-approach-for-scalable-long-context-llm-inference/body-008-80bd6246fa3c.webp" alt="image.png" /></p>
 <blockquote>
 <p>Wave index  divides the context into segments (dotted boxes). Each vertical bar represents a token at one position. In the first row, tokens with the same color belong to the same cluster, and similar colors (e.g., yellow and orange) indicate token similarity, which is based on key vector similarity. In the second row, the darker the bar, the more important the token to the query. For example, a query of purple could be close to a red vector (1st segment) and a blue vector (2nd segment).</p>
 </blockquote>
@@ -147,7 +147,7 @@ Wave Index：直接把整个 cluster 的所有向量都拿来算 attention，</p
 <p>Steady, Retrieval, and Estimation Zones. Recent studies have revealed that a range of tokens located at the beginning and end of the context are consistently important [74]. These tokens are categorized as steady zone in wave index, as shown in Figure 5. Therefore, tokens in the steady zone are directly included based on their positions, rather than being organized into the vector index. The KV vectors retrieved by the centroids and clusters are categorized as retrieval zone; these tokens are directly used for attention computation.</p>
 </blockquote>
 <p>这里文章一张图介绍了三类token的计算方法。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260108220942939.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/in-depth-analysis-retroinfer-a-vector-storage-approach-for-scalable-long-context-llm-inference/body-009-065722bf2f0a.webp" alt="image.png" /></p>
 <blockquote>
 <p>In the steady zone, attention is computed precisely, so the computation cost is linear in the number of tokens (red line’s slope). In the retrieval zone, we calculate attention for the retrieved vectors (whose number is significantly reduced due to sparsity). The computation cost is linear in the number of retrieved vectors (black line), while the overall cost is amortized over the total number of vectors (red line). In the estimation zone, the attention is estimated based on centroids, which incurs a much lower computation cost (red line).</p>
 </blockquote>
@@ -185,16 +185,16 @@ Wave Index：直接把整个 cluster 的所有向量都拿来算 attention，</p
 <li>sum(V)
 来估算它们对 attention 的贡献。</li>
 </ul>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260108221728081.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/in-depth-analysis-retroinfer-a-vector-storage-approach-for-scalable-long-context-llm-inference/body-010-a1ff962719a6.webp" alt="image.png" /></p>
 <p>具体操作公式看文章吧，了解思想即可。
-<img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260108221325060.png" alt="image.png" /></p>
+<img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/in-depth-analysis-retroinfer-a-vector-storage-approach-for-scalable-long-context-llm-inference/body-011-a81cddb471fb.webp" alt="image.png" /></p>
 <h3>流式index更新</h3>
 <p>不用重新计算 k-means，每次更新计算。经典方法。</p>
 <blockquote>
 <p>During the decoding phase,  following segmented clustering, the index is updated incrementally whenever the generated tokens exceeds a segment. we perform k-means clustering only on the newly generated tokens, significantly reducing the index update overhead. This design leverages the coarse-grained spatial locality observed in the generated key vectors, consistent with patterns seen during the prefilling stage. The clustering results from the new segment are appended to the existing index, while the corresponding KV vectors are offloaded to the CPU.</p>
 </blockquote>
 <p>实验证明基本没问题。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260108222459422.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/in-depth-analysis-retroinfer-a-vector-storage-approach-for-scalable-long-context-llm-inference/body-012-1382c5207738.webp" alt="image.png" /></p>
 <h3>计算流程</h3>
 <p>这样的话，我们的计算为每个 attention head，每一步骤如下：</p>
 <ol>
@@ -239,7 +239,7 @@ Wave Index：直接把整个 cluster 的所有向量都拿来算 attention，</p
 <li>🧠 LRU / 替换策略 / block allocator</li>
 </ul>
 <p>核心想法是，他们把更新操作和访问操作解偶了。针对访问操作（读取kvcache），他们直接同步开始计算；而针对更新kvcache（与LRU策略等逻辑），是异步CPU-GPU操作。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260108231314439.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/in-depth-analysis-retroinfer-a-vector-storage-approach-for-scalable-long-context-llm-inference/body-013-a5f4e5e8c716.webp" alt="image.png" /></p>
 <h3>KVCache Block</h3>
 <p>5% cache size for KV vectors.</p>
 <blockquote>
@@ -251,7 +251,7 @@ Wave Index：直接把整个 cluster 的所有向量都拿来算 attention，</p
 <blockquote>
 <p>Since the cache replacement logic is relatively complex and difficult to parallelize, <strong>we offload it to the CPU.</strong> This approach differs from classic caching systems, where the management logic is executed in faster hardware. We use clusters as the cache admission and replacement unit and blocks as the unit for space management. Note that a cluster could be spread across multiple blocks; to admit a missed cluster into the KV block cache, multiple clusters may be evicted until a sufficient number of blocks are freed. We design a <strong>cluster mapping table</strong> as a layer of indirection. Each entry in the mapping table is a cluster descriptor (Figure 8), mapping a cluster’s addresses in GPU memory and CPU memory, similar in purpose to a page table in operating systems.</p>
 </blockquote>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260108233321170.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/in-depth-analysis-retroinfer-a-vector-storage-approach-for-scalable-long-context-llm-inference/body-014-b3c4101ad68c.webp" alt="image.png" /></p>
 <blockquote>
 <p>The key insight of the wave buffer is to decouple cache access on the critical path from the expensive cache update. This is facilitated by the hybrid GPU+CPU structure–after the lookup, the key-value vectors must be immediately ready for the GPU in the execution buffer, whereas the cache update can be performed asynchronously by the CPU, in parallel with the data copy and attention computation.</p>
 </blockquote>
@@ -317,10 +317,10 @@ CPU:
 <blockquote>
 <p>We implement CUDA kernels (~1,000 LoC) to support execution buffer transfers and block cache updates</p>
 </blockquote>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260108234820896.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/in-depth-analysis-retroinfer-a-vector-storage-approach-for-scalable-long-context-llm-inference/body-015-0db80f5c3b01.webp" alt="image.png" /></p>
 <p>可以看到得分是比原模型低了些，但是总体还挺高。然后速度快了很多。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260108234835199.png" alt="image.png" /></p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20260108234917707.png" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/in-depth-analysis-retroinfer-a-vector-storage-approach-for-scalable-long-context-llm-inference/body-016-209c87ea2aa1.webp" alt="image.png" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/in-depth-analysis-retroinfer-a-vector-storage-approach-for-scalable-long-context-llm-inference/body-017-edd83d212f35.webp" alt="image.png" /></p>
 <blockquote>
 <p>LLM Serving Systems. Recent research has explored various strategies for LLM serving efficiency [3, 15, 32, 37, 58, 64, 79, 86, 87]. LoongServe [69] proposes an elastic sequence parallelism scheduling algorithm for long-context requests. Many works [12, 16, 17, 52, 80] also offload KV caches to CPU or disk to alleviate the memory capacity limit. These works focus on different aspects of long-context serving and are complementary to RetroInfer. </p>
 <p>Sparse Attention. To accelerate long-context inference, many works exploit attention sparsity. Static sparsity methods [35, 73, 74] maintain fixed patterns during decoding but compromise model accuracy. Many dynamic sparsity methods [13, 33, 65, 72, 77, 82, 84] heuristically select KV pairs per step. Recent works [24, 39] also explore leveraging vector indexes for KV cache retrieval. However, they are limited to prefix caching or offline inference scenarios due to the high cost of index construction. PyramidKV [9] and D2O [68] adapt retrieval budgets across layers but do not consider sparsity variation across queries and tasks. Tactic [88], a concurrent effort, adjusts budgets via distribution fitting, though its accuracy and efficiency depend on fitting precision. Our work also focuses more on system-level design than on pure algorithmic improvements. Some sparse attention approaches [18, 81] require costly model retraining to learn dynamic sparsity. Other techniques include scalar KV cache quantization [25, 40, 83] and sparsity for accelerating prefilling [31], both of which are complementary to our work. </p>

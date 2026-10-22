@@ -18,7 +18,7 @@ viewCount: 2698
 likeCount: 0
 dislikeCount: 0
 showCitation: true
-featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/11/20241127200450.png"
+featuredImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-11/tlb-asid-ttbr-and-context-switching/body-001-f80188f7d25b.webp"
 importedFromWordPress: true
 cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-11/tlb-asid-ttbr-and-context-switching.webp"
 ---
@@ -58,7 +58,7 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-
 <li><strong>TLB 缓存的内容</strong>：由于 TLB 缓存了虚拟地址到物理地址的映射，进程切换时，如果不清除 TLB，可能会导致进程 A 使用进程 B 的地址映射，从而导致错误的地址翻译。</li>
 </ol>
 <p>为了应对这个问题，ARM 使用 <strong>ASID</strong> 来为每个进程的虚拟地址空间标记一个唯一标识符，从而可以通过 ASID 来区分不同进程的 TLB 缓存条目。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241127200450.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-11/tlb-asid-ttbr-and-context-switching/body-002-f80188f7d25b.webp" alt="" /></p>
 <h4>1. <strong>ASID 和 TLB</strong></h4>
 <ul>
 <li>每个进程在 ARM 系统中都有一个唯一的 <strong>ASID</strong>，该 ASID 被加到每个虚拟地址的地址转换过程中。</li>
@@ -272,7 +272,7 @@ ARM 系统在虚拟地址到物理地址的转换过程中，会考虑到 ASID�
 <p>既然内核空间是共享的，进程A切换进程B的时候，如果进程B访问的地址位于内核空间，完全可以使用进程A缓存的TLB。但是现在由于ASID不一样，导致TLB miss。</p>
 <p>我们针对内核空间这种全局共享的映射关系称之为global映射。针对每个进程的映射称之为non-global映射。所以，我们在最后一级页表中引入一个bit(non-global (nG) bit)代表是不是global映射。</p>
 <p>当虚拟地址映射物理地址关系缓存到TLB时，将nG bit也存储下来。当判断是否命中TLB时，当比较tag相等时，再判断是不是global映射，如果是的话，直接判断TLB hit，无需比较ASID。当不是global映射时，最后比较ASID判断是否TLB hit。</p>
-<p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20241127200616.png" alt="" /></p>
+<p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-11/tlb-asid-ttbr-and-context-switching/body-003-f791c12f5f58.webp" alt="" /></p>
 <p>在 ARM 架构中，<code>nG</code> 是页表条目中的一个标志位（bit），表示 <strong>&quot;Non-Global&quot;</strong>。它用于控制一个页表条目是否指向“全局”（Global）地址，具体地，<code>nG</code> 位在页表项中的作用是决定该映射是否对所有的处理器（在多核系统中）共享。</p>
 <p>这东西的存储：<strong>页表和 TLB 都会存储 <code>nG</code> 位</strong>，但它们的作用是有所区分的：页表中主要用于描述映射的全局性，而 TLB 中则用于管理缓存的一致性和共享</p>
 <h3>1. <strong>nG 标志位的作用</strong></h3>
