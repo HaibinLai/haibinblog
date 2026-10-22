@@ -1,0 +1,229 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Todo List · Haibin's Blog" description="A private, browser-local task board for planning research and everyday work.">
+  <main class="todo-page content-shell">
+    <header class="todo-header">
+      <div>
+        <p class="todo-eyebrow">GLHF · PERSONAL WORKSPACE</p>
+        <h1>Todo List</h1>
+        <p>把想做的事情放在这里，再一件一件完成。</p>
+      </div>
+      <div class="privacy-note"><span aria-hidden="true">◉</span><strong>仅保存在当前浏览器</strong><small>不会上传或公开 · 可导出备份</small></div>
+    </header>
+
+    <section class="todo-composer" aria-labelledby="add-task-title">
+      <form id="todo-form">
+        <div class="quick-add">
+          <label class="sr-only" for="todo-title">任务名称</label>
+          <input id="todo-title" name="title" type="text" maxlength="180" placeholder="现在想完成什么？" autocomplete="off" required />
+          <button class="primary-button" type="submit">添加任务</button>
+        </div>
+        <details class="task-details">
+          <summary>设置日期、优先级和备注</summary>
+          <div class="detail-grid">
+            <label>截止日期<input id="todo-due" name="dueDate" type="date" /></label>
+            <label>时间范围<select id="todo-priority" name="priority"><option value="thisweek">本周</option><option value="urgent">紧急</option><option value="twodays">两天内</option><option value="anytime">任何时候</option></select></label>
+            <label>重要程度<select id="todo-importance" name="importance"><option value="3">3 · 普通</option><option value="5">5 · 最重要</option><option value="4">4 · 重要</option><option value="2">2 · 较低</option><option value="1">1 · 最低</option></select></label>
+            <label class="notes-field">备注<textarea id="todo-notes" name="notes" rows="3" maxlength="1000" placeholder="补充上下文、下一步或相关链接"></textarea></label>
+          </div>
+        </details>
+      </form>
+    </section>
+
+    <section class="todo-overview" aria-label="任务进度">
+      <article><strong id="stat-total">0</strong><span>全部任务</span></article>
+      <article><strong id="stat-active">0</strong><span>进行中</span></article>
+      <article><strong id="stat-complete">0</strong><span>已完成</span></article>
+      <article class="progress-card"><div><strong id="stat-progress">0%</strong><span>完成进度</span></div><div class="progress-track" aria-hidden="true"><i id="progress-fill"></i></div></article>
+    </section>
+
+    <section class="todo-board">
+      <div class="todo-toolbar">
+        <div class="todo-filters" role="group" aria-label="筛选任务">
+          <button class="is-active" type="button" data-filter="all">全部</button>
+          <button type="button" data-filter="active">进行中</button>
+          <button type="button" data-filter="completed">已完成</button>
+        </div>
+        <label class="task-search"><span aria-hidden="true">⌕</span><input id="task-search" type="search" placeholder="搜索任务" aria-label="搜索任务" /></label>
+        <div class="view-toggle" role="group" aria-label="切换视图">
+          <button class="is-active" type="button" data-view="list">列表</button>
+          <button type="button" data-view="matrix">四象限</button>
+        </div>
+        <div class="backup-actions">
+          <button id="export-tasks" type="button">导出</button>
+          <button id="import-tasks" type="button">导入</button>
+          <input id="import-file" type="file" accept="application/json,.json" hidden />
+        </div>
+      </div>
+
+      <div id="todo-list" class="todo-list" aria-live="polite"></div>
+      <div id="todo-matrix" class="todo-matrix" hidden>
+        <section data-quadrant="urgent-important"><header><span>01</span><div><h2>紧急且重要</h2><p>优先处理</p></div></header><div class="matrix-tasks"></div></section>
+        <section data-quadrant="important"><header><span>02</span><div><h2>重要不紧急</h2><p>安排时间</p></div></header><div class="matrix-tasks"></div></section>
+        <section data-quadrant="urgent"><header><span>03</span><div><h2>紧急不重要</h2><p>尽快解决</p></div></header><div class="matrix-tasks"></div></section>
+        <section data-quadrant="later"><header><span>04</span><div><h2>不紧急不重要</h2><p>有空再做</p></div></header><div class="matrix-tasks"></div></section>
+      </div>
+      <p id="todo-empty" class="todo-empty" hidden><span>✓</span><strong>这里暂时很安静</strong><small>添加一个任务，开始今天的计划。</small></p>
+    </section>
+  </main>
+
+  <dialog id="edit-dialog" class="edit-dialog">
+    <form id="edit-form" method="dialog">
+      <div class="dialog-heading"><div><small>EDIT TASK</small><h2>编辑任务</h2></div><button value="cancel" aria-label="关闭">×</button></div>
+      <input id="edit-id" type="hidden" />
+      <label>任务名称<input id="edit-title" type="text" maxlength="180" required /></label>
+      <div class="dialog-grid">
+        <label>截止日期<input id="edit-due" type="date" /></label>
+        <label>时间范围<select id="edit-priority"><option value="thisweek">本周</option><option value="urgent">紧急</option><option value="twodays">两天内</option><option value="anytime">任何时候</option></select></label>
+        <label>重要程度<select id="edit-importance"><option value="5">5 · 最重要</option><option value="4">4 · 重要</option><option value="3">3 · 普通</option><option value="2">2 · 较低</option><option value="1">1 · 最低</option></select></label>
+      </div>
+      <label>备注<textarea id="edit-notes" rows="4" maxlength="1000"></textarea></label>
+      <div class="dialog-actions"><button value="cancel">取消</button><button id="save-edit" class="primary-button" value="default">保存修改</button></div>
+    </form>
+  </dialog>
+
+  <script>
+    type Task = { id: string; title: string; notes: string; priority: string; importance: number; dueDate: string; completed: boolean; createdAt: string; updatedAt: string };
+    const STORAGE_KEY = 'haibin-todos-v1';
+    let tasks: Task[] = [];
+    let activeFilter = 'all';
+    let activeView = 'list';
+    let searchText = '';
+
+    const $ = <T extends Element>(selector: string) => document.querySelector<T>(selector)!;
+    const form = $('#todo-form') as HTMLFormElement;
+    const list = $('#todo-list');
+    const matrix = $('#todo-matrix');
+    const empty = $('#todo-empty');
+    const editDialog = $('#edit-dialog') as HTMLDialogElement;
+
+    const escapeHtml = (text = '') => text.replace(/[&<>'"]/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' })[char]!);
+    const priorityLabels: Record<string, string> = { urgent: '紧急', twodays: '两天内', thisweek: '本周', anytime: '任何时候' };
+    const save = () => localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+    const load = () => {
+      try {
+        const value = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
+        tasks = Array.isArray(value) ? value.filter((task) => task && typeof task.id === 'string' && typeof task.title === 'string') : [];
+      } catch { tasks = []; }
+    };
+    const dateStart = (value: string) => value ? new Date(`${value}T00:00:00`) : null;
+    const daysUntil = (value: string) => {
+      const due = dateStart(value); if (!due) return Infinity;
+      const now = new Date(); now.setHours(0, 0, 0, 0);
+      return Math.ceil((due.getTime() - now.getTime()) / 86400000);
+    };
+    const isUrgent = (task: Task) => task.priority === 'urgent' || task.priority === 'twodays' || daysUntil(task.dueDate) <= 2;
+    const quadrant = (task: Task) => isUrgent(task) ? (task.importance >= 4 ? 'urgent-important' : 'urgent') : (task.importance >= 4 ? 'important' : 'later');
+    const formatDate = (value: string) => value ? new Intl.DateTimeFormat('zh-CN', { month: 'short', day: 'numeric' }).format(dateStart(value)!) : '';
+    const filteredTasks = () => tasks.filter((task) => {
+      const matchesFilter = activeFilter === 'all' || (activeFilter === 'active' ? !task.completed : task.completed);
+      const haystack = `${task.title} ${task.notes}`.toLowerCase();
+      return matchesFilter && haystack.includes(searchText);
+    }).sort((a, b) => Number(a.completed) - Number(b.completed) || daysUntil(a.dueDate) - daysUntil(b.dueDate) || b.importance - a.importance || b.createdAt.localeCompare(a.createdAt));
+
+    const taskMarkup = (task: Task, compact = false) => {
+      const overdue = !task.completed && daysUntil(task.dueDate) < 0;
+      const due = task.dueDate ? `<span class="task-due ${overdue ? 'is-overdue' : ''}">${overdue ? '已逾期 · ' : ''}${escapeHtml(formatDate(task.dueDate))}</span>` : '';
+      return `<article class="task-item ${task.completed ? 'is-complete' : ''} ${compact ? 'is-compact' : ''}" data-task-id="${escapeHtml(task.id)}">
+        <button class="task-check" type="button" data-action="toggle" aria-label="${task.completed ? '标记为未完成' : '标记为已完成'}"><span>✓</span></button>
+        <div class="task-copy"><h3>${escapeHtml(task.title)}</h3>${!compact && task.notes ? `<p>${escapeHtml(task.notes)}</p>` : ''}<div class="task-meta"><span class="priority priority-${escapeHtml(task.priority)}">${escapeHtml(priorityLabels[task.priority] || '普通')}</span><span>重要度 ${task.importance}/5</span>${due}</div></div>
+        <div class="task-actions"><button type="button" data-action="edit" aria-label="编辑任务">编辑</button><button type="button" data-action="delete" aria-label="删除任务">删除</button></div>
+      </article>`;
+    };
+
+    const render = () => {
+      const visible = filteredTasks();
+      const complete = tasks.filter((task) => task.completed).length;
+      const progress = tasks.length ? Math.round(complete / tasks.length * 100) : 0;
+      $('#stat-total').textContent = String(tasks.length);
+      $('#stat-active').textContent = String(tasks.length - complete);
+      $('#stat-complete').textContent = String(complete);
+      $('#stat-progress').textContent = `${progress}%`;
+      ($('#progress-fill') as HTMLElement).style.width = `${progress}%`;
+      list.innerHTML = visible.map((task) => taskMarkup(task)).join('');
+      matrix.querySelectorAll<HTMLElement>('[data-quadrant]').forEach((section) => {
+        const box = section.querySelector('.matrix-tasks')!;
+        const group = visible.filter((task) => quadrant(task) === section.dataset.quadrant);
+        box.innerHTML = group.length ? group.map((task) => taskMarkup(task, true)).join('') : '<p class="matrix-empty">暂无任务</p>';
+      });
+      empty.hidden = visible.length > 0;
+      list.hidden = activeView !== 'list' || !visible.length;
+      matrix.hidden = activeView !== 'matrix' || !visible.length;
+    };
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const data = new FormData(form);
+      const title = String(data.get('title') || '').trim();
+      if (!title) return;
+      const now = new Date().toISOString();
+      tasks.push({ id: crypto.randomUUID(), title, notes: String(data.get('notes') || '').trim(), priority: String(data.get('priority') || 'thisweek'), importance: Number(data.get('importance') || 3), dueDate: String(data.get('dueDate') || ''), completed: false, createdAt: now, updatedAt: now });
+      save(); form.reset(); render(); ($('#todo-title') as HTMLInputElement).focus();
+    });
+
+    const handleTaskAction = (event: Event) => {
+      const button = (event.target as Element).closest<HTMLButtonElement>('[data-action]');
+      const item = button?.closest<HTMLElement>('[data-task-id]');
+      if (!button || !item) return;
+      const task = tasks.find((entry) => entry.id === item.dataset.taskId); if (!task) return;
+      if (button.dataset.action === 'toggle') { task.completed = !task.completed; task.updatedAt = new Date().toISOString(); save(); render(); }
+      if (button.dataset.action === 'delete' && confirm(`删除“${task.title}”？`)) { tasks = tasks.filter((entry) => entry.id !== task.id); save(); render(); }
+      if (button.dataset.action === 'edit') {
+        ($('#edit-id') as HTMLInputElement).value = task.id; ($('#edit-title') as HTMLInputElement).value = task.title; ($('#edit-due') as HTMLInputElement).value = task.dueDate;
+        ($('#edit-priority') as HTMLSelectElement).value = task.priority; ($('#edit-importance') as HTMLSelectElement).value = String(task.importance); ($('#edit-notes') as HTMLTextAreaElement).value = task.notes; editDialog.showModal();
+      }
+    };
+    list.addEventListener('click', handleTaskAction); matrix.addEventListener('click', handleTaskAction);
+
+    $('#save-edit').addEventListener('click', (event) => {
+      event.preventDefault(); const id = ($('#edit-id') as HTMLInputElement).value; const task = tasks.find((entry) => entry.id === id); if (!task) return;
+      const title = ($('#edit-title') as HTMLInputElement).value.trim(); if (!title) { ($('#edit-title') as HTMLInputElement).reportValidity(); return; }
+      task.title = title; task.dueDate = ($('#edit-due') as HTMLInputElement).value; task.priority = ($('#edit-priority') as HTMLSelectElement).value; task.importance = Number(($('#edit-importance') as HTMLSelectElement).value); task.notes = ($('#edit-notes') as HTMLTextAreaElement).value.trim(); task.updatedAt = new Date().toISOString();
+      save(); editDialog.close(); render();
+    });
+
+    document.querySelectorAll<HTMLButtonElement>('[data-filter]').forEach((button) => button.addEventListener('click', () => { activeFilter = button.dataset.filter!; document.querySelectorAll('[data-filter]').forEach((item) => item.classList.toggle('is-active', item === button)); render(); }));
+    document.querySelectorAll<HTMLButtonElement>('[data-view]').forEach((button) => button.addEventListener('click', () => { activeView = button.dataset.view!; document.querySelectorAll('[data-view]').forEach((item) => item.classList.toggle('is-active', item === button)); render(); }));
+    $('#task-search').addEventListener('input', (event) => { searchText = (event.target as HTMLInputElement).value.trim().toLowerCase(); render(); });
+    $('#export-tasks').addEventListener('click', () => {
+      const blob = new Blob([JSON.stringify({ version: 1, exportedAt: new Date().toISOString(), tasks }, null, 2)], { type: 'application/json' }); const url = URL.createObjectURL(blob); const link = document.createElement('a'); link.href = url; link.download = `haibin-todos-${new Date().toISOString().slice(0, 10)}.json`; link.click(); URL.revokeObjectURL(url);
+    });
+    $('#import-tasks').addEventListener('click', () => ($('#import-file') as HTMLInputElement).click());
+    $('#import-file').addEventListener('change', async (event) => {
+      const input = event.target as HTMLInputElement; const file = input.files?.[0]; if (!file) return;
+      try {
+        const parsed = JSON.parse(await file.text()); const incoming = Array.isArray(parsed) ? parsed : parsed.tasks; if (!Array.isArray(incoming)) throw new Error('bad format');
+        const clean = incoming.filter((task: any) => task && typeof task.title === 'string').map((task: any) => ({ id: typeof task.id === 'string' ? task.id : crypto.randomUUID(), title: task.title.slice(0, 180), notes: typeof task.notes === 'string' ? task.notes.slice(0, 1000) : '', priority: ['urgent','twodays','thisweek','anytime'].includes(task.priority) ? task.priority : 'thisweek', importance: Math.min(5, Math.max(1, Number(task.importance) || 3)), dueDate: /^\d{4}-\d{2}-\d{2}$/.test(task.dueDate) ? task.dueDate : '', completed: Boolean(task.completed), createdAt: task.createdAt || new Date().toISOString(), updatedAt: task.updatedAt || new Date().toISOString() }));
+        const existing = new Set(tasks.map((task) => task.id)); tasks.push(...clean.filter((task: Task) => !existing.has(task.id))); save(); render(); alert(`已导入 ${clean.length} 条任务。`);
+      } catch { alert('无法读取这个备份文件，请选择从本站导出的 JSON 文件。'); } finally { input.value = ''; }
+    });
+
+    load(); render();
+  </script>
+</BaseLayout>
+
+<style is:global>
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+  .todo-page { width: min(1120px, calc(100% - 32px)); padding: 48px 0 80px; }
+  .todo-header { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; margin-bottom: 26px; }
+  .todo-eyebrow { margin: 0 0 8px; color: var(--accent-dark); font-size: .7rem; font-weight: 750; letter-spacing: .12em; }
+  .todo-header h1 { margin: 0; font-size: clamp(2.35rem, 5vw, 4rem); font-weight: 680; line-height: 1; letter-spacing: -.045em; }
+  .todo-header > div > p:last-child { margin: 14px 0 0; color: var(--muted); }
+  .privacy-note { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: 0 9px; min-width: 245px; padding: 12px 16px; border: 1px solid color-mix(in srgb, var(--accent) 26%, var(--line)); border-radius: 10px; background: color-mix(in srgb, var(--accent) 6%, var(--surface)); }
+  .privacy-note > span { grid-row: 1 / 3; color: var(--accent); font-size: 1.2rem; }.privacy-note strong { font-size: .78rem; }.privacy-note small { color: var(--muted); font-size: .67rem; }
+  .todo-composer, .todo-board { border: 1px solid var(--line); border-radius: 14px; background: var(--surface); box-shadow: var(--shadow); }
+  .todo-composer { margin-bottom: 16px; padding: 18px; }.quick-add { display: flex; gap: 10px; }.quick-add input { flex: 1; min-width: 0; padding: 12px 15px; border: 1px solid var(--line-strong); border-radius: 8px; color: var(--ink); background: var(--surface-soft); outline: 0; }.quick-add input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 14%, transparent); }
+  button { font: inherit; }.primary-button { padding: 10px 20px; border: 0; border-radius: 8px; color: white; background: var(--accent-dark); cursor: pointer; font-weight: 650; }.primary-button:hover { color: white; background: var(--accent); }
+  .task-details { margin-top: 12px; }.task-details summary { width: fit-content; color: var(--muted); cursor: pointer; font-size: .75rem; }.detail-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); }.detail-grid label, .edit-dialog label { display: grid; gap: 5px; color: var(--muted); font-size: .72rem; font-weight: 600; }.detail-grid input, .detail-grid select, .detail-grid textarea, .edit-dialog input, .edit-dialog select, .edit-dialog textarea { width: 100%; padding: 9px 10px; border: 1px solid var(--line); border-radius: 7px; color: var(--ink); background: var(--surface-soft); font: inherit; }.notes-field { grid-column: 1 / -1; }.detail-grid textarea, .edit-dialog textarea { resize: vertical; }
+  .todo-overview { display: grid; grid-template-columns: repeat(3, 1fr) 1.5fr; gap: 12px; margin-bottom: 16px; }.todo-overview article { padding: 17px 19px; border: 1px solid var(--line); border-radius: 11px; background: var(--surface); box-shadow: var(--shadow); }.todo-overview strong { display: block; color: var(--ink); font-size: 1.5rem; line-height: 1.1; font-variant-numeric: tabular-nums; }.todo-overview span { color: var(--muted); font-size: .73rem; }.progress-card { display: flex; align-items: center; gap: 18px; }.progress-card > div:first-child { flex: 0 0 auto; }.progress-track { height: 7px; flex: 1; overflow: hidden; border-radius: 999px; background: var(--line); }.progress-track i { display: block; width: 0; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--accent-dark), var(--accent)); transition: width .3s ease; }
+  .todo-board { min-height: 300px; overflow: hidden; }.todo-toolbar { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-bottom: 1px solid var(--line); background: var(--surface-soft); }.todo-filters, .view-toggle, .backup-actions { display: flex; gap: 4px; }.todo-toolbar button { padding: 6px 10px; border: 1px solid transparent; border-radius: 6px; color: var(--muted); background: transparent; cursor: pointer; font-size: .74rem; }.todo-toolbar button:hover, .todo-toolbar button.is-active { color: var(--accent-dark); border-color: color-mix(in srgb, var(--accent) 35%, var(--line)); background: var(--surface); }.task-search { position: relative; flex: 1; min-width: 140px; }.task-search span { position: absolute; left: 10px; top: 5px; color: var(--muted); }.task-search input { width: 100%; padding: 6px 10px 6px 29px; border: 1px solid var(--line); border-radius: 7px; color: var(--ink); background: var(--surface); outline: 0; font: inherit; font-size: .76rem; }
+  .todo-list[hidden], .todo-matrix[hidden], .todo-empty[hidden] { display: none !important; }
+  .todo-list { padding: 4px 20px 12px; }.task-item { display: grid; grid-template-columns: 26px minmax(0, 1fr) auto; gap: 12px; align-items: start; padding: 17px 2px; border-bottom: 1px solid var(--line); }.task-item:last-child { border-bottom: 0; }.task-check { width: 22px; height: 22px; margin-top: 2px; padding: 0; border: 1.5px solid var(--line-strong); border-radius: 50%; color: transparent; background: var(--surface); cursor: pointer; line-height: 1; }.task-item.is-complete .task-check { border-color: var(--accent); color: white; background: var(--accent); }.task-copy { min-width: 0; }.task-copy h3 { margin: 0; font-size: .94rem; font-weight: 620; line-height: 1.45; overflow-wrap: anywhere; }.task-copy p { margin: 5px 0 0; color: var(--muted); font-size: .77rem; line-height: 1.55; white-space: pre-wrap; }.task-item.is-complete .task-copy h3 { color: var(--muted); text-decoration: line-through; }.task-meta { display: flex; flex-wrap: wrap; gap: 7px 12px; margin-top: 7px; color: var(--muted); font-size: .67rem; }.priority { padding: 1px 6px; border-radius: 999px; background: var(--surface-soft); }.priority-urgent { color: #b24444; background: #fff0ef; }.priority-twodays { color: #a35f18; background: #fff5e8; }.task-due.is-overdue { color: #b24444; font-weight: 650; }.task-actions { display: flex; gap: 2px; opacity: .25; transition: opacity .15s; }.task-item:hover .task-actions, .task-actions:focus-within { opacity: 1; }.task-actions button { padding: 4px 7px; border: 0; color: var(--muted); background: transparent; cursor: pointer; font-size: .68rem; }.task-actions button:hover { color: var(--accent-dark); }
+  .todo-matrix { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); }.todo-matrix > section { min-height: 240px; padding: 17px; background: var(--surface); }.todo-matrix section > header { display: flex; gap: 10px; align-items: center; margin-bottom: 8px; }.todo-matrix section > header > span { color: var(--accent); font-size: .7rem; font-weight: 750; }.todo-matrix h2 { margin: 0; font-size: .87rem; }.todo-matrix header p { margin: 1px 0 0; color: var(--muted); font-size: .65rem; }.task-item.is-compact { grid-template-columns: 23px minmax(0, 1fr) auto; gap: 8px; padding: 12px 0; }.is-compact .task-actions button { padding: 3px; font-size: .62rem; }.is-compact .task-meta { gap: 5px 8px; }.matrix-empty { margin: 38px 0; color: var(--muted); font-size: .72rem; text-align: center; }.todo-empty { display: grid; justify-items: center; padding: 70px 20px; text-align: center; }.todo-empty span { width: 46px; height: 46px; display: grid; place-items: center; margin-bottom: 12px; border-radius: 50%; color: var(--accent-dark); background: color-mix(in srgb, var(--accent) 12%, var(--surface)); }.todo-empty strong { font-size: .9rem; }.todo-empty small { margin-top: 3px; color: var(--muted); }
+  .edit-dialog { width: min(540px, calc(100% - 28px)); padding: 0; border: 1px solid var(--line); border-radius: 14px; color: var(--ink); background: var(--surface); box-shadow: 0 24px 70px rgba(0,0,0,.24); }.edit-dialog::backdrop { background: rgba(18,25,23,.5); backdrop-filter: blur(3px); }.edit-dialog form { display: grid; gap: 15px; padding: 22px; }.dialog-heading { display: flex; align-items: start; justify-content: space-between; }.dialog-heading small { color: var(--accent-dark); font-size: .62rem; letter-spacing: .12em; }.dialog-heading h2 { margin: 2px 0 0; font-size: 1.25rem; }.dialog-heading > button { border: 0; color: var(--muted); background: transparent; cursor: pointer; font-size: 1.4rem; }.dialog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }.dialog-actions { display: flex; justify-content: flex-end; gap: 8px; padding-top: 4px; }.dialog-actions > button { padding: 8px 14px; border: 1px solid var(--line); border-radius: 7px; color: var(--muted); background: var(--surface); cursor: pointer; }.dialog-actions .primary-button { color: white; border-color: var(--accent-dark); background: var(--accent-dark); }
+  .dark .priority-urgent { color: #ffaaa3; background: #472a29; }.dark .priority-twodays { color: #ffc47e; background: #49341e; }.dark .task-due.is-overdue { color: #ffaaa3; }
+  @media (max-width: 760px) { .todo-page { width: calc(100% - 20px); padding-top: 28px; }.todo-header { align-items: flex-start; flex-direction: column; gap: 18px; }.privacy-note { width: 100%; }.todo-overview { grid-template-columns: repeat(3, 1fr); }.progress-card { grid-column: 1 / -1; }.todo-toolbar { flex-wrap: wrap; }.task-search { order: -1; flex-basis: 100%; }.backup-actions { margin-left: auto; }.detail-grid, .dialog-grid { grid-template-columns: 1fr; }.todo-matrix { grid-template-columns: 1fr; }.quick-add { align-items: stretch; }.quick-add .primary-button { padding-inline: 14px; }.task-actions { opacity: .75; }.task-item { grid-template-columns: 25px minmax(0, 1fr); }.task-actions { grid-column: 2; }.todo-header h1 { font-size: 2.7rem; } }
+  @media (max-width: 430px) { .todo-overview article { padding: 14px 12px; }.todo-overview strong { font-size: 1.25rem; }.view-toggle { order: 3; }.todo-filters { flex: 1; }.todo-toolbar { gap: 7px; }.todo-toolbar button { padding-inline: 8px; }.quick-add { flex-direction: column; } }
+</style>
