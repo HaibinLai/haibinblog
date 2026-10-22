@@ -110,6 +110,22 @@ $$
 $$
 ```
 
+Article callouts use GitHub-style Markdown alerts. The site renders them as a
+bordered title bar and content panel, with separate colors for each type:
+
+```markdown
+> [!NOTE]
+> These commands work on both Midway2 and Midway3.
+
+> [!TIP]
+> Put a practical suggestion here.
+
+> [!WARNING]
+> Explain a risk or prerequisite here.
+```
+
+Supported labels are `NOTE`, `TIP`, `IMPORTANT`, `WARNING`, and `CAUTION`.
+
 ## Publishing a Moment
 
 Moments are regular posts whose category list contains `fragments`. They appear
