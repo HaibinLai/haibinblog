@@ -142,9 +142,12 @@ const postMetadata = Object.fromEntries(posts.map((post) => {
         }).join(' ');
         return `<polyline points="${points}" fill="none" stroke="${colors[itemIndex % colors.length]}" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" />`;
       }).join('');
-      const grid = [0, .25, .5, .75, 1].map((ratio) => {
+      const gridRatios = [0, .25, .5, .75, 1];
+      const grid = gridRatios.map((ratio, index) => {
         const y = pad.top + chartHeight * ratio;
-        const label = Math.round(max * (1 - ratio));
+        const label = max < 4
+          ? (index === 0 ? max : index === gridRatios.length - 1 ? 0 : '')
+          : Math.round(max * (1 - ratio));
         return `<line x1="${pad.left}" y1="${y}" x2="${width - pad.right}" y2="${y}" /><text x="${pad.left - 9}" y="${y + 4}">${label}</text>`;
       }).join('');
       wrap.innerHTML = `<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="文章每日阅读趋势"><g class="analytics-grid">${grid}</g>${paths}<text class="analytics-date-label" x="${pad.left}" y="${height - 10}">${daily[0]?.date.slice(5) || ''}</text><text class="analytics-date-label" x="${width - pad.right}" y="${height - 10}" text-anchor="end">${daily.at(-1)?.date.slice(5) || ''}</text></svg>`;
