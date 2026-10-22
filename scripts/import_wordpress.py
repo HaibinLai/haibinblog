@@ -28,6 +28,13 @@ EXCERPT = "http://wordpress.org/export/1.2/excerpt/"
 DC = "http://purl.org/dc/elements/1.1/"
 NS = {"wp": WP, "content": CONTENT, "excerpt": EXCERPT, "dc": DC}
 INVALID_XML_CONTROLS = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f]")
+SUPPORTED_LANGUAGES = {"zh-CN", "en"}
+BILINGUAL_PLACEHOLDER = re.compile(
+    r"^<p>This blog is generated from .*?"
+    r"I am trying to make a bilingual version.*?</p>\s*"
+    r"(?:<h1>.*?</h1>\s*)?",
+    re.DOTALL,
+)
 
 
 class TextExtractor(HTMLParser):
@@ -73,6 +80,46 @@ def safe_slug(raw_slug: str, post_id: str) -> str:
 def yaml_value(value: object) -> str:
     # JSON strings and arrays are valid YAML and avoid title/tag escaping bugs.
     return json.dumps(value, ensure_ascii=False)
+
+
+def preserved_bilingual_metadata(output: Path) -> dict[str, tuple[str, str]]:
+    """Keep manually assigned language fields across generated-directory rebuilds."""
+    preserved: dict[str, tuple[str, str]] = {}
+    if not output.exists():
+        return preserved
+
+    for path in output.glob("*.md"):
+        source = path.read_text(encoding="utf-8")
+        if not source.startswith("---\n"):
+            continue
+        end = source.find("\n---", 4)
+        if end == -1:
+            continue
+        header = source[4:end]
+        values: dict[str, str] = {}
+        for key in ("language", "translationKey", "wordpressId"):
+            match = re.search(rf"(?m)^{key}:\s*(.+?)\s*$", header)
+            if not match:
+                continue
+            raw_value = match.group(1)
+            try:
+                parsed = json.loads(raw_value)
+            except json.JSONDecodeError:
+                parsed = raw_value.strip("\"'")
+            if isinstance(parsed, str):
+                values[key] = parsed.strip()
+            elif isinstance(parsed, int):
+                values[key] = str(parsed)
+
+        language = values.get("language", "")
+        translation_key = values.get("translationKey", "")
+        if language in SUPPORTED_LANGUAGES:
+            value = (language, translation_key)
+            preserved[f"slug:{path.stem}"] = value
+            if values.get("wordpressId", "").isdigit():
+                preserved[f"wordpressId:{values['wordpressId']}"] = value
+
+    return preserved
 
 
 def wordpress_gmt_date(value: str) -> str:
@@ -155,6 +202,7 @@ def main() -> int:
     }
 
     output = args.output
+    preserved_bilingual = preserved_bilingual_metadata(output)
     if output.exists():
         shutil.rmtree(output)
     output.mkdir(parents=True)
@@ -189,6 +237,10 @@ def main() -> int:
         body = item.findtext("content:encoded", default="", namespaces=NS).strip()
         body = "\n".join(line.rstrip() for line in body.splitlines())
         excerpt = item.findtext("excerpt:encoded", default="", namespaces=NS)
+        if BILINGUAL_PLACEHOLDER.match(body):
+            body = BILINGUAL_PLACEHOLDER.sub("", body, count=1)
+            if "I am trying to make a bilingual version" in plain_text(excerpt):
+                excerpt = ""
         published = wordpress_gmt_date(
             item.findtext("wp:post_date_gmt", default="", namespaces=NS)
         )
@@ -210,6 +262,32 @@ def main() -> int:
         category = categories[0] if categories else "Uncategorized"
         old_slug = legacy_slug(item, raw_slug or slug)
         metadata = postmeta(item)
+        language, translation_key = preserved_bilingual.get(
+            f"wordpressId:{post_id}",
+            preserved_bilingual.get(f"slug:{slug}", ("", "")),
+        )
+        imported_language = latest_meta(metadata, "nicen_language").strip()
+        imported_translation_key = latest_meta(
+            metadata, "nicen_translation_group"
+        ).strip()
+        if "nicen_language" in metadata:
+            if imported_language in SUPPORTED_LANGUAGES:
+                language = imported_language
+            elif imported_language:
+                print(
+                    f"Ignored unsupported language {imported_language!r} for post {post_id}.",
+                    file=sys.stderr,
+                )
+            else:
+                language = ""
+        if "nicen_translation_group" in metadata:
+            translation_key = imported_translation_key
+        if translation_key and not language:
+            print(
+                f"Ignored translation group without a valid language for post {post_id}.",
+                file=sys.stderr,
+            )
+            translation_key = ""
         old_slugs = list(
             dict.fromkeys(
                 unquote(value).strip("/")
@@ -279,6 +357,17 @@ def main() -> int:
                 f"dislikeCount: {dislike_count}",
             ]
         )
+        if language:
+            slug_index = next(
+                index for index, line in enumerate(frontmatter)
+                if line.startswith("slug: ")
+            )
+            language_fields = [f"language: {yaml_value(language)}"]
+            if translation_key:
+                language_fields.append(
+                    f"translationKey: {yaml_value(translation_key)}"
+                )
+            frontmatter[slug_index + 1:slug_index + 1] = language_fields
         if comments:
             frontmatter.append(f"comments: {yaml_value(comments)}")
         frontmatter.extend(

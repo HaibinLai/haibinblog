@@ -16,6 +16,8 @@ const posts = defineCollection({
     slug: z.string().optional(),
     legacySlug: z.string().optional(),
     oldSlugs: z.array(z.string()).default([]),
+    language: z.enum(['zh-CN', 'en']).optional(),
+    translationKey: z.string().trim().min(1).optional(),
     wordpressId: z.number().int().optional(),
     sourceUrl: z.string().url().optional(),
     featuredImage: z.string().url().optional(),
@@ -30,6 +32,14 @@ const posts = defineCollection({
     })).default([]),
     showCitation: z.boolean().default(true),
     importedFromWordPress: z.boolean().default(false),
+  }).superRefine((data, context) => {
+    if (data.translationKey && !data.language) {
+      context.addIssue({
+        code: 'custom',
+        path: ['language'],
+        message: 'language is required when translationKey is set',
+      });
+    }
   }),
 });
 

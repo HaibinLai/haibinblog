@@ -5,22 +5,32 @@ import ViewTracker from '../components/ViewTracker.astro';
 interface Props {
   title?: string;
   description?: string;
+  lang?: 'zh-CN' | 'en';
+  alternates?: Array<{
+    lang: 'zh-CN' | 'en';
+    href: string;
+  }>;
 }
 
 const {
   title = "Haibin's Blog",
   description = 'Research notes, life fragments, and work in progress.',
+  lang = 'zh-CN',
+  alternates = [],
 } = Astro.props;
 const base = import.meta.env.BASE_URL;
 ---
 
 <!doctype html>
-<html lang="zh-CN">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <meta name="generator" content={Astro.generator} />
+    {alternates.map((alternate) => (
+      <link rel="alternate" hreflang={alternate.lang} href={alternate.href} />
+    ))}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.21/dist/katex.min.css" />
     <title>{title}</title>
   </head>

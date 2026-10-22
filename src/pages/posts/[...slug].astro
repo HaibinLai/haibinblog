@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleNavigation from '../../components/ArticleNavigation.astro';
+import LanguageSwitcher from '../../components/LanguageSwitcher.astro';
 import RightSidebar from '../../components/RightSidebar.astro';
 import ViewCount from '../../components/ViewCount.astro';
 
@@ -16,6 +17,37 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const allPosts = (await getCollection('posts', ({ data }) => !data.draft))
   .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+const base = import.meta.env.BASE_URL;
+const currentSlug = post.data.slug ?? post.id.replace(/^wordpress\//, '');
+const languageOrder = { 'zh-CN': 0, en: 1 } as const;
+const translationOptions = post.data.translationKey && post.data.language
+  ? allPosts
+      .filter((candidate) => (
+        candidate.data.translationKey === post.data.translationKey
+        && candidate.data.language
+      ))
+      .map((candidate) => {
+        const slug = candidate.data.slug ?? candidate.id.replace(/^wordpress\//, '');
+        return {
+          language: candidate.data.language!,
+          href: `${base}posts/${slug}/`,
+          absoluteHref: new URL(`${base}posts/${slug}/`, Astro.site).href,
+          title: candidate.data.title,
+          active: slug === currentSlug,
+        };
+      })
+      .sort((a, b) => languageOrder[a.language] - languageOrder[b.language])
+  : [];
+if (new Set(translationOptions.map(({ language }) => language)).size !== translationOptions.length) {
+  throw new Error(`Translation group "${post.data.translationKey}" contains duplicate language entries.`);
+}
+const hasTranslationPair = translationOptions.length === 2;
+const alternateLinks = hasTranslationPair
+  ? translationOptions.map(({ language, absoluteHref }) => ({
+      lang: language,
+      href: absoluteHref,
+    }))
+  : [];
 const { Content } = await render(post);
 const publishedDate = post.data.publishedAt.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
 const updatedDate = post.data.updatedAt?.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
@@ -24,12 +56,20 @@ const citationKey = `lai-${post.id.replace(/[^a-z0-9]+/gi, '-').toLowerCase()}`;
 const citation = `@online{${citationKey},\n  title={${post.data.title}},\n  author={Haibin Lai},\n  year={${post.data.publishedAt.getFullYear()}},\n  url={${Astro.url.href}},\n}`;
 ---
 
-<BaseLayout title={`${post.data.title} | Haibin's Blog`} description={post.data.description}>
+<BaseLayout
+  title={`${post.data.title} | Haibin's Blog`}
+  description={post.data.description}
+  lang={post.data.language ?? 'zh-CN'}
+  alternates={alternateLinks}
+>
   <div class="article-page-shell content-shell">
     <ArticleNavigation title={post.data.title} />
     <article class="post-page">
     <header class="post-header">
-      <p class="eyebrow">{post.data.category}</p>
+      <div class="post-header-top">
+        <p class="eyebrow">{post.data.category}</p>
+        {hasTranslationPair && <LanguageSwitcher options={translationOptions} />}
+      </div>
       <h1 id="article-title">{post.data.title}</h1>
       <p class="post-description">{post.data.description}</p>
       <div class="post-info">

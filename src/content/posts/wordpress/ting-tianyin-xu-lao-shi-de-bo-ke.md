@@ -8,6 +8,8 @@ tags: ["AI", "phd", "System", "TLA", "UIUC", "人生"]
 author: "GB"
 draft: false
 slug: "ting-tianyin-xu-lao-shi-de-bo-ke"
+language: "zh-CN"
+translationKey: "tianyin-xu-podcast"
 legacySlug: "ting-tianyin-xu-lao-shi-de-bo-ke"
 oldSlugs: []
 wordpressId: 1684

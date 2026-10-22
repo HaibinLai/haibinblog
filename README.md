@@ -14,9 +14,17 @@ description: A short description for the post list and search engines.
 publishedAt: 2026-09-22
 category: Research
 tags: [systems, notes]
+language: en
+translationKey: example-bilingual-post
 draft: false
 ---
 ```
+
+Set `language` to `zh-CN` or `en` whenever the article language is known,
+including for a single-language English post. For a bilingual post, give both
+language versions the same `translationKey`. The article page will automatically
+show a **中文 / English** switch when both published versions are available.
+Leave `translationKey` out for an ordinary single-language post.
 
 Math uses ordinary Markdown math syntax:
 
@@ -55,6 +63,12 @@ compatibility pages for current and older `/index.php/<slug>/` links. Re-running
 it replaces only that generated directory. Draft, pending, private, and
 password-protected posts are skipped by default so they cannot be accidentally
 committed to this public repository.
+
+To set up a bilingual pair in WordPress before exporting, use the **多语言文章**
+panel in the post editor. Choose the article language and enter the same bilingual
+group value for both versions (for example, `tianyin-xu-podcast`). These values
+are exported as `nicen_language` and `nicen_translation_group`, then converted to
+the Astro `language` and `translationKey` fields during import.
 
 ## View counter
 

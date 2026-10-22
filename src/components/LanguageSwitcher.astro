@@ -1,0 +1,36 @@
+---
+interface LanguageOption {
+  language: 'zh-CN' | 'en';
+  href: string;
+  title: string;
+  active: boolean;
+}
+
+interface Props {
+  options: LanguageOption[];
+}
+
+const { options } = Astro.props;
+const labels = {
+  'zh-CN': '中文',
+  en: 'English',
+};
+---
+
+<div class="language-switcher" role="navigation" aria-label="文章语言 / Article language">
+  {options.map((option) => option.active ? (
+    <span class="language-option is-active" lang={option.language} aria-current="page">
+      {labels[option.language]}
+    </span>
+  ) : (
+    <a
+      class="language-option"
+      href={option.href}
+      lang={option.language}
+      hreflang={option.language}
+      title={option.title}
+    >
+      {labels[option.language]}
+    </a>
+  ))}
+</div>
