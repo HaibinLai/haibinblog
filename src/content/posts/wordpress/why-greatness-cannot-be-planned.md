@@ -13,10 +13,6 @@ legacySlug: "why-greatness-cannot-be-planned"
 oldSlugs: []
 wordpressId: 1026
 sourceUrl: "https://www.haibinlaiblog.top/index.php/why-greatness-cannot-be-planned/"
-featuredRank: 2
-featuredTitle: "Why Greatness Cannot Be Planned"
-featuredLabel: "Thinkings"
-featuredBannerImage: "images/featured/why-greatness.webp"
 commentCount: 0
 viewCount: 1677
 likeCount: 12

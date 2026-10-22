@@ -14,6 +14,10 @@ legacySlug: "ting-tianyin-xu-lao-shi-de-bo-ke"
 oldSlugs: []
 wordpressId: 1684
 sourceUrl: "https://www.haibinlaiblog.top/index.php/ting-tianyin-xu-lao-shi-de-bo-ke/"
+featuredRank: 2
+featuredTitle: "听 Tianyin Xu 老师的播客"
+featuredLabel: "Podcast"
+featuredBannerImage: "images/featured/tianyin-xu-podcast.webp"
 commentCount: 0
 viewCount: 219
 likeCount: 0
