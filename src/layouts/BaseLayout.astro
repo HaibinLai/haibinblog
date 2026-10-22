@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import ViewTracker from '../components/ViewTracker.astro';
+import { getCollection } from 'astro:content';
 
 interface Props {
   title?: string;
@@ -19,6 +20,21 @@ const {
   alternates = [],
 } = Astro.props;
 const base = import.meta.env.BASE_URL;
+const fragmentCategories = new Set(['fragments', 'life-fragments']);
+const searchPosts = (await getCollection('posts', ({ data }) => !data.draft && ![data.category, ...data.categories]
+  .some((category) => fragmentCategories.has(category.trim().toLowerCase()))))
+  .map((post) => {
+    const slug = post.data.slug ?? post.id.replace(/^wordpress\//, '');
+    return {
+      title: post.data.title,
+      description: post.data.description,
+      category: post.data.category,
+      tags: post.data.tags,
+      date: post.data.publishedAt.toISOString(),
+      href: `${base}posts/${slug}/`,
+    };
+  })
+  .sort((a, b) => b.date.localeCompare(a.date));
 ---
 
 <!doctype html>
@@ -40,7 +56,10 @@ const base = import.meta.env.BASE_URL;
     <header class="site-header">
       <a class="brand" href={base} aria-label="Haibin's Blog home"><img src={`${base}images/logo.png`} alt="" />Haibin's blog</a>
       <div class="header-tools">
-        <label class="search-box"><span aria-hidden="true">⌕</span><input type="search" placeholder="Enter keywords to search" aria-label="Search" /></label>
+        <div class="search-shell">
+          <label class="search-box"><span aria-hidden="true">⌕</span><input type="search" placeholder="Enter keywords to search" aria-label="Search" aria-controls="site-search-results" aria-expanded="false" autocomplete="off" /></label>
+          <div id="site-search-results" class="search-results" role="listbox" aria-label="Search results" hidden></div>
+        </div>
         <button class="theme-toggle" type="button" aria-label="Toggle dark mode">☼</button>
         <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-controls="site-navigation" aria-expanded="false">☰</button>
         <nav id="site-navigation" class="primary-nav" aria-label="Primary navigation">
@@ -78,11 +97,86 @@ const base = import.meta.env.BASE_URL;
       <span>Haibin Lai</span>
       <span>Research, notes, and ordinary days.</span>
     </footer>
+    <script is:inline type="application/json" id="site-search-index" set:html={JSON.stringify(searchPosts).replace(/</g, '\\u003c')}></script>
     <script is:inline>
       (() => {
         const themeToggle = document.querySelector('.theme-toggle');
         const menuToggle = document.querySelector('.menu-toggle');
         const header = document.querySelector('.site-header');
+        const searchShell = document.querySelector('.search-shell');
+        const searchInput = searchShell?.querySelector('input[type="search"]');
+        const searchResults = document.querySelector('#site-search-results');
+        const searchIndexNode = document.querySelector('#site-search-index');
+        let searchIndex = [];
+        let activeSearchResult = -1;
+        try { searchIndex = JSON.parse(searchIndexNode?.textContent || '[]'); } catch {}
+
+        const normalize = (value) => String(value || '').normalize('NFKC').toLocaleLowerCase();
+        const closeSearch = () => {
+          if (!searchResults || !searchInput) return;
+          searchResults.hidden = true;
+          searchInput.setAttribute('aria-expanded', 'false');
+          activeSearchResult = -1;
+        };
+        const setActiveSearchResult = (index) => {
+          const links = [...(searchResults?.querySelectorAll('a') || [])];
+          if (!links.length) return;
+          activeSearchResult = (index + links.length) % links.length;
+          links.forEach((link, position) => {
+            const active = position === activeSearchResult;
+            link.classList.toggle('is-active', active);
+            link.setAttribute('aria-selected', String(active));
+          });
+          links[activeSearchResult]?.scrollIntoView({ block: 'nearest' });
+        };
+        const runSearch = () => {
+          if (!searchInput || !searchResults) return;
+          const query = normalize(searchInput.value).trim();
+          if (!query) { closeSearch(); searchResults.replaceChildren(); return; }
+          const terms = query.split(/\s+/).filter(Boolean);
+          const matches = searchIndex.map((post) => {
+            const title = normalize(post.title);
+            const description = normalize(post.description);
+            const category = normalize(post.category);
+            const tags = normalize((post.tags || []).join(' '));
+            const haystack = `${title} ${category} ${tags} ${description}`;
+            if (!terms.every((term) => haystack.includes(term))) return null;
+            let score = 0;
+            if (title === query) score += 120;
+            if (title.startsWith(query)) score += 70;
+            if (title.includes(query)) score += 45;
+            terms.forEach((term) => {
+              if (title.includes(term)) score += 18;
+              if (category.includes(term)) score += 9;
+              if (tags.includes(term)) score += 7;
+              if (description.includes(term)) score += 2;
+            });
+            return { post, score };
+          }).filter(Boolean).sort((a, b) => b.score - a.score || b.post.date.localeCompare(a.post.date)).slice(0, 8);
+
+          searchResults.replaceChildren();
+          const heading = document.createElement('p');
+          heading.className = 'search-results-heading';
+          heading.textContent = matches.length ? `${matches.length} 个最相关结果` : '没有找到相关文章';
+          searchResults.append(heading);
+          matches.forEach(({ post }, index) => {
+            const link = document.createElement('a');
+            link.href = post.href;
+            link.setAttribute('role', 'option');
+            link.setAttribute('aria-selected', 'false');
+            link.dataset.searchIndex = String(index);
+            const title = document.createElement('strong');
+            title.textContent = post.title;
+            const meta = document.createElement('span');
+            const date = new Intl.DateTimeFormat(document.documentElement.lang || 'zh-CN', { year: 'numeric', month: 'short' }).format(new Date(post.date));
+            meta.textContent = `${post.category || 'Article'} · ${date}`;
+            link.append(title, meta);
+            searchResults.append(link);
+          });
+          searchResults.hidden = false;
+          searchInput.setAttribute('aria-expanded', 'true');
+          activeSearchResult = -1;
+        };
         const closeMenu = () => {
           header?.classList.remove('is-menu-open');
           menuToggle?.setAttribute('aria-expanded', 'false');
@@ -98,8 +192,19 @@ const base = import.meta.env.BASE_URL;
           menuToggle.setAttribute('aria-expanded', String(open));
         });
         header?.querySelectorAll('nav a').forEach((link) => link.addEventListener('click', closeMenu));
+        searchInput?.addEventListener('input', runSearch);
+        searchInput?.addEventListener('focus', () => { if (searchInput.value.trim()) runSearch(); });
+        searchInput?.addEventListener('keydown', (event) => {
+          const links = [...(searchResults?.querySelectorAll('a') || [])];
+          if (event.key === 'ArrowDown' && links.length) { event.preventDefault(); setActiveSearchResult(activeSearchResult + 1); }
+          if (event.key === 'ArrowUp' && links.length) { event.preventDefault(); setActiveSearchResult(activeSearchResult < 0 ? links.length - 1 : activeSearchResult - 1); }
+          if (event.key === 'Enter' && links.length) { event.preventDefault(); links[activeSearchResult >= 0 ? activeSearchResult : 0].click(); }
+          if (event.key === 'Escape') closeSearch();
+        });
+        document.addEventListener('click', (event) => { if (!searchShell?.contains(event.target)) closeSearch(); });
         document.addEventListener('keydown', (event) => {
-          if (event.key === 'Escape') closeMenu();
+          if (event.key === 'Escape') { closeMenu(); closeSearch(); }
+          if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === 'k') { event.preventDefault(); searchInput?.focus(); }
         });
       })();
     </script>
