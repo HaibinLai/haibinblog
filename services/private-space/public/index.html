@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="referrer" content="no-referrer">
+  <title>Private Space · Haibin</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/"><span>H</span><strong>Private Space</strong></a>
+    <nav aria-label="Private space navigation">
+      <button class="nav-button is-active" data-page="todo">Todo</button>
+      <button class="nav-button" data-page="blog">Private Blog</button>
+    </nav>
+    <div class="top-actions"><span id="user-email">Checking access…</span><a href="https://haibinlai.github.io/haibinblog/">Public Blog ↗</a><button id="export-all">Export</button></div>
+  </header>
+
+  <main>
+    <section id="access-state" class="access-state">
+      <span class="loader"></span><h1>正在验证私人空间</h1><p>Cloudflare Access 正在确认你的登录身份。</p>
+    </section>
+
+    <section id="todo-page" class="workspace" hidden>
+      <header class="page-heading"><div><p>PERSONAL WORKSPACE</p><h1>Todo List</h1><span>你的任务会加密传输并存储在私人数据库中。</span></div><div class="metric"><strong id="todo-progress">0%</strong><span>completed</span></div></header>
+      <form id="todo-form" class="composer">
+        <input name="title" maxlength="180" placeholder="现在想完成什么？" aria-label="任务名称" required>
+        <select name="priority" aria-label="时间范围"><option value="thisweek">本周</option><option value="urgent">紧急</option><option value="twodays">两天内</option><option value="anytime">任何时候</option></select>
+        <input name="dueDate" type="date" aria-label="截止日期">
+        <select name="importance" aria-label="重要程度"><option value="3">重要度 3</option><option value="5">重要度 5</option><option value="4">重要度 4</option><option value="2">重要度 2</option><option value="1">重要度 1</option></select>
+        <button class="primary" type="submit">添加任务</button>
+        <textarea name="notes" maxlength="4000" placeholder="备注（可选）" aria-label="备注"></textarea>
+      </form>
+      <div class="toolbar"><div class="filters"><button class="is-active" data-todo-filter="all">全部</button><button data-todo-filter="active">进行中</button><button data-todo-filter="completed">已完成</button></div><input id="todo-search" type="search" placeholder="搜索任务" aria-label="搜索任务"><span id="todo-summary"></span></div>
+      <div id="todo-list" class="todo-list"></div>
+      <div id="todo-empty" class="empty" hidden><b>✓</b><strong>这里暂时很安静</strong><span>添加一个任务，开始今天的计划。</span></div>
+    </section>
+
+    <section id="blog-page" class="workspace" hidden>
+      <header class="page-heading"><div><p>PRIVATE WRITING</p><h1>Private Blog</h1><span>草稿、研究日志和不准备公开的文字，只对你可见。</span></div><button id="new-post" class="primary">写一篇</button></header>
+      <div class="toolbar"><div class="filters"><button class="is-active" data-post-filter="all">全部</button><button data-post-filter="draft">草稿</button><button data-post-filter="published">完成</button><button data-post-filter="archived">归档</button></div><input id="post-search" type="search" placeholder="搜索私人文章" aria-label="搜索私人文章"><span id="post-summary"></span></div>
+      <div id="post-grid" class="post-grid"></div>
+      <div id="post-empty" class="empty" hidden><b>✦</b><strong>还没有私人文章</strong><span>这里适合保存草稿、日记和不公开的研究记录。</span></div>
+    </section>
+  </main>
+
+  <dialog id="todo-dialog">
+    <form id="todo-edit-form" class="dialog-form">
+      <header><div><small>EDIT TASK</small><h2>编辑任务</h2></div><button class="icon-button" type="button" data-close-dialog>×</button></header>
+      <input name="id" type="hidden"><label>任务名称<input name="title" maxlength="180" required></label>
+      <div class="form-row"><label>时间范围<select name="priority"><option value="urgent">紧急</option><option value="twodays">两天内</option><option value="thisweek">本周</option><option value="anytime">任何时候</option></select></label><label>重要程度<select name="importance"><option value="5">5</option><option value="4">4</option><option value="3">3</option><option value="2">2</option><option value="1">1</option></select></label><label>截止日期<input name="dueDate" type="date"></label></div>
+      <label>备注<textarea name="notes" rows="5" maxlength="4000"></textarea></label><label class="check-label"><input name="completed" type="checkbox"> 已完成</label>
+      <footer><button type="button" data-close-dialog>取消</button><button class="primary" type="submit">保存修改</button></footer>
+    </form>
+  </dialog>
+
+  <dialog id="post-dialog" class="post-dialog">
+    <form id="post-form" class="dialog-form post-editor">
+      <header><div><small>PRIVATE WRITING</small><h2 id="post-dialog-title">新建文章</h2></div><button class="icon-button" type="button" data-close-dialog>×</button></header>
+      <input name="id" type="hidden">
+      <div class="post-fields"><label>标题<input name="title" maxlength="240" placeholder="文章标题" required></label><label>摘要<textarea name="excerpt" rows="2" maxlength="1000" placeholder="一两句话概括这篇文章"></textarea></label><div class="form-row"><label>标签<input name="tags" placeholder="research, diary, idea"></label><label>状态<select name="status"><option value="draft">草稿</option><option value="published">完成</option><option value="archived">归档</option></select></label><label class="check-label"><input name="pinned" type="checkbox"> 置顶</label></div></div>
+      <div class="editor-tabs"><button class="is-active" type="button" data-editor-tab="write">Markdown</button><button type="button" data-editor-tab="preview">预览</button></div>
+      <textarea id="post-content" name="content" class="content-editor" maxlength="500000" placeholder="# 从这里开始写…"></textarea>
+      <article id="post-preview" class="markdown-body" hidden></article>
+      <footer><button type="button" data-close-dialog>取消</button><button class="primary" type="submit">保存文章</button></footer>
+    </form>
+  </dialog>
+
+  <dialog id="reader-dialog" class="reader-dialog"><article><header><div><div id="reader-meta"></div><h1 id="reader-title"></h1><p id="reader-excerpt"></p></div><button class="icon-button" type="button" data-close-dialog>×</button></header><div id="reader-content" class="markdown-body"></div><footer><button id="reader-edit">编辑文章</button><button type="button" data-close-dialog>关闭</button></footer></article></dialog>
+  <div id="toast" role="status" aria-live="polite"></div>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>

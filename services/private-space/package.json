@@ -1,0 +1,15 @@
+{
+  "name": "haibinblog-private-space",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "db:local:init": "wrangler d1 execute haibinblog-private --local --file=./schema.sql",
+    "db:remote:init": "wrangler d1 execute haibinblog-private --remote --file=./schema.sql"
+  },
+  "devDependencies": {
+    "wrangler": "^4.151.0"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "haibinblog-private",
+  "main": "src/index.js",
+  "compatibility_date": "2026-10-19",
+  "workers_dev": true,
+  "preview_urls": false,
+  "observability": { "enabled": true },
+  "access": {
+    "dev": {
+      "aud": "haibinblog-private-local",
+      "identity": { "email": "owner@example.com" }
+    }
+  },
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS",
+    "run_worker_first": ["/api/*"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "haibinblog-private",
+      "database_id": "5099011f-495a-46da-a917-fb5846300f8f"
+    }
+  ]
+}
