@@ -47,14 +47,7 @@ for (const post of [...posts]
 ---
 
 {featured.length > 0 && (
-  <section class={`featured-posts featured-count-${featured.length}`} aria-labelledby="featured-heading">
-    <div class="featured-heading">
-      <div>
-        <span class="featured-kicker">Editor&rsquo;s picks</span>
-        <h2 id="featured-heading">Featured writing</h2>
-      </div>
-      <span class="featured-count">{featured.length} selected</span>
-    </div>
+  <section class={`featured-posts featured-count-${featured.length}`} aria-label="Featured posts">
     <div class="featured-grid">
       {featured.map((post, index) => {
         const slug = postSlug(post);
