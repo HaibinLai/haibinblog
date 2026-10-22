@@ -60,7 +60,7 @@ body { background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 4%, 
 .post-info { gap: 0; margin-top: 17px; color: var(--muted); font-size: .74rem; line-height: 1.5; }
 .post-info > * { display: inline-flex; align-items: center; }
 .post-info > * + *::before { width: 3px; height: 3px; margin: 0 10px; border-radius: 50%; background: var(--line-strong); content: ''; }
-.article-page-shell .prose { max-width: 72ch; margin-inline: auto; color: color-mix(in srgb, var(--ink) 94%, var(--muted)); font-size: 1rem; line-height: 1.85; }
+.article-page-shell .prose { max-width: 72ch; margin-inline: auto; color: color-mix(in srgb, var(--ink) 94%, var(--muted)); font-size: 1rem; line-height: 1.72; }
 .article-page-shell .prose > :first-child { margin-top: 0; }
 .article-page-shell .prose h1, .article-page-shell .prose h2, .article-page-shell .prose h3, .article-page-shell .prose h4, .article-page-shell .prose h5, .article-page-shell .prose h6 { color: var(--ink); font-weight: 650; letter-spacing: -.018em; line-height: 1.38; text-wrap: balance; }
 .article-page-shell .prose h1 { margin: 2.1em 0 .8em; font-size: 1.8rem; }
@@ -167,7 +167,7 @@ body { background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 4%, 
   .post-description { margin-top: 13px; font-size: .91rem; line-height: 1.68; }
   .post-info { gap: 6px 12px; margin-top: 14px; font-size: .7rem; }
   .post-info > * + *::before { display: none; }
-  .article-page-shell .prose { font-size: .97rem; line-height: 1.8; }
+  .article-page-shell .prose { font-size: .97rem; line-height: 1.7; }
   .article-page-shell .prose > h1:first-child { font-size: 1.45rem; }
   .article-page-shell .prose h2 { margin-top: 2.15em; font-size: 1.3rem; }
   .article-page-shell .prose h3 { font-size: 1.1rem; }
