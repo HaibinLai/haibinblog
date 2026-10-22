@@ -19,6 +19,7 @@ likeCount: 1
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/gcc%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0openmp%E7%9A%84.webp"
 ---
 <p>由于网上关于GNU openmp的解构比较少，今天我由于工作问题，我也来亲自解答：“为什么OpenMP不能完成 “小而多的并行任务” 的问题。（llvm的解构我之前在博客已经做过 <a href="https://www.haibinlaiblog.top/index.php/openmp%e5%9c%a8llvm%e9%87%8c%e6%98%af%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0%e7%9a%84%ef%bc%9fwip/">llvm 如何实现OpenMP</a> ，其实从结构来看，跟OpenMP的结构基本一致，都遵从OpenMP官方的fork-join 的idea，但是llvm的实现会比较复杂）</p>
 <h2>学习网页</h2>

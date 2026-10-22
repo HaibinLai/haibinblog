@@ -20,6 +20,7 @@ dislikeCount: 0
 showCitation: true
 featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/09/IMG_6808.jpg"
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-09/%E4%B8%BA%E4%BB%80%E4%B9%88rust-cargo%E5%9C%A8release%E6%A8%A1%E5%BC%8F%E4%BC%9A%E6%AF%94debug%E6%A8%A1%E5%BC%8F%E5%BF%AB%E5%BE%88%E5%A4%9A.webp"
 ---
 <p>为什么Rust cargo在release模式会比debug模式快很多？</p>
 <p>gpt给了一个笼统的答案，我们用矩阵乘法的例子来看看这里边的差异：

@@ -20,6 +20,7 @@ dislikeCount: 0
 showCitation: true
 featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/12/0C24B0FB10ACCFB08BB5237BF2014E22.jpg"
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/induced-graph-%E8%AF%B1%E5%AF%BC%E5%AD%90%E5%9B%BE.webp"
 ---
 <p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/12/0C24B0FB10ACCFB08BB5237BF2014E22-300x130.jpg" alt="" /></p>
 <p>在图论中，<strong>诱导子图</strong>（Induced Subgraph）是从一个图 ( G ) 中通过 (1) 选取一个顶点子集 ( S ) 并 (2) 保留与这些顶点相连接的边来构造的子图。具体地说，诱导子图包含了选定顶点的所有邻接边。</p>

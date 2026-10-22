@@ -24,6 +24,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-09/ting-tianyin-xu-lao-shi-de-bo-ke.webp"
 ---
 <blockquote>
 <p>我第一次知道Tianyin老师，是我在翻各个学校导师主页时看到了他的主页。Tianyin的主页非常有意思，让我发现原来兴趣和学术可以这么硬核地展现。刚好我妈在旁边，笑着说感觉这个老师的风格和我很相似。可能是因为都看起来喜欢技术？后来25年我在芝加哥的时候去了两次UIUC，但是老师刚好都不在，后来才知道Tianyin那时在MSRA。结果26年我来了MSRA，然后老师又走了哈哈哈。</p>

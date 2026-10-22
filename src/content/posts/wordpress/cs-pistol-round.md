@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-06/cs-pistol-round.webp"
 ---
 <p>文章链接：<a href="https://pdfs.semanticscholar.org/3518/8ef0f4bbd7b1209b186ee943d7868832fc7c.pdf">https://pdfs.semanticscholar.org/3518/8ef0f4bbd7b1209b186ee943d7868832fc7c.pdf</a></p>
 <p>文章标题：Effect of Pistol Round and First Kill on Match Outcome in the Counter-Strike: Global Offensive Major Esports Championships</p>

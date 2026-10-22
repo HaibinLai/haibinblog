@@ -20,6 +20,7 @@ dislikeCount: 0
 comments: [{"author": "访客", "replyTo": "", "content": "An Engaging Blog Post"}]
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-09/yu-zhou-leng-mo.webp"
 ---
 <p>到达了学校。今天整理了电脑，准备了明天给老板画饼ppt，讨论接下来的工作。思考了未来，并且得出了读博目标，那就是身为正常人活下去。我意识到ai的进化太快，任何科研目标可能在后面都将过时，所以干脆不制定目标，想做什么就做什么。只要不被街头黑帮枪击就算胜利。明天跟组里同事聊聊，整理之前一篇博客。</p>
 <p>阿姆达尔定律是一个有趣的定律。它的本质是在介绍，一个工作流能被并行加速地多块。如果把AI当作加速器，原本的纯人工的工作流能被加速多快呢？</p>

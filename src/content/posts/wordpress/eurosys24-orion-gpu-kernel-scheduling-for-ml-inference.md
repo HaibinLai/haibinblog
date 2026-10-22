@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-10/eurosys24-orion-gpu-kernel-scheduling-for-ml-inference.webp"
 ---
 <p>Paper
 <a href="https://dl.acm.org/doi/pdf/10.1145/3627703.3629578">Orion: Interference-aware, Fine-grained GPU Sharing for ML Applications</a></p>

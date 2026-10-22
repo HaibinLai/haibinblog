@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/openmp-%E7%BB%91%E5%AE%9A%E6%A0%B8%E8%B7%9F%E7%BA%BF%E7%A8%8B.webp"
 ---
 <pre><code class="language-CPP">  for (; i &lt; nthreads; ++i)
     {

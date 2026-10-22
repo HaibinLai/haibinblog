@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-06/lego-supporting-llm-enhanced-games-with-one-gaming-gpu.webp"
 ---
 <h2>LEGO: Supporting LLM-enhanced Games with One Gaming GPU</h2>
 <p>paper: <a href="https://ieeexplore.ieee.org/document/11408477">https://ieeexplore.ieee.org/document/11408477</a> <strong>HPCA2026 (CCF-A)</strong>

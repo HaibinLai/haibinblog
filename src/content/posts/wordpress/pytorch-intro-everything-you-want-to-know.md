@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/pytorch-intro-everything-you-want-to-know.webp"
 ---
 <p>Pytorch 本质是和python完全不一样的东西。然后这东西本质是拿来训练模型的，其他的事情它干的一般般的。</p>
 <h2>学习链接</h2>

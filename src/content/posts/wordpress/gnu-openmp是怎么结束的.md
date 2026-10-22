@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/gnu-openmp%E6%98%AF%E6%80%8E%E4%B9%88%E7%BB%93%E6%9D%9F%E7%9A%84.webp"
 ---
 <p><a href="https://github.com/gcc-mirror/gcc/blob/4e47e2f833732c5d9a3c3e69dc753f99b3a56737/libgomp/config/posix/simple-bar.h#L58">gcc/libgomp/config/posix/simple-bar.h at 4e47e2f833732c5d9a3c3e69dc753f99b3a56737 · gcc-mirror/gcc</a></p>
 <p><a href="https://github.com/gcc-mirror/gcc/blob/e2bf0b3910de7e65363435f0a7fa606e2448a677/libgomp/parallel.c#L138">gcc/libgomp/parallel.c at e2bf0b3910de7e65363435f0a7fa606e2448a677 · gcc-mirror/gcc</a></p>

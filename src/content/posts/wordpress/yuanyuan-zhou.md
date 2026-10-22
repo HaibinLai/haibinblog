@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/yuanyuan-zhou.webp"
 ---
 <p>非常推荐大家看看周源源教授在系统方向创业的分享</p>
 <p><a href="https://www.youtube.com/live/KTcu33RghQs?si=a14SjuAE1V78sh3W">https://www.youtube.com/live/KTcu33RghQs?si=a14SjuAE1V78sh3W</a></p>

@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/mpi-old-learning.webp"
 ---
 <p><a href="https://mpitutorial.com/tutorials/">Tutorials · MPI Tutorial</a></p>
 <p>其实这个问题背后很有意思。mpi属于hpc领域，和现在的hadoop生态本来就不属于一块。</p>

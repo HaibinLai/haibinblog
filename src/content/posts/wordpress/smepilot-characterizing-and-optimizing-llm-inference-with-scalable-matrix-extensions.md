@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-08/smepilot-characterizing-and-optimizing-llm-inference-with-scalable-matrix-extensions.webp"
 ---
 <p>来自IPADS的文章。这篇文章把ARM里的矩阵加速器SME用在CPU LLM Serving上。SME是ARM提出的一个加速装置，功能类似Intel的AMX加速器（AMX类似GPU里的TensorCore）</p>
 <p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/%7Byear%7D/%7Bmonth%7D/%7BfullName%7D/20260830203836606.png" alt="image.png" /></p>

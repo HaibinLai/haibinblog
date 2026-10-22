@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-07/retroinfer-a-vector-storage-approach-for-scalable-long-context-llm-inference.webp"
 ---
 <p>RetroInfer: A Vector Storage Approach for Scalable Long-Context LLM Inference</p>
 <p><a href="https://www.msn.com/zh-cn/%E6%8A%80%E6%9C%AF/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/%E5%BE%AE%E8%BD%AF%E6%96%B0%E7%AA%81%E7%A0%B4-retroinfer%E5%A6%82%E4%BD%95%E8%AE%A9ai%E6%A8%A1%E5%9E%8B%E5%A4%84%E7%90%86%E7%99%BE%E4%B8%87%E7%BA%A7%E6%96%87%E6%9C%AC%E4%B8%8D%E5%86%8D-%E5%8D%A1%E9%A1%BF/ar-AA1EmXDH">微软新突破：RetroInfer如何让AI模型处理百万级文本不再&quot;卡顿&quot;？</a>

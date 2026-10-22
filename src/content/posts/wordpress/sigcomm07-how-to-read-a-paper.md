@@ -19,6 +19,7 @@ dislikeCount: 0
 comments: [{"author": "赖, 海斌", "replyTo": "", "content": "3遍法有点像单篇文章的BFS-DFS"}]
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/sigcomm07-how-to-read-a-paper.webp"
 ---
 <p><a href="https://dl.acm.org/doi/abs/10.1145/1273445.1273458">How to read a paper | ACM SIGCOMM Computer Communication Review</a></p>
 <p>没想到真有这种神奇文章，讲怎么读文章。很好，我就用你的方法来读你的文章。</p>

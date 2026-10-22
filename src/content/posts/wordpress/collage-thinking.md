@@ -20,6 +20,7 @@ dislikeCount: 0
 comments: [{"author": "Jaredan", "replyTo": "", "content": "伟大"}, {"author": "赖, 海斌", "replyTo": "", "content": "hhhh"}, {"author": "kelin", "replyTo": "", "content": "从GitHub过来，看到这篇文章，思想很有趣，写作风格我也很喜欢。尤其是看到你今年大一，有点令人汗颜了。这让我想起了前两年做数据库时关注的大佬们，他们和你一样聪明且愿意深度思考。加油，愿你朝着自己想去的方向大步向前走。"}]
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/collage-thinking.webp"
 ---
 <p>这篇文章算是自己一年学习的小感悟，也是想给刚入大学的同学们一点思考。</p>
 <p>大学一年，学习到很多新知识，新概念，这里边碰到了很多新问题，新题目。在高中，问题的核心，是抓定义，抓套路。但是，大学里边的问题，更多的是探索定义，探索证明。这里边要求我们转变问题思维。</p>

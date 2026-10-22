@@ -23,6 +23,7 @@ likeCount: 5
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan.webp"
 ---
 <p>可能是一篇比较流水账的游记，提前磕个头说个抱歉（</p>
 <p>PS: 我插入了一些歌曲在行程中，欢迎点击来听听 :)</p>

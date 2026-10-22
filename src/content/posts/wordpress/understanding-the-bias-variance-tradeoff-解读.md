@@ -20,6 +20,7 @@ dislikeCount: 0
 showCitation: true
 featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/10/F433B7FA8CEB2AD22AA1552548544FD1.png"
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-10/understanding-the-bias-variance-tradeoff-%E8%A7%A3%E8%AF%BB.webp"
 ---
 <p>Webpage: <a href="https://scott.fortmann-roe.com/docs/BiasVariance.html">Understanding the Bias-Variance Tradeoff (fortmann-roe.com)</a></p>
 <h2>Introduction</h2>

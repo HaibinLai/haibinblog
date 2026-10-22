@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/falcon-pinpointing-and-mitigating-stragglers-for-large-scale-hybrid-parallel-training.webp"
 ---
 <h2>FALCON: Pinpointing and Mitigating Stragglers for Large-Scale Hybrid-Parallel Training</h2>
 <p>Fail-slows, or stragglers, are common but largely unheeded problems in large-scale hybrid-parallel training that spans thousands of GPU servers and runs for weeks to months.</p>

@@ -20,6 +20,7 @@ dislikeCount: 0
 comments: [{"author": "Jasper", "replyTo": "", "content": "看起来很棒，希望你用 caseboard 做出一些有趣的工作！"}]
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-09/caseboard-xiang-zhen-tan-yi-yang-zuo-ke-yan.webp"
 ---
 <p>我一开始想写的是一篇博客，记录我在AI coding和research里对软件工程新的想法。比如我们曾经经历了“如何让新agent接手学习老agent的代码”，“让人类拯救被agent毁坏的代码工程”这些故事。但是我发现，我的这些观察都非常的零散，当我开始用一个结构化的语言去讲述他们的时候，我总是不知道怎么衔接和叙述</p>
 <p>后来有一天我开始用意识流或者魔幻现实的视角去描述，发现效果非常有趣。大概故事的内容是四年前AI还只是一只猫娘，现在猫娘姐姐原子弹爆炸了喵。然后我就可以把一切想法无脑的输出出来。这样我就解决了衔接的问题。但是我发现我的文章还是太散了，大家看了感觉如同中国精神病人，有点逆大了。我需要在单个内容内还是要保持结构</p>

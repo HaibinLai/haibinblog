@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/git-%E6%96%87%E4%BB%B6%E5%A4%AA%E5%A4%A7%E4%BA%86%E6%80%8E%E4%B9%88%E5%8A%9E.webp"
 ---
 <p>给我这个沙比买单：</p>
 <p>git log 查看之前的提交记录</p>

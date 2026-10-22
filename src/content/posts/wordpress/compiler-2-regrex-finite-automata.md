@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-2-regrex-finite-automata.webp"
 ---
 <h2>语言运算</h2>
 <p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250914233642169.png" alt="" /></p>

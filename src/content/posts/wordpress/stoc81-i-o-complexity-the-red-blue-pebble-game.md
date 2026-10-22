@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/stoc81-i-o-complexity-the-red-blue-pebble-game.webp"
 ---
 <p>STOC81 I/O Complexity: The Red-Blue Pebble Game</p>
 <p>这是一篇理论计算机科学文章，但是描述了一个非常有趣的问题：就像时间复杂度一样，我们能不能做一个I/O复杂度，衡量一个程序最少要进行多少次I/O?</p>

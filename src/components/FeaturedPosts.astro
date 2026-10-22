@@ -1,5 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { postFeaturedImage } from '../data/postImages';
 
 interface Props {
   posts: CollectionEntry<'posts'>[];
@@ -8,18 +9,6 @@ interface Props {
 const { posts } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const postSlug = (post: CollectionEntry<'posts'>) => post.data.slug ?? post.id.replace(/^wordpress\//, '');
-const resolveImage = (source: string) => /^(?:https?:)?\/\//.test(source)
-  ? source
-  : `${base}${source.replace(/^\/+/, '')}`;
-const firstBodyImage = (post: CollectionEntry<'posts'>) => (
-  post.body?.match(/<img\b[^>]*?\bsrc=["']([^"']+)/i)?.[1]
-);
-const featuredImage = (post: CollectionEntry<'posts'>) => resolveImage(
-  post.data.featuredBannerImage
-    ?? post.data.featuredImage
-    ?? firstBodyImage(post)
-    ?? 'images/blog-cover.jpg',
-);
 const formatDate = (date: Date) => date.toLocaleDateString('en-US', {
   month: 'short',
   day: 'numeric',
@@ -57,7 +46,7 @@ for (const post of [...posts]
         return (
           <article class={`featured-card featured-slot-${visualSlot}`}>
             <a href={`${base}posts/${slug}/`} aria-label={`Read ${title}`}>
-              <img src={featuredImage(post)} alt="" loading={visualSlot === 1 ? 'eager' : 'lazy'} />
+              <img src={postFeaturedImage(post, base)} alt="" loading={visualSlot === 1 ? 'eager' : 'lazy'} decoding="async" />
               <span class="featured-shade" aria-hidden="true"></span>
               <span class="featured-label">{label}</span>
               <div class="featured-card-copy">

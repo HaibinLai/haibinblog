@@ -20,6 +20,7 @@ dislikeCount: 0
 comments: [{"author": "Haibin", "replyTo": "", "content": "最后的点评，我先做了一期moments: https://www.haibinlaiblog.top/index.php/ai-cpu-software-management/"}]
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-07/ms-gjzf.webp"
 ---
 <p>因为是自己边读边记录的，会有些乱</p>
 <p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/%7Byear%7D/%7Bmonth%7D/%7BfullName%7D/20260714020814162.png" alt="image.png" /></p>

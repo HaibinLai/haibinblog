@@ -19,6 +19,7 @@ dislikeCount: 0
 comments: [{"author": "赖, 海斌", "replyTo": "", "content": "这篇文章还是太有含金量了，重读一遍有了新收获"}]
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/fail-at-scale-reliability-in-the-face-of-rapid-change.webp"
 ---
 <p>本keynote来自 Fail at Scale: Reliability in the face of rapid change
 <a href="https://dl.acm.org/doi/10.1145/2838344.2839461">Fail at Scale: Reliability in the face of rapid change: Queue: Vol 13, No 8</a></p>

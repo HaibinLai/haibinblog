@@ -20,6 +20,7 @@ dislikeCount: 0
 showCitation: true
 featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/12/微信截图_20241201195421.jpg"
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/os-project-part-i-virtio-a-biref-summary.webp"
 ---
 <h2>制作基于VirtIO设备驱动</h2>
 <p>设备驱动需要做什么？</p>

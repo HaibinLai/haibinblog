@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/osdi25-xsched.webp"
 ---
 <p>scheduling for XPUs</p>
 <p><strong>在XPU上实现抢占式调度</strong></p>

@@ -19,6 +19,7 @@ likeCount: 2
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-02/openmp%E5%9C%A8llvm%E9%87%8C%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E7%9A%84-wip.webp"
 ---
 <h2>基础知识：编译器的结构</h2>
 <p>编译器中的“前端”和“后端”是两个重要的组成部分，它们负责编译过程的不同阶段。我们可以将编译器看作一个“处理流水线”，前端和后端各自执行不同的任务。</p>

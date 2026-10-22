@@ -19,6 +19,7 @@ dislikeCount: 0
 comments: [{"author": "Ooooj", "replyTo": "", "content": "最近出来挺多新的benchmark/metrics，神经科学那边也是。有种要穷则思变的味道。感觉有机会见证新的基座模型/范式诞生<img class='comments-emoji' src='https://www.haibinlaiblog.top/wp-content/themes/theme-document-master/assets/smilies/tushe.png' title='emoji'/>"}]
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-06/icml26-memarena-agent-memory-benchmark.webp"
 ---
 <p>一句话总结：这篇文章揭示了当前 LLM 智能体在处理长期、复杂交互任务时记忆能力的不足，并提供了一个更具挑战性的评估平台来推动该领域的进步</p>
 <h2>已有benchmark的特点</h2>

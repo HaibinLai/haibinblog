@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-09/hadoop-%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F.webp"
 ---
 <p>Streaming system</p>
 <p>A type of data processing engine that is designed with infinite datasets in mind. </p>

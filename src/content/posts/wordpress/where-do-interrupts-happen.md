@@ -19,6 +19,7 @@ likeCount: 1
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-10/where-do-interrupts-happen.webp"
 ---
 <h2>神文解析：Where do interrupts happen?</h2>
 <p>原文：

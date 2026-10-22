@@ -19,6 +19,7 @@ likeCount: 3
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/cxl-tech.webp"
 ---
 <h2>Research on the CXL Memory</h2>
 <p>CXL (Compute Express Link) 技术是一种基于PCIe IO的缓存一致性互联标准, 其旨在提供主机处理器与加速器、内存缓冲器和智能 I/O 设备之间的高带宽、低延迟连接。</p>

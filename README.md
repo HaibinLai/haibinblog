@@ -42,6 +42,25 @@ featuredBannerImage: images/featured/example.webp
 Only one published article should use each rank. Posts in the `fragments` and
 `life-fragments` categories never appear in the homepage feature.
 
+## Post thumbnails
+
+Every post has a `cardImage` thumbnail stored in the public
+[`HaibinLai/image-backend`](https://github.com/HaibinLai/image-backend)
+repository. Images use `YYYY-MM/<slug>.webp`, based on the post's publication
+month. To generate thumbnails after adding or importing posts, keep the two
+repositories next to each other and run:
+
+```bash
+python3 -m pip install Pillow
+python3 scripts/sync_thumbnails.py --image-repo ../image-backend
+```
+
+The script prefers the featured banner, featured image, and first body image,
+in that order. If none is usable, it creates a title card. It converts every
+result to a 640 x 400 WebP, updates `cardImage`, and records its source and
+hash in `image-backend/manifest.json`. Normal runs reuse unchanged output; add
+`--force` when the image at an existing remote URL has changed.
+
 Math uses ordinary Markdown math syntax:
 
 ```markdown
@@ -53,8 +72,8 @@ $$
 ## Publishing a Moment
 
 Moments are regular posts whose category list contains `fragments`. They appear
-both in the main article archive and in `/moments/`, where their text, images,
-dates, and comment counts are rendered as a chronological feed.
+in `/moments/`, where their text, images, dates, and comment counts are rendered
+as a chronological feed. They are excluded from the homepage article archive.
 
 ## Commands
 

@@ -19,6 +19,7 @@ likeCount: 2
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/icpp24-grace-hopper-gpu%E4%B8%AD%E7%9A%84%E7%B3%BB%E7%BB%9F%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86.webp"
 ---
 <p>文章链接：<a href="https://dl.acm.org/doi/pdf/10.1145/3673038.3673110">Harnessing Integrated CPU-GPU System Memory for HPC: a first look into Grace Hopper</a>
 NVIDIA Grace Hopper 与 NVLink Fusion 架构对异构并行计算优化的影响 - William的文章 - 知乎

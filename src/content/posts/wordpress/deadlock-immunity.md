@@ -20,6 +20,7 @@ dislikeCount: 0
 showCitation: true
 featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/12/image-1733644227727.png"
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/deadlock-immunity.webp"
 ---
 <p>OSDI08: Dimmunix
 Deadlock immunity</p>

@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-06/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E9%80%A0%E4%B8%80%E9%A2%97-risc-v-cpu%28%E5%85%AD%29-%E5%BE%AE%E6%9E%B6%E6%9E%84%E9%AA%8C%E8%AF%81%E4%BD%93%E7%B3%BB%E4%B8%8E-ipc-%E6%80%A7.webp"
 ---
 <h1>从零开始造一颗 RISC-V CPU（六）：微架构验证体系与 IPC 性能评估报告</h1>
 <blockquote>

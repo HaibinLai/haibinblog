@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-10/distributed-system-vector-clock.webp"
 ---
 <p>Review:</p>
 <p>Time is important in Distributed, for determine sequence.

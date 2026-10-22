@@ -103,6 +103,7 @@ def preserved_frontmatter_metadata(output: Path) -> dict[str, dict[str, object]]
             "featuredRank",
             "featuredTitle",
             "featuredLabel",
+            "cardImage",
             "featuredBannerImage",
             "wordpressId",
         ):
@@ -277,6 +278,7 @@ def main() -> int:
         featured_rank = preserved.get("featuredRank")
         featured_title = str(preserved.get("featuredTitle", ""))
         featured_label = str(preserved.get("featuredLabel", ""))
+        card_image = str(preserved.get("cardImage", ""))
         featured_banner_image = str(preserved.get("featuredBannerImage", ""))
         imported_language = latest_meta(metadata, "nicen_language").strip()
         imported_translation_key = latest_meta(
@@ -404,6 +406,8 @@ def main() -> int:
             featured_fields.append(f"featuredTitle: {yaml_value(featured_title)}")
         if featured_label:
             featured_fields.append(f"featuredLabel: {yaml_value(featured_label)}")
+        if card_image:
+            featured_fields.append(f"cardImage: {yaml_value(card_image)}")
         if featured_banner_image:
             featured_fields.append(
                 f"featuredBannerImage: {yaml_value(featured_banner_image)}"

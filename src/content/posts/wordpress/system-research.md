@@ -19,6 +19,7 @@ likeCount: 1
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/system-research.webp"
 ---
 <p>我们把我们的研究分为了6个周期</p>
 <h2>节点1：规划</h2>

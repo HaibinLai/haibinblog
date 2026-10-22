@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-01/perf-%E6%98%AF%E6%80%8E%E4%B9%88%E5%81%9A%E7%9A%84.webp"
 ---
 <p>好像跟gdb怎么做的还是有差别的
 gdb用的ptrace

@@ -18,6 +18,7 @@ likeCount: 99
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/huawei-384-%E8%8A%82%E7%82%B9%E6%8E%A8%E7%90%86%E7%B3%BB%E7%BB%9F%E8%B5%8F%E6%9E%90.webp"
 ---
 <p>我最好奇的是，这种extreme parallelism是怎么做的。</p>
 <h2>技术报告</h2>

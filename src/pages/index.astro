@@ -5,6 +5,7 @@ import PostCard from '../components/PostCard.astro';
 import FeaturedPosts from '../components/FeaturedPosts.astro';
 import LeftNavigation from '../components/LeftNavigation.astro';
 import RightSidebar from '../components/RightSidebar.astro';
+import { postCardImage } from '../data/postImages';
 
 const fragmentCategories = new Set(['fragments', 'life-fragments']);
 const posts = (await getCollection(
@@ -35,6 +36,7 @@ const postSlug = (post: (typeof posts)[number]) => post.data.slug ?? post.id.rep
           category={post.data.category}
           tags={post.data.tags}
           href={`${base}posts/${slug}/`}
+          cardImage={postCardImage(post, base)}
         />
         );
       })}

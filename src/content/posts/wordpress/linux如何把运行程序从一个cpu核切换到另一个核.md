@@ -19,6 +19,7 @@ dislikeCount: 0
 showCitation: true
 featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2025/05/592D9B6ABBA9EBDA78EE6209D00993B7.jpg"
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/linux%E5%A6%82%E4%BD%95%E6%8A%8A%E8%BF%90%E8%A1%8C%E7%A8%8B%E5%BA%8F%E4%BB%8E%E4%B8%80%E4%B8%AAcpu%E6%A0%B8%E5%88%87%E6%8D%A2%E5%88%B0%E5%8F%A6%E4%B8%80%E4%B8%AA%E6%A0%B8.webp"
 ---
 <p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/202505111428359.png" alt="" /></p>
 <p><a href="https://zhuanlan.zhihu.com/p/697719303">为什么会出现cpu使用率偶数核比奇数核高 - 知乎</a></p>

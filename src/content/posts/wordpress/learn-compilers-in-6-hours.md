@@ -20,6 +20,7 @@ dislikeCount: 0
 comments: [{"author": "Haibin", "replyTo": "", "content": "对应的课程点评：https://ncesnext.com/course/1179/"}]
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/learn-compilers-in-6-hours.webp"
 ---
 <p>半个学期在申请，半个学期在忙paper，基本上没怎么动过这个课程。但是课程整体考试是不难的。</p>
 <h2>高效“备考”</h2>

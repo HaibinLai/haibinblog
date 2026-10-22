@@ -20,6 +20,7 @@ dislikeCount: 3
 showCitation: true
 featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/09/图片2.png"
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-09/cpp-project2-report-matrix-multiplication.webp"
 ---
 <h1><strong>CS205·C/C++ Programming</strong></h1>
 <h1><strong>Project2 Report:  Matrix Multiplication</strong></h1>

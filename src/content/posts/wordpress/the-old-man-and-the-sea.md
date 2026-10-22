@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-11/the-old-man-and-the-sea.webp"
 ---
 <p>《老人与海》发生在上世纪的古巴，那个离我和我的世界很远的地方。一个渔夫钓上一条大鱼，随后与风暴中的鲨鱼搏斗，最终鱼肉都被它们啃食干净，只带回了鱼骨。</p>
 <p>高中的我很不解。一个拼尽全力却无功而返的故事，听起来没什么意义。我不解老人到底在想什么，为何要去进行一场毫无意义的搏斗。简直和堂吉柯德一样，执拗而又带有一点愚笨和悲哀。</p>

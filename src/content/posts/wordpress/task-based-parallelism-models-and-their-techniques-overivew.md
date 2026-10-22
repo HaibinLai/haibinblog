@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/task-based-parallelism-models-and-their-techniques-overivew.webp"
 ---
 <p>So far there are many task programming models.</p>
 <h2>Charm++</h2>

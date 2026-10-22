@@ -19,6 +19,7 @@ likeCount: 1
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-03/pre-phd-thinking.webp"
 ---
 <p>来MSRA后，与很多人进行了观点交流和碰撞，真是开拓眼界了。信息密度大，可是任务紧凑，没能每一个idea都细细分析，在这里只能把他们大杂烩。如果有冲突或者重合，纯属个人臆想。</p>
 <p>我目前最想去寻找的答案，就是未来5年的phd要做什么。时代的变动非常激烈，在AI的冲击下，传统的system以及HPC的研究方法、方向乃至思路都有可能发生翻天覆地的变革。</p>

@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/distributed-systems-and-cloud-computing-review-1.webp"
 ---
 <p>This is the self-review pack of Distributed Systems and Cloud Computing. We have lesson 1-5.</p>
 <h2>Lesson 1</h2>

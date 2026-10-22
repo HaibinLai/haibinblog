@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/overshadow-a-virtualization-based-approach-to-retrofitting-protection-in-commodity-operating-system.webp"
 ---
 <p>来自我的操作系统课的第二次Pre</p>
 <p>这篇文章是在硬件虚拟化时代之前的科技与狠活</p>

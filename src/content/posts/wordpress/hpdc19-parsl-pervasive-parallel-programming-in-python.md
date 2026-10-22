@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/hpdc19-parsl-pervasive-parallel-programming-in-python.webp"
 ---
 <p>《Parsl: Pervasive Parallel Programming in Python》，发表在HPDC '19会议上，作者来自芝加哥大学、阿贡国家实验室等机构。以下是对文章内容的简要介绍：</p>
 <h3>核心内容</h3>

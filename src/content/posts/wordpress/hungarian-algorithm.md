@@ -20,6 +20,7 @@ dislikeCount: 0
 showCitation: true
 featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/08/ADA-Assignment5-Haibin-Lai.003.png"
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/hungarian-algorithm.webp"
 ---
 <h1>Hungarian Algorithm</h1>
 <h2>Algorithm Design and Analysis (H)  Assignment 5</h2>

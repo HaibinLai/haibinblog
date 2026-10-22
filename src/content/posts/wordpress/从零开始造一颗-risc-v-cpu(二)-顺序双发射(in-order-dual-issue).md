@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-06/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E9%80%A0%E4%B8%80%E9%A2%97-risc-v-cpu%28%E4%BA%8C%29-%E9%A1%BA%E5%BA%8F%E5%8F%8C%E5%8F%91%E5%B0%84%28in-order-dual-issue%29.webp"
 ---
 <h1>从零开始造一颗 RISC-V CPU（二）：顺序双发射（In-Order Dual-Issue）基线架构与冒险黑洞</h1>
 <blockquote>

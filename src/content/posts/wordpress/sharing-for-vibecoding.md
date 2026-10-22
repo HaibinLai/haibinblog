@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/sharing-for-vibecoding.webp"
 ---
 <h2>Vibe coding</h2>
 <p>Meetup北京场｜VibeCoding案例和Debug技巧

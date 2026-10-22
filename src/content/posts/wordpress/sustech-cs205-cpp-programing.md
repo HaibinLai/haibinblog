@@ -20,6 +20,7 @@ dislikeCount: 0
 showCitation: true
 featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/09/微信截图_20240910225737.jpg"
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-09/sustech-cs205-cpp-programing.webp"
 ---
 <h1>SUSTech-CS205-CPP-Programming</h1>
 <p>Haibin Lai 12211612</p>

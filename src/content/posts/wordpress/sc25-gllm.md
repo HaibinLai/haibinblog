@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-07/sc25-gllm.webp"
 ---
 <p>gLLM: Global Balanced Pipeline Parallelism System for Distributed LLM Serving with Token Throttling</p>
 <p>几种并行方法

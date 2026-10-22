@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/proc_bind-%E5%90%84%E7%AD%96%E7%95%A5%E7%9A%84-place-%E8%AE%A1%E7%AE%97%E9%80%BB%E8%BE%91%E3%80%81affinity_thr-%E7%9A%84%E5%86%85%E5%AD%98%E7%AE%A1%E7%90%86%2Cgomp_simple_barrier_reinit.webp"
 ---
 <p>很好！你提的这三个点都直指 <code>GOMP_parallel</code> 线程调度核心机制。我们逐一详细剖析这三项：</p>
 <hr />

@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-01/ajax%E5%BA%95%E5%B1%82%E6%98%AF%E6%80%8E%E4%B9%88%E5%81%9A%E7%9A%84.webp"
 ---
 <p>省流：HTTP通信+XML数据结构</p>
 <p>AJAX（Asynchronous JavaScript and XML）的底层原理涉及浏览器与服务器之间的异步通信。AJAX 的关键在于通过 JavaScript 实现网页的异步请求，而不需要重新加载整个页面。它使得网页可以在不干扰用户操作的情况下，部分更新页面内容。其底层原理主要涉及以下几个方面：</p>

@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-07/osdi23-johnny-cache-the-end-of-dram-cache-conflicts-in-tiered-main-memory-systems.webp"
 ---
 <p>本文解决的是这样的一种情况：</p>
 <p><strong>在计算机有CXL、SSD等比DRAM 的存储level更低的存储（文中一般称PMEM）下，现有的“把DRAM当PMEM的Cache”的操作易导致生日冲突，引起Rewrite性能下降。Johnny Cache用了新策略（线性的写）避免了该冲突。</strong></p>

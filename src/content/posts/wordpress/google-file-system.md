@@ -19,6 +19,7 @@ likeCount: 1
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-09/google-file-system.webp"
 ---
 <p>Google File System (GFS) 是 Google 为满足大规模数据存储和处理需求而设计的分布式文件系统。GFS 的设计目标是处理大量数据并提供高吞吐量的数据访问，这对于 Google 这样的公司在运行其搜索引擎和其他大规模应用时至关重要。</p>
 <p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/New/20240914195457.png" alt="" /></p>

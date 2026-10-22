@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/distributed-system-rpc.webp"
 ---
 <p>This is a course taught in SUSTech 2025 Fall by Prof. Zhuozhao Li. </p>
 <h1>RPC</h1>

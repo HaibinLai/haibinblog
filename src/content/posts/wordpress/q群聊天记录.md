@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-06/q%E7%BE%A4%E8%81%8A%E5%A4%A9%E8%AE%B0%E5%BD%95.webp"
 ---
 <p>前些天我思考过一个问题，目前的AI对专家的学习可能有很长的路，专家的培养环境复杂，比如去A、B、C Lab的交流合作，和不同人类交流。这个交互有两个困难：数据稀少和经验复杂。后者我觉得是可以解决的，因为你可以把“research taste”等高级想法理解为一个高维度的知识。前者可能要做很多工作。我的意思是，tairan可以作为这个数据集的一个sample</p>
 <p>之前老板也和我严肃讨论过这个问题。做科研数量有了后 最重要是求max，也就是最重要的工作是什么。他提醒我按照我的能力，干paper没问题，但是一定要想办法干好的paper。尤其是ai来了后，理论上你可以一周就赶完paper只要负责把控代码实验大方向和主写作。假设每个人都可以发100篇文章，那么我们一定要有找到做出那个好工作的能力，它跟research taste基本重合</p>

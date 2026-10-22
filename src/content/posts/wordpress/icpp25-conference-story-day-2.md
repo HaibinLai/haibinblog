@@ -18,6 +18,7 @@ likeCount: 1
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/icpp25-conference-story-day-2.webp"
 ---
 <p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250916173910299.png" alt="16d4a3b80eb7a9b440a92e21425f314b.jpg" /></p>
 <h2>Anne Elster, &quot;Parallel Computing and Geophysical Forecasting&quot;</h2>

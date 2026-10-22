@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-07/asplos13-unikernel-a-special-kernel-for-apps-in-cloud.webp"
 ---
 <p><a href="http://www.fixup.fi/misc/usenix-login-2015/login_oct15_02_kantee.pdf">login_oct15_02_kantee.pdf</a>
 <a href="http://unikernel.org/">Unikernels - Rethinking Cloud Infrastructure</a>

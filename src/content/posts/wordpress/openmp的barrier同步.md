@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/openmp%E7%9A%84barrier%E5%90%8C%E6%AD%A5.webp"
 ---
 <pre><code class="language-CPP"> do_release:
   if (nested)

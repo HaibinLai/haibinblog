@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/distributed-system-time.webp"
 ---
 <p>不同的机器需要同步</p>
 <p>分布式实时操作系统研究的是 <strong>如何在分布式多节点环境中，提供确定性调度、时间同步、实时通信与容错机制，从而保证关键任务的 deadline 被满足</strong>。它既是操作系统的研究热点，也与工业控制、车联网、航空航天等应用紧密相关。</p>

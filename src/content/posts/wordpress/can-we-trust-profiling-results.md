@@ -19,6 +19,7 @@ likeCount: 1
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-11/can-we-trust-profiling-results.webp"
 ---
 <p>Can We Trust Profiling Results? Understanding and Fixing the Inaccuracy in Modern Profilers
 <a href="https://par.nsf.gov/servlets/purl/10122098">https://par.nsf.gov/servlets/purl/10122098</a></p>

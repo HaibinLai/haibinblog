@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/hgemm.webp"
 ---
 <p>赖海斌</p>
 <h2>ROI on HGEMM</h2>

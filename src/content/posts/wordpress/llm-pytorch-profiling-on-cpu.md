@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-pytorch-profiling-on-cpu.webp"
 ---
 <p><strong>This passage is for my own profile for LLM meta-llama/Llama-3.2-1B</strong></p>
 <p>We do an indepth analysis for LLM using pytorch profiler and Intel Vtune</p>

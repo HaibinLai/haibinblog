@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-10/chunked-kv-cache-compression.webp"
 ---
 <p>A nice paper showing a problem inside the Chunked KV-Cache Compression. <a href="https://arxiv.org/pdf/2609.36322">https://arxiv.org/pdf/2609.36322</a> Models like dpskv4 used chunked kv cache compression, it compressed 8 tokens each time into a kv vector to save kv memory. However the paper finds a pattern called phase specialization: for example, a token may be preserved well when it falls into 1st token of the 8 token chunks (phase 1), but become degraded if places it in 2nd/phase 2.</p>
 <p>(DPSKv4 use sliding window 8 with steps 4. That means for compression, it first compressed 0-7, then 4-11, then 8-15 etc)</p>

@@ -20,6 +20,7 @@ dislikeCount: 0
 showCitation: true
 featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/09/图片.png"
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-09/cpp-project3-sgemm-optimization.webp"
 ---
 <h1><strong>CS205·C/C++ Programming</strong></h1>
 <h1>Project3 Report:  SGEMM Optimization</h1>

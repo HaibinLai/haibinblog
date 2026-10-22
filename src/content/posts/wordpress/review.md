@@ -24,6 +24,7 @@ dislikeCount: 3
 comments: [{"author": "Todd", "replyTo": "", "content": "今天回顾了一遍 Haibin 大神的心得，又有新的收获：先用 BFS 扫全局，再用 DFS 深挖的思路果然高效。更妙的是，DFS 深入探索时暴露的问题，还能反过来修正 BFS 阶段因浅尝辄止而产生的偏差。"}]
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-07/review.webp"
 ---
 <h1>写在做科研的一年</h1>
 <p>如果一个End2End神经网络的产出是一篇paper，那么复盘是这个网络的反向传播。人们通过复盘，可以调节 “在探索阶段应该跑更多baseline”，“时刻注意我们要做的主题” 等决策想法，从而做到更有效的科研探索。因此，时不时在输出后进行复盘非常重要。</p>

@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-03/pram-bsp-logp-model.webp"
 ---
 <p>简单介绍<strong>PRAM</strong>、<strong>BSP</strong> 和 <strong>logP</strong> 这三种并行计算模型。</p>
 <p>学习参考链接：<a href="https://www.docin.com/p-2028172155.html">《高性能计算与云计算》第五讲并行算法设计 - 豆丁网Docin</a></p>

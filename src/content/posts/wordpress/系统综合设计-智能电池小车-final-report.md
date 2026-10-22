@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/%E7%B3%BB%E7%BB%9F%E7%BB%BC%E5%90%88%E8%AE%BE%E8%AE%A1-%E6%99%BA%E8%83%BD%E7%94%B5%E6%B1%A0%E5%B0%8F%E8%BD%A6-final-report.webp"
 ---
 <p><strong>作者</strong>：赖海斌 覃仁杰 陈沛安</p>
 <h2>摘要</h2>

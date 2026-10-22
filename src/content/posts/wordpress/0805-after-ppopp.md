@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-08/0805-after-ppopp.webp"
 ---
 <p>8点投完稿，9点吃了炒饭，10点开会。现在4点36分，躺在床上完全睡不着。</p>
 <p>投完这篇PPoPP，哪怕依旧没有中，也意味着我本科最后一份工作的结束。</p>

@@ -19,6 +19,7 @@ likeCount: 1
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/moesys.webp"
 ---
 <p>MoE Survey</p>
 <p><a href="https://github.com/withinmiaov/A-Survey-on-Mixture-of-Experts-in-LLMs/tree/main">withinmiaov/A-Survey-on-Mixture-of-Experts-in-LLMs: The official GitHub page for the survey paper &quot;A Survey on Mixture of Experts in Large Language Models&quot;.</a>

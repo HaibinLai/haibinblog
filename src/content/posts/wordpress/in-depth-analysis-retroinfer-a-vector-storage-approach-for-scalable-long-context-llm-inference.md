@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/in-depth-analysis-retroinfer-a-vector-storage-approach-for-scalable-long-context-llm-inference.webp"
 ---
 <p>之前用LLM看文章，后来发现同样20分钟时间，学到的东西其实不如自己认真读读+关键问题请教。</p>
 <h2>KVCache可以用上 RAG 技术吗？</h2>

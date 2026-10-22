@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-02/fl-studio%E5%85%A5%E9%97%A8.webp"
 ---
 <p>FL-studio的兴趣学习</p>
 <p>写的新歌曲</p>

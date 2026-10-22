@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/xfasttransformer-%E6%9E%B6%E6%9E%84%E8%A7%A3%E8%AF%BB.webp"
 ---
 <p>省流：这东西2年前做的，最麻烦的是文档很少，基本都要从零开始研究代码，考虑时间成本我没有花很多精力。
 如果大家想在单机上用CPU推理，也可以试试intel pytorch extension或者llama.cpp。（不过xFt相比他们俩的好处是，它的代码结构也相对比较简单易懂，大家都可以自由选择）</p>

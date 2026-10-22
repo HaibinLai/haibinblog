@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/pytorch-aten-matmul-cpu-%E7%AE%97%E5%AD%90%E8%A7%A3%E6%9E%90.webp"
 ---
 <p>在上一期 <a href="https://www.haibinlaiblog.top/index.php/llm-on-cpu/">https://www.haibinlaiblog.top/index.php/llm-on-cpu/</a> ， 我们探讨了各个LLM的具体结构，今天我们就来探寻这些结构/算子的底层实现。</p>
 <p>上一期我们探讨的架构：LLM各阶段的代码在pytorch的实现

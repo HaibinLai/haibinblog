@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-01/experiment.webp"
 ---
 <h2>Run on WSL</h2>
 <h3>Setup WSL X11 environment</h3>

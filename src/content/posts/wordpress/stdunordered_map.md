@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/stdunordered_map.webp"
 ---
 <p>是的，<code>std::unordered_map</code> 的本质是 <strong>哈希表</strong>，而 <code>std::map</code> 是基于 <strong>红黑树</strong> 的有序容器。</p>
 <p>让我们来详细了解一下 <strong>哈希表</strong> 是如何实现的，特别是在 <code>unordered_map</code> 中是如何工作的。</p>

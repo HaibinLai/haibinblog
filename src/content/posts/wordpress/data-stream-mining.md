@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/data-stream-mining.webp"
 ---
 <p>Stream Data is becoming more and more important</p>
 <p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2024/08/post-129-66cb269c14a40.png" alt="2528d2efb3a4fbadd4a99c850872949" /></p>

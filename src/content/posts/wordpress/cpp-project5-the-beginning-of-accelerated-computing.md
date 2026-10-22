@@ -21,6 +21,7 @@ comments: [{"author": "Neumo", "replyTo": "", "content": "<img class='comments-e
 showCitation: true
 featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/09/图片-2.png"
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-09/cpp-project5-the-beginning-of-accelerated-computing.webp"
 ---
 <h1><strong>CS205·C/C++ Programming</strong></h1>
 <h1>Project5 Report:  The beginning of Accelerated Computing</h1>

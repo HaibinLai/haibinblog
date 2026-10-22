@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-09/large-scale-machine-learning.webp"
 ---
 <h1>机器学习优化公式学习笔记</h1>
 <blockquote>

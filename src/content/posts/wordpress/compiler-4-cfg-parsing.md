@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-4-cfg-parsing.webp"
 ---
 <p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/FinalYear/20250929140734725.png" alt="image.png" /></p>
 <h2>CFG</h2>

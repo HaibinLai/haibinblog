@@ -21,6 +21,7 @@ comments: [{"author": "SUSTech-CS205-CPP-Programing - Haibin's blog", "replyTo":
 showCitation: true
 featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/09/图片-1.png"
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-09/cpp-project4-a-2d-gpu-mat.webp"
 ---
 <h1><strong>CS205·C/C++ Programming</strong></h1>
 <h1>Project4 Report:  A 2D GPU Mat</h1>

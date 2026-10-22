@@ -20,6 +20,7 @@ dislikeCount: 0
 showCitation: true
 featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/11/微信截图_20241122151501.jpg"
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-11/cache-bypassing.webp"
 ---
 <p>记录一个技术。文章用GPT生成的。</p>
 <p><strong>Cache Bypassing</strong> 是一种计算机体系结构中的优化技术，它通过直接将数据从主内存传送到处理器，而绕过处理器的缓存（cache）层级。通常，处理器缓存（如L1、L2缓存）用于减少访问主内存的延迟，但在某些情况下，绕过缓存可能是更高效的选择。</p>

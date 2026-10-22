@@ -20,6 +20,7 @@ dislikeCount: 0
 showCitation: true
 featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/12/AMUR8970.png"
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/bigtable-the-beginning-of-big-data.webp"
 ---
 <p>Bigtable is a distributed storage system for managing structured data that is designed to scale to a very large size: petabytes of data across thousands of commodity servers.</p>
 <p>GFS的出现虽然解决了海量数据的存储问题，但是还是存在一个问题就是如果我存放的数据是结构化的，对结构化数据的使用往往是希望如关系型数据库一样，进行复杂的数据操作的。但是GFS并没有支持基于特定属性（如行键、列名、时间戳）的高效查询、更新、聚合等操作。自然就需要大数据版本的关系型数据库，这就是分布式数据库。</p>

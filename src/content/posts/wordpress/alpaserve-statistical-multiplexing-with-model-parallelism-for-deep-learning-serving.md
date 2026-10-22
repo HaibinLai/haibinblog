@@ -18,6 +18,7 @@ likeCount: 1
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/alpaserve-statistical-multiplexing-with-model-parallelism-for-deep-learning-serving.webp"
 ---
 <p>模型并行性通常被视为一种将单个大型深度学习模型扩展到单个设备内存限制之外的方法。在本文中，我们证明了在为多个模型提供服务时，模型并行还可以用于多个设备的统计多路复用，即使单个模型可以适应单个设备。我们的工作揭示了模型并行性引入的开销与利用统计多路复用来减少突发工作负载下服务延迟的机会之间的基本权衡。我们探索了新的权衡空间，并提出了一种新的服务系统 AlpaServe，它确定了在分布式集群中放置和并行化大型深度学习模型集合的有效策略。对生产工作负载的评估结果表明，AlpaServe 可以以高达 10× 的速率或 6× 的突发性处理请求，同时超过 99% 的请求保持在延迟约束范围内。</p>
 <p>OSDI23

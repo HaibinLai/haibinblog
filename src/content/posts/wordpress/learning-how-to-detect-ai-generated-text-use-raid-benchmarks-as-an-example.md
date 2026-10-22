@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-08/learning-how-to-detect-ai-generated-text-use-raid-benchmarks-as-an-example.webp"
 ---
 <h1>RAID Benchmark: Multi-Generator Detection &amp; Adversarial Robustness Analysis</h1>
 <p>数据挖掘方面的小项目。最核心的idea是，AI生成的文本短小，且喜欢概括核心思想。检测的主要办法是再用AI跑，看困惑度。</p>

@@ -20,6 +20,7 @@ dislikeCount: 0
 showCitation: true
 featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2025/01/微信图片_20250127055634.png"
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-01/%E8%BD%AC%E8%BD%BD-glibc-malloc%E7%9A%84%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86.webp"
 ---
 <p>原作者：
 <a href="https://sploitfun.wordpress.com/2015/02/10/understanding-glibc-malloc/comment-page-1/?blogsub=confirming#subscribe-blog%E3%80%82">https://sploitfun.wordpress.com/2015/02/10/understanding-glibc-malloc/comment-page-1/?blogsub=confirming#subscribe-blog%E3%80%82</a></p>

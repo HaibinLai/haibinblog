@@ -20,6 +20,7 @@ dislikeCount: 9
 showCitation: true
 featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/10/Screenshot-2023-08-10-171501.png"
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-10/a-standard-for-the-transmission-of-ip-datagrams-on-avian-carriers.webp"
 ---
 <p>基于信鸽的IP网络传输
 This protocol is in RFC 1149 version

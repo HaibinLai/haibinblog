@@ -19,6 +19,7 @@ likeCount: 1
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-03/s-h-i-t-nihilism.webp"
 ---
 <p>paper link:
 <a href="https://shitjournal.org/preprints/7bce9b92-88ef-4f58-ad9b-e84850799939">https://shitjournal.org/preprints/7bce9b92-88ef-4f58-ad9b-e84850799939</a></p>

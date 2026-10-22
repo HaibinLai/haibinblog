@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/osdi25-pipethreader.webp"
 ---
 <p>PipeThreader: Software-Defined Pipelining for Efficient DNN Execution</p>
 <hr />

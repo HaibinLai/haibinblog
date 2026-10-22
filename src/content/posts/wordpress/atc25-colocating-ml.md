@@ -19,6 +19,7 @@ likeCount: 2
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/atc25-colocating-ml.webp"
 ---
 <p>今天yf来分享一篇来自IPADS的ATC25文章。
 Colocating ML Inference and Training with Fast GPU Memory Handover</p>

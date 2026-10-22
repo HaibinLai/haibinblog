@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/isca25-neoscope-how-resilient-is-my-soc-to-workload-churn.webp"
 ---
 <h2>未来的硬件怎么应对不断演变的软件？</h2>
 <p><a href="https://dl.acm.org/doi/pdf/10.1145/3695053.3731014">https://dl.acm.org/doi/pdf/10.1145/3695053.3731014</a></p>

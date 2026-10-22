@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-07/agent-%E6%97%B6%E4%BB%A3%E4%B8%8B%E7%9A%84%E5%B7%A5%E7%A8%8B.webp"
 ---
 <p>我在之前这篇文章里讲述了我如何与AI协作完成2000行的作业：
 <a href="https://www.haibinlaiblog.top/index.php/%e6%80%8e%e4%b9%88%e7%94%a8ai%e5%86%992000%e8%a1%8c%e7%9a%84%e5%a4%a7%e4%bd%9c%e4%b8%9a/">https://www.haibinlaiblog.top/index.php/%e6%80%8e%e4%b9%88%e7%94%a8ai%e5%86%992000%e8%a1%8c%e7%9a%84%e5%a4%a7%e4%bd%9c%e4%b8%9a/</a></p>

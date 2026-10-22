@@ -20,6 +20,7 @@ dislikeCount: 0
 showCitation: true
 featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/08/95350.jpg"
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-11/csr%E4%B8%8E%E9%82%BB%E6%8E%A5%E8%A1%A8%E7%9A%84%E5%86%85%E5%AD%98%E5%BC%80%E9%94%80%E5%AF%B9%E6%AF%94.webp"
 ---
 <p><strong>邻接列表（Adjacency List）</strong> 和 <strong>压缩稀疏行（CSR，Compressed Sparse Row）</strong> 是两种常见的图表示方法，它们的空间效率在不同情况下有所差异。具体来说，哪个表示法更节省空间，取决于图的稀疏程度和实际的存储需求。</p>
 <h3>1. <strong>邻接列表（Adjacency List）</strong></h3>

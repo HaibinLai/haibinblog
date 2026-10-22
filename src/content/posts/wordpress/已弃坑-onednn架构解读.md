@@ -19,6 +19,7 @@ likeCount: 10
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/%E5%B7%B2%E5%BC%83%E5%9D%91-onednn%E6%9E%B6%E6%9E%84%E8%A7%A3%E8%AF%BB.webp"
 ---
 <p>PS：这玩意已经不更新了，intel 放弃了哈哈哈哈哈哈哈。</p>
 <p><a href="https://zhuanlan.zhihu.com/p/20510564015">https://zhuanlan.zhihu.com/p/20510564015</a></p>

@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-08/wip-%E7%A6%85%E4%B8%8E%E6%91%A9%E6%89%98%E8%BD%A6%E7%9A%84%E7%BB%B4%E4%BF%AE%E8%89%BA%E6%9C%AF.webp"
 ---
 <p>最近我感觉自己精神虚无。打游戏从之前的调味剂变成生活后，我开始迷失自我。在AI、同辈压力等等事情交杂中，我需要重新慢下来，深度思考一段时间。</p>
 <p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/%7Byear%7D/%7Bmonth%7D/%7BfullName%7D/20260810013627620.png" alt="image.png" /></p>

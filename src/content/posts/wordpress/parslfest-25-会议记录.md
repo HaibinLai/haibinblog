@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/parslfest-25-%E4%BC%9A%E8%AE%AE%E8%AE%B0%E5%BD%95.webp"
 ---
 <p><img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250828132608190.png" alt="" /></p>
 <p>ParslFest</p>

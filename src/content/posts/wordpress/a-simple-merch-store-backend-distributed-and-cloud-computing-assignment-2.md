@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/a-simple-merch-store-backend-distributed-and-cloud-computing-assignment-2.webp"
 ---
 <h2>Scores</h2>
 <p>95+10=105 (extra: 5)</p>

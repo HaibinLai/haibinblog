@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-01/%E5%AE%9E%E9%AA%8C-%E7%94%A8gdb%E8%A7%82%E5%AF%9Fgdb.webp"
 ---
 <h2>Can I use gdb to observe gdb?</h2>
 <p>I always forget how gdb was made. for me, I went though the website on stackoverflow of Zhihu serveral times only for this question, and I always forget everything about <code>ptrace</code>. And I think it's annoying me, since I am just hanging around on the same field. So one day a crazy and funny idea comes to me: </p>

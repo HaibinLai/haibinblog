@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-07/graph_number.webp"
 ---
 <h2>问题</h2>
 <p>一个图G（V,E），如果有8个顶点，一共有多少个这样的图？</p>

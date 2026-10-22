@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-10/the-bitter-lesson.webp"
 ---
 <p><a href="https://www.cs.utexas.edu/~eunsol/courses/data/bitter_lesson.pdf">https://www.cs.utexas.edu/~eunsol/courses/data/bitter_lesson.pdf</a></p>
 <p>Most AI research has been conducted as if the computation available to the agent were constant (in which case leveraging human knowledge would be one of the only ways to improve performance) but, over a slightly longer time than a typical research project, massively more computation inevitably becomes available.</p>

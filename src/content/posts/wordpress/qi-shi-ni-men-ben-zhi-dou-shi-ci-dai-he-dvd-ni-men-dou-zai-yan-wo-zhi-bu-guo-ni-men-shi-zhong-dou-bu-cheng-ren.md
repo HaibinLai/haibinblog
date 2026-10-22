@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-10/qi-shi-ni-men-ben-zhi-dou-shi-ci-dai-he-dvd-ni-men-dou-zai-yan-wo-zhi-bu-guo-ni-men-shi-zhong-dou-bu-cheng-ren.webp"
 ---
 <p><a href="https://arxiv.org/abs/2610.08144">https://arxiv.org/abs/2610.08144</a></p>
 <p>In particular, we show that the formalised Lean proof does not correspond to the NL proof of blow-up of solutions to the Navier-Stokes equations.</p>

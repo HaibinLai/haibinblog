@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-08/4-year-thinking-2025-12.webp"
 ---
 <p>采访于2025年11月28日，此时我还没确定任何未来的offer，agent的时代刚刚拉开序幕。以下内容主要记录个人经历和思考，不代表所有计算机学生的最佳路径。内容根据录音有修改。</p>
 <p><strong>学姐：</strong> 同学你好！今天的访谈是我们课题组研究的一部分，主题是南科大学生的成长、课程作息和专业选择。我们希望了解你们在南科大的真实感受和体验。</p>

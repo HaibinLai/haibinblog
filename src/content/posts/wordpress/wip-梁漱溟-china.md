@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-03/wip-%E6%A2%81%E6%BC%B1%E6%BA%9F-china.webp"
 ---
 <h2>认识老中国，建设新中国</h2>
 <p>梁在书的前言中介绍了为什么写这本书：为中国问题所困挠，希望从文化中找到解答。</p>

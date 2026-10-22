@@ -4,6 +4,7 @@ description: The first note in a versioned, portable home for research and life 
 publishedAt: 2026-09-22
 category: Blog
 tags: [blog, migration]
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-09/welcome.webp"
 ---
 
 This is the first page of a new version of the blog. The purpose is not to make writing feel like software engineering. It is to make the archive durable, reviewable, and easy to carry forward.

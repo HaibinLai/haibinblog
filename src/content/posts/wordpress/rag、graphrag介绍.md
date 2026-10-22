@@ -19,6 +19,7 @@ likeCount: 3
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-02/rag%E3%80%81graphrag%E4%BB%8B%E7%BB%8D.webp"
 ---
 <p>本文是对这两个概念的转载与学习</p>
 <p>部署效果：

@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-09/a-li-yun-bai-lian-qwen-qing-qiu-trace-fen-xi.webp"
 ---
 <blockquote>
 <p>数据来自阿里云百炼上的 Qwen 推理集群，Apache 2.0 开源。<br />

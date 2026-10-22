@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-intro.webp"
 ---
 <p>Operations on Languages
 <img src="https://blog-1327458544.cos.ap-guangzhou.myqcloud.com/N2025/20250917151402729.png" alt="" /></p>

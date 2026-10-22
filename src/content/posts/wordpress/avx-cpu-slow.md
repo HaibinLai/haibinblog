@@ -19,6 +19,7 @@ likeCount: 1
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-11/avx-cpu-slow.webp"
 ---
 <p>GB！</p>
 <p>本文依旧是超神作者 Travis Downs <a href="https://x.com/trav_downs">https://x.com/trav_downs</a> 的技术博客解读。文章链接 <strong>Gathering Intel on Intel AVX-512 Transitions</strong> <a href="https://travisdowns.github.io/blog/2020/01/17/avxfreq1.html">https://travisdowns.github.io/blog/2020/01/17/avxfreq1.html</a> 本文是在其基础上的分析与解读，若内容涉及侵权，请与我联系，我将立即进行修正或删除。</p>

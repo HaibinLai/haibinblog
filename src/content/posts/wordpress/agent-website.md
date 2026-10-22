@@ -19,6 +19,7 @@ likeCount: 3
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/agent-website.webp"
 ---
 <h2>WebTactix</h2>
 <p><strong>Semantic Tree-Guided Parallel Multi-Agent Planning for Web Task</strong> — 基于语义树引导的并行多代理规划框架。</p>

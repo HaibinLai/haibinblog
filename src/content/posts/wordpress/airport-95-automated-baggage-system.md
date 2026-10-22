@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-06/airport-95-automated-baggage-system.webp"
 ---
 <h2>Paper Link</h2>
 <p><a href="https://dl.acm.org/doi/pdf/10.1145/227531.227544">https://dl.acm.org/doi/pdf/10.1145/227531.227544</a></p>

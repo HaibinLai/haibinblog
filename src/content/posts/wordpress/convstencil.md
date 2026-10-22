@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-01/convstencil.webp"
 ---
 <p>一个讲的挺不错的组会</p>
 <p><a href="https://www.haibinlaiblog.top/wp-content/uploads/2025/01/ConvStencil1.pdf">https://www.haibinlaiblog.top/wp-content/uploads/2025/01/ConvStencil1.pdf</a></p>

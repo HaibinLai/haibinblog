@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-07/ai-cpu-software-management.webp"
 ---
 <p>5月份我曾经让Claude Opus 4.7自己做一个CPU。在当时我以为做一个5级流水线CPU是它的极限，没想到Opus在3轮对话下就完成了RV32I 5级流水线的实现和测试，完美完成了大二的计组project。</p>
 <p>于是我就让它在后台慢慢跑了200轮交互，并且分析了它的日志。Opus先后完成了更多级的流水线、多发射、乱序执行、分支预测、多级缓存。我按照每个turn里agent做的主要工作，将turn分为了 代码实现impl，plan design，测试validation等多个类型。</p>

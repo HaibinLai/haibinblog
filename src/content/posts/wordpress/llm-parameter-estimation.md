@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/llm-parameter-estimation.webp"
 ---
 <h1>大模型参数量估计推导</h1>
 <hr />

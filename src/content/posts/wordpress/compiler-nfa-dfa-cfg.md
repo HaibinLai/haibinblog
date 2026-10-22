@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/compiler-nfa-dfa-cfg.webp"
 ---
 <p>第一章最后一部分+CFG</p>
 <h2>Convert NFA to DFA</h2>

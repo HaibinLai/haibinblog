@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/rowhammer.webp"
 ---
 <h2>Intro</h2>
 <p>Learn from Prof. Onur Mutlu: <a href="https://www.youtube.com/live/mEt-hhLHBG4?si=TsmRN04wcqbcQs0e">https://www.youtube.com/live/mEt-hhLHBG4?si=TsmRN04wcqbcQs0e</a></p>

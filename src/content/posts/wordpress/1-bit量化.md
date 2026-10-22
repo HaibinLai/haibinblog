@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/1-bit%E9%87%8F%E5%8C%96.webp"
 ---
 <p>用AI生成的。省着点看。</p>
 <p>1-bit大模型指的是采用1-bit量化（即权重仅用+1或-1表示）的神经网络模型，具体在本文件中指的是<strong>BitNet</strong>，一种专为大规模语言模型设计的1-bit Transformer架构。以下是关于BitNet和1-bit大模型的关键点总结：</p>

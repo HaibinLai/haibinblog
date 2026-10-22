@@ -20,6 +20,7 @@ dislikeCount: 0
 showCitation: true
 featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/12/629CB5C1BC8AB66E94EF878A0DE542AC.jpg"
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/how-can-lscpu-get-cache-size.webp"
 ---
 <p>Since Operating System corporate little with Cache, How can <code>lscpu</code> knows the size of them?</p>
 <p><a href="http://www.flounder.com/cpuid_explorer2.htm#CPUID(0x80000002)">The CPUID Explorer: Part 2</a></p>

@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-09/quan-xue.webp"
 ---
 <p>吾尝终日而思矣，不如GPT之所学也；吾尝跂而望矣，不如GPT之博见也。
 骐骥一跃，不能十步；驽马十驾，功在不舍。虽有智能，独学而无助，终有所穷；若使万千智能体协同而行，分工推演，昼夜不息，则其所成，非一人之力可及也。

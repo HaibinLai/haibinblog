@@ -7,15 +7,22 @@ interface Props {
   category: string;
   tags: string[];
   href: string;
+  cardImage?: string;
 }
 
-const { slug, title, description, date, category, tags, href } = Astro.props;
+const { slug, title, description, date, category, tags, href, cardImage } = Astro.props;
 const formattedDate = date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
 ---
 
 <article class="post-card" data-post-slug={slug} data-category={category} data-tags={JSON.stringify(tags)}>
-  <div class="post-card-meta"><span>{category}</span><time datetime={date.toISOString()}>{formattedDate}</time></div>
-  <h2><a href={href}>{title}</a></h2>
-  <p>{description}</p>
-  {tags.length > 0 && <div class="tag-list">{tags.map((tag) => <span>{tag}</span>)}</div>}
+  <div class="post-card-body">
+    <div class="post-card-meta"><span>{category}</span><time datetime={date.toISOString()}>{formattedDate}</time></div>
+    <h2><a href={href}>{title}</a></h2>
+    <p>{description}</p>
+    {tags.length > 0 && <div class="tag-list">{tags.map((tag) => <span>{tag}</span>)}</div>}
+  </div>
+  <a class="post-card-thumbnail" href={href} aria-hidden="true" tabindex="-1">
+    <span class="post-card-thumbnail-fallback" aria-hidden="true"></span>
+    {cardImage && <img src={cardImage} alt="" width="640" height="400" loading="lazy" decoding="async" onerror="this.hidden=true" />}
+  </a>
 </article>

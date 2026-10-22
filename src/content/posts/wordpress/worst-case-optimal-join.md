@@ -20,6 +20,7 @@ dislikeCount: 0
 showCitation: true
 featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2025/04/1B736C5EEC950EBE12A57DDAD2EE40CD.jpg"
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/worst-case-optimal-join.webp"
 ---
 <p><a href="https://zhuanlan.zhihu.com/p/116919516">最坏情况下最优连接（Worst-Case Optimal Joins） - 知乎</a></p>
 <p>_Amine Mhedhbi and Semih Salihoglu. 2019. Optimizing subgraph queries by combining binary and worst-case <a href="https://zhida.zhihu.com/search?content_id=114112509&amp;content_type=Article&amp;match_order=1&amp;q=optimal&amp;zhida_source=entity">optimal</a> joins. Proc. VLDB Endow. 12, 11 (July 2019), 1692–1704. DOI:<a href="https://link.zhihu.com/?target=https%3A//doi.org/10.14778/3342263.3342643">https://doi.org/10.14778/334226</a>_</p>

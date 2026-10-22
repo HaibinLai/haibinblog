@@ -19,6 +19,7 @@ likeCount: 1
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-10/nsdi26-can-we-use-mlfq-in-llm-serving.webp"
 ---
 <p>This paper is in arxiv for 2 years. Then it goes into NSDI26. Maybe we can see the difference between versions of 2023 and 2026.</p>
 <p>Paper link:

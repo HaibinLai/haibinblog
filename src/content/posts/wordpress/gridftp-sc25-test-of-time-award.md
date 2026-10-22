@@ -18,6 +18,7 @@ likeCount: 3
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-10/gridftp-sc25-test-of-time-award.webp"
 ---
 <p><strong>How to move massive data from server to client? How to serve multiple users around the world to use the compute machine? </strong></p>
 <p>This technology was not invented in cloud computing, but grid computing. And this is the paper published at SC05: The Globus Striped GridFTP Framework and Server.</p>

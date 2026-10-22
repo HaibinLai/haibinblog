@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/sustech-student-sys-seminar.webp"
 ---
 <p>本文大概记录我们第一次南科大系统研讨会的过程和反思。</p>
 <h2>故事背景</h2>

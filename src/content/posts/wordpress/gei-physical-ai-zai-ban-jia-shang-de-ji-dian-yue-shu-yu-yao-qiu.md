@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-09/gei-physical-ai-zai-ban-jia-shang-de-ji-dian-yue-shu-yu-yao-qiu.webp"
 ---
 <p>最近我在布置新家。我开始独立组装自己的家具，发现了很多大大小小的坑。他们就像bug，每次经常要记录和反复查看。我意识到最开始我的博客就是给我的bugbook，只不过后来AI直接取代了而已。那么，我刚好可以记录生活里的bug，给未来的我和未来的物理世界agent做好准备：</p>
 <ol>

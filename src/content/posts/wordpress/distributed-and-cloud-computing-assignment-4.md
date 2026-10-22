@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-01/distributed-and-cloud-computing-assignment-4.webp"
 ---
 <h2>Feedback</h2>
 <pre><code class="language-txt">Feedback to Learner

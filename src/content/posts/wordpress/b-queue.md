@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/b-queue.webp"
 ---
 <p><a href="http://staff.ustc.edu.cn/~bhua/network_algorithmics_2020/B-Queue.pdf">3_2.eps</a></p>
 <p><strong>B-Queue</strong> 是一种面向多核架构中核间通信的高效、实用的 <strong>单生产者-单消费者（SPSC）无锁队列</strong>，其设计旨在解决现有并发无锁队列（CLF queue）在真实应用中存在的性能退化与死锁难题。</p>

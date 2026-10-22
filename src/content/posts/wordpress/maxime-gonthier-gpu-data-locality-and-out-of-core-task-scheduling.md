@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/maxime-gonthier-gpu-data-locality-and-out-of-core-task-scheduling.webp"
 ---
 <ol>
 <li>

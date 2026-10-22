@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-03/minedraft-a-framework-for-batch-parallel-speculative-decoding.webp"
 ---
 <p>MINEDRAFT: A Framework for Batch Parallel Speculative Decoding</p>
 <p>把推测解码打成mini batch，随后在drafter和verifier上分批处理。</p>

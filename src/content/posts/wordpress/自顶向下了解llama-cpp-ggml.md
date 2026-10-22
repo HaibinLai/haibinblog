@@ -19,6 +19,7 @@ likeCount: 262
 dislikeCount: 3
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E4%BA%86%E8%A7%A3llama-cpp-ggml.webp"
 ---
 <p>由于工作要求，我尝试识读了llama.cpp框架在cpu端侧的推理情况。其实GPU端的结构我推测跟cpu差不多，只不过在底层算子会有区别，但是上层计算图等架构应该是差不多的。</p>
 <p>好的，以下是我这个生成式AI给您生成的20000字长文（ChatGPT 也可能会犯错。请核查重要信息。）：</p>

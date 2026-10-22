@@ -3,6 +3,7 @@ import type { CollectionEntry } from 'astro:content';
 import SectionTitle from './SectionTitle.astro';
 import ViewCount from './ViewCount.astro';
 import { GITHUB_AVATAR_URL, SITE_VIEW_BASELINE } from '../data/site';
+import { postCardImage } from '../data/postImages';
 
 interface Props {
   posts: CollectionEntry<'posts'>[];
@@ -27,15 +28,10 @@ const formatDate = (date: Date) => date.toLocaleDateString('en-US', {
   year: 'numeric',
   timeZone: 'UTC',
 });
-const thumbnail = (post: CollectionEntry<'posts'>) => {
-  if (post.data.featuredImage) return post.data.featuredImage;
-  const match = post.body?.match(/<img\b[^>]*?\bsrc=["']([^"']+)/i);
-  return match?.[1];
-};
 ---
 <aside class="right-sidebar">
   <section class="author-card sidebar-panel"><div class="author-cover" style={`background-image: url('${base}images/blog-cover.jpg')`}></div><div class="author-body"><img class="author-avatar" src={GITHUB_AVATAR_URL} alt="Haibin's GitHub avatar" /><div class="author-name">haibin <span>UChicago</span></div><p class="author-bio">Systems research, LLMs, academic life, and ordinary days.</p><div class="author-stats"><div><strong>{posts.length}</strong><span>Articles</span></div><div><strong>{commentCount}</strong><span>Comments</span></div><div><strong><ViewCount scope="site" value={SITE_VIEW_BASELINE} /></strong><span>Views</span></div></div></div></section>
-  <section class="sidebar-panel recent-panel"><SectionTitle>Recent Update</SectionTitle>{recent.map((post) => <a class="recent-item" href={`${base}posts/${postSlug(post)}/`}>{thumbnail(post) ? <img class="recent-thumb" src={thumbnail(post)} alt="" loading="lazy" /> : <div class="recent-thumb"></div>}<div><strong>{post.data.title}</strong><time>{formatDate(post.data.updatedAt ?? post.data.publishedAt)}</time></div></a>)}</section>
+  <section class="sidebar-panel recent-panel"><SectionTitle>Recent Update</SectionTitle>{recent.map((post) => <a class="recent-item" href={`${base}posts/${postSlug(post)}/`}><img class="recent-thumb" src={postCardImage(post, base)} alt="" loading="lazy" decoding="async" /><div><strong>{post.data.title}</strong><time>{formatDate(post.data.updatedAt ?? post.data.publishedAt)}</time></div></a>)}</section>
   <section class="sidebar-panel tags-panel"><SectionTitle>Popular Tags</SectionTitle><div class="sidebar-tags">{popularTags.map(([tag, count]) => <a data-tag-filter={tag} href={`${base}?tag=${encodeURIComponent(tag)}`}>{tag}<small>{count}</small></a>)}</div></section>
   <section class="sidebar-panel passage-panel"><SectionTitle>Passage</SectionTitle><p>“The future is discovered through the work that survives contact with reality.”</p></section>
 </aside>

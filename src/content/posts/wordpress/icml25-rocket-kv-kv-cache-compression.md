@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/icml25-rocket-kv-kv-cache-compression.webp"
 ---
 <p>kaixin li</p>
 <p>github repo:

@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-06/osandtlb.webp"
 ---
 <p><strong>我：</strong> 我已经知道了 OS 里的物理地址和虚拟地址。那难道每次我进行内存访问，都要进行一次转换吗？</p>
 <p><strong>GPT：</strong> 是的，从概念上说，每次内存访问都需要把虚拟地址翻译成物理地址。但这不是每次都由操作系统慢慢查表完成，而主要由硬件完成。CPU 里有一个叫 <strong>TLB</strong> 的缓存，它保存最近用过的地址翻译结果。如果 TLB 命中，虚拟地址可以很快转换成物理地址；如果 TLB miss，硬件才会去查 page table。</p>

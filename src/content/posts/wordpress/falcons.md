@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-06/falcons.webp"
 ---
 <p>2026年6月22日，德国科隆。FALCONS战队在接连斩落NAVI、Vitality、Spirit三座大山后，以3:0的绝对碾压之势横扫黑豹FURIA，这艘银河战舰终结了这场熬走十余年遗憾、击碎全网嘲讽的封神之战，捧起了属于他们的Major总冠军奖杯。</p>
 <p>整座电竞殿堂人声鼎沸，场馆很大，容得下五万人的呐喊与狂热；场馆也很小，小到最后只剩下了键鼠敲击的脆响、道具爆破的轰鸣，以及唯一一座冠军奖杯。m0NESY的大狙防守， kyousuke嘉豪的出其不意，karrigan大表哥的混烟、多次转点与正面usp笑谈个人能力，TeSeS龙哥的兜底。没有软脚与失控，在孤独和折磨后，故事走到了高潮。</p>

@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-06/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E9%80%A0%E4%B8%80%E9%A2%97-risc-v-cpu%28%E4%BA%94%29-%E4%B9%B1%E5%BA%8F%E6%89%A7%E8%A1%8C%E7%9A%84%E6%9D%A5%E9%BE%99%E5%8E%BB%E8%84%89%E4%B8%8E.webp"
 ---
 <h1>从零开始造一颗 RISC-V CPU（五）：乱序执行的来龙去脉与微架构实现</h1>
 <blockquote>

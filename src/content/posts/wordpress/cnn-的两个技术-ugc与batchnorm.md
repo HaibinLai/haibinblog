@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/cnn-%E7%9A%84%E4%B8%A4%E4%B8%AA%E6%8A%80%E6%9C%AF-ugc%E4%B8%8Ebatchnorm.webp"
 ---
 <h2>Unstructured Group Convolution</h2>
 <h3>1. 普通 Group Convolution</h3>

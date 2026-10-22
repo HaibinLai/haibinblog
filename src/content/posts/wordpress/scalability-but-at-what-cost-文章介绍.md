@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/scalability-but-at-what-cost-%E6%96%87%E7%AB%A0%E4%BB%8B%E7%BB%8D.webp"
 ---
 <p>Scalability! But at what COST 文章介绍</p>
 <p><a href="https://www.usenix.org/system/files/conference/hotos15/hotos15-paper-mcsherry.pdf">hotos15-paper-mcsherry.pdf</a></p>

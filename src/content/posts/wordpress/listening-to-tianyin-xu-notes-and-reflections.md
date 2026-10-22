@@ -21,6 +21,7 @@ dislikeCount: 0
 comments: [{"author": "访客", "replyTo": "", "content": "That was amazing"}]
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-10/listening-to-tianyin-xu-notes-and-reflections.webp"
 ---
 <blockquote>
 <p>I first came across Professor Tianyin Xu while browsing faculty websites at different universities. His website was fascinating: it showed me that your interests and academic work could be presented in such a wonderfully hardcore way. Later, when I was in Chicago in 2025, I visited UIUC twice, but he happened to be away both times. I only found out afterward that he was at MSRA. Then I went to MSRA in 2026—and by then he had left again. Haha.</p>

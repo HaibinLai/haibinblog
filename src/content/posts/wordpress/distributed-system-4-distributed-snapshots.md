@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-10/distributed-system-4-distributed-snapshots.webp"
 ---
 <p>Snapshots: save the data </p>
 <p>我们想要捕捉系统在某一时刻 TTT 的<strong>一致全局状态</strong>，包括：</p>

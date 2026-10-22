@@ -19,6 +19,7 @@ dislikeCount: 0
 showCitation: true
 featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/12/B51AFAE83CC03555D07BA8CE87DAC493.jpg"
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-12/operating-system-assignment-4.webp"
 ---
 <p>Author:
 Haibin Lai

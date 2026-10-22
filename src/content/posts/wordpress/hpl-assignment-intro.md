@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-02/hpl-assignment-intro.webp"
 ---
 <p>IndySCC 的HPL基础测试报告</p>
 <p><a href="https://www.haibinlaiblog.top/wp-content/uploads/2024/09/HPL-Assignment.pdf">https://www.haibinlaiblog.top/wp-content/uploads/2024/09/HPL-Assignment.pdf</a></p>

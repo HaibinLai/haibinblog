@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-10/distributed-system-5-bayou-algorithm.webp"
 ---
 <h2>分布式一致性</h2>
 <p>怎么在弱网情况下保证事件一致性，弱网指的是，只能时不时连接一下。</p>

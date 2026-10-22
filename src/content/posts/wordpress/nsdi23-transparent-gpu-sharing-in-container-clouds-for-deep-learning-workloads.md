@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/nsdi23-transparent-gpu-sharing-in-container-clouds-for-deep-learning-workloads.webp"
 ---
 <p>这篇文章介绍了一种名为 <strong>TGS (Transparent GPU Sharing)</strong> 的系统，旨在在容器云环境中在OS层为深度学习（DL）训练工作负载提供透明的GPU共享，以提高GPU利用率并减少作业完成时间。</p>
 <p>links:

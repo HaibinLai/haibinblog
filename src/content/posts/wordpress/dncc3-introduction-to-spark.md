@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/dncc3-introduction-to-spark.webp"
 ---
 <p><img src="https://www.haibinlaiblog.top/wp-content/uploads/2025/12/image-1767090779092.png" alt="file" /></p>
 <p>In this assignment, we need to use Spark to analyze the Parking dataset.</p>

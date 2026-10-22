@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-07/osdi-23-bwos-%E6%9B%B4%E5%A5%BD%E7%9A%84%E5%A4%9A%E7%BA%BF%E7%A8%8Bwork-stealing%E6%8A%80%E6%9C%AF-%E5%88%86%E5%9D%97.webp"
 ---
 <p>一篇有趣的文章，做的是新的多生产者多消费者的队列。</p>
 <p>我猜这篇是他们做量化的同学搞的哈哈哈哈哈。</p>

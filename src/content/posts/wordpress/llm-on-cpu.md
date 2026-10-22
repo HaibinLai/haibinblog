@@ -20,6 +20,7 @@ dislikeCount: 0
 showCitation: true
 featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2025/04/8ED59E29A10078B5E11BF51F0F76309F.jpg"
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-04/llm-on-cpu.webp"
 ---
 <p>其他框架解析：
 vllm 框架解析：<a href="https://zhuanlan.zhihu.com/p/641999400">LLM 高速推理框架 vLLM 源代码分析 / vLLM Source Code Analysis - 知乎</a>

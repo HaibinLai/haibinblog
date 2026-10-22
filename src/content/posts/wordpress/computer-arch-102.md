@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-05/computer-arch-102.webp"
 ---
 <h2>项目</h2>
 <p>从计算机课堂的5级流水线进一步进阶，制作更强大的CPU。</p>

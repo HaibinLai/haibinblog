@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/powerinfer-fast-large-language-model-serving-with-a-consumer-grade-gpu.webp"
 ---
 <p>推理引擎会成为新时代的操作系统吗？</p>
 <p><a href="https://adsl-rg.github.io/slides/241210-PowerInfer.pdf">RG-1210</a>

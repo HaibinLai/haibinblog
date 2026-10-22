@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/cidr22-mmap-%F0%9F%92%A9.webp"
 ---
 <h1>Are You Sure You Want to Use MMAP in Your Database Management System？</h1>
 <p>内存映射（mmap）文件 I/O 是操作系统提供的一种功能，可将二级存储上的文件内容映射到程序的地址空间中。然后，程序通过指针访问页面，就像文件完全位于内存中一样。只有当程序引用页面时，操作系统才会以透明的方式加载页面，并在内存填满时自动删除页面。</p>

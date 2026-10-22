@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-06/gcc%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0openmp-parallel-for%E7%9A%84.webp"
 ---
 <h2>学习网页</h2>
 <p>本次我们主要会聚焦team.c 和loop.c:

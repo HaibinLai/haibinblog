@@ -20,6 +20,7 @@ dislikeCount: 0
 showCitation: true
 featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/10/图片1.png"
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-10/wireshark-%E6%98%AF%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E6%8A%93%E5%8C%85%E7%9A%84.webp"
 ---
 <p>PPT: <a href="https://www.haibinlaiblog.top/?attachment_id=373" title="为什么wireshark抓不到HTTP">为什么wireshark抓不到HTTP</a></p>
 <p>My summary web page: <a href="https://www.haibinlaiblog.top/wp-content/uploads/2024/12/BPF与npcap库.drawio.html">BPF与npcap库.drawio</a></p>

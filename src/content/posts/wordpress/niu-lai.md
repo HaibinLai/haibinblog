@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-08/niu-lai.webp"
 ---
 <p>目前我认为三个Agent和人类最后的困难：long context，持续学习，稀缺数据点。</p>
 <p>爱上问题，而不是爱上方法。

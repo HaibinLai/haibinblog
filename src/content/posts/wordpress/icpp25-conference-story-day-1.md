@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-09/icpp25-conference-story-day-1.webp"
 ---
 <h1>ICPP Conference 会议</h1>
 <p>Congrats to all accepted papers!</p>

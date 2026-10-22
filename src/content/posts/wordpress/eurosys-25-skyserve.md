@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-07/eurosys-25-skyserve.webp"
 ---
 <p>来自大名鼎鼎的UCB Sky Computing Lab</p>
 <p>他们尝试在云里运行LLM Serve</p>

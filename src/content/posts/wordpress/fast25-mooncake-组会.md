@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/fast25-mooncake-%E7%BB%84%E4%BC%9A.webp"
 ---
 <h1>组会录播</h1>
 <p>【组会FAST25-Mooncake讨论会】 <a href="https://www.bilibili.com/video/BV1ZkgUz5E5n/?share_source=copy_web&amp;vd_source=72eac555730ba7e7a64f9fa1d7f2b2d4">https://www.bilibili.com/video/BV1ZkgUz5E5n/?share_source=copy_web&vd_source=72eac555730ba7e7a64f9fa1d7f2b2d4</a></p>

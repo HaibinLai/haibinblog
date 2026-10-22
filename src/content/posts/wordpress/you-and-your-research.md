@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/you-and-your-research.webp"
 ---
 <p>你和你的研究</p>
 <p><a href="https://gwern.net/doc/science/1986-hamming">https://gwern.net/doc/science/1986-hamming</a></p>

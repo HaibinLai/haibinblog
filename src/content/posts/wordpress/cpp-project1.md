@@ -20,6 +20,7 @@ dislikeCount: 0
 showCitation: true
 featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/08/图片1-2.png"
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-08/cpp-project1.webp"
 ---
 <h1><strong>CS205</strong> · <strong>C/C++</strong> <strong>Programming</strong></h1>
 <h1><strong>Project1</strong> <strong>Report: A &quot;Simple&quot; Calculator</strong></h1>

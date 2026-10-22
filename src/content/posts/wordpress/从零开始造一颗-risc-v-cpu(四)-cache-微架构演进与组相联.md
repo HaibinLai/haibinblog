@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-06/%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E9%80%A0%E4%B8%80%E9%A2%97-risc-v-cpu%28%E5%9B%9B%29-cache-%E5%BE%AE%E6%9E%B6%E6%9E%84%E6%BC%94%E8%BF%9B%E4%B8%8E%E7%BB%84%E7%9B%B8%E8%81%94.webp"
 ---
 <h1>从零开始造一颗 RISC-V CPU（四）：Cache 微架构演进与组相联设计深度解析</h1>
 <blockquote>

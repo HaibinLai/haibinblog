@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/%E5%BE%AE%E4%B8%93%E9%A2%98-mesi.webp"
 ---
 <p><a href="https://zhuanlan.zhihu.com/p/467782159">全知乎最详细的并发研究之CPU缓存一致性协议(MESI)有这一篇就够了！ - 知乎</a></p>
 <h2>多核CPU多级缓存一致性协议MESI</h2>

@@ -4,6 +4,7 @@ description: A small theory of feedback, experimentation, and growing into a res
 publishedAt: 2026-09-18
 category: Research
 tags: [research, reflection]
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-09/research-backpropagation.webp"
 ---
 
 Research is not only forward motion. You try a direction, observe the mismatch between your belief and the world, then update the next attempt.

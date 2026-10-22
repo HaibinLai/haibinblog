@@ -19,6 +19,7 @@ likeCount: 1
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-08/a-survey-for-white-box-feature-mining-in-llms-hallucination-detection.webp"
 ---
 <h1>White-Box Feature Mining for Hallucination Detection in Large Language Models</h1>
 <blockquote>

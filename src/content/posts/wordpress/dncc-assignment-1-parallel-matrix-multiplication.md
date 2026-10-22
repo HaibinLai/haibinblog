@@ -19,6 +19,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-12/dncc-assignment-1-parallel-matrix-multiplication.webp"
 ---
 <p><a href="https://github.com/HaibinLai/Distributed-and-Cloud-Computing.git">https://github.com/HaibinLai/Distributed-and-Cloud-Computing.git</a></p>
 <p>【分布与云计算 - DnCC 复习】 <a href="https://www.bilibili.com/video/BV1eovaBTEW9/?share_source=copy_web&amp;vd_source=72eac555730ba7e7a64f9fa1d7f2b2d4">https://www.bilibili.com/video/BV1eovaBTEW9/?share_source=copy_web&vd_source=72eac555730ba7e7a64f9fa1d7f2b2d4</a></p>

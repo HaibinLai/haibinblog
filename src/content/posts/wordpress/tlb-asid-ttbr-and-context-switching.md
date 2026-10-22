@@ -20,6 +20,7 @@ dislikeCount: 0
 showCitation: true
 featuredImage: "https://www.haibinlaiblog.top/wp-content/uploads/2024/11/20241127200450.png"
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2024-11/tlb-asid-ttbr-and-context-switching.webp"
 ---
 <p>本文是在实验课上看一些文章和GPT整理的，不完全</p>
 <p><a href="https://developer.aliyun.com/article/1479067">Linux内存管理笔记----TLB-阿里云开发者社区</a></p>

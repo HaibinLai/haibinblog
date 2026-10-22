@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/25%E5%B9%B47%E6%9C%88%E6%96%87%E7%AB%A0-attention-on-hardware.webp"
 ---
 <p>link: <a href="https://arxiv.org/pdf/2507.11331">SystolicAttention: Fusing FlashAttention within a Single Systolic Array</a></p>
 <p>这篇文章提出了一种针对 Transformer 模型中的 FlashAttention 加速的新架构 FSA（<strong>Full Systolic Attention</strong>），旨在解决现有<strong>基于 systolic array 的加速器在执行 FlashAttention 时利用率低</strong>的问题。作者指出，FlashAttention 中频繁交替的矩阵乘法与 softmax 操作不适合传统 systolic array，其原因包括：</p>

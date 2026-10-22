@@ -18,6 +18,7 @@ likeCount: 0
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
+cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-08/atc24-power-aware-deep-learning-model-serving-with-u-serve.webp"
 ---
 <h2>Power-aware Deep Learning Model Serving with u-Serve</h2>
 <p>这篇文章是发表于2024年 USENIX ATC'24 的论文，标题为《Power-aware Deep Learning Model Serving with μ-Serve》，作者来自伊利诺伊大学厄巴纳-香槟分校和IBM Research。论文聚焦于深度学习（DL）模型服务（即推理）中的功率优化问题，提出一个名为μ-Serve的新型功率感知模型服务框架，旨在在GPU集群中减少能耗，同时保持服务水平目标（SLO，如延迟或吞吐量要求）。</p>
