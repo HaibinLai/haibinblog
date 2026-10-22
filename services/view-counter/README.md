@@ -45,6 +45,18 @@ Response:
 {"siteTotal":363843,"pageTotal":1,"incremented":false}
 ```
 
+### Read public aggregate statistics
+
+```http
+GET /stats?days=30
+Origin: https://haibinlai.github.io
+```
+
+`days` accepts `7`, `30`, or `90`. The response contains the site total,
+today's accepted views, a zero-filled daily series, the all-time top 20 posts,
+and daily series for up to five recently viewed posts. It exposes only aggregate
+counts and canonical paths; visitor and client hashes are never returned.
+
 ## Why increments are concurrency-safe
 
 `view_events` has a unique key over the canonical path, time bucket, visitor hash, and client fingerprint hash. `INSERT OR IGNORE` is therefore the single decision about whether a view is new. An `AFTER INSERT` trigger updates both aggregate counters only when that insert succeeds. The insert and count read are sent with D1 `batch()`, whose statements execute sequentially as a transaction. There is no separate read-before-write race.
@@ -140,6 +152,6 @@ npm test
 | `HASH_SALT` | required secret | HMAC key for visitor and client fingerprints |
 | `DEDUP_WINDOW_SECONDS` | `86400` | Deduplication time bucket, 60 seconds to 7 days |
 | `GITHUB_BASE_PATH` | `/haibinblog` | Base stripped from GitHub Pages paths |
-| `EVENT_RETENTION_DAYS` | `8` | Number of days to retain hashed deduplication events |
+| `EVENT_RETENTION_DAYS` | `90` | Number of days to retain hashed events for deduplication and public aggregate trends |
 
 Changing `HASH_SALT` makes existing hashes incomparable and can allow one extra count for returning visitors in the active bucket. Keep it stable after launch.

@@ -10,6 +10,7 @@ const DEFAULT_DEDUP_WINDOW_SECONDS = 86_400;
 const DEFAULT_RETENTION_DAYS = 8;
 const MAX_PATH_LENGTH = 512;
 const MAX_VISITOR_ID_LENGTH = 128;
+const STATS_PERIODS = new Set([7, 30, 90]);
 
 const COUNT_SQL = `
   SELECT
@@ -168,6 +169,99 @@ async function readCounts(env, path) {
   return responsePayload(row, false);
 }
 
+function utcDate(timestampSeconds) {
+  return new Date(timestampSeconds * 1000).toISOString().slice(0, 10);
+}
+
+function fillDailySeries(rows, days, todayStart) {
+  const counts = new Map((rows || []).map((row) => [row.view_date, Number(row.views || 0)]));
+  return Array.from({ length: days }, (_, index) => {
+    const timestamp = todayStart - (days - 1 - index) * 86_400;
+    const date = utcDate(timestamp);
+    return { date, views: counts.get(date) || 0 };
+  });
+}
+
+async function readStats(env, requestedDays) {
+  const parsedDays = Number.parseInt(String(requestedDays || "30"), 10);
+  const days = STATS_PERIODS.has(parsedDays) ? parsedDays : 30;
+  const now = Math.floor(Date.now() / 1000);
+  const todayStart = Math.floor(now / 86_400) * 86_400;
+  const periodStart = todayStart - (days - 1) * 86_400;
+
+  const [overviewResult, dailyResult, popularResult, trendingResult] = await env.DB.batch([
+    env.DB.prepare(`
+      SELECT
+        COALESCE((SELECT total FROM view_counts WHERE path = '${SITE_COUNTER_PATH}'), 363842) AS site_total,
+        (SELECT COUNT(*) FROM view_events WHERE created_at >= ?1) AS today_views
+    `).bind(todayStart),
+    env.DB.prepare(`
+      SELECT strftime('%Y-%m-%d', created_at, 'unixepoch') AS view_date, COUNT(*) AS views
+      FROM view_events
+      WHERE created_at >= ?1
+      GROUP BY view_date
+      ORDER BY view_date ASC
+    `).bind(periodStart),
+    env.DB.prepare(`
+      SELECT path, total AS views
+      FROM view_counts
+      WHERE path LIKE '/posts/%'
+      ORDER BY total DESC, path ASC
+      LIMIT 20
+    `),
+    env.DB.prepare(`
+      SELECT path, COUNT(*) AS views
+      FROM view_events
+      WHERE created_at >= ?1 AND path LIKE '/posts/%'
+      GROUP BY path
+      ORDER BY views DESC, path ASC
+      LIMIT 5
+    `).bind(periodStart),
+  ]);
+
+  const overview = overviewResult?.results?.[0] || {};
+  const daily = fillDailySeries(dailyResult?.results, days, todayStart);
+  const popular = (popularResult?.results || []).map((row) => ({
+    path: row.path,
+    views: Number(row.views || 0),
+  }));
+  const trendingRows = trendingResult?.results || [];
+  let trending = [];
+
+  if (trendingRows.length) {
+    const paths = trendingRows.map((row) => row.path);
+    const placeholders = paths.map((_, index) => `?${index + 2}`).join(', ');
+    const trendResult = await env.DB.prepare(`
+      SELECT path, strftime('%Y-%m-%d', created_at, 'unixepoch') AS view_date, COUNT(*) AS views
+      FROM view_events
+      WHERE created_at >= ?1 AND path IN (${placeholders})
+      GROUP BY path, view_date
+      ORDER BY view_date ASC
+    `).bind(periodStart, ...paths).all();
+    const valuesByPath = new Map(paths.map((path) => [path, new Map()]));
+    for (const row of trendResult?.results || []) {
+      valuesByPath.get(row.path)?.set(row.view_date, Number(row.views || 0));
+    }
+    trending = trendingRows.map((row) => ({
+      path: row.path,
+      total: Number(row.views || 0),
+      values: daily.map(({ date }) => valuesByPath.get(row.path)?.get(date) || 0),
+    }));
+  }
+
+  return {
+    generatedAt: new Date(now * 1000).toISOString(),
+    periodDays: days,
+    overview: {
+      siteTotal: Number(overview.site_total ?? 363842),
+      todayViews: Number(overview.today_views || 0),
+    },
+    daily,
+    popular,
+    trending,
+  };
+}
+
 async function recordView(request, env, path, visitorId) {
   const windowSeconds = parsePositiveInt(
     env.DEDUP_WINDOW_SECONDS,
@@ -224,6 +318,10 @@ async function handleRequest(request, env) {
   if (request.method === "GET" && url.pathname === "/counts") {
     const path = normalizePath(url.searchParams.get("path"), basePath);
     return json(await readCounts(env, path), 200, origin);
+  }
+
+  if (request.method === "GET" && url.pathname === "/stats") {
+    return json(await readStats(env, url.searchParams.get("days")), 200, origin);
   }
 
   if (request.method === "POST" && url.pathname === "/view") {

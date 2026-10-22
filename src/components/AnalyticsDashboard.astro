@@ -1,0 +1,189 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  mode: 'statistics' | 'trends';
+  posts: CollectionEntry<'posts'>[];
+}
+
+const { mode, posts } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const endpoint = (
+  import.meta.env.PUBLIC_VIEW_COUNTER_URL
+  || 'https://haibinblog-view-counter.haibinlai.workers.dev'
+).replace(/\/$/, '');
+const postSlug = (post: CollectionEntry<'posts'>) => post.data.slug ?? post.id.replace(/^wordpress\//, '');
+const postMetadata = Object.fromEntries(posts.map((post) => {
+  const slug = postSlug(post);
+  return [`/posts/${slug}/`, {
+    title: post.data.title,
+    href: `${base}posts/${slug}/`,
+    date: post.data.publishedAt.toISOString().slice(0, 10),
+  }];
+}));
+---
+
+<section class="analytics-dashboard" data-analytics-mode={mode}>
+  <header class="analytics-header">
+    <div>
+      <p class="eyebrow">GLHF · Analytics</p>
+      <h1>{mode === 'statistics' ? '阅读统计' : '阅读趋势'}</h1>
+      <p>{mode === 'statistics' ? '博客访问数据概览' : '最近获得阅读的文章与每日变化'}</p>
+    </div>
+    <div class="analytics-period" aria-label="统计区间">
+      {[7, 30, 90].map((days) => (
+        <button class:list={{ active: days === 30 }} type="button" data-days={days}>{days} 天</button>
+      ))}
+    </div>
+  </header>
+
+  {mode === 'statistics' && (
+    <>
+      <div class="analytics-overview">
+        <article><strong data-stat="site-total">363,842</strong><span>总浏览量</span></article>
+        <article><strong data-stat="today-views">—</strong><span>今日浏览</span></article>
+        <article><strong>{posts.length}</strong><span>文章总数</span></article>
+        <article><strong data-stat="average">—</strong><span>篇均浏览</span></article>
+      </div>
+      <section class="analytics-panel">
+        <div class="analytics-panel-heading"><h2>访问趋势</h2><span data-period-label>最近 30 天</span></div>
+        <div class="analytics-chart" data-daily-chart><p>正在加载统计数据…</p></div>
+      </section>
+      <section class="analytics-panel">
+        <div class="analytics-panel-heading"><h2>热门文章</h2><span>累计阅读量</span></div>
+        <div class="analytics-table-wrap" data-popular-table><p>正在加载文章排名…</p></div>
+      </section>
+    </>
+  )}
+
+  {mode === 'trends' && (
+    <section class="analytics-panel">
+      <div class="analytics-panel-heading"><h2>文章阅读趋势</h2><span data-period-label>最近 30 天</span></div>
+      <div class="analytics-chart analytics-line-chart" data-trend-chart><p>正在加载阅读趋势…</p></div>
+      <div class="analytics-legend" data-trend-legend></div>
+    </section>
+  )}
+
+  <p class="analytics-note">逐日数据从 Cloudflare 统计启用后开始积累；历史总阅读量来自 WordPress 迁移基线。</p>
+</section>
+
+<script is:inline define:vars={{ endpoint, postMetadata, totalPosts: posts.length, mode }}>
+  (() => {
+    const root = document.querySelector(`[data-analytics-mode="${mode}"]`);
+    if (!root) return;
+    const colors = ['#39b985', '#e6a23c', '#409eff', '#f56c6c', '#9b59b6'];
+    const number = (value) => new Intl.NumberFormat('en-US').format(Number(value) || 0);
+    const metaFor = (path) => postMetadata[path] || {
+      title: decodeURIComponent(path.split('/').filter(Boolean).pop() || path),
+      href: '#',
+      date: '',
+    };
+
+    const renderDaily = (daily) => {
+      const wrap = root.querySelector('[data-daily-chart]');
+      if (!wrap) return;
+      const max = Math.max(1, ...daily.map((item) => item.views));
+      const bars = daily.map((item) => {
+        const height = Math.max(item.views ? 5 : 1, item.views / max * 100);
+        return `<span class="analytics-bar" style="--bar-height:${height}%" title="${item.date}: ${number(item.views)} 次"><i></i></span>`;
+      }).join('');
+      const first = daily[0]?.date.slice(5) || '';
+      const last = daily.at(-1)?.date.slice(5) || '';
+      wrap.innerHTML = `<div class="analytics-bars">${bars}</div><div class="analytics-axis"><span>${first}</span><span>${last}</span></div>`;
+    };
+
+    const renderPopular = (items) => {
+      const wrap = root.querySelector('[data-popular-table]');
+      if (!wrap) return;
+      const table = document.createElement('table');
+      table.className = 'analytics-table';
+      table.innerHTML = '<thead><tr><th>排名</th><th>标题</th><th>浏览量</th><th>发布日期</th></tr></thead><tbody></tbody>';
+      const body = table.querySelector('tbody');
+      items.forEach((item, index) => {
+        const meta = metaFor(item.path);
+        const row = document.createElement('tr');
+        const rank = document.createElement('td');
+        rank.innerHTML = `<span class="analytics-rank rank-${index + 1}">${index + 1}</span>`;
+        const title = document.createElement('td');
+        const link = document.createElement('a');
+        link.href = meta.href;
+        link.textContent = meta.title;
+        title.append(link);
+        const views = document.createElement('td');
+        views.textContent = number(item.views);
+        const date = document.createElement('td');
+        date.textContent = meta.date;
+        row.append(rank, title, views, date);
+        body.append(row);
+      });
+      wrap.replaceChildren(table);
+    };
+
+    const renderTrends = (daily, items) => {
+      const wrap = root.querySelector('[data-trend-chart]');
+      const legend = root.querySelector('[data-trend-legend]');
+      if (!wrap || !legend) return;
+      if (!items.length) {
+        wrap.innerHTML = '<p>这个区间还没有新的逐日阅读数据。</p>';
+        legend.replaceChildren();
+        return;
+      }
+      const width = 900;
+      const height = 360;
+      const pad = { left: 48, right: 18, top: 22, bottom: 42 };
+      const chartWidth = width - pad.left - pad.right;
+      const chartHeight = height - pad.top - pad.bottom;
+      const max = Math.max(1, ...items.flatMap((item) => item.values));
+      const paths = items.map((item, itemIndex) => {
+        const points = item.values.map((value, index) => {
+          const x = pad.left + (index / Math.max(1, daily.length - 1)) * chartWidth;
+          const y = pad.top + chartHeight - value / max * chartHeight;
+          return `${x.toFixed(1)},${y.toFixed(1)}`;
+        }).join(' ');
+        return `<polyline points="${points}" fill="none" stroke="${colors[itemIndex % colors.length]}" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round" />`;
+      }).join('');
+      const grid = [0, .25, .5, .75, 1].map((ratio) => {
+        const y = pad.top + chartHeight * ratio;
+        const label = Math.round(max * (1 - ratio));
+        return `<line x1="${pad.left}" y1="${y}" x2="${width - pad.right}" y2="${y}" /><text x="${pad.left - 9}" y="${y + 4}">${label}</text>`;
+      }).join('');
+      wrap.innerHTML = `<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="文章每日阅读趋势"><g class="analytics-grid">${grid}</g>${paths}<text class="analytics-date-label" x="${pad.left}" y="${height - 10}">${daily[0]?.date.slice(5) || ''}</text><text class="analytics-date-label" x="${width - pad.right}" y="${height - 10}" text-anchor="end">${daily.at(-1)?.date.slice(5) || ''}</text></svg>`;
+      legend.replaceChildren(...items.map((item, index) => {
+        const meta = metaFor(item.path);
+        const link = document.createElement('a');
+        link.href = meta.href;
+        link.innerHTML = `<i style="background:${colors[index % colors.length]}"></i>`;
+        const label = document.createElement('span');
+        label.textContent = `${meta.title} · ${number(item.total)}`;
+        link.append(label);
+        return link;
+      }));
+    };
+
+    const load = async (days) => {
+      root.querySelectorAll('[data-days]').forEach((button) => button.classList.toggle('active', Number(button.dataset.days) === days));
+      root.querySelectorAll('[data-period-label]').forEach((label) => { label.textContent = `最近 ${days} 天`; });
+      try {
+        const response = await fetch(`${endpoint}/stats?days=${days}`, { credentials: 'omit', mode: 'cors' });
+        if (!response.ok) throw new Error(`statistics returned ${response.status}`);
+        const data = await response.json();
+        if (mode === 'statistics') {
+          root.querySelector('[data-stat="site-total"]').textContent = number(data.overview.siteTotal);
+          root.querySelector('[data-stat="today-views"]').textContent = number(data.overview.todayViews);
+          root.querySelector('[data-stat="average"]').textContent = number(Math.round(data.overview.siteTotal / Math.max(1, totalPosts)));
+          renderDaily(data.daily);
+          renderPopular(data.popular);
+        } else {
+          renderTrends(data.daily, data.trending);
+        }
+      } catch {
+        root.querySelectorAll('.analytics-chart, .analytics-table-wrap').forEach((node) => {
+          node.innerHTML = '<p>统计服务暂时不可用，请稍后刷新。</p>';
+        });
+      }
+    };
+
+    root.querySelectorAll('[data-days]').forEach((button) => button.addEventListener('click', () => load(Number(button.dataset.days))));
+    load(30);
+  })();
+</script>

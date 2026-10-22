@@ -1,0 +1,15 @@
+---
+import { getCollection } from 'astro:content';
+import AnalyticsDashboard from '../../components/AnalyticsDashboard.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const fragmentCategories = new Set(['fragments', 'life-fragments']);
+const posts = await getCollection('posts', ({ data }) => !data.draft && ![data.category, ...data.categories]
+  .some((category) => fragmentCategories.has(category.trim().toLowerCase())));
+---
+
+<BaseLayout title="阅读趋势 · Haibin's Blog" description="Haibin's Blog 近期文章阅读趋势。">
+  <main class="analytics-page content-shell">
+    <AnalyticsDashboard mode="trends" posts={posts} />
+  </main>
+</BaseLayout>
