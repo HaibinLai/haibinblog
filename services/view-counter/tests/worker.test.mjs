@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import worker, { createIdentityHashes, normalizePath } from "../src/index.js";
+import worker, { createIdentityHashes, dateInTimeZone, normalizePath } from "../src/index.js";
 
 const ALLOWED_ORIGIN = "https://haibinlai.github.io";
 
@@ -87,6 +87,17 @@ test("normalizes GitHub Pages and custom-domain paths to one key", () => {
   assert.equal(normalizePath("https://haibinlaiblog.top/posts/demo/"), "/posts/demo/");
   assert.equal(normalizePath("/haibinblog"), "/");
   assert.equal(normalizePath("/haibinblog/index.html"), "/");
+});
+
+test("assigns visits to the Chicago calendar date instead of UTC", () => {
+  assert.equal(
+    dateInTimeZone(Date.parse("2026-10-23T02:30:00Z")),
+    "2026-10-22",
+  );
+  assert.equal(
+    dateInTimeZone(Date.parse("2026-12-23T05:30:00Z")),
+    "2026-12-22",
+  );
 });
 
 test("identity data is HMACed and never returned as raw input", async () => {

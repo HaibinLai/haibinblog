@@ -64,7 +64,7 @@ const postMetadata = Object.fromEntries(posts.map((post) => {
     </section>
   )}
 
-  <p class="analytics-note">逐日数据从 Cloudflare 统计启用后开始积累；历史总阅读量来自 WordPress 迁移基线。</p>
+  <p class="analytics-note" data-tracking-note>逐日数据从 Cloudflare 统计启用后开始积累；历史总阅读量来自 WordPress 迁移基线。</p>
 </section>
 
 <script is:inline define:vars={{ endpoint, postMetadata, totalPosts: posts.length, mode }}>
@@ -87,9 +87,13 @@ const postMetadata = Object.fromEntries(posts.map((post) => {
         const height = Math.max(item.views ? 5 : 1, item.views / max * 100);
         return `<span class="analytics-bar" style="--bar-height:${height}%" title="${item.date}: ${number(item.views)} 次"><i></i></span>`;
       }).join('');
-      const first = daily[0]?.date.slice(5) || '';
-      const last = daily.at(-1)?.date.slice(5) || '';
-      wrap.innerHTML = `<div class="analytics-bars">${bars}</div><div class="analytics-axis"><span>${first}</span><span>${last}</span></div>`;
+      const step = daily.length <= 7 ? 1 : daily.length <= 30 ? 5 : 15;
+      const labels = daily.map((item, index) => {
+        if (index % step && index !== daily.length - 1) return '';
+        const left = daily.length <= 1 ? 0 : index / (daily.length - 1) * 100;
+        return `<span style="left:${left}%">${item.date.slice(5)}</span>`;
+      }).join('');
+      wrap.innerHTML = `<div class="analytics-bars">${bars}</div><div class="analytics-axis">${labels}</div>`;
     };
 
     const renderPopular = (items) => {
@@ -150,7 +154,14 @@ const postMetadata = Object.fromEntries(posts.map((post) => {
           : Math.round(max * (1 - ratio));
         return `<line x1="${pad.left}" y1="${y}" x2="${width - pad.right}" y2="${y}" /><text x="${pad.left - 9}" y="${y + 4}">${label}</text>`;
       }).join('');
-      wrap.innerHTML = `<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="文章每日阅读趋势"><g class="analytics-grid">${grid}</g>${paths}<text class="analytics-date-label" x="${pad.left}" y="${height - 10}">${daily[0]?.date.slice(5) || ''}</text><text class="analytics-date-label" x="${width - pad.right}" y="${height - 10}" text-anchor="end">${daily.at(-1)?.date.slice(5) || ''}</text></svg>`;
+      const labelStep = daily.length <= 7 ? 1 : daily.length <= 30 ? 5 : 15;
+      const dateLabels = daily.map((item, index) => {
+        if (index % labelStep && index !== daily.length - 1) return '';
+        const x = pad.left + (index / Math.max(1, daily.length - 1)) * chartWidth;
+        const anchor = index === 0 ? 'start' : index === daily.length - 1 ? 'end' : 'middle';
+        return `<text class="analytics-date-label" x="${x}" y="${height - 10}" text-anchor="${anchor}">${item.date.slice(5)}</text>`;
+      }).join('');
+      wrap.innerHTML = `<svg viewBox="0 0 ${width} ${height}" role="img" aria-label="文章每日阅读趋势"><g class="analytics-grid">${grid}</g>${paths}${dateLabels}</svg>`;
       legend.replaceChildren(...items.map((item, index) => {
         const meta = metaFor(item.path);
         const link = document.createElement('a');
@@ -170,6 +181,10 @@ const postMetadata = Object.fromEntries(posts.map((post) => {
         const response = await fetch(`${endpoint}/stats?days=${days}`, { credentials: 'omit', mode: 'cors' });
         if (!response.ok) throw new Error(`statistics returned ${response.status}`);
         const data = await response.json();
+        const trackingNote = root.querySelector('[data-tracking-note]');
+        if (trackingNote && data.trackingSince) {
+          trackingNote.textContent = `逐日统计始于 ${data.trackingSince}（${data.timeZone || 'America/Chicago'}）；历史总阅读量来自 WordPress 迁移基线。`;
+        }
         if (mode === 'statistics') {
           root.querySelector('[data-stat="site-total"]').textContent = number(data.overview.siteTotal);
           root.querySelector('[data-stat="today-views"]').textContent = number(data.overview.todayViews);

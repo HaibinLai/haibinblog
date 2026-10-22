@@ -12,12 +12,16 @@ CREATE TABLE IF NOT EXISTS view_events (
   bucket INTEGER NOT NULL,
   visitor_hash TEXT NOT NULL CHECK (length(visitor_hash) = 64),
   client_hash TEXT NOT NULL CHECK (length(client_hash) = 64),
+  event_date TEXT NOT NULL DEFAULT '' CHECK (event_date = '' OR event_date GLOB '[0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]'),
   created_at INTEGER NOT NULL DEFAULT (unixepoch()),
   UNIQUE (path, bucket, visitor_hash, client_hash)
 ) STRICT;
 
 CREATE INDEX IF NOT EXISTS view_events_created_at_idx
   ON view_events (created_at);
+
+CREATE INDEX IF NOT EXISTS view_events_event_date_idx
+  ON view_events (event_date);
 
 CREATE TRIGGER IF NOT EXISTS view_events_increment_counts
 AFTER INSERT ON view_events
