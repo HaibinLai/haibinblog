@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="zh-CN">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Haibin Blog Publisher</title><link rel="stylesheet" href="/style.css"></head>
+<body>
+<main class="shell">
+  <header><div><p class="eyebrow">HAIBIN'S BLOG</p><h1>发布新文章</h1><p class="muted">填写一次，生成规范的 Markdown；需要时再推送到 GitHub。</p></div><a href="https://haibinblog-private.haibinlai.workers.dev" target="_blank">打开私人空间 ↗</a></header>
+  <form id="post-form">
+    <section class="card"><h2>文章信息</h2><div class="grid two">
+      <label>标题<input name="title" required placeholder="例如：Large Scale Machine Learning"></label>
+      <label>文件名（可选）<input name="slug" placeholder="large-scale-machine-learning"></label>
+      <label>发布日期<input name="publishedAt" type="date" required></label>
+      <label>更新日期<input name="updatedAt" type="date"></label>
+      <label>简介<textarea name="description" rows="2" placeholder="显示在首页和搜索结果中"></textarea></label>
+      <label>分类<input name="category" value="Research" placeholder="Research"></label>
+      <label>标签<input name="tags" placeholder="systems, notes, research"></label>
+      <label>其他分类<input name="categories" placeholder="例如：CPP, OS"></label>
+    </div></section>
+    <section class="card"><h2>语言和首页</h2><div class="grid two">
+      <label>语言<select name="language"><option value="">未指定</option><option value="zh-CN">中文</option><option value="en">English</option></select></label>
+      <label>双语关联 ID<input name="translationKey" placeholder="两种语言填写同一个值"></label>
+      <label>首页精选位置<select name="featuredRank"><option value="">不精选</option><option value="1">1 · 主卡片</option><option value="2">2 · 右上</option><option value="3">3 · 右下</option></select></label>
+      <label>精选标题<input name="featuredTitle" placeholder="可选的短标题"></label>
+      <label>精选标签<input name="featuredLabel" placeholder="Research / Travel"></label>
+      <label class="check"><input name="showCitation" type="checkbox" checked> 显示引用信息</label>
+    </div></section>
+    <section class="card"><h2>正文</h2><label>支持 Markdown、公式、表格和图片链接<textarea name="body" class="editor" required placeholder="# 文章标题\n\n在这里写正文……\n\n| A | B |\n|---|---|\n| 1 | 2 |"></textarea></label></section>
+    <section class="card"><h2>图片</h2><div class="grid two"><label>上传封面或正文图片<input id="image" type="file" accept="image/png,image/jpeg,image/webp,image/gif,image/svg+xml"></label><label>图片月份<input name="imageMonth" type="month"></label></div><p id="image-status" class="muted">图片会保存到 image-backend 的 YYYY-MM/文章名/ 目录。</p></section>
+    <section class="actions"><label class="check"><input name="draft" type="checkbox"> 保存为草稿</label><label class="check"><input name="push" type="checkbox"> 保存后提交并推送到 GitHub</label><button type="submit">保存文章</button></section>
+  </form>
+  <div id="result" class="result" hidden></div>
+</main><script src="/app.js"></script>
+</body></html>

@@ -137,7 +137,14 @@ as a chronological feed. They are excluded from the homepage article archive.
 ```bash
 npm run dev
 npm run build
+npm run publisher
 ```
+
+`npm run publisher` starts a local writing form at `http://127.0.0.1:4322`. It
+creates a post under `src/content/posts/`, can store an uploaded image in the
+adjacent `image-backend` repository, and can optionally commit and push both
+repositories. It is intentionally local-only and does not expose an admin
+endpoint on the public site.
 
 ## Importing from WordPress
 
