@@ -141,10 +141,14 @@ npm run publisher
 ```
 
 `npm run publisher` starts a local writing form at `http://127.0.0.1:4322`. It
+supports a Markdown editor with preview, table/code/list helpers, local draft
+autosave, drag-and-drop images, and bilingual/featured-post metadata. It
 creates a post under `src/content/posts/`, can store an uploaded image in the
 adjacent `image-backend` repository, and can optionally commit and push both
-repositories. It is intentionally local-only and does not expose an admin
-endpoint on the public site.
+repositories. The `{{UPLOADED_IMAGE}}` toolbar button inserts a placeholder
+that is replaced with the final image URL when the article is saved. The
+publisher is intentionally local-only and does not expose an admin endpoint on
+the public site.
 
 ## Importing from WordPress
 

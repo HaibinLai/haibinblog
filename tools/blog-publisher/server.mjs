@@ -1,4 +1,5 @@
 import http from 'node:http';
+import { createHash } from 'node:crypto';
 import { spawn } from 'node:child_process';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
@@ -75,6 +76,19 @@ const run = (cwd, args) => new Promise((resolve, reject) => {
   child.on('close', (code) => code === 0 ? resolve(stdout.trim()) : reject(new Error(stderr.trim() || `git exited with ${code}`)));
 });
 
+const hasStagedChanges = async (cwd) => {
+  try { await run(cwd, ['diff', '--cached', '--quiet']); return false; }
+  catch { return true; }
+};
+
+async function commitAndPush(cwd, paths, message) {
+  await run(cwd, ['add', ...paths]);
+  if (!await hasStagedChanges(cwd)) return false;
+  await run(cwd, ['commit', '-m', message]);
+  await run(cwd, ['push', 'origin', 'main']);
+  return true;
+}
+
 async function saveImage(image) {
   if (!image?.name || !image.data) return null;
   const extension = path.extname(image.name).toLowerCase();
@@ -82,7 +96,10 @@ async function saveImage(image) {
   const month = String(image.month || '').match(/^\d{4}-\d{2}$/)?.[0];
   if (!month) throw new Error('图片月份格式应为 YYYY-MM');
   const slug = safeSlug(image.slug);
-  const filename = `${safeSlug(path.basename(image.name, extension)) || 'image'}${extension}`;
+  const bytes = Buffer.from(image.data, 'base64');
+  if (!bytes.length) throw new Error('图片内容为空');
+  const digest = createHash('sha256').update(bytes).digest('hex').slice(0, 12);
+  const filename = `${safeSlug(path.basename(image.name, extension)) || 'image'}-${digest}${extension}`;
   const relative = path.join(month, slug, filename);
   const target = path.join(imageRepo, relative);
   if (!target.startsWith(`${imageRepo}${path.sep}`)) throw new Error('图片路径无效');
@@ -97,22 +114,19 @@ async function handleSave(req, res) {
   const slug = safeSlug(data.slug || data.title);
   const imageUrl = await saveImage(data.image);
   if (imageUrl && !data.cardImage) data.cardImage = imageUrl;
+  const body = imageUrl
+    ? String(data.body).replaceAll('{{UPLOADED_IMAGE}}', `![${data.image.name}](${imageUrl})`)
+    : String(data.body).replaceAll('{{UPLOADED_IMAGE}}', '');
   const relative = path.join('src/content/posts', `${slug}.md`);
   const filename = path.join(root, relative);
   await mkdir(path.dirname(filename), { recursive: true });
-  await writeFile(filename, frontmatter({ ...data, slug }), 'utf8');
-  const result = { file: relative, slug, imageUrl, url: `/haibinblog/posts/${encodeURIComponent(slug)}/` };
+  await writeFile(filename, frontmatter({ ...data, body, slug }), 'utf8');
+  const result = { file: relative, slug, imageUrl, url: `https://haibinlai.github.io/haibinblog/posts/${encodeURIComponent(slug)}/` };
   if (data.push) {
-    await run(root, ['add', relative]);
-    await run(root, ['commit', '-m', `Add post: ${data.title.trim()}`]);
-    await run(root, ['push', 'origin', 'main']);
-    result.pushed = true;
     if (imageUrl) {
-      await run(imageRepo, ['add', '.']);
-      await run(imageRepo, ['commit', '-m', `Add images for ${slug}`]);
-      await run(imageRepo, ['push', 'origin', 'main']);
-      result.imagesPushed = true;
+      result.imagesPushed = await commitAndPush(imageRepo, [path.relative(imageRepo, path.join(data.image.month, safeSlug(data.image.slug), path.basename(new URL(imageUrl).pathname)))], `Add images for ${slug}`);
     }
+    result.pushed = await commitAndPush(root, [relative], `Add post: ${data.title.trim()}`);
   }
   send(res, 200, result);
 }
