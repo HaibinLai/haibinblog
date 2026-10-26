@@ -148,7 +148,9 @@ adjacent `image-backend` repository, and can optionally commit and push both
 repositories. The `{{UPLOADED_IMAGE}}` toolbar button inserts a placeholder
 that is replaced with the final image URL when the article is saved. The
 publisher is intentionally local-only and does not expose an admin endpoint on
-the public site.
+the public site. A cover can also be set by pasting an existing HTTP(S) image
+URL, such as an S3 or Tencent Cloud URL, without copying that file into
+`image-backend`.
 
 ## Importing from WordPress
 

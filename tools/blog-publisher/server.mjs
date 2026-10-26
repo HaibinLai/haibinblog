@@ -33,6 +33,16 @@ const yamlList = (value) => {
   return `[${items.map(yamlQuote).join(', ')}]`;
 };
 
+const remoteImageUrl = (value, name) => {
+  const text = String(value || '').trim();
+  if (!text) return '';
+  try {
+    const url = new URL(text);
+    if (!['http:', 'https:'].includes(url.protocol)) throw new Error();
+    return url.href;
+  } catch { throw new Error(`${name} 必须是 HTTPS 或 HTTP 图片地址`); }
+};
+
 const frontmatter = (data) => {
   const lines = [
     '---',
@@ -111,6 +121,8 @@ async function saveImage(image) {
 async function handleSave(req, res) {
   const data = await readJson(req);
   if (!data.title?.trim() || !data.body?.trim()) throw new Error('标题和正文不能为空');
+  data.cardImage = remoteImageUrl(data.cardImage, '封面图片 URL');
+  data.featuredImage = remoteImageUrl(data.featuredImage, '精选横幅 URL');
   const slug = safeSlug(data.slug || data.title);
   const imageUrl = await saveImage(data.image);
   if (imageUrl && !data.cardImage) data.cardImage = imageUrl;

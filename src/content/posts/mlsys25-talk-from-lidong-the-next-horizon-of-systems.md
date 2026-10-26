@@ -7,6 +7,8 @@ category: Research
 categories: []
 tags: []
 draft: false
+cardImage: https://haibinblog.s3.us-east-1.amazonaws.com/2026/20261025180750054.png
+featuredImage: https://haibinblog.s3.us-east-1.amazonaws.com/2026/20261025180750054.png
 showCitation: true
 ---
 ![image.png](https://haibinblog.s3.us-east-1.amazonaws.com/2026/20261025180750054.png)

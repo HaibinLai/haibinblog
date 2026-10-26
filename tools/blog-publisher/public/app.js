@@ -2,6 +2,7 @@ const form = document.querySelector('#post-form');
 const bodyInput = document.querySelector('#body');
 const result = document.querySelector('#result');
 const imageInput = document.querySelector('#image');
+const cardImageInput = document.querySelector('#card-image');
 const imageDrop = document.querySelector('#image-drop');
 const imageStatus = document.querySelector('#image-status');
 const imagePreviewWrap = document.querySelector('.image-preview-wrap');
@@ -105,11 +106,17 @@ const fileAsBase64 = (file) => new Promise((resolve, reject) => {
 });
 
 function showImage(file) {
-  if (!file) { imagePreviewWrap.hidden = true; imageStatus.textContent = '图片会保存到 image-backend 的 YYYY-MM/文章名/ 目录。'; return; }
+  if (!file) {
+    const remote = cardImageInput.value.trim();
+    if (remote) { imagePreview.src = remote; imageName.textContent = '远程封面图片'; imagePreviewWrap.hidden = false; imageStatus.textContent = '将使用这个远程地址作为封面图片。'; }
+    else { imagePreviewWrap.hidden = true; imageStatus.textContent = '可以直接粘贴 S3、腾讯云或其他 HTTPS 图片地址；本地上传仍会保存到 image-backend。'; }
+    return;
+  }
   imagePreview.src = URL.createObjectURL(file); imageName.textContent = file.name; imagePreviewWrap.hidden = false;
   imageStatus.textContent = `已选择：${file.name}；保存后会写入 image-backend。`;
 }
 imageInput.addEventListener('change', () => showImage(imageInput.files[0]));
+cardImageInput.addEventListener('input', () => { if (!imageInput.files[0]) showImage(null); scheduleLocalDraft(); });
 ['dragenter', 'dragover'].forEach((eventName) => imageDrop.addEventListener(eventName, (event) => { event.preventDefault(); imageDrop.classList.add('is-over'); }));
 ['dragleave', 'drop'].forEach((eventName) => imageDrop.addEventListener(eventName, (event) => { event.preventDefault(); imageDrop.classList.remove('is-over'); }));
 imageDrop.addEventListener('drop', (event) => { const file = event.dataTransfer.files[0]; if (file) { imageInput.files = event.dataTransfer.files; showImage(file); } });
