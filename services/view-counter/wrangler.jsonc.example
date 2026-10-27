@@ -11,6 +11,16 @@
     "GITHUB_BASE_PATH": "/haibinblog",
     "EVENT_RETENTION_DAYS": "8"
   },
+  "ratelimits": [
+    {
+      "name": "VIEW_RATE_LIMITER",
+      "namespace_id": "2601027",
+      "simple": {
+        "limit": 30,
+        "period": 60
+      }
+    }
+  ],
   "triggers": {
     "crons": ["17 4 * * *"]
   },

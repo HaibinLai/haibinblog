@@ -4,6 +4,11 @@ An independently deployable Cloudflare Worker + D1 service for the blog's site-w
 
 The historical site total starts at **363842**. Each post separately starts at its own Markdown frontmatter `viewCount`. A new accepted view increments the site counter and that page's counter in the same D1 write. Repeated views with the same canonical path, time bucket, browser `visitorId`, and IP/User-Agent fingerprint do not increment again.
 
+The `POST /view` endpoint also uses the Cloudflare Workers Rate Limiting API:
+each IP is allowed up to 30 calls per 60 seconds. Excess requests receive HTTP
+429 and do not reach D1. This is an approximate limit maintained per Cloudflare
+location, so it is a bot-abuse guard rather than an exact global quota.
+
 The site baseline and per-page baselines are independent WordPress data. The page totals are never summed into 363842, and any difference between them is deliberately left untouched rather than distributed among posts.
 
 ## API
@@ -115,6 +120,13 @@ The site and page seeds use `ON CONFLICT DO NOTHING`, so rerunning initializatio
 
 Wrangler's D1 binding configuration follows Cloudflare's current [`d1_databases` format](https://developers.cloudflare.com/workers/wrangler/configuration/#d1-databases). The example intentionally contains a placeholder database ID and is not deployable until that value is replaced.
 
+The `VIEW_RATE_LIMITER` binding in `wrangler.jsonc` uses namespace `2601027`.
+Rate-limit namespace IDs must be unique within a Cloudflare account; if
+Wrangler reports that this ID is already in use, change it to another positive
+integer and keep the same value for future deployments. The binding requires a
+recent Wrangler CLI (the repository's `wrangler` dependency is already recent
+enough).
+
 ## Local development
 
 ```bash
@@ -153,5 +165,6 @@ npm test
 | `DEDUP_WINDOW_SECONDS` | `86400` | Deduplication time bucket, 60 seconds to 7 days |
 | `GITHUB_BASE_PATH` | `/haibinblog` | Base stripped from GitHub Pages paths |
 | `EVENT_RETENTION_DAYS` | `90` | Number of days to retain hashed events for deduplication and public aggregate trends |
+| `VIEW_RATE_LIMITER` | `30 / 60 seconds / IP` | Cloudflare Workers Rate Limiting binding for `POST /view` |
 
 Changing `HASH_SALT` makes existing hashes incomparable and can allow one extra count for returning visitors in the active bucket. Keep it stable after launch.

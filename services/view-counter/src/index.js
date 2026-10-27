@@ -11,6 +11,7 @@ const DEFAULT_RETENTION_DAYS = 8;
 const MAX_PATH_LENGTH = 512;
 const MAX_VISITOR_ID_LENGTH = 128;
 const STATS_PERIODS = new Set([7, 30, 90]);
+const VIEW_RATE_LIMIT_KEY_PREFIX = "view:";
 
 const COUNT_SQL = `
   SELECT
@@ -154,6 +155,19 @@ function json(payload, status, origin) {
     status,
     headers: corsHeaders(origin),
   });
+}
+
+async function allowViewRequest(request, env) {
+  // The binding is configured in wrangler.jsonc for production. Keeping this
+  // optional makes the Worker tests and local development usable without a
+  // live Cloudflare rate-limit namespace.
+  if (!env.VIEW_RATE_LIMITER?.limit) return true;
+
+  const ipAddress = request.headers.get("CF-Connecting-IP") || "unknown";
+  const result = await env.VIEW_RATE_LIMITER.limit({
+    key: `${VIEW_RATE_LIMIT_KEY_PREFIX}${ipAddress}`,
+  });
+  return result?.success !== false;
 }
 
 function responsePayload(row, incremented) {
@@ -341,6 +355,16 @@ async function handleRequest(request, env) {
   }
 
   if (request.method === "POST" && url.pathname === "/view") {
+    if (!(await allowViewRequest(request, env))) {
+      return new Response(JSON.stringify({ error: "rate limit exceeded" }), {
+        status: 429,
+        headers: {
+          ...corsHeaders(origin),
+          "Retry-After": "60",
+        },
+      });
+    }
+
     const contentType = request.headers.get("Content-Type") || "";
     if (!contentType.toLowerCase().startsWith("application/json")) {
       throw new ApiError(415, "Content-Type must be application/json");

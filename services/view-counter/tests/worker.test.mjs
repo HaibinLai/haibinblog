@@ -60,12 +60,13 @@ class FakeD1 {
   }
 }
 
-function env(database = new FakeD1()) {
+function env(database = new FakeD1(), rateLimiter = null) {
   return {
     DB: database,
     HASH_SALT: "test-secret-with-at-least-16-characters",
     GITHUB_BASE_PATH: "/haibinblog",
     DEDUP_WINDOW_SECONDS: "86400",
+    ...(rateLimiter ? { VIEW_RATE_LIMITER: rateLimiter } : {}),
   };
 }
 
@@ -131,6 +132,26 @@ test("POST increments once per path, identity and time bucket", async () => {
     pageTotal: 1,
     incremented: false,
   });
+});
+
+test("rejects view writes when the per-IP rate limiter denies the request", async () => {
+  const calls = [];
+  const rateLimiter = {
+    async limit(value) {
+      calls.push(value);
+      return { success: false };
+    },
+  };
+  const response = await worker.fetch(
+    postRequest({ path: "/posts/demo/", visitorId: "visitor-12345678" }),
+    env(new FakeD1(), rateLimiter),
+  );
+
+  assert.equal(response.status, 429);
+  assert.equal(response.headers.get("Retry-After"), "60");
+  assert.equal(response.headers.get("Access-Control-Allow-Origin"), ALLOWED_ORIGIN);
+  assert.deepEqual(calls, [{ key: "view:203.0.113.7" }]);
+  assert.deepEqual(await response.json(), { error: "rate limit exceeded" });
 });
 
 test("GET returns the same response shape without incrementing", async () => {
