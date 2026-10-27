@@ -39,28 +39,32 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <hr />
 <h2>2. 核心微架构全景图</h2>
 <p>下图展示了我们 CPU 的核心微架构，这是一条基于双发射的超标量乱序流水线：</p>
-<pre><code class="language-mermaid">graph TD
+
+```mermaid
+graph TD
     subgraph Front-End [前端: 顺序派发]
-        IF[IF: 取指/分支预测] --&gt; ID[ID: 译码/双发射逻辑]
-        ID --&gt; Rename[Rename: 寄存器重命名]
+        IF[IF: 取指/分支预测] --> ID[ID: 译码/双发射逻辑]
+        ID --> Rename[Rename: 寄存器重命名]
     end
 
     subgraph Back-End [乱序引擎: 动态调度]
-        Rename --&gt;|分配/派发| RS[RS: 保留站矩阵]
-        Rename --&gt;|分配槽位| ROB[ROB: 重排序缓冲区]
+        Rename -->|分配/派发| RS[RS: 保留站矩阵]
+        Rename -->|分配槽位| ROB[ROB: 重排序缓冲区]
 
-        RS --&gt;|仲裁/乱序发射| EX[EX: 双执行通道 ALU/LSU]
+        RS -->|仲裁/乱序发射| EX[EX: 双执行通道 ALU/LSU]
 
-        EX --&gt;|写回广播| CDB((CDB 公共数据总线))
-        CDB --&gt;|1. Wakeup 唤醒数据| RS
-        CDB --&gt;|2. 标记执行完成| ROB
-        CDB --&gt;|3. 写入结果| PRF[(PRF: 统一物理寄存器)]
+        EX -->|写回广播| CDB((CDB 公共数据总线))
+        CDB -->|1. Wakeup 唤醒数据| RS
+        CDB -->|2. 标记执行完成| ROB
+        CDB -->|3. 写入结果| PRF[(PRF: 统一物理寄存器)]
     end
 
     subgraph Commit-Stage [提交段: 顺序退休]
-        ROB --&gt;|顺序 Retire| RRAT[更新架构寄存器状态]
-        ROB --&gt;|延迟写入| DMem[(L1 Data Cache)]
-    end</code></pre>
+        ROB -->|顺序 Retire| RRAT[更新架构寄存器状态]
+        ROB -->|延迟写入| DMem[(L1 Data Cache)]
+    end
+```
+
 <p>指令的整个生命周期可以切分为：<strong>取指 (IF) → 译码/重命名 (Rename/Dispatch) → 监听唤醒与发射 (Wakeup/Issue) → 执行与广播 (Execute &amp; Writeback) → 顺序退休 (Commit)</strong>。</p>
 <hr />
 <h2>3. 寄存器重命名（Rename）：解决假依赖的硬件本质</h2>

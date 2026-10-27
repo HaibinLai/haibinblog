@@ -60,34 +60,38 @@ LW   x10, 4(x15)    // 读 A[1]，又是 Index 1！被迫踢掉 B[0]...</code></
 <li><strong>Byte (2-bit)</strong>: 字节对齐（处理读写指令的 Byte 宽度）。</li>
 </ul>
 <p>下图展示了读操作（Read Hit）在 Cache 内部最核心的关键时序路径：</p>
-<pre><code class="language-mermaid">graph TD
-    ADDR[CPU 访存地址 32-bit] --&gt;|拆解| Decoder[Tag = bit 31:10&lt;br/&gt;Index = bit 9:4&lt;br/&gt;Offset = bit 3:2]
 
-    Decoder --&gt;|Index 路由| Bank0[(Way 0 SRAM Bank)&lt;br/&gt;Tag &amp; Data &amp; Valid]
-    Decoder --&gt;|Index 路由| Bank1[(Way 1 SRAM Bank)&lt;br/&gt;Tag &amp; Data &amp; Valid]
+```mermaid
+graph TD
+    ADDR[CPU 访存地址 32-bit] -->|拆解| Decoder[Tag = bit 31:10<br/>Index = bit 9:4<br/>Offset = bit 3:2]
 
-    Bank0 --&gt;|Way0 Tag | CMP0{CMP ==}
-    Decoder -.-&gt;|Address Tag| CMP0
-    Bank0 --&gt;|Way0 Valid| AND0(&amp;)
-    CMP0 --&gt; AND0
+    Decoder -->|Index 路由| Bank0[(Way 0 SRAM Bank)<br/>Tag & Data & Valid]
+    Decoder -->|Index 路由| Bank1[(Way 1 SRAM Bank)<br/>Tag & Data & Valid]
 
-    Bank1 --&gt;|Way1 Tag | CMP1{CMP ==}
-    Decoder -.-&gt;|Address Tag| CMP1
-    Bank1 --&gt;|Way1 Valid| AND1(&amp;)
-    CMP1 --&gt; AND1
+    Bank0 -->|Way0 Tag | CMP0{CMP ==}
+    Decoder -.->|Address Tag| CMP0
+    Bank0 -->|Way0 Valid| AND0(&)
+    CMP0 --> AND0
 
-    AND0 --&gt;|Hit 0| OR(OR Gate)
-    AND1 --&gt;|Hit 1| OR
-    OR --&gt;|最终 Hit | HitSignal((Hit Result))
+    Bank1 -->|Way1 Tag | CMP1{CMP ==}
+    Decoder -.->|Address Tag| CMP1
+    Bank1 -->|Way1 Valid| AND1(&)
+    CMP1 --> AND1
 
-    Bank0 --&gt;|Way0 Data Line 4-Words| MUX_WAY((Way MUX))
-    Bank1 --&gt;|Way1 Data Line 4-Words| MUX_WAY
-    AND0 -.-&gt;|Sel = 0| MUX_WAY
-    AND1 -.-&gt;|Sel = 1| MUX_WAY
+    AND0 -->|Hit 0| OR(OR Gate)
+    AND1 -->|Hit 1| OR
+    OR -->|最终 Hit | HitSignal((Hit Result))
 
-    MUX_WAY --&gt;|选出的 Cache Line| MUX_OFF((Offset MUX))
-    Decoder -.-&gt;|Offset 二进制位| MUX_OFF
-    MUX_OFF --&gt;|最终 32-bit Word| RData(CPU 读数据)</code></pre>
+    Bank0 -->|Way0 Data Line 4-Words| MUX_WAY((Way MUX))
+    Bank1 -->|Way1 Data Line 4-Words| MUX_WAY
+    AND0 -.->|Sel = 0| MUX_WAY
+    AND1 -.->|Sel = 1| MUX_WAY
+
+    MUX_WAY -->|选出的 Cache Line| MUX_OFF((Offset MUX))
+    Decoder -.->|Offset 二进制位| MUX_OFF
+    MUX_OFF -->|最终 32-bit Word| RData(CPU 读数据)
+```
+
 <h3>3.1 关键时序路径分析 (Critical Timing Path)</h3>
 <p>请仔细观察上面的网络，<strong>SRAM 读取 -&gt; Tag 比较器 (XOR 树) -&gt; Valid 位与门 -&gt; 多路选择器 (MUX) 最终选通 32-bit 数据</strong>，这段纯组合逻辑链条是现代 CPU 的超级性能瓶颈。
 如果 CPU 频率跑向 3GHz+（约 0.33ns 单周期），信号根本跑不完这条物理链路。这就是为什么高速处理器（如 Cortex-A78 或 Zen 架构）的 L1 命中往往需要 3~4 个独立流水周期，或者必须引入复杂的“路预测（Way Prediction）”技术。</p>

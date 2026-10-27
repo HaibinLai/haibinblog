@@ -63,30 +63,34 @@ $$\text{Penalty} = 325 \times 3 = 975 \text{ Cycles}$$
 <li><strong>T1 表</strong>: 128 项，挂载 8-bit GHR 历史。</li>
 <li><strong>T2 表</strong>: 128 项，挂载 16-bit GHR 历史。（真正的 TAGE 会拉大至 6~8 个表，最高百位历史，本项目为平衡门效做压缩）。</li>
 </ul>
-<pre><code class="language-mermaid">graph TD
-    PC[Fetch PC&lt;br&gt;32-bit] --&gt; BaseIDX(Base Hash: PC[9:2])
-    PC --&gt; Hash1(T1 Hash: PC ^ Fold_8bit)
-    PC --&gt; Hash2(T2 Hash: PC ^ Fold_16bit)
 
-    GHR[GHR 全局历史寄存器 32-bit] --&gt;|8-bit 折叠函数| Hash1
-    GHR --&gt;|16-bit 折叠函数| Hash2
+```mermaid
+graph TD
+    PC[Fetch PC<br>32-bit] --> BaseIDX(Base Hash: PC[9:2])
+    PC --> Hash1(T1 Hash: PC ^ Fold_8bit)
+    PC --> Hash2(T2 Hash: PC ^ Fold_16bit)
 
-    BaseIDX --&gt; Bank0[(T0 Base&lt;br&gt;256 组 2-bit BHT)]
-    Hash1 --&gt; Bank1[(T1 Tagged 表&lt;br&gt;Ctr+Usefulness+Tag)]
-    Hash2 --&gt; Bank2[(T2 Tagged 表&lt;br&gt;Ctr+Usefulness+Tag)]
+    GHR[GHR 全局历史寄存器 32-bit] -->|8-bit 折叠函数| Hash1
+    GHR -->|16-bit 折叠函数| Hash2
 
-    Bank2 --&gt;|Tag Match?| Match2{Hit?}
-    Bank1 --&gt;|Tag Match?| Match1{Hit?}
-    Bank0 --&gt;|Always Hit| Match0{Hit!}
+    BaseIDX --> Bank0[(T0 Base<br>256 组 2-bit BHT)]
+    Hash1 --> Bank1[(T1 Tagged 表<br>Ctr+Usefulness+Tag)]
+    Hash2 --> Bank2[(T2 Tagged 表<br>Ctr+Usefulness+Tag)]
 
-    Match2 --&gt;|Yes| Sel2(T2 预测结果)
-    Match1 --&gt;|Yes| Sel1(T1 预测结果)
+    Bank2 -->|Tag Match?| Match2{Hit?}
+    Bank1 -->|Tag Match?| Match1{Hit?}
+    Bank0 -->|Always Hit| Match0{Hit!}
 
-    Sel2 --&gt; MUX((长历史优先 MUX))
-    Sel1 --&gt; MUX
-    Match0 --&gt; MUX
+    Match2 -->|Yes| Sel2(T2 预测结果)
+    Match1 -->|Yes| Sel1(T1 预测结果)
 
-    MUX --&gt;|最终 Provider| Final(预测跳转方向)</code></pre>
+    Sel2 --> MUX((长历史优先 MUX))
+    Sel1 --> MUX
+    Match0 --> MUX
+
+    MUX -->|最终 Provider| Final(预测跳转方向)
+```
+
 <p><strong>预测选择逻辑 (Provider Selection)：</strong>
 TAGE 的奥义在于<strong>优先相信长历史的判断</strong>。电路通过并行的 Tag 比较，如果 T2 命中则强制采纳 T2；若未命中则降级求助 T1；若全不命中，靠底层的 T0 (Base) 保底。</p>
 <pre><code class="language-verilog">// bpu.v: 纯组合逻辑输出预测

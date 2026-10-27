@@ -306,9 +306,13 @@ search / file 的输入长尾明显右移。image 输出掉得最快。
 <hr />
 <h2>会话与 KV 缓存</h2>
 <p><code>chat_id</code> 在四条里都是 <strong>每条请求唯一</strong>。会话不是「同一个 chat_id 多行」，而是用 <code>parent_chat_id</code> 连成树。</p>
-<pre><code class="language-mermaid">flowchart LR
-  r[&quot;根请求 parent = -1&quot;] --&gt; t2[&quot;第 2 轮 parent = 根的 chat_id&quot;]
-  t2 --&gt; t3[&quot;第 3 轮&quot;]</code></pre>
+
+```mermaid
+flowchart LR
+  r["根请求 parent = -1"] --> t2["第 2 轮 parent = 根的 chat_id"]
+  t2 --> t3["第 3 轮"]
+```
+
 <p>To-B 这棵树退化成 17.3 万个互不连接的点。</p>
 <p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-09/a-li-yun-bai-lian-qwen-qing-qiu-trace-fen-xi/body-014-807e4bd1809e.webp" alt="KV 块复用" /></p>
 <ul>

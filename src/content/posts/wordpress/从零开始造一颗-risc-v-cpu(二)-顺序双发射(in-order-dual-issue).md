@@ -28,23 +28,27 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <h2>1. 突破标量极限：超标量与非对称流水线</h2>
 <p>在一个传统的单发射（Single-Issue）标量 CPU 中，即使流水线没有停顿，它的终极 IPC（Instruction Per Cycle）也被物理焊死在 1.0 的天花板上。为了打破这堵墙，我们在最初的基线架构中引入了<strong>超标量（Superscalar）顺序双发射</strong>设计。</p>
 <p>出于对 FPGA 面积和布线连通性的考量，我们没有做绝对的对称管线，而是设计了一条<strong>非对称双发射流水线</strong>：</p>
-<pre><code class="language-mermaid">graph TD
+
+```mermaid
+graph TD
     subgraph Front-End [指令拾取前端]
-        IF[IF: 取指阶段] --&gt; |最多并入 2-Instruction| IFQ[(IFQ: 8-Entry 指令队列)]
+        IF[IF: 取指阶段] --> |最多并入 2-Instruction| IFQ[(IFQ: 8-Entry 指令队列)]
     end
 
     subgraph Decode-Dispatch [译码与发射层 - InOrder 时代的梦魇]
-        IFQ --&gt; |双路流出| ID[ID2: 双发解码器]
-        ID --&gt; HZ{发射仲裁栅栏&lt;br&gt;静态检查 6 项冒险}
+        IFQ --> |双路流出| ID[ID2: 双发解码器]
+        ID --> HZ{发射仲裁栅栏<br>静态检查 6 项冒险}
     end
 
     subgraph Execution-Back-End [非对称双执行通道]
-        HZ --&gt;|Slot 0 刚性派发| S0_EX[EX1]
-        S0_EX --&gt; S0_EX2[EX2] --&gt; S0_AGU[AGU 算址] --&gt; S0_MEM[MEM 访存] --&gt; S0_WB[WB 写回]
+        HZ -->|Slot 0 刚性派发| S0_EX[EX1]
+        S0_EX --> S0_EX2[EX2] --> S0_AGU[AGU 算址] --> S0_MEM[MEM 访存] --> S0_WB[WB 写回]
 
-        HZ --&gt;|Slot 1 弹性派发| S1_EX[EX1b 轻量级 ALU]
-        S1_EX --&gt;|单周期直达| S1_WB[WB 写回]
-    end</code></pre>
+        HZ -->|Slot 1 弹性派发| S1_EX[EX1b 轻量级 ALU]
+        S1_EX -->|单周期直达| S1_WB[WB 写回]
+    end
+```
+
 <ul>
 <li><strong>Slot 0（主干道）</strong>：全功能重型流水线，深达 5 级执行段，能够抗住最重的 Load/Store/Branch/ALU 以及长计算指令。</li>
 <li><strong>Slot 1（辅通道）</strong>：极轻量的 1 周期微管线，专职吸收纯 ALU 计算，起到“拾遗补漏”、榨取指令级并行度（ILP）的作用。</li>

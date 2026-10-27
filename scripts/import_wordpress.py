@@ -35,6 +35,10 @@ BILINGUAL_PLACEHOLDER = re.compile(
     r"(?:<h1>.*?</h1>\s*)?",
     re.DOTALL,
 )
+MERMAID_HTML_BLOCK = re.compile(
+    r'<pre>\s*<code\s+class=["\']language-mermaid["\']>(.*?)</code>\s*</pre>',
+    re.DOTALL | re.IGNORECASE,
+)
 
 
 class TextExtractor(HTMLParser):
@@ -61,6 +65,22 @@ def summarize(excerpt: str, body: str, limit: int = 220) -> str:
     if len(value) <= limit:
         return value
     return value[: limit - 1].rstrip(" ,.;，。；") + "…"
+
+
+def normalize_mermaid_blocks(body: str) -> str:
+    """Convert WordPress Mermaid HTML blocks into Markdown fenced blocks.
+
+    WordPress exports often wrap Mermaid in raw ``<pre><code>`` HTML. Keeping
+    that wrapper makes the Markdown HTML parser treat blank lines as nested
+    markup, so diagrams can swallow the following article content. Fenced
+    blocks are unambiguous and also work with the client-side Mermaid renderer.
+    """
+
+    def replace(match: re.Match[str]) -> str:
+        source = html.unescape(match.group(1)).strip("\n")
+        return f"\n```mermaid\n{source}\n```\n"
+
+    return MERMAID_HTML_BLOCK.sub(replace, body)
 
 
 def safe_slug(raw_slug: str, post_id: str) -> str:
@@ -249,6 +269,7 @@ def main() -> int:
         title = item.findtext("title", default="Untitled")
         body = item.findtext("content:encoded", default="", namespaces=NS).strip()
         body = "\n".join(line.rstrip() for line in body.splitlines())
+        body = normalize_mermaid_blocks(body)
         excerpt = item.findtext("excerpt:encoded", default="", namespaces=NS)
         if BILINGUAL_PLACEHOLDER.match(body):
             body = BILINGUAL_PLACEHOLDER.sub("", body, count=1)

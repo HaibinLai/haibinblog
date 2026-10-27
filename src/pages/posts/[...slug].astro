@@ -84,6 +84,52 @@ const citation = `@online{${citationKey},\n  title={${post.data.title}},\n  auth
       <div class="prose"><Content /></div>
     </div>
     <script>
+      const renderMermaidDiagrams = async () => {
+        const mermaidBlocks = [
+          ...Array.from(document.querySelectorAll<HTMLElement>('.prose pre[data-language="mermaid"]')),
+          ...Array.from(document.querySelectorAll<HTMLElement>('.prose pre code.language-mermaid'))
+            .filter((code) => !code.closest('pre[data-language="mermaid"]')),
+        ];
+        if (!mermaidBlocks.length) return;
+
+        const { default: mermaid } = await import('mermaid');
+        const diagramWrappers = mermaidBlocks.map((code, index) => {
+          const wrapper = document.createElement('div');
+          wrapper.className = 'mermaid-diagram';
+          wrapper.dataset.mermaidSource = code.textContent?.trim() || '';
+          wrapper.dataset.mermaidId = `mermaid-diagram-${index}`;
+          wrapper.textContent = wrapper.dataset.mermaidSource;
+          (code.matches('code') ? code.closest('pre') : code)?.replaceWith(wrapper);
+          return wrapper;
+        });
+
+        mermaid.initialize({
+          startOnLoad: false,
+          securityLevel: 'strict',
+          theme: document.documentElement.classList.contains('dark') ? 'dark' : 'default',
+          flowchart: { htmlLabels: true, useMaxWidth: false },
+        });
+
+        try {
+          await mermaid.run({ nodes: diagramWrappers });
+        } catch (error) {
+          // Keep a readable source fallback when a diagram contains unsupported syntax.
+          console.warn('Mermaid diagram could not be rendered.', error);
+          diagramWrappers.forEach((wrapper) => {
+            wrapper.classList.add('mermaid-diagram--error');
+            const source = wrapper.dataset.mermaidSource || '';
+            const pre = document.createElement('pre');
+            const code = document.createElement('code');
+            code.className = 'language-mermaid';
+            code.textContent = source;
+            pre.append(code);
+            wrapper.replaceChildren(pre);
+          });
+        }
+      };
+
+      void renderMermaidDiagrams();
+
       const tableWrappers: HTMLElement[] = [];
 
       document.querySelectorAll<HTMLTableElement>('.prose table').forEach((table, index) => {

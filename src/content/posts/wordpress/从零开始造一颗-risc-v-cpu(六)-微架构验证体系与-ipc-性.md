@@ -69,24 +69,28 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <hr />
 <h2>2. 验证体系全景：Python ISS 与寄存器全息快照</h2>
 <p>我们的核心验证手段采用了工业界标配的 <strong>黄金模型协同仿真（Golden Model Co-Simulation）</strong>。我们在 Python 中硬写了一个纯净的 RISC-V 指令集模拟器（ISS）作为绝对正确的“上帝”。</p>
-<pre><code class="language-mermaid">graph TD
-    Generator[指令流生成器&lt;br&gt;gen_rv32_tests.py] --&gt;|生成 HEX 流| DUT[RTL (Verilog)]
-    Generator --&gt;|生成 HEX 流| ISS[Python 参考模型]
+
+```mermaid
+graph TD
+    Generator[指令流生成器<br>gen_rv32_tests.py] -->|生成 HEX 流| DUT[RTL (Verilog)]
+    Generator -->|生成 HEX 流| ISS[Python 参考模型]
 
     subgraph Verilator 闭环仿真栈
-        DUT --&gt; |执行中| DMon((微架构状态监听器))
-        DUT --&gt; |遇到 x31 = CAFEBABE| DTrace[Dump Arch State&lt;br&gt;32x32 寄存器墙]
+        DUT --> |执行中| DMon((微架构状态监听器))
+        DUT --> |遇到 x31 = CAFEBABE| DTrace[Dump Arch State<br>32x32 寄存器墙]
     end
 
     subgraph Python 解释器
-        ISS --&gt; |瞬间跑完| ITrace[Dump ISS State&lt;br&gt;32个正确的寄存器值]
+        ISS --> |瞬间跑完| ITrace[Dump ISS State<br>32个正确的寄存器值]
     end
 
-    DTrace --&gt; Comparator{Python 比对脚本}
-    ITrace --&gt; Comparator
+    DTrace --> Comparator{Python 比对脚本}
+    ITrace --> Comparator
 
-    Comparator --&gt;|Mismatch| FAIL[报告触发 Bug 的指令上下文]
-    Comparator --&gt;|Match| PASS[回归测试通过]</code></pre>
+    Comparator -->|Mismatch| FAIL[报告触发 Bug 的指令上下文]
+    Comparator -->|Match| PASS[回归测试通过]
+```
+
 <h3>2.1 硬件探针：终态投递与停机协议</h3>
 <p>为了让自动化脚本能知道 Verilog 什么时候跑完代码，我们在汇编器的编译流末尾强行注入了一段“停机封印”（Epilogue）：</p>
 <pre><code class="language-python"># 工具链 asm.py 中的尾流生成
