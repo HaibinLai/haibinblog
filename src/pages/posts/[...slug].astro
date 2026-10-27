@@ -5,6 +5,7 @@ import ArticleNavigation from '../../components/ArticleNavigation.astro';
 import LanguageSwitcher from '../../components/LanguageSwitcher.astro';
 import RightSidebar from '../../components/RightSidebar.astro';
 import ViewCount from '../../components/ViewCount.astro';
+import { countArticleWords } from '../../lib/articleStats';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts', ({ data }) => !data.draft);
@@ -54,6 +55,7 @@ const updatedDate = post.data.updatedAt?.toLocaleDateString('en-US', { year: 'nu
 const authorName = ['GB', 'haibin'].includes(post.data.author) ? 'Haibin Lai' : post.data.author;
 const citationKey = `lai-${post.id.replace(/[^a-z0-9]+/gi, '-').toLowerCase()}`;
 const citation = `@online{${citationKey},\n  title={${post.data.title}},\n  author={Haibin Lai},\n  year={${post.data.publishedAt.getFullYear()}},\n  url={${Astro.url.href}},\n}`;
+const wordCount = countArticleWords(post.body ?? '');
 ---
 
 <BaseLayout
@@ -78,6 +80,7 @@ const citation = `@online{${citationKey},\n  title={${post.data.title}},\n  auth
         {updatedDate && <span>Updated {updatedDate}</span>}
         <span><ViewCount scope="page" value={post.data.viewCount ?? 0} /> views</span>
         <span>{post.data.commentCount} comments</span>
+        <span>{wordCount.toLocaleString('en-US')} Words</span>
       </div>
     </header>
     <div class="article-layout">
