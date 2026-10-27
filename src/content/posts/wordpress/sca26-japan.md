@@ -569,10 +569,8 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-113-0158aeca682c.webp" alt="8c108de5685bedaeb01d5825440a63c2.jpg" /></p>
 <p>左边是日本共产党的宣传车，右边马路是一群听众。演讲者讲着党派的口号，右边的人时时爆发出一阵支持声。</p>
 <video width="95%" controls preload="metadata">
-
-<source src="https://cdn.jsdelivr.net/gh/HaibinLai/japan-trip-assets@main/com.mp4" type="video/mp4">
-
-</source></video>
+  <source src="https://cdn.jsdelivr.net/gh/HaibinLai/japan-trip-assets@main/com.mp4" type="video/mp4">
+</video>
 <p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-114-b1334ce411eb.webp" alt="a285952b3ed4e29ad0f893cada7a5e4e.jpg" /></p>
 <p>旁边的社员见我又兴趣，给了我一份他们的传单：</p>
 <p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-115-cb23a9e9be76.webp" alt="852b2ccd36c4b204e0ba4b365f1dfae7.jpg" /></p>
@@ -638,16 +636,12 @@ cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-
 <p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-02/sca26-japan/body-133-4d7b1e6ef653.webp" alt="image.png" /></p>
 <p>可是似乎不对。可能地图标错了，或者目前没有了。我认为应该是我找错街道了。</p>
 <video width="95%" controls preload="metadata">
-
-<source src="https://cdn.jsdelivr.net/gh/HaibinLai/japan-trip-assets@main/tomako.mp4" type="video/mp4">
-
-</source></video>
+  <source src="https://cdn.jsdelivr.net/gh/HaibinLai/japan-trip-assets@main/tomako.mp4" type="video/mp4">
+</video>
 <p>在这之后，由于天色已晚，又没有穿太厚，就搭乘特急回酒店了。此时又继续写写paper。</p>
 <video width="95%" controls preload="metadata">
-
-<source src="https://cdn.jsdelivr.net/gh/HaibinLai/japan-trip-assets@main/8583e2aec554b48c7afa35dd4559ebbf.mp4" type="video/mp4">
-
-</source></video>
+  <source src="https://cdn.jsdelivr.net/gh/HaibinLai/japan-trip-assets@main/8583e2aec554b48c7afa35dd4559ebbf.mp4" type="video/mp4">
+</video>
 <details>
 <summary>关于列车类别</summary>
 还有一点需要注意的是，如果你在列车信息里看到列车种别不是「普通」「準急」「急行」「区間急行」或者「特急」，而是写着  Liner（ライナー，读作 Li-nā），那就要特别留意了。
