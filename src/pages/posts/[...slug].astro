@@ -5,6 +5,7 @@ import ArticleNavigation from '../../components/ArticleNavigation.astro';
 import LanguageSwitcher from '../../components/LanguageSwitcher.astro';
 import RightSidebar from '../../components/RightSidebar.astro';
 import ViewCount from '../../components/ViewCount.astro';
+import Comments from '../../components/Comments.astro';
 import { countArticleWords } from '../../lib/articleStats';
 
 export async function getStaticPaths() {
@@ -79,7 +80,7 @@ const wordCount = countArticleWords(post.body ?? '');
         <time datetime={post.data.publishedAt.toISOString()}>{publishedDate}</time>
         {updatedDate && <span>Updated {updatedDate}</span>}
         <span><ViewCount scope="page" value={post.data.viewCount ?? 0} /> views</span>
-        <span>{post.data.commentCount} comments</span>
+        <a class="post-comments-link" href="#comments">{post.data.commentCount} comments</a>
         <span>{wordCount.toLocaleString('en-US')} Words</span>
       </div>
     </header>
@@ -180,6 +181,7 @@ const wordCount = countArticleWords(post.body ?? '');
         details.addEventListener('toggle', () => requestAnimationFrame(updateScrollableTables));
       });
     </script>
+    <Comments comments={post.data.comments} commentCount={post.data.commentCount} />
     {post.data.showCitation && (
       <section class="citation">
         <h2>If you need to cite this post</h2>

@@ -1,0 +1,154 @@
+---
+interface ImportedComment {
+  author: string;
+  replyTo: string;
+  content: string;
+}
+
+interface Props {
+  comments: ImportedComment[];
+  commentCount: number;
+}
+
+const { comments, commentCount } = Astro.props;
+const hasImportedComments = comments.length > 0;
+---
+
+<section class="comments-section" id="comments" aria-labelledby="comments-title">
+  <div class="comments-heading">
+    <div>
+      <p class="comments-eyebrow">DISCUSSION</p>
+      <h2 id="comments-title">Comments</h2>
+    </div>
+    <span>{commentCount} imported</span>
+  </div>
+
+  {hasImportedComments ? (
+    <div class="comments-history" aria-label="Imported comments">
+      <p class="comments-history-label">Comments from the original WordPress site</p>
+      {comments.map((comment) => (
+        <article class="comments-history-item">
+          <div class="comments-history-meta">
+            <strong>{comment.author}</strong>
+            {comment.replyTo && <span>replied to {comment.replyTo}</span>}
+          </div>
+          <p>{comment.content}</p>
+        </article>
+      ))}
+    </div>
+  ) : (
+    <p class="comments-empty">No imported comments yet. Start the conversation below.</p>
+  )}
+
+  <div class="github-comments" aria-label="GitHub comments">
+    <p class="github-comments-label">Leave a comment with GitHub</p>
+    <script
+      is:inline
+      src="https://utteranc.es/client.js"
+      repo="HaibinLai/haibinblog"
+      issue-term="pathname"
+      theme="github-light"
+      crossorigin="anonymous"
+      async
+    ></script>
+  </div>
+</section>
+
+<style>
+  .comments-section {
+    margin-top: 58px;
+    padding-top: 26px;
+    border-top: 1px solid var(--line);
+    scroll-margin-top: 90px;
+  }
+
+  .comments-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .comments-eyebrow {
+    margin: 0 0 5px;
+    color: var(--accent-dark);
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+  }
+
+  .comments-heading h2 {
+    margin: 0;
+    font-size: 1.45rem;
+  }
+
+  .comments-heading > span,
+  .comments-history-label,
+  .github-comments-label,
+  .comments-empty {
+    color: var(--muted);
+    font-size: .78rem;
+  }
+
+  .comments-heading > span {
+    white-space: nowrap;
+  }
+
+  .comments-history {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+
+  .comments-history-label,
+  .github-comments-label {
+    margin: 0 0 10px;
+  }
+
+  .comments-history-item {
+    padding: 13px 15px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: color-mix(in srgb, var(--surface) 92%, var(--accent) 8%);
+  }
+
+  .comments-history-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 7px;
+    font-size: .78rem;
+  }
+
+  .comments-history-meta span {
+    color: var(--muted);
+    font-size: .72rem;
+  }
+
+  .comments-history-item p {
+    margin: 8px 0 0;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+
+  .comments-empty {
+    margin: 0 0 26px;
+  }
+
+  .github-comments {
+    min-height: 110px;
+  }
+
+  :global(.utterances) {
+    max-width: none;
+  }
+
+  @media (max-width: 640px) {
+    .comments-heading {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 6px;
+    }
+  }
+</style>
