@@ -197,3 +197,16 @@ body { background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 4%, 
 
 /* Keep migrated videos visible and visually separated from surrounding prose. */
 .article-page-shell .prose video { display: block; margin: 1.35rem auto; }
+
+/* WordPress exported Bilibili embeds use a fixed 600x300 frame. Keep the
+   player responsive and use the standard 16:9 video ratio instead. */
+.article-page-shell .prose iframe[src*="bilibili.com/player"] {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  margin: 1.5rem auto;
+  border: 0;
+  border-radius: 8px;
+  background: var(--surface-soft);
+}
