@@ -107,7 +107,7 @@ const citation = `@online{${citationKey},\n  title={${post.data.title}},\n  auth
           startOnLoad: false,
           securityLevel: 'strict',
           theme: document.documentElement.classList.contains('dark') ? 'dark' : 'default',
-          flowchart: { htmlLabels: true, useMaxWidth: false },
+          flowchart: { htmlLabels: true, useMaxWidth: true },
         });
 
         try {
