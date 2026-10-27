@@ -14,7 +14,7 @@ export default defineConfig({
   markdown: {
     processor: unified({
       remarkPlugins: [remarkMath, remarkCallouts],
-      // Parse imported WordPress HTML before applying defaults to its <img> nodes.
+      // Parse imported WordPress HTML before applying defaults to media/embed nodes.
       rehypePlugins: [rehypeKatex, rehypeRaw, rehypeImageLoading],
     }),
   },
