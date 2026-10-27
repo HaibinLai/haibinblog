@@ -1076,7 +1076,7 @@ https://www.jcp.or.jp/web_senkyo/2542/
 </details>
 <p>列车视频（比较长，github不一定能加载出来）</p>
 <video width="45%" controls preload="metadata">
-  <source src="https://cdn.jsdelivr.net/gh/HaibinLai/japan-trip-assets@main/23a5e5c38313d86df6b8dde94a3534ec_raw.mp4" type="video/mp4">
+  <source src="https://raw.githubusercontent.com/HaibinLai/japan-trip-assets/main/23a5e5c38313d86df6b8dde94a3534ec_raw.mp4" type="video/mp4">
 </source></video>
 <p><img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/02/6de31b39cb3f7e51a682b5e9045e4eac.png" alt="6de31b39cb3f7e51a682b5e9045e4eac.png" /></p>
 <p>买了个咖啡和小吃，回家。</p>
