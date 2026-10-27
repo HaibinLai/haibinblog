@@ -71,7 +71,7 @@ const postMetadata = Object.fromEntries(posts.map((post) => {
   (() => {
     const root = document.querySelector(`[data-analytics-mode="${mode}"]`);
     if (!root) return;
-    const colors = ['#39b985', '#e6a23c', '#409eff', '#f56c6c', '#9b59b6'];
+    const colors = ['#800000', '#B8860B', '#A6192E', '#4b4b4b', '#9b6b6b'];
     const number = (value) => new Intl.NumberFormat('en-US').format(Number(value) || 0);
     const metaFor = (path) => postMetadata[path] || {
       title: decodeURIComponent(path.split('/').filter(Boolean).pop() || path),
