@@ -4,6 +4,8 @@ const JSON_HEADERS = {
   "X-Content-Type-Options": "nosniff",
 };
 
+const ACCESS_TEAM_DOMAIN = "ancient-voice-e96f.cloudflareaccess.com";
+
 class ApiError extends Error {
   constructor(status, message) { super(message); this.status = status; }
 }
@@ -12,12 +14,40 @@ const json = (body, status = 200) => new Response(JSON.stringify(body), { status
 const text = (body, status = 200) => new Response(body, { status, headers: { "Content-Type": "text/plain; charset=utf-8", "Cache-Control": "no-store" } });
 const now = () => Math.floor(Date.now() / 1000);
 
-async function requireIdentity(env, ctx) {
-  if (!ctx.access) throw new ApiError(403, "Cloudflare Access login required");
-  const identity = await ctx.access.getIdentity();
+async function getAccessIdentity(request, ctx) {
+  if (ctx?.access) return ctx.access.getIdentity();
+
+  // Static Assets run behind an internal router, so ctx.access is not passed
+  // to this Worker. Access still provides the authenticated identity header.
+  const headerEmail = request.headers.get("Cf-Access-Authenticated-User-Email");
+  if (headerEmail) {
+    return {
+      email: headerEmail,
+      name: request.headers.get("Cf-Access-Authenticated-User-Name") || headerEmail,
+    };
+  }
+
+  // Keep a direct identity lookup as a fallback for Access configurations that
+  // do not forward the identity headers to a Worker using Static Assets.
+  const cookie = request.headers.get("Cookie");
+  if (!cookie) return null;
+  try {
+    const response = await fetch(`https://${ACCESS_TEAM_DOMAIN}/cdn-cgi/access/get-identity`, {
+      headers: { Accept: "application/json", Cookie: cookie },
+    });
+    if (!response.ok) return null;
+    return await response.json();
+  } catch {
+    return null;
+  }
+}
+
+async function requireIdentity(env, request, ctx) {
+  const identity = await getAccessIdentity(request, ctx);
   const email = String(identity?.email || "").trim().toLowerCase();
   const allowed = String(env.ALLOWED_EMAIL || "").trim().toLowerCase();
-  if (!email || !allowed || email !== allowed) throw new ApiError(403, "This account is not allowed");
+  if (!email) throw new ApiError(403, "Cloudflare Access login required");
+  if (!allowed || email !== allowed) throw new ApiError(403, "This account is not allowed");
   return { email, name: identity?.name || email };
 }
 
@@ -139,7 +169,7 @@ export default {
     const url = new URL(request.url);
     if (!url.pathname.startsWith("/api/")) return env.ASSETS.fetch(request);
     try {
-      const identity = await requireIdentity(env, ctx);
+      const identity = await requireIdentity(env, request, ctx);
       if (url.pathname === "/api/session" && request.method === "GET") return json({ user: identity });
       if (url.pathname === "/api/export" && request.method === "GET") {
         const [todos, posts] = await env.DB.batch([
