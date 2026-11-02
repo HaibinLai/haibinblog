@@ -30,7 +30,40 @@ const base = import.meta.env.BASE_URL;
       <p>People and places I am glad to keep in view.</p>
     </div>
 
-    <div class="friends-grid">
+    <div class="friend-network" data-friend-network>
+      <svg class="friend-network-lines" aria-hidden="true" preserveAspectRatio="none">
+        {friends.map((_, index) => <line data-network-line={index} />)}
+      </svg>
+      <div class="friend-network-node friend-network-center" data-network-node data-x="50" data-y="50">
+        <div class="friend-network-avatar friend-network-avatar-main"><img src={`${base}images/avatar.svg`} alt="" /></div>
+        <strong>Haibin Lai</strong>
+        <span>This is me</span>
+      </div>
+      {friends.map((friend, index) => (
+        <a
+          class="friend-network-node friend-network-friend"
+          href={friend.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          data-network-node
+          data-x={index === 0 ? '16' : index === 1 ? '84' : '23'}
+          data-y={index === 0 ? '19' : index === 1 ? '22' : '78'}
+        >
+          <div class="friend-network-avatar">
+            <img
+              src={`https://www.google.com/s2/favicons?domain=${new URL(friend.url).hostname}&sz=128`}
+              alt=""
+              loading="lazy"
+              onerror={`this.onerror=null;this.src='${base}images/avatar.svg'`}
+            />
+          </div>
+          <strong>{friend.name}</strong>
+          <span>{new URL(friend.url).hostname}</span>
+        </a>
+      ))}
+    </div>
+
+    <div class="friends-grid" aria-label="Friend links">
       {friends.map((friend) => (
         <a class="friend-card" href={friend.url} target="_blank" rel="noopener noreferrer">
           <img
@@ -50,3 +83,43 @@ const base = import.meta.env.BASE_URL;
     </div>
   </section>
 </BaseLayout>
+
+<script>
+  const network = document.querySelector('[data-friend-network]');
+
+  if (network) {
+    const nodes = [...network.querySelectorAll('[data-network-node]')];
+    const lines = [...network.querySelectorAll('[data-network-line]')];
+    const center = nodes[0];
+
+    const drawLines = () => {
+      const bounds = network.getBoundingClientRect();
+      network.querySelector('svg')?.setAttribute('viewBox', `0 0 ${bounds.width} ${bounds.height}`);
+      const centerBounds = center.getBoundingClientRect();
+      const origin = {
+        x: centerBounds.left - bounds.left + centerBounds.width / 2,
+        y: centerBounds.top - bounds.top + centerBounds.height / 2,
+      };
+
+      nodes.slice(1).forEach((node, index) => {
+        const nodeBounds = node.getBoundingClientRect();
+        const line = lines[index];
+        line.setAttribute('x1', origin.x);
+        line.setAttribute('y1', origin.y);
+        line.setAttribute('x2', nodeBounds.left - bounds.left + nodeBounds.width / 2);
+        line.setAttribute('y2', nodeBounds.top - bounds.top + nodeBounds.height / 2);
+      });
+    };
+
+    const positionNodes = () => {
+      nodes.forEach((node) => {
+        node.style.left = `${node.dataset.x}%`;
+        node.style.top = `${node.dataset.y}%`;
+      });
+      requestAnimationFrame(drawLines);
+    };
+
+    positionNodes();
+    window.addEventListener('resize', positionNodes);
+  }
+</script>
