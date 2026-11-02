@@ -1,0 +1,52 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const friends = [
+  {
+    name: 'Yicheng Xiao',
+    url: 'https://jaredanwolfgang.github.io/',
+    description: 'Personal site and notes',
+  },
+  {
+    name: 'Ben Chen',
+    url: 'https://blog.benx.dev/',
+    description: 'Chenben',
+  },
+  {
+    name: 'Tianrun Qiu',
+    url: 'https://r-q.name/',
+    description: 'Personal site',
+  },
+];
+
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="My Friends | Haibin's Blog" description="Friends and fellow travelers in research and life.">
+  <section class="friends-page content-shell">
+    <div class="friends-heading">
+      <p class="eyebrow">MY FRIENDS</p>
+      <h1>Friends</h1>
+      <p>People and places I am glad to keep in view.</p>
+    </div>
+
+    <div class="friends-grid">
+      {friends.map((friend) => (
+        <a class="friend-card" href={friend.url} target="_blank" rel="noopener noreferrer">
+          <img
+            src={`https://www.google.com/s2/favicons?domain=${new URL(friend.url).hostname}&sz=128`}
+            alt=""
+            loading="lazy"
+            onerror={`this.onerror=null;this.src='${base}images/avatar.svg'`}
+          />
+          <div class="friend-card-body">
+            <h2>{friend.name}</h2>
+            <p>{friend.description}</p>
+            <span>{new URL(friend.url).hostname}</span>
+          </div>
+          <span class="friend-arrow" aria-hidden="true">↗</span>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>
