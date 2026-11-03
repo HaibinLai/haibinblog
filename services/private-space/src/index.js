@@ -106,11 +106,11 @@ function cleanPost(body, partial = false) {
   return value;
 }
 
-const todoFromRow = (row) => ({ id: row.id, title: row.title, notes: row.notes, priority: row.priority, importance: row.importance, dueDate: row.due_date, completed: Boolean(row.completed), createdAt: row.created_at, updatedAt: row.updated_at });
-const postFromRow = (row, includeContent = false) => ({ id: row.id, title: row.title, excerpt: row.excerpt, ...(includeContent ? { content: row.content } : {}), tags: JSON.parse(row.tags || "[]"), status: row.status, pinned: Boolean(row.pinned), createdAt: row.created_at, updatedAt: row.updated_at });
+const todoFromRow = (row) => ({ id: row.id, title: row.title, notes: row.notes, priority: row.priority, importance: row.importance, dueDate: row.due_date, completed: Boolean(row.completed), deletedAt: row.deleted_at ? Number(row.deleted_at) : null, createdAt: row.created_at, updatedAt: row.updated_at });
+const postFromRow = (row, includeContent = false) => ({ id: row.id, title: row.title, excerpt: row.excerpt, ...(includeContent ? { content: row.content } : {}), tags: JSON.parse(row.tags || "[]"), status: row.status, pinned: Boolean(row.pinned), deletedAt: row.deleted_at ? Number(row.deleted_at) : null, createdAt: row.created_at, updatedAt: row.updated_at });
 
 async function todoRoutes(request, env, identity, path, method) {
-  const id = path.match(/^\/api\/todos\/([^/]+)$/)?.[1];
+  const id = path.match(/^\/api\/todos\/([^/]+)(?:\/restore)?$/)?.[1];
   if (path === "/api/todos" && method === "GET") {
     const rows = await env.DB.prepare("SELECT * FROM private_todos WHERE owner_email = ? ORDER BY completed ASC, updated_at DESC").bind(identity.email).all();
     return json({ todos: rows.results.map(todoFromRow) });
@@ -123,22 +123,31 @@ async function todoRoutes(request, env, identity, path, method) {
   }
   if (id && method === "PUT") {
     const body = cleanTodo(await readJson(request)); const stamp = now();
-    const result = await env.DB.prepare("UPDATE private_todos SET title=?, notes=?, priority=?, importance=?, due_date=?, completed=?, updated_at=? WHERE id=? AND owner_email=?")
+    const result = await env.DB.prepare("UPDATE private_todos SET title=?, notes=?, priority=?, importance=?, due_date=?, completed=?, updated_at=? WHERE id=? AND owner_email=? AND deleted_at IS NULL")
       .bind(body.title, body.notes, body.priority, body.importance, body.dueDate, Number(body.completed), stamp, id, identity.email).run();
     if (!result.meta.changes) throw new ApiError(404, "Todo not found");
     return json({ todo: { id, ...body, updatedAt: stamp } });
   }
+  if (id && path === `/api/todos/${id}/restore` && method === "POST") {
+    await readJson(request); const stamp = now();
+    const result = await env.DB.prepare("UPDATE private_todos SET deleted_at=NULL, updated_at=? WHERE id=? AND owner_email=? AND deleted_at IS NOT NULL")
+      .bind(stamp, id, identity.email).run();
+    if (!result.meta.changes) throw new ApiError(404, "Todo not found in trash");
+    return json({ restored: true, restoredAt: stamp });
+  }
   if (id && method === "DELETE") {
-    requireSameOrigin(request); const result = await env.DB.prepare("DELETE FROM private_todos WHERE id=? AND owner_email=?").bind(id, identity.email).run();
-    if (!result.meta.changes) throw new ApiError(404, "Todo not found"); return json({ deleted: true });
+    requireSameOrigin(request); const stamp = now();
+    const result = await env.DB.prepare("UPDATE private_todos SET deleted_at=?, updated_at=? WHERE id=? AND owner_email=? AND deleted_at IS NULL")
+      .bind(stamp, stamp, id, identity.email).run();
+    if (!result.meta.changes) throw new ApiError(404, "Todo not found"); return json({ deleted: true, deletedAt: stamp });
   }
   return null;
 }
 
 async function postRoutes(request, env, identity, path, method) {
-  const id = path.match(/^\/api\/posts\/([^/]+)$/)?.[1];
+  const id = path.match(/^\/api\/posts\/([^/]+)(?:\/restore)?$/)?.[1];
   if (path === "/api/posts" && method === "GET") {
-    const rows = await env.DB.prepare("SELECT id,title,excerpt,tags,status,pinned,created_at,updated_at FROM private_posts WHERE owner_email=? ORDER BY pinned DESC, updated_at DESC").bind(identity.email).all();
+    const rows = await env.DB.prepare("SELECT id,title,excerpt,tags,status,pinned,deleted_at,created_at,updated_at FROM private_posts WHERE owner_email=? ORDER BY deleted_at IS NOT NULL ASC, pinned DESC, updated_at DESC").bind(identity.email).all();
     return json({ posts: rows.results.map((row) => postFromRow(row)) });
   }
   if (path === "/api/posts" && method === "POST") {
@@ -153,13 +162,22 @@ async function postRoutes(request, env, identity, path, method) {
   }
   if (id && method === "PUT") {
     const body = cleanPost(await readJson(request)); const stamp = now();
-    const result = await env.DB.prepare("UPDATE private_posts SET title=?,excerpt=?,content=?,tags=?,status=?,pinned=?,updated_at=? WHERE id=? AND owner_email=?")
+    const result = await env.DB.prepare("UPDATE private_posts SET title=?,excerpt=?,content=?,tags=?,status=?,pinned=?,updated_at=? WHERE id=? AND owner_email=? AND deleted_at IS NULL")
       .bind(body.title, body.excerpt, body.content, JSON.stringify(body.tags), body.status, Number(body.pinned), stamp, id, identity.email).run();
     if (!result.meta.changes) throw new ApiError(404, "Post not found"); return json({ post: { id, ...body, updatedAt: stamp } });
   }
+  if (id && path === `/api/posts/${id}/restore` && method === "POST") {
+    await readJson(request); const stamp = now();
+    const result = await env.DB.prepare("UPDATE private_posts SET deleted_at=NULL, updated_at=? WHERE id=? AND owner_email=? AND deleted_at IS NOT NULL")
+      .bind(stamp, id, identity.email).run();
+    if (!result.meta.changes) throw new ApiError(404, "Post not found in trash");
+    return json({ restored: true, restoredAt: stamp });
+  }
   if (id && method === "DELETE") {
-    requireSameOrigin(request); const result = await env.DB.prepare("DELETE FROM private_posts WHERE id=? AND owner_email=?").bind(id, identity.email).run();
-    if (!result.meta.changes) throw new ApiError(404, "Post not found"); return json({ deleted: true });
+    requireSameOrigin(request); const stamp = now();
+    const result = await env.DB.prepare("UPDATE private_posts SET deleted_at=?, updated_at=? WHERE id=? AND owner_email=? AND deleted_at IS NULL")
+      .bind(stamp, stamp, id, identity.email).run();
+    if (!result.meta.changes) throw new ApiError(404, "Post not found"); return json({ deleted: true, deletedAt: stamp });
   }
   return null;
 }

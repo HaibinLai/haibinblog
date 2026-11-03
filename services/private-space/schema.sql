@@ -25,9 +25,16 @@ CREATE TABLE IF NOT EXISTS private_posts (
   tags TEXT NOT NULL DEFAULT '[]' CHECK(json_valid(tags)),
   status TEXT NOT NULL DEFAULT 'draft' CHECK(status IN ('draft', 'published', 'archived')),
   pinned INTEGER NOT NULL DEFAULT 0 CHECK(pinned IN (0, 1)),
+  deleted_at INTEGER,
   created_at INTEGER NOT NULL,
   updated_at INTEGER NOT NULL
 );
 
 CREATE INDEX IF NOT EXISTS idx_private_posts_owner_updated
   ON private_posts(owner_email, pinned DESC, updated_at DESC);
+
+CREATE INDEX IF NOT EXISTS idx_private_posts_owner_deleted
+  ON private_posts(owner_email, deleted_at, updated_at DESC);
+
+CREATE INDEX IF NOT EXISTS idx_private_todos_owner_deleted
+  ON private_todos(owner_email, deleted_at, updated_at DESC);

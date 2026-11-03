@@ -33,14 +33,14 @@
         <button class="primary" type="submit">添加任务</button>
         <textarea name="notes" maxlength="4000" placeholder="备注（可选）" aria-label="备注"></textarea>
       </form>
-      <div class="toolbar"><div class="filters"><button class="is-active" data-todo-filter="all">全部</button><button data-todo-filter="active">进行中</button><button data-todo-filter="completed">已完成</button></div><input id="todo-search" type="search" placeholder="搜索任务" aria-label="搜索任务"><span id="todo-summary"></span></div>
+      <div class="toolbar"><div class="filters"><button class="is-active" data-todo-filter="all">全部</button><button data-todo-filter="active">进行中</button><button data-todo-filter="completed">已完成</button><button data-todo-filter="trash">回收站</button></div><input id="todo-search" type="search" placeholder="搜索任务" aria-label="搜索任务"><span id="todo-summary"></span></div>
       <div id="todo-list" class="todo-list"></div>
       <div id="todo-empty" class="empty" hidden><b>✓</b><strong>这里暂时很安静</strong><span>添加一个任务，开始今天的计划。</span></div>
     </section>
 
     <section id="blog-page" class="workspace" hidden>
       <header class="page-heading"><div><p>PRIVATE WRITING</p><h1>Private Blog</h1><span>草稿、研究日志和不准备公开的文字，只对你可见。</span></div><button id="new-post" class="primary">写一篇</button></header>
-      <div class="toolbar"><div class="filters"><button class="is-active" data-post-filter="all">全部</button><button data-post-filter="draft">草稿</button><button data-post-filter="published">完成</button><button data-post-filter="archived">归档</button></div><input id="post-search" type="search" placeholder="搜索私人文章" aria-label="搜索私人文章"><span id="post-summary"></span></div>
+      <div class="toolbar"><div class="filters"><button class="is-active" data-post-filter="all">全部</button><button data-post-filter="draft">草稿</button><button data-post-filter="published">完成</button><button data-post-filter="archived">归档</button><button data-post-filter="trash">回收站</button></div><input id="post-search" type="search" placeholder="搜索私人文章" aria-label="搜索私人文章"><span id="post-summary"></span></div>
       <div id="post-grid" class="post-grid"></div>
       <div id="post-empty" class="empty" hidden><b>✦</b><strong>还没有私人文章</strong><span>这里适合保存草稿、日记和不公开的研究记录。</span></div>
     </section>

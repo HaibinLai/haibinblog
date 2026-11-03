@@ -7,6 +7,7 @@ Private Todo and Markdown blog hosted on Cloudflare Workers with D1 storage.
 - Every API route requires a Cloudflare Access identity.
 - The Worker checks the authenticated email against `ALLOWED_EMAIL` again.
 - Mutations require same-origin JSON requests.
+- Deletes are soft deletes: removed todos and posts stay in the trash until restored.
 - Static assets contain application code only. Todo and post content stays in D1.
 - The page asks search engines not to index or archive it.
 
@@ -21,6 +22,7 @@ npm install
 npm run db:local:init
 npm run dev
 npm run db:remote:init
+npx wrangler d1 execute haibinblog-private --remote --file=./migrations/0001_soft_delete.sql
 npm run deploy
 ```
 
