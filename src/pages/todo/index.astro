@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="Todo List · Haibin's Blog" description="A private, browser-local task board for planning research and everyday work.">
+<BaseLayout title="Todo List · Haibin's Blog" description="A private task board for planning research and everyday work, with optional local-file backup.">
   <main class="todo-page content-shell">
     <header class="todo-header">
       <div>
@@ -10,7 +10,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         <h1>Todo List</h1>
         <p>把想做的事情放在这里，再一件一件完成。</p>
       </div>
-      <div class="privacy-note"><span aria-hidden="true">◉</span><strong>仅保存在当前浏览器</strong><small>不会上传或公开 · 可导出备份</small></div>
+      <div class="privacy-note"><span aria-hidden="true">◉</span><strong>仅保存在你的设备上</strong><small>浏览器副本 · 可连接本地文件</small></div>
     </header>
 
     <section class="todo-composer" aria-labelledby="add-task-title">
@@ -58,6 +58,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         </div>
       </div>
 
+      <div class="file-sync-bar" data-state="idle" aria-live="polite">
+        <div><strong id="file-sync-title">浏览器本地保存</strong><span id="file-sync-detail">首次选择下载目录中的 haibin-todos.json，之后修改会持续写入。</span></div>
+        <button id="connect-task-file" type="button">连接本地文件</button>
+      </div>
+
       <div id="todo-list" class="todo-list" aria-live="polite"></div>
       <div id="todo-matrix" class="todo-matrix" hidden>
         <section data-quadrant="urgent-important"><header><span>01</span><div><h2>紧急且重要</h2><p>优先处理</p></div></header><div class="matrix-tasks"></div></section>
@@ -84,8 +89,21 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </form>
   </dialog>
 
+  <dialog id="file-conflict-dialog" class="edit-dialog file-conflict-dialog" aria-labelledby="file-conflict-title">
+    <div class="file-conflict-content">
+      <h2 id="file-conflict-title">发现两份不同的任务数据</h2>
+      <p id="file-conflict-detail"></p>
+      <div class="file-conflict-actions">
+        <button id="use-file-tasks" type="button">使用文件中的任务</button>
+        <button id="use-browser-tasks" type="button">使用浏览器中的任务</button>
+        <button id="cancel-file-sync" type="button">暂不连接</button>
+      </div>
+    </div>
+  </dialog>
+
   <script>
     type Task = { id: string; title: string; notes: string; priority: string; importance: number; dueDate: string; completed: boolean; createdAt: string; updatedAt: string };
+    type TodoFileHandle = { name: string; getFile: () => Promise<File>; createWritable: () => Promise<{ write: (value: string) => Promise<void>; close: () => Promise<void> }>; queryPermission: (options: { mode: 'readwrite' }) => Promise<string>; requestPermission: (options: { mode: 'readwrite' }) => Promise<string> };
     const STORAGE_KEY = 'haibin-todos-v1';
     let tasks: Task[] = [];
     let activeFilter = 'all';
@@ -98,15 +116,163 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     const matrix = $('#todo-matrix');
     const empty = $('#todo-empty');
     const editDialog = $('#edit-dialog') as HTMLDialogElement;
+    const fileConflictDialog = $('#file-conflict-dialog') as HTMLDialogElement;
+    const connectFileButton = $('#connect-task-file') as HTMLButtonElement;
+    const filePicker = window as Window & { showSaveFilePicker?: (options: object) => Promise<TodoFileHandle> };
+    let fileHandle: TodoFileHandle | null = null;
+    let fileReady = false;
+    let lastFileContents = '';
+    let fileWriteQueue = Promise.resolve();
+    let pendingFile: { handle: TodoFileHandle; text: string; tasks: Task[] } | null = null;
 
     const escapeHtml = (text = '') => text.replace(/[&<>'"]/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' })[char]!);
     const priorityLabels: Record<string, string> = { urgent: '紧急', twodays: '两天内', thisweek: '本周', anytime: '任何时候' };
-    const save = () => localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks));
+    const save = () => { localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks)); queueFileSave(); };
     const load = () => {
       try {
         const value = JSON.parse(localStorage.getItem(STORAGE_KEY) || '[]');
         tasks = Array.isArray(value) ? value.filter((task) => task && typeof task.id === 'string' && typeof task.title === 'string') : [];
       } catch { tasks = []; }
+    };
+    const setFileStatus = (state: string, title: string, detail: string) => {
+      const bar = $('.file-sync-bar') as HTMLElement;
+      bar.dataset.state = state;
+      $('#file-sync-title').textContent = title;
+      $('#file-sync-detail').textContent = detail;
+      connectFileButton.textContent = state === 'ready' ? '更换文件' : '选择本地文件';
+    };
+    const normalizeTasks = (incoming: any[]): Task[] => incoming.filter((task) => task && typeof task.title === 'string').map((task) => ({
+      id: typeof task.id === 'string' ? task.id : crypto.randomUUID(),
+      title: task.title.slice(0, 180),
+      notes: typeof task.notes === 'string' ? task.notes.slice(0, 1000) : '',
+      priority: ['urgent', 'twodays', 'thisweek', 'anytime'].includes(task.priority) ? task.priority : 'thisweek',
+      importance: Math.min(5, Math.max(1, Number(task.importance) || 3)),
+      dueDate: /^\d{4}-\d{2}-\d{2}$/.test(task.dueDate) ? task.dueDate : '',
+      completed: Boolean(task.completed),
+      createdAt: task.createdAt || new Date().toISOString(),
+      updatedAt: task.updatedAt || new Date().toISOString(),
+    }));
+    const parseTaskFile = (text: string): Task[] => {
+      if (!text.trim()) return [];
+      const parsed = JSON.parse(text);
+      if (!Array.isArray(parsed) && parsed.version !== 1) throw new Error('文件版本无法识别');
+      const incoming = Array.isArray(parsed) ? parsed : parsed.tasks;
+      if (!Array.isArray(incoming) || incoming.some((task) => !task || typeof task.title !== 'string')) throw new Error('文件不是有效的待办备份');
+      return normalizeTasks(incoming);
+    };
+    const openHandleStore = () => new Promise<IDBDatabase>((resolve, reject) => {
+      const request = indexedDB.open('haibin-todo-file-v1', 1);
+      request.onupgradeneeded = () => request.result.createObjectStore('settings');
+      request.onsuccess = () => resolve(request.result);
+      request.onerror = () => reject(request.error);
+    });
+    const readStoredHandle = async (): Promise<TodoFileHandle | null> => {
+      const db = await openHandleStore();
+      try {
+        return await new Promise((resolve, reject) => {
+          const request = db.transaction('settings').objectStore('settings').get('file');
+          request.onsuccess = () => resolve(request.result || null);
+          request.onerror = () => reject(request.error);
+        });
+      } finally { db.close(); }
+    };
+    const rememberHandle = async (handle: TodoFileHandle) => {
+      const db = await openHandleStore();
+      try {
+        await new Promise<void>((resolve, reject) => {
+          const transaction = db.transaction('settings', 'readwrite');
+          transaction.objectStore('settings').put(handle, 'file');
+          transaction.oncomplete = () => resolve();
+          transaction.onerror = () => reject(transaction.error);
+        });
+      } finally { db.close(); }
+    };
+    function queueFileSave() {
+      if (!fileReady || !fileHandle) return;
+      const handle = fileHandle;
+      const snapshot = JSON.stringify({ version: 1, exportedAt: new Date().toISOString(), tasks }, null, 2);
+      fileWriteQueue = fileWriteQueue.then(async () => {
+        if (!fileReady || fileHandle !== handle) return;
+        if (await handle.queryPermission({ mode: 'readwrite' }) !== 'granted') throw new Error('浏览器已收回文件写入权限');
+        const currentText = await (await handle.getFile()).text();
+        if (currentText !== lastFileContents) throw new Error('文件在外部发生变化，请重新选择并核对数据');
+        const writable = await handle.createWritable();
+        await writable.write(snapshot);
+        await writable.close();
+        lastFileContents = snapshot;
+        setFileStatus('ready', `已同步到 ${handle.name}`, `最近写入 ${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} · 浏览器仍保留副本`);
+      }).catch((error) => {
+        if (fileHandle !== handle) return;
+        fileReady = false;
+        setFileStatus('paused', '文件同步已暂停', `${error.message}；浏览器中的任务仍已保存。`);
+      });
+    }
+    const activateFile = async (handle: TodoFileHandle, text: string, writeNow = false) => {
+      fileHandle = handle;
+      lastFileContents = text;
+      fileReady = true;
+      let remembered = true;
+      try { await rememberHandle(handle); } catch { remembered = false; }
+      setFileStatus('ready', `已连接 ${handle.name}`, remembered ? '之后修改任务会写入同一个文件。' : '本次会话可以同步；下次打开可能需要重新选择文件。');
+      if (writeNow) queueFileSave();
+    };
+    const connectFile = async (handle: TodoFileHandle) => {
+      const text = await (await handle.getFile()).text();
+      const fileTasks = parseTaskFile(text);
+      if (fileTasks.length && tasks.length && JSON.stringify(fileTasks) !== JSON.stringify(tasks)) {
+        pendingFile = { handle, text, tasks: fileTasks };
+        $('#file-conflict-detail').textContent = `文件中有 ${fileTasks.length} 条，当前浏览器中有 ${tasks.length} 条。请选择要保留的版本；另一份不会自动覆盖。`;
+        fileConflictDialog.showModal();
+        return;
+      }
+      if (fileTasks.length && !tasks.length) { tasks = fileTasks; localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks)); render(); }
+      await activateFile(handle, text, !text.trim() || (!fileTasks.length && tasks.length > 0));
+    };
+    connectFileButton.addEventListener('click', async () => {
+      if (!filePicker.showSaveFilePicker) return;
+      try {
+        if (fileHandle && !fileReady) {
+          let permission = 'denied';
+          try { permission = await fileHandle.requestPermission({ mode: 'readwrite' }); } catch { /* The old file may have moved. */ }
+          if (permission === 'granted') { await connectFile(fileHandle); return; }
+        }
+        const handle = await filePicker.showSaveFilePicker({ id: 'haibin-todos', startIn: 'downloads', suggestedName: 'haibin-todos.json', types: [{ description: '待办备份 JSON', accept: { 'application/json': ['.json'] } }] });
+        if (await handle.queryPermission({ mode: 'readwrite' }) !== 'granted' && await handle.requestPermission({ mode: 'readwrite' }) !== 'granted') {
+          setFileStatus('paused', '文件没有写入权限', '请允许写入这个文件；浏览器中的任务仍已保存。');
+          return;
+        }
+        await connectFile(handle);
+      } catch (error: any) {
+        if (error?.name !== 'AbortError') setFileStatus('paused', '未能连接文件', `${error?.message || '无法读取文件'}；浏览器中的任务仍已保存。`);
+      }
+    });
+    $('#use-file-tasks').addEventListener('click', async () => {
+      if (!pendingFile) return;
+      const selected = pendingFile; pendingFile = null; fileConflictDialog.close();
+      tasks = selected.tasks; localStorage.setItem(STORAGE_KEY, JSON.stringify(tasks)); render();
+      await activateFile(selected.handle, selected.text);
+    });
+    $('#use-browser-tasks').addEventListener('click', async () => {
+      if (!pendingFile) return;
+      const selected = pendingFile; pendingFile = null; fileConflictDialog.close();
+      await activateFile(selected.handle, selected.text, true);
+    });
+    $('#cancel-file-sync').addEventListener('click', () => { pendingFile = null; fileConflictDialog.close(); });
+    const initializeFileSync = async () => {
+      if (!filePicker.showSaveFilePicker) {
+        connectFileButton.hidden = true;
+        setFileStatus('unsupported', '当前浏览器无法直接写入文件', '任务仍保存在浏览器；可以使用“导出”保存 JSON 备份。');
+        return;
+      }
+      try {
+        const handle = await readStoredHandle();
+        if (!handle) return;
+        if (await handle.queryPermission({ mode: 'readwrite' }) !== 'granted') {
+          setFileStatus('paused', '需要重新选择文件', `${handle.name} 的写入权限已过期；浏览器中的任务仍已保存。`);
+          return;
+        }
+        await connectFile(handle);
+      } catch (error: any) { setFileStatus('paused', '文件同步未连接', `${error?.message || '无法读取文件'}；浏览器中的任务仍已保存。`); }
     };
     const dateStart = (value: string) => value ? new Date(`${value}T00:00:00`) : null;
     const daysUntil = (value: string) => {
@@ -195,12 +361,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       const input = event.target as HTMLInputElement; const file = input.files?.[0]; if (!file) return;
       try {
         const parsed = JSON.parse(await file.text()); const incoming = Array.isArray(parsed) ? parsed : parsed.tasks; if (!Array.isArray(incoming)) throw new Error('bad format');
-        const clean = incoming.filter((task: any) => task && typeof task.title === 'string').map((task: any) => ({ id: typeof task.id === 'string' ? task.id : crypto.randomUUID(), title: task.title.slice(0, 180), notes: typeof task.notes === 'string' ? task.notes.slice(0, 1000) : '', priority: ['urgent','twodays','thisweek','anytime'].includes(task.priority) ? task.priority : 'thisweek', importance: Math.min(5, Math.max(1, Number(task.importance) || 3)), dueDate: /^\d{4}-\d{2}-\d{2}$/.test(task.dueDate) ? task.dueDate : '', completed: Boolean(task.completed), createdAt: task.createdAt || new Date().toISOString(), updatedAt: task.updatedAt || new Date().toISOString() }));
+        const clean = normalizeTasks(incoming);
         const existing = new Set(tasks.map((task) => task.id)); tasks.push(...clean.filter((task: Task) => !existing.has(task.id))); save(); render(); alert(`已导入 ${clean.length} 条任务。`);
       } catch { alert('无法读取这个备份文件，请选择从本站导出的 JSON 文件。'); } finally { input.value = ''; }
     });
 
-    load(); render();
+    load(); render(); void initializeFileSync();
   </script>
 </BaseLayout>
 
@@ -219,11 +385,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .task-details { margin-top: 12px; }.task-details summary { width: fit-content; color: var(--muted); cursor: pointer; font-size: .75rem; }.detail-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 13px; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); }.detail-grid label, .edit-dialog label { display: grid; gap: 5px; color: var(--muted); font-size: .72rem; font-weight: 600; }.detail-grid input, .detail-grid select, .detail-grid textarea, .edit-dialog input, .edit-dialog select, .edit-dialog textarea { width: 100%; padding: 9px 10px; border: 1px solid var(--line); border-radius: 7px; color: var(--ink); background: var(--surface-soft); font: inherit; }.notes-field { grid-column: 1 / -1; }.detail-grid textarea, .edit-dialog textarea { resize: vertical; }
   .todo-overview { display: grid; grid-template-columns: repeat(3, 1fr) 1.5fr; gap: 12px; margin-bottom: 16px; }.todo-overview article { padding: 17px 19px; border: 1px solid var(--line); border-radius: 11px; background: var(--surface); box-shadow: var(--shadow); }.todo-overview strong { display: block; color: var(--ink); font-size: 1.5rem; line-height: 1.1; font-variant-numeric: tabular-nums; }.todo-overview span { color: var(--muted); font-size: .73rem; }.progress-card { display: flex; align-items: center; gap: 18px; }.progress-card > div:first-child { flex: 0 0 auto; }.progress-track { height: 7px; flex: 1; overflow: hidden; border-radius: 999px; background: var(--line); }.progress-track i { display: block; width: 0; height: 100%; border-radius: inherit; background: linear-gradient(90deg, var(--accent-dark), var(--accent)); transition: width .3s ease; }
   .todo-board { min-height: 300px; overflow: hidden; }.todo-toolbar { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-bottom: 1px solid var(--line); background: var(--surface-soft); }.todo-filters, .view-toggle, .backup-actions { display: flex; gap: 4px; }.todo-toolbar button { padding: 6px 10px; border: 1px solid transparent; border-radius: 6px; color: var(--muted); background: transparent; cursor: pointer; font-size: .74rem; }.todo-toolbar button:hover, .todo-toolbar button.is-active { color: var(--accent-dark); border-color: color-mix(in srgb, var(--accent) 35%, var(--line)); background: var(--surface); }.task-search { position: relative; flex: 1; min-width: 140px; }.task-search span { position: absolute; left: 10px; top: 5px; color: var(--muted); }.task-search input { width: 100%; padding: 6px 10px 6px 29px; border: 1px solid var(--line); border-radius: 7px; color: var(--ink); background: var(--surface); outline: 0; font: inherit; font-size: .76rem; }
+  .file-sync-bar { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 12px 18px; border-bottom: 1px solid var(--line); background: color-mix(in srgb, var(--accent) 4%, var(--surface)); }.file-sync-bar > div { display: grid; gap: 2px; min-width: 0; }.file-sync-bar strong { color: var(--ink); font-size: .76rem; }.file-sync-bar span { color: var(--muted); font-size: .68rem; line-height: 1.4; overflow-wrap: anywhere; }.file-sync-bar[data-state="ready"] strong { color: var(--accent-dark); }.file-sync-bar[data-state="paused"] strong { color: #a35f18; }.file-sync-bar button { flex: none; padding: 7px 12px; border: 1px solid var(--line-strong); border-radius: 7px; color: var(--accent-dark); background: var(--surface); cursor: pointer; font: inherit; font-size: .72rem; font-weight: 650; }.file-sync-bar button:hover { border-color: var(--accent); }.file-sync-bar button[hidden] { display: none; }
   .todo-list[hidden], .todo-matrix[hidden], .todo-empty[hidden] { display: none !important; }
   .todo-list { padding: 4px 20px 12px; }.task-item { display: grid; grid-template-columns: 26px minmax(0, 1fr) auto; gap: 12px; align-items: start; padding: 17px 2px; border-bottom: 1px solid var(--line); }.task-item:last-child { border-bottom: 0; }.task-check { width: 22px; height: 22px; margin-top: 2px; padding: 0; border: 1.5px solid var(--line-strong); border-radius: 50%; color: transparent; background: var(--surface); cursor: pointer; line-height: 1; }.task-item.is-complete .task-check { border-color: var(--accent); color: white; background: var(--accent); }.task-copy { min-width: 0; }.task-copy h3 { margin: 0; font-size: .94rem; font-weight: 620; line-height: 1.45; overflow-wrap: anywhere; }.task-copy p { margin: 5px 0 0; color: var(--muted); font-size: .77rem; line-height: 1.55; white-space: pre-wrap; }.task-item.is-complete .task-copy h3 { color: var(--muted); text-decoration: line-through; }.task-meta { display: flex; flex-wrap: wrap; gap: 7px 12px; margin-top: 7px; color: var(--muted); font-size: .67rem; }.priority { padding: 1px 6px; border-radius: 999px; background: var(--surface-soft); }.priority-urgent { color: #b24444; background: #fff0ef; }.priority-twodays { color: #a35f18; background: #fff5e8; }.task-due.is-overdue { color: #b24444; font-weight: 650; }.task-actions { display: flex; gap: 2px; opacity: .25; transition: opacity .15s; }.task-item:hover .task-actions, .task-actions:focus-within { opacity: 1; }.task-actions button { padding: 4px 7px; border: 0; color: var(--muted); background: transparent; cursor: pointer; font-size: .68rem; }.task-actions button:hover { color: var(--accent-dark); }
   .todo-matrix { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--line); }.todo-matrix > section { min-height: 240px; padding: 17px; background: var(--surface); }.todo-matrix section > header { display: flex; gap: 10px; align-items: center; margin-bottom: 8px; }.todo-matrix section > header > span { color: var(--accent); font-size: .7rem; font-weight: 750; }.todo-matrix h2 { margin: 0; font-size: .87rem; }.todo-matrix header p { margin: 1px 0 0; color: var(--muted); font-size: .65rem; }.task-item.is-compact { grid-template-columns: 23px minmax(0, 1fr) auto; gap: 8px; padding: 12px 0; }.is-compact .task-actions button { padding: 3px; font-size: .62rem; }.is-compact .task-meta { gap: 5px 8px; }.matrix-empty { margin: 38px 0; color: var(--muted); font-size: .72rem; text-align: center; }.todo-empty { display: grid; justify-items: center; padding: 70px 20px; text-align: center; }.todo-empty span { width: 46px; height: 46px; display: grid; place-items: center; margin-bottom: 12px; border-radius: 50%; color: var(--accent-dark); background: color-mix(in srgb, var(--accent) 12%, var(--surface)); }.todo-empty strong { font-size: .9rem; }.todo-empty small { margin-top: 3px; color: var(--muted); }
   .edit-dialog { width: min(540px, calc(100% - 28px)); padding: 0; border: 1px solid var(--line); border-radius: 14px; color: var(--ink); background: var(--surface); box-shadow: 0 24px 70px rgba(0,0,0,.24); }.edit-dialog::backdrop { background: rgba(18,25,23,.5); backdrop-filter: blur(3px); }.edit-dialog form { display: grid; gap: 15px; padding: 22px; }.dialog-heading { display: flex; align-items: start; justify-content: space-between; }.dialog-heading small { color: var(--accent-dark); font-size: .62rem; letter-spacing: .12em; }.dialog-heading h2 { margin: 2px 0 0; font-size: 1.25rem; }.dialog-heading > button { border: 0; color: var(--muted); background: transparent; cursor: pointer; font-size: 1.4rem; }.dialog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }.dialog-actions { display: flex; justify-content: flex-end; gap: 8px; padding-top: 4px; }.dialog-actions > button { padding: 8px 14px; border: 1px solid var(--line); border-radius: 7px; color: var(--muted); background: var(--surface); cursor: pointer; }.dialog-actions .primary-button { color: white; border-color: var(--accent-dark); background: var(--accent-dark); }
+  .file-conflict-content { display: grid; gap: 14px; padding: 24px; }.file-conflict-content h2 { margin: 0; font-size: 1.2rem; }.file-conflict-content p { margin: 0; color: var(--muted); font-size: .8rem; line-height: 1.5; }.file-conflict-actions { display: flex; flex-wrap: wrap; gap: 8px; }.file-conflict-actions button { padding: 9px 12px; border: 1px solid var(--line-strong); border-radius: 7px; color: var(--ink); background: var(--surface-soft); cursor: pointer; font: inherit; font-size: .72rem; }.file-conflict-actions button:hover { border-color: var(--accent); }
   .dark .priority-urgent { color: #ffaaa3; background: #472a29; }.dark .priority-twodays { color: #ffc47e; background: #49341e; }.dark .task-due.is-overdue { color: #ffaaa3; }
-  @media (max-width: 760px) { .todo-page { width: calc(100% - 20px); padding-top: 28px; }.todo-header { align-items: flex-start; flex-direction: column; gap: 18px; }.privacy-note { width: 100%; }.todo-overview { grid-template-columns: repeat(3, 1fr); }.progress-card { grid-column: 1 / -1; }.todo-toolbar { flex-wrap: wrap; }.task-search { order: -1; flex-basis: 100%; }.backup-actions { margin-left: auto; }.detail-grid, .dialog-grid { grid-template-columns: 1fr; }.todo-matrix { grid-template-columns: 1fr; }.quick-add { align-items: stretch; }.quick-add .primary-button { padding-inline: 14px; }.task-actions { opacity: .75; }.task-item { grid-template-columns: 25px minmax(0, 1fr); }.task-actions { grid-column: 2; }.todo-header h1 { font-size: 2.7rem; } }
-  @media (max-width: 430px) { .todo-overview article { padding: 14px 12px; }.todo-overview strong { font-size: 1.25rem; }.view-toggle { order: 3; }.todo-filters { flex: 1; }.todo-toolbar { gap: 7px; }.todo-toolbar button { padding-inline: 8px; }.quick-add { flex-direction: column; } }
+  @media (max-width: 760px) { .todo-page { width: calc(100% - 20px); padding-top: 28px; }.todo-header { align-items: flex-start; flex-direction: column; gap: 18px; }.privacy-note { width: 100%; }.todo-overview { grid-template-columns: repeat(3, 1fr); }.progress-card { grid-column: 1 / -1; }.todo-toolbar { flex-wrap: wrap; }.task-search { order: -1; flex-basis: 100%; }.backup-actions { margin-left: auto; }.file-sync-bar { align-items: flex-start; flex-direction: column; gap: 9px; }.detail-grid, .dialog-grid { grid-template-columns: 1fr; }.todo-matrix { grid-template-columns: 1fr; }.quick-add { align-items: stretch; }.quick-add .primary-button { padding-inline: 14px; }.task-actions { opacity: .75; }.task-item { grid-template-columns: 25px minmax(0, 1fr); }.task-actions { grid-column: 2; }.todo-header h1 { font-size: 2.7rem; } }
+  @media (max-width: 430px) { .todo-overview article { padding: 14px 12px; }.todo-overview strong { font-size: 1.25rem; }.todo-toolbar { display: grid; grid-template-columns: 1fr auto; gap: 8px; }.task-search, .todo-filters { grid-column: 1 / -1; }.todo-filters { width: 100%; }.todo-filters button { flex: 1; white-space: nowrap; }.view-toggle { grid-column: 1; }.backup-actions { grid-column: 2; margin-left: 0; }.todo-toolbar button { padding-inline: 8px; }.quick-add { flex-direction: column; } }
 </style>
