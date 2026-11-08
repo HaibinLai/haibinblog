@@ -19,8 +19,12 @@ const statusSummary = document.querySelector('#push-status-summary');
 const statusChecked = document.querySelector('#push-status-checked');
 const publishDraftButton = document.querySelector('#publish-draft');
 const publishDialog = document.querySelector('#publish-dialog');
+const requestedEditId = new URLSearchParams(location.search).get('edit');
 const readingListImport = location.hash === '#import=reading-list';
-const storageKey = readingListImport ? 'haibin-blog-publisher-reading-list-draft-v1' : 'haibin-blog-publisher-draft-v2';
+let storageKey = requestedEditId ? `haibin-blog-publisher-edit-${requestedEditId}-v1` : readingListImport ? 'haibin-blog-publisher-reading-list-draft-v1' : 'haibin-blog-publisher-draft-v2';
+let sourceId = null;
+let sourceHashValue = null;
+let deferredDraft = null;
 
 const now = new Date();
 const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
@@ -92,22 +96,89 @@ let statusRequestId = 0;
 let lastStatusData = null;
 let deploymentTimer;
 function saveLocalDraft() {
-  localStorage.setItem(storageKey, JSON.stringify(collectDraft()));
+  localStorage.setItem(storageKey, JSON.stringify({ ...collectDraft(), sourceHashValue }));
   saveState.textContent = `已自动保存 ${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
 }
 function scheduleLocalDraft() { clearTimeout(saveTimer); saveTimer = setTimeout(saveLocalDraft, 450); }
+function applySavedDraft(saved) {
+  for (const [name, value] of Object.entries(saved)) {
+    if (!form.elements[name] || name === 'push' || name === 'sourceHashValue') continue;
+    if (form.elements[name].type === 'checkbox') form.elements[name].checked = value === true || value === 'on';
+    else form.elements[name].value = value;
+  }
+  editorDirty = true;
+  updatePreview();
+}
 function restoreLocalDraft() {
   try {
+    const recovery = JSON.parse(localStorage.getItem(`${storageKey}-recovery`) || 'null');
+    if (recovery && sourceId) {
+      deferredDraft = recovery;
+      document.querySelector('#recover-local-draft').hidden = false;
+    }
     const saved = JSON.parse(localStorage.getItem(storageKey) || 'null');
     if (!saved || (!saved.title && !saved.body)) return;
-    for (const [name, value] of Object.entries(saved)) {
-      if (!form.elements[name] || name === 'push') continue;
-      if (form.elements[name].type === 'checkbox') form.elements[name].checked = value === true || value === 'on';
-      else form.elements[name].value = value;
+    if (sourceId && saved.sourceHashValue !== sourceHashValue) {
+      deferredDraft = saved;
+      localStorage.setItem(`${storageKey}-recovery`, JSON.stringify(saved));
+      document.querySelector('#recover-local-draft').hidden = false;
+      saveState.textContent = '发现旧自动保存；磁盘版本未被覆盖';
+      return;
     }
+    applySavedDraft(saved);
     saveState.textContent = '已恢复上次未完成的本地草稿';
-    editorDirty = true;
   } catch { localStorage.removeItem(storageKey); }
+}
+
+document.querySelector('#recover-local-draft').addEventListener('click', () => {
+  if (!deferredDraft || !confirm('载入旧草稿到编辑器？磁盘文章暂时不会改变，保存时才会覆盖当前版本。')) return;
+  applySavedDraft(deferredDraft);
+  deferredDraft = null;
+  document.querySelector('#recover-local-draft').hidden = true;
+  markEdited();
+  saveState.textContent = '已载入旧草稿，请核对后再保存';
+});
+
+function setEditMode(id, hash) {
+  sourceId = id;
+  sourceHashValue = hash;
+  form.elements.slug.readOnly = true;
+  document.querySelector('#slug-hint').hidden = false;
+  document.querySelector('#writer-heading').textContent = '编辑文章';
+  document.querySelector('#writer-subtitle').textContent = `正在编辑 ${id}。保存后可选择是否提交并推送。`;
+}
+
+function adoptEditUrl(id) {
+  storageKey = `haibin-blog-publisher-edit-${id}-v1`;
+  history.replaceState(null, '', `/?edit=${encodeURIComponent(id)}`);
+}
+
+function fillExistingPost(data) {
+  const metadata = data.metadata;
+  for (const name of ['title', 'description', 'category', 'language', 'translationKey', 'featuredRank', 'featuredTitle', 'featuredLabel', 'cardImage', 'featuredImage']) {
+    form.elements[name].value = metadata[name] ?? '';
+  }
+  form.elements.slug.value = metadata.slug || data.id.replace(/^wordpress\//, '').replace(/\.mdx?$/, '');
+  form.elements.publishedAt.value = String(metadata.publishedAt || '').slice(0, 10);
+  form.elements.updatedAt.value = String(metadata.updatedAt || '').slice(0, 10);
+  form.elements.tags.value = (metadata.tags || []).join(', ');
+  form.elements.categories.value = (metadata.categories || []).join(', ');
+  form.elements.draft.checked = metadata.draft === true;
+  form.elements.showCitation.checked = metadata.showCitation !== false;
+  bodyInput.value = data.body.replace(/^\r?\n/, '');
+  setEditMode(data.id, data.sourceHash);
+  showImage(null);
+  updatePreview();
+  saveState.textContent = /<p[\s>]|<h\d[\s>]/i.test(data.body)
+    ? '已载入旧文章 HTML 原文；此处预览可能与网站不同'
+    : '已载入现有文章';
+}
+
+async function loadExistingPost(id) {
+  const response = await fetch(`/api/post?id=${encodeURIComponent(id)}`, { cache: 'no-store' });
+  const data = await response.json();
+  if (!response.ok) throw new Error(data.error || '无法读取文章');
+  fillExistingPost(data);
 }
 
 const pushLabels = { pushed: '已推送', local: '仅在本地', pending: '待核对', missing: '未保存', none: '未使用', unknown: '无法确认', checking: '检测中', idle: '待检测' };
@@ -155,11 +226,12 @@ function resetPushState() {
 
 async function checkPushStatus() {
   const slug = form.elements.slug.value.trim() || form.elements.title.value.trim();
+  const statusQuery = sourceId ? `id=${encodeURIComponent(sourceId)}` : `slug=${encodeURIComponent(slug)}`;
   const requestId = ++statusRequestId;
   showOverallState('checking', '正在核对 GitHub…', '正在检查仓库中已保存的文章和封面图片。');
   showPushState('article', { state: 'checking', message: '正在检测' });
   showPushState('image', { state: 'checking', message: '正在检测' });
-  if (!slug) {
+  if (!slug && !sourceId) {
     showPushState('article', { state: 'missing', message: '请先填写标题或文件名' });
     showPushState('image', { state: 'none', message: '尚无文章可检测' });
     showOverallState('idle', '等待文章信息', '先填写标题或文件名，再检测推送状态。');
@@ -168,7 +240,7 @@ async function checkPushStatus() {
   }
   checkPushButton.disabled = true;
   try {
-    const response = await fetch(`/api/push-status?slug=${encodeURIComponent(slug)}`, { cache: 'no-store' });
+    const response = await fetch(`/api/push-status?${statusQuery}`, { cache: 'no-store' });
     const data = await response.json();
     if (requestId !== statusRequestId) return null;
     if (!response.ok) throw new Error(data.error || '检测失败');
@@ -221,25 +293,18 @@ async function checkPushStatus() {
 }
 
 async function prefillReadingList() {
-  if (!readingListImport || localStorage.getItem(storageKey)) return;
+  if (!readingListImport) return;
   try {
     const saved = await fetch('/api/draft?slug=reading-list', { cache: 'no-store' });
     if (saved.ok) {
-      const { metadata, body } = await saved.json();
-      for (const name of ['title', 'description', 'publishedAt', 'updatedAt', 'category', 'language', 'translationKey', 'featuredRank', 'featuredTitle', 'featuredLabel', 'cardImage', 'featuredImage']) {
-        if (form.elements[name]) form.elements[name].value = metadata[name] ?? '';
-      }
-      form.elements.slug.value = 'reading-list';
-      form.elements.tags.value = (metadata.tags || []).join(', ');
-      form.elements.categories.value = (metadata.categories || []).join(', ');
-      for (const name of ['draft', 'showCitation']) form.elements[name].checked = metadata[name] === true;
-      bodyInput.value = body;
-      showImage(null);
-      updatePreview();
-      saveState.textContent = '已载入仓库中保存的文章';
+      const data = await saved.json();
+      if (localStorage.getItem(storageKey)) {
+        setEditMode(data.id, data.sourceHash);
+      } else fillExistingPost(data);
       return;
     }
     if (saved.status !== 404) throw new Error('无法读取已保存的文章');
+    if (localStorage.getItem(storageKey)) return;
     const response = await fetch('/drafts/reading-list.md', { cache: 'no-store' });
     if (!response.ok) throw new Error('无法读取阅读清单');
     form.elements.title.value = 'Reading list';
@@ -272,7 +337,7 @@ function markEdited() {
   stopDeploymentWatch();
   lastStatusData = null;
   publishDraftButton.hidden = true;
-  checkPushButton.disabled = !(form.elements.slug.value.trim() || form.elements.title.value.trim());
+  checkPushButton.disabled = !(sourceId || form.elements.slug.value.trim() || form.elements.title.value.trim());
   showOverallState('dirty', '有尚未保存的更改', '保存后会自动检测；也可以立即核对上一次保存的版本。');
   showPushState('article', { state: 'idle', message: '当前编辑内容尚未保存' });
   showPushState('image', { state: 'idle', message: '当前编辑内容尚未保存' });
@@ -326,11 +391,12 @@ document.querySelector('#confirm-publish').addEventListener('click', async () =>
   button.disabled = true;
   button.textContent = '正在发布…';
   try {
-    const response = await fetch('/api/publish', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ slug: form.elements.slug.value || form.elements.title.value, sourceHash: lastStatusData.sourceHash }) });
+    const response = await fetch('/api/publish', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ id: sourceId, slug: form.elements.slug.value || form.elements.title.value, sourceHash: lastStatusData.sourceHash }) });
     const data = await response.json();
     if (!response.ok) throw new Error(data.error || '发布失败');
     publishDialog.close();
     form.elements.draft.checked = false;
+    sourceHashValue = data.sourceHash;
     editorDirty = false;
     clearTimeout(saveTimer);
     localStorage.removeItem(storageKey);
@@ -342,20 +408,38 @@ document.querySelector('#confirm-publish').addEventListener('click', async () =>
   } catch (error) { errorText.textContent = error.message; errorText.hidden = false; }
   finally { button.disabled = false; button.textContent = '发布并推送'; }
 });
-document.querySelector('#clear-draft').addEventListener('click', () => { clearTimeout(saveTimer); stopDeploymentWatch(); statusRequestId++; localStorage.removeItem(storageKey); form.reset(); form.elements.publishedAt.value = today; form.elements.updatedAt.value = today; form.elements.imageMonth.value = today.slice(0, 7); bodyInput.hidden = false; preview.hidden = true; document.querySelectorAll('[data-tab]').forEach((tab) => tab.classList.toggle('is-active', tab.dataset.tab === 'write')); showImage(null); updatePreview(); saveState.textContent = '本地草稿已清除'; result.hidden = true; editorDirty = false; checkPushButton.disabled = true; resetPushState(); });
+document.querySelector('#clear-draft').addEventListener('click', async () => {
+  clearTimeout(saveTimer); stopDeploymentWatch(); statusRequestId++; localStorage.removeItem(storageKey); localStorage.removeItem(`${storageKey}-recovery`); deferredDraft = null; document.querySelector('#recover-local-draft').hidden = true;
+  if (sourceId) {
+    await loadExistingPost(sourceId);
+    editorDirty = false;
+    saveState.textContent = '已重新载入磁盘中的文章';
+    result.hidden = true;
+    await checkPushStatus();
+    return;
+  }
+  form.reset(); form.elements.publishedAt.value = today; form.elements.updatedAt.value = today; form.elements.imageMonth.value = today.slice(0, 7); bodyInput.hidden = false; preview.hidden = true; document.querySelectorAll('[data-tab]').forEach((tab) => tab.classList.toggle('is-active', tab.dataset.tab === 'write')); showImage(null); updatePreview(); saveState.textContent = '本地草稿已清除'; result.hidden = true; editorDirty = false; checkPushButton.disabled = true; resetPushState();
+});
 
 form.addEventListener('submit', async (event) => {
   event.preventDefault(); result.hidden = true; saveButton.disabled = true; saveButton.textContent = '保存中…';
   showOverallState('checking', '正在保存文章…', '保存完成后会自动核对 GitHub 状态。');
   try {
     const fields = Object.fromEntries(new FormData(form).entries()); const file = imageInput.files[0];
-    const body = { ...fields, draft: form.elements.draft.checked, push: form.elements.push.checked, showCitation: form.elements.showCitation.checked, image: file ? { name: file.name, data: await fileAsBase64(file), month: fields.imageMonth, slug: fields.slug || fields.title } : null };
+    const body = { ...fields, sourceId, sourceHash: sourceHashValue, draft: form.elements.draft.checked, push: form.elements.push.checked, showCitation: form.elements.showCitation.checked, image: file ? { name: file.name, data: await fileAsBase64(file), month: fields.imageMonth, slug: fields.slug || fields.title } : null };
     const response = await fetch('/api/save', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body) });
     const data = await response.json(); if (!response.ok) throw new Error(data.error || '保存失败');
     clearTimeout(saveTimer);
     editorDirty = false;
+    setEditMode(data.id, data.sourceHash);
     const checked = await checkPushStatus();
-    if (!data.pushError) localStorage.removeItem(storageKey);
+    localStorage.removeItem(storageKey);
+    localStorage.removeItem(`${storageKey}-recovery`);
+    deferredDraft = null;
+    document.querySelector('#recover-local-draft').hidden = true;
+    adoptEditUrl(data.id);
+    imageInput.value = '';
+    showImage(null);
     saveState.textContent = data.pushError ? '本地已保存，推送未完成' : '已写入仓库';
     result.className = data.pushError ? 'result error' : 'result';
     if (data.pushError) result.textContent = `本地已保存：${data.file}。但推送失败：${data.pushError}。请检查后重试。`;
@@ -366,5 +450,11 @@ form.addEventListener('submit', async (event) => {
   finally { saveButton.disabled = false; saveButton.textContent = '保存文章'; }
 });
 
-restoreLocalDraft(); updatePreview();
-prefillReadingList().then(() => { if (form.elements.slug.value || form.elements.title.value) checkPushStatus(); else resetPushState(); });
+if (requestedEditId) {
+  loadExistingPost(requestedEditId)
+    .then(() => { restoreLocalDraft(); updatePreview(); checkPushStatus(); })
+    .catch((error) => { result.className = 'result error'; result.textContent = error.message; result.hidden = false; resetPushState(); });
+} else {
+  updatePreview();
+  prefillReadingList().then(() => { restoreLocalDraft(); updatePreview(); if (form.elements.slug.value || form.elements.title.value) checkPushStatus(); else resetPushState(); });
+}

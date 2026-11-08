@@ -1,13 +1,15 @@
 import http from 'node:http';
 import { createHash, randomUUID } from 'node:crypto';
 import { spawn } from 'node:child_process';
-import { mkdir, readFile, writeFile } from 'node:fs/promises';
+import { lstat, mkdir, readFile, readdir, rename, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import yaml from 'js-yaml';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const imageRepo = path.resolve(root, '../image-backend');
+const postsDir = path.join(root, 'src/content/posts');
+const trashDir = path.join(root, 'blog-publisher-trash/posts');
 const publicDir = path.join(root, 'tools/blog-publisher/public');
 const port = Number(process.env.PUBLISHER_PORT || 4322);
 const imageBase = 'https://raw.githubusercontent.com/HaibinLai/image-backend/main';
@@ -155,6 +157,100 @@ function parsePostSource(source) {
   return { metadata: yaml.load(block[1], { schema: yaml.JSON_SCHEMA }) || {}, body: source.slice(block[0].length) };
 }
 
+const sourceHash = (source) => createHash('sha256').update(source).digest('hex');
+const postId = (value) => {
+  const id = String(value || '');
+  if (!/\.mdx?$/.test(id) || path.isAbsolute(id) || id.includes('\\') || id.split('/').some((part) => !part || part === '.' || part === '..')) {
+    throw new Error('文章路径无效');
+  }
+  return id;
+};
+const postFile = (id, directory = postsDir) => {
+  const filename = path.resolve(directory, postId(id));
+  if (!filename.startsWith(`${directory}${path.sep}`)) throw new Error('文章路径无效');
+  return filename;
+};
+const postLink = (id, metadata) => postUrl(metadata.slug || id.replace(/^wordpress\//, '').replace(/\.mdx?$/, ''));
+const serializedPost = (metadata, body) => `---\n${yaml.dump(metadata, { schema: yaml.JSON_SCHEMA, lineWidth: -1, noRefs: true })}---\n${body.startsWith('\n') ? body : `\n${body}`}`;
+
+async function listFiles(directory, prefix = '') {
+  const files = [];
+  let entries;
+  try { entries = await readdir(path.join(directory, prefix), { withFileTypes: true }); }
+  catch (error) { if (error.code === 'ENOENT') return files; throw error; }
+  for (const entry of entries) {
+    const id = path.posix.join(prefix, entry.name);
+    if (entry.isDirectory()) files.push(...await listFiles(directory, id));
+    else if (entry.isFile() && /\.mdx?$/.test(entry.name)) files.push(id);
+  }
+  return files;
+}
+
+async function listPosts(req, res) {
+  const url = new URL(req.url, 'http://127.0.0.1');
+  const filter = url.searchParams.get('filter') || 'all';
+  if (!['all', 'published', 'draft', 'trash'].includes(filter)) throw new Error('筛选条件无效');
+  const query = (url.searchParams.get('q') || '').trim().toLocaleLowerCase();
+  const page = Math.max(1, Number.parseInt(url.searchParams.get('page') || '1', 10) || 1);
+  const directories = filter === 'trash' ? [[trashDir, true]] : [[postsDir, false]];
+  const items = [];
+  for (const [directory, trashed] of directories) {
+    for (const id of await listFiles(directory)) {
+      const source = await readFile(postFile(id, directory), 'utf8');
+      let metadata;
+      try { metadata = parsePostSource(source).metadata; }
+      catch { metadata = {}; }
+      const item = {
+        id, title: metadata.title || path.basename(id), category: metadata.category || '',
+        publishedAt: String(metadata.publishedAt || ''), draft: metadata.draft === true,
+        tags: Array.isArray(metadata.tags) ? metadata.tags : [], trashed,
+        url: trashed || metadata.draft === true ? null : postLink(id, metadata),
+        sourceHash: sourceHash(source),
+      };
+      if (filter === 'draft' && !item.draft || filter === 'published' && item.draft) continue;
+      if (query && ![item.title, item.id, item.category, ...item.tags].join(' ').toLocaleLowerCase().includes(query)) continue;
+      items.push(item);
+    }
+  }
+  items.sort((a, b) => b.publishedAt.localeCompare(a.publishedAt) || a.title.localeCompare(b.title));
+  const pageSize = 30;
+  send(res, 200, { items: items.slice((page - 1) * pageSize, page * pageSize), total: items.length, page, pages: Math.max(1, Math.ceil(items.length / pageSize)) }, { 'Cache-Control': 'no-store' });
+}
+
+async function readPost(req, res) {
+  const url = new URL(req.url, 'http://127.0.0.1');
+  const id = postId(url.searchParams.get('id'));
+  const source = await readFile(postFile(id), 'utf8');
+  const { metadata, body } = parsePostSource(source);
+  send(res, 200, { id, metadata, body, sourceHash: sourceHash(source), url: postLink(id, metadata) }, { 'Cache-Control': 'no-store' });
+}
+
+async function movePost(req, res, restore) {
+  if (req.headers['content-type']?.split(';')[0] !== 'application/json') {
+    return send(res, 403, { error: '只允许从本地文章管理器执行此操作' });
+  }
+  const data = await readJson(req);
+  const id = postId(data.id);
+  const from = postFile(id, restore ? trashDir : postsDir);
+  const to = postFile(id, restore ? postsDir : trashDir);
+  const source = await readFile(from, 'utf8');
+  if (sourceHash(source) !== data.sourceHash) throw new Error('文章已改变，请刷新列表后再试');
+  try { await lstat(to); throw new Error('目标位置已有同名文章，请先处理冲突'); }
+  catch (error) { if (error.code !== 'ENOENT') throw error; }
+  if (data.push) await requireGitRepository(root, '博客目录');
+  await mkdir(path.dirname(to), { recursive: true });
+  await rename(from, to);
+  const result = { id, restored: restore };
+  if (data.push) {
+    try {
+      const paths = [path.relative(root, from), path.relative(root, to)];
+      await commitAndPush(root, paths, `${restore ? 'Restore' : 'Trash'} post: ${id}`);
+      result.pushed = true;
+    } catch (error) { result.pushError = error.message; }
+  }
+  send(res, 200, result, { 'Cache-Control': 'no-store' });
+}
+
 async function handleDraft(req, res) {
   const url = new URL(req.url, 'http://127.0.0.1');
   const requestedSlug = url.searchParams.get('slug')?.trim();
@@ -167,15 +263,16 @@ async function handleDraft(req, res) {
     if (error.code === 'ENOENT') return send(res, 404, { error: '文章尚未保存' }, { 'Cache-Control': 'no-store' });
     throw error;
   }
-  send(res, 200, parsePostSource(source), { 'Cache-Control': 'no-store' });
+  send(res, 200, { ...parsePostSource(source), id: `${safeSlug(requestedSlug)}.md`, sourceHash: sourceHash(source) }, { 'Cache-Control': 'no-store' });
 }
 
 async function handlePushStatus(req, res) {
   const url = new URL(req.url, 'http://127.0.0.1');
   const requestedSlug = url.searchParams.get('slug')?.trim();
-  if (!requestedSlug) throw new Error('请先填写标题或文件名');
-  const slug = safeSlug(requestedSlug);
-  const relative = path.join('src/content/posts', `${slug}.md`);
+  const id = url.searchParams.has('id') ? postId(url.searchParams.get('id')) : `${safeSlug(requestedSlug)}.md`;
+  if (!requestedSlug && !url.searchParams.has('id')) throw new Error('请先填写标题或文件名');
+  const slug = id.replace(/^wordpress\//, '').replace(/\.mdx?$/, '');
+  const relative = path.join('src/content/posts', id);
   let source;
   try {
     source = await readFile(path.join(root, relative), 'utf8');
@@ -201,7 +298,7 @@ async function handlePushStatus(req, res) {
       : Promise.resolve({ state: 'none', message: imageUrl ? '外部图片，不由图片仓库推送' : '这篇文章没有封面图片' }),
   ]);
   const draft = metadata.draft === true;
-  const publicUrl = postUrl(slug);
+  const publicUrl = postLink(id, metadata);
   const pipeline = {
     local: { state: 'complete', message: '文章已保存在本地' },
     commit: article.committed ? { state: 'complete', message: `本地提交 ${article.localCommit}` } : { state: 'waiting', message: '当前版本尚未提交' },
@@ -219,12 +316,13 @@ async function handlePushStatus(req, res) {
 
 async function handlePublish(req, res) {
   const data = await readJson(req);
-  if (!data.slug || !data.sourceHash) throw new Error('请先重新检测草稿状态');
-  const slug = safeSlug(data.slug);
-  const relative = path.join('src/content/posts', `${slug}.md`);
+  if ((!data.slug && !data.id) || !data.sourceHash) throw new Error('请先重新检测草稿状态');
+  const id = data.id ? postId(data.id) : `${safeSlug(data.slug)}.md`;
+  const slug = id.replace(/^wordpress\//, '').replace(/\.mdx?$/, '');
+  const relative = path.join('src/content/posts', id);
   const filename = path.join(root, relative);
   const source = await readFile(filename, 'utf8');
-  if (createHash('sha256').update(source).digest('hex') !== data.sourceHash) throw new Error('草稿已改变，请重新检测后再发布');
+  if (sourceHash(source) !== data.sourceHash) throw new Error('草稿已改变，请重新检测后再发布');
   const { metadata, body } = parsePostSource(source);
   if (metadata.draft !== true) throw new Error('这篇文章已经不是草稿');
   await requireGitRepository(root, '博客目录');
@@ -235,8 +333,9 @@ async function handlePublish(req, res) {
   }
   metadata.draft = false;
   metadata.publisherRevision = randomUUID();
-  await writeFile(filename, `---\n${yaml.dump(metadata, { schema: yaml.JSON_SCHEMA, lineWidth: -1, noRefs: true })}---\n${body}`, 'utf8');
-  const result = { file: relative, slug, url: postUrl(slug) };
+  const updatedSource = serializedPost(metadata, body);
+  await writeFile(filename, updatedSource, 'utf8');
+  const result = { file: relative, slug, sourceHash: sourceHash(updatedSource), url: postLink(id, metadata) };
   try {
     if (imagePath) await commitAndPush(imageRepo, [imagePath], `Publish cover for ${slug}`);
     await commitAndPush(root, [relative], `Publish post: ${metadata.title}`);
@@ -275,30 +374,73 @@ async function saveImage(image) {
 async function handleSave(req, res) {
   const data = await readJson(req);
   if (!data.title?.trim() || !data.body?.trim()) throw new Error('标题和正文不能为空');
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(data.publishedAt)) throw new Error('请选择有效的发布日期');
+  if (data.updatedAt && !/^\d{4}-\d{2}-\d{2}$/.test(data.updatedAt)) throw new Error('更新日期格式无效');
+  if (data.translationKey && !data.language) throw new Error('双语关联 ID 需要指定语言');
   data.cardImage = remoteImageUrl(data.cardImage, '封面图片 URL');
   data.featuredImage = remoteImageUrl(data.featuredImage, '精选横幅 URL');
+  const editId = data.sourceId ? postId(data.sourceId) : null;
+  const slug = editId ? editId.replace(/^wordpress\//, '').replace(/\.mdx?$/, '') : safeSlug(data.slug || data.title);
+  const relative = path.join('src/content/posts', editId || `${slug}.md`);
+  const filename = editId ? postFile(editId) : path.join(root, relative);
+  let original = null;
+  if (editId) {
+    const source = await readFile(filename, 'utf8');
+    if (!data.sourceHash || sourceHash(source) !== data.sourceHash) throw new Error('文章已被其他操作修改，请重新打开后再编辑');
+    original = parsePostSource(source);
+  } else {
+    try { await lstat(filename); throw new Error('同名文章已存在，请在文章管理器中打开编辑'); }
+    catch (error) { if (error.code !== 'ENOENT') throw error; }
+  }
   if (data.push) {
     await requireGitRepository(root, '博客目录');
     if (data.image) await requireGitRepository(imageRepo, '图片目录');
   }
-  const slug = safeSlug(data.slug || data.title);
   const imageUrl = await saveImage(data.image);
   if (imageUrl && !data.cardImage) data.cardImage = imageUrl;
   const body = imageUrl
     ? String(data.body).replaceAll('{{UPLOADED_IMAGE}}', `![${data.image.name}](${imageUrl})`)
     : String(data.body).replaceAll('{{UPLOADED_IMAGE}}', '');
-  const relative = path.join('src/content/posts', `${slug}.md`);
-  const filename = path.join(root, relative);
   await mkdir(path.dirname(filename), { recursive: true });
-  await writeFile(filename, frontmatter({ ...data, body, slug }), 'utf8');
-  const result = { file: relative, slug, imageUrl, url: postUrl(slug) };
+  let source;
+  let metadata;
+  if (original) {
+    metadata = { ...original.metadata };
+    metadata.title = data.title.trim();
+    metadata.description = data.description?.trim() || metadata.title;
+    if (String(metadata.publishedAt).slice(0, 10) !== data.publishedAt) metadata.publishedAt = data.publishedAt;
+    if (data.updatedAt) {
+      if (String(metadata.updatedAt || '').slice(0, 10) !== data.updatedAt) metadata.updatedAt = data.updatedAt;
+    } else delete metadata.updatedAt;
+    metadata.category = data.category?.trim() || 'Research';
+    metadata.categories = String(data.categories || '').split(',').map((item) => item.trim()).filter(Boolean);
+    metadata.tags = String(data.tags || '').split(',').map((item) => item.trim()).filter(Boolean);
+    for (const key of ['language', 'translationKey', 'featuredTitle', 'featuredLabel']) {
+      if (data[key]?.trim()) metadata[key] = data[key].trim();
+      else delete metadata[key];
+    }
+    for (const key of ['cardImage', 'featuredImage']) {
+      if (data[key] || key === 'cardImage' && imageUrl) metadata[key] = data[key] || imageUrl;
+      else delete metadata[key];
+    }
+    if (data.featuredRank) metadata.featuredRank = Number(data.featuredRank);
+    else delete metadata.featuredRank;
+    metadata.draft = data.draft === true;
+    metadata.showCitation = data.showCitation === true;
+    metadata.publisherRevision = randomUUID();
+    source = serializedPost(metadata, `\n${body.trimEnd()}\n`);
+  } else {
+    source = frontmatter({ ...data, body, slug });
+  }
+  await writeFile(filename, source, 'utf8');
+  const result = { file: relative, id: editId || `${slug}.md`, sourceHash: sourceHash(source), slug, imageUrl, url: editId ? postLink(editId, metadata) : postUrl(slug) };
   if (data.push) {
     try {
       if (imageUrl) {
         const imagePath = path.join(data.image.month, safeSlug(data.image.slug), path.basename(new URL(imageUrl).pathname));
         result.imagesPushed = await commitAndPush(imageRepo, [imagePath], `Add images for ${slug}`);
       }
-      result.pushed = await commitAndPush(root, [relative], `Add post: ${data.title.trim()}`);
+      result.pushed = await commitAndPush(root, [relative], `${editId ? 'Update' : 'Add'} post: ${data.title.trim()}`);
     } catch (error) {
       result.pushError = error.message;
     }
@@ -308,13 +450,20 @@ async function handleSave(req, res) {
 
 const server = http.createServer(async (req, res) => {
   try {
+    if (req.headers.host !== `127.0.0.1:${port}`) return send(res, 403, { error: 'This writer is only available on localhost' });
+    if (req.method === 'POST' && req.headers.origin !== `http://127.0.0.1:${port}`) return send(res, 403, { error: '只允许从本地写作器提交修改' });
     if (req.method === 'POST' && req.url === '/api/save') return await handleSave(req, res);
     if (req.method === 'POST' && req.url === '/api/publish') return await handlePublish(req, res);
+    if (req.method === 'POST' && req.url === '/api/post/trash') return await movePost(req, res, false);
+    if (req.method === 'POST' && req.url === '/api/post/restore') return await movePost(req, res, true);
     if (req.method === 'GET' && req.url === '/api/config') return send(res, 200, { root, imageRepo, port });
     if (req.method === 'GET' && req.url.startsWith('/api/draft?')) return await handleDraft(req, res);
+    if (req.method === 'GET' && req.url.startsWith('/api/posts')) return await listPosts(req, res);
+    if (req.method === 'GET' && req.url.startsWith('/api/post?')) return await readPost(req, res);
     if (req.method === 'GET' && req.url.startsWith('/api/push-status?')) return await handlePushStatus(req, res);
     if (req.method !== 'GET') return send(res, 405, { error: 'Method not allowed' });
-    const requested = req.url === '/' ? 'index.html' : req.url.replace(/^\//, '');
+    const pathname = new URL(req.url, 'http://127.0.0.1').pathname;
+    const requested = pathname === '/' ? 'index.html' : ['/manager', '/manager/'].includes(pathname) ? 'manager.html' : pathname.replace(/^\//, '');
     const file = path.resolve(publicDir, requested);
     if (!file.startsWith(`${publicDir}${path.sep}`)) return send(res, 403, { error: 'Forbidden' });
     const content = await readFile(file);

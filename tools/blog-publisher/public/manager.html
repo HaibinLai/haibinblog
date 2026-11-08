@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>文章管理 · Haibin Blog Publisher</title>
+  <link rel="stylesheet" href="/manager.css">
+</head>
+<body>
+  <main class="manager-shell">
+    <header class="manager-header">
+      <div><p class="eyebrow">HAIBIN'S BLOG · LOCAL WRITER</p><h1>文章管理</h1></div>
+      <div class="header-actions"><a class="quiet-link" href="/">写作器</a><a class="new-post" href="/">写新文章</a></div>
+    </header>
+
+    <section class="manager-main" aria-label="文章列表">
+      <div class="manager-toolbar">
+        <label class="search-field"><span class="sr-only">搜索标题、文件名、分类或标签</span><input id="post-search" type="search" placeholder="搜索标题、文件名、分类或标签" autocomplete="off"></label>
+        <div class="filters" role="group" aria-label="筛选文章">
+          <button type="button" data-filter="all" aria-pressed="true">全部</button>
+          <button type="button" data-filter="published" aria-pressed="false">已发布</button>
+          <button type="button" data-filter="draft" aria-pressed="false">草稿</button>
+          <button type="button" data-filter="trash" aria-pressed="false">回收站</button>
+        </div>
+      </div>
+      <div class="list-heading"><strong id="list-count">正在读取文章…</strong><span id="list-page"></span></div>
+      <div id="manager-message" class="manager-message" role="status" hidden></div>
+      <div id="post-list" class="post-list" aria-live="polite"></div>
+      <div class="pagination"><button id="previous-page" type="button">上一页</button><span id="page-indicator"></span><button id="next-page" type="button">下一页</button></div>
+    </section>
+  </main>
+
+  <dialog id="action-dialog" aria-labelledby="action-title">
+    <div class="dialog-body">
+      <h2 id="action-title">确认操作</h2>
+      <p id="action-description"></p>
+      <label class="push-choice"><input id="push-action" type="checkbox"><span>同时提交并推送到 GitHub</span></label>
+      <p class="dialog-note">不勾选时只修改本地文件。推送后，网站仍需等待部署。</p>
+      <p id="action-error" class="action-error" role="alert" hidden></p>
+      <div class="dialog-actions"><button id="cancel-action" type="button">取消</button><button id="confirm-action" type="button">确认</button></div>
+    </div>
+  </dialog>
+  <script src="/manager.js"></script>
+</body>
+</html>

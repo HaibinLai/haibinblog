@@ -152,6 +152,18 @@ the public site. A cover can also be set by pasting an existing HTTP(S) image
 URL, such as an S3 or Tencent Cloud URL, without copying that file into
 `image-backend`.
 
+The local article manager is at `http://127.0.0.1:4322/manager`. It lists all
+posts in `src/content/posts/`, including imported WordPress posts, with search,
+draft/published filters, and pagination. Open an article in the writer to edit
+its title, metadata, and original Markdown or HTML body; metadata not shown in
+the form is preserved. Saving an existing post checks its source version first,
+so a stale editor cannot silently overwrite changes made elsewhere. Deleting
+an article moves it to `blog-publisher-trash/posts/` and the manager can restore
+it to its original path. The manager offers an explicit GitHub push choice for
+delete/restore; without it, changes remain local. Pushing a deletion removes
+the public page after deployment, but the deleted source remains in the public
+GitHub repository's trash path and history.
+
 ## Importing from WordPress
 
 Export **All content** from WordPress under **Tools → Export**, then run:
