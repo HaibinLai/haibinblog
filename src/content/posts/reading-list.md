@@ -10,6 +10,7 @@ language: en
 draft: true
 cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-11/reading-list/d470d771aec8c869b1b366bbfd3297ef-2bef43fe12d8.jpg"
 showCitation: true
+publisherRevision: dedfb0f0-6e4e-4dfd-880b-a96fad6f7906
 ---
 # Reading list
 
