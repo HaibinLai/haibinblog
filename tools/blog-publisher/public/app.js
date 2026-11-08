@@ -12,7 +12,8 @@ const preview = document.querySelector('#preview');
 const bodyCount = document.querySelector('#body-count');
 const saveState = document.querySelector('#save-state');
 const saveButton = document.querySelector('#save-button');
-const storageKey = 'haibin-blog-publisher-draft-v2';
+const readingListImport = location.hash === '#import=reading-list';
+const storageKey = readingListImport ? 'haibin-blog-publisher-reading-list-draft-v1' : 'haibin-blog-publisher-draft-v2';
 
 const today = new Date().toISOString().slice(0, 10);
 if (!form.elements.publishedAt.value) form.elements.publishedAt.value = today;
@@ -96,6 +97,29 @@ function restoreLocalDraft() {
   } catch { localStorage.removeItem(storageKey); }
 }
 
+async function prefillReadingList() {
+  if (!readingListImport || localStorage.getItem(storageKey)) return;
+  try {
+    const response = await fetch('/drafts/reading-list.md', { cache: 'no-store' });
+    if (!response.ok) throw new Error('无法读取阅读清单');
+    form.elements.title.value = 'Reading list';
+    form.elements.slug.value = 'reading-list';
+    form.elements.description.value = 'A reading list on scalable learning, practical ML systems, and LLM systems.';
+    form.elements.category.value = 'Research';
+    form.elements.tags.value = 'reading-list, machine-learning, LLM-systems';
+    form.elements.language.value = 'en';
+    form.elements.draft.checked = true;
+    form.elements.push.checked = false;
+    form.elements.showCitation.checked = false;
+    bodyInput.value = await response.text();
+    updatePreview();
+    saveLocalDraft();
+    saveState.textContent = '已导入阅读清单，保存在独立的本地草稿中';
+  } catch (error) {
+    saveState.textContent = error.message;
+  }
+}
+
 function insertAtCursor(text) {
   const start = bodyInput.selectionStart; const end = bodyInput.selectionEnd;
   bodyInput.setRangeText(text, start, end, 'end'); bodyInput.focus(); updatePreview(); scheduleLocalDraft();
@@ -137,11 +161,15 @@ form.addEventListener('submit', async (event) => {
     const body = { ...fields, draft: form.elements.draft.checked, push: form.elements.push.checked, showCitation: form.elements.showCitation.checked, image: file ? { name: file.name, data: await fileAsBase64(file), month: fields.imageMonth, slug: fields.slug || fields.title } : null };
     const response = await fetch('/api/save', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body) });
     const data = await response.json(); if (!response.ok) throw new Error(data.error || '保存失败');
-    localStorage.removeItem(storageKey); saveState.textContent = '已写入仓库'; result.className = 'result';
-    result.innerHTML = `已保存：<strong>${data.file}</strong>${data.pushed ? '<br>已提交并推送到 GitHub，等待 Actions 部署。' : '<br>尚未推送；文章现在只在本地仓库。'}${data.imageUrl ? `<br>图片已保存：<code>${data.imageUrl}</code>` : ''}${data.url ? `<br><a href="${data.url}" target="_blank">打开对应页面 ↗</a>` : ''}`;
+    if (!data.pushError) localStorage.removeItem(storageKey);
+    saveState.textContent = data.pushError ? '本地已保存，推送未完成' : '已写入仓库';
+    result.className = data.pushError ? 'result error' : 'result';
+    if (data.pushError) result.textContent = `本地已保存：${data.file}。但推送失败：${data.pushError}。请检查后重试。`;
+    else result.innerHTML = `已保存：<strong>${data.file}</strong>${data.pushed ? '<br>已提交并推送到 GitHub，等待 Actions 部署。' : '<br>尚未推送；文章现在只在本地仓库。'}${data.imageUrl ? `<br>图片已保存：<code>${data.imageUrl}</code>` : ''}${data.url ? `<br><a href="${data.url}" target="_blank">打开对应页面 ↗</a>` : ''}`;
     result.hidden = false;
   } catch (error) { result.className = 'result error'; result.textContent = error.message; result.hidden = false; }
   finally { saveButton.disabled = false; saveButton.textContent = '保存文章'; }
 });
 
 restoreLocalDraft(); updatePreview();
+prefillReadingList();

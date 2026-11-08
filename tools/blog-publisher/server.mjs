@@ -99,6 +99,15 @@ async function commitAndPush(cwd, paths, message) {
   return true;
 }
 
+async function requireGitRepository(cwd, name) {
+  try {
+    const actualRoot = await run(cwd, ['rev-parse', '--show-toplevel']);
+    if (actualRoot !== cwd) throw new Error('Unexpected repository root');
+  } catch {
+    throw new Error(`${name} 不是 Git 仓库；文章和图片均未保存。请先克隆对应仓库，或取消“保存后提交并推送到 GitHub”。`);
+  }
+}
+
 async function saveImage(image) {
   if (!image?.name || !image.data) return null;
   const extension = path.extname(image.name).toLowerCase();
@@ -123,6 +132,10 @@ async function handleSave(req, res) {
   if (!data.title?.trim() || !data.body?.trim()) throw new Error('标题和正文不能为空');
   data.cardImage = remoteImageUrl(data.cardImage, '封面图片 URL');
   data.featuredImage = remoteImageUrl(data.featuredImage, '精选横幅 URL');
+  if (data.push) {
+    await requireGitRepository(root, '博客目录');
+    if (data.image) await requireGitRepository(imageRepo, '图片目录');
+  }
   const slug = safeSlug(data.slug || data.title);
   const imageUrl = await saveImage(data.image);
   if (imageUrl && !data.cardImage) data.cardImage = imageUrl;
@@ -135,10 +148,15 @@ async function handleSave(req, res) {
   await writeFile(filename, frontmatter({ ...data, body, slug }), 'utf8');
   const result = { file: relative, slug, imageUrl, url: `https://haibinlai.github.io/haibinblog/posts/${encodeURIComponent(slug)}/` };
   if (data.push) {
-    if (imageUrl) {
-      result.imagesPushed = await commitAndPush(imageRepo, [path.relative(imageRepo, path.join(data.image.month, safeSlug(data.image.slug), path.basename(new URL(imageUrl).pathname)))], `Add images for ${slug}`);
+    try {
+      if (imageUrl) {
+        const imagePath = path.join(data.image.month, safeSlug(data.image.slug), path.basename(new URL(imageUrl).pathname));
+        result.imagesPushed = await commitAndPush(imageRepo, [imagePath], `Add images for ${slug}`);
+      }
+      result.pushed = await commitAndPush(root, [relative], `Add post: ${data.title.trim()}`);
+    } catch (error) {
+      result.pushError = error.message;
     }
-    result.pushed = await commitAndPush(root, [relative], `Add post: ${data.title.trim()}`);
   }
   send(res, 200, result);
 }
