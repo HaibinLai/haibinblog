@@ -14,6 +14,9 @@ const saveState = document.querySelector('#save-state');
 const saveButton = document.querySelector('#save-button');
 const pushStatus = document.querySelector('#push-status');
 const checkPushButton = document.querySelector('#check-push');
+const statusTitle = document.querySelector('#push-status-title');
+const statusSummary = document.querySelector('#push-status-summary');
+const statusChecked = document.querySelector('#push-status-checked');
 const readingListImport = location.hash === '#import=reading-list';
 const storageKey = readingListImport ? 'haibin-blog-publisher-reading-list-draft-v1' : 'haibin-blog-publisher-draft-v2';
 
@@ -83,6 +86,7 @@ function collectDraft() {
 
 let saveTimer;
 let editorDirty = false;
+let statusRequestId = 0;
 function saveLocalDraft() {
   localStorage.setItem(storageKey, JSON.stringify(collectDraft()));
   saveState.textContent = `已自动保存 ${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
@@ -102,28 +106,45 @@ function restoreLocalDraft() {
   } catch { localStorage.removeItem(storageKey); }
 }
 
-const pushLabels = { pushed: '已推送', local: '仅在本地', pending: '待核对', missing: '未保存', none: '未使用', unknown: '无法确认' };
+const pushLabels = { pushed: '已推送', local: '仅在本地', pending: '待核对', missing: '未保存', none: '未使用', unknown: '无法确认', checking: '检测中', idle: '待检测' };
+function showOverallState(state, title, detail) {
+  pushStatus.dataset.state = state;
+  statusTitle.textContent = title;
+  statusSummary.textContent = detail;
+}
+
 function showPushState(kind, status) {
   const badge = document.querySelector(`#${kind}-push-state`);
-  badge.textContent = pushLabels[status.state] || '无法确认';
+  badge.textContent = status.label || pushLabels[status.state] || '无法确认';
   badge.dataset.state = status.state;
-  document.querySelector(`#${kind}-push-detail`).textContent = status.message;
+  document.querySelector(`#${kind}-push-detail`).textContent = `${status.message}${status.commit ? ` · main@${status.commit}` : ''}`;
+}
+
+function resetPushState() {
+  showOverallState('idle', '等待文章信息', '填写标题后，可以检测保存和推送状态。');
+  showPushState('article', { state: 'idle', message: '保存后自动检测' });
+  showPushState('image', { state: 'idle', message: '保存后自动检测' });
+  statusChecked.textContent = '尚未检测';
+  for (const kind of ['article', 'image']) document.querySelector(`#${kind}-source`).hidden = true;
 }
 
 async function checkPushStatus() {
   const slug = form.elements.slug.value.trim() || form.elements.title.value.trim();
-  pushStatus.hidden = false;
-  showPushState('article', { state: 'unknown', message: '正在检查 GitHub…' });
-  showPushState('image', { state: 'unknown', message: '正在检查 GitHub…' });
+  const requestId = ++statusRequestId;
+  showOverallState('checking', '正在核对 GitHub…', '正在检查仓库中已保存的文章和封面图片。');
+  showPushState('article', { state: 'checking', message: '正在检测' });
+  showPushState('image', { state: 'checking', message: '正在检测' });
   if (!slug) {
     showPushState('article', { state: 'missing', message: '请先填写标题或文件名' });
     showPushState('image', { state: 'none', message: '尚无文章可检测' });
+    showOverallState('idle', '等待文章信息', '先填写标题或文件名，再检测推送状态。');
     return null;
   }
   checkPushButton.disabled = true;
   try {
     const response = await fetch(`/api/push-status?slug=${encodeURIComponent(slug)}`, { cache: 'no-store' });
     const data = await response.json();
+    if (requestId !== statusRequestId) return null;
     if (!response.ok) throw new Error(data.error || '检测失败');
     const articleMessage = data.article.state === 'pushed' && data.draft
       ? '已在 GitHub；仍是草稿，博客页面不会展示'
@@ -134,14 +155,30 @@ async function checkPushStatus() {
         ? `${articleMessage}；当前编辑内容尚未保存`
         : articleMessage,
     });
-    showPushState('image', data.image);
+    showPushState('image', { ...data.image, label: data.image.state === 'none' && data.imageUrl ? '外部链接' : undefined });
+    const articleSource = document.querySelector('#article-source');
+    articleSource.hidden = data.article.state !== 'pushed';
+    if (!articleSource.hidden) articleSource.href = `https://github.com/HaibinLai/haibinblog/blob/main/${data.file.split('/').map(encodeURIComponent).join('/')}`;
+    const imageSource = document.querySelector('#image-source');
+    imageSource.hidden = !data.imageUrl || data.image.state !== 'pushed';
+    if (!imageSource.hidden) imageSource.href = data.imageUrl;
+    if (data.article.state === 'missing') showOverallState('local', '文章还没有保存', '点击底部“保存文章”后会自动检测。');
+    else if (editorDirty) showOverallState('dirty', '编辑中的内容尚未保存', '下方结果只代表仓库中上一次保存的版本。');
+    else if (data.article.state === 'pushed' && ['local', 'pending', 'unknown'].includes(data.image.state)) showOverallState('partial', '文章已推送，图片待核对', '请查看下方封面图片的状态。');
+    else if (data.article.state === 'pushed') showOverallState('pushed', data.draft ? '已推送，仍是草稿' : '已推送到 GitHub', data.draft ? 'GitHub 有源码；公开博客不会展示这篇草稿。' : '文章已在 GitHub，公开页面还需等待部署。');
+    else if (data.article.state === 'local') showOverallState('local', '仅保存在本地', '勾选底部的推送选项并保存，即可推送到 GitHub。');
+    else if (data.article.state === 'pending') showOverallState('pending', '推送尚未确认', '本地与 GitHub 提交不同，请稍后重新检测。');
+    else showOverallState('error', '无法确认推送状态', '请检查网络连接或 Git 仓库设置。');
+    statusChecked.textContent = `最近检测：${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' })}`;
     return data;
   } catch (error) {
+    if (requestId !== statusRequestId) return null;
     showPushState('article', { state: 'unknown', message: error.message });
     showPushState('image', { state: 'unknown', message: '请稍后重试' });
+    showOverallState('error', '检测失败', '请检查网络连接后重试。');
     return null;
   } finally {
-    checkPushButton.disabled = false;
+    if (requestId === statusRequestId) checkPushButton.disabled = false;
   }
 }
 
@@ -177,6 +214,7 @@ async function prefillReadingList() {
     form.elements.push.checked = false;
     form.elements.showCitation.checked = false;
     bodyInput.value = await response.text();
+    editorDirty = true;
     updatePreview();
     saveLocalDraft();
     saveState.textContent = '已导入阅读清单，保存在独立的本地草稿中';
@@ -190,7 +228,17 @@ function insertAtCursor(text) {
   bodyInput.setRangeText(text, start, end, 'end'); bodyInput.focus(); updatePreview(); markEdited();
 }
 
-function markEdited() { editorDirty = true; pushStatus.hidden = true; scheduleLocalDraft(); }
+function markEdited() {
+  editorDirty = true;
+  statusRequestId++;
+  checkPushButton.disabled = !(form.elements.slug.value.trim() || form.elements.title.value.trim());
+  showOverallState('dirty', '有尚未保存的更改', '保存后会自动检测；也可以立即核对上一次保存的版本。');
+  showPushState('article', { state: 'idle', message: '当前编辑内容尚未保存' });
+  showPushState('image', { state: 'idle', message: '当前编辑内容尚未保存' });
+  for (const kind of ['article', 'image']) document.querySelector(`#${kind}-source`).hidden = true;
+  statusChecked.textContent = '编辑内容已改变，旧检测结果已清除';
+  scheduleLocalDraft();
+}
 
 const fileAsBase64 = (file) => new Promise((resolve, reject) => {
   const reader = new FileReader(); reader.onload = () => resolve(String(reader.result).split(',')[1]); reader.onerror = reject; reader.readAsDataURL(file);
@@ -221,10 +269,11 @@ bodyInput.addEventListener('input', updatePreview);
 form.addEventListener('input', markEdited);
 form.addEventListener('change', markEdited);
 checkPushButton.addEventListener('click', checkPushStatus);
-document.querySelector('#clear-draft').addEventListener('click', () => { clearTimeout(saveTimer); localStorage.removeItem(storageKey); form.reset(); form.elements.publishedAt.value = today; form.elements.updatedAt.value = today; form.elements.imageMonth.value = today.slice(0, 7); bodyInput.hidden = false; preview.hidden = true; document.querySelectorAll('[data-tab]').forEach((tab) => tab.classList.toggle('is-active', tab.dataset.tab === 'write')); showImage(null); updatePreview(); saveState.textContent = '本地草稿已清除'; pushStatus.hidden = true; result.hidden = true; editorDirty = false; });
+document.querySelector('#clear-draft').addEventListener('click', () => { clearTimeout(saveTimer); statusRequestId++; localStorage.removeItem(storageKey); form.reset(); form.elements.publishedAt.value = today; form.elements.updatedAt.value = today; form.elements.imageMonth.value = today.slice(0, 7); bodyInput.hidden = false; preview.hidden = true; document.querySelectorAll('[data-tab]').forEach((tab) => tab.classList.toggle('is-active', tab.dataset.tab === 'write')); showImage(null); updatePreview(); saveState.textContent = '本地草稿已清除'; result.hidden = true; editorDirty = false; checkPushButton.disabled = true; resetPushState(); });
 
 form.addEventListener('submit', async (event) => {
   event.preventDefault(); result.hidden = true; saveButton.disabled = true; saveButton.textContent = '保存中…';
+  showOverallState('checking', '正在保存文章…', '保存完成后会自动核对 GitHub 状态。');
   try {
     const fields = Object.fromEntries(new FormData(form).entries()); const file = imageInput.files[0];
     const body = { ...fields, draft: form.elements.draft.checked, push: form.elements.push.checked, showCitation: form.elements.showCitation.checked, image: file ? { name: file.name, data: await fileAsBase64(file), month: fields.imageMonth, slug: fields.slug || fields.title } : null };
@@ -237,11 +286,11 @@ form.addEventListener('submit', async (event) => {
     saveState.textContent = data.pushError ? '本地已保存，推送未完成' : '已写入仓库';
     result.className = data.pushError ? 'result error' : 'result';
     if (data.pushError) result.textContent = `本地已保存：${data.file}。但推送失败：${data.pushError}。请检查后重试。`;
-    else result.innerHTML = `已保存：<strong>${data.file}</strong>${checked?.article.state === 'pushed' ? '<br>文章已推送到 GitHub。' : '<br>推送状态见下方检测结果。'}${data.imageUrl ? `<br>图片已保存：<code>${data.imageUrl}</code>` : ''}${data.url && !form.elements.draft.checked ? `<br><a href="${data.url}" target="_blank">打开对应页面 ↗</a>` : ''}`;
+    else result.innerHTML = `已保存：<strong>${data.file}</strong>${checked?.article.state === 'pushed' ? '<br>文章已推送到 GitHub。' : '<br>推送状态请查看页面顶部。'}${data.imageUrl ? `<br>图片已保存：<code>${data.imageUrl}</code>` : ''}${data.url && !form.elements.draft.checked ? `<br><a href="${data.url}" target="_blank">打开对应页面 ↗</a>` : ''}`;
     result.hidden = false;
-  } catch (error) { result.className = 'result error'; result.textContent = error.message; result.hidden = false; }
+  } catch (error) { result.className = 'result error'; result.textContent = error.message; result.hidden = false; showOverallState('error', '保存失败', error.message); }
   finally { saveButton.disabled = false; saveButton.textContent = '保存文章'; }
 });
 
 restoreLocalDraft(); updatePreview();
-prefillReadingList().then(() => { if (form.elements.slug.value || form.elements.title.value) checkPushStatus(); });
+prefillReadingList().then(() => { if (form.elements.slug.value || form.elements.title.value) checkPushStatus(); else resetPushState(); });

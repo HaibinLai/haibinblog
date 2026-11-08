@@ -108,7 +108,7 @@ async function gitFileStatus(cwd, relative) {
   const remoteHead = remoteRef.split(/\s+/)[0];
   if (!remoteHead) return { state: 'unknown', message: '无法读取 GitHub 主分支' };
   if (localHead !== remoteHead) return { state: 'pending', message: '本地与 GitHub 提交不同，尚不能确认' };
-  return { state: 'pushed', message: '已推送到 GitHub' };
+  return { state: 'pushed', message: '已推送到 GitHub', commit: localHead.slice(0, 7) };
 }
 
 function managedImagePath(imageUrl) {
