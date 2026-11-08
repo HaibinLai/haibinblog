@@ -1,16 +1,19 @@
 ---
 title: Reading list
-description: "A reading list on scalable learning, practical ML systems, and LLM systems."
+description: A reading list on scalable learning, practical ML systems, and LLM systems.
 publishedAt: 2026-11-08
 updatedAt: 2026-11-08
 category: Research
 categories: []
-tags: [reading-list, machine-learning, LLM-systems]
+tags:
+  - reading-list
+  - machine-learning
+  - LLM-systems
 language: en
-draft: true
-cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-11/reading-list/d470d771aec8c869b1b366bbfd3297ef-2bef43fe12d8.jpg"
+draft: false
+cardImage: https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-11/reading-list/d470d771aec8c869b1b366bbfd3297ef-2bef43fe12d8.jpg
 showCitation: true
-publisherRevision: dedfb0f0-6e4e-4dfd-880b-a96fad6f7906
+publisherRevision: 986f8bdf-3b16-4fd4-a94e-dab68d4c0753
 ---
 # Reading list
 
