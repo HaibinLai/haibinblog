@@ -17,6 +17,8 @@ const checkPushButton = document.querySelector('#check-push');
 const statusTitle = document.querySelector('#push-status-title');
 const statusSummary = document.querySelector('#push-status-summary');
 const statusChecked = document.querySelector('#push-status-checked');
+const publishDraftButton = document.querySelector('#publish-draft');
+const publishDialog = document.querySelector('#publish-dialog');
 const readingListImport = location.hash === '#import=reading-list';
 const storageKey = readingListImport ? 'haibin-blog-publisher-reading-list-draft-v1' : 'haibin-blog-publisher-draft-v2';
 
@@ -87,6 +89,8 @@ function collectDraft() {
 let saveTimer;
 let editorDirty = false;
 let statusRequestId = 0;
+let lastStatusData = null;
+let deploymentTimer;
 function saveLocalDraft() {
   localStorage.setItem(storageKey, JSON.stringify(collectDraft()));
   saveState.textContent = `已自动保存 ${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
@@ -120,12 +124,33 @@ function showPushState(kind, status) {
   document.querySelector(`#${kind}-push-detail`).textContent = `${status.message}${status.commit ? ` · main@${status.commit}` : ''}`;
 }
 
+function showStage(kind, status) {
+  const stage = document.querySelector(`#stage-${kind}`);
+  stage.dataset.state = status.state;
+  stage.querySelector('small').textContent = status.message;
+}
+
+function stopDeploymentWatch() { clearTimeout(deploymentTimer); deploymentTimer = null; }
+
+function watchDeployment(remaining = 12) {
+  stopDeploymentWatch();
+  if (remaining <= 0 || editorDirty) return;
+  deploymentTimer = setTimeout(async () => {
+    const data = await checkPushStatus();
+    if (data?.pipeline?.site?.state !== 'complete' && !data?.draft && remaining > 1) watchDeployment(remaining - 1);
+  }, 15000);
+}
+
 function resetPushState() {
   showOverallState('idle', '等待文章信息', '填写标题后，可以检测保存和推送状态。');
   showPushState('article', { state: 'idle', message: '保存后自动检测' });
   showPushState('image', { state: 'idle', message: '保存后自动检测' });
   statusChecked.textContent = '尚未检测';
   for (const kind of ['article', 'image']) document.querySelector(`#${kind}-source`).hidden = true;
+  for (const kind of ['local', 'commit', 'remote', 'site']) showStage(kind, { state: 'waiting', message: '等待文章信息' });
+  document.querySelector('#site-source').hidden = true;
+  publishDraftButton.hidden = true;
+  lastStatusData = null;
 }
 
 async function checkPushStatus() {
@@ -138,6 +163,7 @@ async function checkPushStatus() {
     showPushState('article', { state: 'missing', message: '请先填写标题或文件名' });
     showPushState('image', { state: 'none', message: '尚无文章可检测' });
     showOverallState('idle', '等待文章信息', '先填写标题或文件名，再检测推送状态。');
+    resetPushState();
     return null;
   }
   checkPushButton.disabled = true;
@@ -146,6 +172,14 @@ async function checkPushStatus() {
     const data = await response.json();
     if (requestId !== statusRequestId) return null;
     if (!response.ok) throw new Error(data.error || '检测失败');
+    lastStatusData = data;
+    for (const kind of ['local', 'commit', 'remote', 'site']) showStage(kind, data.pipeline[kind]);
+    const siteSource = document.querySelector('#site-source');
+    siteSource.hidden = data.draft || !['complete', 'unverified'].includes(data.pipeline.site.state);
+    if (!siteSource.hidden) siteSource.href = data.url;
+    publishDraftButton.hidden = !data.draft || !data.sourceHash;
+    publishDraftButton.disabled = editorDirty;
+    publishDraftButton.title = editorDirty ? '请先保存当前编辑内容' : '';
     const articleMessage = data.article.state === 'pushed' && data.draft
       ? '已在 GitHub；仍是草稿，博客页面不会展示'
       : data.article.message;
@@ -165,7 +199,9 @@ async function checkPushStatus() {
     if (data.article.state === 'missing') showOverallState('local', '文章还没有保存', '点击底部“保存文章”后会自动检测。');
     else if (editorDirty) showOverallState('dirty', '编辑中的内容尚未保存', '下方结果只代表仓库中上一次保存的版本。');
     else if (data.article.state === 'pushed' && ['local', 'pending', 'unknown'].includes(data.image.state)) showOverallState('partial', '文章已推送，图片待核对', '请查看下方封面图片的状态。');
-    else if (data.article.state === 'pushed') showOverallState('pushed', data.draft ? '已推送，仍是草稿' : '已推送到 GitHub', data.draft ? 'GitHub 有源码；公开博客不会展示这篇草稿。' : '文章已在 GitHub，公开页面还需等待部署。');
+    else if (data.article.state === 'pushed' && data.pipeline.site.state === 'complete') showOverallState('pushed', '网站已显示当前版本', '本地、GitHub 和公开页面均已核对。');
+    else if (data.article.state === 'pushed' && data.pipeline.site.state === 'unverified') showOverallState('partial', '网站可访问，版本未核对', data.pipeline.site.message);
+    else if (data.article.state === 'pushed') showOverallState('partial', data.draft ? '已推送，仍是草稿' : '已推送，等待网站确认', data.draft ? '点击“发布草稿”后才会在博客显示。' : data.pipeline.site.message);
     else if (data.article.state === 'local') showOverallState('local', '仅保存在本地', '勾选底部的推送选项并保存，即可推送到 GitHub。');
     else if (data.article.state === 'pending') showOverallState('pending', '推送尚未确认', '本地与 GitHub 提交不同，请稍后重新检测。');
     else showOverallState('error', '无法确认推送状态', '请检查网络连接或 Git 仓库设置。');
@@ -176,6 +212,8 @@ async function checkPushStatus() {
     showPushState('article', { state: 'unknown', message: error.message });
     showPushState('image', { state: 'unknown', message: '请稍后重试' });
     showOverallState('error', '检测失败', '请检查网络连接后重试。');
+    lastStatusData = null;
+    publishDraftButton.hidden = true;
     return null;
   } finally {
     if (requestId === statusRequestId) checkPushButton.disabled = false;
@@ -231,11 +269,16 @@ function insertAtCursor(text) {
 function markEdited() {
   editorDirty = true;
   statusRequestId++;
+  stopDeploymentWatch();
+  lastStatusData = null;
+  publishDraftButton.hidden = true;
   checkPushButton.disabled = !(form.elements.slug.value.trim() || form.elements.title.value.trim());
   showOverallState('dirty', '有尚未保存的更改', '保存后会自动检测；也可以立即核对上一次保存的版本。');
   showPushState('article', { state: 'idle', message: '当前编辑内容尚未保存' });
   showPushState('image', { state: 'idle', message: '当前编辑内容尚未保存' });
   for (const kind of ['article', 'image']) document.querySelector(`#${kind}-source`).hidden = true;
+  for (const kind of ['local', 'commit', 'remote', 'site']) showStage(kind, { state: 'waiting', message: '当前编辑内容尚未保存' });
+  document.querySelector('#site-source').hidden = true;
   statusChecked.textContent = '编辑内容已改变，旧检测结果已清除';
   scheduleLocalDraft();
 }
@@ -269,7 +312,37 @@ bodyInput.addEventListener('input', updatePreview);
 form.addEventListener('input', markEdited);
 form.addEventListener('change', markEdited);
 checkPushButton.addEventListener('click', checkPushStatus);
-document.querySelector('#clear-draft').addEventListener('click', () => { clearTimeout(saveTimer); statusRequestId++; localStorage.removeItem(storageKey); form.reset(); form.elements.publishedAt.value = today; form.elements.updatedAt.value = today; form.elements.imageMonth.value = today.slice(0, 7); bodyInput.hidden = false; preview.hidden = true; document.querySelectorAll('[data-tab]').forEach((tab) => tab.classList.toggle('is-active', tab.dataset.tab === 'write')); showImage(null); updatePreview(); saveState.textContent = '本地草稿已清除'; result.hidden = true; editorDirty = false; checkPushButton.disabled = true; resetPushState(); });
+publishDraftButton.addEventListener('click', () => {
+  if (!lastStatusData?.draft || !lastStatusData.sourceHash || editorDirty) return;
+  document.querySelector('#publish-dialog-detail').textContent = `${form.elements.title.value} · 发布日期 ${lastStatusData.publishedAt || form.elements.publishedAt.value}`;
+  document.querySelector('#publish-error').hidden = true;
+  publishDialog.showModal();
+});
+document.querySelector('#cancel-publish').addEventListener('click', () => publishDialog.close());
+document.querySelector('#confirm-publish').addEventListener('click', async () => {
+  if (!lastStatusData?.draft || !lastStatusData.sourceHash || editorDirty) return;
+  const button = document.querySelector('#confirm-publish');
+  const errorText = document.querySelector('#publish-error');
+  button.disabled = true;
+  button.textContent = '正在发布…';
+  try {
+    const response = await fetch('/api/publish', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ slug: form.elements.slug.value || form.elements.title.value, sourceHash: lastStatusData.sourceHash }) });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.error || '发布失败');
+    publishDialog.close();
+    form.elements.draft.checked = false;
+    editorDirty = false;
+    clearTimeout(saveTimer);
+    localStorage.removeItem(storageKey);
+    result.className = data.pushError ? 'result error' : 'result';
+    result.textContent = data.pushError ? `已改为正式文章，但推送失败：${data.pushError}` : '文章已提交并推送；正在等待网站部署。';
+    result.hidden = false;
+    await checkPushStatus();
+    if (!data.pushError) watchDeployment();
+  } catch (error) { errorText.textContent = error.message; errorText.hidden = false; }
+  finally { button.disabled = false; button.textContent = '发布并推送'; }
+});
+document.querySelector('#clear-draft').addEventListener('click', () => { clearTimeout(saveTimer); stopDeploymentWatch(); statusRequestId++; localStorage.removeItem(storageKey); form.reset(); form.elements.publishedAt.value = today; form.elements.updatedAt.value = today; form.elements.imageMonth.value = today.slice(0, 7); bodyInput.hidden = false; preview.hidden = true; document.querySelectorAll('[data-tab]').forEach((tab) => tab.classList.toggle('is-active', tab.dataset.tab === 'write')); showImage(null); updatePreview(); saveState.textContent = '本地草稿已清除'; result.hidden = true; editorDirty = false; checkPushButton.disabled = true; resetPushState(); });
 
 form.addEventListener('submit', async (event) => {
   event.preventDefault(); result.hidden = true; saveButton.disabled = true; saveButton.textContent = '保存中…';
@@ -286,8 +359,9 @@ form.addEventListener('submit', async (event) => {
     saveState.textContent = data.pushError ? '本地已保存，推送未完成' : '已写入仓库';
     result.className = data.pushError ? 'result error' : 'result';
     if (data.pushError) result.textContent = `本地已保存：${data.file}。但推送失败：${data.pushError}。请检查后重试。`;
-    else result.innerHTML = `已保存：<strong>${data.file}</strong>${checked?.article.state === 'pushed' ? '<br>文章已推送到 GitHub。' : '<br>推送状态请查看页面顶部。'}${data.imageUrl ? `<br>图片已保存：<code>${data.imageUrl}</code>` : ''}${data.url && !form.elements.draft.checked ? `<br><a href="${data.url}" target="_blank">打开对应页面 ↗</a>` : ''}`;
+    else result.innerHTML = `已保存：<strong>${data.file}</strong>${checked?.article.state === 'pushed' ? '<br>文章已推送到 GitHub。' : '<br>推送状态请查看页面顶部。'}${data.imageUrl ? `<br>图片已保存：<code>${data.imageUrl}</code>` : ''}${data.url && checked?.pipeline?.site?.state === 'complete' ? `<br><a href="${data.url}" target="_blank">打开对应页面 ↗</a>` : ''}`;
     result.hidden = false;
+    if (body.push && !data.pushError && !body.draft) watchDeployment();
   } catch (error) { result.className = 'result error'; result.textContent = error.message; result.hidden = false; showOverallState('error', '保存失败', error.message); }
   finally { saveButton.disabled = false; saveButton.textContent = '保存文章'; }
 });

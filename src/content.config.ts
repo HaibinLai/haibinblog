@@ -38,6 +38,7 @@ const posts = defineCollection({
       content: z.string(),
     })).default([]),
     showCitation: z.boolean().default(true),
+    publisherRevision: z.string().uuid().optional(),
     importedFromWordPress: z.boolean().default(false),
   }).superRefine((data, context) => {
     if (data.translationKey && !data.language) {

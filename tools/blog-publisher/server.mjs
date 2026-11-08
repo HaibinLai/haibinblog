@@ -1,5 +1,5 @@
 import http from 'node:http';
-import { createHash } from 'node:crypto';
+import { createHash, randomUUID } from 'node:crypto';
 import { spawn } from 'node:child_process';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
@@ -11,6 +11,8 @@ const imageRepo = path.resolve(root, '../image-backend');
 const publicDir = path.join(root, 'tools/blog-publisher/public');
 const port = Number(process.env.PUBLISHER_PORT || 4322);
 const imageBase = 'https://raw.githubusercontent.com/HaibinLai/image-backend/main';
+const siteBase = process.env.PUBLISHER_SITE_URL || 'https://www.haibinlaiblog.top/';
+const postUrl = (slug) => new URL(`posts/${encodeURIComponent(slug)}/`, siteBase.endsWith('/') ? siteBase : `${siteBase}/`).href;
 
 const send = (res, status, body, headers = {}) => {
   res.writeHead(status, { 'Content-Type': 'application/json; charset=utf-8', ...headers });
@@ -63,6 +65,7 @@ const frontmatter = (data) => {
     ...(data.featuredTitle ? [`featuredTitle: ${yamlQuote(data.featuredTitle)}`] : []),
     ...(data.featuredLabel ? [`featuredLabel: ${yamlQuote(data.featuredLabel)}`] : []),
     `showCitation: ${data.showCitation ? 'true' : 'false'}`,
+    `publisherRevision: ${randomUUID()}`,
     '---',
     '',
   ];
@@ -98,17 +101,40 @@ async function commitAndPush(cwd, paths, message) {
 
 async function gitFileStatus(cwd, relative) {
   const changes = await run(cwd, ['status', '--porcelain', '--', relative]);
-  if (changes) return { state: 'local', message: '本地文件有未提交的改动' };
+  if (changes) return { state: 'local', committed: false, message: '本地文件有未提交的改动' };
   const tracked = await run(cwd, ['ls-files', '--error-unmatch', '--', relative]).then(() => true, () => false);
-  if (!tracked) return { state: 'local', message: '仅保存在本地，尚未提交' };
+  if (!tracked) return { state: 'local', committed: false, message: '仅保存在本地，尚未提交' };
+  const localBlob = await run(cwd, ['rev-parse', `HEAD:${relative.split(path.sep).join('/')}`]).catch(() => null);
+  if (!localBlob) return { state: 'local', committed: false, message: '文件尚未提交' };
   const [localHead, remoteRef] = await Promise.all([
     run(cwd, ['rev-parse', 'HEAD']),
     run(cwd, ['ls-remote', 'origin', 'refs/heads/main']),
   ]);
   const remoteHead = remoteRef.split(/\s+/)[0];
-  if (!remoteHead) return { state: 'unknown', message: '无法读取 GitHub 主分支' };
-  if (localHead !== remoteHead) return { state: 'pending', message: '本地与 GitHub 提交不同，尚不能确认' };
-  return { state: 'pushed', message: '已推送到 GitHub', commit: localHead.slice(0, 7) };
+  if (!remoteHead) return { state: 'unknown', committed: true, localCommit: localHead.slice(0, 7), message: '无法读取 GitHub 主分支' };
+  if (localHead !== remoteHead) {
+    await run(cwd, ['fetch', '--no-tags', 'origin', 'main']);
+    const remoteBlob = await run(cwd, ['rev-parse', `FETCH_HEAD:${relative.split(path.sep).join('/')}`]).catch(() => null);
+    if (localBlob !== remoteBlob) return { state: 'pending', committed: true, localCommit: localHead.slice(0, 7), message: '已提交，但当前文件尚未推送' };
+  }
+  return { state: 'pushed', committed: true, localCommit: localHead.slice(0, 7), message: '已推送到 GitHub', commit: remoteHead.slice(0, 7) };
+}
+
+async function siteStatus(url, revision) {
+  const checkUrl = new URL(url);
+  checkUrl.searchParams.set('publisher_check', revision || String(Date.now()));
+  try {
+    const response = await fetch(checkUrl, { cache: 'no-store', signal: AbortSignal.timeout(8000) });
+    if (response.status === 404) return { state: 'waiting', message: '网站尚未生成这篇文章' };
+    if (!response.ok) return { state: 'unknown', message: `网站返回 HTTP ${response.status}` };
+    if (!revision) return { state: 'unverified', message: '页面可访问；旧文章没有版本标记' };
+    const html = await response.text();
+    return html.includes(`data-publisher-revision="${revision}"`)
+      ? { state: 'complete', message: '当前版本已在网站显示' }
+      : { state: 'waiting', message: '网站仍是旧版本，等待部署' };
+  } catch {
+    return { state: 'unknown', message: '暂时无法访问网站，请稍后重试' };
+  }
 }
 
 function managedImagePath(imageUrl) {
@@ -154,7 +180,15 @@ async function handlePushStatus(req, res) {
   try {
     source = await readFile(path.join(root, relative), 'utf8');
   } catch (error) {
-    if (error.code === 'ENOENT') return send(res, 200, { article: { state: 'missing', message: '尚未保存到本地' }, image: { state: 'none', message: '保存文章后再检测图片' } }, { 'Cache-Control': 'no-store' });
+    if (error.code === 'ENOENT') return send(res, 200, {
+      article: { state: 'missing', message: '尚未保存到本地' },
+      image: { state: 'none', message: '保存文章后再检测图片' },
+      pipeline: {
+        local: { state: 'waiting', message: '尚未保存' }, commit: { state: 'waiting', message: '等待保存' },
+        remote: { state: 'waiting', message: '等待提交' }, site: { state: 'waiting', message: '等待发布' },
+      },
+      url: postUrl(slug), draft: false,
+    }, { 'Cache-Control': 'no-store' });
     throw error;
   }
   const { metadata } = parsePostSource(source);
@@ -166,7 +200,48 @@ async function handlePushStatus(req, res) {
       ? gitFileStatus(imageRepo, imagePath).catch((error) => ({ state: 'unknown', message: `检测失败：${error.message}` }))
       : Promise.resolve({ state: 'none', message: imageUrl ? '外部图片，不由图片仓库推送' : '这篇文章没有封面图片' }),
   ]);
-  send(res, 200, { article, image, draft: metadata.draft === true, file: relative, imageUrl }, { 'Cache-Control': 'no-store' });
+  const draft = metadata.draft === true;
+  const publicUrl = postUrl(slug);
+  const pipeline = {
+    local: { state: 'complete', message: '文章已保存在本地' },
+    commit: article.committed ? { state: 'complete', message: `本地提交 ${article.localCommit}` } : { state: 'waiting', message: '当前版本尚未提交' },
+    remote: article.state === 'pushed' ? { state: 'complete', message: `GitHub main@${article.commit}` } : { state: article.state === 'unknown' ? 'unknown' : 'waiting', message: article.message },
+    site: draft
+      ? { state: 'blocked', message: '草稿不会生成公开页面' }
+      : article.state === 'pushed'
+        ? await siteStatus(publicUrl, metadata.publisherRevision)
+        : { state: 'waiting', message: '等待当前版本推送' },
+  };
+  send(res, 200, { article, image, pipeline, draft, file: relative, imageUrl, url: publicUrl,
+    sourceHash: createHash('sha256').update(source).digest('hex'),
+    publishedAt: metadata.publishedAt }, { 'Cache-Control': 'no-store' });
+}
+
+async function handlePublish(req, res) {
+  const data = await readJson(req);
+  if (!data.slug || !data.sourceHash) throw new Error('请先重新检测草稿状态');
+  const slug = safeSlug(data.slug);
+  const relative = path.join('src/content/posts', `${slug}.md`);
+  const filename = path.join(root, relative);
+  const source = await readFile(filename, 'utf8');
+  if (createHash('sha256').update(source).digest('hex') !== data.sourceHash) throw new Error('草稿已改变，请重新检测后再发布');
+  const { metadata, body } = parsePostSource(source);
+  if (metadata.draft !== true) throw new Error('这篇文章已经不是草稿');
+  await requireGitRepository(root, '博客目录');
+  const imagePath = managedImagePath(metadata.cardImage);
+  if (imagePath) {
+    await requireGitRepository(imageRepo, '图片目录');
+    await readFile(path.join(imageRepo, imagePath));
+  }
+  metadata.draft = false;
+  metadata.publisherRevision = randomUUID();
+  await writeFile(filename, `---\n${yaml.dump(metadata, { schema: yaml.JSON_SCHEMA, lineWidth: -1, noRefs: true })}---\n${body}`, 'utf8');
+  const result = { file: relative, slug, url: postUrl(slug) };
+  try {
+    if (imagePath) await commitAndPush(imageRepo, [imagePath], `Publish cover for ${slug}`);
+    await commitAndPush(root, [relative], `Publish post: ${metadata.title}`);
+  } catch (error) { result.pushError = error.message; }
+  send(res, 200, result, { 'Cache-Control': 'no-store' });
 }
 
 async function requireGitRepository(cwd, name) {
@@ -216,7 +291,7 @@ async function handleSave(req, res) {
   const filename = path.join(root, relative);
   await mkdir(path.dirname(filename), { recursive: true });
   await writeFile(filename, frontmatter({ ...data, body, slug }), 'utf8');
-  const result = { file: relative, slug, imageUrl, url: `https://haibinlai.github.io/haibinblog/posts/${encodeURIComponent(slug)}/` };
+  const result = { file: relative, slug, imageUrl, url: postUrl(slug) };
   if (data.push) {
     try {
       if (imageUrl) {
@@ -234,6 +309,7 @@ async function handleSave(req, res) {
 const server = http.createServer(async (req, res) => {
   try {
     if (req.method === 'POST' && req.url === '/api/save') return await handleSave(req, res);
+    if (req.method === 'POST' && req.url === '/api/publish') return await handlePublish(req, res);
     if (req.method === 'GET' && req.url === '/api/config') return send(res, 200, { root, imageRepo, port });
     if (req.method === 'GET' && req.url.startsWith('/api/draft?')) return await handleDraft(req, res);
     if (req.method === 'GET' && req.url.startsWith('/api/push-status?')) return await handlePushStatus(req, res);

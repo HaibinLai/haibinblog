@@ -67,7 +67,7 @@ const wordCount = countArticleWords(post.body ?? '');
 >
   <div class="article-page-shell content-shell">
     <ArticleNavigation title={post.data.title} />
-    <article class="post-page">
+    <article class="post-page" data-publisher-revision={post.data.publisherRevision}>
     <header class="post-header">
       <div class="post-header-top">
         <p class="eyebrow">{post.data.category}</p>
