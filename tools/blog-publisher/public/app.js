@@ -12,10 +12,13 @@ const preview = document.querySelector('#preview');
 const bodyCount = document.querySelector('#body-count');
 const saveState = document.querySelector('#save-state');
 const saveButton = document.querySelector('#save-button');
+const pushStatus = document.querySelector('#push-status');
+const checkPushButton = document.querySelector('#check-push');
 const readingListImport = location.hash === '#import=reading-list';
 const storageKey = readingListImport ? 'haibin-blog-publisher-reading-list-draft-v1' : 'haibin-blog-publisher-draft-v2';
 
-const today = new Date().toISOString().slice(0, 10);
+const now = new Date();
+const today = `${now.getFullYear()}-${String(now.getMonth() + 1).padStart(2, '0')}-${String(now.getDate()).padStart(2, '0')}`;
 if (!form.elements.publishedAt.value) form.elements.publishedAt.value = today;
 if (!form.elements.updatedAt.value) form.elements.updatedAt.value = today;
 if (!form.elements.imageMonth.value) form.elements.imageMonth.value = today.slice(0, 7);
@@ -79,6 +82,7 @@ function collectDraft() {
 }
 
 let saveTimer;
+let editorDirty = false;
 function saveLocalDraft() {
   localStorage.setItem(storageKey, JSON.stringify(collectDraft()));
   saveState.textContent = `已自动保存 ${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`;
@@ -94,12 +98,73 @@ function restoreLocalDraft() {
       else form.elements[name].value = value;
     }
     saveState.textContent = '已恢复上次未完成的本地草稿';
+    editorDirty = true;
   } catch { localStorage.removeItem(storageKey); }
+}
+
+const pushLabels = { pushed: '已推送', local: '仅在本地', pending: '待核对', missing: '未保存', none: '未使用', unknown: '无法确认' };
+function showPushState(kind, status) {
+  const badge = document.querySelector(`#${kind}-push-state`);
+  badge.textContent = pushLabels[status.state] || '无法确认';
+  badge.dataset.state = status.state;
+  document.querySelector(`#${kind}-push-detail`).textContent = status.message;
+}
+
+async function checkPushStatus() {
+  const slug = form.elements.slug.value.trim() || form.elements.title.value.trim();
+  pushStatus.hidden = false;
+  showPushState('article', { state: 'unknown', message: '正在检查 GitHub…' });
+  showPushState('image', { state: 'unknown', message: '正在检查 GitHub…' });
+  if (!slug) {
+    showPushState('article', { state: 'missing', message: '请先填写标题或文件名' });
+    showPushState('image', { state: 'none', message: '尚无文章可检测' });
+    return null;
+  }
+  checkPushButton.disabled = true;
+  try {
+    const response = await fetch(`/api/push-status?slug=${encodeURIComponent(slug)}`, { cache: 'no-store' });
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.error || '检测失败');
+    const articleMessage = data.article.state === 'pushed' && data.draft
+      ? '已在 GitHub；仍是草稿，博客页面不会展示'
+      : data.article.message;
+    showPushState('article', {
+      ...data.article,
+      message: editorDirty && data.article.state === 'pushed'
+        ? `${articleMessage}；当前编辑内容尚未保存`
+        : articleMessage,
+    });
+    showPushState('image', data.image);
+    return data;
+  } catch (error) {
+    showPushState('article', { state: 'unknown', message: error.message });
+    showPushState('image', { state: 'unknown', message: '请稍后重试' });
+    return null;
+  } finally {
+    checkPushButton.disabled = false;
+  }
 }
 
 async function prefillReadingList() {
   if (!readingListImport || localStorage.getItem(storageKey)) return;
   try {
+    const saved = await fetch('/api/draft?slug=reading-list', { cache: 'no-store' });
+    if (saved.ok) {
+      const { metadata, body } = await saved.json();
+      for (const name of ['title', 'description', 'publishedAt', 'updatedAt', 'category', 'language', 'translationKey', 'featuredRank', 'featuredTitle', 'featuredLabel', 'cardImage', 'featuredImage']) {
+        if (form.elements[name]) form.elements[name].value = metadata[name] ?? '';
+      }
+      form.elements.slug.value = 'reading-list';
+      form.elements.tags.value = (metadata.tags || []).join(', ');
+      form.elements.categories.value = (metadata.categories || []).join(', ');
+      for (const name of ['draft', 'showCitation']) form.elements[name].checked = metadata[name] === true;
+      bodyInput.value = body;
+      showImage(null);
+      updatePreview();
+      saveState.textContent = '已载入仓库中保存的文章';
+      return;
+    }
+    if (saved.status !== 404) throw new Error('无法读取已保存的文章');
     const response = await fetch('/drafts/reading-list.md', { cache: 'no-store' });
     if (!response.ok) throw new Error('无法读取阅读清单');
     form.elements.title.value = 'Reading list';
@@ -122,8 +187,10 @@ async function prefillReadingList() {
 
 function insertAtCursor(text) {
   const start = bodyInput.selectionStart; const end = bodyInput.selectionEnd;
-  bodyInput.setRangeText(text, start, end, 'end'); bodyInput.focus(); updatePreview(); scheduleLocalDraft();
+  bodyInput.setRangeText(text, start, end, 'end'); bodyInput.focus(); updatePreview(); markEdited();
 }
+
+function markEdited() { editorDirty = true; pushStatus.hidden = true; scheduleLocalDraft(); }
 
 const fileAsBase64 = (file) => new Promise((resolve, reject) => {
   const reader = new FileReader(); reader.onload = () => resolve(String(reader.result).split(',')[1]); reader.onerror = reject; reader.readAsDataURL(file);
@@ -143,16 +210,18 @@ imageInput.addEventListener('change', () => showImage(imageInput.files[0]));
 cardImageInput.addEventListener('input', () => { if (!imageInput.files[0]) showImage(null); scheduleLocalDraft(); });
 ['dragenter', 'dragover'].forEach((eventName) => imageDrop.addEventListener(eventName, (event) => { event.preventDefault(); imageDrop.classList.add('is-over'); }));
 ['dragleave', 'drop'].forEach((eventName) => imageDrop.addEventListener(eventName, (event) => { event.preventDefault(); imageDrop.classList.remove('is-over'); }));
-imageDrop.addEventListener('drop', (event) => { const file = event.dataTransfer.files[0]; if (file) { imageInput.files = event.dataTransfer.files; showImage(file); } });
+imageDrop.addEventListener('drop', (event) => { const file = event.dataTransfer.files[0]; if (file) { imageInput.files = event.dataTransfer.files; showImage(file); markEdited(); } });
 
 document.querySelectorAll('[data-insert]').forEach((button) => button.addEventListener('click', () => insertAtCursor(button.dataset.insert)));
 document.querySelectorAll('[data-tab]').forEach((button) => button.addEventListener('click', () => {
   document.querySelectorAll('[data-tab]').forEach((tab) => tab.classList.toggle('is-active', tab === button));
   const isPreview = button.dataset.tab === 'preview'; bodyInput.hidden = isPreview; preview.hidden = !isPreview; updatePreview();
 }));
-bodyInput.addEventListener('input', () => { updatePreview(); scheduleLocalDraft(); });
-form.addEventListener('input', scheduleLocalDraft);
-document.querySelector('#clear-draft').addEventListener('click', () => { localStorage.removeItem(storageKey); form.reset(); form.elements.publishedAt.value = today; form.elements.updatedAt.value = today; form.elements.imageMonth.value = today.slice(0, 7); bodyInput.hidden = false; preview.hidden = true; document.querySelectorAll('[data-tab]').forEach((tab) => tab.classList.toggle('is-active', tab.dataset.tab === 'write')); showImage(null); updatePreview(); saveState.textContent = '本地草稿已清除'; });
+bodyInput.addEventListener('input', updatePreview);
+form.addEventListener('input', markEdited);
+form.addEventListener('change', markEdited);
+checkPushButton.addEventListener('click', checkPushStatus);
+document.querySelector('#clear-draft').addEventListener('click', () => { clearTimeout(saveTimer); localStorage.removeItem(storageKey); form.reset(); form.elements.publishedAt.value = today; form.elements.updatedAt.value = today; form.elements.imageMonth.value = today.slice(0, 7); bodyInput.hidden = false; preview.hidden = true; document.querySelectorAll('[data-tab]').forEach((tab) => tab.classList.toggle('is-active', tab.dataset.tab === 'write')); showImage(null); updatePreview(); saveState.textContent = '本地草稿已清除'; pushStatus.hidden = true; result.hidden = true; editorDirty = false; });
 
 form.addEventListener('submit', async (event) => {
   event.preventDefault(); result.hidden = true; saveButton.disabled = true; saveButton.textContent = '保存中…';
@@ -161,15 +230,18 @@ form.addEventListener('submit', async (event) => {
     const body = { ...fields, draft: form.elements.draft.checked, push: form.elements.push.checked, showCitation: form.elements.showCitation.checked, image: file ? { name: file.name, data: await fileAsBase64(file), month: fields.imageMonth, slug: fields.slug || fields.title } : null };
     const response = await fetch('/api/save', { method: 'POST', headers: {'Content-Type': 'application/json'}, body: JSON.stringify(body) });
     const data = await response.json(); if (!response.ok) throw new Error(data.error || '保存失败');
+    clearTimeout(saveTimer);
+    editorDirty = false;
+    const checked = await checkPushStatus();
     if (!data.pushError) localStorage.removeItem(storageKey);
     saveState.textContent = data.pushError ? '本地已保存，推送未完成' : '已写入仓库';
     result.className = data.pushError ? 'result error' : 'result';
     if (data.pushError) result.textContent = `本地已保存：${data.file}。但推送失败：${data.pushError}。请检查后重试。`;
-    else result.innerHTML = `已保存：<strong>${data.file}</strong>${data.pushed ? '<br>已提交并推送到 GitHub，等待 Actions 部署。' : '<br>尚未推送；文章现在只在本地仓库。'}${data.imageUrl ? `<br>图片已保存：<code>${data.imageUrl}</code>` : ''}${data.url ? `<br><a href="${data.url}" target="_blank">打开对应页面 ↗</a>` : ''}`;
+    else result.innerHTML = `已保存：<strong>${data.file}</strong>${checked?.article.state === 'pushed' ? '<br>文章已推送到 GitHub。' : '<br>推送状态见下方检测结果。'}${data.imageUrl ? `<br>图片已保存：<code>${data.imageUrl}</code>` : ''}${data.url && !form.elements.draft.checked ? `<br><a href="${data.url}" target="_blank">打开对应页面 ↗</a>` : ''}`;
     result.hidden = false;
   } catch (error) { result.className = 'result error'; result.textContent = error.message; result.hidden = false; }
   finally { saveButton.disabled = false; saveButton.textContent = '保存文章'; }
 });
 
 restoreLocalDraft(); updatePreview();
-prefillReadingList();
+prefillReadingList().then(() => { if (form.elements.slug.value || form.elements.title.value) checkPushStatus(); });

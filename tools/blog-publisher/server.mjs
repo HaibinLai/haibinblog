@@ -4,6 +4,7 @@ import { spawn } from 'node:child_process';
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import yaml from 'js-yaml';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const imageRepo = path.resolve(root, '../image-backend');
@@ -86,17 +87,86 @@ const run = (cwd, args) => new Promise((resolve, reject) => {
   child.on('close', (code) => code === 0 ? resolve(stdout.trim()) : reject(new Error(stderr.trim() || `git exited with ${code}`)));
 });
 
-const hasStagedChanges = async (cwd) => {
-  try { await run(cwd, ['diff', '--cached', '--quiet']); return false; }
-  catch { return true; }
-};
-
 async function commitAndPush(cwd, paths, message) {
-  await run(cwd, ['add', ...paths]);
-  if (!await hasStagedChanges(cwd)) return false;
-  await run(cwd, ['commit', '-m', message]);
+  await run(cwd, ['add', '--', ...paths]);
+  const staged = await run(cwd, ['diff', '--cached', '--name-only', '--', ...paths]);
+  if (staged) await run(cwd, ['commit', '-m', message, '--', ...paths]);
+  // A previous attempt may have committed successfully but failed to push.
   await run(cwd, ['push', 'origin', 'main']);
   return true;
+}
+
+async function gitFileStatus(cwd, relative) {
+  const changes = await run(cwd, ['status', '--porcelain', '--', relative]);
+  if (changes) return { state: 'local', message: '本地文件有未提交的改动' };
+  const tracked = await run(cwd, ['ls-files', '--error-unmatch', '--', relative]).then(() => true, () => false);
+  if (!tracked) return { state: 'local', message: '仅保存在本地，尚未提交' };
+  const [localHead, remoteRef] = await Promise.all([
+    run(cwd, ['rev-parse', 'HEAD']),
+    run(cwd, ['ls-remote', 'origin', 'refs/heads/main']),
+  ]);
+  const remoteHead = remoteRef.split(/\s+/)[0];
+  if (!remoteHead) return { state: 'unknown', message: '无法读取 GitHub 主分支' };
+  if (localHead !== remoteHead) return { state: 'pending', message: '本地与 GitHub 提交不同，尚不能确认' };
+  return { state: 'pushed', message: '已推送到 GitHub' };
+}
+
+function managedImagePath(imageUrl) {
+  if (!imageUrl) return null;
+  let url;
+  try { url = new URL(imageUrl); }
+  catch { return null; }
+  const base = new URL(imageBase);
+  if (url.origin !== base.origin || !url.pathname.startsWith(`${base.pathname}/`)) return null;
+  const parts = url.pathname.slice(base.pathname.length + 1).split('/').map(decodeURIComponent);
+  if (parts.some((part) => !part || part === '.' || part === '..' || /[/\\]/.test(part))) return null;
+  return path.join(...parts);
+}
+
+function parsePostSource(source) {
+  const block = source.match(/^---\r?\n([\s\S]*?)\r?\n---(?:\r?\n|$)/);
+  if (!block) throw new Error('文章缺少有效的 frontmatter');
+  return { metadata: yaml.load(block[1], { schema: yaml.JSON_SCHEMA }) || {}, body: source.slice(block[0].length) };
+}
+
+async function handleDraft(req, res) {
+  const url = new URL(req.url, 'http://127.0.0.1');
+  const requestedSlug = url.searchParams.get('slug')?.trim();
+  if (!requestedSlug) throw new Error('请先填写文件名');
+  const relative = path.join('src/content/posts', `${safeSlug(requestedSlug)}.md`);
+  let source;
+  try {
+    source = await readFile(path.join(root, relative), 'utf8');
+  } catch (error) {
+    if (error.code === 'ENOENT') return send(res, 404, { error: '文章尚未保存' }, { 'Cache-Control': 'no-store' });
+    throw error;
+  }
+  send(res, 200, parsePostSource(source), { 'Cache-Control': 'no-store' });
+}
+
+async function handlePushStatus(req, res) {
+  const url = new URL(req.url, 'http://127.0.0.1');
+  const requestedSlug = url.searchParams.get('slug')?.trim();
+  if (!requestedSlug) throw new Error('请先填写标题或文件名');
+  const slug = safeSlug(requestedSlug);
+  const relative = path.join('src/content/posts', `${slug}.md`);
+  let source;
+  try {
+    source = await readFile(path.join(root, relative), 'utf8');
+  } catch (error) {
+    if (error.code === 'ENOENT') return send(res, 200, { article: { state: 'missing', message: '尚未保存到本地' }, image: { state: 'none', message: '保存文章后再检测图片' } }, { 'Cache-Control': 'no-store' });
+    throw error;
+  }
+  const { metadata } = parsePostSource(source);
+  const imageUrl = url.searchParams.get('imageUrl') || metadata.cardImage || '';
+  const imagePath = managedImagePath(imageUrl);
+  const [article, image] = await Promise.all([
+    gitFileStatus(root, relative).catch((error) => ({ state: 'unknown', message: `检测失败：${error.message}` })),
+    imagePath
+      ? gitFileStatus(imageRepo, imagePath).catch((error) => ({ state: 'unknown', message: `检测失败：${error.message}` }))
+      : Promise.resolve({ state: 'none', message: imageUrl ? '外部图片，不由图片仓库推送' : '这篇文章没有封面图片' }),
+  ]);
+  send(res, 200, { article, image, draft: metadata.draft === true, file: relative, imageUrl }, { 'Cache-Control': 'no-store' });
 }
 
 async function requireGitRepository(cwd, name) {
@@ -165,12 +235,14 @@ const server = http.createServer(async (req, res) => {
   try {
     if (req.method === 'POST' && req.url === '/api/save') return await handleSave(req, res);
     if (req.method === 'GET' && req.url === '/api/config') return send(res, 200, { root, imageRepo, port });
+    if (req.method === 'GET' && req.url.startsWith('/api/draft?')) return await handleDraft(req, res);
+    if (req.method === 'GET' && req.url.startsWith('/api/push-status?')) return await handlePushStatus(req, res);
     if (req.method !== 'GET') return send(res, 405, { error: 'Method not allowed' });
     const requested = req.url === '/' ? 'index.html' : req.url.replace(/^\//, '');
     const file = path.resolve(publicDir, requested);
     if (!file.startsWith(`${publicDir}${path.sep}`)) return send(res, 403, { error: 'Forbidden' });
     const content = await readFile(file);
-    const type = file.endsWith('.css') ? 'text/css; charset=utf-8' : 'text/html; charset=utf-8';
+    const type = file.endsWith('.css') ? 'text/css; charset=utf-8' : file.endsWith('.js') ? 'text/javascript; charset=utf-8' : 'text/html; charset=utf-8';
     res.writeHead(200, { 'Content-Type': type, 'Cache-Control': 'no-store' }); res.end(content);
   } catch (error) {
     send(res, 400, { error: error.message });
