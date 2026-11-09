@@ -1,15 +1,16 @@
 ---
-import { getCollection } from 'astro:content';
-import AnalyticsDashboard from '../../components/AnalyticsDashboard.astro';
-import BaseLayout from '../../layouts/BaseLayout.astro';
-
-const fragmentCategories = new Set(['fragments', 'life-fragments']);
-const posts = await getCollection('posts', ({ data }) => !data.draft && ![data.category, ...data.categories]
-  .some((category) => fragmentCategories.has(category.trim().toLowerCase())));
+const target = `${import.meta.env.BASE_URL}statistics/`;
 ---
 
-<BaseLayout title="阅读趋势 · Haibin's Blog" description="Haibin's Blog 近期文章阅读趋势。">
-  <main class="analytics-page content-shell">
-    <AnalyticsDashboard mode="trends" posts={posts} />
-  </main>
-</BaseLayout>
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="refresh" content={`0; url=${target}`} />
+    <link rel="canonical" href={new URL(target, Astro.site)} />
+    <title>阅读趋势已并入阅读数据</title>
+  </head>
+  <body>
+    <p>阅读趋势已并入<a href={target}>阅读数据</a>。</p>
+  </body>
+</html>

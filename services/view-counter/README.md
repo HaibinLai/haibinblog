@@ -53,14 +53,19 @@ Response:
 ### Read public aggregate statistics
 
 ```http
-GET /stats?days=30
+GET /stats?days=14
 Origin: https://haibinlai.github.io
 ```
 
-`days` accepts `7`, `30`, or `90`. The response contains the site total,
-today's accepted views, a zero-filled daily series, the all-time top 20 posts,
-and daily series for up to five recently viewed posts. It exposes only aggregate
-counts and canonical paths; visitor and client hashes are never returned.
+`days` accepts `7`, `14`, `30`, or `90` (default `14`). Daily series end on
+yesterday in `America/Chicago`, so the report changes at Chicago midnight and
+does not include the still-incomplete current day. The response includes
+`snapshotDate`, `periodStart`, `periodEnd`, `siteTotalAtMidnight`,
+`yesterdayViews`, `popularAtMidnight`, and the five posts with the most accepted
+views during the selected window. The existing live totals and today's views
+remain available for other consumers. It exposes only aggregate counts and
+canonical paths; visitor and client hashes are never returned. Keep
+`EVENT_RETENTION_DAYS` at least as long as the longest supported report window.
 
 ## Why increments are concurrency-safe
 

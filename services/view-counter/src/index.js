@@ -10,7 +10,7 @@ const DEFAULT_DEDUP_WINDOW_SECONDS = 86_400;
 const DEFAULT_RETENTION_DAYS = 8;
 const MAX_PATH_LENGTH = 512;
 const MAX_VISITOR_ID_LENGTH = 128;
-const STATS_PERIODS = new Set([7, 30, 90]);
+const STATS_PERIODS = new Set([7, 14, 30, 90]);
 const VIEW_RATE_LIMIT_KEY_PREFIX = "view:";
 
 const COUNT_SQL = `
@@ -202,48 +202,61 @@ function calendarDaysEndingAt(today, days) {
   ));
 }
 
+export function reportingWindow(timestampMilliseconds, days = 14) {
+  const snapshotDate = dateInTimeZone(timestampMilliseconds);
+  const previousDay = calendarDaysEndingAt(snapshotDate, 2)[0];
+  const dates = calendarDaysEndingAt(previousDay, days);
+  return { snapshotDate, periodStart: dates[0], periodEnd: previousDay, dates };
+}
+
 function fillDailySeries(rows, dates) {
   const counts = new Map((rows || []).map((row) => [row.view_date, Number(row.views || 0)]));
   return dates.map((date) => ({ date, views: counts.get(date) || 0 }));
 }
 
-async function readStats(env, requestedDays) {
-  const parsedDays = Number.parseInt(String(requestedDays || "30"), 10);
-  const days = STATS_PERIODS.has(parsedDays) ? parsedDays : 30;
-  const now = Math.floor(Date.now() / 1000);
-  const today = dateInTimeZone(now * 1000);
-  const dates = calendarDaysEndingAt(today, days);
-  const periodStart = dates[0];
+export async function readStats(env, requestedDays, timestampMilliseconds = Date.now()) {
+  const parsedDays = Number.parseInt(String(requestedDays || "14"), 10);
+  const days = STATS_PERIODS.has(parsedDays) ? parsedDays : 14;
+  const now = Math.floor(timestampMilliseconds / 1000);
+  const { snapshotDate, periodStart, periodEnd, dates } = reportingWindow(timestampMilliseconds, days);
 
   const [overviewResult, dailyResult, popularResult, trendingResult] = await env.DB.batch([
     env.DB.prepare(`
       SELECT
         COALESCE((SELECT total FROM view_counts WHERE path = '${SITE_COUNTER_PATH}'), 363842) AS site_total,
         (SELECT COUNT(*) FROM view_events WHERE event_date = ?1) AS today_views,
+        (SELECT COUNT(*) FROM view_events WHERE event_date = ?2) AS yesterday_views,
         (SELECT MIN(event_date) FROM view_events WHERE event_date != '') AS tracking_since
-    `).bind(today),
+    `).bind(snapshotDate, periodEnd),
     env.DB.prepare(`
       SELECT event_date AS view_date, COUNT(*) AS views
       FROM view_events
-      WHERE event_date >= ?1
+      WHERE event_date BETWEEN ?1 AND ?2
       GROUP BY view_date
       ORDER BY view_date ASC
-    `).bind(periodStart),
+    `).bind(periodStart, periodEnd),
     env.DB.prepare(`
-      SELECT path, total AS views
-      FROM view_counts
-      WHERE path LIKE '/posts/%'
-      ORDER BY total DESC, path ASC
+      SELECT counts.path, counts.total AS views,
+        MAX(0, counts.total - COALESCE(today.views, 0)) AS snapshot_views
+      FROM view_counts AS counts
+      LEFT JOIN (
+        SELECT path, COUNT(*) AS views
+        FROM view_events
+        WHERE event_date = ?1
+        GROUP BY path
+      ) AS today ON today.path = counts.path
+      WHERE counts.path LIKE '/posts/%'
+      ORDER BY snapshot_views DESC, counts.path ASC
       LIMIT 20
-    `),
+    `).bind(snapshotDate),
     env.DB.prepare(`
       SELECT path, COUNT(*) AS views
       FROM view_events
-      WHERE event_date >= ?1 AND path LIKE '/posts/%'
+      WHERE event_date BETWEEN ?1 AND ?2 AND path LIKE '/posts/%'
       GROUP BY path
       ORDER BY views DESC, path ASC
       LIMIT 5
-    `).bind(periodStart),
+    `).bind(periodStart, periodEnd),
   ]);
 
   const overview = overviewResult?.results?.[0] || {};
@@ -252,19 +265,23 @@ async function readStats(env, requestedDays) {
     path: row.path,
     views: Number(row.views || 0),
   }));
+  const popularAtMidnight = (popularResult?.results || []).map((row) => ({
+    path: row.path,
+    views: Number(row.snapshot_views || 0),
+  }));
   const trendingRows = trendingResult?.results || [];
   let trending = [];
 
   if (trendingRows.length) {
     const paths = trendingRows.map((row) => row.path);
-    const placeholders = paths.map((_, index) => `?${index + 2}`).join(', ');
+    const placeholders = paths.map((_, index) => `?${index + 3}`).join(', ');
     const trendResult = await env.DB.prepare(`
       SELECT path, event_date AS view_date, COUNT(*) AS views
       FROM view_events
-      WHERE event_date >= ?1 AND path IN (${placeholders})
+      WHERE event_date BETWEEN ?1 AND ?2 AND path IN (${placeholders})
       GROUP BY path, view_date
       ORDER BY view_date ASC
-    `).bind(periodStart, ...paths).all();
+    `).bind(periodStart, periodEnd, ...paths).all();
     const valuesByPath = new Map(paths.map((path) => [path, new Map()]));
     for (const row of trendResult?.results || []) {
       valuesByPath.get(row.path)?.set(row.view_date, Number(row.views || 0));
@@ -279,14 +296,20 @@ async function readStats(env, requestedDays) {
   return {
     generatedAt: new Date(now * 1000).toISOString(),
     periodDays: days,
+    snapshotDate,
+    periodStart,
+    periodEnd,
     timeZone: "America/Chicago",
     trackingSince: overview.tracking_since || null,
     overview: {
       siteTotal: Number(overview.site_total ?? 363842),
+      siteTotalAtMidnight: Math.max(0, Number(overview.site_total ?? 363842) - Number(overview.today_views || 0)),
       todayViews: Number(overview.today_views || 0),
+      yesterdayViews: Number(overview.yesterday_views || 0),
     },
     daily,
     popular,
+    popularAtMidnight,
     trending,
   };
 }

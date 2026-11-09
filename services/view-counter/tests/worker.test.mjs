@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 
-import worker, { createIdentityHashes, dateInTimeZone, normalizePath } from "../src/index.js";
+import worker, { createIdentityHashes, dateInTimeZone, normalizePath, readStats, reportingWindow } from "../src/index.js";
 
 const ALLOWED_ORIGIN = "https://haibinlai.github.io";
 
@@ -99,6 +99,64 @@ test("assigns visits to the Chicago calendar date instead of UTC", () => {
     dateInTimeZone(Date.parse("2026-12-23T05:30:00Z")),
     "2026-12-22",
   );
+});
+
+test("the daily report switches at Chicago midnight and uses 14 complete days", () => {
+  const before = reportingWindow(Date.parse("2026-11-10T05:59:59Z"));
+  const after = reportingWindow(Date.parse("2026-11-10T06:00:00Z"));
+  assert.equal(before.snapshotDate, "2026-11-09");
+  assert.equal(before.periodEnd, "2026-11-08");
+  assert.deepEqual(
+    { snapshotDate: after.snapshotDate, periodStart: after.periodStart, periodEnd: after.periodEnd, days: after.dates.length },
+    { snapshotDate: "2026-11-10", periodStart: "2026-10-27", periodEnd: "2026-11-09", days: 14 },
+  );
+});
+
+test("14-day statistics exclude today's events and align the five trend series", async () => {
+  const queries = [];
+  const database = {
+    prepare(sql) {
+      return {
+        sql,
+        bind(...args) {
+          return {
+            sql, args,
+            async all() {
+              queries.push({ sql, args });
+              return { results: [{ path: "/posts/a/", view_date: "2026-11-09", views: 5 }] };
+            },
+          };
+        },
+      };
+    },
+    async batch(statements) {
+      queries.push(...statements);
+      return [
+        { results: [{ site_total: 500, today_views: 4, yesterday_views: 5, tracking_since: "2026-10-22" }] },
+        { results: [{ view_date: "2026-11-09", views: 5 }] },
+        { results: [{ path: "/posts/a/", views: 100, snapshot_views: 99 }] },
+        { results: [{ path: "/posts/a/", views: 5 }] },
+      ];
+    },
+  };
+
+  const result = await readStats({ DB: database }, "14", Date.parse("2026-11-10T06:00:00Z"));
+  assert.equal(result.periodDays, 14);
+  assert.equal(result.overview.siteTotalAtMidnight, 496);
+  assert.equal(result.overview.yesterdayViews, 5);
+  assert.deepEqual(result.popularAtMidnight, [{ path: "/posts/a/", views: 99 }]);
+  assert.deepEqual(result.daily.at(-1), { date: "2026-11-09", views: 5 });
+  assert.equal(result.daily.length, 14);
+  assert.equal(result.trending[0].total, 5);
+  assert.deepEqual(result.trending[0].values, [...Array(13).fill(0), 5]);
+  assert.deepEqual(queries.slice(0, 4).map((query) => query.args), [
+    ["2026-11-10", "2026-11-09"],
+    ["2026-10-27", "2026-11-09"],
+    ["2026-11-10"],
+    ["2026-10-27", "2026-11-09"],
+  ]);
+  assert.match(queries[3].sql, /LIMIT 5/);
+  assert.deepEqual(queries[4].args, ["2026-10-27", "2026-11-09", "/posts/a/"]);
 });
 
 test("identity data is HMACed and never returned as raw input", async () => {
