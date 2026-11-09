@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>查看博客 · Haibin Blog Publisher</title>
+  <link rel="stylesheet" href="/manager.css">
+  <link rel="stylesheet" href="/publisher-ui.css">
+</head>
+<body class="blog-view-page">
+  <main class="blog-view-shell">
+    <nav class="app-nav" aria-label="发布器导航"><a class="app-brand" href="/"><img src="/blog-logo.png" width="36" height="36" alt=""><span>Haibin Blog <small>Publisher</small></span></a><div class="app-nav-links"><a href="/"><span class="icon icon-pen-line" aria-hidden="true"></span>写作</a><a href="/manager"><span class="icon icon-layout-dashboard" aria-hidden="true"></span>文章管理</a><a class="is-current" href="/blog.html" aria-current="page"><span class="icon icon-book-open" aria-hidden="true"></span>查看博客</a></div><span class="local-pill">仅本机可访问</span></nav>
+    <header class="blog-view-header"><div><p class="eyebrow">LIVE SITE</p><h1>查看博客</h1><p class="muted">线上页面，发布后可在这里核对实际效果。</p></div><div class="blog-view-actions"><button id="reload-blog" type="button"><span class="icon icon-refresh-cw" aria-hidden="true"></span>刷新</button><a id="open-blog" href="https://www.haibinlaiblog.top/" target="_blank" rel="noopener noreferrer"><span class="icon icon-external-link" aria-hidden="true"></span>浏览器打开</a></div></header>
+    <div class="blog-frame-wrap"><iframe id="blog-frame" title="Haibin's blog 线上页面" src="https://www.haibinlaiblog.top/" referrerpolicy="no-referrer" sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-modals" loading="eager"></iframe></div>
+    <p class="blog-frame-note">页面加载失败？<a href="https://www.haibinlaiblog.top/" target="_blank" rel="noopener noreferrer">在浏览器中打开博客</a>。</p>
+  </main>
+  <script src="/blog.js"></script>
+</body>
+</html>

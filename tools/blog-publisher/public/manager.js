@@ -30,8 +30,15 @@ function node(tag, className, content) {
   return element;
 }
 
-function actionButton(label, className, onClick) {
-  const button = node('button', className, label);
+function withIcon(element, iconName, label) {
+  const icon = node('span', `icon icon-${iconName}`);
+  icon.setAttribute('aria-hidden', 'true');
+  element.append(icon, document.createTextNode(label));
+  return element;
+}
+
+function actionButton(label, iconName, className, onClick) {
+  const button = withIcon(node('button', className), iconName, label);
   button.type = 'button';
   button.addEventListener('click', onClick);
   return button;
@@ -51,19 +58,19 @@ function row(item) {
   main.append(meta);
   const actions = node('div', 'post-actions');
   if (item.trashed) {
-    actions.append(actionButton('恢复', '', () => openAction(item, 'restore')));
+    actions.append(actionButton('恢复', 'rotate-ccw', '', () => openAction(item, 'restore')));
   } else {
-    const edit = node('a', '', '编辑');
+    const edit = withIcon(node('a'), 'pen-line', '编辑');
     edit.href = `/?edit=${encodeURIComponent(item.id)}`;
     actions.append(edit);
     if (item.url) {
-      const visit = node('a', '', '查看');
+      const visit = withIcon(node('a'), 'eye', '查看');
       visit.href = item.url;
       visit.target = '_blank';
       visit.rel = 'noopener noreferrer';
       actions.append(visit);
     }
-    actions.append(actionButton('删除', 'remove', () => openAction(item, 'trash')));
+    actions.append(actionButton('删除', 'trash-2', 'remove', () => openAction(item, 'trash')));
   }
   article.append(main, actions);
   return article;

@@ -5,12 +5,14 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>文章管理 · Haibin Blog Publisher</title>
   <link rel="stylesheet" href="/manager.css">
+  <link rel="stylesheet" href="/publisher-ui.css">
 </head>
 <body>
   <main class="manager-shell">
+    <nav class="app-nav" aria-label="发布器导航"><a class="app-brand" href="/"><img src="/blog-logo.png" width="36" height="36" alt=""><span>Haibin Blog <small>Publisher</small></span></a><div class="app-nav-links"><a href="/"><span class="icon icon-pen-line" aria-hidden="true"></span>写作</a><a class="is-current" href="/manager" aria-current="page"><span class="icon icon-layout-dashboard" aria-hidden="true"></span>文章管理</a><a href="/blog.html"><span class="icon icon-book-open" aria-hidden="true"></span>查看博客</a></div><span class="local-pill">仅本机可访问</span></nav>
     <header class="manager-header">
-      <div><p class="eyebrow">HAIBIN'S BLOG · LOCAL WRITER</p><h1>文章管理</h1></div>
-      <div class="header-actions"><a class="quiet-link" href="/">写作器</a><a class="new-post" href="/">写新文章</a></div>
+      <div><p class="eyebrow">LIBRARY</p><h1>文章管理</h1></div>
+      <div class="header-actions"><a class="new-post" href="/"><span class="icon icon-file-plus" aria-hidden="true"></span>写新文章</a></div>
     </header>
 
     <section class="manager-main" aria-label="文章列表">
@@ -26,7 +28,7 @@
       <div class="list-heading"><strong id="list-count">正在读取文章…</strong><span id="list-page"></span></div>
       <div id="manager-message" class="manager-message" role="status" hidden></div>
       <div id="post-list" class="post-list" aria-live="polite"></div>
-      <div class="pagination"><button id="previous-page" type="button">上一页</button><span id="page-indicator"></span><button id="next-page" type="button">下一页</button></div>
+      <div class="pagination"><button id="previous-page" type="button" title="上一页" aria-label="上一页"><span class="icon icon-chevron-left" aria-hidden="true"></span></button><span id="page-indicator"></span><button id="next-page" type="button" title="下一页" aria-label="下一页"><span class="icon icon-chevron-right" aria-hidden="true"></span></button></div>
     </section>
   </main>
 

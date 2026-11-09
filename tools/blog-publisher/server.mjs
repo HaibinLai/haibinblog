@@ -456,18 +456,18 @@ const server = http.createServer(async (req, res) => {
     if (req.method === 'POST' && req.url === '/api/publish') return await handlePublish(req, res);
     if (req.method === 'POST' && req.url === '/api/post/trash') return await movePost(req, res, false);
     if (req.method === 'POST' && req.url === '/api/post/restore') return await movePost(req, res, true);
-    if (req.method === 'GET' && req.url === '/api/config') return send(res, 200, { root, imageRepo, port });
+    if (req.method === 'GET' && req.url === '/api/config') return send(res, 200, { root, imageRepo, port, publisherUiVersion: 2 });
     if (req.method === 'GET' && req.url.startsWith('/api/draft?')) return await handleDraft(req, res);
     if (req.method === 'GET' && req.url.startsWith('/api/posts')) return await listPosts(req, res);
     if (req.method === 'GET' && req.url.startsWith('/api/post?')) return await readPost(req, res);
     if (req.method === 'GET' && req.url.startsWith('/api/push-status?')) return await handlePushStatus(req, res);
     if (req.method !== 'GET') return send(res, 405, { error: 'Method not allowed' });
     const pathname = new URL(req.url, 'http://127.0.0.1').pathname;
-    const requested = pathname === '/' ? 'index.html' : ['/manager', '/manager/'].includes(pathname) ? 'manager.html' : pathname.replace(/^\//, '');
+    const requested = pathname === '/' ? 'index.html' : ['/manager', '/manager/'].includes(pathname) ? 'manager.html' : ['/blog', '/blog/'].includes(pathname) ? 'blog.html' : pathname.replace(/^\//, '');
     const file = path.resolve(publicDir, requested);
     if (!file.startsWith(`${publicDir}${path.sep}`)) return send(res, 403, { error: 'Forbidden' });
     const content = await readFile(file);
-    const type = file.endsWith('.css') ? 'text/css; charset=utf-8' : file.endsWith('.js') ? 'text/javascript; charset=utf-8' : 'text/html; charset=utf-8';
+    const type = file.endsWith('.css') ? 'text/css; charset=utf-8' : file.endsWith('.js') ? 'text/javascript; charset=utf-8' : file.endsWith('.svg') ? 'image/svg+xml' : file.endsWith('.png') ? 'image/png' : 'text/html; charset=utf-8';
     res.writeHead(200, { 'Content-Type': type, 'Cache-Control': 'no-store' }); res.end(content);
   } catch (error) {
     send(res, 400, { error: error.message });

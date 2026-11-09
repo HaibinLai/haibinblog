@@ -349,6 +349,11 @@ function markEdited() {
 }
 
 window.blogPublisherHasUnsavedChanges = () => editorDirty;
+window.addEventListener('beforeunload', (event) => {
+  if (!editorDirty) return;
+  event.preventDefault();
+  event.returnValue = '';
+});
 window.blogPublisherStartNewPost = () => {
   if (editorDirty && !confirm('当前更改尚未保存。仍要开始新文章吗？')) return false;
   const newDraftKey = 'haibin-blog-publisher-draft-v2';

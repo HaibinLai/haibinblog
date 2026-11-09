@@ -5,6 +5,7 @@ import WebKit
 private struct PublisherConfig: Decodable {
     let root: String
     let port: Int
+    let publisherUiVersion: Int?
 }
 
 private enum ConnectionResult {
@@ -67,6 +68,7 @@ final class BlogPublisherApp: NSObject, NSApplicationDelegate, NSWindowDelegate,
 
         let newButton = button("新建文章", symbol: "square.and.pencil", action: #selector(newPost))
         let managerButton = button("文章管理", symbol: "tray.full", action: #selector(openManager))
+        let blogButton = button("查看博客", symbol: "book", action: #selector(openBlog))
         let checkButton = button("检测发布", symbol: "arrow.clockwise", action: #selector(checkPublish))
         let folderButton = button("博客目录", symbol: "folder", action: #selector(chooseRepository(_:)))
         statusLabel = NSTextField(labelWithString: "正在连接本地服务…")
@@ -76,6 +78,7 @@ final class BlogPublisherApp: NSObject, NSApplicationDelegate, NSWindowDelegate,
         statusLabel.setContentHuggingPriority(.defaultLow, for: .horizontal)
         toolbar.addArrangedSubview(newButton)
         toolbar.addArrangedSubview(managerButton)
+        toolbar.addArrangedSubview(blogButton)
         toolbar.addArrangedSubview(checkButton)
         toolbar.addArrangedSubview(folderButton)
         toolbar.addArrangedSubview(statusLabel)
@@ -126,6 +129,7 @@ final class BlogPublisherApp: NSObject, NSApplicationDelegate, NSWindowDelegate,
         let fileMenu = NSMenu(title: "文章")
         fileMenu.addItem(withTitle: "新建文章", action: #selector(newPost), keyEquivalent: "n")
         fileMenu.addItem(withTitle: "文章管理", action: #selector(openManager), keyEquivalent: "m")
+        fileMenu.addItem(withTitle: "查看博客", action: #selector(openBlog), keyEquivalent: "b")
         fileMenu.addItem(withTitle: "检测发布", action: #selector(checkPublish), keyEquivalent: "r")
         fileItem.submenu = fileMenu
         menu.addItem(fileItem)
@@ -199,7 +203,8 @@ final class BlogPublisherApp: NSObject, NSApplicationDelegate, NSWindowDelegate,
 
     private func matches(_ config: PublisherConfig?, root: URL) -> Bool {
         guard let config else { return false }
-        return URL(fileURLWithPath: config.root).resolvingSymlinksInPath().path == root.path
+        return config.publisherUiVersion == 2 &&
+            URL(fileURLWithPath: config.root).resolvingSymlinksInPath().path == root.path
     }
 
     private func findOrStartServer(root: URL) -> ConnectionResult {
@@ -289,6 +294,14 @@ final class BlogPublisherApp: NSObject, NSApplicationDelegate, NSWindowDelegate,
     }
 
     @objc private func openManager() {
+        openLocalPage(path: "/manager")
+    }
+
+    @objc private func openBlog() {
+        openLocalPage(path: "/blog.html")
+    }
+
+    private func openLocalPage(path: String) {
         guard activePort != nil else { connect(); return }
         webView.evaluateJavaScript("Boolean(window.blogPublisherHasUnsavedChanges?.())") { [weak self] result, _ in
             guard let self else { return }
@@ -296,11 +309,11 @@ final class BlogPublisherApp: NSObject, NSApplicationDelegate, NSWindowDelegate,
                 let alert = NSAlert()
                 alert.messageText = "当前编辑内容尚未保存"
                 alert.informativeText = "离开编辑器前，请确认内容已经保存或已自动保存在本地草稿中。"
-                alert.addButton(withTitle: "继续前往管理器")
+                alert.addButton(withTitle: "继续离开编辑器")
                 alert.addButton(withTitle: "留在编辑器")
                 if alert.runModal() != .alertFirstButtonReturn { return }
             }
-            self.load(path: "/manager")
+            self.load(path: path)
         }
     }
 
@@ -312,6 +325,9 @@ final class BlogPublisherApp: NSObject, NSApplicationDelegate, NSWindowDelegate,
                  decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         guard let url = navigationAction.request.url else { decisionHandler(.cancel); return }
         if url.host == "127.0.0.1" && url.port == activePort {
+            decisionHandler(.allow)
+        } else if navigationAction.targetFrame?.isMainFrame == false &&
+                    url.scheme == "https" && url.host == "www.haibinlaiblog.top" {
             decisionHandler(.allow)
         } else if url.scheme == "about" {
             decisionHandler(.allow)
