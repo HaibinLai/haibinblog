@@ -183,11 +183,13 @@ const wordCount = countArticleWords(post.body ?? '');
     </script>
     <Comments comments={post.data.comments} commentCount={post.data.commentCount} />
     {post.data.showCitation && (
-      <section class="citation">
-        <h2>If you need to cite this post</h2>
-        <p>Haibin Lai. ({publishedDate}). “{post.data.title}” [Blog post]. Retrieved from <a href={Astro.url.href}>{Astro.url.href}</a></p>
-        <pre><code>{citation}</code></pre>
-      </section>
+      <details class="citation">
+        <summary>If you need to cite this post</summary>
+        <div class="citation-content">
+          <p>Haibin Lai. ({publishedDate}). “{post.data.title}” [Blog post]. Retrieved from <a href={Astro.url.href}>{Astro.url.href}</a></p>
+          <pre><code>{citation}</code></pre>
+        </div>
+      </details>
     )}
     </article>
     <RightSidebar posts={allPosts} />
