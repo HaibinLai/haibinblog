@@ -140,6 +140,17 @@ npm run build
 npm run publisher
 ```
 
+On macOS, the publisher is also available as a local desktop app. Build it once
+with `zsh tools/blog-publisher/desktop/build-app.sh`, then open
+`~/Applications/Haibin Blog Publisher.app`. The app starts and monitors the
+loopback-only publisher service, and offers New Post, Article Manager, and
+Check Publishing controls without requiring a terminal or a manual browser
+refresh. It uses the same repository and writing interface as `npm run
+publisher`; it does not push articles unless the writer's push option is
+selected. Node.js and the repository's installed dependencies are still
+required. If the repository moves, use the app's Blog Folder button to select
+its new location.
+
 `npm run publisher` starts a local writing form at `http://127.0.0.1:4322`. It
 supports a Markdown editor with preview, table/code/list helpers, local draft
 autosave, drag-and-drop images, and bilingual/featured-post metadata. It

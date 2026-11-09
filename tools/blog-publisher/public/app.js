@@ -348,6 +348,42 @@ function markEdited() {
   scheduleLocalDraft();
 }
 
+window.blogPublisherHasUnsavedChanges = () => editorDirty;
+window.blogPublisherStartNewPost = () => {
+  if (editorDirty && !confirm('当前更改尚未保存。仍要开始新文章吗？')) return false;
+  const newDraftKey = 'haibin-blog-publisher-draft-v2';
+  if (sourceId && localStorage.getItem(newDraftKey) &&
+      !confirm('已有一份未完成的新文章草稿。继续会在下次自动保存时覆盖它，确定吗？')) return false;
+  clearTimeout(saveTimer);
+  stopDeploymentWatch();
+  statusRequestId++;
+  sourceId = null;
+  sourceHashValue = null;
+  deferredDraft = null;
+  storageKey = newDraftKey;
+  editorDirty = false;
+  form.reset();
+  form.elements.slug.readOnly = false;
+  form.elements.publishedAt.value = today;
+  form.elements.updatedAt.value = today;
+  form.elements.imageMonth.value = today.slice(0, 7);
+  imageInput.value = '';
+  showImage(null);
+  bodyInput.hidden = false;
+  preview.hidden = true;
+  document.querySelectorAll('[data-tab]').forEach((tab) => tab.classList.toggle('is-active', tab.dataset.tab === 'write'));
+  document.querySelector('#slug-hint').hidden = true;
+  document.querySelector('#recover-local-draft').hidden = true;
+  document.querySelector('#writer-heading').textContent = '发布新文章';
+  document.querySelector('#writer-subtitle').textContent = '在本地写作、预览和保存；确认无误后再推送到 GitHub。';
+  history.replaceState(null, '', '/');
+  result.hidden = true;
+  saveState.textContent = '新文章尚未保存';
+  updatePreview();
+  resetPushState();
+  return true;
+};
+
 const fileAsBase64 = (file) => new Promise((resolve, reject) => {
   const reader = new FileReader(); reader.onload = () => resolve(String(reader.result).split(',')[1]); reader.onerror = reject; reader.readAsDataURL(file);
 });
