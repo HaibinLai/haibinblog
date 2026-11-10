@@ -258,3 +258,8 @@ body { background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 4%, 
   .friend-network-avatar-main { width: 78px; height: 78px; }
   .friends-grid { grid-template-columns: 1fr; }
 }
+
+.author-stats .view-stats-link { display: flex; flex-direction: column; }
+.author-stats .view-stats-link:hover strong,
+.author-stats .view-stats-link:hover span { color: var(--accent-dark); }
+.author-stats .view-stats-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
