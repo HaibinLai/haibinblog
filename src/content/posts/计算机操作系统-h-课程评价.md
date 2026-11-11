@@ -8,7 +8,7 @@ categories: []
 tags: []
 draft: false
 showCitation: true
-publisherRevision: 541472e6-a28d-43e9-8960-40665d54fb03
+publisherRevision: e4e96ec3-678c-4ed8-9c3e-4f840b1d125a
 ---
 
 # 计算机操作系统（H）课程评价
@@ -55,4 +55,4 @@ Operating Systems: Three Easy Pieces 三片的中文版，如果你想速通这�
 
 作为一门必修课程，我能给的建议就是这些了。如果还有什么，那就请我以《三个简单片》作结：
 
-![原文配图](assets/review-6308-1.png)
+![image.png](https://haibinblog.s3.us-east-1.amazonaws.com/2026/f636670e-edac-4dd7-aea3-c11e569f1bf6.png)
