@@ -5,6 +5,7 @@ import { lstat, mkdir, readFile, readdir, rename, writeFile } from 'node:fs/prom
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import yaml from 'js-yaml';
+import { commitAndPush } from './publish-git.mjs';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
 const imageRepo = path.resolve(root, '../image-backend');
@@ -91,15 +92,6 @@ const run = (cwd, args) => new Promise((resolve, reject) => {
   child.on('error', reject);
   child.on('close', (code) => code === 0 ? resolve(stdout.trim()) : reject(new Error(stderr.trim() || `git exited with ${code}`)));
 });
-
-async function commitAndPush(cwd, paths, message) {
-  await run(cwd, ['add', '--', ...paths]);
-  const staged = await run(cwd, ['diff', '--cached', '--name-only', '--', ...paths]);
-  if (staged) await run(cwd, ['commit', '-m', message, '--', ...paths]);
-  // A previous attempt may have committed successfully but failed to push.
-  await run(cwd, ['push', 'origin', 'main']);
-  return true;
-}
 
 async function gitFileStatus(cwd, relative) {
   const changes = await run(cwd, ['status', '--porcelain', '--', relative]);
@@ -215,6 +207,23 @@ async function listPosts(req, res) {
   items.sort((a, b) => b.publishedAt.localeCompare(a.publishedAt) || a.title.localeCompare(b.title));
   const pageSize = 30;
   send(res, 200, { items: items.slice((page - 1) * pageSize, page * pageSize), total: items.length, page, pages: Math.max(1, Math.ceil(items.length / pageSize)) }, { 'Cache-Control': 'no-store' });
+}
+
+async function listCategories(req, res) {
+  const counts = new Map([['Research', 0]]);
+  for (const id of await listFiles(postsDir)) {
+    try {
+      const { metadata } = parsePostSource(await readFile(postFile(id), 'utf8'));
+      const values = [metadata.category, ...(Array.isArray(metadata.categories) ? metadata.categories : [])];
+      for (const value of values) {
+        if (typeof value !== 'string' || !value.trim()) continue;
+        const category = value.trim();
+        counts.set(category, (counts.get(category) || 0) + 1);
+      }
+    } catch { /* Ignore articles without valid frontmatter. */ }
+  }
+  const categories = [...counts].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).map(([name]) => name);
+  send(res, 200, { categories }, { 'Cache-Control': 'no-store' });
 }
 
 async function readPost(req, res) {
@@ -459,6 +468,7 @@ const server = http.createServer(async (req, res) => {
     if (req.method === 'GET' && req.url === '/api/config') return send(res, 200, { root, imageRepo, port });
     if (req.method === 'GET' && req.url.startsWith('/api/draft?')) return await handleDraft(req, res);
     if (req.method === 'GET' && req.url.startsWith('/api/posts')) return await listPosts(req, res);
+    if (req.method === 'GET' && req.url === '/api/categories') return await listCategories(req, res);
     if (req.method === 'GET' && req.url.startsWith('/api/post?')) return await readPost(req, res);
     if (req.method === 'GET' && req.url.startsWith('/api/push-status?')) return await handlePushStatus(req, res);
     if (req.method !== 'GET') return send(res, 405, { error: 'Method not allowed' });
