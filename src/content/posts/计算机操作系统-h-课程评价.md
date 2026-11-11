@@ -8,7 +8,8 @@ categories: []
 tags: []
 draft: false
 showCitation: true
-publisherRevision: 6cc7a522-cd11-4f85-b55a-05561a683cd7
+publisherRevision: 154d116d-c5f3-40e6-8bb7-513660e3269d
+cardImage: https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F-h-%E8%AF%BE%E7%A8%8B%E8%AF%84%E4%BB%B7/1cb88ba112926456b4f846c050017f90-118df8b07c2a.jpg
 ---
 
 # 计算机操作系统（H）课程评价
