@@ -8,7 +8,7 @@ categories: []
 tags: []
 draft: false
 showCitation: true
-publisherRevision: 81c2a6f1-41dd-4bf9-a5c3-2c5c42ae9026
+publisherRevision: 6cc7a522-cd11-4f85-b55a-05561a683cd7
 ---
 
 # 计算机操作系统（H）课程评价
