@@ -1,16 +1,19 @@
 ---
-title: "Paper Reading: ICLR15 Explaining and Harnessing Adversarial Examples"
-description: "Paper Reading: ICLR15 Explaining and Harnessing Adversarial Examples"
+title: 'Paper Reading: ICLR15 Explaining and Harnessing Adversarial Examples'
+description: 'Paper Reading: ICLR15 Explaining and Harnessing Adversarial Examples'
 publishedAt: 2026-11-13
 updatedAt: 2026-11-13
 category: Paper Reading
 categories: []
-tags: [AI, ML]
+tags:
+  - AI
+  - ML
 language: zh-CN
 draft: false
 showCitation: true
-publisherRevision: 7fa5cc09-b9d5-4353-8289-5cb4fad2421c
+publisherRevision: a6278b5e-b1ad-44fc-885b-85deb921a1eb
 ---
+
 https://www.haibinlaiblog.top/posts/large-scale-machine-learning-reading-list/
 
 复现的代码仓库： https://github.com/HaibinLai/large-scale-ml-reproduce 实验完全由codex完成，其clone了代码或者用pytorch重现。 
@@ -95,6 +98,8 @@ loss = alpha * clean_loss + (1 - alpha) * F.cross_entropy(model(x_adv), y)
 ![image.png](https://haibinblog.s3.us-east-1.amazonaws.com/2026/fe1712d3-74f7-4ba4-8931-e803a8b42102.png)
 
 
+## 后续启发的研究
+
 
 OpenAI研究  Attacking machine learning with adversarial examples
 https://openai.com/index/attacking-machine-learning-with-adversarial-examples/
@@ -106,6 +111,8 @@ https://arxiv.org/abs/1607.02533
 Universal and Transferable Adversarial Attacks on Aligned Language Models
 https://arxiv.org/abs/2307.15043
 https://arxiv.org/abs/2306.13213
+
+## 一些想法和问题
 
 **问题：模型精度越低，产生对抗攻击样本的可能性/难度越大还是越小？** 思考这个问题，是因为从工程上，模型参数和微小扰动都是存储在FP32、BF16等精度下。如果从“只翻转X个bit”的角度讲，精度低的模型可能更容易产生样本；如果从“总的差值不变”的角度想，低精度里变化的位置更少，但是无法推导出因此就无法产生对抗攻击样本。不过论文也提到这样两句观察：“The direction of perturbation, rather than the specific point in space, matters most. Space is not full of pockets of adversarial examples that finely tile the reals like the rational numbers.”，“Because it is the direction that matters most, adversarial perturbations generalize across different clean examples.”。搜索了下以往的研究，感觉没有完全解答我的疑惑。
 
