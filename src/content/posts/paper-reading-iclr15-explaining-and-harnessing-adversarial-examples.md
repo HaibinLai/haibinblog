@@ -11,7 +11,8 @@ tags:
 language: zh-CN
 draft: false
 showCitation: true
-publisherRevision: a6278b5e-b1ad-44fc-885b-85deb921a1eb
+publisherRevision: 8bb132eb-b165-49d2-9c66-878f5e04b79e
+cardImage: https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-11/paper-reading-iclr15-explaining-and-harnessing-adversarial-examples/b0bd7855af23d028b2d70884588eda81-01c09ed98b39.jpg
 ---
 
 https://www.haibinlaiblog.top/posts/large-scale-machine-learning-reading-list/
