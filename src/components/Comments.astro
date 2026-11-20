@@ -8,9 +8,10 @@ interface ImportedComment {
 interface Props {
   comments: ImportedComment[];
   commentCount: number;
+  issueTerm?: string;
 }
 
-const { comments, commentCount } = Astro.props;
+const { comments, commentCount, issueTerm } = Astro.props;
 const hasImportedComments = comments.length > 0;
 ---
 
@@ -46,7 +47,7 @@ const hasImportedComments = comments.length > 0;
       is:inline
       src="https://utteranc.es/client.js"
       repo="HaibinLai/haibinblog"
-      issue-term="pathname"
+      issue-term={issueTerm ?? 'pathname'}
       theme="github-light"
       crossorigin="anonymous"
       async

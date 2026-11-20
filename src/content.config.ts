@@ -16,6 +16,7 @@ const posts = defineCollection({
     slug: z.string().optional(),
     legacySlug: z.string().optional(),
     oldSlugs: z.array(z.string()).default([]),
+    oldPostSlugs: z.array(z.string()).default([]),
     language: z.enum(['zh-CN', 'en']).optional(),
     translationKey: z.string().trim().min(1).optional(),
     wordpressId: z.number().int().optional(),

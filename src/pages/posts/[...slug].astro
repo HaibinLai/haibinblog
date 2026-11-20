@@ -10,17 +10,32 @@ import { countArticleWords } from '../../lib/articleStats';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts', ({ data }) => !data.draft);
-  return posts.map((post) => ({
-    params: { slug: post.data.slug ?? post.id.replace(/^wordpress\//, '') },
-    props: { post },
-  }));
+  const routes = new Map<string, { post?: typeof posts[number]; redirectTo?: string }>();
+  for (const post of posts) {
+    const slug = post.data.slug ?? post.id.replace(/^wordpress\//, '');
+    if (routes.has(slug)) throw new Error(`Duplicate post route: ${slug}`);
+    routes.set(slug, { post });
+  }
+  for (const post of posts) {
+    const destination = post.data.slug ?? post.id.replace(/^wordpress\//, '');
+    for (const alias of post.data.oldPostSlugs) {
+      if (routes.has(alias)) throw new Error(`Duplicate post route: ${alias}`);
+      routes.set(alias, { redirectTo: destination });
+    }
+  }
+  return [...routes].map(([slug, props]) => ({ params: { slug }, props }));
 }
 
-const { post } = Astro.props;
+const { post, redirectTo } = Astro.props;
+if (redirectTo) return Astro.redirect(`${import.meta.env.BASE_URL}posts/${redirectTo}/`);
 const allPosts = (await getCollection('posts', ({ data }) => !data.draft))
   .sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
 const base = import.meta.env.BASE_URL;
 const currentSlug = post.data.slug ?? post.id.replace(/^wordpress\//, '');
+const originalPath = post.data.oldPostSlugs[0] ? `/posts/${encodeURIComponent(post.data.oldPostSlugs[0])}/` : undefined;
+const originalIssueTerm = post.data.oldPostSlugs[0]
+  ? `${base}posts/${encodeURIComponent(post.data.oldPostSlugs[0])}/`
+  : undefined;
 const languageOrder = { 'zh-CN': 0, en: 1 } as const;
 const translationOptions = post.data.translationKey && post.data.language
   ? allPosts
@@ -63,6 +78,7 @@ const wordCount = countArticleWords(post.body ?? '');
   title={`${post.data.title} | Haibin's Blog`}
   description={post.data.description}
   lang={post.data.language ?? 'zh-CN'}
+  viewPath={originalPath}
   alternates={alternateLinks}
 >
   <div class="article-page-shell content-shell">
@@ -181,7 +197,7 @@ const wordCount = countArticleWords(post.body ?? '');
         details.addEventListener('toggle', () => requestAnimationFrame(updateScrollableTables));
       });
     </script>
-    <Comments comments={post.data.comments} commentCount={post.data.commentCount} />
+    <Comments comments={post.data.comments} commentCount={post.data.commentCount} issueTerm={originalIssueTerm} />
     {post.data.showCitation && (
       <details class="citation">
         <summary>If you need to cite this post</summary>
