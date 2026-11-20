@@ -1,21 +1,29 @@
 ---
 title: ICLR26 LLMs Get Lost In Multi-Turn Conversation
-description: "在Agent领域的一篇很著名的研究。文章的核心是We find that LLMs often make assumptions in early turns and prematurely attempt to generate final solutions, on which they overly rely. In simpler terms, we discover that when LLMs take a wrong turn in a conversation, they get lost and do not recover."
+description: 在Agent领域的一篇很著名的研究。文章的核心是We find that LLMs often make assumptions in early turns and prematurely attempt to generate final solutions, on which they overly rely. In simpler terms, we discover that when LLMs take a wrong turn in a conversation, they get lost and do not recover.
 publishedAt: 2026-11-20
 updatedAt: 2026-11-20
 category: Paper Reading
 categories: []
-tags: [AI, ML, MSRA, Agent]
+tags:
+  - AI
+  - ML
+  - MSRA
+  - Agent
 draft: false
-cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-11/iclr26-llms-get-lost-in-multi-turn-conversation/a7f871b48f196f4d7be1137077227412-b76f4791c075.png"
+cardImage: https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-11/iclr26-llms-get-lost-in-multi-turn-conversation/a7f871b48f196f4d7be1137077227412-b76f4791c075.png
 showCitation: true
-publisherRevision: 68df8ee8-b70e-4486-ba05-5c3149db6da3
+publisherRevision: c195aa64-f0d4-46f4-80cc-3945767a1704
 ---
+
 The Paper is from MSR and Salesforce research
 
 在Agent领域的一篇很著名的研究。文章的核心是：We find that LLMs often make assumptions in early turns and prematurely attempt to generate final solutions, on which they overly rely. In simpler terms, we discover that when LLMs take a wrong turn in a conversation, they get lost and do not recover. 也就是说，LLM在多轮对话后，就更容易失败。
 
 文章链接： https://arxiv.org/pdf/2505.06120
+
+这篇文章是ICLR26 best paper
+https://www.microsoft.com/en-us/research/publication/llms-get-lost-in-multi-turn-conversation/
 
 ## Main Idea
 
