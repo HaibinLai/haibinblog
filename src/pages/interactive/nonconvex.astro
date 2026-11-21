@@ -24,7 +24,13 @@
       .curvature-control { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; color: #43515a; font-size: 13px; }
       .curvature-control output { color: #223039; font-variant-numeric: tabular-nums; font-weight: 700; }
       .curvature-control input { grid-column: 1 / -1; width: 100%; margin: 3px 0 0; accent-color: #168b70; cursor: pointer; }
+      .eigen-sign { grid-column: 1 / -1; font-size: 12px; font-weight: 650; }
+      .curvature-control[data-sign="positive"] output, .curvature-control[data-sign="positive"] .eigen-sign { color: #167657; }
+      .curvature-control[data-sign="negative"] output, .curvature-control[data-sign="negative"] .eigen-sign { color: #b34f43; }
+      .curvature-control[data-sign="zero"] output, .curvature-control[data-sign="zero"] .eigen-sign { color: #687580; }
       .shape-kind { min-width: 104px; padding: 8px 10px; border: 1px solid #cbd8d5; border-radius: 5px; background: #eaf5f0; color: #136e59; text-align: center; font-size: 13px; font-weight: 700; }
+      .eigen-matrix { grid-column: 1 / -1; margin: 0; padding-top: 9px; border-top: 1px solid #dbe5e4; color: #536169; font-size: 12px; line-height: 1.5; }
+      .eigen-matrix strong { color: #273238; font-weight: 650; }
       footer { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; min-height: 34px; margin-top: 8px; color: #52616b; font-size: 12px; }
       .legend { display: flex; gap: 13px; flex-wrap: wrap; }
       .legend[hidden] { display: none; }
@@ -46,9 +52,10 @@
     <main class="viewer">
       <header><h1 id="figure-title">随机地形</h1><span class="hint">右侧拖动旋转 · 滚轮缩放</span></header>
       <div class="curvature-controls" id="curvature-controls" hidden>
-        <label class="curvature-control" for="curvature-x"><span>x 方向曲率 a</span><output id="curvature-x-value" for="curvature-x">1.2</output><input id="curvature-x" type="range" min="-2" max="2" step="0.1" value="1.2" /></label>
-        <label class="curvature-control" for="curvature-y"><span>y 方向曲率 b</span><output id="curvature-y-value" for="curvature-y">-1.2</output><input id="curvature-y" type="range" min="-2" max="2" step="0.1" value="-1.2" /></label>
+        <label class="curvature-control" for="curvature-x" data-sign="positive"><span>特征值 λₓ = a · x 方向</span><output id="curvature-x-value" for="curvature-x">+1.2</output><input id="curvature-x" type="range" min="-2" max="2" step="0.1" value="1.2" /><span class="eigen-sign" id="curvature-x-sign">正 · 向上弯</span></label>
+        <label class="curvature-control" for="curvature-y" data-sign="negative"><span>特征值 λᵧ = b · y 方向</span><output id="curvature-y-value" for="curvature-y">-1.2</output><input id="curvature-y" type="range" min="-2" max="2" step="0.1" value="-1.2" /><span class="eigen-sign" id="curvature-y-sign">负 · 向下弯</span></label>
         <span class="shape-kind" id="shape-kind" role="status">鞍点</span>
+        <p class="eigen-matrix">中心处 Hessian：<strong>H(0,0) = diag(<span id="matrix-x">+1.2</span>, <span id="matrix-y">-1.2</span>)</strong>；x、y 是特征方向。</p>
       </div>
       <div class="panels">
         <div class="panel"><span class="label">俯视 · 热力图</span><canvas class="heatmap" aria-label="函数值热力图"></canvas></div>

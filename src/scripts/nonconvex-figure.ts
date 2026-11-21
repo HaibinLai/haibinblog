@@ -311,11 +311,19 @@ heatmap.addEventListener('pointerleave', () => {
 });
 
 if (mode === 'curvature') {
+  const eigenvalueText = (value: number) => value > 0 ? `+${value.toFixed(1)}` : value.toFixed(1);
+  const updateEigenvalue = (axis: 'x' | 'y', value: number) => {
+    const control = axis === 'x' ? curvatureX : curvatureY;
+    control.closest<HTMLElement>('.curvature-control')!.dataset.sign = value > 0 ? 'positive' : value < 0 ? 'negative' : 'zero';
+    document.querySelector<HTMLOutputElement>(`#curvature-${axis}-value`)!.value = eigenvalueText(value);
+    document.querySelector<HTMLElement>(`#curvature-${axis}-sign`)!.textContent = value > 0 ? '正 · 向上弯' : value < 0 ? '负 · 向下弯' : '零 · 这个方向是平的';
+    document.querySelector<HTMLElement>(`#matrix-${axis}`)!.textContent = eigenvalueText(value);
+  };
   const updateCurvature = () => {
     const a = Number(curvatureX.value);
     const b = Number(curvatureY.value);
-    document.querySelector<HTMLOutputElement>('#curvature-x-value')!.value = a.toFixed(1);
-    document.querySelector<HTMLOutputElement>('#curvature-y-value')!.value = b.toFixed(1);
+    updateEigenvalue('x', a);
+    updateEigenvalue('y', b);
     const kind = a === 0 || b === 0 ? '平坦方向' : a > 0 && b > 0 ? '局部极小值' : a < 0 && b < 0 ? '局部极大值' : '鞍点';
     shapeKind.textContent = kind;
     values = curvatureField(a, b);
