@@ -2,7 +2,7 @@
 title: "8 个顶点的图有多少个？Burnside 引理与边轨道"
 description: "8 个顶点的无向简单图，带编号时有 2^28 个；不计顶点编号时有 12346 个。用边轨道和 Burnside 引理解释两种计数。"
 publishedAt: "2026-07-18T16:18:25Z"
-updatedAt: "2026-11-21T07:29:30Z"
+updatedAt: "2026-11-21T07:38:24Z"
 category: "Graph"
 categories: ["Graph"]
 tags: ["图论"]
@@ -43,7 +43,27 @@ $$
 
 如果两个图只差一次顶点重命名，就把它们视为同一个图。不能简单地把 $2^{28}$ 除以 $8!$：有的图在多种重命名下保持不变，有的图则没有这种对称性。
 
-令 $S_8$ 为 8 个顶点的所有置换，$\mathrm{Fix}(\pi)$ 为在置换 $\pi$ 下不变的带编号图的数量。Burnside 引理给出：
+### Burnside 引理：定义与推导
+
+设有限群 $G$ 作用在有限集合 $X$ 上。两个元素若能通过某个 $g\in G$ 互相变换，就属于同一个**轨道**；轨道集合记为 $X/G$。令 $\mathrm{Fix}(g)$ 表示被 $g$ 固定的元素个数，即 $\mathrm{Fix}(g)=|\{x\in X:g\cdot x=x\}|$。Burnside 引理说：
+
+$$
+|X/G|=\frac{1}{|G|}\sum_{g\in G}\mathrm{Fix}(g).
+$$
+
+为什么是平均值？数所有满足 $g\cdot x=x$ 的配对 $(g,x)$。按 $g$ 分类，配对总数是 $\sum_g\mathrm{Fix}(g)$；按 $x$ 分类，它等于 $\sum_x|\mathrm{Stab}(x)|$，其中 $\mathrm{Stab}(x)=\{g\in G:g\cdot x=x\}$ 是固定 $x$ 的置换集合。
+
+对同一轨道 $O$ 中的任意 $x$，轨道-稳定子关系给出 $|\mathrm{Stab}(x)|=|G|/|O|$。轨道里有 $|O|$ 个元素，因此每个轨道对配对总数恰好贡献 $|G|$：
+
+$$
+\sum_{g\in G}\mathrm{Fix}(g)
+=\sum_{O\in X/G}\sum_{x\in O}\frac{|G|}{|O|}
+=|G|\,|X/G|.
+$$
+
+两边除以 $|G|$，就得到 Burnside 引理。这里并没有假设每个轨道大小相同。
+
+回到本题，$X$ 是全部带编号的 8 顶点无向简单图，$G=S_8$ 是 8 个顶点的重命名群。一个轨道就是一种非同构图，所以
 
 $$
 \text{非同构图数量}
