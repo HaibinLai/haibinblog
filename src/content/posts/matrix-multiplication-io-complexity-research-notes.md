@@ -10,6 +10,7 @@ tags:
   - I/O Complexity
   - Research Notes
 draft: false
+hideFromHome: true # Browse via Archive, not the home feed
 ---
 
 > 这是一份持续追加的研究笔记。后续记录会修正前面的猜想；文中提到的本地脚本和补充文档尚未随博客公开。

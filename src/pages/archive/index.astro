@@ -1,0 +1,144 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const base = import.meta.env.BASE_URL;
+const posts = (await getCollection('posts', ({ data }) => !data.draft))
+  .map((post) => ({
+    slug: post.data.slug ?? post.id.replace(/^wordpress\//, ''),
+    title: post.data.title,
+    description: post.data.description,
+    category: post.data.category,
+    tags: post.data.tags,
+    publishedAt: post.data.publishedAt,
+  }))
+  .sort((a, b) => b.publishedAt.valueOf() - a.publishedAt.valueOf() || a.slug.localeCompare(b.slug));
+const categories = [...new Set(posts.map((post) => post.category))].sort((a, b) => a.localeCompare(b, 'zh-CN'));
+const byYear = Map.groupBy(posts, (post) => post.publishedAt.getUTCFullYear());
+const years = [...byYear].sort((a, b) => b[0] - a[0]);
+const dateLabel = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' });
+---
+
+<BaseLayout title="Archive | Haibin's Blog" description="Browse all published writing by year.">
+  <div class="archive-page content-shell">
+    <header class="archive-heading">
+      <div>
+        <p class="archive-kicker">ALL WRITING</p>
+        <h1>Archive</h1>
+      </div>
+      <p>{posts.length} articles</p>
+    </header>
+
+    <div class="archive-controls">
+      <label>
+        <span>Search</span>
+        <input id="archive-search" type="search" placeholder="Title or topic" autocomplete="off" />
+      </label>
+      <label>
+        <span>Category</span>
+        <select id="archive-category">
+          <option value="">All categories</option>
+          {categories.map((category) => <option value={category}>{category}</option>)}
+        </select>
+      </label>
+    </div>
+    <p class="archive-result-count" id="archive-result-count" role="status" aria-live="polite">{posts.length} articles</p>
+
+    <div class="archive-years">
+      {years.map(([year, yearPosts]) => (
+        <section class="archive-year" data-archive-year>
+          <h2>{year}<span data-archive-year-count>{yearPosts.length}</span></h2>
+          <ol>
+            {yearPosts.map((post) => (
+              <li
+                class="archive-row"
+                data-archive-row
+                data-category={post.category}
+                data-search={[post.title, post.description, post.category, ...post.tags].join(' ')}
+              >
+                <time datetime={post.publishedAt.toISOString()}>{dateLabel.format(post.publishedAt)}</time>
+                <div class="archive-row-main">
+                  <a href={base + 'posts/' + post.slug + '/'}>{post.title}</a>
+                  <p>{post.description}</p>
+                </div>
+                <span class="archive-row-category">{post.category}</span>
+              </li>
+            ))}
+          </ol>
+        </section>
+      ))}
+    </div>
+    <p class="archive-empty" id="archive-empty" hidden>No matching articles.</p>
+  </div>
+</BaseLayout>
+
+<script is:inline>
+  (() => {
+    const search = document.querySelector('#archive-search');
+    const category = document.querySelector('#archive-category');
+    const sections = [...document.querySelectorAll('[data-archive-year]')];
+    const resultCount = document.querySelector('#archive-result-count');
+    const empty = document.querySelector('#archive-empty');
+    const total = document.querySelectorAll('[data-archive-row]').length;
+    const normalize = (value) => String(value || '').normalize('NFKC').toLocaleLowerCase();
+
+    const filter = () => {
+      const query = normalize(search.value).trim();
+      const selectedCategory = category.value;
+      let shown = 0;
+      sections.forEach((section) => {
+        let yearShown = 0;
+        section.querySelectorAll('[data-archive-row]').forEach((row) => {
+          const match = (!query || normalize(row.dataset.search).includes(query))
+            && (!selectedCategory || row.dataset.category === selectedCategory);
+          row.hidden = !match;
+          if (match) yearShown += 1;
+        });
+        section.hidden = yearShown === 0;
+        section.querySelector('[data-archive-year-count]').textContent = String(yearShown);
+        shown += yearShown;
+      });
+      resultCount.textContent = shown === total
+        ? total + ' articles'
+        : shown + ' of ' + total + ' articles';
+      empty.hidden = shown !== 0;
+    };
+
+    search.addEventListener('input', filter);
+    category.addEventListener('change', filter);
+  })();
+</script>
+
+<style>
+  .archive-page { width: min(1040px, calc(100% - 40px)); padding: 42px 0 80px; }
+  .archive-heading { display: flex; align-items: end; justify-content: space-between; gap: 20px; padding-bottom: 22px; border-bottom: 1px solid var(--line-strong); }
+  .archive-kicker { margin: 0 0 6px; color: var(--accent-dark); font-size: .7rem; font-weight: 750; }
+  .archive-heading h1 { margin: 0; color: var(--ink); font-size: 2.15rem; line-height: 1.16; }
+  .archive-heading > p { margin: 0 0 4px; color: var(--muted); font-size: .88rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .archive-controls { display: grid; grid-template-columns: minmax(0, 1fr) 220px; gap: 18px; margin-top: 24px; }
+  .archive-controls label { display: grid; gap: 6px; color: var(--muted); font-size: .75rem; font-weight: 650; }
+  .archive-controls input, .archive-controls select { width: 100%; min-width: 0; height: 42px; padding: 0 12px; border: 1px solid var(--line-strong); border-radius: 6px; outline: none; color: var(--ink); background: var(--surface); font-size: .9rem; }
+  .archive-controls input:focus, .archive-controls select:focus { border-color: var(--accent); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 13%, transparent); }
+  .archive-result-count { margin: 12px 0 0; color: var(--muted); font-size: .76rem; }
+  .archive-year { margin-top: 40px; }
+  .archive-year h2 { display: flex; align-items: baseline; gap: 12px; margin: 0 0 8px; color: var(--ink); font-size: 1.45rem; font-weight: 650; }
+  .archive-year h2 span { color: var(--muted); font-size: .78rem; font-weight: 500; font-variant-numeric: tabular-nums; }
+  .archive-year ol { margin: 0; padding: 0; border-top: 1px solid var(--line); list-style: none; }
+  .archive-row { display: grid; grid-template-columns: 72px minmax(0, 1fr) 132px; align-items: start; gap: 18px; padding: 15px 6px; border-bottom: 1px solid var(--line); }
+  .archive-row:hover { background: color-mix(in srgb, var(--accent) 4%, transparent); }
+  .archive-row time { padding-top: 3px; color: var(--muted); font-size: .78rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .archive-row-main { min-width: 0; }
+  .archive-row-main a { display: block; color: var(--ink); font-size: .98rem; font-weight: 600; line-height: 1.45; overflow-wrap: anywhere; }
+  .archive-row-main a:hover { color: var(--accent-dark); }
+  .archive-row-main p { margin: 4px 0 0; overflow: hidden; color: var(--muted); font-size: .79rem; line-height: 1.45; text-overflow: ellipsis; white-space: nowrap; }
+  .archive-row-category { padding-top: 4px; overflow: hidden; color: var(--gold-dark); font-size: .76rem; text-align: right; text-overflow: ellipsis; white-space: nowrap; }
+  .archive-empty { margin: 50px 0; color: var(--muted); text-align: center; }
+  [hidden] { display: none !important; }
+  @media (max-width: 650px) {
+    .archive-page { width: calc(100% - 28px); padding-top: 28px; }
+    .archive-heading h1 { font-size: 1.8rem; }
+    .archive-controls { grid-template-columns: 1fr; gap: 12px; }
+    .archive-row { grid-template-columns: 58px minmax(0, 1fr); gap: 10px; }
+    .archive-row-category { grid-column: 2; padding: 0; text-align: left; }
+  }
+</style>

@@ -10,6 +10,7 @@ tags:
   - I/O Complexity
   - Research Notes
 draft: false
+hideFromHome: true # Browse via Archive, not the home feed
 ---
 
 上一篇[《矩阵乘法 I/O 复杂度：研究探索笔记》](../matrix-multiplication-io-complexity-research-notes/)记录了我从经典下界走到多层通信、有限容量模型，以及中间反复修正的过程。这里整理那份笔记后来分出的两条论文线：四词快存储下的 $2\times2\times k$ 精确界，以及按执行轨迹修正多层 I/O 下界重叠的框架。前者在一个受限模型里得到 tight 结果，后者回答的是怎样安全地组合不同通信义务；它们有关联，但不是同一个定理，也不能把前者当成一般 GEMM 的结论。

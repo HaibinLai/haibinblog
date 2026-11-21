@@ -13,6 +13,7 @@ const posts = defineCollection({
     categories: z.array(z.string()).default([]),
     author: z.string().default('Haibin Lai'),
     draft: z.boolean().default(false),
+    hideFromHome: z.boolean().default(false),
     slug: z.string().optional(),
     legacySlug: z.string().optional(),
     oldSlugs: z.array(z.string()).default([]),

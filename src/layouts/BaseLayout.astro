@@ -56,7 +56,10 @@ const searchPosts = (await getCollection('posts', ({ data }) => !data.draft && !
   </head>
   <body>
     <header class="site-header">
-      <a class="brand" href={base} aria-label="Haibin's Blog home"><img src={`${base}images/logo.png`} alt="" />Haibin's blog</a>
+      <div class="brand-links">
+        <a class="brand" href={base} aria-label="Haibin's Blog home"><img src={`${base}images/logo.png`} alt="" />Haibin's blog</a>
+        <a class="archive-shortcut" href={`${base}archive/`} aria-current={Astro.url.pathname === `${base}archive/` ? 'page' : undefined}>Archive</a>
+      </div>
       <div class="header-tools">
         <div class="search-shell">
           <label class="search-box"><span aria-hidden="true">⌕</span><input type="search" placeholder="Enter keywords to search" aria-label="Search" aria-controls="site-search-results" aria-expanded="false" autocomplete="off" /></label>

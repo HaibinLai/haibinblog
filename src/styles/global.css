@@ -37,6 +37,12 @@
 /* Article reading experience */
 body { background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 4%, var(--page)), var(--page) 22rem) fixed; }
 .site-header { background: color-mix(in srgb, var(--surface) 94%, transparent); border-bottom-color: var(--line); box-shadow: 0 5px 20px rgba(64, 0, 0, .055); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); }
+.brand-links { display: flex; flex: 0 0 auto; align-items: center; gap: 16px; min-width: 0; }
+.archive-shortcut { padding-left: 16px; border-left: 1px solid var(--line); color: var(--muted); font-size: .82rem; font-weight: 600; white-space: nowrap; }
+.archive-shortcut:hover, .archive-shortcut[aria-current="page"] { color: var(--accent-dark); }
+@media (min-width: 1101px) and (max-width: 1400px) { .header-tools { gap: 16px; }.primary-nav { gap: 16px; }.search-shell { width: 190px; } }
+@media (max-width: 480px) { .brand-links { gap: 8px; }.brand { gap: 8px; font-size: .9rem; }.brand img { width: 29px; height: 29px; }.archive-shortcut { padding-left: 8px; font-size: .76rem; } }
+@media (max-width: 370px) { .brand { font-size: 0; }.brand img { width: 30px; height: 30px; }.archive-shortcut { font-size: .84rem; } }
 .article-page-shell { width: min(1380px, calc(100% - 40px)); grid-template-columns: 220px minmax(0, 1fr) 240px; gap: 18px; padding-top: 24px; }
 .article-page-shell .post-page { width: auto; min-width: 0; margin: 0; padding: 34px clamp(28px, 3.2vw, 48px) 64px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); box-shadow: var(--article-shadow); }
 .article-page-shell .sidebar-panel { border-color: var(--line); border-radius: 10px; box-shadow: var(--shadow); }
