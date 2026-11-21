@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>高维非凸优化：交互图解</title>
+    <style>
+      :root { font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; color: #273238; background: #fff; }
+      * { box-sizing: border-box; }
+      body { margin: 0; }
+      .viewer { min-height: 100vh; padding: 15px 18px 18px; }
+      header { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+      h1 { margin: 0; font-size: 16px; font-weight: 700; }
+      .hint { color: #64727b; font-size: 12px; }
+      .panels { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+      .panel { min-width: 0; position: relative; }
+      .label { position: absolute; z-index: 1; left: 10px; top: 10px; padding: 3px 6px; color: #43515a; background: rgba(255,255,255,.9); font-size: 12px; font-weight: 650; }
+      .heatmap, .surface { display: block; width: 100%; height: 330px; background: #f4f7f7; }
+      .heatmap { cursor: crosshair; touch-action: none; }
+      .surface { touch-action: none; }
+      .surface canvas { display: block; }
+      footer { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; min-height: 34px; margin-top: 8px; color: #52616b; font-size: 12px; }
+      .legend { display: flex; gap: 13px; flex-wrap: wrap; }
+      .legend[hidden] { display: none; }
+      .legend span { white-space: nowrap; }
+      .key { display: inline-block; width: 10px; height: 10px; margin-right: 5px; border-radius: 50%; }
+      .gd { background: #167cba; } .newton { background: #d64c4c; } .sfn { background: #16996e; }
+      .error { padding: 2rem; color: #a73838; }
+      @media (max-width: 620px) {
+        .viewer { padding: 10px; }
+        header { align-items: flex-start; flex-direction: column; gap: 2px; }
+        .panels { grid-template-columns: 1fr; gap: 10px; }
+        .heatmap, .surface { height: 250px; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="viewer">
+      <header><h1 id="figure-title">随机地形</h1><span class="hint">右侧拖动旋转 · 滚轮缩放</span></header>
+      <div class="panels">
+        <div class="panel"><span class="label">俯视 · 热力图</span><canvas class="heatmap" aria-label="函数值热力图"></canvas></div>
+        <div class="panel"><span class="label">三维 · 曲面</span><div class="surface" aria-label="可旋转的三维函数曲面"></div></div>
+      </div>
+      <footer><span id="sample-value">亮色表示较高的函数值</span><span class="legend" id="path-legend" hidden><span><i class="key gd"></i>梯度下降</span><span><i class="key newton"></i>牛顿法</span><span><i class="key sfn"></i>SFN</span></span></footer>
+    </main>
+    <script src="../../scripts/nonconvex-figure.ts"></script>
+  </body>
+</html>

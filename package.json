@@ -21,9 +21,13 @@
     "rehype-katex": "^7.0.1",
     "rehype-raw": "^7.0.0",
     "remark-math": "^6.0.0",
+    "three": "^0.187.0",
     "unist-util-visit": "^5.1.0"
   },
   "allowScripts": {
     "esbuild": true
+  },
+  "devDependencies": {
+    "@types/three": "^0.187.0"
   }
 }
