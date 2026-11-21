@@ -48,6 +48,45 @@ $$
 
 草稿里的 max-plus 状态系统在第 16 层和第 20 层得到相同的状态—取值映射，形成四步固定点；固定点有 278 个状态，最大 potential 为 2。这一步是任意 $k$ 的证明证书，而不只是把前几个 $k$ 跑出来看规律。独立实现也重建了同一固定点；随机小实例的投影检查只是编码一致性测试，不代替投影引理。
 
+代码里，上界调度先把 $i=0$ 的 $r$ 顺序循环移位，再按通常顺序处理 $i=1$。下面摘自 `work/generate_2x2k_m4_schedule.py`；返回值是四类 product 的执行次序，不是缓存状态本身：
+
+```python
+def schedule(k: int):
+    out=[]
+    for i, rs in ((0, list(range(1,k))+[0] if k>1 else [0]),
+                  (1, list(range(k)))):
+        for r in rs:
+            for j in (0,1):
+                out.append(i*2*k+r*2+j)
+    assert len(out)==4*k and len(set(out))==4*k
+    return tuple(out)
+```
+
+`work/check_2x2k_m4_schedule.py` 用固定顺序的精确 DP 检查了从 $k=1$ 到 $k=10$，得到 `total == 6*k+2`，并检查没有 $C$ 的中途写回或重载。这是对构造的有限规模核对；对任意 $k$ 的结论仍要看论文中的周期调度论证。
+
+下界证书的核心更新则是“同一状态只保留最大 potential”。以下是独立实现 `work/check_high_demand_fixed_point_independent.py` 中的层推进和固定点检查：
+
+```python
+def make_layers(count):
+    layers = [{((), 0, 0): 0}]
+    for _ in range(count):
+        nxt = {}
+        for state, value in layers[-1].items():
+            for ns, restart, gained in successors(state):
+                candidate = value - restart + gained
+                if candidate > nxt.get(ns, -10**9):
+                    nxt[ns] = candidate
+        layers.append(nxt)
+    return layers
+
+layers = make_layers(20)
+maxima = [max(x.values(), default=-10**9) for x in layers]
+assert max(maxima) == 2, maxima
+assert layers[16] == layers[20]
+```
+
+这段程序实际输出 `states_at_fixed_point=278`。其中 `gained` 记录完成高复用分量获得的额外 hit，`restart` 记录 $C$ 重载的代价；状态转移的容量检查和投影正确性才是证书可信的关键，不能只看最后两个 `assert`。
+
 这个结果只覆盖**单 owner、$M=4$、每个 product 恰好算一次、上述 $C$ movement 计费规则**。它不自动推广到多 owner、重计算、免费 multicast、LRU 专属策略，或任意多层内存。
 
 ## 2. 多层 I/O：两个下界为什么不能直接相加
@@ -63,6 +102,38 @@ $$
 ![多层存储、带标签的执行轨迹和兼容配对](./assets/matrix-io-overview-framework.png)
 
 如果所有配对都兼容，这个式子退回常见的 $\max(J,L)$；只有 edge、receiver、word 或时间限制真的阻止共享时，才可能得到更强的界。稿件里有一个最小的 certificate-level 例子：$J=L=2$，但只有一对能共享，于是得到 $Q\ge3$，而单纯取 max 只得到 2。这个例子说明匹配修正怎样工作，**不等于证明每个抽象 label 集都来自真实 GEMM 轨迹**。
+
+`work/run_overlap_certificate_sweep.py` 把每个义务编码为 `(id, edge, direction, word, sender, receiver, start, end)`。能否共用一次传输，先比较除 id 外的物理标签，再检查两个时间区间是否相交：
+
+```python
+def compatible(l, p):
+    return l[1:6] == p[1:6] and max(l[6], p[6]) < min(l[7], p[7])
+```
+
+匹配数由 `work/check_overlap_correction_matching.py` 中的小规模 bitmask DP 求出；同一个 phase 义务最多被配对一次：
+
+```python
+from functools import lru_cache
+
+def max_matching(left, right, edges):
+    index = {x: i for i, x in enumerate(right)}
+
+    @lru_cache(None)
+    def dp(i, mask):
+        if i == len(left):
+            return 0
+        best = dp(i + 1, mask)
+        for p in right:
+            if (left[i], p) in edges:
+                bit = 1 << index[p]
+                if not (mask & bit):
+                    best = max(best, 1 + dp(i + 1, mask | bit))
+        return best
+
+    return dp(0, 0)
+```
+
+检查器用 `J=L=2`、仅有一条兼容边的例子验证 `J+L-nu == 3`，再用完全兼容的例子验证它退回 `max(J,L)`。这些脚本检查的是**标签、配对与计数逻辑**；实际多层 GEMM 还要另外证明标签从合法轨迹中抽取，并且所声称的紧界有可执行调度。
 
 对任意合法的多层执行，草稿首先保留一个安全的 envelope：每条边要支付自己的 lineage incidence，总流量也要满足 phase 要求。更强的加法式只在静态嵌套 owner、edge-local phase、事件不重叠等受限条件下，连同能实际嵌入的 schedule 一起成立。这个区分很重要：一个匹配给出“最多能重叠多少”，但从匹配到可执行的调度还要检查容量、路由和部分和的依赖顺序。
 
