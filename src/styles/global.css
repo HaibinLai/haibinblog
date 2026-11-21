@@ -47,6 +47,12 @@ body { background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 4%, 
 .article-page-shell .nav-tree { padding: 10px 10px 16px; }
 .article-page-shell .nav-tree a { padding: 8px 10px; border-left-width: 2px; border-radius: 0 7px 7px 0; font-size: .81rem; line-height: 1.45; }
 .article-page-shell .nav-tree a:hover, .article-page-shell .nav-tree a.is-active { background: color-mix(in srgb, var(--accent) 10%, var(--surface)); }
+.article-page-shell .article-outline a.depth-2 { margin-top: .55rem; padding-left: 10px; font-weight: 650; }
+.article-page-shell .article-outline a.depth-3 { position: relative; padding-left: 32px; font-size: .78rem; }
+.article-page-shell .article-outline a.depth-3::before { position: absolute; left: 18px; top: 50%; width: 7px; border-top: 1px solid var(--line-strong); content: ''; }
+.article-page-shell .article-outline a.depth-4 { padding-left: 44px; }
+.article-page-shell .article-outline a.depth-5 { padding-left: 54px; }
+.article-page-shell .article-outline a.depth-6 { padding-left: 64px; }
 .post-header { max-width: 72ch; margin: 0 auto 32px; padding-bottom: 24px; border-bottom: 1px solid var(--line); }
 .eyebrow { display: inline-flex; align-items: center; margin: 0 0 14px; padding: .26rem .65rem; border: 1px solid color-mix(in srgb, var(--accent) 32%, var(--line)); border-radius: 999px; background: color-mix(in srgb, var(--accent) 8%, var(--surface)); font-size: .7rem; font-weight: 700; letter-spacing: .055em; line-height: 1.35; }
 .post-header-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin: 0 0 16px; }
