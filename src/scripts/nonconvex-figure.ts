@@ -6,12 +6,16 @@ type Trace = { name: string; color: string; points: Point[] };
 
 const root = document.querySelector<HTMLElement>('.viewer')!;
 const requestedMode = new URLSearchParams(window.location.search).get('scene');
-const mode = requestedMode === 'field-b' || requestedMode === 'paths' ? requestedMode : 'field-a';
+const mode = requestedMode === 'field-b' || requestedMode === 'paths' || requestedMode === 'curvature' ? requestedMode : 'field-a';
 const heatmap = document.querySelector<HTMLCanvasElement>('.heatmap')!;
 const surface = document.querySelector<HTMLElement>('.surface')!;
 const title = document.querySelector<HTMLElement>('#figure-title')!;
 const valueLabel = document.querySelector<HTMLElement>('#sample-value')!;
 const legend = document.querySelector<HTMLElement>('#path-legend')!;
+const curvatureControls = document.querySelector<HTMLElement>('#curvature-controls')!;
+const curvatureX = document.querySelector<HTMLInputElement>('#curvature-x')!;
+const curvatureY = document.querySelector<HTMLInputElement>('#curvature-y')!;
+const shapeKind = document.querySelector<HTMLElement>('#shape-kind')!;
 const size = 48;
 
 function random(seed: number) {
@@ -69,10 +73,26 @@ function saddleField() {
   return values;
 }
 
-const values = mode === 'paths' ? saddleField() : randomField(mode === 'field-a' ? 3 : 11);
-title.textContent = mode === 'paths' ? '鞍点附近的三种轨迹' : `二维随机场 · 样本 ${mode === 'field-a' ? 'A' : 'B'}`;
+function curvatureField(a: number, b: number) {
+  const field = new Float32Array(size * size);
+  for (let y = 0; y < size; y++) {
+    for (let x = 0; x < size; x++) {
+      const px = 2 * x / (size - 1) - 1;
+      const py = 2 * y / (size - 1) - 1;
+      field[y * size + x] = (a * px * px + b * py * py) / 2;
+    }
+  }
+  return field;
+}
+
+let values = mode === 'curvature'
+  ? curvatureField(Number(curvatureX.value), Number(curvatureY.value))
+  : mode === 'paths' ? saddleField() : randomField(mode === 'field-a' ? 3 : 11);
+title.textContent = mode === 'curvature' ? '改变曲率，观察临界点' : mode === 'paths' ? '鞍点附近的三种轨迹' : `二维随机场 · 样本 ${mode === 'field-a' ? 'A' : 'B'}`;
+curvatureControls.hidden = mode !== 'curvature';
 legend.hidden = mode !== 'paths';
-if (mode === 'paths') valueLabel.textContent = 'f(x,y) = x² − y² · 从同一起点出发';
+const defaultValueText = mode === 'curvature' ? 'f(x,y) = (ax² + by²)/2 · 中心为临界点' : mode === 'paths' ? 'f(x,y) = x² − y² · 从同一起点出发' : '亮色表示较高的函数值';
+valueLabel.textContent = defaultValueText;
 
 const traces: Trace[] = [];
 if (mode === 'paths') {
@@ -103,6 +123,10 @@ function colorAt(value: number) {
   return stops[lo].c.map((channel, i) => Math.round(channel + (stops[hi].c[i] - channel) * blend));
 }
 
+function fieldColor(value: number) {
+  return colorAt(mode === 'curvature' ? value / 2 : value);
+}
+
 function heightAt(x: number, y: number) {
   if (mode === 'paths') return x * x - y * y;
   const ix = Math.max(0, Math.min(size - 1, Math.round((x + 1) * (size - 1) / 2)));
@@ -129,7 +153,7 @@ for (let y = 0; y < size; y++) {
   for (let x = 0; x < size; x++) {
     const value = values[y * size + x];
     positions.push(2 * x / (size - 1) - 1, value * 0.55, 2 * y / (size - 1) - 1);
-    const color = colorAt(value);
+    const color = fieldColor(value);
     colors.push(...color.map(channel => channel / 255));
     if (x < size - 1 && y < size - 1) {
       const a = y * size + x;
@@ -168,15 +192,58 @@ sourceCanvas.width = size;
 sourceCanvas.height = size;
 const sourceContext = sourceCanvas.getContext('2d')!;
 const pixels = sourceContext.createImageData(size, size);
-for (let y = 0; y < size; y++) {
-  for (let x = 0; x < size; x++) {
-    const color = colorAt(values[(size - 1 - y) * size + x]);
-    const at = (y * size + x) * 4;
-    pixels.data.set([...color, 255], at);
+function updateField() {
+  const position = geometry.getAttribute('position') as THREE.BufferAttribute;
+  const color = geometry.getAttribute('color') as THREE.BufferAttribute;
+  for (let y = 0; y < size; y++) {
+    for (let x = 0; x < size; x++) {
+      const index = y * size + x;
+      position.setY(index, values[index] * 0.55);
+      const rgb = fieldColor(values[index]);
+      color.setXYZ(index, rgb[0] / 255, rgb[1] / 255, rgb[2] / 255);
+      const pixel = ((size - 1 - y) * size + x) * 4;
+      pixels.data.set([...rgb, 255], pixel);
+    }
+  }
+  position.needsUpdate = true;
+  color.needsUpdate = true;
+  geometry.computeVertexNormals();
+  sourceContext.putImageData(pixels, 0, 0);
+}
+updateField();
+let hover: Point | null = null;
+
+function drawContours(ctx: CanvasRenderingContext2D, width: number, height: number, ratio: number) {
+  const levels = [-0.75, -0.5, -0.25, 0, 0.25, 0.5, 0.75];
+  const edgePairs = [[0, 1], [1, 2], [2, 3], [3, 0]];
+  ctx.strokeStyle = 'rgba(23, 42, 46, .56)';
+  ctx.lineWidth = 1.1 * ratio;
+  for (const level of levels) {
+    ctx.beginPath();
+    for (let y = 0; y < size - 1; y++) {
+      for (let x = 0; x < size - 1; x++) {
+        const corners = [
+          { x, y, value: values[y * size + x] },
+          { x: x + 1, y, value: values[y * size + x + 1] },
+          { x: x + 1, y: y + 1, value: values[(y + 1) * size + x + 1] },
+          { x, y: y + 1, value: values[(y + 1) * size + x] },
+        ];
+        const crossings = edgePairs.flatMap(([start, end]) => {
+          const first = corners[start];
+          const second = corners[end];
+          if ((first.value < level) === (second.value < level)) return [];
+          const t = (level - first.value) / (second.value - first.value);
+          return [{ x: (first.x + (second.x - first.x) * t) * width / (size - 1), y: (first.y + (second.y - first.y) * t) * height / (size - 1) }];
+        });
+        for (let i = 0; i + 1 < crossings.length; i += 2) {
+          ctx.moveTo(crossings[i].x, crossings[i].y);
+          ctx.lineTo(crossings[i + 1].x, crossings[i + 1].y);
+        }
+      }
+    }
+    ctx.stroke();
   }
 }
-sourceContext.putImageData(pixels, 0, 0);
-let hover: Point | null = null;
 
 function drawHeatmap() {
   const rect = heatmap.getBoundingClientRect();
@@ -186,6 +253,16 @@ function drawHeatmap() {
   const ctx = heatmap.getContext('2d')!;
   ctx.imageSmoothingEnabled = true;
   ctx.drawImage(sourceCanvas, 0, 0, heatmap.width, heatmap.height);
+  if (mode === 'curvature') {
+    drawContours(ctx, heatmap.width, heatmap.height, ratio);
+    ctx.fillStyle = '#fff';
+    ctx.strokeStyle = '#1d3438';
+    ctx.lineWidth = 2 * ratio;
+    ctx.beginPath();
+    ctx.arc(heatmap.width / 2, heatmap.height / 2, 5 * ratio, 0, 2 * Math.PI);
+    ctx.fill();
+    ctx.stroke();
+  }
   for (const trace of traces) {
     ctx.strokeStyle = trace.color;
     ctx.fillStyle = trace.color;
@@ -229,9 +306,31 @@ heatmap.addEventListener('pointermove', event => {
 heatmap.addEventListener('pointerleave', () => {
   hover = null;
   selected.visible = false;
-  valueLabel.textContent = mode === 'paths' ? 'f(x,y) = x² − y² · 从同一起点出发' : '亮色表示较高的函数值';
+  valueLabel.textContent = defaultValueText;
   drawHeatmap();
 });
+
+if (mode === 'curvature') {
+  const updateCurvature = () => {
+    const a = Number(curvatureX.value);
+    const b = Number(curvatureY.value);
+    document.querySelector<HTMLOutputElement>('#curvature-x-value')!.value = a.toFixed(1);
+    document.querySelector<HTMLOutputElement>('#curvature-y-value')!.value = b.toFixed(1);
+    const kind = a === 0 || b === 0 ? '平坦方向' : a > 0 && b > 0 ? '局部极小值' : a < 0 && b < 0 ? '局部极大值' : '鞍点';
+    shapeKind.textContent = kind;
+    values = curvatureField(a, b);
+    updateField();
+    if (hover) {
+      const value = heightAt(hover.x, hover.y);
+      selected.position.y = value * 0.55 + 0.04;
+      valueLabel.textContent = `x ${hover.x.toFixed(2)} · y ${hover.y.toFixed(2)} · f ${value.toFixed(2)}`;
+    }
+    drawHeatmap();
+  };
+  curvatureX.addEventListener('input', updateCurvature);
+  curvatureY.addEventListener('input', updateCurvature);
+  updateCurvature();
+}
 
 function resize() {
   const width = surface.clientWidth;

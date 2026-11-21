@@ -269,7 +269,9 @@ body { background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 4%, 
 
 .article-page-shell .prose .nonconvex-figure { width: 100%; margin: 1.65rem 0 2rem; }
 .article-page-shell .prose .nonconvex-embed { display: block; width: 100%; height: 430px; border: 1px solid var(--line); border-radius: 6px; background: #fff; }
+.article-page-shell .prose .nonconvex-embed[src*="scene=curvature"] { height: 505px; }
 .article-page-shell .prose .nonconvex-figure figcaption { margin-top: .65rem; text-align: left; line-height: 1.55; }
 @media (max-width: 620px) {
   .article-page-shell .prose .nonconvex-embed { height: 660px; }
+  .article-page-shell .prose .nonconvex-embed[src*="scene=curvature"] { height: 805px; }
 }
