@@ -1,5 +1,5 @@
 ---
-title: 'Paper Reading: ICLR15 Explaining and Harnessing Adversarial Examples'
+title: ICLR15 Explaining and Harnessing Adversarial Examples
 description: 'Paper Reading: ICLR15 Explaining and Harnessing Adversarial Examples'
 publishedAt: 2026-11-13
 updatedAt: 2026-11-13
@@ -11,7 +11,7 @@ tags:
 language: zh-CN
 draft: false
 showCitation: true
-publisherRevision: 8bb132eb-b165-49d2-9c66-878f5e04b79e
+publisherRevision: e7f6f5fc-de54-43eb-9ced-6640ddfd1dcd
 cardImage: https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-11/paper-reading-iclr15-explaining-and-harnessing-adversarial-examples/b0bd7855af23d028b2d70884588eda81-01c09ed98b39.jpg
 ---
 
