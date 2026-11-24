@@ -55,13 +55,19 @@ int main() {
 
 运行后，它编译后将输出 N 个”Hello from thread X”，其中 N 是本次并行区域的实际团队大小；它受环境设置与运行库规则影响，不一定等于物理核数。
 
-OpenMP 采用 fork-join 机制运行代码，其主线程到达 OpenMP 并行域后，会展开成多个线程（在 POSIX OS 上会使用 pthread_create 创建线程）执行相关代码，随后 join 环节使团队会合。libgomp 通常复用工作线程，因此一次并行区结束不等于销毁全部工作线程。
+OpenMP 采用 fork-join 机制运行代码，如图 1 所示：主线程到达 OpenMP 并行域后，会展开成多个线程（在 POSIX OS 上会使用 pthread_create 创建线程）执行相关代码，随后 join 环节使团队会合。libgomp 通常复用工作线程，因此一次并行区结束不等于销毁全部工作线程。
 
 ![图 1](/images/gcc-openmp-compiler-report/figure-01.png)
 
 *图 1: GCC 采用的 fork-join 机制*
 
-*表 1: Summary of common OpenMP directives (C/C++ syntax).*
+<a id="section-2-2"></a>
+
+### 2.2 OpenMP 接口
+
+表 1 汇总了常见的 OpenMP 指令及其用途；更完整的接口说明见 [GNU libgomp 手册](https://gcc.gnu.org/onlinedocs/gcc-14.3.0/libgomp.pdf)和 [GNU OpenMP 文档](https://gcc.gnu.org/projects/gomp/)。
+
+*表 1：常见 OpenMP 指令（C/C++ 语法）。*
 
 | Directive | Purpose | Typical Usage |
 | --- | --- | --- |
@@ -78,12 +84,6 @@ OpenMP 采用 fork-join 机制运行代码，其主线程到达 OpenMP 并行域
 | `#pragma omp ordered` | Enforce ordered execution of loop iterations. | `#pragma omp for ordered + #pragma omp ordered` |
 | `#pragma omp threadprivate` | Make global variables thread-local. | `#pragma omp threadprivate(var-list)` |
 
-<a id="section-2-2"></a>
-
-### 2.2 OpenMP 接口
-
-这里我们列出一些常见的 OpenMP 语句（来源：GCC libopenmp [book](https://gcc.gnu.org/onlinedocs/gcc-14.3.0/libgomp.pdf)）[GNU OpenMP 文档](https://gcc.gnu.org/projects/gomp/)
-
 <a id="section-2-3"></a>
 
 ### 2.3 OpenMP 应用
@@ -96,9 +96,13 @@ OpenMP 采用 fork-join 机制运行代码，其主线程到达 OpenMP 并行域
 
 一个 OpenMP 程序的生成与执行涉及两个相互衔接的部分：编译器将并行语义变成控制流和运行库调用，libgomp 再在程序运行时组织线程、分配工作并完成同步。`-fopenmp` 使 GCC 识别相应指令，并在通过 GCC 驱动程序链接时自动链接 OpenMP 运行库。本文以下实现分析固定到 **GCC 13.3.0** 的 `releases/gcc-13.3.0` 源码；新增实验使用 Ubuntu 提供的 GCC 13.3.0。关键行为结合发行版编译器生成的 dump 分析。
 
+图 2 概括了这一流程；表 2 则按阶段列出输入、主要工作与可观察的输出。
+
 ![图 2：GCC-OpenMP 编译流程概览](/images/gcc-openmp-compiler-report/figure-02.png)
 
 *图 2：原报告的概念概览图。具体 pass 的先后顺序以以下源码与实测 dump 为准。*
+
+*表 2：GCC 编译与 OpenMP 运行阶段。*
 
 | 阶段 | 输入与主要工作 | 可观察的输出 |
 | --- | --- | --- |
@@ -909,7 +913,7 @@ return clauses;
 
 ## 5 中间代码优化
 
-前端树、GIMPLE、SSA 与 RTL 为不同阶段的分析提供合适的表示。分析 OpenMP 的编译过程，需要观察并行区域在何处拆分、数据如何进入新函数，以及循环优化如何改变代码。本节使用同一份可观察输出的例子，结合本次 GCC 13.3.0 的真实编译结果逐步说明。
+前端树、GIMPLE、SSA 与 RTL 为不同阶段的分析提供合适的表示，层次关系见图 3。分析 OpenMP 的编译过程，需要观察并行区域在何处拆分、数据如何进入新函数，以及循环优化如何改变代码。本节使用同一份可观察输出的例子，结合本次 GCC 13.3.0 的真实编译结果逐步说明。
 
 ![图 3：原报告中的 IR 层次示意](/images/gcc-openmp-compiler-report/figure-03.png)
 
@@ -985,6 +989,10 @@ __builtin_GOMP_parallel (add._omp_fn.0, &.omp_data_o.1, 4, 0);
 
 ### 5.3 OpenMP 构造展开
 
+表 3 对照列出几类 OpenMP 构造在 lowering 时需要解决的问题，以及可能观察到的实现。
+
+*表 3：OpenMP 构造的降低与展开。*
+
 | 原始语义 | 降低时必须解决的问题 | 可能观察到的实现 |
 | --- | --- | --- |
 | `parallel` | 团队规模、被捕获数据、区域入口和退出 | outlined function、`GOMP_parallel` |
@@ -1001,7 +1009,7 @@ __builtin_GOMP_parallel (add._omp_fn.0, &.omp_data_o.1, 4, 0);
 
 ### 5.4 多面体优化
 
-多面体方法把循环迭代视为整数点。例如 `1 <= i,j < N-1` 定义了二维迭代域；数组访问、执行次序和依赖关系则约束哪些变换合法。新的调度函数必须维持依赖先后，而优化目标可以是改善局部性、暴露并行性或组合多种循环变换。GCC 的 Graphite 负责循环变换，OpenMP 负责表达线程并行；两者使用各自的编译选项，并可组合使用。
+多面体方法把循环迭代视为整数点。例如 `1 <= i,j < N-1` 定义了二维迭代域；数组访问、执行次序和依赖关系则约束哪些变换合法。新的调度函数必须维持依赖先后，而优化目标可以是改善局部性、暴露并行性或组合多种循环变换。图 4 给出变换示例。GCC 的 Graphite 负责循环变换，OpenMP 负责表达线程并行；两者使用各自的编译选项，并可组合使用。
 
 ![图 4：多面体变换示例](/images/gcc-openmp-compiler-report/figure-04.png)
 
@@ -1025,6 +1033,8 @@ __builtin_GOMP_parallel (add._omp_fn.0, &.omp_data_o.1, 4, 0);
 ```
 
 
+
+图 5 概括了 Graphite 的处理流程，下面再用实际诊断核对各阶段是否发生。
 
 ![图 5：Graphite 流程概念图](/images/gcc-openmp-compiler-report/figure-05.png)
 
@@ -1152,6 +1162,10 @@ vmovups     %ymm1, (%rdx,%rax)
 
 ### 6.2 线程团队与线程池
 
+表 4 列出本路径中与线程复用、任务及工作分配有关的核心结构。
+
+*表 4：libgomp 的核心结构及职责。*
+
 | 核心结构 | 本路径中的职责 |
 | --- | --- |
 | `gomp_thread` | 当前线程的状态、团队状态、当前 task 与所属线程池等 |
@@ -1210,11 +1224,13 @@ Linux 实现使用原子状态和 futex 等机制；等待路径见 [`config/lin
 
 ## 7 性能实验
 
-本节比较线程扩展、循环调度、SIMD 和 Graphite 分块的性能。线程配置为 **1、2、4、8、16、24、48、96、192 个物理核**，每个配置独立测量三次，图中误差条表示样本标准差。实验方法见[附录 A](#appendix-a)，完整数据见[附录 B](#appendix-b)。
+本节比较线程扩展、循环调度、SIMD 和 Graphite 分块的性能。线程配置为 **1、2、4、8、16、24、48、96、192 个物理核**，每个配置独立测量三次，图中误差条表示样本标准差。实验方法见[附录 A](#appendix-a)的表 A-1；各图的汇总数据见[附录 B](#appendix-b)的表 B-1 至表 B-7，三次原始计时和屏障比例见表 B-8 至表 B-14。
 
 <a id="section-7-1"></a>
 
 ### 7.1 线程扩展
+
+图 7-1 对比三种程序在不同规模下的线程扩展趋势。
 
 ![图 7-1：线程扩展](/images/gcc-openmp-compiler-report/scaling.png)
 
@@ -1228,6 +1244,8 @@ Linux 实现使用原子状态和 futex 等机制；等待路径见 [`config/lin
 
 ### 7.2 循环调度
 
+图 7-2 展示均匀与递增工作量下四种调度策略的运行时间。
+
 ![图 7-2：循环调度](/images/gcc-openmp-compiler-report/scheduling.png)
 
 *图 7-2：均匀与递增工作量下四种调度策略的运行时间，循环均包含 65536 次迭代。*
@@ -1239,6 +1257,8 @@ Linux 实现使用原子状态和 futex 等机制；等待路径见 [`config/lin
 <a id="section-7-3"></a>
 
 ### 7.3 SIMD 性能
+
+图 7-3 比较普通 O3 自动向量化与显式 `omp simd` 相对 scalar 的收益。
 
 ![图 7-3：SIMD 性能](/images/gcc-openmp-compiler-report/simd.png)
 
@@ -1256,6 +1276,8 @@ Stencil 的收益更依赖规模与核数。例如 N=2048、4 核时，SIMD 相�
 
 #### 7.4.1 单核转置
 
+图 7-4 给出两种缓存准备方式下的单核转置时间。
+
 ![图 7-4：单核转置](/images/gcc-openmp-compiler-report/transpose_serial.png)
 
 *图 7-4：五种矩阵尺寸下的单核转置时间，分别采用 eviction64MiB 和 warm 两种缓存准备方式。*
@@ -1268,6 +1290,8 @@ poly 在本轮单核实验中获得 **1.40–2.10×** 加速。N=4096、warm 时
 
 #### 7.4.2 并行转置
 
+图 7-5 比较不同矩阵尺寸与线程数下的并行转置时间。
+
 ![图 7-5：并行转置](/images/gcc-openmp-compiler-report/transpose_parallel.png)
 
 *图 7-5：三种矩阵尺寸下的并行转置时间。每线程处理独占的连续 i 区间，分别调用四种编译配置的范围子核。*
@@ -1279,6 +1303,8 @@ poly 在本轮单核实验中获得 **1.40–2.10×** 加速。N=4096、warm 时
 <a id="section-7-5"></a>
 
 ### 7.5 屏障等待
+
+图 7-6 对比 static 与 dynamic,64 的屏障时间占比。
 
 ![图 7-6：屏障等待](/images/gcc-openmp-compiler-report/profiling.png)
 
@@ -1300,7 +1326,7 @@ dynamic,64 的屏障时间占比随核数上升，到 192 核约为 **19.49%**�
 
 在实际应用中，OneDNN Graph Compiler 有使用 OpenMP 的接口。但是在运行时，Intel 工程师将 OpenMP 线程所做的工作，如自动化 for 循环，进行抛弃。他们仅保留最基础的 OpenMP 线程代码，随后将多线程的管理完全交给自身的系统库处理。前辈表示，这是由于 GCC 自身对循环的优化、自动化向量化等操作并不完美所做的决策（以及一部分政治因素）。完全交给自身的 Graph Compiler 来优化循环后，生成出来的算子 kernel 性能才更高。
 
-前辈介绍了几种他们在 Graph Compiler 做了而 GCC 没有做的技术：比如在计算分块矩阵乘法时，如果一个线程完成了一个计算块的计算，但是需要等待其他线程完成同步时，其可以 preload 一部分接下来要计算的数据。同时对于大量的 CPU 计算 core，他们采用了分组的 barrier（即一部分线程同步完，即可进入下一组计算），这部分的提升是比较显著的。
+前辈介绍了几种他们在 Graph Compiler 做了而 GCC 没有做的技术：比如在计算分块矩阵乘法时，如果一个线程完成了一个计算块的计算，但是需要等待其他线程完成同步时，其可以 preload 一部分接下来要计算的数据。同时对于大量的 CPU 计算 core，他们采用了分组的 barrier（即一部分线程同步完，即可进入下一组计算，见图 8），这部分的提升是比较显著的。
 
 ![图 8](/images/gcc-openmp-compiler-report/figure-08.png)
 
@@ -1338,7 +1364,9 @@ dynamic,64 的屏障时间占比随核数上升，到 192 核约为 **19.49%**�
 
 计算节点为 eightsocket：8×Xeon Platinum 8160，共 192 物理核、384 逻辑 CPU、8 NUMA 节点；8×V100 32GB 仅记录环境，本轮不运行 GPU。系统为 Ubuntu 24.04.4，GCC/G++ 13.3.0。公共编译参数是 `-O3 -march=native -ffp-contract=off`，OpenMP 驱动额外使用 `-fopenmp`。
 
-线程实验从每个物理核选一个逻辑 CPU，使用显式 `OMP_PLACES`、`OMP_PROC_BIND=spread`、`OMP_DYNAMIC=FALSE`、`OMP_WAIT_POLICY=PASSIVE` 和 `numactl --interleave=all`。程序保存实际团队大小并要求等于请求值。串行转置固定 CPU0 与 NUMA0，分别执行 64MiB eviction pass 和紧接一次预热两种准备。串行与并行转置按各自的内存放置设置分别比较；缓存准备方式记为 `eviction64MiB` 和 `warm`。
+线程实验从每个物理核选一个逻辑 CPU，使用显式 `OMP_PLACES`、`OMP_PROC_BIND=spread`、`OMP_DYNAMIC=FALSE`、`OMP_WAIT_POLICY=PASSIVE` 和 `numactl --interleave=all`。程序保存实际团队大小并要求等于请求值。串行转置固定 CPU0 与 NUMA0，分别执行 64MiB eviction pass 和紧接一次预热两种准备。串行与并行转置按各自的内存放置设置分别比较；缓存准备方式记为 `eviction64MiB` 和 `warm`。表 A-1 汇总各实验的配置数与重复次数。
+
+*表 A-1：实验规模与测量次数。*
 
 | 实验 | 规模与配置 | 配置数 | 每点次数 |
 | --- | --- | --- | --- |
@@ -1374,7 +1402,9 @@ dynamic,64 的屏障时间占比随核数上升，到 192 核约为 **19.49%**�
 
 ### B.1 线程扩展数据
 
-**较小规模：GEMM N=768，Stencil N=2048，MD 512 粒子。**
+表 B-1 和表 B-2 分别列出较小、较大规模的线程扩展数据，对应图 7-1。
+
+*表 B-1：较小规模的线程扩展时间。GEMM N=768，Stencil N=2048，MD 512 粒子。*
 
 | 物理核 | GEMM ms | Stencil ms | MD ms |
 | --- | --- | --- | --- |
@@ -1388,7 +1418,7 @@ dynamic,64 的屏障时间占比随核数上升，到 192 核约为 **19.49%**�
 | 96 | 4.777 ± 0.094 | 52.584 ± 2.383 | 73.625 ± 3.826 |
 | 192 | 3.046 ± 0.084 | 94.792 ± 5.609 | 105.574 ± 18.248 |
 
-**较大规模：GEMM N=1536，Stencil N=4096，MD 1024 粒子。**
+*表 B-2：较大规模的线程扩展时间。GEMM N=1536，Stencil N=4096，MD 1024 粒子。*
 
 | 物理核 | GEMM ms | Stencil ms | MD ms |
 | --- | --- | --- | --- |
@@ -1405,6 +1435,10 @@ dynamic,64 的屏障时间占比随核数上升，到 192 核约为 **19.49%**�
 <a id="appendix-b-2"></a>
 
 ### B.2 循环调度数据
+
+表 B-3 给出图 7-2 所用的四种调度策略计时。
+
+*表 B-3：均匀与递增工作量下的循环调度时间。*
 
 | 工作量 | 核数 | static ms | static,64 ms | dynamic,1 ms | dynamic,64 ms |
 | --- | --- | --- | --- | --- | --- |
@@ -1431,7 +1465,9 @@ dynamic,64 的屏障时间占比随核数上升，到 192 核约为 **19.49%**�
 
 ### B.3 SIMD 数据
 
-SIMD 表中 scalar 为 O3 加关闭 loop/SLP 向量化，auto 为普通 O3，SIMD 为 O3 加显式 omp simd。三个版本使用相同输入、线程数、浮点收缩设置和计时范围；MD 公共对象不包含在本节的向量化消融中。时间单位为毫秒；最后一列是三个配对 scalar/SIMD 比值的均值 ± 标准差。
+表 B-4 对应图 7-3，其中 scalar 为 O3 加关闭 loop/SLP 向量化，auto 为普通 O3，SIMD 为 O3 加显式 omp simd。三个版本使用相同输入、线程数、浮点收缩设置和计时范围；MD 公共对象不包含在本节的向量化消融中。时间单位为毫秒；最后一列是三个配对 scalar/SIMD 比值的均值 ± 标准差。
+
+*表 B-4：GEMM 与 Stencil 的 SIMD 对照数据。*
 
 | 内核 | N | 核数 | scalar ms | auto ms | SIMD ms | scalar/SIMD |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -1476,6 +1512,10 @@ SIMD 表中 scalar 为 O3 加关闭 loop/SLP 向量化，auto 为普通 O3，SIM
 
 ### B.4 单核转置数据
 
+表 B-5 列出图 7-4 的单核转置数据。
+
+*表 B-5：两种缓存准备方式下的单核转置时间。*
+
 | N | 准备 | base ms | identity ms | poly ms | notile ms | base/poly |
 | --- | --- | --- | --- | --- | --- | --- |
 | 512 | eviction64MiB | 1.129 ± 0.004 | 1.129 ± 0.001 | 0.705 ± 0.002 | 1.129 ± 0.004 | 1.60 ± 0.01× |
@@ -1492,6 +1532,10 @@ SIMD 表中 scalar 为 O3 加关闭 loop/SLP 向量化，auto 为普通 O3，SIM
 <a id="appendix-b-5"></a>
 
 ### B.5 并行转置数据
+
+表 B-6 列出图 7-5 的并行转置数据。
+
+*表 B-6：不同矩阵尺寸与核数下的并行转置时间。*
 
 | N | 核数 | base ms | identity ms | poly ms | notile ms | base/poly |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -1527,6 +1571,10 @@ SIMD 表中 scalar 为 O3 加关闭 loop/SLP 向量化，auto 为普通 O3，SIM
 
 ### B.6 屏障等待数据
 
+表 B-7 列出图 7-6 的屏障时间占比。
+
+*表 B-7：static 与 dynamic,64 的屏障时间占比。*
+
 | 核数 | static 屏障暴露 | dynamic64 屏障暴露 |
 | --- | --- | --- |
 | 1 | 0.00 ± 0.00% | 0.00 ± 0.00% |
@@ -1543,11 +1591,13 @@ SIMD 表中 scalar 为 O3 加关闭 loop/SLP 向量化，auto 为普通 O3，SIM
 
 ### B.7 原始计时
 
-以下列出全部 346 个配置的三次原始计时，**单位为秒**，t0/t1/t2 对应 repeat 0/1/2。列名沿用本地 `summary.csv`；调度实验的 steps=1 表示均匀工作量，steps=2 表示递增工作量。完整运行记录保存在作者本地的 `kernels.jsonl`、`transpose_serial.jsonl` 和 `transpose_parallel.jsonl`。
+表 B-8 至表 B-13 列出全部 346 个配置的三次原始计时，**单位为秒**，t0/t1/t2 对应 repeat 0/1/2。列名沿用本地 `summary.csv`；调度实验的 steps=1 表示均匀工作量，steps=2 表示递增工作量。完整运行记录保存在作者本地的 `kernels.jsonl`、`transpose_serial.jsonl` 和 `transpose_parallel.jsonl`。
 
 <a id="appendix-b-7-1"></a>
 
 #### B.7.1 GEMM
+
+*表 B-8：GEMM 三次原始计时。*
 
 | N | steps | 核数 | 配置 | 缓存准备 | t0 (s) | t1 (s) | t2 (s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -1610,6 +1660,8 @@ SIMD 表中 scalar 为 O3 加关闭 loop/SLP 向量化，auto 为普通 O3，SIM
 
 #### B.7.2 Stencil
 
+*表 B-9：Stencil 三次原始计时。*
+
 | N | steps | 核数 | 配置 | 缓存准备 | t0 (s) | t1 (s) | t2 (s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 2048 | 100 | 1 | auto | shared | 1.1072482590097934 | 1.0978320940048434 | 1.10400553495856 |
@@ -1671,6 +1723,8 @@ SIMD 表中 scalar 为 O3 加关闭 loop/SLP 向量化，auto 为普通 O3，SIM
 
 #### B.7.3 MD
 
+*表 B-10：MD 三次原始计时。*
+
 | N | steps | 核数 | 配置 | 缓存准备 | t0 (s) | t1 (s) | t2 (s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 512 | 50 | 1 | simd | shared | 0.3274962430004962 | 0.35785850801039487 | 0.3272853280068375 |
@@ -1695,6 +1749,8 @@ SIMD 表中 scalar 为 O3 加关闭 loop/SLP 向量化，auto 为普通 O3，SIM
 <a id="appendix-b-7-4"></a>
 
 #### B.7.4 循环调度
+
+*表 B-11：循环调度三次原始计时。*
 
 | N | steps | 核数 | 配置 | 缓存准备 | t0 (s) | t1 (s) | t2 (s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -1775,6 +1831,8 @@ SIMD 表中 scalar 为 O3 加关闭 loop/SLP 向量化，auto 为普通 O3，SIM
 
 #### B.7.5 单核转置
 
+*表 B-12：单核转置三次原始计时。*
+
 | N | steps | 核数 | 配置 | 缓存准备 | t0 (s) | t1 (s) | t2 (s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 512 | 0 | 1 | base | eviction64MiB | 0.00113370904000476 | 0.001126750954426825 | 0.0011275350116193295 |
@@ -1821,6 +1879,8 @@ SIMD 表中 scalar 为 O3 加关闭 loop/SLP 向量化，auto 为普通 O3，SIM
 <a id="appendix-b-7-6"></a>
 
 #### B.7.6 并行转置
+
+*表 B-13：并行转置三次原始计时。*
 
 | N | steps | 核数 | 配置 | 缓存准备 | t0 (s) | t1 (s) | t2 (s) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -1937,7 +1997,9 @@ SIMD 表中 scalar 为 O3 加关闭 loop/SLP 向量化，auto 为普通 O3，SIM
 
 ### B.8 屏障原始比例
 
-以下为每次运行的屏障时间比例，取值范围为 0–1。逐线程墙钟记录见作者本地的 `profiling.csv`。
+表 B-14 列出每次运行的屏障时间比例，取值范围为 0–1。逐线程墙钟记录见作者本地的 `profiling.csv`。
+
+*表 B-14：static 与 dynamic,64 的三次原始屏障比例。*
 
 | 核数 | 调度 | repeat 0 | repeat 1 | repeat 2 |
 | --- | --- | --- | --- | --- |
@@ -2007,6 +2069,8 @@ Graphite dump、isl AST 和汇编共同展示了分块如何落实到机器代�
 <a id="appendix-d"></a>
 
 ## 附录 D 历史结果
+
+历史图 A 和历史图 B 分别保留原报告中的 MD 与多面体测试结果，与第 7 节新增实验的图表分开呈现。
 
 ![原报告历史 MD 图](/images/gcc-openmp-compiler-report/figure-06.png)
 
