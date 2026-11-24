@@ -1,5 +1,5 @@
 ---
-title: GCC 的 OpenMP 实现
+title: GCC 是怎么实现 OpenMP 的？
 description: 从 GCC 前端、GIMPLE lowering 到 libgomp 运行库，结合编译产物与实验分析 OpenMP 的实现。
 publishedAt: 2026-11-23T12:00:00Z
 category: Academic
