@@ -5,14 +5,18 @@ publishedAt: 2026-11-23
 updatedAt: 2026-11-23
 category: Paper Reading
 categories: []
-tags: [Systems, SC, HPC, AI-Infra]
+tags:
+  - Systems
+  - SC
+  - HPC
+  - AI-Infra
 draft: false
-cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-11/sc-26-wen-zhang-xuan-du/screenshot-2026-11-24-123817-238-04ba7edf3b59.png"
+cardImage: https://raw.githubusercontent.com/HaibinLai/image-backend/main/2026-11/sc-26-wen-zhang-xuan-du/screenshot-2026-11-24-123817-238-04ba7edf3b59.png
 showCitation: true
-publisherRevision: cef5acce-dfd3-432b-b8a2-01464d15c6d8
+publisherRevision: 8cd96431-8676-42ba-be11-93357f6d4026
 ---
-最近我有点难过，有点疑惑。我在思考做研究的目的，是否又回到之前思考的那样，追随自己原本的兴趣？在SC碰到了很多的新老朋友，感觉收获很多，不过旅游就没有很多了，毕竟都在Chicago。看看后面有机会再分享下。
 
+最近我有点难过，有点疑惑。我在思考做研究的目的，是否又回到之前思考的那样，追随自己原本的兴趣？在SC碰到了很多的新老朋友，感觉收获很多，不过旅游就没有很多了，毕竟都在Chicago。看看后面有机会再分享下。
 ## TileFlow
 
 https://sc26.conference-program.com/presentation/?id=pap724&sess=sess204&utm_source=chatgpt.com
@@ -133,7 +137,7 @@ To address these challenges, we propose BaGuaLu-2, a large-scale MoE training sy
 - **预留得保守：**尖峰来时不容易 OOM，但平时做了过多重计算或卸载，浪费性能。
 - **预留得激进：**平时跑得快，专家负载突然偏斜时却可能 OOM、重启。
 
-论文观察到，明显的路由负载尖峰只出现在约 **2.9% 的迭代**中。因此，一直为最坏情况付费很不划算。（2-8定律）
+论文观察到，明显的路由负载尖峰出现在训练里，此时我们给大量token训练过程中。因此，一直为最坏情况付费很不划算。（MoE的稀疏带来的2-8定律）因为 MoE 路由由当前 token 决定。偶尔一个 micro-batch 会把更多 token 送到同一 GPU 上的专家，使该 GPU 必须保存更多激活；而流水线已经保留着其他 micro-batch 的激活。这次额外增长叠加在原本就很高的占用上，就可能越过显存上限。
 
 ![image.png](https://haibinblog.s3.us-east-1.amazonaws.com/2026/3e3c6c43-63ed-46de-9027-b684c53b8fcf.png)
 
@@ -166,3 +170,8 @@ BaGuaLu-2 需要决定何时重计算、卸载或量化激活。如图 5， 把�
 作者在最多 **12,288 张 GPU** 上评估约 **1 万亿参数**的 MoE 配置，报告总吞吐 **2.012 EFLOPS**、约 **35% MFU**；相对所测的 Megatron-Kuai 和 AdaPipe，平均训练吞吐分别提高 **1.14×** 和 **1.13×**。显存预测的平均误差报告为 **1.56%**。
 
 预测率很高。其实我们能看到，在LLM train和inference的过程里，很多指标和性能都是可预测的。主要的问题是，我们能拿他们做什么？这篇文章给了一个很好的解答。当然，另一个这篇文章的亮点，自然是万卡集群的优化。他们在万卡上应该踩了论文外更多的坑。
+
+
+**问题：** 为什么少数迭代会冲出平常的显存峰值？
+
+为什么会出现尖峰这样的pattern？我感觉是不是有机会从MoE可解释等方向能挖掘出来。
