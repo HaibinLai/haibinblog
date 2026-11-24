@@ -68,10 +68,13 @@ This paper proposes FastInfer, a new sparse LLM inference framework in the low-t
 
 FastInfer 让数据搬运、稀疏操作数重建（OR）和 WGMMA 计算同时推进。图 10 展示了这条三级流水线。
 
-![image.png](https://haibinblog.s3.us-east-1.amazonaws.com/2026/d55c488b-3346-4eb8-b6b9-0dcacd574bf0.png)
+<figure data-paper-figure>
+  <img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/d55c488b-3346-4eb8-b6b9-0dcacd574bf0.png" alt="FastInfer 中数据搬运、操作数重建与 WGMMA 计算的三级流水线" loading="lazy">
+  <figcaption>图 10：FastInfer 的三级流水线。</figcaption>
+</figure>
 
 |        | 执行者               | 工作                                                |
-| ------ | ----------------- | ———————————————————————— |
+| ------ | ----------------- | ----------------------- |
 | **S0** | Warp 0，Producer   | 把压缩的 TFBE tile 和激活搬到共享内存                          |
 | **S1** | Warp 1–4，Consumer | 做 OR：根据上一张图的位图、Offset 和 Value，重建寄存器中的稀疏 Operand A |
 | **S2** | Warp 1–4，Consumer | 发出 WGMMA，用重建的 A 和共享内存中的激活 Operand B 计算            |
@@ -144,7 +147,7 @@ To address these challenges, we propose BaGuaLu-2, a large-scale MoE training sy
 
 BaGuaLu-2 怎么做：
 
-1. 建立时间与显存的成本模型。它用每个算子的执行时间变化 \(\Delta t\) 和激活显存变化 \(\Delta m\) 估计整次迭代的显存曲线，判断何时会超过 GPU 容量。
+1. 建立时间与显存的成本模型。它用每个算子的执行时间变化 $\Delta t$ 和激活显存变化 $\Delta m$ 估计整次迭代的显存曲线，判断何时会超过 GPU 容量。
 2. 运行时分配 micro-batch 显存预算。根据当前路由负载和流水线阶段，决定哪些激活直接保存、哪些重计算、卸载到 CPU 或降低精度。目标是在不超过显存上限的条件下，尽量减少额外时间。
 3. 把额外工作藏进流水线空隙。重计算和卸载本身会变慢。系统交错安排相邻 micro-batch 的前向、反向、卸载与恢复操作，让计算流和通信流尽可能重叠。论文图 7 很直观：先把超过显存上限的曲线压下来，再通过交错执行缩短被拉长的运行时间。
 
@@ -153,13 +156,14 @@ BaGuaLu-2 怎么做：
 
 
 BaGuaLu-2 需要决定何时重计算、卸载或量化激活。如图 5， 把这个决定变成两个可比较的量：曲线的高度对应显存压力，横向的长度对应执行时间。后续策略就是在显存峰值不超过设备容量的前提下，尽量少增加执行时间。
-![image.png](https://haibinblog.s3.us-east-1.amazonaws.com/2026/777a9705-8261-48b3-89ff-2588119d249d.png)
-
-图5 BaGuaLu-2 的激活显存成本模型。
+<figure data-paper-figure>
+  <img src="https://haibinblog.s3.us-east-1.amazonaws.com/2026/777a9705-8261-48b3-89ff-2588119d249d.png" alt="BaGuaLu-2 从算子、micro-batch 到整次迭代的激活显存成本模型" loading="lazy">
+  <figcaption>图 5：BaGuaLu-2 的激活显存成本模型。</figcaption>
+</figure>
 
 | 子图                  | 描述的层级                 | 读图方法                                                                                |
-| ------------------- | --------------------- | ————————————————————————————————————————— |
-| **(a) Operator**    | 单个算子                  | 用 \((\Delta t,\Delta m)\) 表示：运行花多久、让需保存的激活显存增加或减少多少。蓝色前向算子通常使曲线上升；红色反向算子释放激活，使曲线下降。 |
+| ------------------- | --------------------- | --------------------------- |
+| **(a) Operator**    | 单个算子                  | 用 $(\Delta t,\Delta m)$ 表示：运行花多久、让需保存的激活显存增加或减少多少。蓝色前向算子通常使曲线上升；红色反向算子释放激活，使曲线下降。 |
 | **(b) Micro-batch** | 一个 micro-batch 内的一串算子 | 把各算子的变化接起来，得到较细的显存曲线；再用一个较简单的三角形概括前向累积显存、反向释放显存的过程。                                 |
 | **(c) Iteration**   | 流水线中的多个 micro-batch   | **Warmup** 只有前向，激活不断堆积；**1F1B 稳态**前向增加、反向释放，曲线在较高水平上下波动；**Cooldown** 主要做反向，显存逐渐降下来。 |
 
