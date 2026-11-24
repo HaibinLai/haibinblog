@@ -1328,9 +1328,9 @@ dynamic,64 的屏障时间占比随核数上升，到 192 核约为 **19.49%**�
 
 前辈介绍了几种他们在 Graph Compiler 做了而 GCC 没有做的技术：比如在计算分块矩阵乘法时，如果一个线程完成了一个计算块的计算，但是需要等待其他线程完成同步时，其可以 preload 一部分接下来要计算的数据。同时对于大量的 CPU 计算 core，他们采用了分组的 barrier（即一部分线程同步完，即可进入下一组计算，见图 8），这部分的提升是比较显著的。
 
-![图 8](/images/gcc-openmp-compiler-report/figure-08.png)
+![图 8：全局屏障与分组屏障的等待对比](/images/gcc-openmp-compiler-report/figure-08-revised.svg)
 
-*图 8: 分组 barrier*
+*图 8：全局 barrier 与分组 barrier 的概念时间线。每组三个线程仅用于示意；分组后，先完成的组可以提前进入下一计算块。该方案只适用于组间无需在此处同步的数据依赖，图中长度不代表实测时间。*
 
 访谈记录链接：[Notion Link](https://www.notion.so/Summary-on-meeting-with-former-Intel-Shanghai-Engineer-2925ab55420e803db972e15b03ce487b?source=copy_link)
 

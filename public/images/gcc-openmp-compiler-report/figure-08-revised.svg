@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1220 930" role="img" aria-labelledby="title desc">
+  <title id="title">Global barrier compared with grouped barriers</title>
+  <desc id="desc">With one global barrier, fast threads wait for the slowest of 56 threads. With independent barriers for two example groups of three, the first group can start the next matrix multiplication tile before the second group finishes. This is a conceptual timeline, not measured timing data.</desc>
+  <defs>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; fill: #27363b; }
+      .title { font-size: 30px; font-weight: 700; }
+      .subtitle { font-size: 18px; fill: #607077; }
+      .section { font-size: 23px; font-weight: 700; }
+      .note { font-size: 17px; fill: #607077; }
+      .row { font-size: 19px; font-weight: 600; }
+      .phase { font-size: 17px; font-weight: 600; text-anchor: middle; }
+      .release { font-size: 17px; font-weight: 700; fill: #326795; }
+      .axis { font-size: 16px; fill: #65757a; }
+    </style>
+  </defs>
+
+  <rect x="1" y="1" width="1218" height="928" rx="8" fill="#fff" stroke="#d9e2e2" stroke-width="2"/>
+  <text class="title" x="50" y="55">Barrier scope changes who must wait</text>
+  <text class="subtitle" x="50" y="85">A conceptual timeline for tiled matrix multiplication on 56 threads</text>
+
+  <rect x="50" y="111" width="1120" height="342" rx="8" fill="#f8faf9" stroke="#d5dfe0"/>
+  <circle cx="75" cy="146" r="12" fill="#dbebf8"/>
+  <text class="section" x="102" y="153">One global barrier</text>
+  <text class="note" x="792" y="151">All 56 threads release together</text>
+
+  <text class="row" x="92" y="193">Thread 1</text>
+  <text class="row" x="92" y="231">Thread 2</text>
+  <text class="row" x="92" y="269">Thread 3</text>
+  <text class="row" x="131" y="300">···</text>
+  <text class="row" x="92" y="334">Thread 54</text>
+  <text class="row" x="92" y="372">Thread 55</text>
+  <text class="row" x="92" y="410">Thread 56</text>
+
+  <g fill="#cfe9df" stroke="#92bcae">
+    <rect x="225" y="170" width="300" height="28" rx="3"/>
+    <rect x="225" y="208" width="472" height="28" rx="3"/>
+    <rect x="225" y="246" width="398" height="28" rx="3"/>
+    <rect x="225" y="311" width="440" height="28" rx="3"/>
+    <rect x="225" y="349" width="570" height="28" rx="3"/>
+    <rect x="225" y="387" width="356" height="28" rx="3"/>
+  </g>
+  <g fill="#f8dfd6" stroke="#d8b8ad">
+    <rect x="525" y="170" width="270" height="28" rx="3"/>
+    <rect x="697" y="208" width="98" height="28" rx="3"/>
+    <rect x="623" y="246" width="172" height="28" rx="3"/>
+    <rect x="665" y="311" width="130" height="28" rx="3"/>
+    <rect x="581" y="387" width="214" height="28" rx="3"/>
+  </g>
+  <g fill="#e4f1e9" stroke="#92bcae">
+    <rect x="815" y="170" width="300" height="28" rx="3"/>
+    <rect x="815" y="208" width="300" height="28" rx="3"/>
+    <rect x="815" y="246" width="300" height="28" rx="3"/>
+    <rect x="815" y="311" width="300" height="28" rx="3"/>
+    <rect x="815" y="349" width="300" height="28" rx="3"/>
+    <rect x="815" y="387" width="300" height="28" rx="3"/>
+  </g>
+  <rect x="795" y="164" width="20" height="259" rx="3" fill="#dbeafa" stroke="#7199c1"/>
+  <text class="phase" x="375" y="190">Matmul</text>
+  <text class="phase" x="659" y="190">Wait</text>
+  <text class="phase" x="965" y="190">Next tile</text>
+
+  <rect x="50" y="476" width="1120" height="399" rx="8" fill="#f8faf9" stroke="#d5dfe0"/>
+  <circle cx="75" cy="511" r="12" fill="#d6ede4"/>
+  <text class="section" x="102" y="518">Independent barriers per group</text>
+  <text class="note" x="793" y="516">Early groups can continue</text>
+
+  <rect x="72" y="537" width="1076" height="139" rx="6" fill="#f0f8f4" stroke="#c7e2d5"/>
+  <text class="row" x="91" y="566">Group A</text>
+  <text class="row" x="184" y="575">T1</text>
+  <text class="row" x="184" y="614">T2</text>
+  <text class="row" x="184" y="653">T3</text>
+  <g fill="#cfe9df" stroke="#92bcae">
+    <rect x="225" y="553" width="220" height="28" rx="3"/>
+    <rect x="225" y="592" width="370" height="28" rx="3"/>
+    <rect x="225" y="631" width="285" height="28" rx="3"/>
+  </g>
+  <g fill="#f8dfd6" stroke="#d8b8ad">
+    <rect x="445" y="553" width="150" height="28" rx="3"/>
+    <rect x="510" y="631" width="85" height="28" rx="3"/>
+  </g>
+  <g fill="#e4f1e9" stroke="#92bcae">
+    <rect x="615" y="553" width="500" height="28" rx="3"/>
+    <rect x="615" y="592" width="500" height="28" rx="3"/>
+    <rect x="615" y="631" width="500" height="28" rx="3"/>
+  </g>
+  <rect x="595" y="547" width="20" height="118" rx="3" fill="#dbeafa" stroke="#7199c1"/>
+  <text class="phase" x="365" y="573">Matmul</text>
+  <text class="phase" x="520" y="573">Wait</text>
+  <text class="phase" x="865" y="573">Next tile</text>
+
+  <rect x="72" y="699" width="1076" height="139" rx="6" fill="#f1f6fb" stroke="#cbdce9"/>
+  <text class="row" x="91" y="728">Group B</text>
+  <text class="row" x="176" y="737">T54</text>
+  <text class="row" x="176" y="776">T55</text>
+  <text class="row" x="176" y="815">T56</text>
+  <g fill="#cfe9df" stroke="#92bcae">
+    <rect x="225" y="715" width="400" height="28" rx="3"/>
+    <rect x="225" y="754" width="570" height="28" rx="3"/>
+    <rect x="225" y="793" width="355" height="28" rx="3"/>
+  </g>
+  <g fill="#f8dfd6" stroke="#d8b8ad">
+    <rect x="625" y="715" width="170" height="28" rx="3"/>
+    <rect x="580" y="793" width="215" height="28" rx="3"/>
+  </g>
+  <g fill="#e4f1e9" stroke="#92bcae">
+    <rect x="815" y="715" width="300" height="28" rx="3"/>
+    <rect x="815" y="754" width="300" height="28" rx="3"/>
+    <rect x="815" y="793" width="300" height="28" rx="3"/>
+  </g>
+  <rect x="795" y="709" width="20" height="118" rx="3" fill="#dbeafa" stroke="#7199c1"/>
+  <text class="phase" x="965" y="735">Next tile</text>
+
+  <rect x="52" y="896" width="17" height="17" rx="2" fill="#cfe9df" stroke="#92bcae"/>
+  <text class="axis" x="77" y="910">Compute</text>
+  <rect x="175" y="896" width="17" height="17" rx="2" fill="#f8dfd6" stroke="#d8b8ad"/>
+  <text class="axis" x="200" y="910">Waiting</text>
+  <rect x="302" y="896" width="17" height="17" rx="2" fill="#dbeafa" stroke="#7199c1"/>
+  <text class="axis" x="327" y="910">Barrier release</text>
+  <text class="axis" x="873" y="910">Time progresses →</text>
+</svg>
