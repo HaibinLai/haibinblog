@@ -7,7 +7,7 @@ tags: [LLVM, openmp, Systems, Compilers]
 language: zh-CN
 author: 赖海斌、吴梦轩、黄政东
 draft: false
-hideFromHome: true
+hideFromHome: false
 cardImage: https://www.haibinlaiblog.top/images/gcc-openmp-compiler-report/figure-02.png
 ---
 
