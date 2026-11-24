@@ -1,0 +1,93 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1120 930" role="img" aria-labelledby="title desc">
+  <title id="title">GCC OpenMP compilation path</title>
+  <desc id="desc">C and C++ OpenMP source passes through front-end trees, GIMPLE, OpenMP lowering, control-flow construction and expansion, SSA optimization, RTL, and machine code. Graphite and vectorization are optional middle-end passes; the generated program calls libgomp at runtime.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="7" refY="4.5" orient="auto">
+      <path d="M1 1 L7 4.5 L1 8" fill="none" stroke="#4d6270" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; fill: #26353a; }
+      .title { font-size: 27px; font-weight: 700; }
+      .subtitle { font-size: 17px; fill: #52656a; }
+      .number { font-size: 17px; font-weight: 700; text-anchor: middle; }
+      .stage { font-size: 23px; font-weight: 700; }
+      .detail { font-size: 16px; fill: #53636a; }
+      .aside-title { font-size: 18px; font-weight: 700; }
+      .aside-text { font-size: 15px; fill: #53636a; }
+      .flow { fill: none; stroke: #4d6270; stroke-width: 2.5; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect x="1" y="1" width="1118" height="928" rx="8" fill="#fff" stroke="#d9e2e2" stroke-width="2"/>
+  <text class="title" x="62" y="54">GCC OpenMP compilation path</text>
+  <text class="subtitle" x="62" y="82">Host compilation in GCC 13.3.0; source-level regions become functions and runtime calls.</text>
+
+  <path class="flow" d="M422 183 V213"/>
+  <path class="flow" d="M422 283 V313"/>
+  <path class="flow" d="M422 383 V413"/>
+  <path class="flow" d="M422 483 V513"/>
+  <path class="flow" d="M422 583 V613"/>
+  <path class="flow" d="M422 683 V713"/>
+  <path class="flow" d="M422 783 V813"/>
+
+  <rect x="62" y="113" width="720" height="70" rx="7" fill="#f2f5f5" stroke="#cad6d7"/>
+  <circle cx="102" cy="148" r="22" fill="#e4ebec"/>
+  <text class="number" x="102" y="154">1</text>
+  <text class="stage" x="143" y="143">C/C++ source</text>
+  <text class="detail" x="143" y="168">#pragma omp parallel, for, simd, and clauses</text>
+
+  <rect x="62" y="213" width="720" height="70" rx="7" fill="#edf6f4" stroke="#9bc9bd"/>
+  <circle cx="102" cy="248" r="22" fill="#cce6de"/>
+  <text class="number" x="102" y="254">2</text>
+  <text class="stage" x="143" y="243">Front-end trees</text>
+  <text class="detail" x="143" y="268">OMP_PARALLEL, OMP_FOR, OMP_CLAUSE nodes</text>
+
+  <rect x="62" y="313" width="720" height="70" rx="7" fill="#edf6f4" stroke="#9bc9bd"/>
+  <circle cx="102" cy="348" r="22" fill="#cce6de"/>
+  <text class="number" x="102" y="354">3</text>
+  <text class="stage" x="143" y="343">Gimplification</text>
+  <text class="detail" x="143" y="368">High GIMPLE still retains structured OpenMP regions</text>
+
+  <rect x="62" y="413" width="720" height="70" rx="7" fill="#fdf3eb" stroke="#e2b995"/>
+  <circle cx="102" cy="448" r="22" fill="#f6dfc8"/>
+  <text class="number" x="102" y="454">4</text>
+  <text class="stage" x="143" y="443">OpenMP lowering</text>
+  <text class="detail" x="143" y="468">Capture shared data; prepare outlined region context</text>
+
+  <rect x="62" y="513" width="720" height="70" rx="7" fill="#fdf3eb" stroke="#e2b995"/>
+  <circle cx="102" cy="548" r="22" fill="#f6dfc8"/>
+  <text class="number" x="102" y="554">5</text>
+  <text class="stage" x="143" y="543">CFG + OpenMP expansion</text>
+  <text class="detail" x="143" y="568">Outline functions; emit GOMP_* calls where needed</text>
+
+  <rect x="62" y="613" width="720" height="70" rx="7" fill="#edf3fa" stroke="#aac3dd"/>
+  <circle cx="102" cy="648" r="22" fill="#d7e6f6"/>
+  <text class="number" x="102" y="654">6</text>
+  <text class="stage" x="143" y="643">SSA middle-end</text>
+  <text class="detail" x="143" y="668">Optimize data flow and eligible loops</text>
+
+  <rect x="62" y="713" width="720" height="70" rx="7" fill="#f2f5f5" stroke="#cad6d7"/>
+  <circle cx="102" cy="748" r="22" fill="#e4ebec"/>
+  <text class="number" x="102" y="754">7</text>
+  <text class="stage" x="143" y="743">RTL and backend</text>
+  <text class="detail" x="143" y="768">Select instructions; allocate registers</text>
+
+  <rect x="62" y="813" width="720" height="70" rx="7" fill="#edf6f4" stroke="#9bc9bd"/>
+  <circle cx="102" cy="848" r="22" fill="#cce6de"/>
+  <text class="number" x="102" y="854">8</text>
+  <text class="stage" x="143" y="843">Machine code</text>
+  <text class="detail" x="143" y="868">Executable linked with libgomp</text>
+
+  <path d="M782 648 H810" fill="none" stroke="#5a85ad" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <rect x="824" y="597" width="236" height="104" rx="7" fill="#f2f7fc" stroke="#aac3dd"/>
+  <text class="aside-title" x="842" y="628">Optional passes</text>
+  <text class="aside-text" x="842" y="653">Graphite loop transforms</text>
+  <text class="aside-text" x="842" y="677">and vectorization</text>
+  <path d="M942 701 V748 H784" fill="none" stroke="#5a85ad" stroke-width="2.2" stroke-dasharray="6 5" marker-end="url(#arrow)"/>
+
+  <path d="M782 848 H810" fill="none" stroke="#348b76" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <rect x="824" y="797" width="236" height="104" rx="7" fill="#eff8f5" stroke="#9bc9bd"/>
+  <text class="aside-title" x="842" y="828">At runtime</text>
+  <text class="aside-text" x="842" y="853">libgomp manages teams,</text>
+  <text class="aside-text" x="842" y="877">scheduling, and sync</text>
+</svg>

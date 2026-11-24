@@ -915,9 +915,9 @@ return clauses;
 
 前端树、GIMPLE、SSA 与 RTL 为不同阶段的分析提供合适的表示，层次关系见图 3。分析 OpenMP 的编译过程，需要观察并行区域在何处拆分、数据如何进入新函数，以及循环优化如何改变代码。本节使用同一份可观察输出的例子，结合本次 GCC 13.3.0 的真实编译结果逐步说明。
 
-![图 3：原报告中的 IR 层次示意](/images/gcc-openmp-compiler-report/figure-03.png)
+![图 3：GCC OpenMP 编译路径](/images/gcc-openmp-compiler-report/figure-03-revised.svg)
 
-*图 3：IR 层次概念图。OpenMP 主要降低路径的具体顺序见第 3 节；Graphite 与向量化均属于后续适用的中端优化。*
+*图 3：GCC 13.3.0 的 OpenMP 主机编译路径。Graphite 与向量化是适用时才运行的中端优化；生成的代码在运行时调用 libgomp。具体 pass 顺序见第 3 节。*
 
 <a id="section-5-1"></a>
 
