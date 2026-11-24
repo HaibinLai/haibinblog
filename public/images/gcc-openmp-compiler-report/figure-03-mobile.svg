@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 920" role="img" aria-labelledby="title desc">
+  <title id="title">GCC OpenMP compilation path, narrow layout</title>
+  <desc id="desc">Eight stages from C and C++ OpenMP source through front-end trees, GIMPLE, OpenMP lowering, expansion, SSA, RTL, and machine code. Optional middle-end passes and the runtime library are noted below.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto">
+      <path d="M1 1 L6 4 L1 7" fill="none" stroke="#52716e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; fill: #26353a; }
+      .heading { font-size: 24px; font-weight: 700; }
+      .subheading { font-size: 14px; fill: #52656a; }
+      .number { font-size: 15px; font-weight: 700; text-anchor: middle; }
+      .stage { font-size: 19px; font-weight: 700; }
+      .detail { font-size: 14px; fill: #53636a; }
+      .note { font-size: 15px; font-weight: 700; }
+      .flow { stroke: #52716e; stroke-width: 2; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect x="1" y="1" width="418" height="918" rx="7" fill="#fff" stroke="#d9e2e2" stroke-width="2"/>
+  <text class="heading" x="20" y="39">GCC OpenMP compilation</text>
+  <text class="subheading" x="20" y="63">GCC 13.3.0 host compilation</text>
+
+  <path class="flow" d="M210 164 V178 M210 248 V262 M210 332 V346 M210 416 V430 M210 500 V514 M210 584 V598 M210 668 V682"/>
+
+  <rect x="20" y="96" width="380" height="68" rx="6" fill="#f2f5f5" stroke="#cad6d7"/>
+  <circle cx="48" cy="130" r="17" fill="#e4ebec"/>
+  <text class="number" x="48" y="135">1</text>
+  <text class="stage" x="76" y="126">C/C++ source</text>
+  <text class="detail" x="76" y="150">#pragma omp parallel / for / simd</text>
+
+  <rect x="20" y="180" width="380" height="68" rx="6" fill="#edf6f4" stroke="#9bc9bd"/>
+  <circle cx="48" cy="214" r="17" fill="#cce6de"/>
+  <text class="number" x="48" y="219">2</text>
+  <text class="stage" x="76" y="210">Front-end trees</text>
+  <text class="detail" x="76" y="234">OMP_PARALLEL / OMP_FOR nodes</text>
+
+  <rect x="20" y="264" width="380" height="68" rx="6" fill="#edf6f4" stroke="#9bc9bd"/>
+  <circle cx="48" cy="298" r="17" fill="#cce6de"/>
+  <text class="number" x="48" y="303">3</text>
+  <text class="stage" x="76" y="294">Gimplification</text>
+  <text class="detail" x="76" y="318">Structured OpenMP in High GIMPLE</text>
+
+  <rect x="20" y="348" width="380" height="68" rx="6" fill="#fdf3eb" stroke="#e2b995"/>
+  <circle cx="48" cy="382" r="17" fill="#f6dfc8"/>
+  <text class="number" x="48" y="387">4</text>
+  <text class="stage" x="76" y="378">OpenMP lowering</text>
+  <text class="detail" x="76" y="402">Capture data; prepare region context</text>
+
+  <rect x="20" y="432" width="380" height="68" rx="6" fill="#fdf3eb" stroke="#e2b995"/>
+  <circle cx="48" cy="466" r="17" fill="#f6dfc8"/>
+  <text class="number" x="48" y="471">5</text>
+  <text class="stage" x="76" y="462">CFG + OpenMP expansion</text>
+  <text class="detail" x="76" y="486">Outline functions; emit GOMP_* calls</text>
+
+  <rect x="20" y="516" width="380" height="68" rx="6" fill="#edf3fa" stroke="#aac3dd"/>
+  <circle cx="48" cy="550" r="17" fill="#d7e6f6"/>
+  <text class="number" x="48" y="555">6</text>
+  <text class="stage" x="76" y="546">SSA middle-end</text>
+  <text class="detail" x="76" y="570">Optimize data flow and eligible loops</text>
+
+  <rect x="20" y="600" width="380" height="68" rx="6" fill="#f2f5f5" stroke="#cad6d7"/>
+  <circle cx="48" cy="634" r="17" fill="#e4ebec"/>
+  <text class="number" x="48" y="639">7</text>
+  <text class="stage" x="76" y="630">RTL and backend</text>
+  <text class="detail" x="76" y="654">Instructions and register allocation</text>
+
+  <rect x="20" y="684" width="380" height="68" rx="6" fill="#edf6f4" stroke="#9bc9bd"/>
+  <circle cx="48" cy="718" r="17" fill="#cce6de"/>
+  <text class="number" x="48" y="723">8</text>
+  <text class="stage" x="76" y="714">Machine code</text>
+  <text class="detail" x="76" y="738">Executable linked with libgomp</text>
+
+  <rect x="20" y="780" width="380" height="54" rx="6" fill="#f2f7fc" stroke="#aac3dd"/>
+  <text class="note" x="34" y="801">Optional middle-end passes</text>
+  <text class="detail" x="34" y="822">Graphite loop transforms and vectorization</text>
+
+  <rect x="20" y="846" width="380" height="54" rx="6" fill="#eff8f5" stroke="#9bc9bd"/>
+  <text class="note" x="34" y="867">At runtime: libgomp</text>
+  <text class="detail" x="34" y="888">Teams, scheduling, and synchronization</text>
+</svg>

@@ -7,6 +7,7 @@ import RightSidebar from '../../components/RightSidebar.astro';
 import ViewCount from '../../components/ViewCount.astro';
 import Comments from '../../components/Comments.astro';
 import { countArticleWords } from '../../lib/articleStats';
+import '../../lib/paper-figures/style.css';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts', ({ data }) => !data.draft);
@@ -104,6 +105,9 @@ const wordCount = countArticleWords(post.body ?? '');
       <div class="prose"><Content /></div>
     </div>
     <script>
+      import { initPaperFigures } from '../../lib/paper-figures';
+      initPaperFigures();
+
       const renderMermaidDiagrams = async () => {
         const mermaidBlocks = [
           ...Array.from(document.querySelectorAll<HTMLElement>('.prose pre[data-language="mermaid"]')),

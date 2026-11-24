@@ -915,9 +915,13 @@ return clauses;
 
 前端树、GIMPLE、SSA 与 RTL 为不同阶段的分析提供合适的表示，层次关系见图 3。分析 OpenMP 的编译过程，需要观察并行区域在何处拆分、数据如何进入新函数，以及循环优化如何改变代码。本节使用同一份可观察输出的例子，结合本次 GCC 13.3.0 的真实编译结果逐步说明。
 
-![图 3：GCC OpenMP 编译路径](/images/gcc-openmp-compiler-report/figure-03-revised.svg)
-
-*图 3：GCC 13.3.0 的 OpenMP 主机编译路径。Graphite 与向量化是适用时才运行的中端优化；生成的代码在运行时调用 libgomp。具体 pass 顺序见第 3 节。*
+<figure data-paper-figure>
+  <picture>
+    <source media="(max-width: 640px)" srcset="/images/gcc-openmp-compiler-report/figure-03-mobile.svg">
+    <img src="/images/gcc-openmp-compiler-report/figure-03-revised.svg" alt="GCC OpenMP 从 C/C++ 前端到 GIMPLE、OpenMP lowering、RTL 和机器码的八个编译阶段" loading="lazy">
+  </picture>
+  <figcaption>图 3：GCC 13.3.0 的 OpenMP 主机编译路径。Graphite 与向量化是适用时才运行的中端优化；生成的代码在运行时调用 libgomp。具体 pass 顺序见第 3 节。</figcaption>
+</figure>
 
 <a id="section-5-1"></a>
 
@@ -1328,9 +1332,10 @@ dynamic,64 的屏障时间占比随核数上升，到 192 核约为 **19.49%**�
 
 前辈介绍了几种他们在 Graph Compiler 做了而 GCC 没有做的技术：比如在计算分块矩阵乘法时，如果一个线程完成了一个计算块的计算，但是需要等待其他线程完成同步时，其可以 preload 一部分接下来要计算的数据。同时对于大量的 CPU 计算 core，他们采用了分组的 barrier（即一部分线程同步完，即可进入下一组计算，见图 8），这部分的提升是比较显著的。
 
-![图 8：全局屏障与分组屏障的等待对比](/images/gcc-openmp-compiler-report/figure-08-revised.svg)
-
-*图 8：全局 barrier 与分组 barrier 的概念时间线。每组三个线程仅用于示意；分组后，先完成的组可以提前进入下一计算块。该方案只适用于组间无需在此处同步的数据依赖，图中长度不代表实测时间。*
+<figure data-paper-figure>
+  <img src="/images/gcc-openmp-compiler-report/figure-08-revised.svg" alt="全局 barrier 和分组 barrier 两种线程时间线的概念对比" loading="lazy">
+  <figcaption>图 8：全局 barrier 与分组 barrier 的概念时间线。每组三个线程仅用于示意；分组后，先完成的组可以提前进入下一计算块。该方案只适用于组间无需在此处同步的数据依赖，图中长度不代表实测时间。</figcaption>
+</figure>
 
 访谈记录链接：[Notion Link](https://www.notion.so/Summary-on-meeting-with-former-Intel-Shanghai-Engineer-2925ab55420e803db972e15b03ce487b?source=copy_link)
 
