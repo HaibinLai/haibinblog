@@ -1,26 +1,32 @@
 ---
-title: "gcc是怎么实现OpenMP的？"
-description: "由于网上关于GNU openmp的解构比较少，今天我由于工作问题，我也来亲自解答：“为什么OpenMP不能完成 “小而多的并行任务” 的问题。（llvm的解构我之前在博客已经做过 llvm 如何实现OpenMP ，其实从结构来看，跟OpenMP的结构基本一致，都遵从OpenMP官方的fork-join 的idea，但是llvm的实现会比较复杂） 学习网页 我们所有的学习都可以从这里出发： 源码 doxygen文档： Libgomp:…"
-publishedAt: "2025-05-29T03:32:58Z"
-updatedAt: "2025-06-11T22:11:37Z"
-category: "Frameworks"
-categories: ["Frameworks", "High Performance Computing"]
+title: gcc是怎么实现OpenMP运行库的？
+description: 由于网上关于GNU openmp的解构比较少，今天我由于工作问题，我也来亲自解答：“为什么OpenMP不能完成 “小而多的并行任务” 的问题。（llvm的解构我之前在博客已经做过 llvm 如何实现OpenMP ，其实从结构来看，跟OpenMP的结构基本一致，都遵从OpenMP官方的fork-join 的idea，但是llvm的实现会比较复杂） 学习网页 我们所有的学习都可以从这里出发： 源码 doxygen文档： Libgomp:…
+publishedAt: 2025-05-29T03:32:58Z
+updatedAt: 2025-06-11T22:11:37Z
+category: Frameworks
+categories:
+  - Frameworks
+  - High Performance Computing
 tags: []
-author: "GB"
+author: GB
 draft: false
-slug: "gcc是怎么实现openmp的"
-legacySlug: "gcc是怎么实现openmp的？"
+slug: gcc-shi-zen-me-shi-xian-openmp-de
+oldPostSlugs:
+  - gcc是怎么实现openmp的
+legacySlug: gcc是怎么实现openmp的？
 oldSlugs: []
 wordpressId: 825
-sourceUrl: "https://www.haibinlaiblog.top/index.php/gcc%e6%98%af%e6%80%8e%e4%b9%88%e5%ae%9e%e7%8e%b0openmp%e7%9a%84%ef%bc%9f/"
+sourceUrl: https://www.haibinlaiblog.top/index.php/gcc%e6%98%af%e6%80%8e%e4%b9%88%e5%ae%9e%e7%8e%b0openmp%e7%9a%84%ef%bc%9f/
 commentCount: 0
 viewCount: 2334
 likeCount: 1
 dislikeCount: 0
 showCitation: true
 importedFromWordPress: true
-cardImage: "https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/gcc%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0openmp%E7%9A%84.webp"
+cardImage: https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/gcc%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0openmp%E7%9A%84.webp
+publisherRevision: 0c30767c-5d38-4393-9da0-696be433909d
 ---
+
 <p>由于网上关于GNU openmp的解构比较少，今天我由于工作问题，我也来亲自解答：“为什么OpenMP不能完成 “小而多的并行任务” 的问题。（llvm的解构我之前在博客已经做过 <a href="https://www.haibinlaiblog.top/index.php/openmp%e5%9c%a8llvm%e9%87%8c%e6%98%af%e5%a6%82%e4%bd%95%e5%ae%9e%e7%8e%b0%e7%9a%84%ef%bc%9fwip/">llvm 如何实现OpenMP</a> ，其实从结构来看，跟OpenMP的结构基本一致，都遵从OpenMP官方的fork-join 的idea，但是llvm的实现会比较复杂）</p>
 <h2>学习网页</h2>
 <p>我们所有的学习都可以从这里出发：</p>
@@ -1466,7 +1472,7 @@ enum gomp_schedule_type
 <ul>
 <li><code>void *copyprivate</code>：在 <code>single</code> 构造中，存储需要在多个线程之间共享的数据副本。</li>
 </ul>
-<p>比如对应<code>sched(dynamic)</code>， 就是在work_share这里实现的。具体的代码原理可以参照：
+<p>比如对��<code>sched(dynamic)</code>， 就是在work_share这里实现的。具体的代码原理可以参照：
 <a href="https://www.cnblogs.com/Chang-LeHung/p/17089310.html?utm_source=chatgpt.com">OpenMP For Construct dynamic 调度方式实现原理和源码分析 - 一无是处的研究僧 - 博客园</a></p>
 <p><img src="https://raw.githubusercontent.com/HaibinLai/image-backend/main/2025-05/gcc%E6%98%AF%E6%80%8E%E4%B9%88%E5%AE%9E%E7%8E%B0openmp%E7%9A%84/body-025-5e1a4899de79.webp" alt="" /></p>
 <h2>thread</h2>
