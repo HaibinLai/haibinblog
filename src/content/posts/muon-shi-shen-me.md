@@ -12,7 +12,7 @@ cardImageFit: contain
 
 > 一句话：Muon 把每个矩阵参数的动量更新**正交化**（所有奇异值拉成 1），等价于在**谱范数**下做最陡下降；Adam 逐元素更新，Shampoo 累积左右两侧的矩阵预条件，Muon 可以看成"不累积的 Shampoo"。
 >
-> 读完你会知道：Muon 的算法和实现细节、它为什么是这个样子（数学推导）、它和 Adam / Shampoo / SOAP 等的关系、它快多少、还有哪些可以改进的方向。来源和核对情况放在文末。
+> 读完你会知道：Muon 的算法和实现细节、它为什么是这个样子（数学推导）、它和 Adam / Shampoo / SOAP 等的关系、它快多少、还有哪些可以改进的方向。文献列在文末。
 
 ---
 
@@ -34,7 +34,7 @@ Adam 对每个参数**单独**缩放：把梯度除以它自己的历史尺度�
 
 ## 2. 算法
 
-Muon（**M**omentum **O**rthogonalized by **N**ewton–Schulz）来自 Keller Jordan 等人的一篇博客。它先照常算 SGD 动量，然后对每个矩阵的更新做一次正交化，再更新参数：
+Muon（**M**omentum **O**rthogonalized by **N**ewton–Schulz）来自 Keller Jordan 等人的一篇博客 [[1]](#ref-1)。它先照常算 SGD 动量，然后对每个矩阵的更新做一次正交化，再更新参数：
 
 ```text
 B_t ← μ · B_{t-1} + G_t           # 动量（参考代码默认用 Nesterov 形式）
@@ -73,7 +73,7 @@ $$(X^\top X)^{-1/2}\approx \tfrac32 I-\tfrac12X^\top X ,$$
 
 $$X\leftarrow \tfrac32X-\tfrac12\,XX^\top X .$$
 
-这就是经典的 Newton–Schulz 迭代（Bernstein & Newhouse 的附录里也写了它）。关键观察：**它只作用在奇异值上**。设 $X=U\Sigma V^\top$，则 $XX^\top X=U\Sigma^3V^\top$，所以一步迭代只是把每个奇异值 $\sigma$ 变成
+这就是经典的 Newton–Schulz 迭代（Bernstein & Newhouse 的附录里也写了它 [[2]](#ref-2)）。关键观察：**它只作用在奇异值上**。设 $X=U\Sigma V^\top$，则 $XX^\top X=U\Sigma^3V^\top$，所以一步迭代只是把每个奇异值 $\sigma$ 变成
 
 $$\sigma\ \mapsto\ \tfrac32\sigma-\tfrac12\sigma^3,$$
 
@@ -120,7 +120,7 @@ $$\phi(x)=ax+bx^3+cx^5,\qquad (a,b,c)=(3.4445,\,-4.7750,\,2.0315).$$
 - 在"扁"的方向上迭代（`if rows > cols: X = X.T`），这样 $XX^\top$ 是较小的 Gram 矩阵。
 - 步数取 5。Moonlight 试过 10 步，更精确，但没有更好的效果。
 - 开销：博客估算 FLOP 额外开销至多 $Tm/B$（$T$ 是步数，$m$ 是模型维度，$B$ 是每批 token 数），典型训练低于 1%；Moonlight 的分布式实现里，优化器延迟实测约占前向反向的 1% 到 3%。
-- **还能再省**：Dion3（Amsel 等，2026）专门盯着这块开销。标准做法每一步都要乘 $n\times m$ 的大矩阵；他们的 *Gram Newton–Schulz* 先算出小的 $n\times n$ 矩阵 $XX^\top$，迭代全在它上面做，最后只乘回大矩阵两次。数学上和标准迭代等价，但朴素写法在半精度下会出数值问题（论文里一次 Llama-430M 的实验输出全成了 Inf），所以中途要重启一次。再配上利用对称性的 GPU 内核，论文报告单卡上 Newton–Schulz 快 1.5–2 倍。
+- **还能再省**：Dion3（Amsel 等，2026）专门盯着这块开销 [[3]](#ref-3)。标准做法每一步都要乘 $n\times m$ 的大矩阵；他们的 *Gram Newton–Schulz* 先算出小的 $n\times n$ 矩阵 $XX^\top$，迭代全在它上面做，最后只乘回大矩阵两次。数学上和标准迭代等价，但朴素写法在半精度下会出数值问题（论文里一次 Llama-430M 的实验输出全成了 Inf），所以中途要重启一次。再配上利用对称性的 GPU 内核，论文报告单卡上 Newton–Schulz 快 1.5–2 倍。
 
 ---
 
@@ -130,7 +130,7 @@ $$\phi(x)=ax+bx^3+cx^5,\qquad (a,b,c)=(3.4445,\,-4.7750,\,2.0315).$$
 
 $$\mathrm{Ortho}(G)=\arg\min_{O:\;O^\top O=I\text{ 或 }OO^\top=I}\|O-G\|_F = UV^\top .$$
 
-Bernstein & Newhouse 证明了这一点，并指出 $G$ 满秩时最小解唯一。所以 **Muon 更新的奇异值全是 1**，这就是第 1 节那条绿线。
+Bernstein & Newhouse 证明了这一点，并指出 $G$ 满秩时最小解唯一 [[2]](#ref-2)。所以 **Muon 更新的奇异值全是 1**，这就是第 1 节那条绿线。
 
 ### 4.2 它是谱范数下的最陡下降
 
@@ -146,7 +146,7 @@ $$\langle G,T\rangle=\sum_i\sigma_i\,u_i^\top T v_i\ \le\ \sum_i\sigma_i\,\|T\|_
 
 ![不同范数下的最陡下降：改变范数就改变解的方向。来源：Bernstein & Newhouse，"Old Optimizer, New Norm"，arXiv 2409.20325，Figure 1（链接嵌入）。](https://arxiv.org/html/2409.20325v2/norms.svg)
 
-补两个细节：真正的最陡下降步长里还有一个因子 $\sum\sigma_i$，Muon 的实现把它**丢掉了**（Pethick 等指出这一点），所以 Muon 严格说是"谱范数球上的线性最小化 oracle"；另外这个说法需要正交化是精确的，而 3.4 节说明实际并不精确（Moonlight："当公式被精确计算时，Muon 的范数约束就是谱范数"）。
+补两个细节：真正的最陡下降步长里还有一个因子 $\sum\sigma_i$，Muon 的实现把它**丢掉了**（Pethick 等指出这一点 [[4]](#ref-4)），所以 Muon 严格说是"谱范数球上的线性最小化 oracle"；另外这个说法需要正交化是精确的，而 3.4 节说明实际并不精确（Moonlight [[5]](#ref-5)："当公式被精确计算时，Muon 的范数约束就是谱范数"）。
 
 ### 4.3 与 Adam、SignSGD：换一个范数
 
@@ -167,7 +167,7 @@ $$L_t=L_{t-1}+G_tG_t^\top,\quad R_t=R_{t-1}+G_t^\top G_t,\qquad W_{t+1}=W_t-\eta
 
 $$(GG^\top)^{-1/4}\,G\,(G^\top G)^{-1/4}=(US^{-1/2}U^\top)(USV^\top)(VS^{-1/2}V^\top)=UV^\top .$$
 
-这就是 Muon 的更新。这个观察出自 Bernstein & Newhouse，Keller 的博客也给了同样的推导：再在正交化之前加上动量，就得到 Muon，只是 Shampoo 需要逆四次根，比 Newton–Schulz 贵。（对非方阵，$GG^\top$ 或 $G^\top G$ 之一是奇异的，恒等式要按约化 SVD / 伪逆理解。）
+这就是 Muon 的更新。这个观察出自 Bernstein & Newhouse [[2]](#ref-2)，Keller 的博客 [[1]](#ref-1) 也给了同样的推导：再在正交化之前加上动量，就得到 Muon，只是 Shampoo [[6]](#ref-6) 需要逆四次根，比 Newton–Schulz 贵。（对非方阵，$GG^\top$ 或 $G^\top G$ 之一是奇异的，恒等式要按约化 SVD / 伪逆理解。）
 
 ### 4.5 更新的 RMS 与学习率怎么迁移
 
@@ -184,7 +184,7 @@ Moonlight 的两个关键改动，让 Muon 能用在大规模训练上：
 
 3.3 节留了个问题：正交化同时做了两件事，小奇异值被放大，大奇异值被压平。收益到底来自哪一件？
 
-Goyal 和 Ramkumar 的 *Spectrally Targeted Muon*（2026）干脆把两件事拆开测。设一个阈值 $\tau$，只对高于（或低于）$\tau$ 的奇异方向做正交化，其余保持原样。$\tau$ 推到两端，就分别退回 Muon 和归一化 SGD。（实现上对移位后的 Gram 矩阵 $M^\top M-\tau^2I$ 跑 Newton–Schulz 拿到投影，不用 SVD。）
+Goyal 和 Ramkumar 的 *Spectrally Targeted Muon*（2026）干脆把两件事拆开测 [[7]](#ref-7)。设一个阈值 $\tau$，只对高于（或低于）$\tau$ 的奇异方向做正交化，其余保持原样。$\tau$ 推到两端，就分别退回 Muon 和归一化 SGD。（实现上对移位后的 Gram 矩阵 $M^\top M-\tau^2I$ 跑 Newton–Schulz 拿到投影，不用 SVD。）
 
 他们在 12 层、768 维的 NanoGPT 上训 0.80B token，最终验证损失是：
 
@@ -207,12 +207,12 @@ Goyal 和 Ramkumar 的 *Spectrally Targeted Muon*（2026）干脆把两件事拆
 
 ![Moonlight 的缩放律实验：Muon（蓝）与 AdamW（红），每种五个模型尺寸。来源：Liu et al.，arXiv 2502.16982，Figure 1(a)（CC BY-NC-ND 4.0，仅链接嵌入，请跳转原文）。](https://arxiv.org/html/2502.16982v1/chinlaw_8k_flops_ratio.svg)
 
-两个来源，两个数字：
+两项研究给出了不同的数字 [[5]](#ref-5)、[[8]](#ref-8)：
 
 | 来源 | 结论 | 前提 |
 |---|---|---|
-| **Moonlight** | 约 2× 的计算效率（约 52% 的训练 FLOP 达到相同表现） | 稠密 Llama 架构、399M–1.5B 参数上的缩放律拟合，计算最优（约 1× Chinchilla）的设定 |
-| **Wen 等** "Fantastic Pretraining Optimizers" | 相对调好的 AdamW，Muon/SOAP 在 0.1B 约 1.3–1.4×，在 1.2B 只剩约 1.1× | 十个优化器、四个尺度、1–8× Chinchilla；"许多报告的 2× 加速只是弱基线" |
+| **Moonlight** [[5]](#ref-5) | 约 2× 的计算效率（约 52% 的训练 FLOP 达到相同表现） | 稠密 Llama 架构、399M–1.5B 参数上的缩放律拟合，计算最优（约 1× Chinchilla）的设定 |
+| **Wen 等** [[8]](#ref-8) | 相对调好的 AdamW，Muon/SOAP 在 0.1B 约 1.3–1.4×，在 1.2B 只剩约 1.1× | 十个优化器、四个尺度、1–8× Chinchilla；"许多报告的 2× 加速只是弱基线" |
 
 Moonlight 自己的下游结果也值得看一眼（论文表 4，约 1.2T token，同样设置下的 AdamW 版 Moonlight-A 对 Muon 版）：MMLU 60.2 对 60.4，基本打平；HumanEval 29.3 对 37.2、MATH 16.1 对 19.8，Muon 明显好；BBH 45.3 对 43.2，反而是 AdamW 好。所以"2×"说的是损失曲线，换成下游任务就没这么整齐。
 
@@ -228,69 +228,55 @@ Wen 等还发现：Muon 在 1–4× Chinchilla 数据比时最好，8× 以上�
 
 ![优化器族谱（本文自制）。实线：演进关系；虚线：数学联系。](/images/muon-shi-shen-me/fig_family.png)
 
-带 † 的只读了摘要。
+† 表示此处仅依据论文摘要概述。
 
 ### 前身与同类
 
 | 论文 | 一句话 | 和 Muon 的关系 |
 |---|---|---|
-| **Adam** (Kingma & Ba, 2015)† / **AdamW** (Loshchilov & Hutter, 2019)† | 自适应矩估计；解耦权重衰减 | 逐元素；去掉滑动平均就是 SignSGD（4.3）。Muon 的非矩阵参数仍用 AdamW |
-| **Shampoo** (Gupta 等, 2018, 1802.09568) | 每个张量维度一个预条件矩阵 | 不累积的 Shampoo = Muon（4.4） |
-| **SOAP** (Vyas 等, 2024, 2409.11321) | 在 Shampoo 的特征基里跑 Adam | 同属矩阵预条件；原论文不提 Muon；注意它用的是 1/2 次幂，不是会退化成 $UV^\top$ 的 1/4 |
-| **Old Optimizer, New Norm** (Bernstein & Newhouse, 2024, 2409.20325) | 把 Adam、Shampoo 统一成"某个范数下的最陡下降" | **理论根基**（4.2、4.4） |
-| **Scion / 范数约束 LMO** (Pethick 等, 2025, 2502.07529) | 在范数球上做线性最小化 | Muon 是谱范数球上的 LMO；Scion 把范数约束推到所有层 |
-| **Lion-K** (Chen 等, 2025, 2506.15054)† | Lion-K 族 | 把 Muon 视为其一员，隐式施加谱范数约束 |
-| **隐式偏置** (Fan 等, 2025, 2502.04664)† | 谱下降与 Muon 在多分类线性分类中收敛到谱范数最大间隔解 | 给 Muon 一个简化的理论偏置结论 |
+| **Adam** [[9]](#ref-9) / **AdamW** [[10]](#ref-10)† | 自适应矩估计；解耦权重衰减 | 逐元素；去掉滑动平均就是 SignSGD（4.3）。Muon 的非矩阵参数仍用 AdamW |
+| **Shampoo** [[6]](#ref-6) | 每个张量维度一个预条件矩阵 | 不累积的 Shampoo = Muon（4.4） |
+| **SOAP** [[11]](#ref-11) | 在 Shampoo 的特征基里跑 Adam | 同属矩阵预条件；原论文不提 Muon；注意它用的是 1/2 次幂，不是会退化成 $UV^\top$ 的 1/4 |
+| **Old Optimizer, New Norm** [[2]](#ref-2) | 把 Adam、Shampoo 统一成"某个范数下的最陡下降" | **理论根基**（4.2、4.4） |
+| **Scion / 范数约束 LMO** [[4]](#ref-4) | 在范数球上做线性最小化 | Muon 是谱范数球上的 LMO；Scion 把范数约束推到所有层 |
+| **Muon 的谱范数约束分析** [[12]](#ref-12)† | 将 Muon 放入 Lion-$\mathcal K$ 框架 | 讨论带解耦权重衰减的 Muon 对权重谱范数的隐式约束 |
+| **隐式偏置** [[13]](#ref-13)† | 谱下降与 Muon 在多分类线性分类中收敛到谱范数最大间隔解 | 给 Muon 一个简化的理论偏置结论 |
 
 ### 拆开看：Muon 的哪一部分有用
 
 | 论文 | 一句话 | 和 Muon 的关系 |
 |---|---|---|
-| **白化 vs 方差自适应** (Frans 等, 2025, 2510.25000)† | 矩阵白化类优化器胜过 Adam，但方差自适应解释了很大一部分收益 | 提醒：Muon 的收益未必全来自正交化本身 |
-| **Spectrally Targeted Muon** (Goyal & Ramkumar, 2026, 2610.10965) | 只正交化高于或低于阈值 $\tau$ 的奇异方向；$\tau$ 在 Muon 和归一化 SGD 之间连续插值 | 4.6：收益主要来自放大小方向；压大方向只是让谱变平 |
+| **白化 vs 方差自适应** [[14]](#ref-14)† | 矩阵白化类优化器胜过 Adam，但方差自适应解释了很大一部分收益 | 提醒：Muon 的收益未必全来自正交化本身 |
+| **Spectrally Targeted Muon** [[7]](#ref-7) | 只正交化高于或低于阈值 $\tau$ 的奇异方向；$\tau$ 在 Muon 和归一化 SGD 之间连续插值 | 4.6：收益主要来自放大小方向；压大方向只是让谱变平 |
 
 ### 放大到大规模
 
 | 论文 | 一句话 | 和 Muon 的关系 |
 |---|---|---|
-| **Moonlight** (Liu 等，含苏剑林, 2025, 2502.16982) | 权重衰减 + 更新 RMS 匹配，3B/16B MoE，5.7T token | 4.5、第 5 节、第 9 节分布式；还报告超过 90% 的矩阵上 Muon 的 SVD 熵更高 |
-| **Dion3** (Amsel 等, 2026, 2608.11612) | 把 Muon 做便宜：Gram Newton–Schulz、对称 GPU 内核、同形状矩阵合并通信；再加一条规则：每步只正交化动量里 $f$ 比例的行 | 保留 Muon 的更新形式（$f=1$ 就是 Muon）；报告优化器步时间最多快 6×，损失持平或略好。见 3.5、第 9 节 |
-| **Fantastic Pretraining Optimizers** (Wen 等, 2025, 2509.02046) | 严格调参的十个优化器对比 | 第 5 节；加速随规模降到约 1.1× |
-| **Newton-Muon** (Du & Weijie Su, 2026, 2604.01472) | 把 Muon 解释成省略了输入二阶矩的牛顿型方法 | 更新写成 $\mathrm{msgn}(G(ZZ^\top)^{-1})$；$ZZ^\top\propto I$ 时退回 Muon |
-| **Muon 微调不匹配** (Qu 等, 2026, 2605.10468)† | 用 Muon 微调 Adam 预训练的模型会变差 | 预训练与微调的优化器要匹配 |
+| **Moonlight** [[5]](#ref-5) | 权重衰减 + 更新 RMS 匹配，3B/16B MoE，5.7T token | 4.5、第 5 节、第 9 节分布式；还报告超过 90% 的矩阵上 Muon 的 SVD 熵更高 |
+| **Dion3** [[3]](#ref-3) | 把 Muon 做便宜：Gram Newton–Schulz、对称 GPU 内核、同形状矩阵合并通信；再加一条规则：每步只正交化动量里 $f$ 比例的行 | 保留 Muon 的更新形式（$f=1$ 就是 Muon）；报告优化器步时间最多快 6×，损失持平或略好。见 3.5、第 9 节 |
+| **Fantastic Pretraining Optimizers** [[8]](#ref-8) | 严格调参的十个优化器对比 | 第 5 节；加速随规模降到约 1.1× |
+| **Newton-Muon** [[15]](#ref-15) | 把 Muon 解释成省略了输入二阶矩的牛顿型方法 | 更新写成 $\mathrm{msgn}(G(ZZ^\top)^{-1})$；$ZZ^\top\propto I$ 时退回 Muon |
+| **Muon 微调不匹配** [[16]](#ref-16)† | 用 Muon 微调 Adam 预训练的模型会变差 | 预训练与微调的优化器要匹配 |
 
 ### 权重是什么样、好不好压
 
 | 论文 | 一句话 | 和 Muon 的关系 |
 |---|---|---|
-| **Beneventano 等** (2026, 2606.08388)† | 极分解更新产生平坦的奇异值谱 | 同一现象的理论讨论 |
-| **HTMuon** (Pang 等, 2026, 2603.10067)† | 动量奇异值取 $p\in(0,1)$ 次幂，得到更重尾的谱 | 认为 Muon 抑制了重尾，是对"太平"的修正 |
-| **Singh** (2026, 2608.05136)† | Adam 的坐标相关更新恢复不了 GD 能找到的低秩解，谱范数类方法可以 | 从归纳偏置的角度讨论 Muon |
-| **NuMuon** (Dolatabadi 等, 2026, 2603.03597) | 对更新加核范数约束（实现上只保留前 $k$ 个奇异方向） | 让权重更好压缩；代价是未压缩的困惑度比 Muon 差 5%–14%（仍好于 AdamW）。数字见第 8 节 |
-| **Spectral Weight Decay** (Andriianov 等, 2026, 2610.11730) | 作用于权重的核范数收缩，用与 Muon 相同的 5 步 NS | 主要面向 Adam 系；对 Muon 的扫描里验证损失"急剧上升" |
-| **OSP** (Park 等, ACL 2025, 2506.19697)† | Muon + 单尺度 RMSNorm + 嵌入投影，1.4B 模型 4 比特量化更好 | 用 Muon 训出好量化的模型 |
-| **Vlassis 等** (2025, 2509.23500)† / **He 等** (NeurIPS 2024)† / **Catalan-Tatjer 等** (2025, 2510.06213)† | 优化器、离群特征与量化 | 离群指标预测不了跨优化器的量化退化；非对角预条件（SOAP）减少离群 |
-| **BMuon** (Assalouh 等, 2026, 2610.23571)† | Muon 训出的 Transformer 在 MLP 通道剪枝下掉点更多 | Muon 的结构对剪枝不友好 |
+| **Beneventano 等** [[17]](#ref-17)† | 极分解更新产生平坦的奇异值谱 | 同一现象的理论讨论 |
+| **HTMuon** [[18]](#ref-18)† | 动量奇异值取 $p\in(0,1)$ 次幂，得到更重尾的谱 | 认为 Muon 抑制了重尾，是对"太平"的修正 |
+| **Singh** [[19]](#ref-19)† | Adam 的坐标相关更新恢复不了 GD 能找到的低秩解，谱范数类方法可以 | 从归纳偏置的角度讨论 Muon |
+| **NuMuon** [[20]](#ref-20) | 对更新加核范数约束（实现上只保留前 $k$ 个奇异方向） | 让权重更好压缩；代价是未压缩的困惑度比 Muon 差 5%–14%（仍好于 AdamW）。数字见第 8 节 |
+| **Spectral Weight Decay** [[21]](#ref-21) | 作用于权重的核范数收缩，用与 Muon 相同的 5 步 NS | 主要面向 Adam 系；对 Muon 的扫描里验证损失"急剧上升" |
+| **OSP** [[22]](#ref-22)† | Muon + 单尺度 RMSNorm + 嵌入投影，1.4B 模型 4 比特量化更好 | 用 Muon 训出好量化的模型 |
+| **Vlassis 等** [[23]](#ref-23)† / **He 等** [[24]](#ref-24)† / **Catalan-Tatjer 等** [[25]](#ref-25)† | 优化器、离群特征与量化 | 离群指标预测不了跨优化器的量化退化；非对角预条件（SOAP）减少离群 |
+| **BMuon** [[26]](#ref-26)† | Muon 训出的 Transformer 在 MLP 通道剪枝下掉点更多 | Muon 的结构对剪枝不友好 |
 
 ---
 
-## 7. 苏剑林（科学空间）的 Muon 系列
+## 7. 中文延伸阅读
 
-苏剑林是 Moonlight 的作者之一，科学空间里有一批中文的详细讲解。下表按标题和摘要整理，具体内容请读原文：
-
-| 文章 | 关于什么 | 对应本文 |
-|---|---|---|
-| [《Muon优化器赏析：从向量到矩阵的本质跨越》](https://kexue.fm/archives/10592)（2024-12-10） | 把 Muon 作为专为矩阵参数定制的优化器，是谱范数约束下的梯度下降；也谈到矩阵跨设备切分时的梯度汇聚 | 4.2；第 9 节分布式 |
-| [《Muon续集：为什么我们选择尝试Muon？》](https://kexue.fm/archives/10739)（2025-02-27） | 对应 Moonlight 技术报告，讲如何匹配更新 RMS 把 Adam 的学习率迁移到 Muon | 4.5、第 5 节 |
-| [《Muon优化器指南：快速上手与关键细节》](https://kexue.fm/archives/11416)（2025-11-19） | 面向只用过 Adam 的读者的上手指南 | 第 2 节 |
-| [《msign算子的Newton-Schulz迭代》上](https://kexue.fm/archives/10922)、[下](https://kexue.fm/archives/10996)（2025-05、06） | 系数 $(a,b,c)$ 与步数 $T$ 是全部超参数；下篇与 Polar Express 的思路相关 | 第 3 节 |
-| [《msign的导数》](https://kexue.fm/archives/11025)（2025-06） | 推导 msign 的导数 | 第 9 节 |
-| [《高阶MuP》](https://kexue.fm/archives/10795)（2025-03-24）、[《为什么官方版Muon比MuP版多出一个max(1, ⋅)？》](https://kexue.fm/archives/11772)（2026-06-03） | 谱条件缩放；形状因子里 $\max(1,\cdot)$ 的由来 | 4.5 |
-| [《QK-Clip》](https://kexue.fm/archives/11126)（2025-07-12） | 放大后 MaxLogit 爆炸的处理 | 第 9 节稳定性 |
-| [《为什么Adam的Update RMS是0.2？》](https://kexue.fm/archives/11267) | Adam 的更新 RMS 经验上在 0.2–0.3，与 SignSGD 的差别来自动量 | 4.5 |
-| [《流形上的最速下降》1–4](https://kexue.fm/archives/11196)（2025-08） | 范数下的最陡下降加参数约束（超球面、正交、Stiefel、谱球面） | 4.2、4.3 |
-| [《从谱范数梯度到新式权重衰减的思考》](https://kexue.fm/archives/10648)（2024-12-25） | 谱范数的梯度；F 范数平方的权重衰减惩罚全体奇异值，谱范数平方只惩罚最大的 | 第 9 节 |
-| [《矩阵参数的奇异值熵越高越好吗？》](https://spaces.ac.cn/archives/11767) | 回顾 Moonlight 的奇异值熵，追问"越高越好吗" | 第 8 节 |
+想从中文材料入门，可以接着读苏剑林关于 Muon 的原理 [[27]](#ref-27)、Moonlight 的实践 [[28]](#ref-28) 和使用指南 [[29]](#ref-29)。
 
 ---
 
@@ -298,7 +284,7 @@ Wen 等还发现：Muon 在 1–4× Chinchilla 数据比时最好，8× 以上�
 
 这是我们在做的"Muon 训出的权重是平坦的还是低秩的"项目的结果。
 
-**平和低秩并不矛盾。** Moonlight 看 SVD 熵，NuMuon 看归一化稳定秩并把 Muon 模型描述成"低秩"。我们在 17 对公开的 AdamW/Muon 检查点（130M–1.2B 参数）上同时算两个指标：
+**平和低秩并不矛盾。** Moonlight [[5]](#ref-5) 看 SVD 熵，NuMuon [[20]](#ref-20) 看归一化稳定秩并把 Muon 模型描述成"低秩"。我们在 17 对公开的 AdamW/Muon 检查点（130M–1.2B 参数）上同时算两个指标：
 
 ![17 对匹配检查点上 Muon 减 AdamW 的熵 H（左）、稳定秩 sr（中），以及 Muon 的熵更高的矩阵占比（右）。本文作者实验。](/images/muon-shi-shen-me/fig_flatness_17pairs.png)
 
@@ -318,7 +304,7 @@ $$\frac{\mathbb E\|E_kx\|^2}{\mathbb E\|Wx\|^2}=\tau_k\times A_k .$$
 
 λ 越大，压缩后越好，但未压缩的验证损失越差，没有一个点同时拿到两边最好。λ=0.3 在 0.21B token 时验证损失比 Muon 低，到 0.63B 时高 0.076，所以"不付验证代价"只在小数据时成立。另外，如果压缩器固定保留前 $k$ 个奇异方向，只惩罚将被丢弃的谱尾对压缩后的权重**没有任何影响**，所以"谱尾变小"不能直接解释压缩后损失变好。
 
-NuMuon 论文自己的数字也是同一个形状（Llama3-1.8B，压缩 40%，困惑度越低越好）：
+NuMuon 论文自己的数字也是同一个形状（Llama3-1.8B，压缩 40%，困惑度越低越好）[[20]](#ref-20)：
 
 | | Muon | NuMuon |
 |---|---|---|
@@ -335,15 +321,15 @@ NuMuon 论文自己的数字也是同一个形状（Llama3-1.8B，压缩 40%，�
 
 ## 9. 可能的优化方向
 
-1. **更好的 Newton–Schulz**：系数是临时调出来的，极小奇异值 5 步后仍没被推到 1，还有改进空间（苏剑林有两篇系数寻优和 Polar Express 的文章）。Dion3 的 Gram 迭代则是从"算得更便宜"这头下手，两条路可以叠加。
-2. **补上输入协方差**：Newton-Muon 把更新写成 $\mathrm{msgn}(G(ZZ^\top)^{-1})$，在早期的 Modded-NanoGPT 配置上报告步数少 6%、墙钟少约 4%；单次复现、小规模，需要更多验证。
-3. **更好压的 Muon**：NuMuon（更新截断）、Spectral Weight Decay（核范数收缩）；第 8 节的权衡曲线说明收益与验证代价要一起看。
-4. **缩放与超参迁移**：Moonlight 的 $0.2\sqrt{\max(A,B)}$ 规则；苏剑林的高阶 MuP 和 $\max(1,\cdot)$ 的文章。
-5. **稳定性**：QK-Clip / MuonClip，针对放大后 MaxLogit 爆炸。
-6. **只动一部分**：三篇论文从不同动机出发，都在问"每步一定要把整个动量正交化吗"。Spectrally Targeted Muon 是探针，想弄清哪些方向有用（4.6）；NuMuon 保留前 $k$ 个奇异方向，为了好压缩；Dion3 只挑 $f$ 比例的行（推荐 $f=1/4$ 或 $1/8$），为了省算力，报告在 1B 模型、100B token 上损失还略低于 NorMuon。三者合起来有个暗示：Muon 的更新里可能有相当一部分是冗余的，但冗余的是哪一部分，各篇的回答不一样。
-7. **分布式实现**：Muon 只需一个动量缓冲区（AdamW 需要两个）；矩阵跨设备切分时要先汇聚梯度。Moonlight 的论文正文说通信量是分布式 AdamW 的 1 到 1.25 倍，脚注里又写实测接近 1.44，两处没对上，实际用时最好自己测。Dion3 的做法是把同形状的矩阵合并成一次 all-to-all，把通信轮数从 $O(N/\text{world size})$ 降到 $O(1)$。
-8. **预训练与微调的匹配**：优化器不一致时会吃亏（Moonlight 的 SFT 实验、Qu 等）。
-9. **规模变大后优势变小**：Wen 等的结论。要弄清楚是 Muon 本身的局限，还是基线调参的差距。
+1. **更好的 Newton–Schulz**：系数是临时调出来的，极小奇异值 5 步后仍没被推到 1，还有改进空间。Dion3 的 Gram 迭代则是从"算得更便宜"这头下手，两条路可以叠加 [[3]](#ref-3)。
+2. **补上输入协方差**：Newton-Muon 把更新写成 $\mathrm{msgn}(G(ZZ^\top)^{-1})$，在早期的 Modded-NanoGPT 配置上报告步数少 6%、墙钟少约 4%；单次复现、小规模，需要更多验证 [[15]](#ref-15)。
+3. **更好压的 Muon**：NuMuon（更新截断）[[20]](#ref-20)、Spectral Weight Decay（核范数收缩）[[21]](#ref-21)；第 8 节的权衡曲线说明收益与验证代价要一起看。
+4. **缩放与超参迁移**：Moonlight 的 $0.2\sqrt{\max(A,B)}$ 规则 [[5]](#ref-5)。
+5. **稳定性**：QK-Clip / MuonClip，针对放大后 MaxLogit 爆炸 [[30]](#ref-30)。
+6. **只动一部分**：三篇论文从不同动机出发，都在问"每步一定要把整个动量正交化吗"。Spectrally Targeted Muon 是探针，想弄清哪些方向有用 [[7]](#ref-7)；NuMuon 保留前 $k$ 个奇异方向，为了好压缩 [[20]](#ref-20)；Dion3 只挑 $f$ 比例的行（推荐 $f=1/4$ 或 $1/8$），为了省算力，报告在 1B 模型、100B token 上损失还略低于 NorMuon [[3]](#ref-3)。三者合起来有个暗示：Muon 的更新里可能有相当一部分是冗余的，但冗余的是哪一部分，各篇的回答不一样。
+7. **分布式实现**：Muon 只需一个动量缓冲区（AdamW 需要两个）；矩阵跨设备切分时要先汇聚梯度。Moonlight 的论文正文说通信量是分布式 AdamW 的 1 到 1.25 倍，脚注里又写实测接近 1.44，两处没对上，实际用时最好自己测 [[5]](#ref-5)。Dion3 的做法是把同形状的矩阵合并成一次 all-to-all，把通信轮数从 $O(N/\text{world size})$ 降到 $O(1)$ [[3]](#ref-3)。
+8. **预训练与微调的匹配**：优化器不一致时会吃亏（Moonlight 的 SFT 实验 [[5]](#ref-5)、Qu 等 [[16]](#ref-16)）。
+9. **规模变大后优势变小**：Wen 等的结论 [[8]](#ref-8)。要弄清楚是 Muon 本身的局限，还是基线调参的差距。
 
 ---
 
@@ -356,15 +342,39 @@ NuMuon 论文自己的数字也是同一个形状（Llama3-1.8B，压缩 40%，�
 5. 规模化需要权重衰减和更新 RMS 匹配；加速在小模型上大，在大模型和严格基线下约 1.1×。
 6. Muon 训出的权重比 AdamW 更平，压缩要用与优化器匹配的方法，不能只看谱形状。
 
-阅读顺序：Keller Jordan 的博客 → Bernstein & Newhouse 第 1–3 节 → Moonlight 第 2–3 节 → Wen 等第 1、3 节（作为冷静剂）。苏剑林的系列可以作为中文的详细版本。
+阅读顺序：[[1]](#ref-1) → [[2]](#ref-2) 第 1–3 节 → [[5]](#ref-5) 第 2–3 节 → [[8]](#ref-8) 第 1、3 节（作为冷静剂）。中文入门见 [[27]](#ref-27)–[[29]](#ref-29)。
 
 ---
 
-## 来源与核对说明
+## 参考文献
 
-- **算法与数学性质**（第 2–5 节）对照了原始文本：Keller Jordan 的博客与参考代码、Moonlight、Bernstein & Newhouse、Pethick 等、Newton-Muon、Wen 等。博客的算法框是图片，已转写核对。
-- **本文自己的计算**：3.4 节的表和图（用同一组系数做的数值计算）；Shampoo 恒等式的数值检查和更新 RMS 的数值检查是调研时做的，不是原文的说法。
-- **后加的四篇**（Moonlight、Spectrally Targeted Muon、Dion3、NuMuon）读的是 arXiv 的 HTML 版。Moonlight 的第 2 节到 3.3 节逐字读过，后半部分（表 5–10、附录）没有；Spectrally Targeted Muon 的正文逐字读过；Dion3 和 NuMuon 只逐字读了摘要和引言，方法细节与表格数字来自对 HTML 的摘要提取，引用前请对一下原文。后三篇都只有 v1 预印本。
-- **第 6 节**除 Shampoo、SOAP、Anthology、Scion、Moonlight、Wen、Newton-Muon、NuMuon、Spectral Weight Decay 外，其余只读了摘要（标 †）。
-- **第 7 节苏剑林的文章**只看到了搜索结果里的标题、链接和摘要片段，没有读全文（科学空间拒绝自动抓取，我们没有绕过）；表里的描述限于标题和摘要能确认的内容。
-- **图**：自制图随本文存放在 `/images/muon-shi-shen-me/`（本地制图脚本为 `make_figs_muon.py`，实验图还依赖本地数据；`fig_update_spectra` 是合成数据示意）；原文图都用链接嵌入、未转存：Keller Jordan 博客（页面未声明许可）、Bernstein & Newhouse（arXiv 非独占许可）、Moonlight（CC BY-NC-ND 4.0，不可裁剪修改；若博客算商用，请改为只放链接）、Wen 等（CC BY 4.0）。arXiv 图片链接带版本号，论文改版后可能失效。
+1. <span id="ref-1"></span>Jordan, K. (2024). [*Muon: An optimizer for hidden layers in neural networks*](https://kellerjordan.github.io/posts/muon/). Blog post.
+2. <span id="ref-2"></span>Bernstein, J., & Newhouse, L. (2024). [*Old Optimizer, New Norm: An Anthology*](https://arxiv.org/abs/2409.20325). arXiv:2409.20325.
+3. <span id="ref-3"></span>Amsel, N., et al. (2026). [*Dion3: Full-Stack Orthogonal Updates*](https://arxiv.org/abs/2608.11612). arXiv:2608.11612.
+4. <span id="ref-4"></span>Pethick, T., et al. (2025). [*Training Deep Learning Models with Norm-Constrained LMOs*](https://arxiv.org/abs/2502.07529). arXiv:2502.07529.
+5. <span id="ref-5"></span>Liu, J., et al. (2025). [*Muon is Scalable for LLM Training*](https://arxiv.org/abs/2502.16982). arXiv:2502.16982.
+6. <span id="ref-6"></span>Gupta, V., et al. (2018). [*Shampoo: Preconditioned Stochastic Tensor Optimization*](https://arxiv.org/abs/1802.09568). arXiv:1802.09568.
+7. <span id="ref-7"></span>Goyal, V., & Ramkumar, R. (2026). [*Spectrally Targeted Muon*](https://arxiv.org/abs/2610.10965). arXiv:2610.10965.
+8. <span id="ref-8"></span>Wen, K., et al. (2025). [*Fantastic Pretraining Optimizers and Where to Find Them*](https://arxiv.org/abs/2509.02046). arXiv:2509.02046.
+9. <span id="ref-9"></span>Kingma, D. P., & Ba, J. (2014). [*Adam: A Method for Stochastic Optimization*](https://arxiv.org/abs/1412.6980). arXiv:1412.6980; ICLR 2015.
+10. <span id="ref-10"></span>Loshchilov, I., & Hutter, F. (2017). [*Decoupled Weight Decay Regularization*](https://arxiv.org/abs/1711.05101). arXiv:1711.05101; ICLR 2019.
+11. <span id="ref-11"></span>Vyas, N., et al. (2024). [*SOAP: Improving and Stabilizing Shampoo using Adam*](https://arxiv.org/abs/2409.11321). arXiv:2409.11321.
+12. <span id="ref-12"></span>Chen, L., et al. (2025). [*Muon Optimizes Under Spectral Norm Constraints*](https://arxiv.org/abs/2506.15054). arXiv:2506.15054.
+13. <span id="ref-13"></span>Fan, C., et al. (2025). [*Implicit Bias of Spectral Descent and Muon on Multiclass Separable Data*](https://arxiv.org/abs/2502.04664). arXiv:2502.04664.
+14. <span id="ref-14"></span>Frans, K., et al. (2025). [*What Really Matters in Matrix-Whitening Optimizers?*](https://arxiv.org/abs/2510.25000). arXiv:2510.25000.
+15. <span id="ref-15"></span>Du, Z., & Su, W. (2026). [*The Newton-Muon Optimizer*](https://arxiv.org/abs/2604.01472). arXiv:2604.01472.
+16. <span id="ref-16"></span>Qu, X., et al. (2026). [*Can Muon Fine-tune Adam-Pretrained Models?*](https://arxiv.org/abs/2605.10468). arXiv:2605.10468.
+17. <span id="ref-17"></span>Beneventano, P., et al. (2026). [*The Spectral Dynamics and Noise Geometry of Muon*](https://arxiv.org/abs/2606.08388). arXiv:2606.08388.
+18. <span id="ref-18"></span>Pang, T., et al. (2026). [*HTMuon: Improving Muon via Heavy-Tailed Spectral Correction*](https://arxiv.org/abs/2603.10067). arXiv:2603.10067.
+19. <span id="ref-19"></span>Singh, D. (2026). [*The Loss Does Not See the Basis, but Adam Does*](https://arxiv.org/abs/2608.05136). arXiv:2608.05136.
+20. <span id="ref-20"></span>Dolatabadi, H. M., et al. (2026). [*NuMuon: Nuclear-Norm-Constrained Muon for Compressible LLM Training*](https://arxiv.org/abs/2603.03597). arXiv:2603.03597.
+21. <span id="ref-21"></span>Andriianov, D., et al. (2026). [*Spectral Weight Decay: Inducing Low-Rank Structure in Neural Network Weights*](https://arxiv.org/abs/2610.11730). arXiv:2610.11730.
+22. <span id="ref-22"></span>Park, J., et al. (2025). [*Outlier-Safe Pre-Training for Robust 4-Bit Quantization of Large Language Models*](https://arxiv.org/abs/2506.19697). arXiv:2506.19697.
+23. <span id="ref-23"></span>Vlassis, G., et al. (2025). [*Beyond Outliers: A Study of Optimizers Under Quantization*](https://arxiv.org/abs/2509.23500). arXiv:2509.23500.
+24. <span id="ref-24"></span>He, B., et al. (2024). [*Understanding and Minimising Outlier Features in Transformer Training*](https://proceedings.neurips.cc/paper_files/paper/2024/hash/986292a930c3692168b177a770025ab3-Abstract-Conference.html). NeurIPS 2024.
+25. <span id="ref-25"></span>Catalan-Tatjer, A., et al. (2025). [*Training Dynamics Impact Post-Training Quantization Robustness*](https://arxiv.org/abs/2510.06213). arXiv:2510.06213.
+26. <span id="ref-26"></span>Assalouh, R., et al. (2026). [*BMuon: Budgeting Muon's Spectral Geometry for Structured Compressibility*](https://arxiv.org/abs/2610.23571). arXiv:2610.23571.
+27. <span id="ref-27"></span>苏剑林. (2024). [《Muon优化器赏析：从向量到矩阵的本质跨越》](https://kexue.fm/archives/10592). 科学空间.
+28. <span id="ref-28"></span>苏剑林. (2025). [《Muon续集：为什么我们选择尝试Muon？》](https://kexue.fm/archives/10739). 科学空间.
+29. <span id="ref-29"></span>苏剑林. (2025). [《Muon优化器指南：快速上手与关键细节》](https://kexue.fm/archives/11416). 科学空间.
+30. <span id="ref-30"></span>苏剑林. (2025). [《QK-Clip：让Muon在Scaleup之路上更进一步》](https://kexue.fm/archives/11126). 科学空间.
