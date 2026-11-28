@@ -91,8 +91,10 @@ body { background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 4%, 
 .article-page-shell .prose li::marker { color: var(--accent-dark); }
 .article-page-shell .prose a[href^="#ref-"] { font-size: .9em; text-decoration: none; white-space: nowrap; }
 .article-page-shell .prose a[href^="#ref-"]:hover { text-decoration: underline; }
-.article-page-shell .prose h2#参考文献 + ol { font-size: .86rem; line-height: 1.55; }
-.article-page-shell .prose h2#参考文献 + ol li { margin: .46em 0; }
+.article-page-shell .prose h2#参考文献 + ol,
+.article-page-shell .prose h2#references + ol { font-size: .86rem; line-height: 1.55; }
+.article-page-shell .prose h2#参考文献 + ol li,
+.article-page-shell .prose h2#references + ol li { margin: .46em 0; }
 .article-page-shell .prose strong { color: var(--ink); font-weight: 650; }
 .article-page-shell .prose blockquote { margin: 1.4rem 0 1.7rem; padding: 1rem 1.2rem; border-left: 4px solid var(--accent); border-radius: 0 8px 8px 0; background: var(--surface-soft); color: color-mix(in srgb, var(--ink) 82%, var(--muted)); }
 .article-page-shell .prose blockquote > :first-child { margin-top: 0; }
