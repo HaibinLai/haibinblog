@@ -23,6 +23,7 @@ const posts = defineCollection({
     wordpressId: z.number().int().optional(),
     sourceUrl: z.string().url().optional(),
     cardImage: z.string().url().optional(),
+    cardImageFit: z.enum(['cover', 'contain']).default('cover'),
     featuredImage: z.string().url().optional(),
     featuredRank: z.number().int().min(1).max(3).optional(),
     featuredTitle: z.string().trim().min(1).optional(),

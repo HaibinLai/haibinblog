@@ -38,6 +38,7 @@ const postSlug = (post: (typeof posts)[number]) => post.data.slug ?? post.id.rep
           tags={post.data.tags}
           href={`${base}posts/${slug}/`}
           cardImage={postCardImage(post, base)}
+          cardImageFit={post.data.cardImageFit}
         />
         );
       })}

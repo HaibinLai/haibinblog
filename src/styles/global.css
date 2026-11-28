@@ -167,6 +167,16 @@ body { background: linear-gradient(180deg, color-mix(in srgb, var(--accent) 4%, 
   .post-card .tag-list { display: none; }
 }
 
+.post-card-thumbnail[data-image-fit="contain"] img,
+.recent-thumb[data-image-fit="contain"] {
+  object-fit: contain;
+  background: var(--surface-soft);
+}
+
+.post-card-thumbnail[data-image-fit="contain"]:hover img {
+  transform: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .featured-card img, .featured-shade, .post-card-thumbnail img { transition: none; }
   .featured-card:hover img, .post-card-thumbnail:hover img { transform: none; }

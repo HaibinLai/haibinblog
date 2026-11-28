@@ -8,6 +8,7 @@ language: zh-CN
 author: 赖海斌、吴梦轩、黄政东
 draft: false
 hideFromHome: false
+cardImageFit: contain
 cardImage: https://www.haibinlaiblog.top/images/gcc-openmp-compiler-report/figure-02.png
 ---
 
